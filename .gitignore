@@ -1,13 +1,2 @@
-# Claude Code 个人配置
-.claude/settings.local.json
-.claude/backups/
-.claude/session-env/
-.claude/sessions/
-.claude/telemetry/
-.claude/tasks/
-.claude/plans/
-.claude/file-history/
-.claude/shell-snapshots/
-.claude/debug/
-.claude/cache/
-.claude/history.jsonl
+# Claude Code 配置（不上传）
+.claude/
