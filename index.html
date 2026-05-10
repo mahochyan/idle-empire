@@ -1,0 +1,1488 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>文字挂机RTS</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;overflow:hidden}
+body{
+  background:#1a1a24;color:#d0d0d8;
+  font-family:"PingFang SC","Microsoft YaHei",sans-serif;font-size:14px;
+  display:flex;justify-content:center;align-items:center;
+  user-select:none;-webkit-user-select:none;
+}
+#phone{
+  width:min(430px,100vw);height:100dvh;max-height:none;
+  min-width:0;
+  background:#12121c;border:1px solid #2a2a3a;
+  display:flex;flex-direction:column;overflow:hidden;position:relative;
+}
+#topbar{
+  background:#0a0a14;padding:8px max(8px,3vw);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;
+  border-bottom:1px solid #222;flex-shrink:0;
+}
+.top-res{text-align:center}
+.top-res .icon{font-size:14px}
+.top-res .val{font-size:13px;font-weight:bold;color:#f0d060}
+.top-res .label{font-size:10px;color:#666}
+#main{flex:1;overflow-y:auto;padding:8px clamp(6px,2.4vw,10px)}
+#main::-webkit-scrollbar{width:3px}
+#main::-webkit-scrollbar-thumb{background:#333;border-radius:2px}
+#navbar{
+  background:#0a0a14;border-top:1px solid #222;display:flex;flex-shrink:0;
+}
+.nav-btn{
+  flex:1;min-width:0;text-align:center;padding:8px 2px;cursor:pointer;font-size:10px;
+  color:#666;transition:.15s;border:none;background:none;font-family:inherit;
+}
+.nav-btn .nicon{font-size:18px;display:block;margin-bottom:2px}
+.nav-btn.on{color:#f0d060}
+.nav-btn.on .nicon{text-shadow:0 0 8px rgba(240,208,96,.4)}
+
+.card{
+  background:#181828;border:1px solid #262640;border-radius:8px;
+  padding:10px 12px;margin-bottom:8px;
+}
+.card h3{font-size:14px;color:#e0e0e0;margin-bottom:6px}
+.desc{font-size:11px;color:#777;margin:2px 0}
+
+.prog-wrap{background:#0a0a14;border-radius:3px;height:5px;margin:4px 0;overflow:hidden}
+.prog-fill{background:#f0d060;height:100%;transition:width .5s}
+
+.btn{
+  display:inline-block;padding:7px 16px;border-radius:16px;
+  font-size:12px;font-family:inherit;cursor:pointer;border:none;transition:.15s;
+}
+.btn-go{background:#f0d060;color:#1a1a24;font-weight:bold}
+.btn-go:active{background:#c8a830}
+.btn-go:disabled{background:#444;color:#888}
+.btn:disabled{cursor:not-allowed;opacity:.55}
+.btn-ghost{background:transparent;border:1px solid #444;color:#aaa}
+.btn-ghost:active{background:#222}
+.btn-ghost:disabled{border-color:#30364a;color:#5d6475;background:#11131d}
+.btn-sm{padding:4px 10px;font-size:11px;border-radius:12px}
+.btn-xs{padding:2px 8px;font-size:10px;border-radius:10px}
+.btn-danger{background:#c0392b;color:#fff}
+.btn-speed{
+  padding:6px 12px;border-radius:4px;font-size:12px;background:#1a1a2e;
+  border:1px solid #333;color:#888;cursor:pointer;
+}
+.btn-speed.on{background:#f0d060;color:#1a1a24;border-color:#f0d060;font-weight:bold}
+
+.unit-row{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid #1e1e2e}
+.unit-row:last-child{border-bottom:none}
+.unit-row .uicon{font-size:20px;width:30px;text-align:center}
+.unit-row .uinfo{flex:1}
+.unit-row .uname{font-size:13px;color:#e0e0e0}
+.unit-row .udetail{font-size:10px;color:#777}
+.unit-row .ucount{font-size:14px;font-weight:bold;color:#f0d060;min-width:24px;text-align:center}
+
+/* 阵型 */
+.form-row{margin:4px 0;padding:6px 8px;background:#121224;border-radius:6px;border-left:3px solid #444}
+.form-row.r1{border-color:#e06060}
+.form-row.r2{border-color:#f0d060}
+.form-row.r3{border-color:#6090e0}
+.form-row .ftitle{font-size:11px;color:#aaa;margin-bottom:3px}
+.form-slot{
+  display:inline-block;background:#202038;padding:6px 8px;border-radius:4px;
+  font-size:11px;cursor:pointer;margin:2px;min-width:40px;text-align:center;
+  border:1px dashed #333;transition:.15s;
+}
+.form-slot.filled{background:#252545;border:1px solid #3a3a5e}
+.form-slot:active{background:#303048}
+.form-empty{font-size:10px;color:#444;padding:4px 0}
+
+/* 弹窗 */
+.modal-overlay{
+  display:none;position:absolute;top:0;left:0;width:100%;height:100%;
+  background:rgba(0,0,0,.7);z-index:70;justify-content:center;align-items:center;
+}
+.modal-overlay.active{display:flex}
+.modal-box{
+  background:#1a1a2e;border:1px solid #3a3a5e;border-radius:12px;
+  padding:16px;width:85%;max-height:70%;
+}
+.modal-box h3{font-size:15px;color:#e0e0e0;margin-bottom:10px;text-align:center}
+.modal-unit{
+  display:flex;align-items:center;gap:8px;padding:8px;margin:4px 0;
+  background:#121224;border-radius:6px;cursor:pointer;border:1px solid transparent;
+}
+.modal-unit:hover,.modal-unit.sel{border-color:#f0d060}
+.modal-unit .mu-icon{font-size:20px}
+.modal-unit .mu-info{flex:1}
+.modal-unit .mu-name{font-size:13px;color:#e0e0e0}
+.modal-unit .mu-detail{font-size:10px;color:#777}
+.modal-qty{display:flex;align-items:center;gap:8px;justify-content:center;margin-top:10px}
+.modal-qty input{
+  width:60px;text-align:center;background:#0a0a14;border:1px solid #333;
+  color:#f0d060;padding:6px;border-radius:4px;font-size:16px;font-family:inherit;
+}
+.modal-qty button{
+  width:32px;height:32px;border-radius:50%;border:1px solid #444;
+  background:#1a1a2e;color:#e0e0e0;font-size:16px;cursor:pointer;
+}
+
+/* 战斗画面 */
+#battle-screen{
+  display:none;position:absolute;top:0;left:0;width:100%;height:100%;
+  background:#0a0a14;z-index:50;flex-direction:column;
+}
+#battle-screen.active{display:flex}
+
+#battle-top{
+  flex-shrink:0;padding:10px 8px 6px;border-bottom:1px solid #1e1e32;
+  display:flex;justify-content:space-between;align-items:center;
+}
+#battle-title{font-size:15px;font-weight:bold;color:#e0e0e0}
+#battle-speed{display:flex;gap:4px}
+
+#battle-field{flex:1;display:flex;flex-direction:column;padding:8px;overflow-y:auto;gap:8px}
+
+.enemy-zone,.our-zone{border-radius:8px;padding:8px}
+.enemy-zone{border:1px dashed #e06060;background:#0f0f1c}
+.our-zone{border:1px dashed #6090e0;background:#0f0f1c}
+
+.zone-label{font-size:11px;color:#888;margin-bottom:6px;text-align:center}
+
+.battle-row{display:flex;flex-wrap:wrap;gap:4px;justify-content:center;margin:4px 0}
+.battle-row .row-label{font-size:10px;color:#555;width:100%;text-align:center;margin-bottom:2px}
+
+/* 兵团框 */
+.unit-box{
+  width:56px;min-height:56px;background:#181828;border:2px solid #2a2a3e;
+  border-radius:8px;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  font-size:10px;transition:transform .05s,border-color .1s;
+  position:relative;padding:2px;
+}
+.unit-box .ub-icon{font-size:18px;line-height:1}
+.unit-box .ub-name{font-size:9px;color:#aaa}
+.unit-box .ub-hp{font-size:10px;color:#f0d060;font-weight:bold;margin-top:1px}
+.unit-box.targeted{border-color:#f0d060!important;box-shadow:0 0 8px rgba(240,208,96,.5)}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}50%{transform:translateX(4px)}75%{transform:translateX(-2px)}}
+.unit-box.attacking{animation:shake .4s ease;border-color:#e06060!important}
+@keyframes hit{0%{transform:scale(1)}50%{transform:scale(1.15);border-color:#f0d060}100%{transform:scale(1);border-color:#e06060}}
+.unit-box.hit{animation:hit .4s ease;border-color:#e06060!important}
+@keyframes die{0%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}100%{opacity:0;transform:scale(0)}}
+.unit-box.dead{animation:die .5s ease forwards;border-color:#ff0000!important}
+.unit-box.dead-done{opacity:0;transform:scale(0)}
+
+/* 战斗结果 */
+#battle-result{
+  display:none;flex-shrink:0;padding:10px 12px;
+  background:#1a1a2e;border-top:2px solid #f0d060;border-bottom:2px solid #f0d060;
+  align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;
+}
+#battle-result.win{border-color:#40bf80}
+#battle-result.win .result-text{color:#40bf80}
+#battle-result.lose{border-color:#e06060}
+#battle-result.lose .result-text{color:#e06060}
+.result-text{font-size:16px;font-weight:bold}
+.result-btns{display:flex;gap:6px}
+
+#battle-msg{
+  height:130px;overflow-y:auto;font-size:12px;color:#999;
+  padding:6px 8px;border-top:1px solid #1e1e32;flex-shrink:0;
+  font-family:monospace;line-height:1.7;
+}
+
+.toast{
+  position:fixed;top:20px;left:50%;transform:translateX(-50%);
+  background:#2a2a3e;color:#fff;padding:8px 18px;border-radius:16px;
+  font-size:12px;z-index:99;pointer-events:none;
+  animation:toastIn .3s
+}
+@keyframes toastIn{from{opacity:0;transform:translateX(-50%) translateY(-8px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+
+.timer-text{font-size:11px;color:#f0d060}
+.pulsing{animation:pulse 1s infinite}
+@keyframes pulse{50%{opacity:.5}}
+.paused{opacity:.6;pointer-events:none}
+
+.qty-ctrl{display:inline-flex;align-items:center;gap:2px}
+.qty-ctrl button{width:22px;height:22px;border-radius:50%;border:1px solid #444;background:#1a1a2e;color:#e0e0e0;font-size:14px;cursor:pointer;line-height:1}
+.qty-ctrl span{min-width:20px;text-align:center;font-size:12px;color:#f0d060}
+.train-custom{
+  display:flex;align-items:center;gap:4px;flex-wrap:wrap;margin-top:4px;
+}
+.train-custom input{
+  width:54px;height:26px;background:#080912;border:2px solid #3a4158;
+  color:#f0d060;text-align:center;font-family:inherit;font-size:12px;
+}
+.modal-quick{
+  display:flex;align-items:center;justify-content:center;gap:6px;margin-top:8px;flex-wrap:wrap;
+}
+.unit-row{flex-wrap:wrap}
+.unit-row .uinfo{min-width:118px}
+.econ-note{font-size:10px;color:#8d94aa;margin-top:2px;line-height:1.35}
+.limit-ok{color:#4fd07a}
+.limit-warn{color:#e06060}
+.build-meta{font-size:10px;color:#8990a6;margin-top:2px;line-height:1.45}
+
+/* 像素皮肤 */
+:root{
+  --px-bg:#080912;
+  --px-panel:#151724;
+  --px-panel-2:#1c2030;
+  --px-line:#3a4158;
+  --px-line-dark:#05060b;
+  --px-gold:#d6a83f;
+  --px-gold-soft:#f0d060;
+  --px-red:#b34a4a;
+  --px-blue:#4f78b7;
+  --px-green:#4f9b67;
+  --px-muted:#8890a6;
+}
+*{image-rendering:pixelated}
+body{
+  background-color:var(--px-bg);
+  background-image:
+    linear-gradient(45deg,rgba(214,168,63,.05) 25%,transparent 25%),
+    linear-gradient(-45deg,rgba(79,120,183,.04) 25%,transparent 25%),
+    linear-gradient(#111421 1px,transparent 1px);
+  background-size:8px 8px,8px 8px,4px 4px;
+}
+#phone{
+  background:linear-gradient(180deg,#0f111d,#090a12);
+  border:3px solid var(--px-line);
+  border-radius:0;
+  box-shadow:0 0 0 3px var(--px-line-dark),0 12px 0 rgba(0,0,0,.38);
+}
+#topbar,#navbar,#battle-top{
+  background:#090a12;
+  border-color:#30364a;
+  box-shadow:inset 0 -2px 0 #05060b;
+}
+#main{background:linear-gradient(180deg,#101220,#0b0d17)}
+.pix-icon{
+  width:24px;height:24px;display:inline-block;vertical-align:-6px;flex:0 0 auto;
+  background-repeat:no-repeat;background-position:center;background-size:100% 100%;
+  image-rendering:pixelated;
+}
+.pix-icon.mini{width:14px;height:14px;vertical-align:-2px}
+.pix-icon.sm{width:18px;height:18px;vertical-align:-4px}
+.pix-icon.lg{width:32px;height:32px;vertical-align:-9px}
+.pix-icon.nav-pix{width:22px;height:22px;display:block;margin:0 auto 2px}
+.pix-icon.top-pix{width:22px;height:22px;display:block;margin:0 auto 1px}
+.pix-icon.card-pix{margin-right:5px}
+.card,.modal-box,.unit-box,.form-slot,.modal-unit,.btn,.btn-speed,.toast{
+  border-radius:0!important;
+  box-shadow:inset 2px 2px 0 rgba(255,255,255,.06),inset -2px -2px 0 rgba(0,0,0,.45),0 2px 0 #05060b;
+}
+.card{
+  background:linear-gradient(180deg,var(--px-panel-2),var(--px-panel));
+  border:2px solid var(--px-line);
+  border-left-color:#5a5f77;
+  border-top-color:#606783;
+  padding:10px 12px;
+}
+.card h3{
+  display:flex;align-items:center;gap:5px;
+  color:#e7dfc4;text-shadow:1px 1px 0 #000;
+  font-size:13px;letter-spacing:0;
+}
+.btn,.btn-speed{
+  display:inline-flex;align-items:center;justify-content:center;gap:5px;
+  min-height:28px;border:2px solid #4b4f62;background:#171a27;color:#d4d8e8;
+  text-shadow:1px 1px 0 #000;white-space:nowrap;
+}
+.btn-go,.btn-speed.on{
+  background:#d6a83f;color:#15110a;border-color:#f0d060;
+  box-shadow:inset 2px 2px 0 rgba(255,255,255,.28),inset -2px -2px 0 rgba(82,48,8,.45),0 2px 0 #5f3e11;
+}
+.btn-ghost{background:#111422;border-color:#3b4158;color:#c5cad8}
+.btn-danger{background:#8d2e34;border-color:#d45b62;color:#fff}
+.top-res .val{color:var(--px-gold-soft);text-shadow:1px 1px 0 #000}
+.top-res .label,.nav-btn{font-size:10px;text-shadow:1px 1px 0 #000}
+.nav-btn{padding:7px 2px;color:#777f96}
+.nav-btn.on{background:#121522;color:var(--px-gold-soft);box-shadow:inset 0 2px 0 #2b3144}
+.nav-btn.on .nicon{text-shadow:none}
+.unit-row,.modal-unit{border-bottom:2px solid #111421}
+.unit-row .uicon{width:34px}
+.form-row{
+  background:#111421;border:2px solid #2b3144;border-left-width:4px;border-radius:0;
+  box-shadow:inset 2px 2px 0 rgba(255,255,255,.04);
+}
+.form-row.r1{border-color:#2b3144;border-left-color:var(--px-red)}
+.form-row.r2{border-color:#2b3144;border-left-color:var(--px-gold)}
+.form-row.r3{border-color:#2b3144;border-left-color:var(--px-blue)}
+.form-slot{
+  background:#171a27;border:2px dashed #3a4158;min-width:58px;
+}
+.form-slot.filled{background:#202538;border:2px solid #59617b}
+.modal-overlay{background:rgba(0,0,0,.78)}
+.modal-box{background:#121522;border:3px solid #59617b}
+.modal-unit{background:#171a27;border:2px solid #2d3449}
+.modal-unit:hover,.modal-unit.sel{border-color:var(--px-gold-soft);background:#242434}
+.modal-qty input{
+  border-radius:0;background:#080912;border:2px solid #3a4158;color:var(--px-gold-soft);
+}
+.modal-qty button,.qty-ctrl button{
+  border-radius:0!important;border:2px solid #4b4f62;background:#151827;
+}
+.prog-wrap{border-radius:0;border:1px solid #080912;background:#05060b}
+.prog-fill{background:repeating-linear-gradient(90deg,#b47b2a 0 5px,#f0d060 5px 8px)}
+#battle-screen{background:#080912}
+.enemy-zone,.our-zone{
+  border-radius:0;border-width:2px;border-style:solid;background:#0e101b;
+  box-shadow:inset 2px 2px 0 rgba(255,255,255,.03),inset -2px -2px 0 rgba(0,0,0,.35);
+}
+.enemy-zone{border-color:#8f3c46}
+.our-zone{border-color:#395f99}
+.zone-label{display:flex;align-items:center;justify-content:center;gap:5px;color:#aab1c4}
+.unit-box{
+  width:62px;min-height:64px;background:#151827;border:3px solid #353b52;
+  padding:4px 3px;color:#d9deeb;
+}
+.unit-box .ub-icon{font-size:0;line-height:1}
+.unit-box .ub-name{font-size:9px;color:#bbc1d4;line-height:1.2;margin-top:2px}
+.unit-box .ub-hp{
+  min-width:30px;margin-top:2px;padding:1px 4px;background:#080912;border:1px solid #31384e;
+  font-size:10px;color:var(--px-gold-soft);
+}
+.unit-box.targeted{border-color:var(--px-gold-soft)!important;box-shadow:0 0 0 2px #6e4b1b,inset 2px 2px 0 rgba(255,255,255,.08)}
+@keyframes shake{0%,100%{transform:translate(0,0)}25%{transform:translate(-3px,0)}50%{transform:translate(3px,-1px)}75%{transform:translate(-1px,1px)}}
+@keyframes hit{0%{filter:brightness(1)}45%{filter:brightness(2.2);transform:translateY(-2px)}100%{filter:brightness(1);transform:translateY(0)}}
+@keyframes die{0%{opacity:1;filter:grayscale(0)}50%{opacity:.6;filter:grayscale(1);transform:translateY(2px)}100%{opacity:0;filter:grayscale(1);transform:scale(.4)}}
+#battle-result{background:#121522;border-width:3px}
+#battle-msg{background:#080912;border-top:2px solid #242b3f}
+#battle-title{flex:1;min-width:0;font-size:13px;line-height:1.35}
+#battle-speed{flex-shrink:0}
+#battle-top .btn-sm{padding:4px 7px}
+@media (max-width:360px){
+  body{font-size:13px}
+  #topbar{padding:6px 4px}
+  .pix-icon.top-pix{width:18px;height:18px}
+  .top-res .val{font-size:12px}
+  .top-res .label,.nav-btn{font-size:9px}
+  .card{padding:8px}
+  .btn{padding:6px 9px}
+  .btn-xs{padding:2px 6px}
+  .unit-row{gap:6px}
+  .unit-row .uinfo{min-width:96px}
+  .train-custom input{width:46px}
+  .form-slot{min-width:48px}
+  .unit-box{width:54px;min-height:58px}
+}
+@media (min-height:920px){
+  #phone{max-height:100dvh}
+}
+</style>
+</head>
+<body>
+
+<div id="phone">
+  <div id="topbar">
+    <div class="top-res"><span class="pix-icon i-wood top-pix"></span><div class="val" id="res-wood">0</div><div class="label">木材</div></div>
+    <div class="top-res"><span class="pix-icon i-stone top-pix"></span><div class="val" id="res-stone">0</div><div class="label">石料</div></div>
+    <div class="top-res"><span class="pix-icon i-food top-pix"></span><div class="val" id="res-food">0</div><div class="label">食物</div></div>
+    <div class="top-res"><span class="pix-icon i-pop top-pix"></span><div class="val" id="res-pop">0</div><div class="label">兵力</div></div>
+  </div>
+
+  <div id="main"></div>
+
+  <div id="navbar">
+    <button class="nav-btn on" data-page="home"><span class="nicon pix-icon i-home nav-pix"></span>主页</button>
+    <button class="nav-btn" data-page="build"><span class="nicon pix-icon i-build nav-pix"></span>建筑</button>
+    <button class="nav-btn" data-page="barracks"><span class="nicon pix-icon i-army nav-pix"></span>军营</button>
+    <button class="nav-btn" data-page="fight"><span class="nicon pix-icon i-battle nav-pix"></span>战斗</button>
+    <button class="nav-btn" data-page="log"><span class="nicon pix-icon i-log nav-pix"></span>日志</button>
+  </div>
+
+  <!-- 编队弹窗 -->
+  <div class="modal-overlay" id="form-modal">
+    <div class="modal-box" id="form-modal-content"></div>
+  </div>
+
+  <!-- 战斗画面 -->
+  <div id="battle-screen">
+    <div id="battle-top">
+      <div id="battle-title"><span class="pix-icon i-battle sm"></span> 战斗</div>
+      <div id="battle-speed">
+        <button class="btn-speed on" data-spd="1">1x</button>
+        <button class="btn-speed" data-spd="2">2x</button>
+        <button class="btn-speed" data-spd="4">4x</button>
+      </div>
+      <button class="btn btn-ghost btn-sm" onclick="fleeBattle()"><span class="pix-icon i-exit mini"></span>逃跑</button>
+    </div>
+    <div id="battle-field"></div>
+    <div id="battle-result"></div>
+    <div id="battle-msg"></div>
+  </div>
+</div>
+
+<script>
+// ==================== 配置 ====================
+const CFG = {
+  tickMs: 1000,
+  campBase: 0,
+  formSlots: 9,
+  maxRows: {front:3, mid:3, back:3},
+  battleTimeoutMs: 10*60*1000,
+  initRegMax: 100,
+  chapterResourceLevels: 10,
+  maxUpgradeTime: 120,
+
+  res: {
+    wood:{name:'木材',icon:'wood',rate:1,prodBy:'lumber_mill'},
+    stone:{name:'石料',icon:'stone',rate:0.5,prodBy:'quarry'},
+    food:{name:'食物',icon:'food',rate:1,prodBy:'farm'}
+  },
+
+  buildings: {
+    lumber_mill:{name:'伐木场',produces:'wood',build:{wood:15,stone:8,food:5,time:4}, upBase:{wood:8,stone:5,food:3}, upCostLv:1.32},
+    quarry:{name:'采石场',produces:'stone',build:{wood:5,stone:12,food:4,time:4}, upBase:{wood:5,stone:8,food:3}, upCostLv:1.32},
+    farm:{name:'农田',produces:'food',build:{wood:8,stone:4,food:12,time:4}, upBase:{wood:6,stone:3,food:8}, upCostLv:1.32},
+    barracks:{name:'营帐',build:{wood:30,stone:20,food:10,time:6}, upBase:{wood:22,stone:18,food:10}, upCostLv:1.85, regBonus:20},
+    infantry_camp:{name:'步兵营',trains:'infantry',reserveBase:12,reserveBonus:18,build:{wood:18,stone:10,food:8,time:5},upBase:{wood:16,stone:10,food:8},upCostLv:1.7},
+    archer_range:{name:'射手靶场',trains:'archer',reserveBase:10,reserveBonus:15,build:{wood:24,stone:10,food:10,time:6},upBase:{wood:20,stone:10,food:10},upCostLv:1.75},
+    stable:{name:'兽栏',trains:'cavalry',reserveBase:8,reserveBonus:12,build:{wood:22,stone:16,food:18,time:7},upBase:{wood:20,stone:15,food:16},upCostLv:1.8},
+    spear_crypt:{name:'枪兵墓穴',trains:'spearman',reserveBase:10,reserveBonus:14,build:{wood:16,stone:24,food:10,time:7},upBase:{wood:14,stone:22,food:10},upCostLv:1.8},
+    mage_tower:{name:'法师塔',trains:'mage',reserveBase:4,reserveBonus:8,requiresMage:true,build:{wood:50,stone:50,food:35,time:10},upBase:{wood:38,stone:38,food:28},upCostLv:1.9}
+  },
+
+  units: {
+    infantry:{name:'步兵',race:'人族',row:'front',icon:'infantry',
+      cost:{wood:1,stone:1,food:1}, atk:120,def:8,spd:10, passive:'格挡8%'},
+    archer:{name:'弓兵',race:'精灵',row:'back',icon:'archer',
+      cost:{wood:1,stone:1,food:1}, atk:160,def:4,spd:12, passive:'基础MISS20%，打骑兵50%'},
+    cavalry:{name:'骑兵',race:'兽人',row:'front',icon:'cavalry',
+      cost:{wood:1,stone:1,food:1}, atk:140,def:6,spd:14, passive:'吸血8%'},
+    spearman:{name:'枪兵',race:'亡灵',row:'mid',icon:'spearman',
+      cost:{wood:1,stone:1,food:1}, atk:130,def:7,spd:11, passive:'破甲10%'},
+    mage:{name:'法师',race:'亡灵',row:'back',icon:'mage',
+      cost:{wood:2,stone:2,food:2}, atk:220,def:2,spd:8, passive:'互易伤1.3x',locked:true}
+  },
+
+  counters: {
+    infantry:{spearman:1.3,archer:1.0,cavalry:1.0,infantry:1.0,mage:1.0},
+    archer:{infantry:1.3,spearman:1.3,cavalry:1.0,archer:1.0,mage:1.0},
+    cavalry:{infantry:1.3,archer:1.5,spearman:0.7,cavalry:1.0,mage:1.0},
+    spearman:{cavalry:1.5,infantry:1.0,archer:1.0,spearman:1.0,mage:1.0},
+    mage:{infantry:1.3,archer:1.3,cavalry:1.3,spearman:1.3,mage:1.0}
+  },
+  miss: {
+    archer:{base:0.2,cavalry:0.5}
+  },
+  normalVsMage:1.3,
+
+  tactics: {
+    steady:{name:'稳扎稳打',desc:'防御+15% 速度-10%',defPct:.15,atkPct:0,spdPct:-.1,backPct:0,heal:0},
+    assault:{name:'全军突击',desc:'攻击+20% 防御-10%',defPct:-.1,atkPct:.2,spdPct:0,backPct:0,heal:0},
+    range:{name:'远程压制',desc:'后排伤害+15% 前排防-5%',defPct:0,atkPct:0,spdPct:0,backPct:.15,heal:0},
+    attrition:{name:'消耗战',desc:'每回合回复5% 速-5%',defPct:.05,atkPct:0,spdPct:-.05,backPct:0,heal:.05}
+  },
+
+  enemies: [
+    {id:1,name:'侦察兵小队',desc:'前排步兵试探',units:{infantry:[28,22]},reward:{wood:35,stone:25,food:22}},
+    {id:2,name:'弓兵巡逻队',desc:'步弓混编，考验前后排',units:{infantry:[34,28],archer:[26,24]},reward:{wood:55,stone:40,food:35}},
+    {id:3,name:'骑兵突袭队',desc:'骑兵压弓，枪兵护阵',units:{cavalry:[42,38],spearman:[34,30]},reward:{wood:75,stone:60,food:55}},
+    {id:4,name:'混合编队',desc:'四兵种成型，需要克制配比',units:{infantry:[45,38],archer:[36,32],cavalry:[34],spearman:[40,34]},reward:{wood:100,stone:85,food:75}},
+    {id:5,name:'精锐卫队',desc:'重枪骑法混编，惩罚单一阵容',units:{spearman:[58,52],cavalry:[50,44],archer:[42],mage:[36]},reward:{wood:135,stone:115,food:100}},
+    {id:99,name:'守关将军',desc:'BOSS·兵力压制，必须依靠克制与阵型',units:{infantry:[150,120],archer:[110,90],cavalry:[120,95],spearman:[130,105],mage:[70]},boss:true,bossMult:{atk:1.45,def:1.35},reward:{wood:220,stone:190,food:160}}
+  ]
+};
+
+// ==================== 像素图标 ====================
+const PIX_SPRITES = {
+  wood:[[4,18,21,6,'#4b2b1d'],[6,15,20,5,'#7b4a2b'],[5,14,5,6,'#b7793a'],[21,14,5,6,'#b7793a'],[8,16,14,2,'#3a2017'],[10,22,12,2,'#2a1711']],
+  stone:[[6,18,18,7,'#515768'],[9,13,15,6,'#777f8f'],[13,9,9,5,'#a4a9b1'],[7,20,4,3,'#a4a9b1'],[18,14,4,3,'#d0d3d6'],[21,22,3,2,'#303542']],
+  food:[[9,23,15,3,'#5a3c19'],[15,8,3,17,'#9b7530'],[9,13,6,3,'#d4a64a'],[18,12,6,3,'#d4a64a'],[8,17,7,3,'#b98b37'],[18,17,7,3,'#b98b37'],[12,7,8,3,'#e4c15a']],
+  pop:[[6,9,20,15,'#2b3144'],[8,11,16,10,'#7f2e3c'],[10,13,12,2,'#d6a83f'],[14,6,4,4,'#d6a83f'],[13,22,6,3,'#5f4520'],[7,24,18,2,'#382617']],
+  lumber_mill:[[5,17,22,9,'#5b3322'],[8,11,16,6,'#8a5a32'],[10,8,12,4,'#4b566b'],[12,18,4,8,'#211812'],[19,18,5,8,'#2b1d14'],[4,24,24,3,'#2d1a13']],
+  quarry:[[5,21,23,5,'#2d3140'],[7,15,18,7,'#545b70'],[12,9,10,7,'#828899'],[17,12,4,4,'#c1c5cc'],[5,10,4,16,'#795f34'],[4,9,9,3,'#b58a42']],
+  farm:[[4,22,24,4,'#3d2917'],[5,18,22,3,'#5b3d1e'],[7,14,4,8,'#b7923e'],[14,12,4,10,'#d6a83f'],[21,15,4,7,'#b7923e'],[8,13,6,2,'#6d873f'],[18,11,6,2,'#6d873f']],
+  barracks:[[5,15,22,11,'#8b3b36'],[9,10,14,5,'#c46b45'],[12,18,8,8,'#25212a'],[6,24,20,2,'#2b1d17'],[15,8,2,18,'#d6a83f'],[12,7,8,3,'#d6a83f']],
+  infantry_camp:[[6,16,20,10,'#6a3c25'],[9,11,14,5,'#8f4f32'],[13,18,6,8,'#232029'],[23,8,2,18,'#bfc6cf'],[22,7,5,2,'#d6a83f']],
+  archer_range:[[5,21,22,4,'#4a2d1f'],[8,15,16,6,'#31533d'],[11,11,10,4,'#5d7c4a'],[23,8,3,17,'#b68942'],[20,7,7,3,'#d6a83f']],
+  stable:[[5,17,22,9,'#5a3722'],[8,12,16,5,'#8a5a32'],[18,18,6,8,'#2a1c14'],[8,20,5,6,'#3f2a1a'],[20,10,5,4,'#775034']],
+  spear_crypt:[[6,17,20,9,'#303647'],[9,12,14,5,'#666f82'],[12,20,8,6,'#151827'],[23,5,2,21,'#b6bdc7'],[21,5,6,4,'#d6a83f']],
+  mage_tower:[[10,10,12,16,'#302456'],[8,18,16,8,'#201735'],[12,6,8,5,'#57408b'],[14,13,4,5,'#7ed0ff'],[20,7,4,4,'#d6a83f']],
+  infantry:[[13,7,7,5,'#7c8495'],[10,12,13,8,'#4a5264'],[12,20,9,6,'#7c3d32'],[22,7,2,17,'#bfc6cf'],[21,6,5,2,'#d6a83f'],[8,16,4,8,'#d6a83f']],
+  archer:[[11,8,11,6,'#4f7a55'],[9,14,14,8,'#2f4e3a'],[13,21,6,5,'#6b3f2b'],[6,9,3,17,'#b68942'],[7,7,6,3,'#d2a34a'],[21,12,4,2,'#d6a83f']],
+  cavalry:[[5,18,18,6,'#513222'],[7,14,15,5,'#775034'],[19,12,5,5,'#473224'],[11,8,6,7,'#8d3c34'],[13,6,5,3,'#7c8495'],[22,9,2,12,'#c7cbd0']],
+  spearman:[[13,9,6,5,'#c6c0aa'],[12,14,8,9,'#3d4658'],[9,23,5,3,'#c6c0aa'],[17,23,5,3,'#c6c0aa'],[22,4,2,22,'#b6bdc7'],[20,4,6,4,'#d6a83f']],
+  mage:[[10,8,12,8,'#57408b'],[8,16,16,9,'#32245a'],[13,13,6,4,'#c5b9d6'],[21,7,4,4,'#7ed0ff'],[22,11,2,14,'#6a4a2d'],[19,6,8,2,'#d6a83f']],
+  boss:[[9,10,14,11,'#c8c1aa'],[11,21,10,4,'#5f2630'],[8,8,4,4,'#d6a83f'],[14,6,4,5,'#d6a83f'],[22,8,4,4,'#d6a83f'],[12,14,3,3,'#111'],[18,14,3,3,'#111'],[14,19,5,2,'#111']],
+  enemy:[[7,15,18,8,'#7d2734'],[10,12,12,3,'#b94a4f'],[13,17,6,3,'#f0d060'],[15,18,2,2,'#111'],[9,24,14,2,'#2d1118']],
+  battle:[[8,7,3,18,'#c5cbd3'],[6,6,7,3,'#d6a83f'],[20,7,3,18,'#c5cbd3'],[19,6,7,3,'#d6a83f'],[10,20,12,3,'#7d4b2b'],[6,24,20,2,'#2c1a12']],
+  log:[[8,6,17,20,'#cdbb84'],[6,8,3,16,'#8a6232'],[11,11,11,2,'#69451f'],[11,16,10,2,'#69451f'],[11,21,8,2,'#69451f']],
+  home:[[6,17,20,9,'#5a3521'],[9,12,14,5,'#8b3b36'],[13,18,6,8,'#1a1210'],[21,18,3,5,'#d67b2f'],[22,14,2,4,'#f0d060']],
+  build:[[9,19,12,4,'#7b4a2b'],[19,9,5,14,'#8c96a6'],[16,8,10,4,'#c2c8d0'],[7,22,7,3,'#d6a83f'],[6,24,17,2,'#5b3922']],
+  army:[[8,8,3,18,'#7b4a2b'],[11,8,13,11,'#31476d'],[13,11,8,3,'#d6a83f'],[13,16,6,2,'#c6cbd5'],[6,25,18,2,'#2a1a12']],
+  exit:[[7,10,14,14,'#3a4158'],[11,14,6,6,'#080912'],[18,15,6,2,'#d6a83f'],[22,12,3,8,'#d6a83f'],[21,10,5,3,'#d6a83f'],[21,19,5,3,'#d6a83f']],
+  check:[[7,17,5,5,'#4f9b67'],[11,21,5,4,'#4f9b67'],[15,16,4,5,'#69c47f'],[19,11,5,5,'#69c47f'],[23,8,3,4,'#9fe0ad']],
+  lock:[[10,14,12,10,'#5c6479'],[12,9,8,7,'#c0a14a'],[14,18,4,4,'#10131d'],[14,12,4,2,'#080912']],
+  timer:[[8,8,16,16,'#5c6479'],[10,10,12,12,'#151827'],[15,12,2,6,'#f0d060'],[16,17,5,2,'#f0d060'],[13,5,6,3,'#d6a83f']],
+  upgrade:[[15,6,3,16,'#d6a83f'],[10,11,13,3,'#d6a83f'],[8,18,17,5,'#4f9b67'],[6,23,21,3,'#2f5b3d']],
+  win:[[8,9,16,13,'#d6a83f'],[11,22,10,3,'#8a5d24'],[6,11,4,8,'#d6a83f'],[22,11,4,8,'#d6a83f'],[13,6,6,3,'#f0d060']],
+  lose:[[10,8,12,12,'#c6c0aa'],[8,20,16,4,'#5a2630'],[12,12,2,3,'#111'],[18,12,2,3,'#111'],[13,18,6,2,'#111']],
+  reset:[[8,10,13,4,'#d6a83f'],[19,7,5,7,'#d6a83f'],[8,18,16,4,'#6f7890'],[7,14,4,7,'#6f7890']],
+  next:[[8,8,5,16,'#d6a83f'],[13,11,5,10,'#d6a83f'],[18,14,5,4,'#d6a83f'],[22,12,2,8,'#8a5d24']],
+  close:[[9,8,5,5,'#b94a4f'],[18,8,5,5,'#b94a4f'],[13,13,6,6,'#d6a83f'],[9,20,5,5,'#b94a4f'],[18,20,5,5,'#b94a4f']]
+};
+
+function spriteData(rects){
+  const svg=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">${rects.map(r=>`<rect x="${r[0]}" y="${r[1]}" width="${r[2]}" height="${r[3]}" fill="${r[4]}"/>`).join('')}</svg>`;
+  return `url("data:image/svg+xml,${encodeURIComponent(svg)}")`;
+}
+function injectPixelIcons(){
+  const style=document.createElement('style');
+  style.textContent=Object.entries(PIX_SPRITES).map(([k,v])=>`.i-${k}{background-image:${spriteData(v)}}`).join('\n');
+  document.head.appendChild(style);
+}
+function pix(key, cls=''){
+  return `<span class="pix-icon i-${key} ${cls}" aria-hidden="true"></span>`;
+}
+function costHtml(cost){
+  return `${pix('wood','mini')}${cost.wood} ${pix('stone','mini')}${cost.stone} ${pix('food','mini')}${cost.food}`;
+}
+
+// ==================== 状态 ====================
+let S = {
+  res:{wood:30,stone:30,food:30},
+  buildings:{},
+  pool:{infantry:0,archer:0,cavalry:0,spearman:0,mage:0},     // 士兵池（已训练未编队）
+  formation:{front:[],mid:[],back:[]},  // [{type,count,id}] 兵团
+  defeated:[],
+  mageOk:false,
+  log:[],
+  tick:0,
+  page:'home',
+  selEnemy:null,
+  battleSpeed:1,
+  battleActive:false
+};
+
+// ==================== 辅助 ====================
+function bldSt(k){return S.buildings[k]||{lv:0,state:'idle',timer:0,timerEnd:0}}
+function bldCfg(k){return CFG.buildings[k]}
+function prodRate(rk){
+  const bk=CFG.res[rk].prodBy,st=bldSt(bk);
+  return (st.state==='idle'&&st.lv>0)?st.lv*CFG.res[rk].rate:0;
+}
+function bossDefeatedCount(){
+  return CFG.enemies.filter(e=>e.boss&&S.defeated.includes(e.id)).length;
+}
+function resourceLevelCap(){
+  return (bossDefeatedCount()+1)*CFG.chapterResourceLevels;
+}
+function resourceCapText(){
+  return `\u672c\u5173\u4e0a\u9650 Lv.${resourceLevelCap()}`;
+}
+function upgradeLockReason(key){
+  const cfg=CFG.buildings[key],st=bldSt(key);
+  if(cfg.produces&&st.lv>=resourceLevelCap()){
+    const nextBoss=CFG.enemies.find(e=>e.boss&&!S.defeated.includes(e.id));
+    return nextBoss?`\u5df2\u8fbe${resourceCapText()}\uff0c\u51fb\u8d25${nextBoss.name}\u540e\u7ee7\u7eed\u5347\u7ea7`:`\u5df2\u8fbe${resourceCapText()}`;
+  }
+  return '';
+}
+function regMax(){
+  const s=bldSt('barracks');
+  return s.state==='idle'&&s.lv>0?CFG.initRegMax+s.lv*CFG.buildings.barracks.regBonus:CFG.initRegMax;
+}
+function trainBuildingKey(uk){
+  return Object.keys(CFG.buildings).find(k=>CFG.buildings[k].trains===uk)||null;
+}
+function trainBuildingState(uk){
+  const key=trainBuildingKey(uk);
+  return key?bldSt(key):null;
+}
+function reserveMax(uk){
+  const key=trainBuildingKey(uk);
+  if(!key)return 0;
+  const cfg=CFG.buildings[key],st=bldSt(key);
+  return st.lv>0?cfg.reserveBase+st.lv*cfg.reserveBonus:0;
+}
+function reserveLeft(uk){
+  return Math.max(0,reserveMax(uk)-(S.pool[uk]||0));
+}
+function trainLockReason(uk){
+  if(uk==='mage'&&!S.mageOk)return '\u51fb\u8d25\u7b2c5\u4e2a\u654c\u4eba\u540e\u89e3\u9501\u6cd5\u5e08';
+  const key=trainBuildingKey(uk);
+  if(!key)return '';
+  const cfg=CFG.buildings[key],st=bldSt(key);
+  if(cfg.requiresMage&&!S.mageOk)return '\u51fb\u8d25\u7b2c5\u4e2a\u654c\u4eba\u540e\u89e3\u9501\u6cd5\u5e08\u5854';
+  if(st.lv<=0&&st.state==='idle')return `\u9700\u5148\u5efa\u9020${cfg.name}`;
+  if(st.state==='building')return `${cfg.name}\u5efa\u8bbe\u4e2d`;
+  if(st.state==='upgrading')return `${cfg.name}\u5347\u7ea7\u4e2d`;
+  return '';
+}
+function trainBuildingLabel(uk){
+  const key=trainBuildingKey(uk);
+  if(!key)return '';
+  const cfg=CFG.buildings[key],st=bldSt(key);
+  if(st.lv<=0)return `${cfg.name}: \u672a\u5efa\u9020`;
+  return `${cfg.name}: Lv.${st.lv}${st.state==='idle'?'':' / \u6682\u505c\u8bad\u7ec3'}`;
+}
+function reserveHtml(uk){
+  const cap=reserveMax(uk),used=S.pool[uk]||0,left=reserveLeft(uk);
+  const cls=cap>0&&used<=cap?'limit-ok':'limit-warn';
+  const extra=cap>0?` | \u4f59\u91cf ${left}`:'';
+  return `<span class="${cls}">\u540e\u5907 ${used}/${cap}</span>${extra}`;
+}
+function totalSoldiers(){
+  let n=0;for(const v of Object.values(S.pool)) n+=v;
+  for(const row of['front','mid','back']) for(const u of S.formation[row]) n+=u.count;
+  return n;
+}
+function formCnt(){return S.formation.front.length+S.formation.mid.length+S.formation.back.length}
+function poolAvail(uk){ return S.pool[uk]||0; }
+function cm(atk,def){return CFG.counters[atk][def]||1.0}
+function mm(atk,def){
+  if(atk==='mage'&&def!=='mage')return CFG.counters.mage[def];
+  if(atk!=='mage'&&def==='mage')return CFG.normalVsMage;
+  return 1.0;
+}
+function missRate(attacker,defender){
+  const cfg=CFG.miss[attacker.type];
+  if(!cfg)return 0;
+  return cfg[defender.type]??cfg.base??0;
+}
+function isAttackMiss(attacker,defender){
+  const rate=missRate(attacker,defender);
+  return rate>0&&Math.random()<rate;
+}
+
+function save(){
+  const d={res:S.res,buildings:S.buildings,pool:S.pool,formation:S.formation,defeated:S.defeated,mageOk:S.mageOk,tick:S.tick};
+  localStorage.setItem('rts_save',JSON.stringify(d));
+}
+function load(){
+  const r=localStorage.getItem('rts_save');if(!r)return;
+  try{const d=JSON.parse(r);S.res=d.res||S.res;S.buildings=d.buildings||{};S.pool=d.pool||S.pool;S.formation=d.formation||S.formation;S.defeated=d.defeated||[];S.mageOk=d.mageOk||false;S.tick=d.tick||0;}catch(e){}
+}
+
+// ==================== 计时 ====================
+function tick(){
+  S.tick++;if(S.battleActive)return;
+  let ch=false;
+  for(const k of Object.keys(CFG.buildings)){
+    const st=bldSt(k);
+    if((st.state==='building'||st.state==='upgrading')&&st.timerEnd>0){
+      st.timer--;if(st.timer<=0){
+        if(st.state==='building'){st.lv=1;addLog(`${CFG.buildings[k].name}建成`)}
+        else{st.lv++;addLog(`${CFG.buildings[k].name}→Lv.${st.lv}`)}
+        st.state='idle';st.timer=0;st.timerEnd=0;ch=true;
+      }
+    }
+  }
+  if(ch)save();
+  for(const rk of Object.keys(CFG.res))S.res[rk]+=prodRate(rk);
+  if(S.tick%60===0)save();
+  updateUI();
+}
+
+// ==================== 操作 ====================
+function buildAct(key){
+  const cfg=CFG.buildings[key],st=bldSt(key);
+  if(cfg.requiresMage&&!S.mageOk){toast('\u51fb\u8d25\u7b2c5\u4e2a\u654c\u4eba\u540e\u89e3\u9501');return}
+  if(st.state!=='idle'){toast(st.state==='building'?'建造中':'升级中');return}
+  const upLock=st.lv>0?upgradeLockReason(key):'';
+  if(upLock){toast(upLock);return}
+  const cost=st.lv===0?cfg.build:upCost(key);
+  if(S.res.wood<cost.wood||S.res.stone<cost.stone||S.res.food<cost.food){toast('资源不足');return}
+  S.res.wood-=cost.wood;S.res.stone-=cost.stone;S.res.food-=cost.food;
+  if(!S.buildings[key])S.buildings[key]={lv:0,state:'idle',timer:0,timerEnd:0};
+  const bs=S.buildings[key];
+  if(bs.lv===0){bs.state='building';bs.timerEnd=cost.time;bs.timer=cost.time;addLog(`开始建造${cfg.name}`)}
+  else{bs.state='upgrading';bs.timerEnd=cost.time;bs.timer=cost.time;addLog(`开始升级${cfg.name}`)}
+  save();updateUI();
+}
+function upCost(key){
+  const cfg=CFG.buildings[key],lv=bldSt(key).lv||1;
+  const b=cfg.upBase,m=Math.pow(cfg.upCostLv,lv);
+  const rawTime=Math.ceil(5*Math.pow(1.45,lv-1)+lv*3);
+  const time=Math.min(CFG.maxUpgradeTime,rawTime);
+  return{wood:Math.ceil(b.wood*m),stone:Math.ceil(b.stone*m),food:Math.ceil(b.food*m),time};
+}
+function maxTrainable(uk){
+  if(trainLockReason(uk))return 0;
+  const c=CFG.units[uk].cost;
+  const byRes=Math.floor(Math.min(S.res.wood/c.wood,S.res.stone/c.stone,S.res.food/c.food));
+  return Math.max(0,Math.min(byRes,reserveLeft(uk)));
+}
+function train(uk,qty){
+  qty=qty||1;
+  qty=Math.max(1,Math.floor(qty));
+  const lock=trainLockReason(uk);
+  if(lock){toast(lock);return}
+  const max=maxTrainable(uk);
+  if(max<=0){
+    toast(reserveLeft(uk)<=0?'\u540e\u5907\u5175\u529b\u5df2\u6ee1':'璧勬簮涓嶈冻');
+    return;
+  }
+  if(qty>max){
+    qty=max;
+    toast(`\u5df2\u6309\u4e0a\u9650\u8bad\u7ec3${qty}`);
+  }
+  if(uk==='mage'&&!S.mageOk){toast('法师未解锁');return}
+  const c=CFG.units[uk].cost;
+  if(S.res.wood<c.wood*qty||S.res.stone<c.stone*qty||S.res.food<c.food*qty){toast('资源不足');return}
+  S.res.wood-=c.wood*qty;S.res.stone-=c.stone*qty;S.res.food-=c.food*qty;
+  S.pool[uk]=(S.pool[uk]||0)+qty;
+  addLog(`训练${CFG.units[uk].name}+${qty}`);save();updateUI();
+}
+function trainCustom(uk,inputId){
+  const el=document.getElementById(inputId);
+  const qty=Math.max(1,Math.floor(parseInt(el?.value,10)||1));
+  train(uk,qty);
+}
+function trainMax(uk,inputId){
+  const qty=maxTrainable(uk);
+  if(qty<=0){
+    const lock=trainLockReason(uk);
+    toast(lock||(reserveLeft(uk)<=0?'\u540e\u5907\u5175\u529b\u5df2\u6ee1':'璧勬簮涓嶈冻'));
+    return;
+  }
+  if(qty<=0){toast('资源不足');return}
+  const el=document.getElementById(inputId);
+  if(el)el.value=qty;
+  train(uk,qty);
+}
+function dismiss(uk){
+  const a=poolAvail(uk);
+  if(a<=0){toast('无可用士兵');return}
+  S.pool[uk]-=1;addLog(`解散${CFG.units[uk].name}-1`);save();updateUI();
+}
+
+// ==================== 编队弹窗 ====================
+let formModalTarget=null; // {row, idx: 要填的位置, isNew: 是否填到空位}
+
+function openFormModal(row,idx){
+  formModalTarget={row,idx};
+  const content=document.getElementById('form-modal-content');
+  const rm=regMax();
+  let h=`<h3>${pix('army','card-pix')} 编入兵团 — ${row==='front'?'前排':row==='mid'?'中排':'后排'} (最大${rm}人)</h3>`;
+  h+='<div style="max-height:300px;overflow-y:auto">';
+  let hasAny=false;
+  for(const[k,c] of Object.entries(CFG.units)){
+    if(k==='mage'&&!S.mageOk)continue;
+    const av=poolAvail(k);
+    if(av<=0)continue;
+    hasAny=true;
+    // 检查该排是否已有此兵种兵团
+    const target=S.formation[row][idx];
+    const remaining=target&&target.type===k?Math.min(rm-target.count, av):Math.min(rm, av);
+    if(remaining<=0)continue;
+    h+=`<div class="modal-unit" data-type="${k}" data-avail="${remaining}" onclick="selModalUnit(this,'${k}',${remaining})">
+      <span class="mu-icon">${pix(c.icon,'lg')}</span>
+      <div class="mu-info"><div class="mu-name">${c.name}</div>
+      <div class="mu-detail">可用:${av}人 | ${c.passive}</div></div>
+    </div>`;
+  }
+  if(!hasAny)h+='<div style="text-align:center;color:#666;padding:20px">无可用士兵，请先训练</div>';
+  h+='</div>';
+  h+=`<div id="modal-qty-area" style="display:none"><div class="modal-qty">
+    <button onpointerdown="startModalLongPress(-1)" onpointerup="stopModalLongPress()" onpointerleave="stopModalLongPress()" onpointercancel="stopModalLongPress()" onclick="event.preventDefault()">-</button>
+    <input type="text" inputmode="numeric" pattern="[0-9]*" id="modal-qty-input" value="1" onchange="clampQty()" oninput="clampQty()">
+    <button onpointerdown="startModalLongPress(1)" onpointerup="stopModalLongPress()" onpointerleave="stopModalLongPress()" onpointercancel="stopModalLongPress()" onclick="event.preventDefault()">+</button>
+  </div>
+  <div class="modal-quick">
+    <button class="btn btn-ghost btn-xs" onclick="setModalQty(S._formModalMax)">MAX</button>
+  </div>
+  <div style="text-align:center;margin-top:6px;font-size:10px;color:#888">部队人数 (HP)</div>
+  <button class="btn btn-go" style="width:100%;margin-top:8px" onclick="confirmForm()">${pix('check','mini')}确认编入</button></div>`;
+  content.innerHTML=h;
+  document.getElementById('form-modal').classList.add('active');
+  S._formModalSel=null;S._formModalQty=1;
+}
+
+function selModalUnit(el,type,avail){
+  document.querySelectorAll('.modal-unit').forEach(e=>e.classList.remove('sel'));
+  el.classList.add('sel');
+  S._formModalSel=type;
+  S._formModalMax=avail;
+  S._formModalQty=Math.min(avail, Math.max(1, Math.floor(avail/2))); // 默认填一半
+  const qa=document.getElementById('modal-qty-area');
+  qa.style.display='block';
+  const inp=document.getElementById('modal-qty-input');
+  inp.value=S._formModalQty;
+  inp.max=avail;
+}
+
+function adjQty(d){
+  if(!S._formModalSel)return;
+  S._formModalQty=Math.max(1,Math.min(S._formModalMax,S._formModalQty+d));
+  document.getElementById('modal-qty-input').value=S._formModalQty;
+}
+function setModalQty(qty){
+  if(!S._formModalSel)return;
+  S._formModalQty=Math.max(1,Math.min(S._formModalMax,Math.floor(qty)||1));
+  document.getElementById('modal-qty-input').value=S._formModalQty;
+}
+function clampQty(){
+  const v=parseInt(document.getElementById('modal-qty-input').value)||1;
+  S._formModalQty=Math.max(1,Math.min(S._formModalMax,v));
+  document.getElementById('modal-qty-input').value=S._formModalQty;
+}
+
+function confirmForm(){
+  if(!S._formModalSel||!formModalTarget)return;
+  const type=S._formModalSel,row=formModalTarget.row,idx=formModalTarget.idx;
+  const qty=S._formModalQty;
+  if(qty<=0||poolAvail(type)<qty){toast('可用人数不足');return}
+  const target=S.formation[row][idx];
+  if(target&&target.type===type){
+    if(existing.count+qty>regMax()){toast(`超过兵团上限${regMax()}人`);return}
+    existing.count+=qty;
+  } else {
+    if(formCnt()>=CFG.formSlots){toast('阵容已满');return}
+    if(qty>regMax()){toast(`超过兵团上限${regMax()}人`);return}
+    S.formation[row].push({type,count:qty,id:Date.now()+Math.random()});
+  }
+  S.pool[type]-=qty; // 从军营扣除
+  closeFormModal();
+  updateUI();
+}
+
+function closeFormModal(){
+  document.getElementById('form-modal').classList.remove('active');
+  formModalTarget=null;S._formModalSel=null;
+}
+
+// 点击弹窗外部关闭
+document.getElementById('form-modal').addEventListener('click',function(e){
+  if(e.target===this) closeFormModal();
+});
+
+// 从阵容移除兵团
+function rmForm(row,idx){
+  const u=S.formation[row][idx];
+  if(!u)return;
+  S.pool[u.type]=(S.pool[u.type]||0)+u.count; // 归还军营
+  S.formation[row].splice(idx,1);
+  updateUI();
+}
+// 调整兵团人数
+function adjForm(row,idx,d){
+  const u=S.formation[row][idx];
+  if(!u)return;
+  const nv=u.count+d;
+  if(d>0 && nv>regMax()){toast(`兵团上限${regMax()}`);return}
+  if(d>0 && poolAvail(u.type)<d){toast('可用人数不足');return}
+  if(d>0) S.pool[u.type]-=d;  // 从军营扣除
+  if(d<0) S.pool[u.type]+=(-d); // 归还军营
+  if(nv<=0){S.formation[row].splice(idx,1);updateUI();return}
+  u.count=nv;
+  updateUI();
+}
+function clrForm(){S.formation={front:[],mid:[],back:[]};updateUI()}
+
+// ==================== 战斗系统 ====================
+let battleTimer=null;
+let B={};
+
+function selEnemy(idx){S.selEnemy=idx;updateUI()}
+
+function openBattle(){
+  if(S.selEnemy===null||S.selEnemy===undefined){toast('请先选敌人');return}
+  if(formCnt()===0){toast('请先配置阵容');return}
+  S.battleActive=true;
+  document.getElementById('battle-screen').classList.add('active');
+  document.getElementById('navbar').classList.add('paused');
+  document.getElementById('topbar').classList.add('paused');
+  document.getElementById('main').classList.add('paused');
+  document.getElementById('battle-result').style.display='none';
+  document.getElementById('battle-msg').innerHTML='';
+  initBattleState();
+  drawBattleField();
+  bmsg('战斗开始！','#f0d060');
+  battleTimer=setTimeout(battleTurn, 600/S.battleSpeed);
+}
+
+function fleeBattle(){
+  if(battleTimer)clearTimeout(battleTimer);
+  S.battleActive=false;
+  document.getElementById('battle-screen').classList.remove('active');
+  document.getElementById('navbar').classList.remove('paused');
+  document.getElementById('topbar').classList.remove('paused');
+  document.getElementById('main').classList.remove('paused');
+  document.getElementById('battle-result').style.display='none';
+  S.pool=S._prePool; S.formation=S._preForm;
+  addLog('逃离战斗'); save(); updateUI();
+}
+
+function initBattleState(){
+  const e=CFG.enemies[S.selEnemy];
+  const tkey='steady'; // 战术归入英雄技能系统(P3)
+  S._prePool=JSON.parse(JSON.stringify(S.pool));
+  S._preForm=JSON.parse(JSON.stringify(S.formation));
+  B.tactic=CFG.tactics[tkey]; B.enemyCfg=e;
+  B.round=0; B.maxRound=25+(e.boss?5:0); B.winner=null; B.msgs=[];
+  B.ourUnits=[]; B.enemyUnits=[];
+  let uid=0;
+  for(const row of['front','mid','back']){
+    for(const u of S.formation[row]){
+      const cfg=CFG.units[u.type];
+      B.ourUnits.push({id:uid++, fid:u.id, type:u.type, row, hp:u.count, maxHp:u.count,
+        icon:cfg.icon, name:cfg.name, spd:cfg.spd, atk:cfg.atk, def:cfg.def});
+    }
+  }
+  for(const[k,counts] of Object.entries(e.units)){
+    for(let i=0;i<counts.length;i++){
+      const cfg=CFG.units[k];
+      const bm=e.boss?e.bossMult:null;
+      B.enemyUnits.push({id:uid++, type:k, row:cfg.row, hp:counts[i], maxHp:counts[i],
+        icon:cfg.icon, name:cfg.name,
+        spd:cfg.spd,
+        atk:bm?Math.floor(cfg.atk*bm.atk):cfg.atk,
+        def:bm?Math.floor(cfg.def*bm.def):cfg.def});
+    }
+  }
+}
+
+function drawBattleField(){
+  const f=document.getElementById('battle-field');
+  const oa=B.ourUnits.filter(u=>u.alive!==false).length;
+  const ea=B.enemyUnits.filter(u=>u.alive!==false).length;
+  const ohp=B.ourUnits.filter(u=>u.alive!==false).reduce((s,u)=>s+u.hp,0);
+  const ehp=B.enemyUnits.filter(u=>u.alive!==false).reduce((s,u)=>s+u.hp,0);
+  document.getElementById('battle-title').innerHTML=`${pix('battle','sm')} ${B.enemyCfg.name} | 回合${B.round} | 我方${oa}团${ohp}人 vs 敌方${ea}团${ehp}人`;
+
+  let h='';
+  // 敌方
+  h+=`<div class="enemy-zone"><div class="zone-label">${pix(B.enemyCfg.boss?'boss':'enemy','sm')} 敌方</div>`;
+  for(const row of['back','mid','front']){
+    const units=B.enemyUnits.filter(u=>u.alive!==false&&u.row===row);
+    if(!units.length)continue;
+    h+=`<div class="battle-row"><div class="row-label">${row==='front'?'前排':row==='mid'?'中排':'后排'}</div>`;
+    for(const u of units){
+      h+=`<div class="unit-box" id="eu-${u.id}">
+        <span class="ub-icon">${pix(u.icon,'lg')}</span><span class="ub-name">${u.name}</span>
+        <span class="ub-hp">${u.hp}</span></div>`;
+    }
+    h+='</div>';
+  }
+  h+=`</div><div style="text-align:center;font-size:10px;color:#3a4158;padding:2px">${pix('battle','sm')} VS ${pix('battle','sm')}</div>`;
+
+  // 我方
+  h+=`<div class="our-zone"><div class="zone-label">${pix('army','sm')} 我方</div>`;
+  for(const row of['front','mid','back']){
+    const units=B.ourUnits.filter(u=>u.alive!==false&&u.row===row);
+    if(!units.length)continue;
+    h+=`<div class="battle-row"><div class="row-label">${row==='front'?'前排':row==='mid'?'中排':'后排'}</div>`;
+    for(const u of units){
+      h+=`<div class="unit-box" id="ou-${u.id}">
+        <span class="ub-icon">${pix(u.icon,'lg')}</span><span class="ub-name">${u.name}</span>
+        <span class="ub-hp">${u.hp}</span></div>`;
+    }
+    h+='</div>';
+  }
+  h+='</div>';
+  f.innerHTML=h;
+}
+
+function bmsg(m,c=''){
+  B.msgs.push({m,c});
+  const el=document.getElementById('battle-msg');
+  el.innerHTML=B.msgs.slice(-25).map(e=>`<span style="color:${e.c||'#666'}">${e.m}</span>`).join('<br>');
+  el.scrollTop=el.scrollHeight;
+}
+
+// 兵种攻击类型：melee 只能在前排攻击，ranged 任意排都可攻击
+function isRanged(unitType){
+  return unitType==='archer'||unitType==='mage'||unitType==='spearman';
+}
+
+function getTarget(attacker,enemyList){
+  const alive=enemyList.filter(u=>u.alive!==false);
+  if(!alive.length)return null;
+  const rows={front:0,mid:1,back:2};
+  const minR=Math.min(...alive.map(u=>rows[u.row]));
+  const front=alive.filter(u=>rows[u.row]===minR);
+
+  // 近战不在前排 → 不能攻击
+  if(!isRanged(attacker.type) && attacker.row!=='front') return null;
+
+  if(isRanged(attacker.type)){
+    // 远程：可越过前排，60%优先打中后排
+    const backAlive=alive.filter(u=>rows[u.row]>=1);
+    if(backAlive.length>0 && Math.random()<0.6){
+      return backAlive[Math.floor(Math.random()*backAlive.length)];
+    }
+    return alive[Math.floor(Math.random()*alive.length)];
+  }
+  // 近战(前排)：只能打敌方最前排
+  return front[Math.floor(Math.random()*front.length)];
+}
+
+// 计算伤害（杀多少兵）
+function calcDmg(attacker,defender,isOur){
+  const cmv=cm(attacker.type,defender.type);
+  const mmv=mm(attacker.type,defender.type);
+  let atk=attacker.atk;
+  if(isOur){
+    atk=Math.floor(atk*(1+(B.tactic.atkPct||0)));
+    if(attacker.row==='back') atk=Math.floor(atk*(1+(B.tactic.backPct||0)));
+  }
+  let def=defender.def;
+  if(isOur&&B.tactic.defPct)def=Math.floor(def*(1+B.tactic.defPct));
+  // 基础公式：攻击方ATK / 防御方DEF * 克制系数
+  const base=atk/Math.max(1,def)*cmv*mmv*(0.8+Math.random()*0.4);
+  return Math.max(1,Math.floor(base));
+}
+
+function battleTurn(){
+  if(!S.battleActive)return;
+  B.round++;
+  if(B.round>B.maxRound){endBattle('timeout');return}
+
+  const rows={front:0,mid:1,back:2};
+  const all=[];
+  for(const u of B.ourUnits) if(u.alive!==false) all.push({...u,side:'our'});
+  for(const u of B.enemyUnits) if(u.alive!==false) all.push({...u,side:'enemy'});
+  for(const a of all){
+    if(a.side==='our') a.spd=Math.floor(a.spd*(1+(B.tactic.spdPct||0)));
+  }
+  all.sort((a,b)=>b.spd-a.spd);
+
+  let idx=0,delay=400/S.battleSpeed;
+
+  function nextAction(){
+    if(!S.battleActive)return;
+    if(idx>=all.length){
+      drawBattleField();
+      const oa=B.ourUnits.filter(u=>u.alive!==false).length;
+      const ea=B.enemyUnits.filter(u=>u.alive!==false).length;
+      if(oa===0){endBattle('lose');return}
+      if(ea===0){endBattle('win');return}
+      bmsg(`── 回合${B.round}结束 ──`,'#555');
+      battleTimer=setTimeout(battleTurn,250/S.battleSpeed);
+      return;
+    }
+
+    const actor=all[idx];
+    if(actor.alive===false){idx++;nextAction();return}
+
+    const enemyList=actor.side==='our'?B.enemyUnits:B.ourUnits;
+    const target=getTarget(actor,enemyList);
+    if(!target){idx++;nextAction();return} // 近战不在前排跳过攻击
+
+    const actorEl=document.getElementById((actor.side==='our'?'ou-':'eu-')+actor.id);
+    const targetEl=document.getElementById((actor.side==='our'?'eu-':'ou-')+target.id);
+
+    if(targetEl)targetEl.classList.add('targeted');
+    if(actorEl)actorEl.classList.add('attacking');
+
+    const missed=isAttackMiss(actor,target);
+    const dmg=missed?0:calcDmg(actor,target,actor.side==='our');
+    const cmv=cm(actor.type,target.type);
+    const mmv=mm(actor.type,target.type);
+    const actualKill=missed?0:Math.min(dmg,target.hp);
+
+    setTimeout(()=>{
+      if(!S.battleActive)return;
+      if(actorEl)actorEl.classList.remove('attacking');
+      if(targetEl)targetEl.classList.remove('targeted');
+
+      const isGood=cmv>=1.3,isBad=cmv<=0.7;
+
+      if(missed){
+        bmsg(`${actor.name} \u2192 ${target.name} MISS${target.type==='cavalry'?' [\u9a91\u5175\u95ea\u907f]':''}`,'#6f7890');
+        idx++;
+        drawBattleField();
+        nextAction();
+        return;
+      }
+
+      target.hp-=actualKill;
+
+      if(target.hp<=0){
+        target.hp=0;target.alive=false;
+        if(targetEl){targetEl.classList.add('dead');setTimeout(()=>{if(targetEl)targetEl.classList.add('dead-done')},500);}
+        bmsg(`${actor.name} → ${target.name} 击杀${actualKill}人，${target.name}全灭！`+(isGood?'[克制]':'')+(mmv>1?'[易伤]':''),isGood?'#40bf80':'#e06060');
+      }else{
+        if(targetEl){targetEl.classList.add('hit');setTimeout(()=>{if(targetEl)targetEl.classList.remove('hit')},400);}
+        bmsg(`${actor.name} → ${target.name} 击杀${actualKill}人，${target.name}剩余${target.hp}人`+(isBad?'[劣势]':''),'#888');
+      }
+      idx++;
+      drawBattleField();
+      nextAction();
+    },delay);
+  }
+  nextAction();
+}
+
+// 从存活战斗单位重建阵容，并从军营自动补兵
+function rebuildFormation(){
+  const newForm={front:[],mid:[],back:[]};
+  for(const u of B.ourUnits){
+    if(u.alive===false||u.hp<=0)continue;
+    for(const row of['front','mid','back']){
+      for(const fu of S.formation[row]){
+        if(fu.id===u.fid){
+          const lost=fu.count-u.hp; // 损失人数
+          let refill=Math.min(lost,poolAvail(u.type)); // 从军营补充
+          if(refill>0)S.pool[u.type]-=refill;
+          newForm[row].push({type:fu.type,count:u.hp+refill,id:fu.id});
+          if(refill>0)addLog(`${CFG.units[u.type].name}兵团自动补员+${refill}`);
+          break;
+        }
+      }
+    }
+  }
+  S.formation=newForm;
+}
+
+function endBattle(result){
+  if(battleTimer)clearTimeout(battleTimer);
+  S.battleActive=false;
+  rebuildFormation();
+  const resEl=document.getElementById('battle-result');
+  let text='',cls='';
+  if(result==='win'){
+    cls='win';text=`${pix('win','sm')} 胜利！`;
+    const e=CFG.enemies[S.selEnemy];
+    for(const[r,v] of Object.entries(e.reward))S.res[r]=(S.res[r]||0)+v;
+    if(!S.defeated.includes(e.id)){
+      S.defeated.push(e.id);
+      if(S.defeated.filter(id=>id<99).length>=5)S.mageOk=true;
+    }
+    addLog(`战胜${e.name}`);
+  }else if(result==='lose'){
+    cls='lose';text=`${pix('lose','sm')} 战败`;
+    addLog(`败于${CFG.enemies[S.selEnemy].name}`);
+  }else{
+    cls='lose';text=`${pix('timer','sm')} 超时`;
+  }
+  save();
+  // 检查下一关是否可用
+  const nextIdx=S.selEnemy+1;
+  const hasNext=nextIdx<CFG.enemies.length && (S.defeated.includes(CFG.enemies[S.selEnemy].id) || result==='win');
+  resEl.className=cls;
+  resEl.innerHTML=`
+    <span class="result-text">${text}</span>
+    <div class="result-btns">
+      ${hasNext?`<button class="btn btn-go btn-sm" onclick="nextBattle()">${pix('next','mini')}下一关</button>`:''}
+      <button class="btn btn-go btn-sm" onclick="retryBattle()">${pix('reset','mini')}重新对战</button>
+      <button class="btn btn-ghost btn-sm" onclick="exitBattle()">${pix('exit','mini')}退出</button>
+    </div>`;
+  resEl.style.display='flex';
+  updateUI();
+}
+
+function nextBattle(){
+  S.selEnemy++;
+  exitBattle();
+  setTimeout(()=>openBattle(),150);
+}
+
+function retryBattle(){
+  exitBattle();
+  setTimeout(()=>openBattle(),150);
+}
+
+function exitBattle(){
+  document.getElementById('battle-result').style.display='none';
+  document.getElementById('battle-screen').classList.remove('active');
+  document.getElementById('navbar').classList.remove('paused');
+  document.getElementById('topbar').classList.remove('paused');
+  document.getElementById('main').classList.remove('paused');
+  updateUI();
+}
+
+// 速度按钮
+document.getElementById('battle-speed').addEventListener('click',e=>{
+  if(e.target.classList.contains('btn-speed')){
+    document.querySelectorAll('#battle-speed .btn-speed').forEach(b=>b.classList.remove('on'));
+    e.target.classList.add('on');
+    S.battleSpeed=parseInt(e.target.dataset.spd);
+  }
+});
+
+// ==================== UI 渲染 ====================
+function updateUI(){
+  if(S.battleActive)return;
+  document.getElementById('res-wood').textContent=Math.floor(S.res.wood);
+  document.getElementById('res-stone').textContent=Math.floor(S.res.stone);
+  document.getElementById('res-food').textContent=Math.floor(S.res.food);
+  document.getElementById('res-pop').textContent=totalSoldiers();
+  renderPage(S.page);
+}
+function renderPage(p){
+  document.getElementById('main').innerHTML={home:rHome,build:rBuild,barracks:rBarracks,fight:rFight,log:rLog}[p]();
+}
+function rHome(){
+  let h=`<div style="padding:4px 0"><div class="card"><h3>${pix('home','card-pix')}营地</h3>`;
+  h+=`<div style="font-size:12px;color:#999">总兵力 ${totalSoldiers()} | 阵容 ${formCnt()}/${CFG.formSlots}团</div>`;
+  h+=`<div style="font-size:12px;color:#999">兵团上限 ${regMax()}人/团 | 击败 ${S.defeated.length}/${CFG.enemies.length}</div>`;
+  h+=`<div style="font-size:12px;color:#999">法师 ${S.mageOk?pix('check','mini'):pix('lock','mini')}</div></div>`;
+  h+=`<div class="card"><h3>${pix('food','card-pix')}产出</h3>`;
+  for(const[k,c] of Object.entries(CFG.res))h+=`<div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;padding:2px 0"><span>${pix(c.icon,'sm')} ${c.name}</span><span style="color:#40bf80">${prodRate(k)}/秒</span></div>`;
+  h+=`</div><div class="card"><h3>${pix('army','card-pix')}快速训练</h3>`;
+  for(const[k,c] of Object.entries(CFG.units)){
+    if(k==='mage'&&!S.mageOk)continue;
+    const av=poolAvail(k);
+    const inputId=`train-home-${k}`;
+    const tm=maxTrainable(k),disabled=tm<=0?'disabled':'',lock=trainLockReason(k);
+    h+=`<div class="unit-row"><span class="uicon">${pix(c.icon,'lg')}</span><div class="uinfo"><div class="uname">${c.name}</div><div class="udetail">${c.passive} | ${costHtml(c.cost)}/人</div></div><div class="ucount">${(S.pool[k]||0)}人</div>`;
+    h+=`<div class="econ-note" style="flex-basis:100%;padding-left:32px">${trainBuildingLabel(k)} | ${reserveHtml(k)}${lock?`<br><span class="limit-warn">${lock}</span>`:''}</div>`;
+    h+=`<button class="btn btn-go btn-sm" onclick="train('${k}',1)" ${disabled}>+1</button>`;
+    h+=`<button class="btn btn-go btn-sm" style="margin-left:2px" onclick="train('${k}',5)" ${disabled}>+5</button>`;
+    h+=`<div class="train-custom"><input id="${inputId}" type="text" inputmode="numeric" pattern="[0-9]*" value="1"><button class="btn btn-go btn-xs" onclick="trainCustom('${k}','${inputId}')">训练</button><button class="btn btn-ghost btn-xs" onclick="trainMax('${k}','${inputId}')">MAX</button></div></div>`;
+  }
+  h+=`</div><div class="card"><h3>${pix('log','card-pix')}最近事件</h3>`;
+  const r=[...S.log].reverse().slice(0,6);
+  if(!r.length)h+=`<div style="font-size:11px;color:#666">暂无</div>`;
+  else for(const e of r)h+=`<div style="font-size:10px;color:#555;padding:1px 0">[${e.time}] ${e.msg}</div>`;
+  h+=`</div></div>`;return h;
+}
+function rHome(){
+  let h=`<div style="padding:4px 0"><div class="card"><h3>${pix('home','card-pix')}\u8425\u5730</h3>`;
+  h+=`<div style="font-size:12px;color:#999">\u603b\u5175\u529b ${totalSoldiers()} | \u9635\u5bb9 ${formCnt()}/${CFG.formSlots}\u56e2</div>`;
+  h+=`<div style="font-size:12px;color:#999">\u5175\u56e2\u4e0a\u9650 ${regMax()}\u4eba/\u56e2 | \u51fb\u8d25 ${S.defeated.length}/${CFG.enemies.length}</div>`;
+  h+=`<div style="font-size:12px;color:#999">\u6cd5\u5e08 ${S.mageOk?pix('check','mini'):pix('lock','mini')}</div></div>`;
+  h+=`<div class="card"><h3>${pix('food','card-pix')}\u4ea7\u51fa</h3><div class="econ-note">${resourceCapText()} | Boss\u540e\u89e3\u9501\u4e0b\u4e00\u6863</div>`;
+  for(const[k,c] of Object.entries(CFG.res))h+=`<div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;padding:2px 0"><span>${pix(c.icon,'sm')} ${c.name}</span><span style="color:#40bf80">${prodRate(k)}/\u79d2</span></div>`;
+  h+=`</div><div class="card"><h3>${pix('army','card-pix')}\u5feb\u901f\u8bad\u7ec3</h3>`;
+  for(const[k,c] of Object.entries(CFG.units)){
+    if(k==='mage'&&!S.mageOk)continue;
+    const inputId=`train-home-${k}`,lock=trainLockReason(k),tm=maxTrainable(k),disabled=tm<=0?'disabled':'';
+    h+=`<div class="unit-row"><span class="uicon">${pix(c.icon,'lg')}</span><div class="uinfo"><div class="uname">${c.name}</div><div class="udetail">${c.passive} | ${costHtml(c.cost)}/\u4eba</div></div><div class="ucount">${(S.pool[k]||0)}\u4eba</div>`;
+    h+=`<div class="econ-note" style="flex-basis:100%;padding-left:32px">${trainBuildingLabel(k)} | ${reserveHtml(k)}${lock?`<br><span class="limit-warn">${lock}</span>`:''}</div>`;
+    h+=`<button class="btn btn-go btn-sm" onclick="train('${k}',1)" ${disabled}>+1</button>`;
+    h+=`<button class="btn btn-go btn-sm" style="margin-left:2px" onclick="train('${k}',5)" ${disabled}>+5</button>`;
+    h+=`<div class="train-custom"><input id="${inputId}" type="text" inputmode="numeric" pattern="[0-9]*" value="1"><button class="btn btn-go btn-xs" onclick="trainCustom('${k}','${inputId}')" ${disabled}>\u8bad\u7ec3</button><button class="btn btn-ghost btn-xs" onclick="trainMax('${k}','${inputId}')" ${disabled}>MAX</button></div></div>`;
+  }
+  h+=`</div><div class="card"><h3>${pix('log','card-pix')}\u6700\u8fd1\u4e8b\u4ef6</h3>`;
+  const r=[...S.log].reverse().slice(0,6);
+  if(!r.length)h+=`<div style="font-size:11px;color:#666">\u6682\u65e0</div>`;
+  else for(const e of r)h+=`<div style="font-size:10px;color:#555;padding:1px 0">[${e.time}] ${e.msg}</div>`;
+  h+=`</div></div>`;return h;
+}
+function rBuild(){
+  let h=`<div style="padding:4px 0">`;
+  for(const[key,cfg] of Object.entries(CFG.buildings)){
+    const st=bldSt(key);
+    h+=`<div class="card"><h3>`;
+    h+=`${pix(key,'card-pix')}${cfg.name}`;if(st.state==='idle'&&st.lv>0)h+=` <span style="color:#f0d060">Lv.${st.lv}</span>`;
+    if(key==='barracks'&&st.state==='idle'&&st.lv>0)h+=` <span style="font-size:11px;color:#888">(兵团上限+${st.lv*cfg.regBonus}=${regMax()}人)</span>`;
+    h+=`</h3>`;
+    if(cfg.trains){
+      const u=CFG.units[cfg.trains],cap=reserveMax(cfg.trains),nextCap=cfg.reserveBase+(Math.max(1,st.lv+1))*cfg.reserveBonus;
+      h+=`<div class="build-meta">\u8bad\u7ec3: ${pix(u.icon,'mini')}${u.name} | \u540e\u5907\u4e0a\u9650 ${st.lv>0?cap:0}${st.lv>0?` \u2192 ${nextCap}`:` (\u5efa\u6210\u540e ${nextCap})`}</div>`;
+      if(cfg.requiresMage&&!S.mageOk)h+=`<div class="build-meta limit-warn">${pix('lock','mini')}\u51fb\u8d25\u7b2c5\u4e2a\u654c\u4eba\u540e\u89e3\u9501</div>`;
+    }
+    if(st.state==='idle'){
+      if(st.lv===0){
+        const c=cfg.build;
+        h+=`<div style="font-size:11px;color:#888">建造: ${costHtml(c)} | ${c.time}秒</div>`;
+        h+=`<button class="btn btn-go btn-sm" onclick="buildAct('${key}')">${pix('build','mini')}建造</button>`;
+      }else{
+        if(cfg.produces)h+=`<div style="font-size:12px;color:#40bf80">${pix(CFG.res[cfg.produces].icon,'sm')} ${CFG.res[cfg.produces].name}: ${prodRate(cfg.produces)}/秒</div>`;
+        const uc=upCost(key);
+        h+=`<div style="font-size:10px;color:#666">升级: ${costHtml(uc)} | ${uc.time}秒</div>`;
+        h+=`<button class="btn btn-go btn-sm" onclick="buildAct('${key}')">${pix('upgrade','mini')}升级→Lv.${st.lv+1}</button>`;
+      }
+    }else{
+      const pct=st.timerEnd>0?((st.timerEnd-st.timer)/st.timerEnd*100).toFixed(0):0;
+      h+=`<div class="timer-text pulsing">${pix('timer','mini')} ${st.state==='building'?'建造':'升级'}中... ${st.timer}秒</div>`;
+      h+=`<div class="prog-wrap"><div class="prog-fill" style="width:${pct}%"></div></div>`;
+    }
+    h+=`</div>`;
+  }
+  h+=`</div>`;return h;
+}
+function rBuild(){
+  let h=`<div style="padding:4px 0">`;
+  for(const[key,cfg] of Object.entries(CFG.buildings)){
+    const st=bldSt(key),locked=cfg.requiresMage&&!S.mageOk,upLock=st.lv>0?upgradeLockReason(key):'';
+    h+=`<div class="card" style="${locked||upLock?'opacity:.7':''}"><h3>`;
+    h+=`${pix(key,'card-pix')}${cfg.name}`;if(st.state==='idle'&&st.lv>0)h+=` <span style="color:#f0d060">Lv.${st.lv}</span>`;
+    if(key==='barracks'&&st.state==='idle'&&st.lv>0)h+=` <span style="font-size:11px;color:#888">(\u5175\u56e2\u4e0a\u9650+${st.lv*cfg.regBonus}=${regMax()}\u4eba)</span>`;
+    h+=`</h3>`;
+    if(cfg.trains){
+      const u=CFG.units[cfg.trains],cap=reserveMax(cfg.trains),nextCap=cfg.reserveBase+(Math.max(1,st.lv+1))*cfg.reserveBonus;
+      h+=`<div class="build-meta">\u8bad\u7ec3: ${pix(u.icon,'mini')}${u.name} | \u540e\u5907\u4e0a\u9650 ${st.lv>0?cap:0}${st.lv>0?` \u2192 ${nextCap}`:` (\u5efa\u6210\u540e ${nextCap})`}</div>`;
+      if(locked)h+=`<div class="build-meta limit-warn">${pix('lock','mini')}\u51fb\u8d25\u7b2c5\u4e2a\u654c\u4eba\u540e\u89e3\u9501</div>`;
+    }
+    if(cfg.produces){
+      h+=`<div class="build-meta">${resourceCapText()} | \u8d44\u6e90\u5efa\u7b51\u6bcf\u5927\u5173 +${CFG.chapterResourceLevels}\u7ea7</div>`;
+      if(upLock)h+=`<div class="build-meta limit-warn">${pix('lock','mini')}${upLock}</div>`;
+    }
+    if(st.state==='idle'){
+      if(st.lv===0){
+        const c=cfg.build;
+        h+=`<div style="font-size:11px;color:#888">\u5efa\u9020: ${costHtml(c)} | ${c.time}\u79d2</div>`;
+        h+=`<button class="btn btn-go btn-sm" onclick="buildAct('${key}')" ${locked?'disabled':''}>${pix('build','mini')}\u5efa\u9020</button>`;
+      }else{
+        if(cfg.produces)h+=`<div style="font-size:12px;color:#40bf80">${pix(CFG.res[cfg.produces].icon,'sm')} ${CFG.res[cfg.produces].name}: ${prodRate(cfg.produces)}/\u79d2</div>`;
+        const uc=upCost(key);
+        h+=`<div style="font-size:10px;color:#666">\u5347\u7ea7: ${costHtml(uc)} | ${uc.time}\u79d2</div>`;
+        h+=`<button class="btn btn-go btn-sm" onclick="buildAct('${key}')" ${upLock?'disabled':''}>${pix('upgrade','mini')}\u5347\u7ea7\u2192Lv.${st.lv+1}</button>`;
+      }
+    }else{
+      const pct=st.timerEnd>0?((st.timerEnd-st.timer)/st.timerEnd*100).toFixed(0):0;
+      h+=`<div class="timer-text pulsing">${pix('timer','mini')} ${st.state==='building'?'\u5efa\u9020':'\u5347\u7ea7'}\u4e2d... ${st.timer}\u79d2</div>`;
+      h+=`<div class="prog-wrap"><div class="prog-fill" style="width:${pct}%"></div></div>`;
+    }
+    h+=`</div>`;
+  }
+  h+=`</div>`;return h;
+}
+function rBarracks(){
+  let h=`<div style="padding:4px 0"><div style="font-size:12px;color:#888;margin:4px 0">总兵力 ${totalSoldiers()} | 兵团上限 ${regMax()}人/团</div>`;
+  for(const[k,c] of Object.entries(CFG.units)){
+    const ow=S.pool[k]||0,av=poolAvail(k),lk=k==='mage'&&!S.mageOk;
+    const tm=maxTrainable(k),disabled=tm<=0?'disabled':'',lock=trainLockReason(k);
+    h+=`<div class="card" style="${lk?'opacity:.5':''}">
+      <div style="display:flex;align-items:center;gap:8px">
+        <span>${pix(c.icon,'lg')}</span>
+        <div style="flex:1"><strong>${c.name}</strong> <span style="font-size:10px;color:#888">[${c.race}]</span>
+          <div style="font-size:10px;color:#777">${c.passive} | ATK:${c.atk} DEF:${c.def}</div>
+          <div style="font-size:10px;color:#666">${costHtml(c.cost)}/人</div>
+          <div style="font-size:11px;color:#40bf80">拥有:${ow}人 可用:${av}人</div>
+          ${lk?`<div style="color:#e06060;font-size:10px">${pix('lock','mini')} 击败第5个敌人</div>`:
+          `<div style="margin-top:2px;display:flex;gap:4px">
+            <button class="btn btn-go btn-xs" onclick="train('${k}',1)">+1</button>
+            <button class="btn btn-go btn-xs" onclick="train('${k}',5)">+5</button>
+            <button class="btn btn-go btn-xs" onclick="train('${k}',10)">+10</button>
+            <button class="btn btn-ghost btn-xs" onclick="dismiss('${k}')" ${ow<=0?'disabled':''}>-1</button>
+          </div>
+          <div class="train-custom">
+            <input id="train-barracks-${k}" type="text" inputmode="numeric" pattern="[0-9]*" value="1">
+            <button class="btn btn-go btn-xs" onclick="trainCustom('${k}','train-barracks-${k}')">训练</button>
+            <button class="btn btn-ghost btn-xs" onclick="trainMax('${k}','train-barracks-${k}')">MAX</button>
+          </div>`}
+        </div>
+      </div></div>`;
+  }
+  h+=`</div>`;return h;
+}
+function rBarracks(){
+  let h=`<div style="padding:4px 0"><div style="font-size:12px;color:#888;margin:4px 0">\u603b\u5175\u529b ${totalSoldiers()} | \u5175\u56e2\u4e0a\u9650 ${regMax()}\u4eba/\u56e2</div>`;
+  for(const[k,c] of Object.entries(CFG.units)){
+    const ow=S.pool[k]||0,av=poolAvail(k),lock=trainLockReason(k);
+    const tm=maxTrainable(k),disabled=tm<=0?'disabled':'',muted=lock?'opacity:.55':'';
+    h+=`<div class="card" style="${muted}">
+      <div style="display:flex;align-items:center;gap:8px">
+        <span>${pix(c.icon,'lg')}</span>
+        <div style="flex:1;min-width:0"><strong>${c.name}</strong> <span style="font-size:10px;color:#888">[${c.race}]</span>
+          <div style="font-size:10px;color:#777">${c.passive} | ATK:${c.atk} DEF:${c.def}</div>
+          <div style="font-size:10px;color:#666">${costHtml(c.cost)}/\u4eba</div>
+          <div class="econ-note">${trainBuildingLabel(k)} | ${reserveHtml(k)}${lock?`<br><span class="limit-warn">${pix('lock','mini')}${lock}</span>`:''}</div>
+          <div style="font-size:11px;color:#40bf80">\u62e5\u6709:${ow}\u4eba | \u53ef\u7f16\u5165:${av}\u4eba</div>
+          ${lock?'':
+          `<div style="margin-top:2px;display:flex;gap:4px;flex-wrap:wrap">
+            <button class="btn btn-go btn-xs" onclick="train('${k}',1)" ${disabled}>+1</button>
+            <button class="btn btn-go btn-xs" onclick="train('${k}',5)" ${disabled}>+5</button>
+            <button class="btn btn-go btn-xs" onclick="train('${k}',10)" ${disabled}>+10</button>
+            <button class="btn btn-ghost btn-xs" onclick="dismiss('${k}')" ${ow<=0?'disabled':''}>-1</button>
+          </div>
+          <div class="train-custom">
+            <input id="train-barracks-${k}" type="text" inputmode="numeric" pattern="[0-9]*" value="1">
+            <button class="btn btn-go btn-xs" onclick="trainCustom('${k}','train-barracks-${k}')" ${disabled}>\u8bad\u7ec3</button>
+            <button class="btn btn-ghost btn-xs" onclick="trainMax('${k}','train-barracks-${k}')" ${disabled}>MAX</button>
+          </div>`}
+        </div>
+      </div></div>`;
+  }
+  h+=`</div>`;return h;
+}
+function rFight(){
+  let h=`<div style="padding:4px 0"><div class="card"><h3>${pix('army','card-pix')}出战阵容 (${formCnt()}/${CFG.formSlots}团 | 上限${regMax()}人/团)</h3>`;
+  const rs=[{k:'front',n:'前排(承伤)',c:'r1'},{k:'mid',n:'中排(输出)',c:'r2'},{k:'back',n:'后排(远程)',c:'r3'}];
+  for(const r of rs){
+    h+=`<div class="form-row ${r.c}"><div class="ftitle">${r.n} (${S.formation[r.k].length}/${CFG.maxRows[r.k]})</div>`;
+    if(!S.formation[r.k].length){
+      h+=`<span class="form-slot" onclick="openFormModal('${r.k}',0)">+ 空位</span>`;
+    }else{
+      S.formation[r.k].forEach((u,i)=>{
+        const av=poolAvail(u.type);
+        const mx=Math.min(av, regMax()-u.count);
+        h+=`<span class="form-slot filled" style="position:relative">
+          <span onclick="rmForm('${r.k}',${i})" style="position:absolute;top:-6px;right:-4px;cursor:pointer;z-index:1">${pix('close','mini')}</span>
+          <div onclick="openFormModal('${r.k}',${i})">${pix(CFG.units[u.type].icon,'sm')}${CFG.units[u.type].name}<br>
+          <span style="font-size:10px;color:#f0d060">${u.count}人</span></div>
+          <div class="qty-ctrl" style="margin-top:3px;gap:2px">
+            <button onpointerdown="startLongPress('${r.k}',${i},-1)" onpointerup="stopLongPress()" onpointerleave="stopLongPress()" onpointercancel="stopLongPress()" style="width:24px;height:24px;border-radius:50%;border:1px solid #555;background:#1a1a2e;color:#e0e0e0;font-size:14px;cursor:pointer;touch-action:manipulation">−</button>
+            <span style="min-width:24px;font-size:12px;color:#f0d060">${u.count}</span>
+            <button onpointerdown="startLongPress('${r.k}',${i},1)" onpointerup="stopLongPress()" onpointerleave="stopLongPress()" onpointercancel="stopLongPress()" style="width:24px;height:24px;border-radius:50%;border:1px solid #555;background:#1a1a2e;color:#e0e0e0;font-size:14px;cursor:pointer;touch-action:manipulation">+</button>
+            ${mx>0?`<button onclick="event.stopPropagation();adjForm('${r.k}',${i},${mx})" style="font-size:9px;padding:2px 6px;border-radius:8px;border:1px solid #40bf80;background:#1a2e1a;color:#40bf80;cursor:pointer">MAX</button>`:''}
+            <button onclick="event.stopPropagation();rmForm('${r.k}',${i})" style="font-size:9px;padding:2px 6px;border-radius:8px;border:1px solid #e06060;background:#2e1a1a;color:#e06060;cursor:pointer">移除</button>
+          </div></span>`;
+      });
+      if(S.formation[r.k].length<CFG.maxRows[r.k])h+=`<span class="form-slot" onclick="openFormModal('${r.k}',${S.formation[r.k].length})">+ 空位</span>`;
+    }
+    h+=`</div>`;
+  }
+  h+=`<button class="btn btn-ghost btn-sm" onclick="clrForm()">清空阵容</button></div>`;
+  h+=`<div class="card"><h3>${pix('enemy','card-pix')}敌人</h3>`;
+  for(let i=0;i<CFG.enemies.length;i++){
+    const e=CFG.enemies[i],df=S.defeated.includes(e.id),av=i===0||S.defeated.includes(CFG.enemies[i-1]?.id);
+    const enemyInfo=Object.entries(e.units).map(([k,counts])=>counts.map(c=>`${pix(CFG.units[k].icon,'mini')}${c}`).join(' ')).join(' | ');
+    h+=`<div style="padding:6px 0;border-bottom:1px solid #1e1e2e;cursor:pointer;${S.selEnemy===i?'background:#1e1e2e;margin:0 -12px;padding:6px 12px;border-radius:4px':''}" onclick="selEnemy(${i})">
+      <strong>${e.name}</strong> ${df?pix('check','mini'):''} ${e.boss?pix('boss','mini'):''}
+      <div style="font-size:10px;color:#777">${e.desc} [${enemyInfo}]</div>
+      ${av?'':`<span style="color:#e06060;font-size:10px">${pix('lock','mini')} 先击败上一个</span>`}
+    </div>`;
+  }
+  h+=`</div><button class="btn btn-go" style="width:100%;margin-top:8px;padding:12px;font-size:15px" onclick="openBattle()">${pix('battle','sm')}开战</button></div></div>`;
+  return h;
+}
+function rLog(){
+  let h=`<div style="padding:4px 0"><div class="card"><h3>${pix('log','card-pix')}事件日志</h3><div style="max-height:500px;overflow-y:auto;font-size:11px;line-height:1.8">`;
+  const l=[...S.log].reverse();
+  if(!l.length)h+=`<div style="color:#666">暂无</div>`;
+  else for(const e of l)h+=`<span style="color:#555">[${e.time}]</span> ${e.msg}<br>`;
+  h+=`</div></div>`;
+  h+=`<button class="btn btn-danger btn-sm" onclick="if(confirm('重置?')){localStorage.clear();location.reload()}">${pix('reset','mini')}重置</button></div>`;
+  return h;
+}
+
+function addLog(msg){S.log.push({time:new Date().toLocaleTimeString(),msg});if(S.log.length>200)S.log.splice(0,S.log.length-200)}
+function toast(msg){const e=document.createElement('div');e.className='toast';e.textContent=msg;document.body.appendChild(e);setTimeout(()=>e.remove(),2000)}
+
+// 长按加速
+let _lpTimer=null,_lpRow=null,_lpIdx=null,_lpDir=null;
+function startLongPress(row,idx,dir){
+  _lpRow=row;_lpIdx=idx;_lpDir=dir;
+  adjForm(row,idx,dir);
+  _lpTimer=setTimeout(()=>{
+    _lpTimer=setInterval(()=>{adjForm(row,idx,dir);},80);
+  },400);
+}
+function stopLongPress(){
+  if(_lpTimer){clearTimeout(_lpTimer);clearInterval(_lpTimer);_lpTimer=null;}
+  _lpRow=_lpIdx=_lpDir=null;
+}
+
+let _modalLpTimer=null;
+function startModalLongPress(dir){
+  adjQty(dir);
+  stopModalLongPress();
+  _modalLpTimer=setTimeout(()=>{
+    _modalLpTimer=setInterval(()=>adjQty(dir),80);
+  },400);
+}
+function stopModalLongPress(){
+  if(_modalLpTimer){
+    clearTimeout(_modalLpTimer);
+    clearInterval(_modalLpTimer);
+    _modalLpTimer=null;
+  }
+}
+
+// ==================== 导航 ====================
+document.querySelectorAll('.nav-btn').forEach(b=>{
+  b.addEventListener('click',()=>{
+    document.querySelectorAll('.nav-btn').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on');S.page=b.dataset.page;updateUI();
+  });
+});
+
+// ==================== init ====================
+injectPixelIcons();
+load();
+if(S.defeated.length<CFG.enemies.length&&S.selEnemy===null)S.selEnemy=S.defeated.length;
+if(S.selEnemy===null)S.selEnemy=CFG.enemies.length-1;
+updateUI();
+setInterval(tick,CFG.tickMs);
+addLog('欢迎！');
+</script>
+</body>
+</html>
