@@ -122,8 +122,8 @@ function rBarracks(){
             <button class="btn btn-go btn-xs" onclick="train('${k}',1)" ${disabled}>+1</button>
             <button class="btn btn-go btn-xs" onclick="train('${k}',5)" ${disabled}>+5</button>
             <button class="btn btn-go btn-xs" onclick="train('${k}',10)" ${disabled}>+10</button>
-            <button class="btn btn-ghost btn-xs" onclick="dismiss('${k}')" ${ow<=0?'disabled':''}>-1</button>
-            <button class="btn btn-ghost btn-xs" onclick="dismissN('${k}',10)" ${ow<=0&&queueTotal(k)<=0?'disabled':''}>-10</button>
+            <button class="btn btn-ghost btn-xs" onclick="dismiss('${k}')">-1</button>
+            <button class="btn btn-ghost btn-xs" onclick="dismissN('${k}',10)">-10</button>
           </div>
           <div class="train-custom">
             <input id="train-barracks-${k}" type="text" inputmode="numeric" pattern="[0-9]*" value="1">
