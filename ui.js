@@ -213,7 +213,7 @@ function rBuild(){
 function rBarracks(){
   let h=`<div style="padding:4px 0"><div style="font-size:12px;color:#888;margin:4px 0">\u603b\u5175\u529b ${totalSoldiers()} | \u5175\u56e2\u4e0a\u9650 ${regMax()}\u4eba/\u56e2</div>`;
   for(const[k,c] of Object.entries(CFG.units)){
-    const ow=S.pool[k]||0,av=poolAvail(k),lock=trainLockReason(k);
+    const ow=S.pool[k]||0,av=deployAvail(k),lock=trainLockReason(k);
     const tm=maxTrainable(k),disabled=tm<=0?'disabled':'',muted=lock?'opacity:.55':'';
     h+=`<div class="card" style="${muted}">
       <div style="display:flex;align-items:center;gap:8px">
@@ -244,7 +244,7 @@ function rFight(){
       h+=`<span class="form-slot" onclick="openFormModal('${r.k}',0)">+ 空位</span>`;
     }else{
       S.formation[r.k].forEach((u,i)=>{
-        const av=poolAvail(u.type);
+        const av=deployAvail(u.type);
         const mx=Math.min(av, regMax()-u.count);
         h+=`<span class="form-slot filled" style="position:relative">
           <span onclick="rmForm('${r.k}',${i})" style="position:absolute;top:-6px;right:-4px;cursor:pointer;z-index:1">${pix('close','mini')}</span>
@@ -287,9 +287,9 @@ function rLog(){
   else for(const e of l)h+=`<span style="color:#555">[${e.time}]</span> ${e.msg}<br>`;
   h+=`</div></div>
   <div class="card"><h3>${pix('build','card-pix')}测试工具</h3>
-    <div class="train-custom" style="margin:4px 0"><span style="width:40px">木材</span><input id="test-wood" type="text" inputmode="numeric" pattern="[0-9]*" value="100" style="width:70px"><button class="btn btn-go btn-xs" onclick="addRes('wood','test-wood')">添加</button></div>
-    <div class="train-custom" style="margin:4px 0"><span style="width:40px">石料</span><input id="test-stone" type="text" inputmode="numeric" pattern="[0-9]*" value="100" style="width:70px"><button class="btn btn-go btn-xs" onclick="addRes('stone','test-stone')">添加</button></div>
-    <div class="train-custom" style="margin:4px 0"><span style="width:40px">食物</span><input id="test-food" type="text" inputmode="numeric" pattern="[0-9]*" value="100" style="width:70px"><button class="btn btn-go btn-xs" onclick="addRes('food','test-food')">添加</button></div>
+    <div class="train-custom" style="margin:4px 0"><span style="width:40px">木材</span><input id="test-wood" type="text" inputmode="numeric" pattern="[0-9]*" value="1000" style="width:70px"><button class="btn btn-go btn-xs" onclick="addRes('wood','test-wood')">添加</button></div>
+    <div class="train-custom" style="margin:4px 0"><span style="width:40px">石料</span><input id="test-stone" type="text" inputmode="numeric" pattern="[0-9]*" value="1000" style="width:70px"><button class="btn btn-go btn-xs" onclick="addRes('stone','test-stone')">添加</button></div>
+    <div class="train-custom" style="margin:4px 0"><span style="width:40px">食物</span><input id="test-food" type="text" inputmode="numeric" pattern="[0-9]*" value="1000" style="width:70px"><button class="btn btn-go btn-xs" onclick="addRes('food','test-food')">添加</button></div>
   </div>
   <button class="btn btn-danger btn-sm" onclick="if(confirm('重置?')){localStorage.clear();location.reload()}">${pix('reset','mini')}重置</button></div>`;
   return h;

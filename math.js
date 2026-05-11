@@ -75,7 +75,7 @@ const CFG = {
     {id:1,name:'侦察兵小队',desc:'前排步兵试探，步兵扛线弓兵输出',units:{infantry:[1,1]},reward:{wood:120,stone:90,food:80}},
     {id:2,name:'弓兵巡逻队',desc:'步弓混编，考验前后排配置',units:{infantry:[1,1],archer:[1,1]},reward:{wood:200,stone:150,food:130}},
     {id:3,name:'步兵方阵',desc:'重步兵推进，弓兵集火削血',units:{infantry:[2,1]},reward:{wood:280,stone:200,food:180}},
-    {id:99,name:'守关校尉',desc:'BOSS·步弓混编重兵，考验基本战术',units:{infantry:[3,2],archer:[2,2]},boss:true,bossMult:{atk:1.3,def:1.25},reward:{wood:800,stone:600,food:500}},
+    {id:99,name:'守关校尉',desc:'BOSS·步弓混编重兵，考验基本战术',units:{infantry:[2,1],archer:[1,2]},boss:true,bossMult:{atk:1.3,def:1.25},reward:{wood:800,stone:600,food:500}},
     // === 第二章：解锁骑兵 (1 Boss) ===
     {id:4,name:'骑兵侦察队',desc:'敌方骑兵出现，步兵前排抵御',units:{cavalry:[1,1],infantry:[2]},reward:{wood:350,stone:280,food:230}},
     {id:5,name:'骑步混编',desc:'骑兵冲击后排，布好前中排',units:{cavalry:[2,1],infantry:[2],archer:[1]},reward:{wood:450,stone:350,food:300}},
@@ -93,7 +93,7 @@ let S = {
   pool:{infantry:0,archer:0,cavalry:0,spearman:0,mage:0},
   formation:{front:[],mid:[],back:[]},
   townLv:1,
-  popAlloc:{wood:5,stone:3,food:2},
+  popAlloc:{wood:3,stone:3,food:4},
   defeated:[],
   mageOk:false,
   log:[],
@@ -230,11 +230,17 @@ function reserveHtml(uk){
 }
 function totalSoldiers(){
   let n=0;for(const v of Object.values(S.pool)) n+=v;
-  for(const row of['front','mid','back']) for(const u of S.formation[row]) n+=u.count;
   return n;
 }
 function formCnt(){return S.formation.front.length+S.formation.mid.length+S.formation.back.length}
 function poolAvail(uk){ return S.pool[uk]||0; }
+function deployAvail(uk){
+  let dep=0;
+  for(const row of['front','mid','back']){
+    for(const u of S.formation[row])if(u.type===uk)dep+=u.count;
+  }
+  return Math.max(0,(S.pool[uk]||0)-dep);
+}
 function rowSlots(row){
   const boss=bossDefeatedCount();
   if(row==='front') return 1+(boss>=1?1:0);
@@ -440,7 +446,7 @@ function openFormModal(row,idx){
   let hasAny=false;
   for(const[k,c] of Object.entries(CFG.units)){
     if(k==='mage'&&!mageOk())continue;
-    const av=poolAvail(k);
+    const av=deployAvail(k);
     if(av<=0)continue;
     hasAny=true;
     // 检查该排是否已有此兵种兵团
@@ -503,7 +509,7 @@ function confirmForm(){
   if(!S._formModalSel||!formModalTarget)return;
   const type=S._formModalSel,row=formModalTarget.row,idx=formModalTarget.idx;
   const qty=S._formModalQty;
-  if(qty<=0||poolAvail(type)<qty){toast('可用人数不足');return}
+  if(qty<=0||deployAvail(type)<qty){toast('可用人数不足');return}
   const target=S.formation[row][idx];
   if(target&&target.type===type){
     if(target.count+qty>regMax()){toast(`超过兵团上限${regMax()}人`);return}
@@ -513,7 +519,6 @@ function confirmForm(){
     if(qty>regMax()){toast(`超过兵团上限${regMax()}人`);return}
     S.formation[row].push({type,count:qty,id:Date.now()+Math.random()});
   }
-  S.pool[type]-=qty; // 从军营扣除
   closeFormModal();
   updateUI();
 }
@@ -567,7 +572,6 @@ document.getElementById('unit-detail-modal').addEventListener('click',function(e
 function rmForm(row,idx){
   const u=S.formation[row][idx];
   if(!u)return;
-  S.pool[u.type]=(S.pool[u.type]||0)+u.count; // 归还军营
   S.formation[row].splice(idx,1);
   updateUI();
 }
@@ -577,9 +581,7 @@ function adjForm(row,idx,d){
   if(!u)return;
   const nv=u.count+d;
   if(d>0 && nv>regMax()){toast(`兵团上限${regMax()}`);return}
-  if(d>0 && poolAvail(u.type)<d){toast('可用人数不足');return}
-  if(d>0) S.pool[u.type]-=d;  // 从军营扣除
-  if(d<0) S.pool[u.type]+=(-d); // 归还军营
+  if(d>0 && deployAvail(u.type)<d){toast('可用人数不足');return}
   if(nv<=0){S.formation[row].splice(idx,1);updateUI();return}
   u.count=nv;
   updateUI();
@@ -589,23 +591,14 @@ function useLastFormation(){
   if(!S._lastForm){toast('没有上次阵容记录');return}
   const hasAny=S._lastForm.front.length+S._lastForm.mid.length+S._lastForm.back.length>0;
   if(!hasAny){toast('上次阵容为空');return}
-  const avail={};
-  for(const[k] of Object.entries(CFG.units))avail[k]=S.pool[k]||0;
-  for(const row of['front','mid','back']){
-    for(const u of S.formation[row])avail[u.type]=(avail[u.type]||0)+u.count;
-  }
   const need={};
   for(const row of['front','mid','back']){
     for(const u of S._lastForm[row])need[u.type]=(need[u.type]||0)+u.count;
   }
   for(const[t,n] of Object.entries(need)){
-    if((avail[t]||0)<n){toast(`${CFG.units[t].name}不足: 需${n} 可用${avail[t]}`);return}
-  }
-  for(const row of['front','mid','back']){
-    for(const u of S.formation[row])S.pool[u.type]=(S.pool[u.type]||0)+u.count;
+    if((S.pool[t]||0)<n){toast(`${CFG.units[t].name}不足: 需${n} 可用${S.pool[t]||0}`);return}
   }
   S.formation=JSON.parse(JSON.stringify(S._lastForm));
-  for(const[t,n] of Object.entries(need))S.pool[t]-=n;
   save();updateUI();
 }
 
@@ -642,14 +635,13 @@ function fleeBattle(){
   document.getElementById('topbar').classList.remove('paused');
   document.getElementById('main').classList.remove('paused');
   document.getElementById('battle-result').style.display='none';
-  S.pool=S._prePool; S.formation=S._preForm;
+  S.formation=S._preForm;
   addLog('逃离战斗'); save(); updateUI();
 }
 
 function initBattleState(){
   const e=CFG.enemies[S.selEnemy];
   const tkey='steady'; // 战术归入英雄技能系统(P3)
-  S._prePool=JSON.parse(JSON.stringify(S.pool));
   S._preForm=JSON.parse(JSON.stringify(S.formation));
   S._lastForm=JSON.parse(JSON.stringify(S.formation));
   B.tactic=CFG.tactics[tkey]; B.enemyCfg=e;
