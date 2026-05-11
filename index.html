@@ -419,8 +419,7 @@ body{
 const CFG = {
   tickMs: 1000,
   campBase: 0,
-  formSlots: 9,
-  maxRows: {front:3, mid:3, back:3},
+  maxRows: {front:1, mid:1, back:1},
   battleTimeoutMs: 10*60*1000,
   initRegMax: 100,
   chapterResourceLevels: 10,
@@ -447,7 +446,7 @@ const CFG = {
     lumber_mill:{name:'伐木场',buffRes:'wood',buffBase:0.15,buffPerLv:0.2, build:{wood:15,stone:8,food:5,time:4}, upBase:{wood:8,stone:5,food:3}, upCostLv:1.45},
     quarry:{name:'采石场',buffRes:'stone',buffBase:0.15,buffPerLv:0.2, build:{wood:5,stone:12,food:4,time:4}, upBase:{wood:5,stone:8,food:3}, upCostLv:1.45},
     farm:{name:'农田',buffRes:'food',buffBase:0.15,buffPerLv:0.2, build:{wood:8,stone:4,food:12,time:4}, upBase:{wood:6,stone:3,food:8}, upCostLv:1.45},
-    barracks:{name:'营帐',build:{wood:30,stone:20,food:10,time:6}, upBase:{wood:22,stone:18,food:10}, upCostLv:1.85, regBonus:20},
+    barracks:{name:'营帐',build:{wood:30,stone:20,food:10,time:6}, upBase:{wood:22,stone:18,food:10}, upCostLv:1.85},
     infantry_camp:{name:'步兵营',trains:'infantry',reserveBase:12,reserveBonus:18,build:{wood:18,stone:10,food:8,time:5},upBase:{wood:16,stone:10,food:8},upCostLv:1.7},
     archer_range:{name:'射手靶场',trains:'archer',reserveBase:10,reserveBonus:15,build:{wood:24,stone:10,food:10,time:6},upBase:{wood:20,stone:10,food:10},upCostLv:1.75},
     stable:{name:'兽栏',trains:'cavalry',reserveBase:8,reserveBonus:12,needBoss:1,build:{wood:22,stone:16,food:18,time:7},upBase:{wood:20,stone:15,food:16},upCostLv:1.8},
@@ -458,15 +457,15 @@ const CFG = {
 
   units: {
     infantry:{name:'步兵',race:'人族',row:'front',icon:'infantry',
-      cost:{wood:5,stone:2,food:4}, atk:120,def:8,spd:10, passive:'格挡8%'},
+      cost:{wood:5,stone:2,food:4}, upkeep:0.01, atk:120,def:8,spd:10, passive:'格挡8%'},
     archer:{name:'弓兵',race:'精灵',row:'back',icon:'archer',
-      cost:{wood:8,stone:2,food:3}, atk:160,def:4,spd:12, passive:'基础MISS20%，打骑兵50%'},
+      cost:{wood:8,stone:2,food:3}, upkeep:0.01, atk:160,def:4,spd:12, passive:'基础MISS20%，打骑兵50%'},
     cavalry:{name:'骑兵',race:'兽人',row:'front',icon:'cavalry',
-      cost:{wood:4,stone:3,food:8}, atk:140,def:6,spd:14, passive:'吸血8%'},
+      cost:{wood:4,stone:3,food:8}, upkeep:0.02, atk:140,def:6,spd:14, passive:'吸血8%'},
     spearman:{name:'枪兵',race:'亡灵',row:'mid',icon:'spearman',
-      cost:{wood:3,stone:6,food:4}, atk:130,def:7,spd:11, passive:'破甲10%'},
+      cost:{wood:3,stone:6,food:4}, upkeep:0.01, atk:130,def:7,spd:11, passive:'破甲10%'},
     mage:{name:'法师',race:'亡灵',row:'back',icon:'mage',
-      cost:{wood:8,stone:6,food:8}, atk:220,def:2,spd:8, passive:'互易伤1.3x',locked:true}
+      cost:{wood:8,stone:6,food:8}, upkeep:0.015, atk:220,def:2,spd:8, passive:'互易伤1.3x',locked:true}
   },
 
   counters: {
@@ -490,20 +489,19 @@ const CFG = {
 
   enemies: [
     // === 第一章：仅步兵+弓兵 (0 Boss) ===
-    {id:1,name:'侦察兵小队',desc:'前排步兵试探，步兵扛线弓兵输出',units:{infantry:[22,18]},reward:{wood:25,stone:18,food:15}},
-    {id:2,name:'弓兵巡逻队',desc:'步弓混编，考验前后排配置',units:{infantry:[26,20],archer:[20,16]},reward:{wood:40,stone:30,food:25}},
-    {id:3,name:'步兵方阵',desc:'重步兵推进，弓兵集火削血',units:{infantry:[38,32]},reward:{wood:55,stone:40,food:35}},
-    {id:99,name:'守关校尉',desc:'BOSS·步弓混编重兵，考验基本战术',units:{infantry:[70,55],archer:[50,40]},boss:true,bossMult:{atk:1.3,def:1.25},reward:{wood:150,stone:120,food:100}},
+    {id:1,name:'侦察兵小队',desc:'前排步兵试探，步兵扛线弓兵输出',units:{infantry:[12,10]},reward:{wood:12,stone:9,food:8}},
+    {id:2,name:'弓兵巡逻队',desc:'步弓混编，考验前后排配置',units:{infantry:[14,12],archer:[10,8]},reward:{wood:20,stone:15,food:13}},
+    {id:3,name:'步兵方阵',desc:'重步兵推进，弓兵集火削血',units:{infantry:[22,18]},reward:{wood:28,stone:20,food:18}},
+    {id:99,name:'守关校尉',desc:'BOSS·步弓混编重兵，考验基本战术',units:{infantry:[35,28],archer:[25,20]},boss:true,bossMult:{atk:1.3,def:1.25},reward:{wood:80,stone:60,food:50}},
     // === 第二章：解锁骑兵 (1 Boss) ===
-    {id:4,name:'骑兵侦察队',desc:'敌方骑兵出现，步兵前排抵御',units:{cavalry:[30,24],infantry:[28,22]},reward:{wood:70,stone:55,food:45}},
-    {id:5,name:'骑步混编',desc:'骑兵冲击后排，布好前中排',units:{cavalry:[40,34],infantry:[34,28],archer:[22]},reward:{wood:90,stone:70,food:60}},
-    {id:98,name:'骑兵统领',desc:'BOSS·骑兵主力，枪兵克制关键',units:{cavalry:[80,65],infantry:[55,44],archer:[40,32]},boss:true,bossMult:{atk:1.35,def:1.3},reward:{wood:200,stone:160,food:140}},
+    {id:4,name:'骑兵侦察队',desc:'敌方骑兵出现，步兵前排抵御',units:{cavalry:[15,12],infantry:[14,11]},reward:{wood:35,stone:28,food:23}},
+    {id:5,name:'骑步混编',desc:'骑兵冲击后排，布好前中排',units:{cavalry:[20,17],infantry:[17,14],archer:[12]},reward:{wood:45,stone:35,food:30}},
+    {id:98,name:'骑兵统领',desc:'BOSS·骑兵主力，枪兵克制关键',units:{cavalry:[40,33],infantry:[28,22],archer:[20,16]},boss:true,bossMult:{atk:1.35,def:1.3},reward:{wood:100,stone:80,food:70}},
     // === 第三章：解锁枪兵+法师 (2 Boss) ===
-    {id:6,name:'枪兵方阵',desc:'敌方枪兵出现，反骑破甲',units:{spearman:[48,40],infantry:[30,24]},reward:{wood:110,stone:95,food:80}},
-    {id:7,name:'法师小队',desc:'敌方法师高伤脆皮，骑兵切后',units:{mage:[35,28],infantry:[32,26],spearman:[30]},reward:{wood:130,stone:110,food:95}},
-    {id:97,name:'混编将军',desc:'BOSS·四兵种齐全，多兵种协同破阵',units:{infantry:[80,64],archer:[55,44],cavalry:[60,48],spearman:[50,40],mage:[35]},boss:true,bossMult:{atk:1.4,def:1.35},reward:{wood:260,stone:220,food:190}}
-  ]
-};
+    {id:6,name:'枪兵方阵',desc:'敌方枪兵出现，反骑破甲',units:{spearman:[24,20],infantry:[15,12]},reward:{wood:55,stone:48,food:40}},
+    {id:7,name:'法师小队',desc:'敌方法师高伤脆皮，骑兵切后',units:{mage:[18,14],infantry:[16,13],spearman:[15]},reward:{wood:65,stone:55,food:48}},
+    {id:97,name:'混编将军',desc:'BOSS·四兵种齐全，多兵种协同破阵',units:{infantry:[40,32],archer:[28,22],cavalry:[30,24],spearman:[25,20],mage:[18]},boss:true,bossMult:{atk:1.4,def:1.35},reward:{wood:130,stone:110,food:95}}
+  ]};
 
 // ==================== 像素图标 ====================
 const PIX_SPRITES = {
@@ -626,10 +624,7 @@ function upgradeLockReason(key){
   }
   return '';
 }
-function regMax(){
-  const s=bldSt('barracks');
-  return s.state==='idle'&&s.lv>0?CFG.initRegMax+s.lv*CFG.buildings.barracks.regBonus:CFG.initRegMax;
-}
+function regMax(){ return 100; }
 function trainBuildingKey(uk){
   return Object.keys(CFG.buildings).find(k=>CFG.buildings[k].trains===uk)||null;
 }
@@ -677,6 +672,23 @@ function totalSoldiers(){
 }
 function formCnt(){return S.formation.front.length+S.formation.mid.length+S.formation.back.length}
 function poolAvail(uk){ return S.pool[uk]||0; }
+function rowSlots(row){
+  const boss=bossDefeatedCount();
+  if(row==='front') return 1+(boss>=1?1:0);
+  if(row==='mid') return 1+(boss>=2?1:0);
+  return 1;
+}
+function formSlots(){ return rowSlots('front')+rowSlots('mid')+rowSlots('back'); }
+function totalUpkeep(){
+  let up=0;
+  for(const[k,c] of Object.entries(CFG.units)){
+    up+=(S.pool[k]||0)*(c.upkeep||0);
+    for(const row of['front','mid','back']){
+      for(const u of S.formation[row]){ if(u.type===k) up+=u.count*(c.upkeep||0); }
+    }
+  }
+  return up;
+}
 function cm(atk,def){return CFG.counters[atk][def]||1.0}
 function mm(atk,def){
   if(atk==='mage'&&def!=='mage')return CFG.counters.mage[def];
@@ -719,7 +731,12 @@ function tick(){
   if(ch)save();
   const cap=storageCapacity();
   for(const rk of Object.keys(CFG.res)){
-    S.res[rk]=Math.min(S.res[rk]+prodRate(rk), cap);
+    if(rk==='food'){
+      S.res[rk]=Math.min(S.res[rk]+prodRate(rk)-totalUpkeep(), cap);
+      if(S.res[rk]<0)S.res[rk]=0;
+    }else{
+      S.res[rk]=Math.min(S.res[rk]+prodRate(rk), cap);
+    }
   }
   if(S.tick%60===0)save();
   updateUI();
@@ -894,7 +911,7 @@ function confirmForm(){
     if(target.count+qty>regMax()){toast(`超过兵团上限${regMax()}人`);return}
     target.count+=qty;
   } else {
-    if(formCnt()>=CFG.formSlots){toast('阵容已满');return}
+    if(formCnt()>=formSlots()){toast('阵容已满');return}
     if(qty>regMax()){toast(`超过兵团上限${regMax()}人`);return}
     S.formation[row].push({type,count:qty,id:Date.now()+Math.random()});
   }
@@ -1269,9 +1286,10 @@ function updateUI(){
   document.getElementById('res-pop').textContent=popAllocTotal()+'/'+maxPop();
   document.getElementById('cap-wood').textContent='/'+cap;
   document.getElementById('cap-stone').textContent='/'+cap;
-  document.getElementById('cap-food').textContent='/'+cap;
+  const netFood=prodRate('food')-totalUpkeep();
+  document.getElementById('cap-food').textContent=(netFood>=0?'+':'')+netFood.toFixed(1)+'/秒';
   document.getElementById('cap-pop').textContent='';
-  const woodFull=wood>=cap,stoneFull=stone>=cap,foodFull=food>=cap;
+  const woodFull=wood>=cap,stoneFull=stone>=cap,foodFull=food>=cap||(food<=0&&netFood<0);
   document.getElementById('res-wood').style.color=woodFull?'#e06060':'#f0d060';
   document.getElementById('res-stone').style.color=stoneFull?'#e06060':'#f0d060';
   document.getElementById('res-food').style.color=foodFull?'#e06060':'#f0d060';
@@ -1303,8 +1321,9 @@ function rHome(){
     h+=`<button class="btn btn-ghost btn-xs" onclick="setPopAlloc('${k}',(S.popAlloc['${k}']||0)-1)" ${alloc<=0?"disabled":""}>−</button>`;
     h+=`<span style="width:28px;text-align:center;font-weight:bold;color:#f0d060">${alloc}</span>`;
     h+=`<button class="btn btn-ghost btn-xs" onclick="setPopAlloc('${k}',(S.popAlloc['${k}']||0)+1)" ${popFree()<=0?"disabled":""}>+</button>`;
-    h+=`<span style="color:#40bf80;margin-left:auto">${rate.toFixed(1)}/秒</span>`;
-    h+=`<span style="font-size:10px;color:#666">Buff ${buf>0?"+":""}${(buf*100).toFixed(0)}%</span>`;
+    const rawRate=k==='food'?rate-totalUpkeep():rate;
+    h+=`<span style="color:${rawRate>=0?'#40bf80':'#e06060'};margin-left:auto">${rawRate>=0?'+':''}${rawRate.toFixed(1)}/秒</span>`;
+    h+=`<span style="font-size:10px;color:#666">Buff ${buf>0?"+":""}${(buf*100).toFixed(0)}%${k==='food'?' | 军粮 -'+totalUpkeep().toFixed(1):''}</span>`;
     h+=`</div>`;
   }
   h+=`</div>`;
@@ -1330,7 +1349,7 @@ function rBuild(){
     const st=bldSt(key),locked=cfg.needBoss&&bossDefeatedCount()<cfg.needBoss,upLock=st.lv>0?upgradeLockReason(key):'';
     h+=`<div class="card" style="${locked||upLock?'opacity:.7':''}"><h3>`;
     h+=`${pix(key,'card-pix')}${cfg.name}`;if(st.state==='idle'&&st.lv>0)h+=` <span style="color:#f0d060">Lv.${st.lv}</span>`;
-    if(key==='barracks'&&st.state==='idle'&&st.lv>0)h+=` <span style="font-size:11px;color:#888">(\u5175\u56e2\u4e0a\u9650+${st.lv*cfg.regBonus}=${regMax()}\u4eba)</span>`;
+    if(key==='barracks'&&st.state==='idle'&&st.lv>0)h+=` <span style="font-size:11px;color:#888">(\u519b\u56e2\u4e0a\u9650${regMax()}\u4eba/\u683c)</span>`;
     if(key==='warehouse'&&st.state==='idle'&&st.lv>0)h+=` <span style="font-size:11px;color:#f0d060">\u5b58\u50a8\u4e0a\u9650 ${storageCapacity()}</span>`;
     h+=`</h3>`;
     if(cfg.trains){
@@ -1393,10 +1412,10 @@ function rBarracks(){
   h+=`</div>`;return h;
 }
 function rFight(){
-  let h=`<div style="padding:4px 0"><div class="card"><h3>${pix('army','card-pix')}出战阵容 (${formCnt()}/${CFG.formSlots}团 | 上限${regMax()}人/团)</h3>`;
+  let h=`<div style="padding:4px 0"><div class="card"><h3>${pix('army','card-pix')}出战阵容 (${formCnt()}/${formSlots()}团 | 上限${regMax()}人/团)</h3>`;
   const rs=[{k:'front',n:'前排(承伤)',c:'r1'},{k:'mid',n:'中排(输出)',c:'r2'},{k:'back',n:'后排(远程)',c:'r3'}];
   for(const r of rs){
-    h+=`<div class="form-row ${r.c}"><div class="ftitle">${r.n} (${S.formation[r.k].length}/${CFG.maxRows[r.k]})</div>`;
+    h+=`<div class="form-row ${r.c}"><div class="ftitle">${r.n} (${S.formation[r.k].length}/${rowSlots(r.k)})</div>`;
     if(!S.formation[r.k].length){
       h+=`<span class="form-slot" onclick="openFormModal('${r.k}',0)">+ 空位</span>`;
     }else{
@@ -1415,7 +1434,7 @@ function rFight(){
             <button onclick="event.stopPropagation();rmForm('${r.k}',${i})" style="font-size:9px;padding:2px 6px;border-radius:8px;border:1px solid #e06060;background:#2e1a1a;color:#e06060;cursor:pointer">移除</button>
           </div></span>`;
       });
-      if(S.formation[r.k].length<CFG.maxRows[r.k])h+=`<span class="form-slot" onclick="openFormModal('${r.k}',${S.formation[r.k].length})">+ 空位</span>`;
+      if(S.formation[r.k].length<rowSlots(r.k))h+=`<span class="form-slot" onclick="openFormModal('${r.k}',${S.formation[r.k].length})">+ 空位</span>`;
     }
     h+=`</div>`;
   }
