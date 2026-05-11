@@ -961,7 +961,10 @@ function clrForm(){S.formation={front:[],mid:[],back:[]};updateUI()}
 let battleTimer=null;
 let B={};
 
-function selEnemy(idx){S.selEnemy=idx;updateUI()}
+function selEnemy(idx){
+  if(idx!==0&&!S.defeated.includes(CFG.enemies[idx-1]?.id))return;
+  S.selEnemy=idx;updateUI();
+}
 
 function openBattle(){
   if(S.selEnemy===null||S.selEnemy===undefined){toast('请先选敌人');return}
@@ -1447,7 +1450,7 @@ function rFight(){
   for(let i=0;i<CFG.enemies.length;i++){
     const e=CFG.enemies[i],df=S.defeated.includes(e.id),av=i===0||S.defeated.includes(CFG.enemies[i-1]?.id);
     const enemyInfo=Object.entries(e.units).map(([k,counts])=>counts.map(c=>`${pix(CFG.units[k].icon,'mini')}${c}`).join(' ')).join(' | ');
-    h+=`<div style="padding:6px 0;border-bottom:1px solid #1e1e2e;cursor:pointer;${S.selEnemy===i?'background:#1e1e2e;margin:0 -12px;padding:6px 12px;border-radius:4px':''}" onclick="selEnemy(${i})">
+    h+=`<div style="padding:6px 0;border-bottom:1px solid #1e1e2e;${av?'cursor:pointer':''};opacity:${av?'1':'.55'};${S.selEnemy===i?'background:#1e1e2e;margin:0 -12px;padding:6px 12px;border-radius:4px':''}" ${av?`onclick="selEnemy(${i})"`:''}>
       <strong>${e.name}</strong> ${df?pix('check','mini'):''} ${e.boss?pix('boss','mini'):''}
       <div style="font-size:10px;color:#777">${e.desc} [${enemyInfo}]</div>
       ${av?'':`<span style="color:#e06060;font-size:10px">${pix('lock','mini')} 先击败上一个</span>`}
