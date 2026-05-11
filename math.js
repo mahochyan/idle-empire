@@ -664,10 +664,9 @@ function getTarget(attacker,enemyList){
   if(!isRanged(attacker.type) && attacker.row!=='front') return null;
 
   if(isRanged(attacker.type)){
-    // 远程：可越过前排，60%优先打中后排
-    const backAlive=alive.filter(u=>rows[u.row]>=1);
-    if(backAlive.length>0 && Math.random()<0.6){
-      return backAlive[Math.floor(Math.random()*backAlive.length)];
+    // 远程：60%命中前排（被前线阻挡）
+    if(front.length>0 && Math.random()<0.6){
+      return front[Math.floor(Math.random()*front.length)];
     }
     return alive[Math.floor(Math.random()*alive.length)];
   }
