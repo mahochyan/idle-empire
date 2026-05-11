@@ -11,7 +11,7 @@ const CFG = {
   res: {
     wood:{name:'木材',icon:'wood',basePerPop:0.5},
     stone:{name:'石料',icon:'stone',basePerPop:0.5},
-    food:{name:'食物',icon:'food',basePerPop:0.5}
+    food:{name:'食物',icon:'food',basePerPop:1}
   },
 
   town: [
