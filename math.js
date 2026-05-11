@@ -40,15 +40,15 @@ const CFG = {
 
   units: {
     infantry:{name:'步兵',race:'人族',row:'front',icon:'infantry',
-      cost:{wood:5,stone:2,food:4}, upkeep:0.1, atk:12,def:8,spd:10, passive:'格挡8%'},
+      cost:{wood:5,stone:2,food:4}, upkeep:0.1, trainTime:1, atk:12,def:8,spd:10, passive:'格挡8%'},
     archer:{name:'弓兵',race:'精灵',row:'back',icon:'archer',
-      cost:{wood:8,stone:2,food:3}, upkeep:0.2, atk:16,def:4,spd:12, passive:'基础MISS20%，打骑兵50%'},
+      cost:{wood:8,stone:2,food:3}, upkeep:0.2, trainTime:1, atk:16,def:4,spd:12, passive:'基础MISS20%，打骑兵50%'},
     cavalry:{name:'骑兵',race:'兽人',row:'front',icon:'cavalry',
-      cost:{wood:4,stone:3,food:8}, upkeep:0.2, atk:14,def:6,spd:14, passive:'吸血8%'},
+      cost:{wood:4,stone:3,food:8}, upkeep:0.2, trainTime:1, atk:14,def:6,spd:14, passive:'吸血8%'},
     spearman:{name:'枪兵',race:'亡灵',row:'mid',icon:'spearman',
-      cost:{wood:3,stone:6,food:4}, upkeep:0.1, atk:13,def:7,spd:11, passive:'破甲10%'},
+      cost:{wood:3,stone:6,food:4}, upkeep:0.1, trainTime:1, atk:13,def:7,spd:11, passive:'破甲10%'},
     mage:{name:'法师',race:'亡灵',row:'back',icon:'mage',
-      cost:{wood:8,stone:6,food:8}, upkeep:0.4, atk:22,def:2,spd:8, passive:'互易伤1.3x',locked:true}
+      cost:{wood:8,stone:6,food:8}, upkeep:0.4, trainTime:1, atk:22,def:2,spd:8, passive:'互易伤1.3x',locked:true}
   },
 
   counters: {
@@ -100,6 +100,7 @@ let S = {
   tick:0,
   page:'home',
   selEnemy:null,
+  queue:{},
   battleSpeed:1,
   battleActive:false
 };
@@ -172,6 +173,34 @@ function reserveMax(uk){
 function reserveLeft(uk){
   return Math.max(0,reserveMax(uk)-(S.pool[uk]||0));
 }
+function queueTotal(uk){
+  const q=S.queue[uk];
+  return q?q.count:0;
+}
+function queueMax(uk){
+  return reserveMax(uk)*10;
+}
+function processQueue(){
+  let changed=false;
+  for(const[uk,q] of Object.entries(S.queue)){
+    if(!q||!q.count)continue;
+    const lock=trainLockReason(uk);
+    if(lock)continue;
+    const tt=CFG.units[uk].trainTime||1;
+    if(q.timer>0)q.timer--;
+    if(q.timer<=0&&q.count>0){
+      if(reserveLeft(uk)<=0)continue;
+      const cost=CFG.units[uk].cost;
+      if(S.res.wood<cost.wood||S.res.stone<cost.stone||S.res.food<cost.food)continue;
+      S.res.wood-=cost.wood;S.res.stone-=cost.stone;S.res.food-=cost.food;
+      S.pool[uk]=(S.pool[uk]||0)+1;
+      q.count--;
+      changed=true;
+      if(q.count>0)q.timer=tt;else q.timer=0;
+    }
+  }
+  if(changed)save();
+}
 function trainLockReason(uk){
   const key=trainBuildingKey(uk);
   if(!key)return '';
@@ -237,12 +266,12 @@ function isAttackMiss(attacker,defender){
 }
 
 function save(){
-  const d={res:S.res,buildings:S.buildings,pool:S.pool,formation:S.formation,townLv:S.townLv,popAlloc:S.popAlloc,defeated:S.defeated,mageOk:S.mageOk,tick:S.tick};
+  const d={res:S.res,buildings:S.buildings,pool:S.pool,queue:S.queue,formation:S.formation,townLv:S.townLv,popAlloc:S.popAlloc,defeated:S.defeated,mageOk:S.mageOk,tick:S.tick};
   localStorage.setItem('rts_save',JSON.stringify(d));
 }
 function load(){
   const r=localStorage.getItem('rts_save');if(!r)return;
-  try{const d=JSON.parse(r);S.res=d.res||S.res;S.buildings=d.buildings||{};S.pool=d.pool||S.pool;S.formation=d.formation||S.formation;S.townLv=d.townLv||1;S.popAlloc=d.popAlloc||{wood:5,stone:3,food:2};S.defeated=d.defeated||[];S.mageOk=d.mageOk||false;S.tick=d.tick||0;}catch(e){}
+  try{const d=JSON.parse(r);S.res=d.res||S.res;S.buildings=d.buildings||{};S.pool=d.pool||S.pool;S.formation=d.formation||S.formation;S.townLv=d.townLv||1;S.popAlloc=d.popAlloc||{wood:5,stone:3,food:2};S.defeated=d.defeated||[];S.mageOk=d.mageOk||false;S.queue=d.queue||{};S.tick=d.tick||0;}catch(e){}
 }
 
 // ==================== 计时 ====================
@@ -259,7 +288,7 @@ function tick(){
       }
     }
   }
-  if(ch)save();
+  if(ch)save();processQueue();
   const cap=storageCapacity();
   for(const rk of Object.keys(CFG.res)){
     if(rk==='food'){
@@ -313,9 +342,7 @@ function upCost(key){
 }
 function maxTrainable(uk){
   if(trainLockReason(uk))return 0;
-  const c=CFG.units[uk].cost;
-  const byRes=Math.floor(Math.min(S.res.wood/c.wood,S.res.stone/c.stone,S.res.food/c.food));
-  return Math.max(0,Math.min(byRes,reserveLeft(uk)));
+  return Math.max(0, queueMax(uk) - queueTotal(uk));
 }
 function train(uk,qty){
   qty=qty||1;
@@ -323,20 +350,13 @@ function train(uk,qty){
   const lock=trainLockReason(uk);
   if(lock){toast(lock);return}
   const max=maxTrainable(uk);
-  if(max<=0){
-    toast(reserveLeft(uk)<=0?'\u540e\u5907\u5175\u529b\u5df2\u6ee1':'璧勬簮涓嶈冻');
-    return;
-  }
-  if(qty>max){
-    qty=max;
-    toast(`\u5df2\u6309\u4e0a\u9650\u8bad\u7ec3${qty}`);
-  }
-  
-  const c=CFG.units[uk].cost;
-  if(S.res.wood<c.wood*qty||S.res.stone<c.stone*qty||S.res.food<c.food*qty){toast('资源不足');return}
-  S.res.wood-=c.wood*qty;S.res.stone-=c.stone*qty;S.res.food-=c.food*qty;
-  S.pool[uk]=(S.pool[uk]||0)+qty;
-  addLog(`训练${CFG.units[uk].name}+${qty}`);save();updateUI();
+  if(max<=0){toast('训练队列已满');return}
+  if(qty>max){qty=max;toast('已按队列上限训练'+qty);}
+  if(!S.queue[uk])S.queue[uk]={count:0,timer:0};
+  S.queue[uk].count+=qty;
+  if(S.queue[uk].timer<=0)S.queue[uk].timer=CFG.units[uk].trainTime||1;
+  addLog('排队训练'+CFG.units[uk].name+'+'+qty+' (队列'+queueTotal(uk)+'/'+queueMax(uk)+')');
+  save();updateUI();
 }
 function trainCustom(uk,inputId){
   const el=document.getElementById(inputId);
@@ -347,10 +367,9 @@ function trainMax(uk,inputId){
   const qty=maxTrainable(uk);
   if(qty<=0){
     const lock=trainLockReason(uk);
-    toast(lock||(reserveLeft(uk)<=0?'\u540e\u5907\u5175\u529b\u5df2\u6ee1':'璧勬簮涓嶈冻'));
+    toast(lock||'训练队列已满');
     return;
   }
-  if(qty<=0){toast('资源不足');return}
   const el=document.getElementById(inputId);
   if(el)el.value=qty;
   train(uk,qty);

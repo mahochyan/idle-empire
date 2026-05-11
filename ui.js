@@ -56,7 +56,7 @@ function rHome(){
 	    const ow=S.pool[k]||0;
 	    const lock=trainLockReason(k);
 	    h+=`<div class="unit-row"><span class="uicon">${pix(c.icon,"lg")}</span><div class="uinfo"><div class="uname">${c.name}</div><div class="udetail">${c.passive} | ${costHtml(c.cost)}/人</div></div><div class="ucount">${ow}人</div>`;
-	    h+=`<div class="econ-note" style="flex-basis:100%;padding-left:32px">${trainBuildingLabel(k)} | ${reserveHtml(k)}${lock?`<br><span class="limit-warn">${pix('lock','mini')}${lock}</span>`:``}</div></div>`;
+	    h+=`<div class="econ-note" style="flex-basis:100%;padding-left:32px">${trainBuildingLabel(k)} | ${reserveHtml(k)}${queueTotal(k)>0?' | 队列 '+queueTotal(k)+'人':''}${lock?`<br><span class="limit-warn">${pix('lock','mini')}${lock}</span>`:``}</div></div>`;
 	  }
 	  h+=`</div>`;
 
@@ -115,7 +115,7 @@ function rBarracks(){
         <div style="flex:1;min-width:0"><strong>${c.name}</strong> <span style="font-size:10px;color:#888">[${c.race}]</span>
           <div style="font-size:10px;color:#777">${c.passive} | ATK:${c.atk} DEF:${c.def}</div>
           <div style="font-size:10px;color:#666">${costHtml(c.cost)}/\u4eba</div>
-          <div class="econ-note">${trainBuildingLabel(k)} | ${reserveHtml(k)}${lock?`<br><span class="limit-warn">${pix('lock','mini')}${lock}</span>`:''}</div>
+          <div class="econ-note">${trainBuildingLabel(k)} | ${reserveHtml(k)}${queueTotal(k)>0?' | 队列 '+queueTotal(k)+'人':''}${lock?`<br><span class="limit-warn">${pix('lock','mini')}${lock}</span>`:''}</div>
           <div style="font-size:11px;color:#40bf80">\u62e5\u6709:${ow}\u4eba | \u53ef\u7f16\u5165:${av}\u4eba</div>
           ${lock?'':
           `<div style="margin-top:2px;display:flex;gap:4px;flex-wrap:wrap">
