@@ -51,20 +51,66 @@ function rHome(){
   }
   h+=`</div>`;
 
-	h+=`<div class="card"><h3>${pix("army","card-pix")}军队总览</h3>`;
-	  for(const[k,c] of Object.entries(CFG.units)){
-	    const ow=S.pool[k]||0;
-	    const lock=trainLockReason(k);
-	    h+=`<div class="unit-row"><span class="uicon">${pix(c.icon,"lg")}</span><div class="uinfo"><div class="uname" onclick="openUnitDetail('${k}')" style="cursor:pointer">${c.name}</div><div class="udetail"><span onclick="event.stopPropagation();openUnitDetail('${k}')" style="font-size:9px;padding:1px 5px;border:1px solid #3a4158;border-radius:0;color:#8890a6;cursor:pointer;display:inline-block;margin-right:4px">属性</span>${c.passive} | ${costHtml(c.cost)}/人</div></div><div class="ucount">${ow}人</div>`;
-	    h+=`<div class="econ-note" style="flex-basis:100%;padding-left:32px">${trainBuildingLabel(k)} | ${reserveHtml(k)}${queueTotal(k)>0?' | 队列 '+queueTotal(k)+'人':''}${(S.queue[k]||{}).reason?`<br><span class="limit-warn">${pix('lock','mini')}${S.queue[k].reason}</span>`:``}${lock?`<br><span class="limit-warn">${pix('lock','mini')}${lock}</span>`:``}</div></div>`;
-	  }
-	  h+=`</div>`;
+  h+=renderTownMapOverview();
 
   h+=`<div class="card"><h3>${pix("log","card-pix")}最近事件</h3>`;
   const r=[...S.log].reverse().slice(0,6);
   if(!r.length)h+=`<div style="font-size:11px;color:#666">暂无</div>`;
   else for(const e of r)h+=`<div style="font-size:10px;color:#555;padding:1px 0">[${e.time}] ${e.msg}</div>`;
   h+=`</div></div>`;return h;
+}
+function renderTownMapOverview(){
+  const tc=townCfg();
+  const status=totalSoldiers()>0?'巡逻中':'和平';
+  const unitTotal=uk=>{
+    let n=S.pool[uk]||0;
+    for(const row of['front','mid','back']){
+      for(const u of S.formation[row]){
+        if(u.type===uk)n+=u.count;
+      }
+    }
+    return n;
+  };
+  const troopSummary=Object.entries(CFG.units).map(([k,c])=>`${c.name}${unitTotal(k)}`).join('｜');
+
+  return `<div class="card town-map-card">
+    <div class="town-map-head">
+      <h3>🏰 城镇巡防</h3>
+      <span class="town-map-status">${status}</span>
+    </div>
+    <div class="town-map" aria-label="城镇巡防地图">
+      <div class="town-road town-road-main"></div>
+      <div class="town-road town-road-branch"></div>
+      <div class="town-woods" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="town-stones" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <div class="town-fields" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="town-building town-hall">
+        <span class="town-building-icon">⌂</span>
+        <strong>${tc.name}</strong>
+        <em>Lv.${tc.lv}</em>
+      </div>
+      <div class="town-building town-lumber">
+        <span class="town-building-icon">▥</span>
+        <strong>伐木场</strong>
+        <em>木 ${S.popAlloc.wood||0}人</em>
+      </div>
+      <div class="town-building town-quarry">
+        <span class="town-building-icon">◆</span>
+        <strong>采石场</strong>
+        <em>石 ${S.popAlloc.stone||0}人</em>
+      </div>
+      <div class="town-building town-farm">
+        <span class="town-building-icon">▦</span>
+        <strong>农田</strong>
+        <em>粮 ${S.popAlloc.food||0}人</em>
+      </div>
+      <div class="town-building town-tower">
+        <span class="town-building-icon">▣</span>
+        <strong>哨塔</strong>
+      </div>
+    </div>
+    <div class="town-troop-summary">驻军：${troopSummary}</div>
+  </div>`;
 }
 function rBuild(){
   let h=`<div style="padding:4px 0">`;
