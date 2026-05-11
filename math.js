@@ -35,7 +35,7 @@ const CFG = {
     stable:{name:'兽栏',trains:'cavalry',reserveBase:1,reserveBonus:1,needBoss:1,build:{wood:220,stone:160,food:180,time:7},upBase:{wood:2000,stone:1500,food:1600},upCostLv:1.8},
     spear_crypt:{name:'枪兵墓穴',trains:'spearman',reserveBase:1,reserveBonus:1,needBoss:2,build:{wood:160,stone:240,food:100,time:7},upBase:{wood:1400,stone:2200,food:1000},upCostLv:1.8},
     mage_tower:{name:'法师塔',trains:'mage',reserveBase:1,reserveBonus:1,needBoss:2,build:{wood:500,stone:500,food:350,time:10},upBase:{wood:3800,stone:3800,food:2800},upCostLv:1.9},
-    warehouse:{name:'仓库',storagePerLv:500,build:{wood:200,stone:200,food:100,time:5},upBase:{wood:1600,stone:1600,food:800},upCostLv:1.45}
+    warehouse:{name:'仓库',storageBase:5000,storagePerLv:4000,build:{wood:200,stone:200,food:100,time:5},upBase:{wood:1600,stone:1600,food:800},upCostLv:1.45}
   },
 
   units: {
@@ -142,7 +142,9 @@ function resourceCapText(){
 }
 function storageCapacity(){
   const whLv=(S.buildings.warehouse||{lv:0}).lv;
-  return 2000 + whLv * 500;
+  const cfg=CFG.buildings.warehouse;
+  return cfg.storageBase + whLv * cfg.storagePerLv;
+}
 }
 function upgradeLockReason(key){
   const cfg=CFG.buildings[key],st=bldSt(key);
