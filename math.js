@@ -480,6 +480,36 @@ document.getElementById('form-modal').addEventListener('click',function(e){
   if(e.target===this) closeFormModal();
 });
 
+// ==================== 单位详情弹窗 ====================
+function openUnitDetail(uk){
+  const c=CFG.units[uk];
+  if(!c)return;
+  const rowLabel={front:'前排',mid:'中排',back:'后排'}[c.row]||c.row;
+  const st=trainBuildingState(uk);
+  const bldName=st?CFG.buildings[trainBuildingKey(uk)].name:'';
+  let h=`<h3>${pix(c.icon,'lg')}${c.name} <span style="font-size:10px;color:#888">[${c.race}]</span></h3>`;
+  h+=`<div style="font-size:12px;line-height:2.2;padding:4px 0">`;
+  h+=`<div><span style="color:#888">定位</span> ${rowLabel} | <span style="color:#888">训练建筑</span> ${bldName||'无'}</div>`;
+  h+=`<div><span style="color:#888">攻击</span> ${c.atk} | <span style="color:#888">防御</span> ${c.def} | <span style="color:#888">速度</span> ${c.spd}</div>`;
+  h+=`<div><span style="color:#888">训练费</span> ${costHtml(c.cost)}/人</div>`;
+  h+=`<div><span style="color:#888">维护费</span> ${c.upkeep||0} 食物/秒/人</div>`;
+  h+=`<div><span style="color:#888">训练时间</span> ${c.trainTime||1} 秒/人</div>`;
+  h+=`<div><span style="color:#888">被动</span> <span style="color:#40bf80">${c.passive}</span></div>`;
+  const pool=S.pool[uk]||0;
+  const qNow=queueTotal(uk);
+  h+=`<div><span style="color:#888">拥有</span> ${pool}人${qNow>0?' | 队列 '+qNow+'人':''}</div>`;
+  h+=`</div>`;
+  h+=`<button class="btn btn-ghost btn-sm" style="width:100%;margin-top:8px" onclick="closeUnitDetail()">关闭</button>`;
+  document.getElementById('unit-detail-content').innerHTML=h;
+  document.getElementById('unit-detail-modal').classList.add('active');
+}
+function closeUnitDetail(){
+  document.getElementById('unit-detail-modal').classList.remove('active');
+}
+document.getElementById('unit-detail-modal').addEventListener('click',function(e){
+  if(e.target===this) closeUnitDetail();
+});
+
 // 从阵容移除兵团
 function rmForm(row,idx){
   const u=S.formation[row][idx];
