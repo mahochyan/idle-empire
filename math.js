@@ -42,13 +42,13 @@ const CFG = {
     infantry:{name:'步兵',race:'人族',row:'front',icon:'infantry',
       cost:{wood:5,stone:2,food:4}, upkeep:0.01, atk:12,def:8,spd:10, passive:'格挡8%'},
     archer:{name:'弓兵',race:'精灵',row:'back',icon:'archer',
-      cost:{wood:8,stone:2,food:3}, upkeep:0.01, atk:16,def:4,spd:12, passive:'基础MISS20%，打骑兵50%'},
+      cost:{wood:8,stone:2,food:3}, upkeep:0.02, atk:16,def:4,spd:12, passive:'基础MISS20%，打骑兵50%'},
     cavalry:{name:'骑兵',race:'兽人',row:'front',icon:'cavalry',
       cost:{wood:4,stone:3,food:8}, upkeep:0.02, atk:14,def:6,spd:14, passive:'吸血8%'},
     spearman:{name:'枪兵',race:'亡灵',row:'mid',icon:'spearman',
       cost:{wood:3,stone:6,food:4}, upkeep:0.01, atk:13,def:7,spd:11, passive:'破甲10%'},
     mage:{name:'法师',race:'亡灵',row:'back',icon:'mage',
-      cost:{wood:8,stone:6,food:8}, upkeep:0.015, atk:22,def:2,spd:8, passive:'互易伤1.3x',locked:true}
+      cost:{wood:8,stone:6,food:8}, upkeep:0.04, atk:22,def:2,spd:8, passive:'互易伤1.3x',locked:true}
   },
 
   counters: {
