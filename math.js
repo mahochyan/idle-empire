@@ -391,7 +391,7 @@ function openFormModal(row,idx){
   h+='<div style="max-height:300px;overflow-y:auto">';
   let hasAny=false;
   for(const[k,c] of Object.entries(CFG.units)){
-    if(k==='mage'&&!S.mageOk)continue;
+    if(k==='mage'&&!mageOk())continue;
     const av=poolAvail(k);
     if(av<=0)continue;
     hasAny=true;
