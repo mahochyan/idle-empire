@@ -162,10 +162,10 @@ body{
 .unit-box .ub-name{font-size:9px;color:#aaa}
 .unit-box .ub-hp{font-size:10px;color:#f0d060;font-weight:bold;margin-top:1px}
 .unit-box.targeted{border-color:#f0d060!important;box-shadow:0 0 8px rgba(240,208,96,.5)}
-@keyframes glow{0%,100%{box-shadow:0 0 6px rgba(255,255,200,.6),0 0 18px rgba(255,255,150,.3)}50%{box-shadow:0 0 14px rgba(255,255,200,.9),0 0 30px rgba(255,255,150,.6)}}
-.unit-box.attacking{animation:glow .5s ease;border-color:#f0d060!important}
-@keyframes flash-red{0%,100%{border-color:#ff3333;box-shadow:0 0 0 rgba(255,0,0,0)}50%{border-color:#ff0000;box-shadow:0 0 12px rgba(255,0,0,.7)}}
-.unit-box.hit{animation:flash-red .5s ease;border-color:#ff3333!important}
+@keyframes strike{0%,100%{transform:translateY(0);box-shadow:0 0 8px rgba(255,255,200,.6)}30%{transform:translateY(-6px);box-shadow:0 0 18px rgba(255,255,150,.9)}60%{transform:translateY(3px);box-shadow:0 0 14px rgba(255,255,200,.7)}}
+.unit-box.attacking{animation:strike .45s ease;border-color:#f0d060!important}
+@keyframes shaken{0%,100%{transform:translateX(0)}20%{transform:translateX(-5px);border-color:#ff4444}40%{transform:translateX(5px)}60%{transform:translateX(-3px);border-color:#ff0000}80%{transform:translateX(3px)}}
+.unit-box.hit{animation:shaken .5s ease;border-color:#ff3333!important;box-shadow:0 0 10px rgba(255,0,0,.5)}
 @keyframes die{0%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}100%{opacity:0;transform:scale(0)}}
 .unit-box.dead{animation:die .5s ease forwards;border-color:#ff0000!important}
 .unit-box.dead-done{opacity:0;transform:scale(0)}
@@ -344,8 +344,8 @@ body{
   font-size:10px;color:var(--px-gold-soft);
 }
 .unit-box.targeted{border-color:var(--px-gold-soft)!important;box-shadow:0 0 0 2px #6e4b1b,inset 2px 2px 0 rgba(255,255,255,.08)}
-@keyframes glow{0%,100%{box-shadow:0 0 6px rgba(255,255,200,.6),0 0 18px rgba(255,255,150,.3)}50%{box-shadow:0 0 14px rgba(255,255,200,.9),0 0 30px rgba(255,255,150,.6)}}
-@keyframes flash-red{0%,100%{border-color:#ff3333;box-shadow:0 0 0 rgba(255,0,0,0)}50%{border-color:#ff0000;box-shadow:0 0 12px rgba(255,0,0,.7)}}
+@keyframes strike{0%,100%{transform:translateY(0);box-shadow:0 0 8px rgba(255,255,200,.6)}30%{transform:translateY(-6px);box-shadow:0 0 18px rgba(255,255,150,.9)}60%{transform:translateY(3px);box-shadow:0 0 14px rgba(255,255,200,.7)}}
+@keyframes shaken{0%,100%{transform:translateX(0)}20%{transform:translateX(-5px);border-color:#ff4444}40%{transform:translateX(5px)}60%{transform:translateX(-3px);border-color:#ff0000}80%{transform:translateX(3px)}}
 @keyframes die{0%{opacity:1;filter:grayscale(0)}50%{opacity:.6;filter:grayscale(1);transform:translateY(2px)}100%{opacity:0;filter:grayscale(1);transform:scale(.4)}}
 #battle-result{background:#121522;border-width:3px}
 #battle-msg{background:#080912;border-top:2px solid #242b3f}
