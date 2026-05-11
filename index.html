@@ -232,88 +232,104 @@ body{
   color:#78d18e;font-size:10px;line-height:1;box-shadow:inset 1px 1px 0 rgba(255,255,255,.08),0 2px 0 #05060b;
 }
 .town-map{
-  position:relative;height:250px;overflow:hidden;border:2px solid #3a4158;background-color:#1b2a22;
+  position:relative;height:260px;overflow:hidden;border:2px solid #4b5168;background-color:#172418;
   background-image:
-    linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px),
-    linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),
-    radial-gradient(circle at 18% 24%,rgba(78,126,68,.35) 0 13%,transparent 14%),
-    radial-gradient(circle at 76% 72%,rgba(99,116,70,.34) 0 11%,transparent 12%),
-    linear-gradient(135deg,#1d3426,#16231e 58%,#101922);
-  background-size:16px 16px,16px 16px,100% 100%,100% 100%,100% 100%;
-  box-shadow:inset 2px 2px 0 rgba(255,255,255,.06),inset -2px -2px 0 rgba(0,0,0,.45),0 2px 0 #05060b;
+    linear-gradient(90deg,rgba(202,215,172,.035) 1px,transparent 1px),
+    linear-gradient(rgba(202,215,172,.035) 1px,transparent 1px),
+    radial-gradient(circle at 18% 22%,rgba(88,143,72,.5) 0 11%,transparent 12%),
+    radial-gradient(circle at 83% 18%,rgba(73,51,104,.2) 0 10%,transparent 11%),
+    radial-gradient(circle at 78% 78%,rgba(146,117,48,.4) 0 14%,transparent 15%),
+    radial-gradient(circle at 50% 47%,rgba(214,168,63,.14) 0 10%,transparent 11%),
+    repeating-linear-gradient(135deg,rgba(255,255,255,.025) 0 2px,transparent 2px 8px),
+    linear-gradient(135deg,#233d29,#17281e 55%,#0d131c);
+  background-size:16px 16px,16px 16px,100% 100%,100% 100%,100% 100%,100% 100%,12px 12px,100% 100%;
+  box-shadow:inset 0 0 0 3px #090d13,inset 2px 2px 0 rgba(255,255,255,.07),inset -2px -2px 0 rgba(0,0,0,.55),0 2px 0 #05060b;
 }
 .town-map:before{
-  content:"";position:absolute;left:-20px;right:-20px;top:96px;height:34px;
-  background:repeating-linear-gradient(90deg,#4b3a24 0 9px,#574327 9px 18px);
-  border-top:2px solid rgba(25,18,10,.55);border-bottom:2px solid rgba(25,18,10,.55);
-  transform:rotate(-13deg);opacity:.86;
+  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(circle at 20% 64%,rgba(54,88,45,.5) 0 20%,transparent 21%),
+    radial-gradient(circle at 88% 28%,rgba(109,53,43,.24) 0 12%,transparent 13%),
+    radial-gradient(circle at 52% 30%,rgba(105,154,105,.16) 0 16%,transparent 17%),
+    linear-gradient(180deg,rgba(255,255,255,.02),rgba(0,0,0,.22));
+}
+.town-map:after{
+  content:"";position:absolute;inset:7px;z-index:0;pointer-events:none;border:2px solid rgba(100,108,126,.35);
+  box-shadow:inset 0 0 0 2px rgba(0,0,0,.32),inset 0 0 24px rgba(0,0,0,.35);
 }
 .town-road{
-  position:absolute;background:repeating-linear-gradient(90deg,#5b4428 0 8px,#6b5131 8px 16px);
-  border:2px solid rgba(34,24,13,.5);opacity:.78;z-index:1;
+  position:absolute;background:
+    repeating-linear-gradient(90deg,rgba(38,26,16,.5) 0 3px,transparent 3px 13px),
+    repeating-linear-gradient(0deg,#755a34 0 9px,#594128 9px 18px);
+  border:2px solid rgba(35,24,12,.62);opacity:.9;z-index:1;
+  box-shadow:inset 0 2px 0 rgba(255,255,255,.08),0 2px 0 rgba(0,0,0,.32);
 }
-.town-road-main{left:46%;top:42px;width:30px;height:176px;transform:rotate(5deg)}
-.town-road-branch{left:28%;top:145px;width:170px;height:22px;transform:rotate(-7deg)}
+.town-road-main{left:-24px;top:120px;width:430px;height:34px;transform:rotate(-11deg)}
+.town-road-branch{left:149px;top:58px;width:34px;height:178px;transform:rotate(6deg)}
 .town-woods,.town-stones,.town-fields{position:absolute;z-index:2;pointer-events:none}
-.town-woods{left:5%;top:31%;width:88px;height:72px}
+.town-woods{left:4%;top:24%;width:102px;height:88px}
 .town-woods i{
-  position:absolute;width:17px;height:22px;background:#2f6d3e;border:2px solid #15351f;
+  position:absolute;width:19px;height:24px;background:#2f6d3e;border:2px solid #15351f;
   box-shadow:inset 2px 2px 0 rgba(255,255,255,.1),0 2px 0 rgba(0,0,0,.38);
 }
 .town-woods i:after{
   content:"";position:absolute;left:4px;bottom:-8px;width:5px;height:8px;background:#6b4424;border-left:1px solid #2a170d;
 }
-.town-woods i:nth-child(1){left:4px;top:9px}
-.town-woods i:nth-child(2){left:25px;top:2px}
-.town-woods i:nth-child(3){left:47px;top:13px}
-.town-woods i:nth-child(4){left:16px;top:38px}
-.town-woods i:nth-child(5){left:58px;top:41px}
-.town-stones{right:7%;bottom:29%;width:78px;height:55px}
+.town-woods i:nth-child(1){left:5px;top:12px}
+.town-woods i:nth-child(2){left:28px;top:2px}
+.town-woods i:nth-child(3){left:53px;top:16px}
+.town-woods i:nth-child(4){left:18px;top:44px}
+.town-woods i:nth-child(5){left:68px;top:45px}
+.town-stones{left:6%;bottom:13%;width:88px;height:62px}
 .town-stones i{
-  position:absolute;width:20px;height:14px;background:#77808f;border:2px solid #343a48;
+  position:absolute;width:22px;height:15px;background:#77808f;border:2px solid #343a48;
   box-shadow:inset 2px 2px 0 rgba(255,255,255,.15),0 2px 0 rgba(0,0,0,.4);
 }
-.town-stones i:nth-child(1){left:4px;top:16px}
-.town-stones i:nth-child(2){left:24px;top:7px}
-.town-stones i:nth-child(3){left:43px;top:20px}
-.town-stones i:nth-child(4){left:22px;top:32px}
+.town-stones i:nth-child(1){left:6px;top:19px}
+.town-stones i:nth-child(2){left:30px;top:7px}
+.town-stones i:nth-child(3){left:54px;top:24px}
+.town-stones i:nth-child(4){left:27px;top:39px}
 .town-fields{
-  right:8%;bottom:7%;width:96px;height:54px;display:grid;grid-template-columns:repeat(3,1fr);gap:4px;
-  transform:skewY(-5deg);
+  right:5%;bottom:5%;width:118px;height:66px;display:grid;grid-template-columns:repeat(3,1fr);gap:4px;
+  transform:skewY(-6deg);
 }
 .town-fields i{
   border:2px solid #61441e;background:repeating-linear-gradient(90deg,#8c7b31 0 5px,#526d2f 5px 10px);
   box-shadow:inset 1px 1px 0 rgba(255,255,255,.08);
 }
 .town-building{
-  position:absolute;z-index:3;min-width:70px;padding:5px 6px;border:2px solid #59617b;background:#171a27;
-  color:#e7dfc4;text-align:center;font-size:10px;line-height:1.15;text-shadow:1px 1px 0 #000;
-  box-shadow:inset 2px 2px 0 rgba(255,255,255,.08),inset -2px -2px 0 rgba(0,0,0,.48),0 3px 0 #05060b;
+  position:absolute;z-index:5;min-width:62px;text-align:center;font-size:10px;line-height:1.15;text-shadow:1px 1px 0 #000;
 }
-.town-building:before{
-  content:"";display:block;width:28px;height:18px;margin:0 auto 3px;border:2px solid #2b3144;background:#6d3d2a;
-  box-shadow:inset 2px 2px 0 rgba(255,255,255,.12),inset -2px -2px 0 rgba(0,0,0,.4);
+.town-building-sprite{
+  position:relative;display:block;margin:0 auto 2px;width:72px;height:64px;border:0;background:none;box-shadow:none;
+  filter:drop-shadow(0 5px 0 rgba(0,0,0,.28));
 }
-.town-building strong,.town-building em{display:block;font-style:normal;white-space:nowrap}
-.town-building strong{font-size:10px;color:#f0d060}
-.town-building em{margin-top:2px;color:#c7ccd9;font-size:9px}
-.town-building-icon{position:absolute;left:5px;top:4px;color:#f0d060;font-size:10px}
-.town-hall{left:50%;top:20px;transform:translateX(-50%);min-width:92px}
-.town-hall:before{width:38px;height:25px;background:#8b3b36;border-color:#d6a83f}
-.town-lumber{left:7%;top:54%}
-.town-lumber:before{background:#5b3322}
-.town-quarry{left:11%;bottom:12%}
-.town-quarry:before{background:#545b70}
-.town-farm{right:8%;bottom:9%}
-.town-farm:before{background:#76662d}
-.town-tower{right:10%;top:28%;min-width:58px}
-.town-tower:before{width:22px;height:30px;background:#5d4a37;border-color:#b78a42}
+.town-building-sprite:before,.town-building-sprite:after{content:none}
+.map-pix{
+  width:100%;height:100%;display:block;background-repeat:no-repeat;background-position:center;background-size:100% 100%;
+  image-rendering:pixelated;
+}
+.town-map-badge{
+  position:absolute;right:4px;bottom:4px;min-width:28px;padding:2px 4px;border:1px solid #59617b;background:rgba(8,10,18,.78);
+  color:#f0d060;font-size:9px;line-height:1;box-shadow:0 2px 0 rgba(0,0,0,.35);
+}
+.town-level-badge{right:10px;bottom:5px;color:#dce9ff;border-color:#d6a83f}
+.town-hall{left:50%;top:9px;transform:translateX(-50%);min-width:92px}
+.town-hall .town-building-sprite{width:86px;height:76px}
+.town-lumber{left:2%;top:84px}
+.town-lumber .town-building-sprite{width:78px;height:66px}
+.town-quarry{left:5%;bottom:7px}
+.town-quarry .town-building-sprite{width:78px;height:66px}
+.town-farm{right:3%;bottom:6px}
+.town-farm .town-building-sprite{width:82px;height:68px}
+.town-tower{right:6%;top:64px;min-width:58px}
+.town-tower .town-building-sprite{width:62px;height:78px}
 .town-worker-group{
   position:absolute;z-index:4;pointer-events:none;width:76px;height:42px;
 }
-.worker-wood-group{left:14%;top:45%}
-.worker-stone-group{left:23%;bottom:18%}
-.worker-food-group{right:30%;bottom:13%}
+.worker-wood-group{left:21%;top:48%}
+.worker-stone-group{left:27%;bottom:17%}
+.worker-food-group{right:28%;bottom:13%}
 .town-worker{
   position:absolute;width:8px;height:10px;background:#d4b06a;border:1px solid #332414;
   box-shadow:0 2px 0 rgba(0,0,0,.35),inset 1px 1px 0 rgba(255,255,255,.16);
@@ -322,12 +338,21 @@ body{
   content:"";position:absolute;left:2px;top:-5px;width:4px;height:4px;background:#c9965a;border:1px solid #332414;
 }
 .town-worker:after{
-  content:"";position:absolute;left:-3px;top:3px;width:14px;height:2px;background:#5d4530;
+  content:"";position:absolute;left:-2px;top:3px;width:12px;height:2px;background:#5d4530;
   box-shadow:0 5px 0 #2b2118;
 }
 .worker-wood{background:#b87942}
 .worker-stone{background:#a9afb8}
 .worker-food{background:#d0bd52}
+.worker-wood:after{
+  left:5px;top:0;width:3px;height:15px;background:#8a5a32;box-shadow:4px -3px 0 #c5cbd3;transform-origin:1px 12px;
+}
+.worker-stone:after{
+  left:4px;top:-2px;width:3px;height:15px;background:#7b4a2b;box-shadow:4px -3px 0 #c5cbd3;transform-origin:1px 12px;
+}
+.worker-food:after{
+  left:-5px;top:5px;width:16px;height:2px;background:#8a5a32;box-shadow:8px -4px 0 #d6a83f;transform-origin:10px 1px;
+}
 .worker-wood-1{left:2px;top:8px}
 .worker-wood-2{left:22px;top:22px;animation-delay:.35s}
 .worker-wood-3{left:45px;top:12px;animation-delay:.7s}
@@ -337,27 +362,103 @@ body{
 .worker-food-1{left:2px;top:20px}
 .worker-food-2{left:28px;top:8px;animation-delay:.45s}
 .worker-food-3{left:52px;top:24px;animation-delay:.9s}
-.worker-walk-a{animation:townWorkerWalkA 2.4s steps(4,end) infinite}
-.worker-walk-b{animation:townWorkerWalkB 2.8s steps(4,end) infinite}
-.worker-work{animation:townWorkerWork 1.15s steps(2,end) infinite}
-@keyframes townWorkerWalkA{
-  0%,100%{transform:translateX(0)}
-  50%{transform:translateX(10px)}
-}
-@keyframes townWorkerWalkB{
-  0%,100%{transform:translateX(0)}
-  50%{transform:translateX(-9px)}
-}
-@keyframes townWorkerWork{
+.worker-chop{animation:townWorkerChop 1.05s steps(2,end) infinite}
+.worker-mine{animation:townWorkerMine 1.15s steps(2,end) infinite}
+.worker-harvest{animation:townWorkerHarvest 2.4s steps(4,end) infinite}
+.worker-step{animation:townWorkerStep 2.8s steps(4,end) infinite}
+.worker-chop:after{animation:townToolChop 1.05s steps(2,end) infinite}
+.worker-mine:after{animation:townToolMine 1.15s steps(2,end) infinite}
+.worker-harvest:after{animation:townToolHarvest 1.4s steps(3,end) infinite}
+@keyframes townWorkerChop{
   0%,100%{transform:translate(0,0)}
-  50%{transform:translate(3px,-3px)}
+  50%{transform:translate(4px,0)}
+}
+@keyframes townWorkerMine{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-4px)}
+}
+@keyframes townWorkerHarvest{
+  0%,100%{transform:translateX(0)}
+  50%{transform:translateX(12px)}
+}
+@keyframes townWorkerStep{
+  0%,100%{transform:translateX(0)}
+  50%{transform:translateX(-8px)}
+}
+@keyframes townToolChop{
+  0%,100%{transform:rotate(-28deg)}
+  50%{transform:rotate(26deg)}
+}
+@keyframes townToolMine{
+  0%,100%{transform:rotate(-36deg)}
+  50%{transform:rotate(22deg)}
+}
+@keyframes townToolHarvest{
+  0%,100%{transform:rotate(0deg)}
+  50%{transform:rotate(-18deg)}
+}
+.town-guard{
+  position:absolute;z-index:6;width:12px;height:15px;border:1px solid #161820;background:#8a3b34;
+  box-shadow:0 2px 0 rgba(0,0,0,.45),inset 1px 1px 0 rgba(255,255,255,.14);
+  pointer-events:none;
+}
+.town-guard:before{
+  content:"";position:absolute;left:3px;top:-6px;width:5px;height:5px;background:#c8cbd3;border:1px solid #1b1c22;
+}
+.town-guard:after{
+  content:"";position:absolute;left:-4px;top:4px;width:18px;height:2px;background:#5b3d28;
+}
+.town-guard i{
+  position:absolute;display:block;left:8px;top:-7px;width:2px;height:18px;background:#c5cbd3;
+  box-shadow:0 0 0 1px #383d48;
+}
+.guard-infantry{left:54%;top:104px;background:#8b3b36}
+.guard-infantry:after{left:-4px;width:8px;height:10px;top:2px;background:#6f2630;border:1px solid #d0d3d6;box-shadow:10px 2px 0 #bfc6cf}
+.guard-archer{right:22%;top:96px;background:#355d3b}
+.guard-archer:after{left:-5px;top:2px;width:4px;height:17px;background:#b68942;border-radius:50%;box-shadow:8px 5px 0 #d6a83f}
+.guard-archer i{left:12px;top:2px;width:12px;height:2px;background:#c5a85a;box-shadow:none}
+.guard-cavalry{left:38%;top:145px;width:20px;height:13px;background:#4d3626}
+.guard-cavalry:before{left:4px;top:-7px;background:#8a3b36}
+.guard-cavalry:after{left:1px;top:9px;width:16px;height:4px;background:#2f2420;box-shadow:3px 5px 0 #17110e}
+.guard-cavalry i{left:18px;top:-1px;width:2px;height:12px;background:#bfc6cf}
+.guard-spearman{right:30%;top:150px;background:#4e5568}
+.guard-spearman i{left:12px;top:-10px;height:24px;background:#c5cbd3}
+.guard-spearman i:before{content:"";position:absolute;left:-2px;top:-4px;width:6px;height:5px;background:#d6a83f}
+.guard-mage{left:59%;top:64px;background:#49306a;box-shadow:0 0 8px rgba(126,208,255,.35),0 2px 0 rgba(0,0,0,.45)}
+.guard-mage:before{background:#c5b9d6}
+.guard-mage:after{left:-5px;top:3px;width:3px;height:17px;background:#6a4a2d;box-shadow:12px -4px 0 #7ed0ff}
+.guard-mage i{left:4px;top:-12px;width:4px;height:4px;background:#7ed0ff;box-shadow:0 0 0 2px rgba(126,208,255,.18)}
+.guard-patrol{animation:townGuardPatrol 2.6s steps(4,end) infinite}
+.guard-watch{animation:townGuardWatch 2.2s steps(3,end) infinite}
+.guard-ride{animation:townGuardRide 3.2s steps(8,end) infinite}
+.guard-stand{animation:townGuardStand 1.8s steps(2,end) infinite}
+.guard-pulse{animation:townGuardPulse 1.7s steps(3,end) infinite}
+@keyframes townGuardPatrol{
+  0%,100%{transform:translateX(-5px)}
+  50%{transform:translateX(8px)}
+}
+@keyframes townGuardWatch{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-3px)}
+}
+@keyframes townGuardRide{
+  0%,100%{transform:translateX(-18px)}
+  50%{transform:translateX(24px)}
+}
+@keyframes townGuardStand{
+  0%,100%{transform:scaleY(1)}
+  50%{transform:scaleY(.92)}
+}
+@keyframes townGuardPulse{
+  0%,100%{filter:drop-shadow(0 0 0 rgba(126,208,255,0));transform:translateY(0)}
+  50%{filter:drop-shadow(0 0 6px rgba(126,208,255,.85));transform:translateY(-2px)}
 }
 .town-troop-summary{
   margin-top:8px;padding:6px 7px;border:2px solid #2b3144;background:#0d101b;color:#c5cad8;
   font-size:10px;line-height:1.45;word-break:break-all;text-shadow:1px 1px 0 #000;
 }
 @media (prefers-reduced-motion: reduce){
-  .town-worker{animation:none!important}
+  .town-worker,.town-worker:after,.town-guard{animation:none!important}
 }
 
 /* 像素皮肤 */

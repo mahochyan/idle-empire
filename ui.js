@@ -61,7 +61,6 @@ function rHome(){
 }
 function renderTownMapOverview(){
   const tc=townCfg();
-  const status=totalSoldiers()>0?'巡逻中':'和平';
   const woodWorkers=S.popAlloc.wood||0;
   const stoneWorkers=S.popAlloc.stone||0;
   const foodWorkers=S.popAlloc.food||0;
@@ -74,6 +73,8 @@ function renderTownMapOverview(){
     }
     return n;
   };
+  const guardCounts=Object.fromEntries(Object.keys(CFG.units).map(k=>[k,unitTotal(k)]));
+  const status=Object.values(guardCounts).some(n=>n>0)?'巡逻中':'防务薄弱';
   const troopSummary=Object.entries(CFG.units).map(([k,c])=>`${c.name}${unitTotal(k)}`).join('｜');
 
   return `<div class="card town-map-card">
@@ -90,29 +91,25 @@ function renderTownMapOverview(){
       ${workerDots('wood',woodWorkers,'wood')}
       ${workerDots('stone',stoneWorkers,'stone')}
       ${workerDots('food',foodWorkers,'food')}
+      ${renderTownGuards(guardCounts)}
       <div class="town-building town-hall">
-        <span class="town-building-icon">⌂</span>
-        <strong>${tc.name}</strong>
-        <em>Lv.${tc.lv}</em>
+        <span class="town-building-sprite">${mapPix('town_hall','town-building-pix')}</span>
+        <span class="town-map-badge town-level-badge">Lv.${tc.lv}</span>
       </div>
       <div class="town-building town-lumber">
-        <span class="town-building-icon">▥</span>
-        <strong>伐木场</strong>
-        <em>${woodWorkers>0?`木 ${woodWorkers}人`:'空闲'}</em>
+        <span class="town-building-sprite">${mapPix('lumber_yard','town-building-pix')}</span>
+        <span class="town-map-badge">${woodWorkers>0?`木 ${woodWorkers}`:'空闲'}</span>
       </div>
       <div class="town-building town-quarry">
-        <span class="town-building-icon">◆</span>
-        <strong>采石场</strong>
-        <em>${stoneWorkers>0?`石 ${stoneWorkers}人`:'空闲'}</em>
+        <span class="town-building-sprite">${mapPix('quarry_yard','town-building-pix')}</span>
+        <span class="town-map-badge">${stoneWorkers>0?`石 ${stoneWorkers}`:'空闲'}</span>
       </div>
       <div class="town-building town-farm">
-        <span class="town-building-icon">▦</span>
-        <strong>农田</strong>
-        <em>${foodWorkers>0?`粮 ${foodWorkers}人`:'空闲'}</em>
+        <span class="town-building-sprite">${mapPix('farm_yard','town-building-pix')}</span>
+        <span class="town-map-badge">${foodWorkers>0?`粮 ${foodWorkers}`:'空闲'}</span>
       </div>
       <div class="town-building town-tower">
-        <span class="town-building-icon">▣</span>
-        <strong>哨塔</strong>
+        <span class="town-building-sprite">${mapPix('watch_tower','town-building-pix')}</span>
       </div>
     </div>
     <div class="town-troop-summary">驻军：${troopSummary}</div>
@@ -121,14 +118,28 @@ function renderTownMapOverview(){
 function workerDots(resourceKey,assignedCount,type){
   if(assignedCount<=0)return '';
   const count=assignedCount>=16?3:assignedCount>=6?2:1;
-  const walkClass={wood:'worker-work',stone:'worker-work',food:'worker-walk-a'}[type]||'worker-walk-a';
+  const workClass={wood:'worker-chop',stone:'worker-mine',food:'worker-harvest'}[type]||'worker-harvest';
   let h=`<div class="town-worker-group worker-${type}-group" aria-hidden="true">`;
   for(let i=0;i<count;i++){
-    const alt=i%2?'worker-walk-b':walkClass;
+    const alt=i%2?'worker-step':workClass;
     h+=`<span class="town-worker worker-${type} ${alt} worker-${resourceKey}-${i+1}"></span>`;
   }
   h+='</div>';
   return h;
+}
+function renderTownGuards(counts){
+  const guards=[
+    ['infantry','guard-infantry','guard-patrol'],
+    ['archer','guard-archer','guard-watch'],
+    ['cavalry','guard-cavalry','guard-ride'],
+    ['spearman','guard-spearman','guard-stand'],
+    ['mage','guard-mage','guard-pulse']
+  ];
+  return guards
+    .filter(([type])=>(counts[type]||0)>0)
+    .slice(0,5)
+    .map(([type,cls,anim])=>`<span class="town-guard ${cls} ${anim}" aria-hidden="true"><i></i></span>`)
+    .join('');
 }
 function rBuild(){
   let h=`<div style="padding:4px 0">`;
