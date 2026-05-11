@@ -448,9 +448,9 @@ const CFG = {
       cost:{wood:5,stone:2,food:4}, atk:120,def:8,spd:10, passive:'格挡8%'},
     archer:{name:'弓兵',race:'精灵',row:'back',icon:'archer',
       cost:{wood:8,stone:2,food:3}, atk:160,def:4,spd:12, passive:'基础MISS20%，打骑兵50%'},
-    cavalry:{name:'骑兵',race:'兽人',row:'mid',icon:'cavalry',
+    cavalry:{name:'骑兵',race:'兽人',row:'front',icon:'cavalry',
       cost:{wood:4,stone:3,food:8}, atk:140,def:6,spd:14, passive:'吸血8%'},
-    spearman:{name:'枪兵',race:'亡灵',row:'front',icon:'spearman',
+    spearman:{name:'枪兵',race:'亡灵',row:'mid',icon:'spearman',
       cost:{wood:3,stone:6,food:4}, atk:130,def:7,spd:11, passive:'破甲10%'},
     mage:{name:'法师',race:'亡灵',row:'back',icon:'mage',
       cost:{wood:8,stone:6,food:8}, atk:220,def:2,spd:8, passive:'互易伤1.3x',locked:true}
@@ -459,7 +459,7 @@ const CFG = {
   counters: {
     infantry:{spearman:1.3,archer:1.0,cavalry:1.0,infantry:1.0,mage:1.0},
     archer:{infantry:1.3,spearman:1.3,cavalry:1.0,archer:1.0,mage:1.0},
-    cavalry:{infantry:1.5,archer:2.0,spearman:0.7,cavalry:1.0,mage:1.0},
+    cavalry:{infantry:1.3,archer:1.5,spearman:0.7,cavalry:1.0,mage:1.0},
     spearman:{cavalry:1.5,infantry:1.0,archer:1.0,spearman:1.0,mage:1.0},
     mage:{infantry:1.3,archer:1.3,cavalry:1.3,spearman:1.3,mage:1.0}
   },
@@ -985,7 +985,7 @@ function bmsg(m,c=''){
 
 // 兵种攻击类型：melee 只能在前排攻击，ranged 任意排都可攻击
 function isRanged(unitType){
-  return unitType==='archer'||unitType==='mage'||unitType==='spearman'||unitType==='cavalry';
+  return unitType==='archer'||unitType==='mage'||unitType==='spearman';
 }
 
 function getTarget(attacker,enemyList){
