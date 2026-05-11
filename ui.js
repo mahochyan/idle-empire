@@ -218,18 +218,13 @@ function rBarracks(){
         <div style="flex:1;min-width:0"><strong style="cursor:pointer" onclick="openUnitDetail('${k}')">${c.name}</strong> <span style="font-size:10px;color:#888">[${c.race}]</span>
           <div style="font-size:10px;color:#777"><span onclick="event.stopPropagation();openUnitDetail('${k}')" style="font-size:9px;padding:1px 5px;border:1px solid #3a4158;border-radius:0;color:#8890a6;cursor:pointer;display:inline-block;margin-right:4px">属性</span>${c.passive} | ATK:${c.atk} DEF:${c.def}</div>
           <div style="font-size:10px;color:#666">${costHtml(c.cost)}/\u4eba</div>
-          <div class="econ-note">${trainBuildingLabel(k)} | ${reserveHtml(k)}${queueTotal(k)>0?' | 队列 '+queueTotal(k)+'人':''}${(S.queue[k]||{}).reason?`<br><span class="limit-warn">${pix('lock','mini')}${S.queue[k].reason}</span>`:``}${lock?`<br><span class="limit-warn">${pix('lock','mini')}${lock}</span>`:''}</div>
+          <div class="econ-note">${trainBuildingLabel(k)} | ${reserveHtml(k)}${queueTotal(k)>0?` | 队列 ${queueTotal(k)}人 <button class="btn btn-danger btn-xs" onclick="event.stopPropagation();cancelQueue('${k}')" style="margin-left:4px">取消</button>`:''}${(S.queue[k]||{}).reason?`<br><span class="limit-warn">${pix('lock','mini')}${S.queue[k].reason}</span>`:``}${lock?`<br><span class="limit-warn">${pix('lock','mini')}${lock}</span>`:''}</div>
           <div style="font-size:11px;color:#40bf80">\u62e5\u6709:${ow}\u4eba | \u53ef\u7f16\u5165:${av}\u4eba</div>
           ${lock?'':
-          `<div style="margin-top:2px;display:flex;gap:4px;flex-wrap:wrap">
-            <button class="btn btn-go btn-xs" onclick="train('${k}',1)" ${disabled}>+1</button>
-            <button class="btn btn-go btn-xs" onclick="train('${k}',5)" ${disabled}>+5</button>
-            <button class="btn btn-go btn-xs" onclick="train('${k}',10)" ${disabled}>+10</button>
-            <button class="btn btn-ghost btn-xs" onclick="dismiss('${k}')">-1</button>
-            <button class="btn btn-ghost btn-xs" onclick="dismissN('${k}',10)">-10</button>
-          </div>
-          <div class="train-custom">
+          `<div class="train-custom">
+            <button class="btn btn-ghost btn-xs" onclick="adjTrainInput('${k}',-1)">\u2212</button>
             <input id="train-barracks-${k}" type="text" inputmode="numeric" pattern="[0-9]*" value="1">
+            <button class="btn btn-ghost btn-xs" onclick="adjTrainInput('${k}',1)">+</button>
             <button class="btn btn-go btn-xs" onclick="trainCustom('${k}','train-barracks-${k}')" ${disabled}>\u8bad\u7ec3</button>
             <button class="btn btn-ghost btn-xs" onclick="trainMax('${k}','train-barracks-${k}')" ${disabled}>MAX</button>
           </div>`}
@@ -267,7 +262,8 @@ function rFight(){
     }
     h+=`</div>`;
   }
-  h+=`<button class="btn btn-ghost btn-sm" onclick="clrForm()">清空阵容</button></div>`;
+  h+=`<button class="btn btn-go btn-sm" onclick="useLastFormation()">使用上次阵容</button>
+  <button class="btn btn-ghost btn-sm" onclick="clrForm()">清空阵容</button></div>`;
   h+=`<div class="card"><h3>${pix('enemy','card-pix')}敌人</h3>`;
   for(let i=0;i<CFG.enemies.length;i++){
     const e=CFG.enemies[i],df=S.defeated.includes(e.id),av=i===0||S.defeated.includes(CFG.enemies[i-1]?.id);

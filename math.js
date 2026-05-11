@@ -365,6 +365,14 @@ function trainCustom(uk,inputId){
   const qty=Math.max(1,Math.floor(parseInt(el?.value,10)||1));
   train(uk,qty);
 }
+function adjTrainInput(uk,d){
+  const el=document.getElementById('train-barracks-'+uk);
+  if(!el)return;
+  let v=(parseInt(el.value)||1)+d;
+  if(v<1)v=1;
+  if(d>0){const tm=maxTrainable(uk);if(v>tm)v=tm;}
+  el.value=v;
+}
 function trainMax(uk,inputId){
   const qty=maxTrainable(uk);
   if(qty<=0){
@@ -401,6 +409,14 @@ function dismissN(uk,n){
   if(a<=0){toast('无可用士兵');return}
   const fromP=Math.min(a,qty);
   S.pool[uk]-=fromP;addLog(`解散${CFG.units[uk].name}-${fromP}`);save();updateUI();
+}
+function cancelQueue(uk){
+  const q=S.queue[uk];
+  if(!q||q.count<=0){toast('队列为空');return}
+  const n=q.count;
+  q.count=0;q.timer=0;q.reason='';
+  addLog(`取消训练${CFG.units[uk].name}-${n} (队列已清空)`);
+  save();updateUI();
 }
 
 // ==================== 编队弹窗 ====================
@@ -560,6 +576,29 @@ function adjForm(row,idx,d){
   updateUI();
 }
 function clrForm(){S.formation={front:[],mid:[],back:[]};updateUI()}
+function useLastFormation(){
+  if(!S._lastForm){toast('没有上次阵容记录');return}
+  const hasAny=S._lastForm.front.length+S._lastForm.mid.length+S._lastForm.back.length>0;
+  if(!hasAny){toast('上次阵容为空');return}
+  const avail={};
+  for(const[k] of Object.entries(CFG.units))avail[k]=S.pool[k]||0;
+  for(const row of['front','mid','back']){
+    for(const u of S.formation[row])avail[u.type]=(avail[u.type]||0)+u.count;
+  }
+  const need={};
+  for(const row of['front','mid','back']){
+    for(const u of S._lastForm[row])need[u.type]=(need[u.type]||0)+u.count;
+  }
+  for(const[t,n] of Object.entries(need)){
+    if((avail[t]||0)<n){toast(`${CFG.units[t].name}不足: 需${n} 可用${avail[t]}`);return}
+  }
+  for(const row of['front','mid','back']){
+    for(const u of S.formation[row])S.pool[u.type]=(S.pool[u.type]||0)+u.count;
+  }
+  S.formation=JSON.parse(JSON.stringify(S._lastForm));
+  for(const[t,n] of Object.entries(need))S.pool[t]-=n;
+  save();updateUI();
+}
 
 // ==================== 战斗系统 ====================
 let battleTimer=null;
@@ -603,6 +642,7 @@ function initBattleState(){
   const tkey='steady'; // 战术归入英雄技能系统(P3)
   S._prePool=JSON.parse(JSON.stringify(S.pool));
   S._preForm=JSON.parse(JSON.stringify(S.formation));
+  S._lastForm=JSON.parse(JSON.stringify(S.formation));
   B.tactic=CFG.tactics[tkey]; B.enemyCfg=e;
   B.round=0; B.maxRound=25+(e.boss?5:0); B.winner=null; B.msgs=[];
   B.ourUnits=[]; B.enemyUnits=[];
