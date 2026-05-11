@@ -4,7 +4,7 @@ const CFG = {
   campBase: 0,
   maxRows: {front:1, mid:1, back:1},
   battleTimeoutMs: 10*60*1000,
-  initRegMax: 100,
+  initRegMax: 10,
   chapterResourceLevels: 10,
   maxUpgradeTime: 120,
 
@@ -30,11 +30,11 @@ const CFG = {
     quarry:{name:'采石场',buffRes:'stone',buffBase:0.15,buffPerLv:0.2, build:{wood:5,stone:12,food:4,time:4}, upBase:{wood:5,stone:8,food:3}, upCostLv:1.45},
     farm:{name:'农田',buffRes:'food',buffBase:0.15,buffPerLv:0.2, build:{wood:8,stone:4,food:12,time:4}, upBase:{wood:6,stone:3,food:8}, upCostLv:1.45},
     barracks:{name:'营帐',build:{wood:30,stone:20,food:10,time:6}, upBase:{wood:22,stone:18,food:10}, upCostLv:1.85},
-    infantry_camp:{name:'步兵营',trains:'infantry',reserveBase:12,reserveBonus:18,build:{wood:18,stone:10,food:8,time:5},upBase:{wood:16,stone:10,food:8},upCostLv:1.7},
-    archer_range:{name:'射手靶场',trains:'archer',reserveBase:10,reserveBonus:15,build:{wood:24,stone:10,food:10,time:6},upBase:{wood:20,stone:10,food:10},upCostLv:1.75},
-    stable:{name:'兽栏',trains:'cavalry',reserveBase:8,reserveBonus:12,needBoss:1,build:{wood:22,stone:16,food:18,time:7},upBase:{wood:20,stone:15,food:16},upCostLv:1.8},
-    spear_crypt:{name:'枪兵墓穴',trains:'spearman',reserveBase:10,reserveBonus:14,needBoss:2,build:{wood:16,stone:24,food:10,time:7},upBase:{wood:14,stone:22,food:10},upCostLv:1.8},
-    mage_tower:{name:'法师塔',trains:'mage',reserveBase:4,reserveBonus:8,needBoss:2,build:{wood:50,stone:50,food:35,time:10},upBase:{wood:38,stone:38,food:28},upCostLv:1.9},
+    infantry_camp:{name:'步兵营',trains:'infantry',reserveBase:2,reserveBonus:2,build:{wood:18,stone:10,food:8,time:5},upBase:{wood:16,stone:10,food:8},upCostLv:1.7},
+    archer_range:{name:'射手靶场',trains:'archer',reserveBase:1,reserveBonus:2,build:{wood:24,stone:10,food:10,time:6},upBase:{wood:20,stone:10,food:10},upCostLv:1.75},
+    stable:{name:'兽栏',trains:'cavalry',reserveBase:1,reserveBonus:1,needBoss:1,build:{wood:22,stone:16,food:18,time:7},upBase:{wood:20,stone:15,food:16},upCostLv:1.8},
+    spear_crypt:{name:'枪兵墓穴',trains:'spearman',reserveBase:1,reserveBonus:1,needBoss:2,build:{wood:16,stone:24,food:10,time:7},upBase:{wood:14,stone:22,food:10},upCostLv:1.8},
+    mage_tower:{name:'法师塔',trains:'mage',reserveBase:1,reserveBonus:1,needBoss:2,build:{wood:50,stone:50,food:35,time:10},upBase:{wood:38,stone:38,food:28},upCostLv:1.9},
     warehouse:{name:'仓库',storagePerLv:500,build:{wood:20,stone:20,food:10,time:5},upBase:{wood:16,stone:16,food:8},upCostLv:1.45}
   },
 
@@ -72,18 +72,18 @@ const CFG = {
 
   enemies: [
     // === 第一章：仅步兵+弓兵 (0 Boss) ===
-    {id:1,name:'侦察兵小队',desc:'前排步兵试探，步兵扛线弓兵输出',units:{infantry:[12,10]},reward:{wood:12,stone:9,food:8}},
-    {id:2,name:'弓兵巡逻队',desc:'步弓混编，考验前后排配置',units:{infantry:[14,12],archer:[10,8]},reward:{wood:20,stone:15,food:13}},
-    {id:3,name:'步兵方阵',desc:'重步兵推进，弓兵集火削血',units:{infantry:[22,18]},reward:{wood:28,stone:20,food:18}},
-    {id:99,name:'守关校尉',desc:'BOSS·步弓混编重兵，考验基本战术',units:{infantry:[35,28],archer:[25,20]},boss:true,bossMult:{atk:1.3,def:1.25},reward:{wood:80,stone:60,food:50}},
+    {id:1,name:'侦察兵小队',desc:'前排步兵试探，步兵扛线弓兵输出',units:{infantry:[1,1]},reward:{wood:12,stone:9,food:8}},
+    {id:2,name:'弓兵巡逻队',desc:'步弓混编，考验前后排配置',units:{infantry:[1,1],archer:[1,1]},reward:{wood:20,stone:15,food:13}},
+    {id:3,name:'步兵方阵',desc:'重步兵推进，弓兵集火削血',units:{infantry:[2,1]},reward:{wood:28,stone:20,food:18}},
+    {id:99,name:'守关校尉',desc:'BOSS·步弓混编重兵，考验基本战术',units:{infantry:[3,2],archer:[2,2]},boss:true,bossMult:{atk:1.3,def:1.25},reward:{wood:80,stone:60,food:50}},
     // === 第二章：解锁骑兵 (1 Boss) ===
-    {id:4,name:'骑兵侦察队',desc:'敌方骑兵出现，步兵前排抵御',units:{cavalry:[15,12],infantry:[14,11]},reward:{wood:35,stone:28,food:23}},
-    {id:5,name:'骑步混编',desc:'骑兵冲击后排，布好前中排',units:{cavalry:[20,17],infantry:[17,14],archer:[12]},reward:{wood:45,stone:35,food:30}},
-    {id:98,name:'骑兵统领',desc:'BOSS·骑兵主力，枪兵克制关键',units:{cavalry:[40,33],infantry:[28,22],archer:[20,16]},boss:true,bossMult:{atk:1.35,def:1.3},reward:{wood:100,stone:80,food:70}},
+    {id:4,name:'骑兵侦察队',desc:'敌方骑兵出现，步兵前排抵御',units:{cavalry:[1,1],infantry:[1,1]},reward:{wood:35,stone:28,food:23}},
+    {id:5,name:'骑步混编',desc:'骑兵冲击后排，布好前中排',units:{cavalry:[2,1],infantry:[1,1],archer:[1]},reward:{wood:45,stone:35,food:30}},
+    {id:98,name:'骑兵统领',desc:'BOSS·骑兵主力，枪兵克制关键',units:{cavalry:[4,3],infantry:[2,2],archer:[2,1]},boss:true,bossMult:{atk:1.35,def:1.3},reward:{wood:100,stone:80,food:70}},
     // === 第三章：解锁枪兵+法师 (2 Boss) ===
-    {id:6,name:'枪兵方阵',desc:'敌方枪兵出现，反骑破甲',units:{spearman:[24,20],infantry:[15,12]},reward:{wood:55,stone:48,food:40}},
-    {id:7,name:'法师小队',desc:'敌方法师高伤脆皮，骑兵切后',units:{mage:[18,14],infantry:[16,13],spearman:[15]},reward:{wood:65,stone:55,food:48}},
-    {id:97,name:'混编将军',desc:'BOSS·四兵种齐全，多兵种协同破阵',units:{infantry:[40,32],archer:[28,22],cavalry:[30,24],spearman:[25,20],mage:[18]},boss:true,bossMult:{atk:1.4,def:1.35},reward:{wood:130,stone:110,food:95}}
+    {id:6,name:'枪兵方阵',desc:'敌方枪兵出现，反骑破甲',units:{spearman:[2,2],infantry:[1,1]},reward:{wood:55,stone:48,food:40}},
+    {id:7,name:'法师小队',desc:'敌方法师高伤脆皮，骑兵切后',units:{mage:[1,1],infantry:[1,1],spearman:[1]},reward:{wood:65,stone:55,food:48}},
+    {id:97,name:'混编将军',desc:'BOSS·四兵种齐全，多兵种协同破阵',units:{infantry:[4,3],archer:[2,2],cavalry:[3,2],spearman:[2,2],mage:[1]},boss:true,bossMult:{atk:1.4,def:1.35},reward:{wood:130,stone:110,food:95}}
   ]};
 
 // ==================== 状态 ====================
@@ -154,7 +154,7 @@ function upgradeLockReason(key){
 }
 function regMax(){
   const s=bldSt('barracks');
-  return 50+(s.state==='idle'&&s.lv>=1?50:0);
+  return 5+(s.state==='idle'&&s.lv>=1?5:0);
 }
 function trainBuildingKey(uk){
   return Object.keys(CFG.buildings).find(k=>CFG.buildings[k].trains===uk)||null;
