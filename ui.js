@@ -62,6 +62,9 @@ function rHome(){
 function renderTownMapOverview(){
   const tc=townCfg();
   const status=totalSoldiers()>0?'巡逻中':'和平';
+  const woodWorkers=S.popAlloc.wood||0;
+  const stoneWorkers=S.popAlloc.stone||0;
+  const foodWorkers=S.popAlloc.food||0;
   const unitTotal=uk=>{
     let n=S.pool[uk]||0;
     for(const row of['front','mid','back']){
@@ -84,6 +87,9 @@ function renderTownMapOverview(){
       <div class="town-woods" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
       <div class="town-stones" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
       <div class="town-fields" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      ${workerDots('wood',woodWorkers,'wood')}
+      ${workerDots('stone',stoneWorkers,'stone')}
+      ${workerDots('food',foodWorkers,'food')}
       <div class="town-building town-hall">
         <span class="town-building-icon">⌂</span>
         <strong>${tc.name}</strong>
@@ -92,17 +98,17 @@ function renderTownMapOverview(){
       <div class="town-building town-lumber">
         <span class="town-building-icon">▥</span>
         <strong>伐木场</strong>
-        <em>木 ${S.popAlloc.wood||0}人</em>
+        <em>${woodWorkers>0?`木 ${woodWorkers}人`:'空闲'}</em>
       </div>
       <div class="town-building town-quarry">
         <span class="town-building-icon">◆</span>
         <strong>采石场</strong>
-        <em>石 ${S.popAlloc.stone||0}人</em>
+        <em>${stoneWorkers>0?`石 ${stoneWorkers}人`:'空闲'}</em>
       </div>
       <div class="town-building town-farm">
         <span class="town-building-icon">▦</span>
         <strong>农田</strong>
-        <em>粮 ${S.popAlloc.food||0}人</em>
+        <em>${foodWorkers>0?`粮 ${foodWorkers}人`:'空闲'}</em>
       </div>
       <div class="town-building town-tower">
         <span class="town-building-icon">▣</span>
@@ -111,6 +117,18 @@ function renderTownMapOverview(){
     </div>
     <div class="town-troop-summary">驻军：${troopSummary}</div>
   </div>`;
+}
+function workerDots(resourceKey,assignedCount,type){
+  if(assignedCount<=0)return '';
+  const count=assignedCount>=16?3:assignedCount>=6?2:1;
+  const walkClass={wood:'worker-work',stone:'worker-work',food:'worker-walk-a'}[type]||'worker-walk-a';
+  let h=`<div class="town-worker-group worker-${type}-group" aria-hidden="true">`;
+  for(let i=0;i<count;i++){
+    const alt=i%2?'worker-walk-b':walkClass;
+    h+=`<span class="town-worker worker-${type} ${alt} worker-${resourceKey}-${i+1}"></span>`;
+  }
+  h+='</div>';
+  return h;
 }
 function rBuild(){
   let h=`<div style="padding:4px 0">`;

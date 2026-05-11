@@ -308,9 +308,56 @@ body{
 .town-farm:before{background:#76662d}
 .town-tower{right:10%;top:28%;min-width:58px}
 .town-tower:before{width:22px;height:30px;background:#5d4a37;border-color:#b78a42}
+.town-worker-group{
+  position:absolute;z-index:4;pointer-events:none;width:76px;height:42px;
+}
+.worker-wood-group{left:14%;top:45%}
+.worker-stone-group{left:23%;bottom:18%}
+.worker-food-group{right:30%;bottom:13%}
+.town-worker{
+  position:absolute;width:8px;height:10px;background:#d4b06a;border:1px solid #332414;
+  box-shadow:0 2px 0 rgba(0,0,0,.35),inset 1px 1px 0 rgba(255,255,255,.16);
+}
+.town-worker:before{
+  content:"";position:absolute;left:2px;top:-5px;width:4px;height:4px;background:#c9965a;border:1px solid #332414;
+}
+.town-worker:after{
+  content:"";position:absolute;left:-3px;top:3px;width:14px;height:2px;background:#5d4530;
+  box-shadow:0 5px 0 #2b2118;
+}
+.worker-wood{background:#b87942}
+.worker-stone{background:#a9afb8}
+.worker-food{background:#d0bd52}
+.worker-wood-1{left:2px;top:8px}
+.worker-wood-2{left:22px;top:22px;animation-delay:.35s}
+.worker-wood-3{left:45px;top:12px;animation-delay:.7s}
+.worker-stone-1{left:3px;top:15px}
+.worker-stone-2{left:27px;top:3px;animation-delay:.25s}
+.worker-stone-3{left:51px;top:21px;animation-delay:.55s}
+.worker-food-1{left:2px;top:20px}
+.worker-food-2{left:28px;top:8px;animation-delay:.45s}
+.worker-food-3{left:52px;top:24px;animation-delay:.9s}
+.worker-walk-a{animation:townWorkerWalkA 2.4s steps(4,end) infinite}
+.worker-walk-b{animation:townWorkerWalkB 2.8s steps(4,end) infinite}
+.worker-work{animation:townWorkerWork 1.15s steps(2,end) infinite}
+@keyframes townWorkerWalkA{
+  0%,100%{transform:translateX(0)}
+  50%{transform:translateX(10px)}
+}
+@keyframes townWorkerWalkB{
+  0%,100%{transform:translateX(0)}
+  50%{transform:translateX(-9px)}
+}
+@keyframes townWorkerWork{
+  0%,100%{transform:translate(0,0)}
+  50%{transform:translate(3px,-3px)}
+}
 .town-troop-summary{
   margin-top:8px;padding:6px 7px;border:2px solid #2b3144;background:#0d101b;color:#c5cad8;
   font-size:10px;line-height:1.45;word-break:break-all;text-shadow:1px 1px 0 #000;
+}
+@media (prefers-reduced-motion: reduce){
+  .town-worker{animation:none!important}
 }
 
 /* 像素皮肤 */

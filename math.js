@@ -143,8 +143,7 @@ function resourceCapText(){
 function storageCapacity(){
   const whLv=(S.buildings.warehouse||{lv:0}).lv;
   const cfg=CFG.buildings.warehouse;
-  return cfg.storageBase + whLv * cfg.storagePerLv;
-}
+  return (cfg.storageBase??2000) + whLv * (cfg.storagePerLv??500);
 }
 function upgradeLockReason(key){
   const cfg=CFG.buildings[key],st=bldSt(key);
