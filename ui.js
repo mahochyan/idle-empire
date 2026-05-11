@@ -165,7 +165,7 @@ function rFight(){
   h+=`<div class="card"><h3>${pix('enemy','card-pix')}敌人</h3>`;
   for(let i=0;i<CFG.enemies.length;i++){
     const e=CFG.enemies[i],df=S.defeated.includes(e.id),av=i===0||S.defeated.includes(CFG.enemies[i-1]?.id);
-    const enemyInfo=Object.entries(e.units).map(([k,counts])=>counts.map(c=>`${pix(CFG.units[k].icon,'mini')}${c}`).join(' ')).join(' | ');
+    const enemyInfo=Object.entries(e.units).map(([k,counts])=>{const t=counts.reduce((a,b)=>a+b,0);return `${pix(CFG.units[k].icon,'mini')}${CFG.units[k].name}×${t}`;}).join(' ');
     h+=`<div style="padding:6px 0;border-bottom:1px solid #1e1e2e;${av?'cursor:pointer':''};opacity:${av?'1':'.55'};${S.selEnemy===i?'background:#1e1e2e;margin:0 -12px;padding:6px 12px;border-radius:4px':''}" ${av?`onclick="selEnemy(${i})"`:''}>
       <strong>${e.name}</strong> ${df?pix('check','mini'):''} ${e.boss?pix('boss','mini'):''}
       <div style="font-size:10px;color:#777">${e.desc} [${enemyInfo}]</div>
