@@ -42,7 +42,7 @@ function rHome(){
     h+=`<div style="display:flex;align-items:center;gap:6px;padding:4px 0;font-size:12px">`;
     h+=`<span style="width:60px">${pix(c.icon,"sm")} ${c.name}</span>`;
     h+=`<button class="btn btn-ghost btn-xs" onclick="setPopAlloc('${k}',(S.popAlloc['${k}']||0)-1)" ${alloc<=0?"disabled":""}>−</button>`;
-    h+=`<span style="width:28px;text-align:center;font-weight:bold;color:#f0d060">${alloc}</span>`;
+    h+=`<input type="text" inputmode="numeric" pattern="[0-9]*" value="${alloc}" onchange="setPopAlloc('${k}',parseInt(this.value)||0)" style="width:42px;text-align:center;font-weight:bold;color:#f0d060;background:#080912;border:2px solid #3a4158;font-family:inherit;font-size:12px">`;
     h+=`<button class="btn btn-ghost btn-xs" onclick="setPopAlloc('${k}',(S.popAlloc['${k}']||0)+1)" ${popFree()<=0?"disabled":""}>+</button>`;
     const rawRate=k==='food'?rate-totalUpkeep()-popAllocTotal()*0.1:rate;
     h+=`<span style="color:${rawRate>=0?'#40bf80':'#e06060'};margin-left:auto">${rawRate>=0?'+':''}${rawRate.toFixed(1)}/秒</span>`;
