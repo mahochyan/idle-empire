@@ -410,30 +410,71 @@ body{
 .worker-harvest:after{animation:townToolHarvest .9s steps(2,end) infinite alternate}
 @keyframes townWorkerChop{
   0%{transform:translate(0,0) scaleX(1)}
-  45%{transform:translate(12px,0) scaleX(1)}
-  50%{transform:translate(12px,0) scaleX(-1)}
-  95%{transform:translate(0,0) scaleX(-1)}
+  16%{transform:translate(12px,0) scaleX(1)}
+  /* 砍树：上下挥斧 */
+  20%{transform:translate(12px,-3px) scaleX(1)}
+  24%{transform:translate(12px,0) scaleX(1)}
+  28%{transform:translate(12px,-3px) scaleX(1)}
+  32%{transform:translate(12px,1px) scaleX(1)}
+  36%{transform:translate(12px,-2px) scaleX(1)}
+  40%{transform:translate(12px,1px) scaleX(1)}
+  44%{transform:translate(12px,0) scaleX(1)}
+  52%{transform:translate(12px,0) scaleX(1)}
+  /* 转身走回 */
+  56%{transform:translate(12px,0) scaleX(-1)}
+  72%{transform:translate(0,0) scaleX(-1)}
+  76%{transform:translate(0,0) scaleX(1)}
   100%{transform:translate(0,0) scaleX(1)}
 }
 @keyframes townWorkerMine{
   0%{transform:translate(0,0) scaleX(1)}
-  45%{transform:translate(10px,-2px) scaleX(1)}
-  50%{transform:translate(10px,-2px) scaleX(-1)}
-  95%{transform:translate(0,0) scaleX(-1)}
+  16%{transform:translate(10px,-2px) scaleX(1)}
+  /* 挖矿：前后凿击 */
+  20%{transform:translate(8px,-3px) scaleX(1)}
+  24%{transform:translate(12px,-1px) scaleX(1)}
+  28%{transform:translate(8px,-3px) scaleX(1)}
+  32%{transform:translate(12px,0) scaleX(1)}
+  36%{transform:translate(9px,-2px) scaleX(1)}
+  40%{transform:translate(11px,0) scaleX(1)}
+  44%{transform:translate(10px,-2px) scaleX(1)}
+  52%{transform:translate(10px,-2px) scaleX(1)}
+  56%{transform:translate(10px,-2px) scaleX(-1)}
+  72%{transform:translate(0,0) scaleX(-1)}
+  76%{transform:translate(0,0) scaleX(1)}
   100%{transform:translate(0,0) scaleX(1)}
 }
 @keyframes townWorkerHarvest{
   0%{transform:translate(0,0) scaleX(1)}
-  45%{transform:translate(18px,2px) scaleX(1)}
-  50%{transform:translate(18px,2px) scaleX(-1)}
-  95%{transform:translate(0,0) scaleX(-1)}
+  16%{transform:translate(18px,2px) scaleX(1)}
+  /* 收割：左右横扫 */
+  20%{transform:translate(15px,3px) scaleX(1)}
+  23%{transform:translate(21px,1px) scaleX(1)}
+  26%{transform:translate(16px,2px) scaleX(1)}
+  29%{transform:translate(20px,3px) scaleX(1)}
+  32%{transform:translate(17px,1px) scaleX(1)}
+  35%{transform:translate(19px,2px) scaleX(1)}
+  38%{transform:translate(18px,2px) scaleX(1)}
+  52%{transform:translate(18px,2px) scaleX(1)}
+  56%{transform:translate(18px,2px) scaleX(-1)}
+  72%{transform:translate(0,0) scaleX(-1)}
+  76%{transform:translate(0,0) scaleX(1)}
   100%{transform:translate(0,0) scaleX(1)}
 }
 @keyframes townWorkerStep{
   0%{transform:translate(0,0) scaleX(1)}
-  45%{transform:translate(-12px,2px) scaleX(1)}
-  50%{transform:translate(-12px,2px) scaleX(-1)}
-  95%{transform:translate(0,0) scaleX(-1)}
+  16%{transform:translate(-12px,2px) scaleX(1)}
+  /* 搬运/堆放 */
+  20%{transform:translate(-11px,1px) scaleX(1)}
+  24%{transform:translate(-13px,3px) scaleX(1)}
+  28%{transform:translate(-11px,2px) scaleX(1)}
+  32%{transform:translate(-12px,1px) scaleX(1)}
+  36%{transform:translate(-13px,2px) scaleX(1)}
+  40%{transform:translate(-11px,3px) scaleX(1)}
+  44%{transform:translate(-12px,2px) scaleX(1)}
+  52%{transform:translate(-12px,2px) scaleX(1)}
+  56%{transform:translate(-12px,2px) scaleX(-1)}
+  72%{transform:translate(0,0) scaleX(-1)}
+  76%{transform:translate(0,0) scaleX(1)}
   100%{transform:translate(0,0) scaleX(1)}
 }
 @keyframes townToolChop{
