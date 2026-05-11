@@ -26,7 +26,10 @@ function updateUI(){
   renderPage(S.page);
 }
 function renderPage(p){
-  document.getElementById('main').innerHTML={home:rHome,build:rBuild,barracks:rBarracks,fight:rFight,log:rLog}[p]();
+  const main=document.getElementById('main');
+  const el=document.activeElement;
+  if(el&&(el.tagName==='INPUT'||el.tagName==='TEXTAREA')&&main.contains(el))return;
+  main.innerHTML={home:rHome,build:rBuild,barracks:rBarracks,fight:rFight,log:rLog}[p]();
 }
 function rHome(){
   const tc=townCfg();
@@ -222,11 +225,10 @@ function rBarracks(){
           <div style="font-size:11px;color:#40bf80">\u62e5\u6709:${ow}\u4eba | \u53ef\u7f16\u5165:${av}\u4eba</div>
           ${lock?'':
           `<div class="train-custom">
-            <button class="btn btn-ghost btn-xs" onclick="adjTrainInput('${k}',-1)">\u2212</button>
-            <input id="train-barracks-${k}" type="text" inputmode="numeric" pattern="[0-9]*" value="1">
-            <button class="btn btn-ghost btn-xs" onclick="adjTrainInput('${k}',1)">+</button>
+            <input id="train-barracks-${k}" type="text" inputmode="numeric" pattern="[0-9]*" value="${(S._trainQty||{})[k]||1}" oninput="(S._trainQty||{})['${k}']=parseInt(this.value)||1">
             <button class="btn btn-go btn-xs" onclick="trainCustom('${k}','train-barracks-${k}')" ${disabled}>\u8bad\u7ec3</button>
             <button class="btn btn-ghost btn-xs" onclick="trainMax('${k}','train-barracks-${k}')" ${disabled}>MAX</button>
+            <button class="btn btn-danger btn-xs" onclick="dismissN('${k}',(S._trainQty||{})['${k}']||1)">\u5220\u9664</button>
           </div>`}
         </div>
       </div></div>`;
@@ -264,16 +266,17 @@ function rFight(){
   }
   h+=`<button class="btn btn-go btn-sm" onclick="useLastFormation()">使用上次阵容</button>
   <button class="btn btn-ghost btn-sm" onclick="clrForm()">清空阵容</button></div>`;
-  h+=`<div class="card"><h3>${pix('enemy','card-pix')}敌人</h3>`;
-  for(let i=0;i<CFG.enemies.length;i++){
-    const e=CFG.enemies[i],df=S.defeated.includes(e.id),av=i===0||S.defeated.includes(CFG.enemies[i-1]?.id);
+  h+=`<div class="card"><h3>${pix('enemy','card-pix')}敌人 — 第${S.defeated.length+1}层</h3>`;
+  const cur=S.defeated.length;
+  for(let i=cur;i<=cur+1&&i<CFG.enemies.length;i++){
+    const e=CFG.enemies[i],df=S.defeated.includes(e.id),av=i===cur;
     const enemyInfo=Object.entries(e.units).map(([k,counts])=>{const t=counts.reduce((a,b)=>a+b,0);return `${pix(CFG.units[k].icon,'mini')}${CFG.units[k].name}×${t}`;}).join(' ');
-    h+=`<div style="padding:6px 0;border-bottom:1px solid #1e1e2e;${av?'cursor:pointer':''};opacity:${av?'1':'.55'};${S.selEnemy===i?'background:#1e1e2e;margin:0 -12px;padding:6px 12px;border-radius:4px':''}" ${av?`onclick="selEnemy(${i})"`:''}>
-      <strong>${e.name}</strong> ${df?pix('check','mini'):''} ${e.boss?pix('boss','mini'):''}
+    h+=`<div style="padding:6px 0;border-bottom:1px solid #1e1e2e;${av?'cursor:pointer;':''}opacity:${av?'1':'.55'};${S.selEnemy===i?'background:#1e1e2e;margin:0 -12px;padding:6px 12px;border-radius:4px':''}" ${av?`onclick="selEnemy(${i})"`:''}>
+      <strong>${i===cur?'当前敌人':'下一层'}：${e.name}</strong> ${df?pix('check','mini'):''} ${e.boss?pix('boss','mini'):''}
       <div style="font-size:10px;color:#777">${e.desc} [${enemyInfo}]</div>
-      ${av?'':`<span style="color:#e06060;font-size:10px">${pix('lock','mini')} 先击败上一个</span>`}
     </div>`;
   }
+  if(cur>=CFG.enemies.length)h+=`<div style="color:#40bf80;text-align:center;padding:10px">全部通关！</div>`;
   h+=`</div><button class="btn btn-go" style="width:100%;margin-top:8px;padding:12px;font-size:15px" onclick="openBattle()">${pix('battle','sm')}开战</button></div></div>`;
   return h;
 }
@@ -282,8 +285,13 @@ function rLog(){
   const l=[...S.log].reverse();
   if(!l.length)h+=`<div style="color:#666">暂无</div>`;
   else for(const e of l)h+=`<span style="color:#555">[${e.time}]</span> ${e.msg}<br>`;
-  h+=`</div></div>`;
-  h+=`<button class="btn btn-danger btn-sm" onclick="if(confirm('重置?')){localStorage.clear();location.reload()}">${pix('reset','mini')}重置</button></div>`;
+  h+=`</div></div>
+  <div class="card"><h3>${pix('build','card-pix')}测试工具</h3>
+    <div class="train-custom" style="margin:4px 0"><span style="width:40px">木材</span><input id="test-wood" type="text" inputmode="numeric" pattern="[0-9]*" value="100" style="width:70px"><button class="btn btn-go btn-xs" onclick="addRes('wood','test-wood')">添加</button></div>
+    <div class="train-custom" style="margin:4px 0"><span style="width:40px">石料</span><input id="test-stone" type="text" inputmode="numeric" pattern="[0-9]*" value="100" style="width:70px"><button class="btn btn-go btn-xs" onclick="addRes('stone','test-stone')">添加</button></div>
+    <div class="train-custom" style="margin:4px 0"><span style="width:40px">食物</span><input id="test-food" type="text" inputmode="numeric" pattern="[0-9]*" value="100" style="width:70px"><button class="btn btn-go btn-xs" onclick="addRes('food','test-food')">添加</button></div>
+  </div>
+  <button class="btn btn-danger btn-sm" onclick="if(confirm('重置?')){localStorage.clear();location.reload()}">${pix('reset','mini')}重置</button></div>`;
   return h;
 }
 

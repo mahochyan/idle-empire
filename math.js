@@ -11,7 +11,7 @@ const CFG = {
   res: {
     wood:{name:'木材',icon:'wood',basePerPop:0.5},
     stone:{name:'石料',icon:'stone',basePerPop:0.5},
-    food:{name:'食物',icon:'food',basePerPop:1}
+    food:{name:'食物',icon:'food',basePerPop:0.5}
   },
 
   town: [
@@ -30,22 +30,22 @@ const CFG = {
     quarry:{name:'采石场',buffRes:'stone',buffBase:0.15,buffPerLv:0.2, build:{wood:50,stone:120,food:40,time:4}, upBase:{wood:500,stone:800,food:300}, upCostLv:1.45},
     farm:{name:'农田',buffRes:'food',buffBase:0.15,buffPerLv:0.2, build:{wood:80,stone:40,food:120,time:4}, upBase:{wood:600,stone:300,food:800}, upCostLv:1.45},
     barracks:{name:'营帐',build:{wood:300,stone:200,food:100,time:6}, upBase:{wood:2200,stone:1800,food:1000}, upCostLv:1.85},
-    infantry_camp:{name:'步兵营',trains:'infantry',reserveBase:2,reserveBonus:2,build:{wood:180,stone:100,food:80,time:5},upBase:{wood:1600,stone:1000,food:800},upCostLv:1.7},
+    infantry_camp:{name:'步兵营地',trains:'infantry',reserveBase:2,reserveBonus:2,build:{wood:180,stone:100,food:80,time:5},upBase:{wood:1600,stone:1000,food:800},upCostLv:1.7},
     archer_range:{name:'射手靶场',trains:'archer',reserveBase:1,reserveBonus:2,build:{wood:240,stone:100,food:100,time:6},upBase:{wood:2000,stone:1000,food:1000},upCostLv:1.75},
-    stable:{name:'兽栏',trains:'cavalry',reserveBase:1,reserveBonus:1,needBoss:1,build:{wood:220,stone:160,food:180,time:7},upBase:{wood:2000,stone:1500,food:1600},upCostLv:1.8},
-    spear_crypt:{name:'枪兵墓穴',trains:'spearman',reserveBase:1,reserveBonus:1,needBoss:2,build:{wood:160,stone:240,food:100,time:7},upBase:{wood:1400,stone:2200,food:1000},upCostLv:1.8},
+    stable:{name:'骑兵训练场',trains:'cavalry',reserveBase:1,reserveBonus:1,needBoss:1,build:{wood:220,stone:160,food:180,time:7},upBase:{wood:2000,stone:1500,food:1600},upCostLv:1.8},
+    spear_crypt:{name:'枪兵营地',trains:'spearman',reserveBase:1,reserveBonus:1,needBoss:2,build:{wood:160,stone:240,food:100,time:7},upBase:{wood:1400,stone:2200,food:1000},upCostLv:1.8},
     mage_tower:{name:'法师塔',trains:'mage',reserveBase:1,reserveBonus:1,needBoss:2,build:{wood:500,stone:500,food:350,time:10},upBase:{wood:3800,stone:3800,food:2800},upCostLv:1.9},
     warehouse:{name:'仓库',storageBase:5000,storagePerLv:4000,build:{wood:200,stone:200,food:100,time:5},upBase:{wood:1600,stone:1600,food:800},upCostLv:1.45}
   },
 
   units: {
-    infantry:{name:'步兵',race:'人族',row:'front',icon:'infantry',
+    infantry:{name:'步兵',race:'人类',row:'front',icon:'infantry',
       cost:{wood:50,stone:20,food:40}, upkeep:0.1, trainTime:1, atk:6,def:8,spd:10, passive:'攻击+10%'},
     archer:{name:'弓兵',race:'精灵',row:'back',icon:'archer',
       cost:{wood:80,stone:20,food:30}, upkeep:0.2, trainTime:1, atk:8,def:4,spd:12, passive:'基础MISS20%，打骑兵50%'},
     cavalry:{name:'骑兵',race:'兽人',row:'front',icon:'cavalry',
       cost:{wood:40,stone:30,food:80}, upkeep:0.2, trainTime:1, atk:7,def:6,spd:14, passive:'闪避10%'},
-    spearman:{name:'枪兵',race:'亡灵',row:'mid',icon:'spearman',
+    spearman:{name:'枪兵',race:'人类',row:'mid',icon:'spearman',
       cost:{wood:30,stone:60,food:40}, upkeep:0.1, trainTime:1, atk:7,def:7,spd:11, passive:'暴击10%'},
     mage:{name:'法师',race:'亡灵',row:'back',icon:'mage',
       cost:{wood:80,stone:60,food:80}, upkeep:0.4, trainTime:1, atk:11,def:2,spd:8, passive:'互易伤1.3x',locked:true}
@@ -102,7 +102,8 @@ let S = {
   selEnemy:null,
   queue:{},
   battleSpeed:1,
-  battleActive:false
+  battleActive:false,
+  _trainQty:{}
 };
 
 // ==================== 辅助 ====================
@@ -416,6 +417,14 @@ function cancelQueue(uk){
   const n=q.count;
   q.count=0;q.timer=0;q.reason='';
   addLog(`取消训练${CFG.units[uk].name}-${n} (队列已清空)`);
+  save();updateUI();
+}
+function addRes(rk,inputId){
+  const el=document.getElementById(inputId);
+  const n=Math.max(1,Math.floor(parseInt(el?.value,10)||0));
+  const cap=storageCapacity();
+  S.res[rk]=Math.min((S.res[rk]||0)+n,cap);
+  addLog(`手动添加${CFG.res[rk].name}+${n}`);
   save();updateUI();
 }
 
@@ -892,9 +901,9 @@ function endBattle(result){
   resEl.innerHTML=`
     <span class="result-text">${text}</span>
     <div class="result-btns">
-      ${hasNext?`<button class="btn btn-go btn-sm" onclick="nextBattle()">${pix('next','mini')}下一关</button>`:''}
-      <button class="btn btn-go btn-sm" onclick="retryBattle()">${pix('reset','mini')}重新对战</button>
-      <button class="btn btn-ghost btn-sm" onclick="exitBattle()">${pix('exit','mini')}退出</button>
+      ${hasNext?`<button class="btn btn-go btn-sm" onclick="nextBattle()">下一关</button>`:''}
+      <button class="btn btn-go btn-sm" onclick="retryBattle()">重新对战</button>
+      <button class="btn btn-ghost btn-sm" onclick="exitBattle()">退出</button>
     </div>`;
   resEl.style.display='flex';
   updateUI();
@@ -912,6 +921,8 @@ function retryBattle(){
 }
 
 function exitBattle(){
+  const cur=CFG.enemies[S.selEnemy];
+  if(cur&&S.defeated.includes(cur.id))S.selEnemy=Math.min(S.selEnemy+1,CFG.enemies.length-1);
   document.getElementById('battle-result').style.display='none';
   document.getElementById('battle-screen').classList.remove('active');
   document.getElementById('navbar').classList.remove('paused');
