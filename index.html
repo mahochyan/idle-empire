@@ -443,9 +443,9 @@ const CFG = {
   ],
 
   buildings: {
-    lumber_mill:{name:'伐木场',buffRes:'wood',buffBase:0.1,buffPerLv:0.08, build:{wood:15,stone:8,food:5,time:4}, upBase:{wood:8,stone:5,food:3}, upCostLv:1.32},
-    quarry:{name:'采石场',buffRes:'stone',buffBase:0.1,buffPerLv:0.08, build:{wood:5,stone:12,food:4,time:4}, upBase:{wood:5,stone:8,food:3}, upCostLv:1.32},
-    farm:{name:'农田',buffRes:'food',buffBase:0.1,buffPerLv:0.08, build:{wood:8,stone:4,food:12,time:4}, upBase:{wood:6,stone:3,food:8}, upCostLv:1.32},
+    lumber_mill:{name:'伐木场',buffRes:'wood',buffBase:0.15,buffPerLv:0.2, build:{wood:15,stone:8,food:5,time:4}, upBase:{wood:8,stone:5,food:3}, upCostLv:1.45},
+    quarry:{name:'采石场',buffRes:'stone',buffBase:0.15,buffPerLv:0.2, build:{wood:5,stone:12,food:4,time:4}, upBase:{wood:5,stone:8,food:3}, upCostLv:1.45},
+    farm:{name:'农田',buffRes:'food',buffBase:0.15,buffPerLv:0.2, build:{wood:8,stone:4,food:12,time:4}, upBase:{wood:6,stone:3,food:8}, upCostLv:1.45},
     barracks:{name:'营帐',build:{wood:30,stone:20,food:10,time:6}, upBase:{wood:22,stone:18,food:10}, upCostLv:1.85, regBonus:20},
     infantry_camp:{name:'步兵营',trains:'infantry',reserveBase:12,reserveBonus:18,build:{wood:18,stone:10,food:8,time:5},upBase:{wood:16,stone:10,food:8},upCostLv:1.7},
     archer_range:{name:'射手靶场',trains:'archer',reserveBase:10,reserveBonus:15,build:{wood:24,stone:10,food:10,time:6},upBase:{wood:20,stone:10,food:10},upCostLv:1.75},
@@ -599,10 +599,10 @@ function bossDefeatedCount(){
   return CFG.enemies.filter(e=>e.boss&&S.defeated.includes(e.id)).length;
 }
 function resourceLevelCap(){
-  return (bossDefeatedCount()+1)*CFG.chapterResourceLevels;
+  return bossDefeatedCount() + 1;
 }
 function resourceCapText(){
-  return `\u672c\u5173\u4e0a\u9650 Lv.${resourceLevelCap()}`;
+  return `\u672c\u7ae0\u4e0a\u9650 Lv.${resourceLevelCap()}`;
 }
 function upgradeLockReason(key){
   const cfg=CFG.buildings[key],st=bldSt(key);
@@ -1314,7 +1314,7 @@ function rBuild(){
       if(locked)h+=`<div class="build-meta limit-warn">${pix('lock','mini')}\u51fb\u8d25\u7b2c5\u4e2a\u654c\u4eba\u540e\u89e3\u9501</div>`;
     }
     if(cfg.buffRes){
-      h+=`<div class="build-meta">${resourceCapText()} | \u8d44\u6e90\u5efa\u7b51\u6bcf\u5927\u5173 +${CFG.chapterResourceLevels}\u7ea7</div>`;
+      h+=`<div class="build-meta">${resourceCapText()} | \u51fb\u8d25Boss\u540e\u89e3\u9501\u4e0b\u4e00\u7ea7</div>`;
       if(upLock)h+=`<div class="build-meta limit-warn">${pix('lock','mini')}${upLock}</div>`;
     }
     if(st.state==='idle'){
