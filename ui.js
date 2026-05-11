@@ -9,7 +9,7 @@ function updateUI(){
   document.getElementById('res-pop').textContent=popAllocTotal()+'/'+maxPop();
   document.getElementById('cap-wood').textContent='/'+cap;
   document.getElementById('cap-stone').textContent='/'+cap;
-  const netFood=prodRate('food')-totalUpkeep();
+  const netFood=prodRate('food')-totalUpkeep()-popAllocTotal()*0.01;
   document.getElementById('cap-food').textContent=(netFood>=0?'+':'')+netFood.toFixed(1)+'/秒';
   document.getElementById('cap-pop').textContent='';
   const woodFull=wood>=cap,stoneFull=stone>=cap,foodFull=food>=cap||(food<=0&&netFood<0);
@@ -44,9 +44,9 @@ function rHome(){
     h+=`<button class="btn btn-ghost btn-xs" onclick="setPopAlloc('${k}',(S.popAlloc['${k}']||0)-1)" ${alloc<=0?"disabled":""}>−</button>`;
     h+=`<span style="width:28px;text-align:center;font-weight:bold;color:#f0d060">${alloc}</span>`;
     h+=`<button class="btn btn-ghost btn-xs" onclick="setPopAlloc('${k}',(S.popAlloc['${k}']||0)+1)" ${popFree()<=0?"disabled":""}>+</button>`;
-    const rawRate=k==='food'?rate-totalUpkeep():rate;
+    const rawRate=k==='food'?rate-totalUpkeep()-popAllocTotal()*0.01:rate;
     h+=`<span style="color:${rawRate>=0?'#40bf80':'#e06060'};margin-left:auto">${rawRate>=0?'+':''}${rawRate.toFixed(1)}/秒</span>`;
-    h+=`<span style="font-size:10px;color:#666">Buff ${buf>0?"+":""}${(buf*100).toFixed(0)}%${k==='food'?' | 军粮 -'+totalUpkeep().toFixed(1):''}</span>`;
+    h+=`<span style="font-size:10px;color:#666">Buff ${buf>0?"+":""}${(buf*100).toFixed(0)}%${k==='food'?' | 口粮 -'+(totalUpkeep()+popAllocTotal()*0.01).toFixed(1):''}</span>`;
     h+=`</div>`;
   }
   h+=`</div>`;

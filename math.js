@@ -263,7 +263,7 @@ function tick(){
   const cap=storageCapacity();
   for(const rk of Object.keys(CFG.res)){
     if(rk==='food'){
-      S.res[rk]=Math.min(S.res[rk]+prodRate(rk)-totalUpkeep(), cap);
+      S.res[rk]=Math.min(S.res[rk]+prodRate(rk)-totalUpkeep()-popAllocTotal()*0.01, cap);
       if(S.res[rk]<0)S.res[rk]=0;
     }else{
       S.res[rk]=Math.min(S.res[rk]+prodRate(rk), cap);
