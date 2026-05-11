@@ -26,16 +26,16 @@ const CFG = {
   ],
 
   buildings: {
-    lumber_mill:{name:'伐木场',buffRes:'wood',buffBase:0.15,buffPerLv:0.2, build:{wood:150,stone:80,food:50,time:4}, upBase:{wood:80,stone:50,food:30}, upCostLv:1.45},
-    quarry:{name:'采石场',buffRes:'stone',buffBase:0.15,buffPerLv:0.2, build:{wood:50,stone:120,food:40,time:4}, upBase:{wood:50,stone:80,food:30}, upCostLv:1.45},
-    farm:{name:'农田',buffRes:'food',buffBase:0.15,buffPerLv:0.2, build:{wood:80,stone:40,food:120,time:4}, upBase:{wood:60,stone:30,food:80}, upCostLv:1.45},
-    barracks:{name:'营帐',build:{wood:300,stone:200,food:100,time:6}, upBase:{wood:220,stone:180,food:100}, upCostLv:1.85},
-    infantry_camp:{name:'步兵营',trains:'infantry',reserveBase:2,reserveBonus:2,build:{wood:180,stone:100,food:80,time:5},upBase:{wood:160,stone:100,food:80},upCostLv:1.7},
-    archer_range:{name:'射手靶场',trains:'archer',reserveBase:1,reserveBonus:2,build:{wood:240,stone:100,food:100,time:6},upBase:{wood:200,stone:100,food:100},upCostLv:1.75},
-    stable:{name:'兽栏',trains:'cavalry',reserveBase:1,reserveBonus:1,needBoss:1,build:{wood:220,stone:160,food:180,time:7},upBase:{wood:200,stone:150,food:160},upCostLv:1.8},
-    spear_crypt:{name:'枪兵墓穴',trains:'spearman',reserveBase:1,reserveBonus:1,needBoss:2,build:{wood:160,stone:240,food:100,time:7},upBase:{wood:140,stone:220,food:100},upCostLv:1.8},
-    mage_tower:{name:'法师塔',trains:'mage',reserveBase:1,reserveBonus:1,needBoss:2,build:{wood:500,stone:500,food:350,time:10},upBase:{wood:380,stone:380,food:280},upCostLv:1.9},
-    warehouse:{name:'仓库',storagePerLv:500,build:{wood:200,stone:200,food:100,time:5},upBase:{wood:160,stone:160,food:80},upCostLv:1.45}
+    lumber_mill:{name:'伐木场',buffRes:'wood',buffBase:0.15,buffPerLv:0.2, build:{wood:150,stone:80,food:50,time:4}, upBase:{wood:800,stone:500,food:300}, upCostLv:1.45},
+    quarry:{name:'采石场',buffRes:'stone',buffBase:0.15,buffPerLv:0.2, build:{wood:50,stone:120,food:40,time:4}, upBase:{wood:500,stone:800,food:300}, upCostLv:1.45},
+    farm:{name:'农田',buffRes:'food',buffBase:0.15,buffPerLv:0.2, build:{wood:80,stone:40,food:120,time:4}, upBase:{wood:600,stone:300,food:800}, upCostLv:1.45},
+    barracks:{name:'营帐',build:{wood:300,stone:200,food:100,time:6}, upBase:{wood:2200,stone:1800,food:1000}, upCostLv:1.85},
+    infantry_camp:{name:'步兵营',trains:'infantry',reserveBase:2,reserveBonus:2,build:{wood:180,stone:100,food:80,time:5},upBase:{wood:1600,stone:1000,food:800},upCostLv:1.7},
+    archer_range:{name:'射手靶场',trains:'archer',reserveBase:1,reserveBonus:2,build:{wood:240,stone:100,food:100,time:6},upBase:{wood:2000,stone:1000,food:1000},upCostLv:1.75},
+    stable:{name:'兽栏',trains:'cavalry',reserveBase:1,reserveBonus:1,needBoss:1,build:{wood:220,stone:160,food:180,time:7},upBase:{wood:2000,stone:1500,food:1600},upCostLv:1.8},
+    spear_crypt:{name:'枪兵墓穴',trains:'spearman',reserveBase:1,reserveBonus:1,needBoss:2,build:{wood:160,stone:240,food:100,time:7},upBase:{wood:1400,stone:2200,food:1000},upCostLv:1.8},
+    mage_tower:{name:'法师塔',trains:'mage',reserveBase:1,reserveBonus:1,needBoss:2,build:{wood:500,stone:500,food:350,time:10},upBase:{wood:3800,stone:3800,food:2800},upCostLv:1.9},
+    warehouse:{name:'仓库',storagePerLv:500,build:{wood:200,stone:200,food:100,time:5},upBase:{wood:1600,stone:1600,food:800},upCostLv:1.45}
   },
 
   units: {
