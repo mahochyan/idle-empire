@@ -378,7 +378,7 @@ body{
     <div class="top-res"><span class="pix-icon i-wood top-pix"></span><div class="val" id="res-wood">0</div><div class="label">木材</div></div>
     <div class="top-res"><span class="pix-icon i-stone top-pix"></span><div class="val" id="res-stone">0</div><div class="label">石料</div></div>
     <div class="top-res"><span class="pix-icon i-food top-pix"></span><div class="val" id="res-food">0</div><div class="label">食物</div></div>
-    <div class="top-res"><span class="pix-icon i-pop top-pix"></span><div class="val" id="res-pop">0</div><div class="label">兵力</div></div>
+    <div class="top-res"><span class="pix-icon i-pop top-pix"></span><div class="val" id="res-pop">0</div><div class="label">人口</div></div>
   </div>
 
   <div id="main"></div>
@@ -426,15 +426,26 @@ const CFG = {
   maxUpgradeTime: 120,
 
   res: {
-    wood:{name:'木材',icon:'wood',rate:1,prodBy:'lumber_mill'},
-    stone:{name:'石料',icon:'stone',rate:0.5,prodBy:'quarry'},
-    food:{name:'食物',icon:'food',rate:1,prodBy:'farm'}
+    wood:{name:'木材',icon:'wood',basePerPop:0.5},
+    stone:{name:'石料',icon:'stone',basePerPop:0.5},
+    food:{name:'食物',icon:'food',basePerPop:0.5}
   },
 
+  town: [
+    {lv:1,name:'小村庄',maxPop:10, needBoss:0},
+    {lv:2,name:'村庄',maxPop:18, needBoss:1},
+    {lv:3,name:'大村庄',maxPop:28, needBoss:2},
+    {lv:4,name:'小镇',maxPop:42, needBoss:3},
+    {lv:5,name:'城镇',maxPop:60, needBoss:5},
+    {lv:6,name:'大城镇',maxPop:80, needBoss:7},
+    {lv:7,name:'小城',maxPop:105, needBoss:10},
+    {lv:8,name:'城市',maxPop:140, needBoss:13}
+  ],
+
   buildings: {
-    lumber_mill:{name:'伐木场',produces:'wood',build:{wood:15,stone:8,food:5,time:4}, upBase:{wood:8,stone:5,food:3}, upCostLv:1.32},
-    quarry:{name:'采石场',produces:'stone',build:{wood:5,stone:12,food:4,time:4}, upBase:{wood:5,stone:8,food:3}, upCostLv:1.32},
-    farm:{name:'农田',produces:'food',build:{wood:8,stone:4,food:12,time:4}, upBase:{wood:6,stone:3,food:8}, upCostLv:1.32},
+    lumber_mill:{name:'伐木场',buffRes:'wood',buffBase:0.1,buffPerLv:0.08, build:{wood:15,stone:8,food:5,time:4}, upBase:{wood:8,stone:5,food:3}, upCostLv:1.32},
+    quarry:{name:'采石场',buffRes:'stone',buffBase:0.1,buffPerLv:0.08, build:{wood:5,stone:12,food:4,time:4}, upBase:{wood:5,stone:8,food:3}, upCostLv:1.32},
+    farm:{name:'农田',buffRes:'food',buffBase:0.1,buffPerLv:0.08, build:{wood:8,stone:4,food:12,time:4}, upBase:{wood:6,stone:3,food:8}, upCostLv:1.32},
     barracks:{name:'营帐',build:{wood:30,stone:20,food:10,time:6}, upBase:{wood:22,stone:18,food:10}, upCostLv:1.85, regBonus:20},
     infantry_camp:{name:'步兵营',trains:'infantry',reserveBase:12,reserveBonus:18,build:{wood:18,stone:10,food:8,time:5},upBase:{wood:16,stone:10,food:8},upCostLv:1.7},
     archer_range:{name:'射手靶场',trains:'archer',reserveBase:10,reserveBonus:15,build:{wood:24,stone:10,food:10,time:6},upBase:{wood:20,stone:10,food:10},upCostLv:1.75},
@@ -544,8 +555,10 @@ function costHtml(cost){
 let S = {
   res:{wood:30,stone:30,food:30},
   buildings:{},
-  pool:{infantry:0,archer:0,cavalry:0,spearman:0,mage:0},     // 士兵池（已训练未编队）
-  formation:{front:[],mid:[],back:[]},  // [{type,count,id}] 兵团
+  pool:{infantry:0,archer:0,cavalry:0,spearman:0,mage:0},
+  formation:{front:[],mid:[],back:[]},
+  townLv:1,
+  popAlloc:{wood:5,stone:3,food:2},
   defeated:[],
   mageOk:false,
   log:[],
@@ -560,8 +573,27 @@ let S = {
 function bldSt(k){return S.buildings[k]||{lv:0,state:'idle',timer:0,timerEnd:0}}
 function bldCfg(k){return CFG.buildings[k]}
 function prodRate(rk){
-  const bk=CFG.res[rk].prodBy,st=bldSt(bk);
-  return (st.state==='idle'&&st.lv>0)?st.lv*CFG.res[rk].rate:0;
+  const alloc=S.popAlloc[rk]||0;
+  const base=CFG.res[rk].basePerPop||0.5;
+  return alloc*base*(1+buildingBuff(rk));
+}
+function buildingBuff(rk){
+  const bk=Object.keys(CFG.buildings).find(k=>CFG.buildings[k].buffRes===rk);
+  if(!bk)return 0;
+  const cfg=CFG.buildings[bk],st=bldSt(bk);
+  if(st.state==='idle'&&st.lv>0)return cfg.buffBase+st.lv*cfg.buffPerLv;
+  return 0;
+}
+function townCfg(){return CFG.town.find(t=>t.lv===S.townLv)||CFG.town[0]}
+function maxPop(){return townCfg().maxPop}
+function popAllocTotal(){return Object.values(S.popAlloc).reduce((a,b)=>a+b,0)}
+function popFree(){return Math.max(0,maxPop()-popAllocTotal())}
+function townUpgradeNeed(){
+  const next=CFG.town.find(t=>t.lv===S.townLv+1);
+  return next?next.needBoss:999;
+}
+function townCanUpgrade(){
+  return S.townLv<CFG.town.length && bossDefeatedCount()>=townUpgradeNeed();
 }
 function bossDefeatedCount(){
   return CFG.enemies.filter(e=>e.boss&&S.defeated.includes(e.id)).length;
@@ -574,7 +606,7 @@ function resourceCapText(){
 }
 function upgradeLockReason(key){
   const cfg=CFG.buildings[key],st=bldSt(key);
-  if(cfg.produces&&st.lv>=resourceLevelCap()){
+  if(cfg.buffRes&&st.lv>=resourceLevelCap()){
     const nextBoss=CFG.enemies.find(e=>e.boss&&!S.defeated.includes(e.id));
     return nextBoss?`\u5df2\u8fbe${resourceCapText()}\uff0c\u51fb\u8d25${nextBoss.name}\u540e\u7ee7\u7eed\u5347\u7ea7`:`\u5df2\u8fbe${resourceCapText()}`;
   }
@@ -648,12 +680,12 @@ function isAttackMiss(attacker,defender){
 }
 
 function save(){
-  const d={res:S.res,buildings:S.buildings,pool:S.pool,formation:S.formation,defeated:S.defeated,mageOk:S.mageOk,tick:S.tick};
+  const d={res:S.res,buildings:S.buildings,pool:S.pool,formation:S.formation,townLv:S.townLv,popAlloc:S.popAlloc,defeated:S.defeated,mageOk:S.mageOk,tick:S.tick};
   localStorage.setItem('rts_save',JSON.stringify(d));
 }
 function load(){
   const r=localStorage.getItem('rts_save');if(!r)return;
-  try{const d=JSON.parse(r);S.res=d.res||S.res;S.buildings=d.buildings||{};S.pool=d.pool||S.pool;S.formation=d.formation||S.formation;S.defeated=d.defeated||[];S.mageOk=d.mageOk||false;S.tick=d.tick||0;}catch(e){}
+  try{const d=JSON.parse(r);S.res=d.res||S.res;S.buildings=d.buildings||{};S.pool=d.pool||S.pool;S.formation=d.formation||S.formation;S.townLv=d.townLv||1;S.popAlloc=d.popAlloc||{wood:5,stone:3,food:2};S.defeated=d.defeated||[];S.mageOk=d.mageOk||false;S.tick=d.tick||0;}catch(e){}
 }
 
 // ==================== 计时 ====================
@@ -690,6 +722,21 @@ function buildAct(key){
   const bs=S.buildings[key];
   if(bs.lv===0){bs.state='building';bs.timerEnd=cost.time;bs.timer=cost.time;addLog(`开始建造${cfg.name}`)}
   else{bs.state='upgrading';bs.timerEnd=cost.time;bs.timer=cost.time;addLog(`开始升级${cfg.name}`)}
+  save();updateUI();
+}
+function upgradeTown(){
+  if(!townCanUpgrade()){toast(`需击败${townUpgradeNeed()}个Boss才能升级城镇`);return}
+  if(popAllocTotal()>CFG.town.find(t=>t.lv===S.townLv+1).maxPop){toast('请先减少人口分配');return}
+  S.townLv++;
+  addLog(`城镇升级为${townCfg().name}，人口上限${maxPop()}`);
+  save();updateUI();
+}
+function setPopAlloc(rk,v){
+  const nv=Math.max(0,Math.min(Math.floor(v),999));
+  const old=S.popAlloc[rk]||0;
+  const diff=nv-old;
+  if(diff>0&&popFree()<diff){toast(`空闲人口不足，最多${popAllocTotal()+popFree()}`);return}
+  S.popAlloc[rk]=nv;
   save();updateUI();
 }
 function upCost(key){
@@ -1200,92 +1247,58 @@ function updateUI(){
   document.getElementById('res-wood').textContent=Math.floor(S.res.wood);
   document.getElementById('res-stone').textContent=Math.floor(S.res.stone);
   document.getElementById('res-food').textContent=Math.floor(S.res.food);
-  document.getElementById('res-pop').textContent=totalSoldiers();
+  document.getElementById('res-pop').textContent=popAllocTotal()+'/'+maxPop();
   renderPage(S.page);
 }
 function renderPage(p){
   document.getElementById('main').innerHTML={home:rHome,build:rBuild,barracks:rBarracks,fight:rFight,log:rLog}[p]();
 }
 function rHome(){
-  let h=`<div style="padding:4px 0"><div class="card"><h3>${pix('home','card-pix')}营地</h3>`;
-  h+=`<div style="font-size:12px;color:#999">总兵力 ${totalSoldiers()} | 阵容 ${formCnt()}/${CFG.formSlots}团</div>`;
-  h+=`<div style="font-size:12px;color:#999">兵团上限 ${regMax()}人/团 | 击败 ${S.defeated.length}/${CFG.enemies.length}</div>`;
-  h+=`<div style="font-size:12px;color:#999">法师 ${S.mageOk?pix('check','mini'):pix('lock','mini')}</div></div>`;
-  h+=`<div class="card"><h3>${pix('food','card-pix')}产出</h3>`;
-  for(const[k,c] of Object.entries(CFG.res))h+=`<div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;padding:2px 0"><span>${pix(c.icon,'sm')} ${c.name}</span><span style="color:#40bf80">${prodRate(k)}/秒</span></div>`;
-  h+=`</div><div class="card"><h3>${pix('army','card-pix')}快速训练</h3>`;
+  const tc=townCfg();
+  const canUp=townCanUpgrade(), upNeed=townUpgradeNeed();
+  let h=`<div style="padding:4px 0">`;
+
+  h+=`<div class="card"><h3>${pix("home","card-pix")}${tc.name} <span style="color:#f0d060;font-size:12px">Lv.${tc.lv}</span></h3>`;
+  h+=`<div style="font-size:12px;color:#999">人口 ${popAllocTotal()}/${maxPop()} | 空闲 ${popFree()}</div>`;
+  h+=`<div style="font-size:11px;color:#666">击败Boss ${bossDefeatedCount()}/${upNeed}`;
+  if(canUp)h+=` <span style="color:#40bf80">可升级 → ${(CFG.town.find(t=>t.lv===S.townLv+1)||{}).name||"?"} (人口${(CFG.town.find(t=>t.lv===S.townLv+1)||{}).maxPop||"?"})</span>`;
+  h+=`</div>`;
+  if(canUp)h+=`<button class="btn btn-go btn-sm" onclick="upgradeTown()" style="margin-top:4px">${pix("upgrade","mini")}升级城镇</button>`;
+  h+=`</div>`;
+
+  h+=`<div class="card"><h3>${pix("pop","card-pix")}人口分配</h3>`;
+  for(const[k,c] of Object.entries(CFG.res)){
+    const buf=buildingBuff(k);
+    const rate=prodRate(k);
+    const alloc=S.popAlloc[k]||0;
+    h+=`<div style="display:flex;align-items:center;gap:6px;padding:4px 0;font-size:12px">`;
+    h+=`<span style="width:60px">${pix(c.icon,"sm")} ${c.name}</span>`;
+    h+=`<button class="btn btn-ghost btn-xs" onclick="setPopAlloc('${k}',(S.popAlloc['${k}']||0)-1)" ${alloc<=0?"disabled":""}>−</button>`;
+    h+=`<span style="width:28px;text-align:center;font-weight:bold;color:#f0d060">${alloc}</span>`;
+    h+=`<button class="btn btn-ghost btn-xs" onclick="setPopAlloc('${k}',(S.popAlloc['${k}']||0)+1)" ${popFree()<=0?"disabled":""}>+</button>`;
+    h+=`<span style="color:#40bf80;margin-left:auto">${rate.toFixed(1)}/秒</span>`;
+    h+=`<span style="font-size:10px;color:#666">Buff ${buf>0?"+":""}${(buf*100).toFixed(0)}%</span>`;
+    h+=`</div>`;
+  }
+  h+=`</div>`;
+
+  h+=`<div class="card"><h3>${pix("army","card-pix")}快速训练</h3>`;
   for(const[k,c] of Object.entries(CFG.units)){
-    if(k==='mage'&&!S.mageOk)continue;
-    const av=poolAvail(k);
-    const inputId=`train-home-${k}`;
-    const tm=maxTrainable(k),disabled=tm<=0?'disabled':'',lock=trainLockReason(k);
-    h+=`<div class="unit-row"><span class="uicon">${pix(c.icon,'lg')}</span><div class="uinfo"><div class="uname">${c.name}</div><div class="udetail">${c.passive} | ${costHtml(c.cost)}/人</div></div><div class="ucount">${(S.pool[k]||0)}人</div>`;
-    h+=`<div class="econ-note" style="flex-basis:100%;padding-left:32px">${trainBuildingLabel(k)} | ${reserveHtml(k)}${lock?`<br><span class="limit-warn">${lock}</span>`:''}</div>`;
+    if(k=="mage"&&!S.mageOk)continue;
+    const inputId=`train-home-${k}`,lock=trainLockReason(k),tm=maxTrainable(k),disabled=tm<=0?"disabled":"";
+    h+=`<div class="unit-row"><span class="uicon">${pix(c.icon,"lg")}</span><div class="uinfo"><div class="uname">${c.name}</div><div class="udetail">${c.passive} | ${costHtml(c.cost)}/人</div></div><div class="ucount">${(S.pool[k]||0)}人</div>`;
+    h+=`<div class="econ-note" style="flex-basis:100%;padding-left:32px">${trainBuildingLabel(k)} | ${reserveHtml(k)}${lock?`<br><span class="limit-warn">${lock}</span>`:""}</div>`;
     h+=`<button class="btn btn-go btn-sm" onclick="train('${k}',1)" ${disabled}>+1</button>`;
     h+=`<button class="btn btn-go btn-sm" style="margin-left:2px" onclick="train('${k}',5)" ${disabled}>+5</button>`;
-    h+=`<div class="train-custom"><input id="${inputId}" type="text" inputmode="numeric" pattern="[0-9]*" value="1"><button class="btn btn-go btn-xs" onclick="trainCustom('${k}','${inputId}')">训练</button><button class="btn btn-ghost btn-xs" onclick="trainMax('${k}','${inputId}')">MAX</button></div></div>`;
+    h+=`<div class="train-custom"><input id="${inputId}" type="text" inputmode="numeric" pattern="[0-9]*" value="1"><button class="btn btn-go btn-xs" onclick="trainCustom('${k}','${inputId}')" ${disabled}>训练</button><button class="btn btn-ghost btn-xs" onclick="trainMax('${k}','${inputId}')" ${disabled}>MAX</button></div></div>`;
   }
-  h+=`</div><div class="card"><h3>${pix('log','card-pix')}最近事件</h3>`;
+  h+=`</div>`;
+
+  h+=`<div class="card"><h3>${pix("log","card-pix")}最近事件</h3>`;
   const r=[...S.log].reverse().slice(0,6);
   if(!r.length)h+=`<div style="font-size:11px;color:#666">暂无</div>`;
   else for(const e of r)h+=`<div style="font-size:10px;color:#555;padding:1px 0">[${e.time}] ${e.msg}</div>`;
   h+=`</div></div>`;return h;
-}
-function rHome(){
-  let h=`<div style="padding:4px 0"><div class="card"><h3>${pix('home','card-pix')}\u8425\u5730</h3>`;
-  h+=`<div style="font-size:12px;color:#999">\u603b\u5175\u529b ${totalSoldiers()} | \u9635\u5bb9 ${formCnt()}/${CFG.formSlots}\u56e2</div>`;
-  h+=`<div style="font-size:12px;color:#999">\u5175\u56e2\u4e0a\u9650 ${regMax()}\u4eba/\u56e2 | \u51fb\u8d25 ${S.defeated.length}/${CFG.enemies.length}</div>`;
-  h+=`<div style="font-size:12px;color:#999">\u6cd5\u5e08 ${S.mageOk?pix('check','mini'):pix('lock','mini')}</div></div>`;
-  h+=`<div class="card"><h3>${pix('food','card-pix')}\u4ea7\u51fa</h3><div class="econ-note">${resourceCapText()} | Boss\u540e\u89e3\u9501\u4e0b\u4e00\u6863</div>`;
-  for(const[k,c] of Object.entries(CFG.res))h+=`<div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;padding:2px 0"><span>${pix(c.icon,'sm')} ${c.name}</span><span style="color:#40bf80">${prodRate(k)}/\u79d2</span></div>`;
-  h+=`</div><div class="card"><h3>${pix('army','card-pix')}\u5feb\u901f\u8bad\u7ec3</h3>`;
-  for(const[k,c] of Object.entries(CFG.units)){
-    if(k==='mage'&&!S.mageOk)continue;
-    const inputId=`train-home-${k}`,lock=trainLockReason(k),tm=maxTrainable(k),disabled=tm<=0?'disabled':'';
-    h+=`<div class="unit-row"><span class="uicon">${pix(c.icon,'lg')}</span><div class="uinfo"><div class="uname">${c.name}</div><div class="udetail">${c.passive} | ${costHtml(c.cost)}/\u4eba</div></div><div class="ucount">${(S.pool[k]||0)}\u4eba</div>`;
-    h+=`<div class="econ-note" style="flex-basis:100%;padding-left:32px">${trainBuildingLabel(k)} | ${reserveHtml(k)}${lock?`<br><span class="limit-warn">${lock}</span>`:''}</div>`;
-    h+=`<button class="btn btn-go btn-sm" onclick="train('${k}',1)" ${disabled}>+1</button>`;
-    h+=`<button class="btn btn-go btn-sm" style="margin-left:2px" onclick="train('${k}',5)" ${disabled}>+5</button>`;
-    h+=`<div class="train-custom"><input id="${inputId}" type="text" inputmode="numeric" pattern="[0-9]*" value="1"><button class="btn btn-go btn-xs" onclick="trainCustom('${k}','${inputId}')" ${disabled}>\u8bad\u7ec3</button><button class="btn btn-ghost btn-xs" onclick="trainMax('${k}','${inputId}')" ${disabled}>MAX</button></div></div>`;
-  }
-  h+=`</div><div class="card"><h3>${pix('log','card-pix')}\u6700\u8fd1\u4e8b\u4ef6</h3>`;
-  const r=[...S.log].reverse().slice(0,6);
-  if(!r.length)h+=`<div style="font-size:11px;color:#666">\u6682\u65e0</div>`;
-  else for(const e of r)h+=`<div style="font-size:10px;color:#555;padding:1px 0">[${e.time}] ${e.msg}</div>`;
-  h+=`</div></div>`;return h;
-}
-function rBuild(){
-  let h=`<div style="padding:4px 0">`;
-  for(const[key,cfg] of Object.entries(CFG.buildings)){
-    const st=bldSt(key);
-    h+=`<div class="card"><h3>`;
-    h+=`${pix(key,'card-pix')}${cfg.name}`;if(st.state==='idle'&&st.lv>0)h+=` <span style="color:#f0d060">Lv.${st.lv}</span>`;
-    if(key==='barracks'&&st.state==='idle'&&st.lv>0)h+=` <span style="font-size:11px;color:#888">(兵团上限+${st.lv*cfg.regBonus}=${regMax()}人)</span>`;
-    h+=`</h3>`;
-    if(cfg.trains){
-      const u=CFG.units[cfg.trains],cap=reserveMax(cfg.trains),nextCap=cfg.reserveBase+(Math.max(1,st.lv+1))*cfg.reserveBonus;
-      h+=`<div class="build-meta">\u8bad\u7ec3: ${pix(u.icon,'mini')}${u.name} | \u540e\u5907\u4e0a\u9650 ${st.lv>0?cap:0}${st.lv>0?` \u2192 ${nextCap}`:` (\u5efa\u6210\u540e ${nextCap})`}</div>`;
-      if(cfg.requiresMage&&!S.mageOk)h+=`<div class="build-meta limit-warn">${pix('lock','mini')}\u51fb\u8d25\u7b2c5\u4e2a\u654c\u4eba\u540e\u89e3\u9501</div>`;
-    }
-    if(st.state==='idle'){
-      if(st.lv===0){
-        const c=cfg.build;
-        h+=`<div style="font-size:11px;color:#888">建造: ${costHtml(c)} | ${c.time}秒</div>`;
-        h+=`<button class="btn btn-go btn-sm" onclick="buildAct('${key}')">${pix('build','mini')}建造</button>`;
-      }else{
-        if(cfg.produces)h+=`<div style="font-size:12px;color:#40bf80">${pix(CFG.res[cfg.produces].icon,'sm')} ${CFG.res[cfg.produces].name}: ${prodRate(cfg.produces)}/秒</div>`;
-        const uc=upCost(key);
-        h+=`<div style="font-size:10px;color:#666">升级: ${costHtml(uc)} | ${uc.time}秒</div>`;
-        h+=`<button class="btn btn-go btn-sm" onclick="buildAct('${key}')">${pix('upgrade','mini')}升级→Lv.${st.lv+1}</button>`;
-      }
-    }else{
-      const pct=st.timerEnd>0?((st.timerEnd-st.timer)/st.timerEnd*100).toFixed(0):0;
-      h+=`<div class="timer-text pulsing">${pix('timer','mini')} ${st.state==='building'?'建造':'升级'}中... ${st.timer}秒</div>`;
-      h+=`<div class="prog-wrap"><div class="prog-fill" style="width:${pct}%"></div></div>`;
-    }
-    h+=`</div>`;
-  }
-  h+=`</div>`;return h;
 }
 function rBuild(){
   let h=`<div style="padding:4px 0">`;
@@ -1300,7 +1313,7 @@ function rBuild(){
       h+=`<div class="build-meta">\u8bad\u7ec3: ${pix(u.icon,'mini')}${u.name} | \u540e\u5907\u4e0a\u9650 ${st.lv>0?cap:0}${st.lv>0?` \u2192 ${nextCap}`:` (\u5efa\u6210\u540e ${nextCap})`}</div>`;
       if(locked)h+=`<div class="build-meta limit-warn">${pix('lock','mini')}\u51fb\u8d25\u7b2c5\u4e2a\u654c\u4eba\u540e\u89e3\u9501</div>`;
     }
-    if(cfg.produces){
+    if(cfg.buffRes){
       h+=`<div class="build-meta">${resourceCapText()} | \u8d44\u6e90\u5efa\u7b51\u6bcf\u5927\u5173 +${CFG.chapterResourceLevels}\u7ea7</div>`;
       if(upLock)h+=`<div class="build-meta limit-warn">${pix('lock','mini')}${upLock}</div>`;
     }
@@ -1310,7 +1323,7 @@ function rBuild(){
         h+=`<div style="font-size:11px;color:#888">\u5efa\u9020: ${costHtml(c)} | ${c.time}\u79d2</div>`;
         h+=`<button class="btn btn-go btn-sm" onclick="buildAct('${key}')" ${locked?'disabled':''}>${pix('build','mini')}\u5efa\u9020</button>`;
       }else{
-        if(cfg.produces)h+=`<div style="font-size:12px;color:#40bf80">${pix(CFG.res[cfg.produces].icon,'sm')} ${CFG.res[cfg.produces].name}: ${prodRate(cfg.produces)}/\u79d2</div>`;
+        if(cfg.buffRes)h+=`<div style="font-size:12px;color:#40bf80">${pix(CFG.res[cfg.buffRes].icon,'sm')} ${CFG.res[cfg.buffRes].name} Buff: +${((bldSt(key).lv*cfg.buffPerLv+cfg.buffBase)*100).toFixed(0)}%</div>`;
         const uc=upCost(key);
         h+=`<div style="font-size:10px;color:#666">\u5347\u7ea7: ${costHtml(uc)} | ${uc.time}\u79d2</div>`;
         h+=`<button class="btn btn-go btn-sm" onclick="buildAct('${key}')" ${upLock?'disabled':''}>${pix('upgrade','mini')}\u5347\u7ea7\u2192Lv.${st.lv+1}</button>`;
@@ -1321,35 +1334,6 @@ function rBuild(){
       h+=`<div class="prog-wrap"><div class="prog-fill" style="width:${pct}%"></div></div>`;
     }
     h+=`</div>`;
-  }
-  h+=`</div>`;return h;
-}
-function rBarracks(){
-  let h=`<div style="padding:4px 0"><div style="font-size:12px;color:#888;margin:4px 0">总兵力 ${totalSoldiers()} | 兵团上限 ${regMax()}人/团</div>`;
-  for(const[k,c] of Object.entries(CFG.units)){
-    const ow=S.pool[k]||0,av=poolAvail(k),lk=k==='mage'&&!S.mageOk;
-    const tm=maxTrainable(k),disabled=tm<=0?'disabled':'',lock=trainLockReason(k);
-    h+=`<div class="card" style="${lk?'opacity:.5':''}">
-      <div style="display:flex;align-items:center;gap:8px">
-        <span>${pix(c.icon,'lg')}</span>
-        <div style="flex:1"><strong>${c.name}</strong> <span style="font-size:10px;color:#888">[${c.race}]</span>
-          <div style="font-size:10px;color:#777">${c.passive} | ATK:${c.atk} DEF:${c.def}</div>
-          <div style="font-size:10px;color:#666">${costHtml(c.cost)}/人</div>
-          <div style="font-size:11px;color:#40bf80">拥有:${ow}人 可用:${av}人</div>
-          ${lk?`<div style="color:#e06060;font-size:10px">${pix('lock','mini')} 击败第5个敌人</div>`:
-          `<div style="margin-top:2px;display:flex;gap:4px">
-            <button class="btn btn-go btn-xs" onclick="train('${k}',1)">+1</button>
-            <button class="btn btn-go btn-xs" onclick="train('${k}',5)">+5</button>
-            <button class="btn btn-go btn-xs" onclick="train('${k}',10)">+10</button>
-            <button class="btn btn-ghost btn-xs" onclick="dismiss('${k}')" ${ow<=0?'disabled':''}>-1</button>
-          </div>
-          <div class="train-custom">
-            <input id="train-barracks-${k}" type="text" inputmode="numeric" pattern="[0-9]*" value="1">
-            <button class="btn btn-go btn-xs" onclick="trainCustom('${k}','train-barracks-${k}')">训练</button>
-            <button class="btn btn-ghost btn-xs" onclick="trainMax('${k}','train-barracks-${k}')">MAX</button>
-          </div>`}
-        </div>
-      </div></div>`;
   }
   h+=`</div>`;return h;
 }
