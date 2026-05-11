@@ -245,6 +245,25 @@ body{
   background-size:16px 16px,16px 16px,100% 100%,100% 100%,100% 100%,100% 100%,12px 12px,100% 100%;
   box-shadow:inset 0 0 0 3px #090d13,inset 2px 2px 0 rgba(255,255,255,.07),inset -2px -2px 0 rgba(0,0,0,.55),0 2px 0 #05060b;
 }
+.town-map-zone{position:absolute;left:0;right:0;z-index:0;pointer-events:none}
+.town-resource-zone{
+  top:0;height:128px;background:
+    radial-gradient(circle at 22% 45%,rgba(74,128,70,.38),transparent 30%),
+    radial-gradient(circle at 72% 34%,rgba(78,118,72,.24),transparent 31%),
+    linear-gradient(180deg,rgba(42,75,48,.36),rgba(30,54,38,.08));
+}
+.town-defense-zone{
+  top:128px;height:70px;background:
+    repeating-linear-gradient(90deg,rgba(105,72,38,.16) 0 10px,transparent 10px 18px),
+    linear-gradient(180deg,rgba(91,66,37,.24),rgba(35,39,35,.18));
+  border-top:2px solid rgba(73,56,35,.56);border-bottom:2px solid rgba(10,12,18,.7);
+}
+.town-frontier-zone{
+  bottom:0;height:62px;background:
+    radial-gradient(circle at 58% 42%,rgba(89,54,42,.3),transparent 33%),
+    repeating-linear-gradient(135deg,rgba(42,33,30,.38) 0 6px,transparent 6px 14px),
+    linear-gradient(180deg,rgba(19,24,24,.2),rgba(9,11,17,.74));
+}
 .town-map:before{
   content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
   background:
@@ -265,9 +284,28 @@ body{
   box-shadow:inset 0 2px 0 rgba(255,255,255,.08),0 2px 0 rgba(0,0,0,.32);
 }
 .town-road-main{left:-24px;top:120px;width:430px;height:34px;transform:rotate(-11deg)}
-.town-road-branch{left:149px;top:58px;width:34px;height:178px;transform:rotate(6deg)}
+.town-road-branch{left:150px;top:42px;width:34px;height:206px;transform:rotate(4deg)}
+.town-palisade{
+  position:absolute;left:10px;right:10px;top:151px;height:22px;z-index:3;pointer-events:none;
+  border-top:2px solid rgba(29,18,12,.75);border-bottom:2px solid rgba(29,18,12,.55);
+}
+.town-palisade i{
+  position:absolute;top:-5px;width:9px;height:30px;background:#6b4424;border:2px solid #28170f;
+  box-shadow:inset 2px 0 0 rgba(255,255,255,.08),0 2px 0 rgba(0,0,0,.38);
+}
+.town-palisade i:nth-child(1){left:8%}
+.town-palisade i:nth-child(2){left:23%}
+.town-palisade i:nth-child(3){left:38%}
+.town-palisade i:nth-child(4){left:57%}
+.town-palisade i:nth-child(5){left:74%}
+.town-palisade i:nth-child(6){left:89%}
+.town-gate{
+  position:absolute;left:50%;top:143px;width:42px;height:31px;transform:translateX(-50%);z-index:4;
+  background:repeating-linear-gradient(90deg,#6e4728 0 7px,#4b301d 7px 11px);
+  border:2px solid #21140d;box-shadow:inset 0 3px 0 rgba(255,255,255,.08),0 3px 0 rgba(0,0,0,.35);
+}
 .town-woods,.town-stones,.town-fields{position:absolute;z-index:2;pointer-events:none}
-.town-woods{left:4%;top:24%;width:102px;height:88px}
+.town-woods{left:4%;top:17%;width:102px;height:88px}
 .town-woods i{
   position:absolute;width:19px;height:24px;background:#2f6d3e;border:2px solid #15351f;
   box-shadow:inset 2px 2px 0 rgba(255,255,255,.1),0 2px 0 rgba(0,0,0,.38);
@@ -280,7 +318,7 @@ body{
 .town-woods i:nth-child(3){left:53px;top:16px}
 .town-woods i:nth-child(4){left:18px;top:44px}
 .town-woods i:nth-child(5){left:68px;top:45px}
-.town-stones{left:6%;bottom:13%;width:88px;height:62px}
+.town-stones{right:5%;top:20%;width:88px;height:62px}
 .town-stones i{
   position:absolute;width:22px;height:15px;background:#77808f;border:2px solid #343a48;
   box-shadow:inset 2px 2px 0 rgba(255,255,255,.15),0 2px 0 rgba(0,0,0,.4);
@@ -290,7 +328,7 @@ body{
 .town-stones i:nth-child(3){left:54px;top:24px}
 .town-stones i:nth-child(4){left:27px;top:39px}
 .town-fields{
-  right:5%;bottom:5%;width:118px;height:66px;display:grid;grid-template-columns:repeat(3,1fr);gap:4px;
+  right:4%;top:71px;width:118px;height:58px;display:grid;grid-template-columns:repeat(3,1fr);gap:4px;
   transform:skewY(-6deg);
 }
 .town-fields i{
@@ -314,22 +352,22 @@ body{
   color:#f0d060;font-size:9px;line-height:1;box-shadow:0 2px 0 rgba(0,0,0,.35);
 }
 .town-level-badge{right:10px;bottom:5px;color:#dce9ff;border-color:#d6a83f}
-.town-hall{left:50%;top:9px;transform:translateX(-50%);min-width:92px}
+.town-hall{left:50%;top:6px;transform:translateX(-50%);min-width:92px}
 .town-hall .town-building-sprite{width:86px;height:76px}
-.town-lumber{left:2%;top:84px}
-.town-lumber .town-building-sprite{width:78px;height:66px}
-.town-quarry{left:5%;bottom:7px}
-.town-quarry .town-building-sprite{width:78px;height:66px}
-.town-farm{right:3%;bottom:6px}
-.town-farm .town-building-sprite{width:82px;height:68px}
-.town-tower{right:6%;top:64px;min-width:58px}
+.town-lumber{left:3%;top:77px}
+.town-lumber .town-building-sprite{width:74px;height:62px}
+.town-quarry{right:7%;top:50px}
+.town-quarry .town-building-sprite{width:72px;height:60px}
+.town-farm{right:4%;top:104px}
+.town-farm .town-building-sprite{width:76px;height:62px}
+.town-tower{left:7%;top:130px;min-width:58px}
 .town-tower .town-building-sprite{width:62px;height:78px}
 .town-worker-group{
   position:absolute;z-index:4;pointer-events:none;width:76px;height:42px;
 }
-.worker-wood-group{left:21%;top:48%}
-.worker-stone-group{left:27%;bottom:17%}
-.worker-food-group{right:28%;bottom:13%}
+.worker-wood-group{left:21%;top:96px}
+.worker-stone-group{right:22%;top:78px}
+.worker-food-group{right:26%;top:133px}
 .town-worker{
   position:absolute;width:8px;height:10px;background:#d4b06a;border:1px solid #332414;
   box-shadow:0 2px 0 rgba(0,0,0,.35),inset 1px 1px 0 rgba(255,255,255,.16);
@@ -362,28 +400,36 @@ body{
 .worker-food-1{left:2px;top:20px}
 .worker-food-2{left:28px;top:8px;animation-delay:.45s}
 .worker-food-3{left:52px;top:24px;animation-delay:.9s}
-.worker-chop{animation:townWorkerChop 1.05s steps(2,end) infinite}
-.worker-mine{animation:townWorkerMine 1.15s steps(2,end) infinite}
-.worker-harvest{animation:townWorkerHarvest 2.4s steps(4,end) infinite}
-.worker-step{animation:townWorkerStep 2.8s steps(4,end) infinite}
+.worker-chop{animation:townWorkerChop 2.4s linear infinite}
+.worker-mine{animation:townWorkerMine 2.5s linear infinite}
+.worker-harvest{animation:townWorkerHarvest 3.2s linear infinite}
+.worker-step{animation:townWorkerStep 3.4s linear infinite}
 .worker-chop:after{animation:townToolChop 1.05s steps(2,end) infinite}
 .worker-mine:after{animation:townToolMine 1.15s steps(2,end) infinite}
 .worker-harvest:after{animation:townToolHarvest 1.4s steps(3,end) infinite}
 @keyframes townWorkerChop{
   0%,100%{transform:translate(0,0)}
-  50%{transform:translate(4px,0)}
+  25%{transform:translate(5px,-1px)}
+  50%{transform:translate(7px,5px)}
+  75%{transform:translate(1px,6px)}
 }
 @keyframes townWorkerMine{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-4px)}
+  0%,100%{transform:translate(0,0)}
+  25%{transform:translate(4px,-3px)}
+  50%{transform:translate(8px,1px)}
+  75%{transform:translate(3px,5px)}
 }
 @keyframes townWorkerHarvest{
   0%,100%{transform:translateX(0)}
-  50%{transform:translateX(12px)}
+  25%{transform:translate(9px,-2px)}
+  50%{transform:translate(17px,3px)}
+  75%{transform:translate(7px,7px)}
 }
 @keyframes townWorkerStep{
-  0%,100%{transform:translateX(0)}
-  50%{transform:translateX(-8px)}
+  0%,100%{transform:translate(0,0)}
+  25%{transform:translate(-8px,2px)}
+  50%{transform:translate(-10px,8px)}
+  75%{transform:translate(1px,6px)}
 }
 @keyframes townToolChop{
   0%,100%{transform:rotate(-28deg)}
@@ -412,38 +458,42 @@ body{
   position:absolute;display:block;left:8px;top:-7px;width:2px;height:18px;background:#c5cbd3;
   box-shadow:0 0 0 1px #383d48;
 }
-.guard-infantry{left:54%;top:104px;background:#8b3b36}
+.guard-infantry{left:50%;top:126px;background:#8b3b36}
 .guard-infantry:after{left:-4px;width:8px;height:10px;top:2px;background:#6f2630;border:1px solid #d0d3d6;box-shadow:10px 2px 0 #bfc6cf}
-.guard-archer{right:22%;top:96px;background:#355d3b}
+.guard-archer{left:22%;top:139px;background:#355d3b}
 .guard-archer:after{left:-5px;top:2px;width:4px;height:17px;background:#b68942;border-radius:50%;box-shadow:8px 5px 0 #d6a83f}
 .guard-archer i{left:12px;top:2px;width:12px;height:2px;background:#c5a85a;box-shadow:none}
-.guard-cavalry{left:38%;top:145px;width:20px;height:13px;background:#4d3626}
+.guard-cavalry{left:36%;top:174px;width:20px;height:13px;background:#4d3626}
 .guard-cavalry:before{left:4px;top:-7px;background:#8a3b36}
 .guard-cavalry:after{left:1px;top:9px;width:16px;height:4px;background:#2f2420;box-shadow:3px 5px 0 #17110e}
 .guard-cavalry i{left:18px;top:-1px;width:2px;height:12px;background:#bfc6cf}
-.guard-spearman{right:30%;top:150px;background:#4e5568}
+.guard-spearman{right:25%;top:143px;background:#4e5568}
 .guard-spearman i{left:12px;top:-10px;height:24px;background:#c5cbd3}
 .guard-spearman i:before{content:"";position:absolute;left:-2px;top:-4px;width:6px;height:5px;background:#d6a83f}
-.guard-mage{left:59%;top:64px;background:#49306a;box-shadow:0 0 8px rgba(126,208,255,.35),0 2px 0 rgba(0,0,0,.45)}
+.guard-mage{left:58%;top:86px;background:#49306a;box-shadow:0 0 8px rgba(126,208,255,.35),0 2px 0 rgba(0,0,0,.45)}
 .guard-mage:before{background:#c5b9d6}
 .guard-mage:after{left:-5px;top:3px;width:3px;height:17px;background:#6a4a2d;box-shadow:12px -4px 0 #7ed0ff}
 .guard-mage i{left:4px;top:-12px;width:4px;height:4px;background:#7ed0ff;box-shadow:0 0 0 2px rgba(126,208,255,.18)}
-.guard-patrol{animation:townGuardPatrol 2.6s steps(4,end) infinite}
-.guard-watch{animation:townGuardWatch 2.2s steps(3,end) infinite}
-.guard-ride{animation:townGuardRide 3.2s steps(8,end) infinite}
-.guard-stand{animation:townGuardStand 1.8s steps(2,end) infinite}
-.guard-pulse{animation:townGuardPulse 1.7s steps(3,end) infinite}
+.guard-patrol{animation:townGuardPatrol 4s linear infinite}
+.guard-watch{animation:townGuardWatch 3.4s ease-in-out infinite}
+.guard-ride{animation:townGuardRide 4.8s linear infinite}
+.guard-stand{animation:townGuardStand 2.4s ease-in-out infinite}
+.guard-pulse{animation:townGuardPulse 2.2s ease-in-out infinite}
 @keyframes townGuardPatrol{
-  0%,100%{transform:translateX(-5px)}
-  50%{transform:translateX(8px)}
+  0%,100%{transform:translate(0,0)}
+  25%{transform:translate(16px,-3px)}
+  50%{transform:translate(21px,9px)}
+  75%{transform:translate(4px,12px)}
 }
 @keyframes townGuardWatch{
   0%,100%{transform:translateY(0)}
   50%{transform:translateY(-3px)}
 }
 @keyframes townGuardRide{
-  0%,100%{transform:translateX(-18px)}
-  50%{transform:translateX(24px)}
+  0%,100%{transform:translate(0,0)}
+  25%{transform:translate(38px,-7px)}
+  50%{transform:translate(78px,0)}
+  75%{transform:translate(37px,9px)}
 }
 @keyframes townGuardStand{
   0%,100%{transform:scaleY(1)}

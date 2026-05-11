@@ -83,8 +83,13 @@ function renderTownMapOverview(){
       <span class="town-map-status">${status}</span>
     </div>
     <div class="town-map" aria-label="城镇巡防地图">
+      <div class="town-map-zone town-resource-zone" aria-hidden="true"></div>
+      <div class="town-map-zone town-defense-zone" aria-hidden="true"></div>
+      <div class="town-map-zone town-frontier-zone" aria-hidden="true"></div>
       <div class="town-road town-road-main"></div>
       <div class="town-road town-road-branch"></div>
+      <div class="town-palisade" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="town-gate" aria-hidden="true"></div>
       <div class="town-woods" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
       <div class="town-stones" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
       <div class="town-fields" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
