@@ -751,7 +751,7 @@ function battleTurn(){
       const isGood=cmv>=1.3,isBad=cmv<=0.7;
 
       if(missed){
-        bmsg(`${actor.name} \u2192 ${target.name} MISS${cavDodge?' [\u95ea\u907f]':target.type==='cavalry'?' [\u9a91\u5175\u95ea\u907f]':''}`,'#6f7890');
+        bmsg(`${actor.side==="our"?"[我方]":"[敌方]"}${actor.name} \u2192 ${target.name} MISS${cavDodge?' [\u95ea\u907f]':target.type==='cavalry'?' [\u9a91\u5175\u95ea\u907f]':''}`,'#6f7890');
         idx++;
         drawBattleField();
         nextAction();
@@ -763,10 +763,10 @@ function battleTurn(){
       if(target.hp<=0){
         target.hp=0;target.alive=false;
         if(targetEl){targetEl.classList.add('dead');setTimeout(()=>{if(targetEl)targetEl.classList.add('dead-done')},500);}
-        bmsg(`${actor.name} → ${target.name} 击杀${actualKill}人，${target.name}全灭！`+(isGood?'[克制]':'')+(mmv>1?'[易伤]':''),isGood?'#40bf80':'#e06060');
+        bmsg(`${actor.side==="our"?"[我方]":"[敌方]"}${actor.name} → ${target.name} 击杀${actualKill}人，${target.name}全灭！`+(isGood?'[克制]':'')+(mmv>1?'[易伤]':''),isGood?'#40bf80':'#e06060');
       }else{
         if(targetEl){targetEl.classList.add('hit');setTimeout(()=>{if(targetEl)targetEl.classList.remove('hit')},400);}
-        bmsg(`${actor.name} → ${target.name} 击杀${actualKill}人，${target.name}剩余${target.hp}人`+(isBad?'[劣势]':''),'#888');
+        bmsg(`${actor.side==="our"?"[我方]":"[敌方]"}${actor.name} → ${target.name} 击杀${actualKill}人，${target.name}剩余${target.hp}人`+(isBad?'[劣势]':''),'#888');
       }
       idx++;
       drawBattleField();
