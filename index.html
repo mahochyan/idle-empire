@@ -618,13 +618,17 @@ function storageCapacity(){
 }
 function upgradeLockReason(key){
   const cfg=CFG.buildings[key],st=bldSt(key);
+  if(st.lv>=S.townLv) return `\u9700\u5347\u7ea7\u57ce\u9547\u5230Lv.${S.townLv+1}`;
   if((cfg.buffRes||cfg.storagePerLv)&&st.lv>=resourceLevelCap()){
     const nextBoss=CFG.enemies.find(e=>e.boss&&!S.defeated.includes(e.id));
     return nextBoss?`\u5df2\u8fbe${resourceCapText()}\uff0c\u51fb\u8d25${nextBoss.name}\u540e\u7ee7\u7eed\u5347\u7ea7`:`\u5df2\u8fbe${resourceCapText()}`;
   }
   return '';
 }
-function regMax(){ return 100; }
+function regMax(){
+  const s=bldSt('barracks');
+  return 50+(s.state==='idle'&&s.lv>=1?50:0);
+}
 function trainBuildingKey(uk){
   return Object.keys(CFG.buildings).find(k=>CFG.buildings[k].trains===uk)||null;
 }
@@ -1349,7 +1353,7 @@ function rBuild(){
     const st=bldSt(key),locked=cfg.needBoss&&bossDefeatedCount()<cfg.needBoss,upLock=st.lv>0?upgradeLockReason(key):'';
     h+=`<div class="card" style="${locked||upLock?'opacity:.7':''}"><h3>`;
     h+=`${pix(key,'card-pix')}${cfg.name}`;if(st.state==='idle'&&st.lv>0)h+=` <span style="color:#f0d060">Lv.${st.lv}</span>`;
-    if(key==='barracks'&&st.state==='idle'&&st.lv>0)h+=` <span style="font-size:11px;color:#888">(\u519b\u56e2\u4e0a\u9650${regMax()}\u4eba/\u683c)</span>`;
+    if(key==='barracks')h+=` <span style="font-size:11px;color:#888">(\u51fa\u6218\u4e0a\u9650${regMax()}\u4eba/\u683c${st.lv<=0?'\uff0c\u5efa\u9020\u540e100\u4eba/\u683c':''})</span>`;
     if(key==='warehouse'&&st.state==='idle'&&st.lv>0)h+=` <span style="font-size:11px;color:#f0d060">\u5b58\u50a8\u4e0a\u9650 ${storageCapacity()}</span>`;
     h+=`</h3>`;
     if(cfg.trains){
