@@ -123,6 +123,7 @@ function rBarracks(){
             <button class="btn btn-go btn-xs" onclick="train('${k}',5)" ${disabled}>+5</button>
             <button class="btn btn-go btn-xs" onclick="train('${k}',10)" ${disabled}>+10</button>
             <button class="btn btn-ghost btn-xs" onclick="dismiss('${k}')" ${ow<=0?'disabled':''}>-1</button>
+            <button class="btn btn-ghost btn-xs" onclick="dismissN('${k}',10)" ${ow<10?'disabled':''}>-10</button>
           </div>
           <div class="train-custom">
             <input id="train-barracks-${k}" type="text" inputmode="numeric" pattern="[0-9]*" value="1">
@@ -149,12 +150,14 @@ function rFight(){
           <span onclick="rmForm('${r.k}',${i})" style="position:absolute;top:-6px;right:-4px;cursor:pointer;z-index:1">${pix('close','mini')}</span>
           <div onclick="openFormModal('${r.k}',${i})">${pix(CFG.units[u.type].icon,'sm')}${CFG.units[u.type].name}<br>
           <span style="font-size:10px;color:#f0d060">${u.count}人</span></div>
-          <div class="qty-ctrl" style="margin-top:3px;gap:2px">
+          <div class="qty-ctrl" style="margin-top:3px;gap:2px;justify-content:center">
             <button onpointerdown="startLongPress('${r.k}',${i},-1)" onpointerup="stopLongPress()" onpointerleave="stopLongPress()" onpointercancel="stopLongPress()" style="width:24px;height:24px;border-radius:50%;border:1px solid #555;background:#1a1a2e;color:#e0e0e0;font-size:14px;cursor:pointer;touch-action:manipulation">−</button>
             <span style="min-width:24px;font-size:12px;color:#f0d060">${u.count}</span>
             <button onpointerdown="startLongPress('${r.k}',${i},1)" onpointerup="stopLongPress()" onpointerleave="stopLongPress()" onpointercancel="stopLongPress()" style="width:24px;height:24px;border-radius:50%;border:1px solid #555;background:#1a1a2e;color:#e0e0e0;font-size:14px;cursor:pointer;touch-action:manipulation">+</button>
-            ${mx>0?`<button onclick="event.stopPropagation();adjForm('${r.k}',${i},${mx})" style="font-size:9px;padding:2px 6px;border-radius:8px;border:1px solid #40bf80;background:#1a2e1a;color:#40bf80;cursor:pointer">MAX</button>`:''}
-            <button onclick="event.stopPropagation();rmForm('${r.k}',${i})" style="font-size:9px;padding:2px 6px;border-radius:8px;border:1px solid #e06060;background:#2e1a1a;color:#e06060;cursor:pointer">移除</button>
+          </div>
+          <div style="margin-top:3px;display:flex;gap:3px;justify-content:center">
+            ${mx>0?`<span onclick="event.stopPropagation();adjForm('${r.k}',${i},${mx})" style="font-size:9px;padding:2px 6px;border:1px solid #40bf80;background:#1a2e1a;color:#40bf80;cursor:pointer">MAX</span>`:''}
+            <span onclick="event.stopPropagation();rmForm('${r.k}',${i})" style="font-size:9px;padding:2px 6px;border:1px solid #e06060;background:#2e1a1a;color:#e06060;cursor:pointer">移除</span>
           </div></span>`;
       });
       if(S.formation[r.k].length<rowSlots(r.k))h+=`<span class="form-slot" onclick="openFormModal('${r.k}',${S.formation[r.k].length})">+ 空位</span>`;

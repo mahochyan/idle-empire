@@ -380,6 +380,12 @@ function dismiss(uk){
   if(a<=0){toast('无可用士兵');return}
   S.pool[uk]-=1;addLog(`解散${CFG.units[uk].name}-1`);save();updateUI();
 }
+function dismissN(uk,n){
+  const a=poolAvail(uk);
+  if(a<=0){toast('无可用士兵');return}
+  const qty=Math.min(a,Math.floor(n)||1);
+  S.pool[uk]-=qty;addLog(`解散${CFG.units[uk].name}-${qty}`);save();updateUI();
+}
 
 // ==================== 编队弹窗 ====================
 let formModalTarget=null; // {row, idx: 要填的位置, isNew: 是否填到空位}
