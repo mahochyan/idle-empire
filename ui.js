@@ -16,6 +16,13 @@ function updateUI(){
   document.getElementById('res-wood').style.color=woodFull?'#e06060':'#f0d060';
   document.getElementById('res-stone').style.color=stoneFull?'#e06060':'#f0d060';
   document.getElementById('res-food').style.color=foodFull?'#e06060':'#f0d060';
+  const ts=document.getElementById('town-scene');
+  if(S.page==='home'){
+    ts.style.display='block';
+    updateTownScene();
+  }else{
+    ts.style.display='none';
+  }
   renderPage(S.page);
 }
 function renderPage(p){
@@ -50,8 +57,6 @@ function rHome(){
     h+=`</div>`;
   }
   h+=`</div>`;
-
-  h+=renderTownMapOverview();
 
   h+=`<div class="card"><h3>${pix("log","card-pix")}最近事件</h3>`;
   const r=[...S.log].reverse().slice(0,6);
@@ -145,6 +150,24 @@ function renderTownGuards(counts){
     .slice(0,5)
     .map(([type,cls,anim])=>`<span class="town-guard ${cls} ${anim}" aria-hidden="true"><i></i></span>`)
     .join('');
+}
+let _townHash='';
+function updateTownScene(){
+  const woodWorkers=S.popAlloc.wood||0;
+  const stoneWorkers=S.popAlloc.stone||0;
+  const foodWorkers=S.popAlloc.food||0;
+  const unitTotal=uk=>{
+    let n=S.pool[uk]||0;
+    for(const row of['front','mid','back']){
+      for(const u of S.formation[row]){if(u.type===uk)n+=u.count;}
+    }
+    return n;
+  };
+  const h=woodWorkers+','+stoneWorkers+','+foodWorkers+','+Object.keys(CFG.units).map(k=>unitTotal(k)).join(',')+','+S.townLv;
+  if(h===_townHash)return;
+  _townHash=h;
+  const html=renderTownMapOverview();
+  document.getElementById('town-scene').innerHTML=html;
 }
 function rBuild(){
   let h=`<div style="padding:4px 0">`;
