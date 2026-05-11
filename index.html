@@ -14,19 +14,20 @@ body{
   user-select:none;-webkit-user-select:none;
 }
 #phone{
-  width:min(430px,100vw);height:100dvh;max-height:none;
+  width:min(360px,100vw);height:100dvh;max-height:none;
   min-width:0;
   background:#12121c;border:1px solid #2a2a3a;
   display:flex;flex-direction:column;overflow:hidden;position:relative;
 }
 #topbar{
-  background:#0a0a14;padding:8px max(8px,3vw);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;
+  background:#0a0a14;padding:6px max(4px,2vw);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2px;
   border-bottom:1px solid #222;flex-shrink:0;
 }
 .top-res{text-align:center}
-.top-res .icon{font-size:14px}
-.top-res .val{font-size:13px;font-weight:bold;color:#f0d060}
-.top-res .label{font-size:10px;color:#666}
+.top-res .icon{font-size:13px}
+.top-res .val{font-size:12px;font-weight:bold;color:#f0d060}
+.top-res .cap{font-size:8px;color:#5a5a6e;display:block}
+.top-res .label{font-size:9px;color:#666}
 #main{flex:1;overflow-y:auto;padding:8px clamp(6px,2.4vw,10px)}
 #main::-webkit-scrollbar{width:3px}
 #main::-webkit-scrollbar-thumb{background:#333;border-radius:2px}
@@ -375,10 +376,10 @@ body{
 
 <div id="phone">
   <div id="topbar">
-    <div class="top-res"><span class="pix-icon i-wood top-pix"></span><div class="val" id="res-wood">0</div><div class="label">木材</div></div>
-    <div class="top-res"><span class="pix-icon i-stone top-pix"></span><div class="val" id="res-stone">0</div><div class="label">石料</div></div>
-    <div class="top-res"><span class="pix-icon i-food top-pix"></span><div class="val" id="res-food">0</div><div class="label">食物</div></div>
-    <div class="top-res"><span class="pix-icon i-pop top-pix"></span><div class="val" id="res-pop">0</div><div class="label">人口</div></div>
+    <div class="top-res"><span class="pix-icon i-wood top-pix"></span><div class="val" id="res-wood">0</div><span class="cap" id="cap-wood"></span><div class="label">木材</div></div>
+    <div class="top-res"><span class="pix-icon i-stone top-pix"></span><div class="val" id="res-stone">0</div><span class="cap" id="cap-stone"></span><div class="label">石料</div></div>
+    <div class="top-res"><span class="pix-icon i-food top-pix"></span><div class="val" id="res-food">0</div><span class="cap" id="cap-food"></span><div class="label">食物</div></div>
+    <div class="top-res"><span class="pix-icon i-pop top-pix"></span><div class="val" id="res-pop">0</div><span class="cap" id="cap-pop"></span><div class="label">人口</div></div>
   </div>
 
   <div id="main"></div>
@@ -451,7 +452,8 @@ const CFG = {
     archer_range:{name:'射手靶场',trains:'archer',reserveBase:10,reserveBonus:15,build:{wood:24,stone:10,food:10,time:6},upBase:{wood:20,stone:10,food:10},upCostLv:1.75},
     stable:{name:'兽栏',trains:'cavalry',reserveBase:8,reserveBonus:12,needBoss:1,build:{wood:22,stone:16,food:18,time:7},upBase:{wood:20,stone:15,food:16},upCostLv:1.8},
     spear_crypt:{name:'枪兵墓穴',trains:'spearman',reserveBase:10,reserveBonus:14,needBoss:2,build:{wood:16,stone:24,food:10,time:7},upBase:{wood:14,stone:22,food:10},upCostLv:1.8},
-    mage_tower:{name:'法师塔',trains:'mage',reserveBase:4,reserveBonus:8,needBoss:2,build:{wood:50,stone:50,food:35,time:10},upBase:{wood:38,stone:38,food:28},upCostLv:1.9}
+    mage_tower:{name:'法师塔',trains:'mage',reserveBase:4,reserveBonus:8,needBoss:2,build:{wood:50,stone:50,food:35,time:10},upBase:{wood:38,stone:38,food:28},upCostLv:1.9},
+    warehouse:{name:'仓库',storagePerLv:500,build:{wood:20,stone:20,food:10,time:5},upBase:{wood:16,stone:16,food:8},upCostLv:1.45}
   },
 
   units: {
@@ -539,7 +541,8 @@ const PIX_SPRITES = {
   lose:[[10,8,12,12,'#c6c0aa'],[8,20,16,4,'#5a2630'],[12,12,2,3,'#111'],[18,12,2,3,'#111'],[13,18,6,2,'#111']],
   reset:[[8,10,13,4,'#d6a83f'],[19,7,5,7,'#d6a83f'],[8,18,16,4,'#6f7890'],[7,14,4,7,'#6f7890']],
   next:[[8,8,5,16,'#d6a83f'],[13,11,5,10,'#d6a83f'],[18,14,5,4,'#d6a83f'],[22,12,2,8,'#8a5d24']],
-  close:[[9,8,5,5,'#b94a4f'],[18,8,5,5,'#b94a4f'],[13,13,6,6,'#d6a83f'],[9,20,5,5,'#b94a4f'],[18,20,5,5,'#b94a4f']]
+  close:[[9,8,5,5,'#b94a4f'],[18,8,5,5,'#b94a4f'],[13,13,6,6,'#d6a83f'],[9,20,5,5,'#b94a4f'],[18,20,5,5,'#b94a4f']],
+  warehouse:[[5,17,22,6,'#4b566b'],[8,11,16,6,'#6f7890'],[11,14,10,5,'#3a3f52'],[10,8,12,4,'#d6a83f'],[14,18,4,5,'#6b3f2b'],[19,18,4,5,'#6b3f2b'],[5,23,22,2,'#2d3140']]
 };
 
 function spriteData(rects){
@@ -611,9 +614,13 @@ function resourceLevelCap(){
 function resourceCapText(){
   return `\u672c\u7ae0\u4e0a\u9650 Lv.${resourceLevelCap()}`;
 }
+function storageCapacity(){
+  const whLv=(S.buildings.warehouse||{lv:0}).lv;
+  return 2000 + whLv * 500;
+}
 function upgradeLockReason(key){
   const cfg=CFG.buildings[key],st=bldSt(key);
-  if(cfg.buffRes&&st.lv>=resourceLevelCap()){
+  if((cfg.buffRes||cfg.storagePerLv)&&st.lv>=resourceLevelCap()){
     const nextBoss=CFG.enemies.find(e=>e.boss&&!S.defeated.includes(e.id));
     return nextBoss?`\u5df2\u8fbe${resourceCapText()}\uff0c\u51fb\u8d25${nextBoss.name}\u540e\u7ee7\u7eed\u5347\u7ea7`:`\u5df2\u8fbe${resourceCapText()}`;
   }
@@ -710,7 +717,10 @@ function tick(){
     }
   }
   if(ch)save();
-  for(const rk of Object.keys(CFG.res))S.res[rk]+=prodRate(rk);
+  const cap=storageCapacity();
+  for(const rk of Object.keys(CFG.res)){
+    S.res[rk]=Math.min(S.res[rk]+prodRate(rk), cap);
+  }
   if(S.tick%60===0)save();
   updateUI();
 }
@@ -1191,7 +1201,8 @@ function endBattle(result){
   if(result==='win'){
     cls='win';text=`${pix('win','sm')} 胜利！`;
     const e=CFG.enemies[S.selEnemy];
-    for(const[r,v] of Object.entries(e.reward))S.res[r]=(S.res[r]||0)+v;
+    const cap=storageCapacity();
+    for(const[r,v] of Object.entries(e.reward)){S.res[r]=(S.res[r]||0)+v;if(S.res[r]>cap)S.res[r]=cap;}
     if(!S.defeated.includes(e.id)){
       S.defeated.push(e.id);
           }
@@ -1250,10 +1261,20 @@ document.getElementById('battle-speed').addEventListener('click',e=>{
 // ==================== UI 渲染 ====================
 function updateUI(){
   if(S.battleActive)return;
-  document.getElementById('res-wood').textContent=Math.floor(S.res.wood);
-  document.getElementById('res-stone').textContent=Math.floor(S.res.stone);
-  document.getElementById('res-food').textContent=Math.floor(S.res.food);
+  const cap=storageCapacity();
+  const wood=Math.floor(S.res.wood),stone=Math.floor(S.res.stone),food=Math.floor(S.res.food);
+  document.getElementById('res-wood').textContent=wood;
+  document.getElementById('res-stone').textContent=stone;
+  document.getElementById('res-food').textContent=food;
   document.getElementById('res-pop').textContent=popAllocTotal()+'/'+maxPop();
+  document.getElementById('cap-wood').textContent='/'+cap;
+  document.getElementById('cap-stone').textContent='/'+cap;
+  document.getElementById('cap-food').textContent='/'+cap;
+  document.getElementById('cap-pop').textContent='';
+  const woodFull=wood>=cap,stoneFull=stone>=cap,foodFull=food>=cap;
+  document.getElementById('res-wood').style.color=woodFull?'#e06060':'#f0d060';
+  document.getElementById('res-stone').style.color=stoneFull?'#e06060':'#f0d060';
+  document.getElementById('res-food').style.color=foodFull?'#e06060':'#f0d060';
   renderPage(S.page);
 }
 function renderPage(p){
@@ -1265,7 +1286,7 @@ function rHome(){
   let h=`<div style="padding:4px 0">`;
 
   h+=`<div class="card"><h3>${pix("home","card-pix")}${tc.name} <span style="color:#f0d060;font-size:12px">Lv.${tc.lv}</span></h3>`;
-  h+=`<div style="font-size:12px;color:#999">人口 ${popAllocTotal()}/${maxPop()} | 空闲 ${popFree()}</div>`;
+  h+=`<div style="font-size:12px;color:#999">人口 ${popAllocTotal()}/${maxPop()} | 空闲 ${popFree()} | 仓库 ${storageCapacity()}</div>`;
   h+=`<div style="font-size:11px;color:#666">击败Boss ${bossDefeatedCount()}/${upNeed}`;
   if(canUp)h+=` <span style="color:#40bf80">可升级 → ${(CFG.town.find(t=>t.lv===S.townLv+1)||{}).name||"?"} (人口${(CFG.town.find(t=>t.lv===S.townLv+1)||{}).maxPop||"?"})</span>`;
   h+=`</div>`;
@@ -1288,17 +1309,14 @@ function rHome(){
   }
   h+=`</div>`;
 
-  h+=`<div class="card"><h3>${pix("army","card-pix")}快速训练</h3>`;
-  for(const[k,c] of Object.entries(CFG.units)){
-    
-    const inputId=`train-home-${k}`,lock=trainLockReason(k),tm=maxTrainable(k),disabled=tm<=0?"disabled":"";
-    h+=`<div class="unit-row"><span class="uicon">${pix(c.icon,"lg")}</span><div class="uinfo"><div class="uname">${c.name}</div><div class="udetail">${c.passive} | ${costHtml(c.cost)}/人</div></div><div class="ucount">${(S.pool[k]||0)}人</div>`;
-    h+=`<div class="econ-note" style="flex-basis:100%;padding-left:32px">${trainBuildingLabel(k)} | ${reserveHtml(k)}${lock?`<br><span class="limit-warn">${lock}</span>`:""}</div>`;
-    h+=`<button class="btn btn-go btn-sm" onclick="train('${k}',1)" ${disabled}>+1</button>`;
-    h+=`<button class="btn btn-go btn-sm" style="margin-left:2px" onclick="train('${k}',5)" ${disabled}>+5</button>`;
-    h+=`<div class="train-custom"><input id="${inputId}" type="text" inputmode="numeric" pattern="[0-9]*" value="1"><button class="btn btn-go btn-xs" onclick="trainCustom('${k}','${inputId}')" ${disabled}>训练</button><button class="btn btn-ghost btn-xs" onclick="trainMax('${k}','${inputId}')" ${disabled}>MAX</button></div></div>`;
-  }
-  h+=`</div>`;
+	h+=`<div class="card"><h3>${pix("army","card-pix")}军队总览</h3>`;
+	  for(const[k,c] of Object.entries(CFG.units)){
+	    const ow=S.pool[k]||0;
+	    const lock=trainLockReason(k);
+	    h+=`<div class="unit-row"><span class="uicon">${pix(c.icon,"lg")}</span><div class="uinfo"><div class="uname">${c.name}</div><div class="udetail">${c.passive} | ${costHtml(c.cost)}/人</div></div><div class="ucount">${ow}人</div>`;
+	    h+=`<div class="econ-note" style="flex-basis:100%;padding-left:32px">${trainBuildingLabel(k)} | ${reserveHtml(k)}${lock?`<br><span class="limit-warn">${pix('lock','mini')}${lock}</span>`:``}</div></div>`;
+	  }
+	  h+=`</div>`;
 
   h+=`<div class="card"><h3>${pix("log","card-pix")}最近事件</h3>`;
   const r=[...S.log].reverse().slice(0,6);
@@ -1313,6 +1331,7 @@ function rBuild(){
     h+=`<div class="card" style="${locked||upLock?'opacity:.7':''}"><h3>`;
     h+=`${pix(key,'card-pix')}${cfg.name}`;if(st.state==='idle'&&st.lv>0)h+=` <span style="color:#f0d060">Lv.${st.lv}</span>`;
     if(key==='barracks'&&st.state==='idle'&&st.lv>0)h+=` <span style="font-size:11px;color:#888">(\u5175\u56e2\u4e0a\u9650+${st.lv*cfg.regBonus}=${regMax()}\u4eba)</span>`;
+    if(key==='warehouse'&&st.state==='idle'&&st.lv>0)h+=` <span style="font-size:11px;color:#f0d060">\u5b58\u50a8\u4e0a\u9650 ${storageCapacity()}</span>`;
     h+=`</h3>`;
     if(cfg.trains){
       const u=CFG.units[cfg.trains],cap=reserveMax(cfg.trains),nextCap=cfg.reserveBase+(Math.max(1,st.lv+1))*cfg.reserveBonus;
