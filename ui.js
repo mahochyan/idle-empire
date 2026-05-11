@@ -148,7 +148,7 @@ function renderTownGuards(counts){
   return guards
     .filter(([type])=>(counts[type]||0)>0)
     .slice(0,5)
-    .map(([type,cls,anim])=>`<span class="town-guard ${cls} ${anim}" aria-hidden="true"><i></i></span>`)
+    .map(([type,cls,anim])=>`<span class="town-guard ${cls} ${anim}" aria-hidden="true">${pix(type)}</span>`)
     .join('');
 }
 let _townHash='';
