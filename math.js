@@ -376,15 +376,30 @@ function trainMax(uk,inputId){
   train(uk,qty);
 }
 function dismiss(uk){
+  const q=S.queue[uk];
+  if(q&&q.count>0){
+    q.count--;addLog(`取消训练${CFG.units[uk].name}-1 (队列${q.count}人)`);
+    if(q.count<=0){q.count=0;q.timer=0;q.reason='';}
+    save();updateUI();return;
+  }
   const a=poolAvail(uk);
   if(a<=0){toast('无可用士兵');return}
   S.pool[uk]-=1;addLog(`解散${CFG.units[uk].name}-1`);save();updateUI();
 }
 function dismissN(uk,n){
+  let qty=Math.floor(n)||1;
+  const q=S.queue[uk];
+  if(q&&q.count>0){
+    const fromQ=Math.min(q.count,qty);
+    q.count-=fromQ;qty-=fromQ;
+    addLog(`取消训练${CFG.units[uk].name}-${fromQ} (队列${q.count}人)`);
+    if(q.count<=0){q.count=0;q.timer=0;q.reason='';}
+  }
+  if(qty<=0){save();updateUI();return;}
   const a=poolAvail(uk);
   if(a<=0){toast('无可用士兵');return}
-  const qty=Math.min(a,Math.floor(n)||1);
-  S.pool[uk]-=qty;addLog(`解散${CFG.units[uk].name}-${qty}`);save();updateUI();
+  const fromP=Math.min(a,qty);
+  S.pool[uk]-=fromP;addLog(`解散${CFG.units[uk].name}-${fromP}`);save();updateUI();
 }
 
 // ==================== 编队弹窗 ====================
