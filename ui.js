@@ -1,4 +1,10 @@
-// ==================== UI 渲染 ====================
+// ==================== UI 渲染模块 ====================
+// 本模块负责所有 DOM 渲染和事件绑定。
+// 核心流程：updateUI() 每帧刷新顶栏资源 → renderPage() 重新生成当前标签页HTML（有输入焦点时跳过）
+// 标签页渲染：rHome(主页) / rBuild(建筑) / rBarracks(军营) / rFight(战斗) / rLog(日志)
+// 附加系统：编队弹窗、单位详情弹窗、长按加速、导航初始化、toast/addLog
+
+// 刷新顶栏资源显示（每秒由 tick 调用）
 function updateUI(){
   if(S.battleActive)return;
   const cap=storageCapacity();
@@ -25,12 +31,14 @@ function updateUI(){
   }
   renderPage(S.page);
 }
+// 渲染当前标签页。如果用户正在输入框中输入，跳过渲染以防止光标被打断
 function renderPage(p){
   const main=document.getElementById('main');
   const el=document.activeElement;
   if(el&&(el.tagName==='INPUT'||el.tagName==='TEXTAREA')&&main.contains(el))return;
   main.innerHTML={home:rHome,build:rBuild,barracks:rBarracks,fight:rFight,log:rLog}[p]();
 }
+// ===== 主页标签页 =====
 function rHome(){
   const tc=townCfg();
   const canUp=townCanUpgrade(), upNeed=townUpgradeNeed();
@@ -67,6 +75,8 @@ function rHome(){
   else for(const e of r)h+=`<div style="font-size:10px;color:#555;padding:1px 0">[${e.time}] ${e.msg}</div>`;
   h+=`</div></div>`;return h;
 }
+// ===== 城镇巡防地图（主页可视化场景）=====
+// 在地图上展示资源区、建筑位置、工人动画、巡逻守卫
 function renderTownMapOverview(){
   const tc=townCfg();
   const woodWorkers=S.popAlloc.wood||0;
@@ -128,6 +138,7 @@ function renderTownMapOverview(){
     <div class="town-troop-summary">驻军：${troopSummary}</div>
   </div>`;
 }
+// 生成资源采集工人动画点（伐木工/采石工/粮农）
 function workerDots(resourceKey,assignedCount,type){
   if(assignedCount<=0)return '';
   const count=assignedCount>=16?3:assignedCount>=6?2:1;
@@ -140,6 +151,7 @@ function workerDots(resourceKey,assignedCount,type){
   h+='</div>';
   return h;
 }
+// 在地图上渲染巡逻守卫（五兵种，有兵才显示）
 function renderTownGuards(counts){
   const guards=[
     ['infantry','guard-infantry','guard-patrol'],
@@ -154,6 +166,7 @@ function renderTownGuards(counts){
     .map(([type,cls,anim])=>`<span class="town-guard ${cls} ${anim}" aria-hidden="true">${pix(type)}</span>`)
     .join('');
 }
+// 增量更新城镇场景：只在数据变化时重绘（通过哈希比较避免每帧重建DOM）
 let _townHash='';
 function updateTownScene(){
   const woodWorkers=S.popAlloc.wood||0;
@@ -172,6 +185,7 @@ function updateTownScene(){
   const html=renderTownMapOverview();
   document.getElementById('town-scene').innerHTML=html;
 }
+// ===== 建筑标签页 =====
 function rBuild(){
   let h=`<div style="padding:4px 0">`;
   for(const[key,cfg] of Object.entries(CFG.buildings)){
@@ -210,6 +224,8 @@ function rBuild(){
   }
   h+=`</div>`;return h;
 }
+// ===== \u519b\u8425\u6807\u7b7e\u9875 =====
+// \u663e\u793a\u603b\u5175\u529b\u3001\u6bcf\u79cd\u5175\u79cd\u7684\u62e5\u6709/\u53ef\u7f16\u5165/\u540e\u5907/\u8bad\u7ec3\u961f\u5217\uff0c\u4ee5\u53ca\u8bad\u7ec3\u8f93\u5165\u63a7\u4ef6
 function rBarracks(){
   let h=`<div style="padding:4px 0"><div style="font-size:12px;color:#888;margin:4px 0">\u603b\u5175\u529b ${totalSoldiers()} | \u5175\u56e2\u4e0a\u9650 ${regMax()}\u4eba/\u56e2</div>`;
   for(const[k,c] of Object.entries(CFG.units)){
@@ -235,6 +251,8 @@ function rBarracks(){
   }
   h+=`</div>`;return h;
 }
+// ===== 战斗标签页 =====
+// 显示三排出战阵容配置、敌人列表（当前+下一层）、开战按钮
 function rFight(){
   let h=`<div style="padding:4px 0"><div class="card"><h3>${pix('army','card-pix')}出战阵容 (${formCnt()}/${formSlots()}团 | 上限${regMax()}人/团)</h3>`;
   const rs=[{k:'front',n:'前排(承伤)',c:'r1'},{k:'mid',n:'中排(输出)',c:'r2'},{k:'back',n:'后排(远程)',c:'r3'}];
@@ -280,6 +298,8 @@ function rFight(){
   h+=`</div><button class="btn btn-go" style="width:100%;margin-top:8px;padding:12px;font-size:15px" onclick="openBattle()">${pix('battle','sm')}开战</button></div></div>`;
   return h;
 }
+// ===== 日志标签页 =====
+// 显示事件日志 + 测试工具（手动添加资源）+ 重置按钮
 function rLog(){
   let h=`<div style="padding:4px 0"><div class="card"><h3>${pix('log','card-pix')}事件日志</h3><div style="max-height:500px;overflow-y:auto;font-size:11px;line-height:1.8">`;
   const l=[...S.log].reverse();
@@ -295,10 +315,13 @@ function rLog(){
   return h;
 }
 
+// 添加日志条目（保持最多200条）
 function addLog(msg){S.log.push({time:new Date().toLocaleTimeString(),msg});if(S.log.length>200)S.log.splice(0,S.log.length-200)}
+// 弹出 toast 提示（2秒后自动消失）
 function toast(msg){const e=document.createElement('div');e.className='toast';e.textContent=msg;document.body.appendChild(e);setTimeout(()=>e.remove(),2000)}
 
-// 长按加速
+// ===== 长按加速（阵容人数调整）=====
+// 按住按钮时先延迟400ms，然后每80ms触发一次调整，实现快速加减
 let _lpTimer=null,_lpRow=null,_lpIdx=null,_lpDir=null;
 function startLongPress(row,idx,dir){
   _lpRow=row;_lpIdx=idx;_lpDir=dir;
@@ -328,7 +351,7 @@ function stopModalLongPress(){
   }
 }
 
-// ==================== 导航 ====================
+// ===== 底部导航栏初始化 =====
 document.querySelectorAll('.nav-btn').forEach(b=>{
   b.addEventListener('click',()=>{
     document.querySelectorAll('.nav-btn').forEach(x=>x.classList.remove('on'));
@@ -336,7 +359,8 @@ document.querySelectorAll('.nav-btn').forEach(b=>{
   });
 });
 
-// ==================== init ====================
+// ===== 游戏初始化 =====
+// 注入像素图标CSS → 加载存档 → 初始化敌人选择 → 启动tick循环
 injectPixelIcons();
 load();
 if(S.defeated.length<CFG.enemies.length&&S.selEnemy===null)S.selEnemy=S.defeated.length;

@@ -4,7 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>文字挂机RTS</title>
+<!-- ==================== CSS 样式表 ==================== -->
+<!-- 像素风暗色主题，手机框体布局(400px宽)，响应式适配 -->
 <style>
+/* ===== 全局重置 ===== */
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{height:100%;overflow:hidden}
 body{
@@ -13,12 +16,14 @@ body{
   display:flex;justify-content:center;align-items:center;
   user-select:none;-webkit-user-select:none;
 }
+/* ===== 手机框体 ===== */
 #phone{
   width:min(400px,100vw);height:100dvh;max-height:none;
   min-width:0;
   background:#12121c;border:1px solid #2a2a3a;
   display:flex;flex-direction:column;overflow:hidden;position:relative;
 }
+/* ===== 顶部资源栏 ===== */
 #topbar{
   background:#0a0a14;padding:6px max(4px,2vw);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2px;
   border-bottom:1px solid #222;flex-shrink:0;
@@ -28,6 +33,7 @@ body{
 .top-res .val{font-size:12px;font-weight:bold;color:#f0d060}
 .top-res .cap{font-size:8px;color:#5a5a6e;display:block}
 .top-res .label{font-size:9px;color:#666}
+/* ===== 主内容区 + 城镇场景 + 底部导航 ===== */
 #main{flex:1;overflow-y:auto;padding:8px clamp(6px,2.4vw,10px)}
 #main::-webkit-scrollbar{width:3px}
 #main::-webkit-scrollbar-thumb{background:#333;border-radius:2px}
@@ -43,6 +49,7 @@ body{
 .nav-btn.on{color:#f0d060}
 .nav-btn.on .nicon{text-shadow:0 0 8px rgba(240,208,96,.4)}
 
+/* ===== 卡片 / 进度条 / 按钮 ===== */
 .card{
   background:#181828;border:1px solid #262640;border-radius:8px;
   padding:10px 12px;margin-bottom:8px;
@@ -73,6 +80,7 @@ body{
 }
 .btn-speed.on{background:#f0d060;color:#1a1a24;border-color:#f0d060;font-weight:bold}
 
+/* ===== 兵种行 ===== */
 .unit-row{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid #1e1e2e}
 .unit-row:last-child{border-bottom:none}
 .unit-row .uicon{font-size:20px;width:30px;text-align:center}
@@ -81,7 +89,7 @@ body{
 .unit-row .udetail{font-size:10px;color:#777}
 .unit-row .ucount{font-size:14px;font-weight:bold;color:#f0d060;min-width:24px;text-align:center}
 
-/* 阵型 */
+/* ===== 阵型行（前/中/后排）===== */
 .form-row{margin:4px 0;padding:6px 8px;background:#121224;border-radius:6px;border-left:3px solid #444}
 .form-row.r1{border-color:#e06060}
 .form-row.r2{border-color:#f0d060}
@@ -96,7 +104,7 @@ body{
 .form-slot:active{background:#303048}
 .form-empty{font-size:10px;color:#444;padding:4px 0}
 
-/* 弹窗 */
+/* ===== 弹窗系统 ===== */
 .modal-overlay{
   display:none;position:absolute;top:0;left:0;width:100%;height:100%;
   background:rgba(0,0,0,.7);z-index:70;justify-content:center;align-items:center;
@@ -126,7 +134,7 @@ body{
   background:#1a1a2e;color:#e0e0e0;font-size:16px;cursor:pointer;
 }
 
-/* 战斗画面 */
+/* ===== 战斗画面 ===== */
 #battle-screen{
   display:none;position:absolute;top:0;left:0;width:100%;height:100%;
   background:#0a0a14;z-index:50;flex-direction:column;
@@ -151,7 +159,7 @@ body{
 .battle-row{display:flex;flex-wrap:wrap;gap:4px;justify-content:center;margin:4px 0}
 .battle-row .row-label{font-size:10px;color:#555;width:100%;text-align:center;margin-bottom:2px}
 
-/* 兵团框 */
+/* ===== 战斗兵团框 + 动画 ===== */
 .unit-box{
   width:56px;min-height:56px;background:#181828;border:2px solid #2a2a3e;
   border-radius:8px;display:flex;flex-direction:column;
@@ -171,7 +179,7 @@ body{
 .unit-box.dead{animation:die .5s ease forwards;border-color:#ff0000!important}
 .unit-box.dead-done{opacity:0;transform:scale(0)}
 
-/* 战斗结果 */
+/* ===== 战斗结果面板 ===== */
 #battle-result{
   display:none;flex-shrink:0;padding:10px 12px;
   background:#1a1a2e;border-top:2px solid #f0d060;border-bottom:2px solid #f0d060;
@@ -223,6 +231,7 @@ body{
 .limit-warn{color:#e06060}
 .build-meta{font-size:10px;color:#8990a6;margin-top:2px;line-height:1.45}
 
+/* ===== 城镇巡防地图 ===== */
 .town-map-card{padding:10px}
 .town-map-head{
   display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px;
@@ -553,7 +562,7 @@ body{
   .town-worker,.town-worker:after,.town-guard{animation:none!important}
 }
 
-/* 像素皮肤 */
+/* ===== 像素风皮肤（CSS变量 + 暗色主题）===== */
 :root{
   --px-bg:#080912;
   --px-panel:#151724;
@@ -706,7 +715,10 @@ body{
 </head>
 <body>
 
+<!-- ==================== HTML 骨架 ==================== -->
+<!-- 手机框体 → 顶栏(资源) → 城镇场景 → 主内容区 → 底部导航 → 弹窗 → 战斗画面 -->
 <div id="phone">
+  <!-- 顶部资源栏：木材/石料/食物/人口 -->
   <div id="topbar">
     <div class="top-res"><span class="pix-icon i-wood top-pix"></span><div class="val" id="res-wood">0</div><span class="cap" id="cap-wood"></span><div class="label">木材</div></div>
     <div class="top-res"><span class="pix-icon i-stone top-pix"></span><div class="val" id="res-stone">0</div><span class="cap" id="cap-stone"></span><div class="label">石料</div></div>
@@ -714,9 +726,12 @@ body{
     <div class="top-res"><span class="pix-icon i-pop top-pix"></span><div class="val" id="res-pop">0</div><span class="cap" id="cap-pop"></span><div class="label">人口</div></div>
   </div>
 
+  <!-- 城镇巡防地图（仅主页显示）-->
   <div id="town-scene"></div>
+  <!-- 主内容区：由 ui.js 动态渲染标签页 -->
   <div id="main"></div>
 
+  <!-- 底部导航栏：主页/建筑/军营/战斗/日志 -->
   <div id="navbar">
     <button class="nav-btn on" data-page="home"><span class="nicon pix-icon i-home nav-pix"></span>主页</button>
     <button class="nav-btn" data-page="build"><span class="nicon pix-icon i-build nav-pix"></span>建筑</button>
@@ -725,17 +740,17 @@ body{
     <button class="nav-btn" data-page="log"><span class="nicon pix-icon i-log nav-pix"></span>日志</button>
   </div>
 
-  <!-- 编队弹窗 -->
+  <!-- 编队弹窗（选择兵种+人数）-->
   <div class="modal-overlay" id="form-modal">
     <div class="modal-box" id="form-modal-content"></div>
   </div>
 
-  <!-- 单位详情弹窗 -->
+  <!-- 单位详情弹窗（属性面板）-->
   <div class="modal-overlay" id="unit-detail-modal">
     <div class="modal-box" id="unit-detail-content"></div>
   </div>
 
-  <!-- 战斗画面 -->
+  <!-- 战斗画面（全屏覆盖）-->
   <div id="battle-screen">
     <div id="battle-top">
       <div id="battle-title"><span class="pix-icon i-battle sm"></span> 战斗</div>

@@ -1,5 +1,11 @@
-// ==================== 像素图标 ====================
-// 字符网格 → 矩形合并
+// ==================== 像素图标系统 ====================
+// 本模块负责游戏所有像素图标的定义和渲染。
+// 结构：精灵定义（字符网格→矩形） → PIX_SPRITES（32px UI图标） → MAP_SPRITES（64px 城镇建筑） → 渲染函数
+// 核心思路：用字符网格定义像素画，gridToRects() 将字符网格压缩为矩形列表，spriteData() 转为内联SVG的CSS背景图。
+// 五兵种精灵使用字符网格定义（约30×32），建筑物和其他UI图标使用手动矩形定义。
+
+// 将字符网格转换为矩形列表。相邻同色字符合并为一个大矩形，减少DOM元素。
+// grid: 二维字符数组，'.' 表示透明；palette: 字符→颜色映射
 function gridToRects(grid,palette){
   const H=grid.length,W=grid[0].length;
   const vis=Array.from({length:H},()=>new Array(W).fill(false));
@@ -25,7 +31,9 @@ function gridToRects(grid,palette){
   }
   return rects;
 }
-// 弓箭手像素画（字符网格）
+// ===== 五兵种像素画（字符网格定义）=====
+// 每个兵种由 32×32 左右的字符网格 + 调色板定义，颜色用单字母简写便于编辑
+// 弓箭手（精灵族）：绿色斗篷、长弓、金色头发
 const ARCHER_PAL={
   k:"#17130C",G:"#254B17",L:"#6A9B24",H:"#D6A33A",h:"#F0CF62",
   S:"#E8B57A",T:"#A86B3D",B:"#6B3F1D",C:"#B77922",e:"#1F7A3A",m:"#C9C9C9"
@@ -66,7 +74,7 @@ const ARCHER_GRID=[
 ];
 const archerRects=gridToRects(ARCHER_GRID,ARCHER_PAL);
 
-// 步兵像素画（字符网格）
+// 步兵（人类骑士）：银灰盔甲、金色盾牌、红色披风
 const KNIGHT_PAL={
   k:"#101010",D:"#25272A",M:"#596066",m:"#B8C0C4",w:"#E8E8DA",
   G:"#C89A32",B:"#5A341E",L:"#A9652B",R:"#7A1F1C",r:"#B6462E"
@@ -107,7 +115,7 @@ const KNIGHT_GRID=[
 ];
 const infantryRects=gridToRects(KNIGHT_GRID,KNIGHT_PAL);
 
-// 枪兵像素画（字符网格）— 骷髅枪兵
+// 枪兵（骷髅枪兵）：白骨色、暗色盔甲、长枪
 const SPEAR_PAL={
   k:"#0F0F10",d:"#2A2C30",m:"#8D9499",b:"#D0C3A2",l:"#6A4024",
   r:"#7A2522",s:"#6B4A2B",h:"#B9B0A0",w:"#4B3625",t:"#C9C9C9"
@@ -148,7 +156,7 @@ const SPEAR_GRID=[
 ];
 const spearmanRects=gridToRects(SPEAR_GRID,SPEAR_PAL);
 
-// 法师像素画（字符网格）— 亡灵法师
+// 法师（亡灵法师）：紫袍、符文光效、法杖
 const MAGE_PAL={
   k:"#131018",p:"#27163C",v:"#4E2D73",l:"#7B58A6",b:"#D6C79D",
   g:"#91AE7F",y:"#C79A34",e:"#5B2AA0",d:"#2B2118"
@@ -189,7 +197,7 @@ const MAGE_GRID=[
 ];
 const mageRects=gridToRects(MAGE_GRID,MAGE_PAL);
 
-// 骑兵像素画（字符网格）— 兽人狼骑
+// 骑兵（兽人狼骑）：绿色皮肤、棕色座狼、红色战纹
 const CAV_PAL={
   k:"#111111",o:"#496D24",O:"#7FA33B",a:"#4A4A4A",A:"#A3A3A3",
   r:"#8C2F25",b:"#6B4328",h:"#2D2D2D",H:"#575757",w:"#4B3625",t:"#CFCFCF"
@@ -230,6 +238,9 @@ const CAV_GRID=[
 ];
 const cavalryRects=gridToRects(CAV_GRID,CAV_PAL);
 
+// ===== 32×32 UI 像素图标 =====
+// 包含资源图标、建筑图标、兵种图标（引用上面预计算的rects）、按钮图标
+// 每个图标由矩形数组定义：[x, y, w, h, color]
 const PIX_SPRITES = {
   wood:[[4,18,21,6,'#4b2b1d'],[6,15,20,5,'#7b4a2b'],[5,14,5,6,'#b7793a'],[21,14,5,6,'#b7793a'],[8,16,14,2,'#3a2017'],[10,22,12,2,'#2a1711']],
   stone:[[6,18,18,7,'#515768'],[9,13,15,6,'#777f8f'],[13,9,9,5,'#a4a9b1'],[7,20,4,3,'#a4a9b1'],[18,14,4,3,'#d0d3d6'],[21,22,3,2,'#303542']],
@@ -269,6 +280,8 @@ const PIX_SPRITES = {
   warehouse:[[4,20,24,8,'#3a3f52'],[6,12,20,9,'#4b566b'],[8,8,16,5,'#6f7890'],[14,4,4,6,'#d6a83f'],[22,10,2,10,'#d6a83f'],[10,18,12,8,'#1a1e2a']]
 };
 
+// ===== 64×64 城镇地图建筑精灵 =====
+// 用于主页城镇巡防地图的大尺寸建筑图标，比UI图标更细致
 const MAP_SPRITES = {
   // 城镇中心 — 大钟、柱子、旗帜、台阶
   town_hall:[
@@ -347,10 +360,14 @@ const MAP_SPRITES = {
   ]
 };
 
+// ===== 渲染函数 =====
+
+// 将矩形数组渲染为内联 SVG 的 data URI，用作 CSS background-image
 function spriteData(rects,size=32){
   const svg=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${size} ${size}" shape-rendering="crispEdges">${rects.map(r=>`<rect x="${r[0]}" y="${r[1]}" width="${r[2]}" height="${r[3]}" fill="${r[4]}"/>`).join('')}</svg>`;
   return `url("data:image/svg+xml,${encodeURIComponent(svg)}")`;
 }
+// 将 PIX_SPRITES 和 MAP_SPRITES 注入为 CSS 类（.i-xxx / .mi-xxx）
 function injectPixelIcons(){
   const style=document.createElement('style');
   const uiIcons=Object.entries(PIX_SPRITES).map(([k,v])=>`.i-${k}{background-image:${spriteData(v)}}`);
@@ -358,12 +375,15 @@ function injectPixelIcons(){
   style.textContent=uiIcons.concat(mapIcons).join('\n');
   document.head.appendChild(style);
 }
+// 生成32px UI图标的HTML span
 function pix(key, cls=''){
   return `<span class="pix-icon i-${key} ${cls}" aria-hidden="true"></span>`;
 }
+// 生成64px 地图建筑图标的HTML span
 function mapPix(key, cls=''){
   return `<span class="map-pix mi-${key} ${cls}" aria-hidden="true"></span>`;
 }
+// 生成资源消耗显示（木材/石料/食物图标+数值）
 function costHtml(cost){
   return `${pix('wood','mini')}${cost.wood} ${pix('stone','mini')}${cost.stone} ${pix('food','mini')}${cost.food}`;
 }

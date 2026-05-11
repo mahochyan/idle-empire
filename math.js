@@ -1,6 +1,12 @@
-// ==================== 配置 ====================
+// ==================== 游戏逻辑模块 ====================
+// 本模块包含全部游戏数据和逻辑，不涉及DOM操作。
+// 结构：CFG（静态配置）→ S（运行时状态）→ 辅助函数 → tick主循环 → 操作函数 → 编队系统 → 战斗系统
+// 存档使用 localStorage key='rts_save'，每60 tick 自动保存一次
+
+// ==================== CFG 静态配置 ====================
+// 所有游戏数值配置集中于此，方便调平衡
 const CFG = {
-  tickMs: 1000,
+  tickMs: 1000,            // 主循环间隔（毫秒）
   campBase: 0,
   maxRows: {front:1, mid:1, back:1},
   battleTimeoutMs: 10*60*1000,
@@ -86,7 +92,8 @@ const CFG = {
     {id:97,name:'混编将军',desc:'BOSS·四兵种齐全，多兵种协同破阵',units:{infantry:[7],archer:[2,2],cavalry:[3,2],spearman:[2,2],mage:[1]},boss:true,bossMult:{atk:1.4,def:1.35},reward:{wood:1300,stone:1100,food:950}}
   ]};
 
-// ==================== 状态 ====================
+// ==================== S 运行时状态 ====================
+// 所有可变游戏状态集中于此，存档时序列化保存
 let S = {
   res:{wood:300,stone:300,food:300},
   buildings:{},
@@ -106,14 +113,18 @@ let S = {
   _trainQty:{}
 };
 
-// ==================== 辅助 ====================
+// ==================== 辅助查询函数 ====================
+// 获取建筑状态（带默认值，建筑未初始化时返回空状态）
 function bldSt(k){return S.buildings[k]||{lv:0,state:'idle',timer:0,timerEnd:0}}
+// 获取建筑配置
 function bldCfg(k){return CFG.buildings[k]}
+// 资源产出速率 = 分配人口 × 基础产出 × (1 + 建筑Buff%)
 function prodRate(rk){
   const alloc=S.popAlloc[rk]||0;
   const base=CFG.res[rk].basePerPop||0.5;
   return alloc*base*(1+buildingBuff(rk));
 }
+// 资源产出Buff%（来自对应建筑，建成后生效，升级/建造中不生效）
 function buildingBuff(rk){
   const bk=Object.keys(CFG.buildings).find(k=>CFG.buildings[k].buffRes===rk);
   if(!bk)return 0;
@@ -121,31 +132,41 @@ function buildingBuff(rk){
   if(st.state==='idle'&&st.lv>0)return cfg.buffBase+st.lv*cfg.buffPerLv;
   return 0;
 }
+// 当前城镇等级的配置
 function townCfg(){return CFG.town.find(t=>t.lv===S.townLv)||CFG.town[0]}
+// 人口上限
 function maxPop(){return townCfg().maxPop}
+// 已分配人口总数
 function popAllocTotal(){return Object.values(S.popAlloc).reduce((a,b)=>a+b,0)}
+// 空闲人口 = 上限 - 已分配
 function popFree(){return Math.max(0,maxPop()-popAllocTotal())}
+// 升级城镇所需击败的Boss数量
 function townUpgradeNeed(){
   const next=CFG.town.find(t=>t.lv===S.townLv+1);
   return next?next.needBoss:999;
 }
+// 城镇能否升级
 function townCanUpgrade(){
   return S.townLv<CFG.town.length && bossDefeatedCount()>=townUpgradeNeed();
 }
+// 已击败Boss数量
 function bossDefeatedCount(){
   return CFG.enemies.filter(e=>e.boss&&S.defeated.includes(e.id)).length;
 }
+// \u8d44\u6e90\u5efa\u7b51\u7b49\u7ea7\u4e0a\u9650 = Boss\u6570 + 1
 function resourceLevelCap(){
   return bossDefeatedCount() + 1;
 }
 function resourceCapText(){
   return `\u672c\u7ae0\u4e0a\u9650 Lv.${resourceLevelCap()}`;
 }
+// \u4ed3\u5e93\u5bb9\u91cf\u4e0a\u9650
 function storageCapacity(){
   const whLv=(S.buildings.warehouse||{lv:0}).lv;
   const cfg=CFG.buildings.warehouse;
   return (cfg.storageBase??2000) + whLv * (cfg.storagePerLv??500);
 }
+// 检查建筑升级锁定原因（城镇等级不足/章节上限）
 function upgradeLockReason(key){
   const cfg=CFG.buildings[key],st=bldSt(key);
   if(st.lv>=S.townLv) return `\u9700\u5347\u7ea7\u57ce\u9547\u5230Lv.${S.townLv+1}`;
@@ -155,33 +176,41 @@ function upgradeLockReason(key){
   }
   return '';
 }
+// 兵团人数上限（营帐建成前5人，建成后10人）
 function regMax(){
   const s=bldSt('barracks');
   return 5+(s.state==='idle'&&s.lv>=1?5:0);
 }
+// 根据兵种key找到对应训练建筑key
 function trainBuildingKey(uk){
   return Object.keys(CFG.buildings).find(k=>CFG.buildings[k].trains===uk)||null;
 }
+// 获取训练建筑状态
 function trainBuildingState(uk){
   const key=trainBuildingKey(uk);
   return key?bldSt(key):null;
 }
+// 后备兵力上限（由训练建筑等级决定）
 function reserveMax(uk){
   const key=trainBuildingKey(uk);
   if(!key)return 0;
   const cfg=CFG.buildings[key],st=bldSt(key);
   return st.lv>0?cfg.reserveBase+st.lv*cfg.reserveBonus:0;
 }
+// 后备剩余容量
 function reserveLeft(uk){
   return Math.max(0,reserveMax(uk)-(S.pool[uk]||0));
 }
+// 训练队列当前排队人数
 function queueTotal(uk){
   const q=S.queue[uk];
   return q?q.count:0;
 }
+// 训练队列上限 = 后备上限 × 10
 function queueMax(uk){
   return reserveMax(uk)*10;
 }
+// 每秒处理训练队列：扣资源 → 产出士兵 → 加入后备池
 function processQueue(){
   let changed=false;
   for(const[uk,q] of Object.entries(S.queue)){
@@ -204,6 +233,7 @@ function processQueue(){
   }
   if(changed)save();
 }
+// 检查训练锁定原因（建筑未建造/升级中/Boss未击败）
 function trainLockReason(uk){
   const key=trainBuildingKey(uk);
   if(!key)return '';
@@ -232,8 +262,11 @@ function totalSoldiers(){
   let n=0;for(const v of Object.values(S.pool)) n+=v;
   return n;
 }
+// 阵容兵团总数
 function formCnt(){return S.formation.front.length+S.formation.mid.length+S.formation.back.length}
+// 后备池可用数量
 function poolAvail(uk){ return S.pool[uk]||0; }
+// 可编入数量 = 后备池 - 已编入阵容的数量（编入不消耗后备池）
 function deployAvail(uk){
   let dep=0;
   for(const row of['front','mid','back']){
@@ -241,6 +274,7 @@ function deployAvail(uk){
   }
   return Math.max(0,(S.pool[uk]||0)-dep);
 }
+// 每排可用兵团槽位数（随Boss击败数扩展）
 function rowSlots(row){
   const boss=bossDefeatedCount();
   if(row==='front') return 1+(boss>=1?1:0);
@@ -248,6 +282,7 @@ function rowSlots(row){
   return 1;
 }
 function formSlots(){ return rowSlots('front')+rowSlots('mid')+rowSlots('back'); }
+// 总军粮维护费 = 所有士兵(后备+编入阵容) × 各自维护费
 function totalUpkeep(){
   let up=0;
   for(const[k,c] of Object.entries(CFG.units)){
@@ -258,12 +293,15 @@ function totalUpkeep(){
   }
   return up;
 }
+// 兵种克制系数
 function cm(atk,def){return CFG.counters[atk][def]||1.0}
+// 法师互易伤系数（法师打非法师1.3，非法师打法师1.3）
 function mm(atk,def){
   if(atk==='mage'&&def!=='mage')return CFG.counters.mage[def];
   if(atk!=='mage'&&def==='mage')return CFG.normalVsMage;
   return 1.0;
 }
+// 远程MISS率（弓兵基础20%，打骑兵50%）
 function missRate(attacker,defender){
   const cfg=CFG.miss[attacker.type];
   if(!cfg)return 0;
@@ -274,16 +312,19 @@ function isAttackMiss(attacker,defender){
   return rate>0&&Math.random()<rate;
 }
 
+// 保存游戏到 localStorage（仅保存需要持久化的字段）
 function save(){
   const d={res:S.res,buildings:S.buildings,pool:S.pool,queue:S.queue,formation:S.formation,townLv:S.townLv,popAlloc:S.popAlloc,defeated:S.defeated,mageOk:S.mageOk,tick:S.tick};
   localStorage.setItem('rts_save',JSON.stringify(d));
 }
+// 从 localStorage 加载存档
 function load(){
   const r=localStorage.getItem('rts_save');if(!r)return;
   try{const d=JSON.parse(r);S.res=d.res||S.res;S.buildings=d.buildings||{};S.pool=d.pool||S.pool;S.formation=d.formation||S.formation;S.townLv=d.townLv||1;S.popAlloc=d.popAlloc||{wood:5,stone:3,food:2};S.defeated=d.defeated||[];S.mageOk=d.mageOk||false;S.queue=d.queue||{};S.tick=d.tick||0;}catch(e){}
 }
 
-// ==================== 计时 ====================
+// ==================== 主循环 tick ====================
+// 每秒执行：推进建筑建造/升级计时 → 处理训练队列 → 资源增长 → 自动存档(每60tick) → 刷新UI
 function tick(){
   S.tick++;if(S.battleActive)return;
   let ch=false;
@@ -311,7 +352,8 @@ function tick(){
   updateUI();
 }
 
-// ==================== 操作 ====================
+// ==================== 用户操作函数 ====================
+// 建造/升级建筑
 function buildAct(key){
   const cfg=CFG.buildings[key],st=bldSt(key);
   if(cfg.needBoss && bossDefeatedCount()<cfg.needBoss){toast(`\u51fb\u8d25${cfg.needBoss}\u4e2aBoss\u540e\u89e3\u9501`);return}
@@ -327,6 +369,7 @@ function buildAct(key){
   else{bs.state='upgrading';bs.timerEnd=cost.time;bs.timer=cost.time;addLog(`开始升级${cfg.name}`)}
   save();updateUI();
 }
+// 升级城镇等级（需满足Boss击败条件）
 function upgradeTown(){
   if(!townCanUpgrade()){toast(`需击败${townUpgradeNeed()}个Boss才能升级城镇`);return}
   if(popAllocTotal()>CFG.town.find(t=>t.lv===S.townLv+1).maxPop){toast('请先减少人口分配');return}
@@ -334,6 +377,7 @@ function upgradeTown(){
   addLog(`城镇升级为${townCfg().name}，人口上限${maxPop()}`);
   save();updateUI();
 }
+// 设置人口分配（资源采集工人数量）
 function setPopAlloc(rk,v){
   const nv=Math.max(0,Math.min(Math.floor(v),999));
   const old=S.popAlloc[rk]||0;
@@ -342,6 +386,7 @@ function setPopAlloc(rk,v){
   S.popAlloc[rk]=nv;
   save();updateUI();
 }
+// 计算建筑升级费用（基础费用 × 等级倍率）
 function upCost(key){
   const cfg=CFG.buildings[key],lv=bldSt(key).lv||1;
   const b=cfg.upBase,m=Math.pow(cfg.upCostLv,lv);
@@ -349,10 +394,12 @@ function upCost(key){
   const time=Math.min(CFG.maxUpgradeTime,rawTime);
   return{wood:Math.ceil(b.wood*m),stone:Math.ceil(b.stone*m),food:Math.ceil(b.food*m),time};
 }
+// 最大可训练数量 = 队列上限 - 当前排队数
 function maxTrainable(uk){
   if(trainLockReason(uk))return 0;
   return Math.max(0, queueMax(uk) - queueTotal(uk));
 }
+// 排队训练士兵（加入训练队列，资源在生产完成时扣除）
 function train(uk,qty){
   qty=qty||1;
   qty=Math.max(1,Math.floor(qty));
@@ -417,6 +464,7 @@ function dismissN(uk,n){
   const fromP=Math.min(a,qty);
   S.pool[uk]-=fromP;addLog(`解散${CFG.units[uk].name}-${fromP}`);save();updateUI();
 }
+// 取消整个训练队列
 function cancelQueue(uk){
   const q=S.queue[uk];
   if(!q||q.count<=0){toast('队列为空');return}
@@ -425,6 +473,7 @@ function cancelQueue(uk){
   addLog(`取消训练${CFG.units[uk].name}-${n} (队列已清空)`);
   save();updateUI();
 }
+// 测试工具：手动添加资源（上限为仓库容量）
 function addRes(rk,inputId){
   const el=document.getElementById(inputId);
   const n=Math.max(1,Math.floor(parseInt(el?.value,10)||0));
@@ -434,8 +483,9 @@ function addRes(rk,inputId){
   save();updateUI();
 }
 
-// ==================== 编队弹窗 ====================
-let formModalTarget=null; // {row, idx: 要填的位置, isNew: 是否填到空位}
+// ==================== 编队弹窗系统 ====================
+// 打开弹窗→选择兵种→设定人数→确认编入，编入阵容不消耗后备池
+let formModalTarget=null; // {row, idx: 要填的位置}
 
 function openFormModal(row,idx){
   formModalTarget={row,idx};
@@ -603,14 +653,18 @@ function useLastFormation(){
 }
 
 // ==================== 战斗系统 ====================
+// 回合制自动战斗：速度排序→逐个行动→远程/近战规则→伤害计算→动画→结果判定
+// B 为战斗临时状态对象，每场战斗独立
 let battleTimer=null;
 let B={};
 
+// 选择敌人（需按顺序击败，或已击败的可重打）
 function selEnemy(idx){
   if(idx!==0&&!S.defeated.includes(CFG.enemies[idx-1]?.id))return;
   S.selEnemy=idx;updateUI();
 }
 
+// 开始战斗：初始化战斗状态 → 绘制战场 → 开始回合循环
 function openBattle(){
   if(S.selEnemy===null||S.selEnemy===undefined){toast('请先选敌人');return}
   if(formCnt()===0){toast('请先配置阵容');return}
@@ -627,6 +681,7 @@ function openBattle(){
   battleTimer=setTimeout(battleTurn, 600/S.battleSpeed);
 }
 
+// 逃跑：放弃战斗，恢复战前阵容
 function fleeBattle(){
   if(battleTimer)clearTimeout(battleTimer);
   S.battleActive=false;
@@ -639,9 +694,10 @@ function fleeBattle(){
   addLog('逃离战斗'); save(); updateUI();
 }
 
+// 初始化战斗临时状态：保存战前阵容 → 根据敌人配置生成双方单位列表
 function initBattleState(){
   const e=CFG.enemies[S.selEnemy];
-  const tkey='steady'; // 战术归入英雄技能系统(P3)
+  const tkey='steady'; // 当前仅"稳扎稳打"可用，其余战术留待P3英雄系统
   S._preForm=JSON.parse(JSON.stringify(S.formation));
   S._lastForm=JSON.parse(JSON.stringify(S.formation));
   B.tactic=CFG.tactics[tkey]; B.enemyCfg=e;
@@ -668,6 +724,7 @@ function initBattleState(){
   }
 }
 
+// 绘制战场：显示双方存活单位、HP、排布
 function drawBattleField(){
   const f=document.getElementById('battle-field');
   const oa=B.ourUnits.filter(u=>u.alive!==false).length;
@@ -709,6 +766,7 @@ function drawBattleField(){
   f.innerHTML=h;
 }
 
+// 添加战斗消息（实时显示在战斗日志区）
 function bmsg(m,c=''){
   B.msgs.push({m,c});
   const el=document.getElementById('battle-msg');
@@ -716,11 +774,12 @@ function bmsg(m,c=''){
   el.scrollTop=el.scrollHeight;
 }
 
-// 兵种攻击类型：melee 只能在前排攻击，ranged 任意排都可攻击
+// 兵种是否远程（弓兵/法师/枪兵可打任意排，步兵/骑兵只能前排攻击）
 function isRanged(unitType){
   return unitType==='archer'||unitType==='mage'||unitType==='spearman';
 }
 
+// 选择攻击目标：远程60%被前排阻挡，近战只能打最前排
 function getTarget(attacker,enemyList){
   const alive=enemyList.filter(u=>u.alive!==false);
   if(!alive.length)return null;
@@ -742,7 +801,8 @@ function getTarget(attacker,enemyList){
   return front[Math.floor(Math.random()*front.length)];
 }
 
-// 计算伤害（杀多少兵）
+// 计算伤害（杀多少兵）= 攻方HP × atk/def × 克制 × 易伤 × 随机(0.8~1.2)
+// 乘以攻方HP保证总伤害与编队分组方式无关（公平公式）
 function calcDmg(attacker,defender,isOur){
   const cmv=cm(attacker.type,defender.type);
   const mmv=mm(attacker.type,defender.type);
@@ -760,6 +820,7 @@ function calcDmg(attacker,defender,isOur){
   return isCrit?raw*2:raw;
 }
 
+// 执行一个战斗回合：按速度排序所有单位 → 逐个选目标攻击 → 判断胜负
 function battleTurn(){
   if(!S.battleActive)return;
   B.round++;
@@ -843,7 +904,7 @@ function battleTurn(){
   nextAction();
 }
 
-// 从存活战斗单位重建阵容，并从军营自动补兵
+// 战后从存活单位重建阵容，损失人数从后备池自动补员
 function rebuildFormation(){
   const newForm={front:[],mid:[],back:[]};
   for(const u of B.ourUnits){
@@ -864,6 +925,7 @@ function rebuildFormation(){
   S.formation=newForm;
 }
 
+// 战斗结束：清除计时器 → 重建阵容 → 发放奖励(胜利) → 显示结果面板
 function endBattle(result){
   if(battleTimer)clearTimeout(battleTimer);
   S.battleActive=false;
@@ -901,17 +963,18 @@ function endBattle(result){
   updateUI();
 }
 
+// 下一关：如果当前敌人已击败则自动前进
 function nextBattle(){
   S.selEnemy++;
   exitBattle();
   setTimeout(()=>openBattle(),150);
 }
-
+// 重新对战当前敌人
 function retryBattle(){
   exitBattle();
   setTimeout(()=>openBattle(),150);
 }
-
+// 退出战斗画面，如果当前敌人已击败则自动跳到下一关
 function exitBattle(){
   const cur=CFG.enemies[S.selEnemy];
   if(cur&&S.defeated.includes(cur.id))S.selEnemy=Math.min(S.selEnemy+1,CFG.enemies.length-1);
