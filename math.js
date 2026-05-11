@@ -77,13 +77,13 @@ const CFG = {
     {id:3,name:'步兵方阵',desc:'重步兵推进，弓兵集火削血',units:{infantry:[2,1]},reward:{wood:280,stone:200,food:180}},
     {id:99,name:'守关校尉',desc:'BOSS·步弓混编重兵，考验基本战术',units:{infantry:[3,2],archer:[2,2]},boss:true,bossMult:{atk:1.3,def:1.25},reward:{wood:800,stone:600,food:500}},
     // === 第二章：解锁骑兵 (1 Boss) ===
-    {id:4,name:'骑兵侦察队',desc:'敌方骑兵出现，步兵前排抵御',units:{cavalry:[1,1],infantry:[1,1]},reward:{wood:350,stone:280,food:230}},
-    {id:5,name:'骑步混编',desc:'骑兵冲击后排，布好前中排',units:{cavalry:[2,1],infantry:[1,1],archer:[1]},reward:{wood:450,stone:350,food:300}},
-    {id:98,name:'骑兵统领',desc:'BOSS·骑兵主力，枪兵克制关键',units:{cavalry:[4,3],infantry:[2,2],archer:[2,1]},boss:true,bossMult:{atk:1.35,def:1.3},reward:{wood:1000,stone:800,food:700}},
+    {id:4,name:'骑兵侦察队',desc:'敌方骑兵出现，步兵前排抵御',units:{cavalry:[1,1],infantry:[2]},reward:{wood:350,stone:280,food:230}},
+    {id:5,name:'骑步混编',desc:'骑兵冲击后排，布好前中排',units:{cavalry:[2,1],infantry:[2],archer:[1]},reward:{wood:450,stone:350,food:300}},
+    {id:98,name:'骑兵统领',desc:'BOSS·骑兵主力，枪兵克制关键',units:{cavalry:[4,3],infantry:[4],archer:[2,1]},boss:true,bossMult:{atk:1.35,def:1.3},reward:{wood:1000,stone:800,food:700}},
     // === 第三章：解锁枪兵+法师 (2 Boss) ===
     {id:6,name:'枪兵方阵',desc:'敌方枪兵出现，反骑破甲',units:{spearman:[2,2],infantry:[1,1]},reward:{wood:550,stone:480,food:400}},
     {id:7,name:'法师小队',desc:'敌方法师高伤脆皮，骑兵切后',units:{mage:[1,1],infantry:[1,1],spearman:[1]},reward:{wood:650,stone:550,food:480}},
-    {id:97,name:'混编将军',desc:'BOSS·四兵种齐全，多兵种协同破阵',units:{infantry:[4,3],archer:[2,2],cavalry:[3,2],spearman:[2,2],mage:[1]},boss:true,bossMult:{atk:1.4,def:1.35},reward:{wood:1300,stone:1100,food:950}}
+    {id:97,name:'混编将军',desc:'BOSS·四兵种齐全，多兵种协同破阵',units:{infantry:[7],archer:[2,2],cavalry:[3,2],spearman:[2,2],mage:[1]},boss:true,bossMult:{atk:1.4,def:1.35},reward:{wood:1300,stone:1100,food:950}}
   ]};
 
 // ==================== 状态 ====================
