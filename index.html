@@ -381,14 +381,17 @@ body{
   box-shadow:0 5px 0 #2b2118;
 }
 .worker-wood{background:#b87942}
-.worker-stone{background:#a9afb8}
-.worker-food{background:#d0bd52}
+.worker-wood:before{background:#c9965a;border-radius:50%;box-shadow:0 -2px 0 #8a5a32}
 .worker-wood:after{
   left:5px;top:0;width:3px;height:15px;background:#8a5a32;box-shadow:4px -3px 0 #c5cbd3;transform-origin:1px 12px;
 }
+.worker-stone{background:#a9afb8}
+.worker-stone:before{background:#c5cbd3;border-radius:0;box-shadow:0 -3px 0 #6f7890}
 .worker-stone:after{
-  left:4px;top:-2px;width:3px;height:15px;background:#7b4a2b;box-shadow:4px -3px 0 #c5cbd3;transform-origin:1px 12px;
+  left:2px;top:-3px;width:7px;height:14px;background:#4a4a4a;box-shadow:8px -2px 0 #7c8495;transform-origin:4px 10px;
 }
+.worker-food{background:#d0bd52}
+.worker-food:before{background:#e0c870;border-radius:50% 50% 0 0;height:6px;top:-6px;box-shadow:0 -1px 0 #a08030}
 .worker-food:after{
   left:-5px;top:5px;width:16px;height:2px;background:#8a5a32;box-shadow:8px -4px 0 #d6a83f;transform-origin:10px 1px;
 }
@@ -482,8 +485,8 @@ body{
   to{transform:rotate(26deg)}
 }
 @keyframes townToolMine{
-  from{transform:rotate(-36deg)}
-  to{transform:rotate(22deg)}
+  0%,100%{transform:rotate(-15deg)}
+  50%{transform:rotate(20deg)}
 }
 @keyframes townToolHarvest{
   from{transform:rotate(0deg)}
@@ -504,22 +507,25 @@ body{
   position:absolute;display:block;left:8px;top:-7px;width:2px;height:18px;background:#c5cbd3;
   box-shadow:0 0 0 1px #383d48;
 }
-.guard-infantry{left:50%;top:126px;background:#8b3b36}
-.guard-infantry:after{left:-4px;width:8px;height:10px;top:2px;background:#6f2630;border:1px solid #d0d3d6;box-shadow:10px 2px 0 #bfc6cf}
+.guard-infantry{left:50%;top:124px;background:#6a526e}
+.guard-infantry:before{background:#9da3ad;height:6px}
+.guard-infantry:after{left:-5px;width:11px;height:13px;top:1px;background:#7c3d32;border:2px solid #bfc6cf;box-shadow:12px 2px 0 #c5cbd3}
 .guard-archer{left:22%;top:139px;background:#355d3b}
-.guard-archer:after{left:-5px;top:2px;width:4px;height:17px;background:#b68942;border-radius:50%;box-shadow:8px 5px 0 #d6a83f}
-.guard-archer i{left:12px;top:2px;width:12px;height:2px;background:#c5a85a;box-shadow:none}
-.guard-cavalry{left:36%;top:174px;width:20px;height:13px;background:#4d3626}
-.guard-cavalry:before{left:4px;top:-7px;background:#8a3b36}
-.guard-cavalry:after{left:1px;top:9px;width:16px;height:4px;background:#2f2420;box-shadow:3px 5px 0 #17110e}
-.guard-cavalry i{left:18px;top:-1px;width:2px;height:12px;background:#bfc6cf}
-.guard-spearman{right:25%;top:143px;background:#4e5568}
-.guard-spearman i{left:12px;top:-10px;height:24px;background:#c5cbd3}
-.guard-spearman i:before{content:"";position:absolute;left:-2px;top:-4px;width:6px;height:5px;background:#d6a83f}
-.guard-mage{left:58%;top:86px;background:#49306a;box-shadow:0 0 8px rgba(126,208,255,.35),0 2px 0 rgba(0,0,0,.45)}
-.guard-mage:before{background:#c5b9d6}
-.guard-mage:after{left:-5px;top:3px;width:3px;height:17px;background:#6a4a2d;box-shadow:12px -4px 0 #7ed0ff}
-.guard-mage i{left:4px;top:-12px;width:4px;height:4px;background:#7ed0ff;box-shadow:0 0 0 2px rgba(126,208,255,.18)}
+.guard-archer:before{background:#4a6e4d;height:6px;border-radius:50% 50% 0 0}
+.guard-archer:after{left:-6px;top:1px;width:3px;height:17px;background:#8a5a32;border-radius:40%;box-shadow:12px 1px 0 #6b3f2b,6px 2px 0 #b68942}
+.guard-archer i{left:4px;top:-1px;width:2px;height:19px;background:#c5a85a;box-shadow:none}
+.guard-cavalry{left:36%;top:174px;width:22px;height:14px;background:#5a3722}
+.guard-cavalry:before{left:5px;top:-8px;width:5px;height:6px;background:#8a3b36}
+.guard-cavalry:after{left:1px;top:10px;width:18px;height:4px;background:#2f2420;box-shadow:3px 5px 0 #17110e}
+.guard-cavalry i{left:19px;top:-2px;width:2px;height:14px;background:#c5cbd3}
+.guard-spearman{right:25%;top:140px;background:#6f7890}
+.guard-spearman:before{background:#9da3ad;height:6px}
+.guard-spearman i{left:12px;top:-14px;height:32px;width:2px;background:#c5cbd3}
+.guard-spearman i:before{content:"";position:absolute;left:-3px;top:-6px;width:8px;height:6px;background:#d6a83f;box-shadow:0 -2px 0 #c5cbd3}
+.guard-mage{left:58%;top:82px;background:#32245a;box-shadow:0 0 10px rgba(126,208,255,.45),0 2px 0 rgba(0,0,0,.5)}
+.guard-mage:before{left:2px;top:-8px;width:8px;height:6px;background:#c5b9d6;border-radius:60% 60% 0 0}
+.guard-mage:after{left:-5px;top:3px;width:3px;height:18px;background:#6a4a2d;box-shadow:14px -5px 0 #7ed0ff}
+.guard-mage i{left:0;top:-14px;width:6px;height:6px;background:#7ed0ff;box-shadow:0 0 6px 3px rgba(126,208,255,.5)}
 .guard-patrol{animation:townGuardPatrol 4.4s linear infinite}
 .guard-watch{animation:townGuardWatch 3.4s ease-in-out infinite}
 .guard-ride{animation:townGuardRide 5.4s linear infinite}
