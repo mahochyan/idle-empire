@@ -380,20 +380,23 @@ body{
   content:"";position:absolute;left:-2px;top:3px;width:12px;height:2px;background:#5d4530;
   box-shadow:0 5px 0 #2b2118;
 }
-.worker-wood{background:#b87942}
-.worker-wood:before{background:#c9965a;border-radius:50%;box-shadow:0 -2px 0 #8a5a32}
+/* === 伐木工 — 棕色衣 + 圆帽 + 斧头 === */
+.worker-wood{background:#a0683a;width:9px;height:11px;border-color:#4a2a18;box-shadow:1px 2px 0 rgba(0,0,0,.3),inset 2px 1px 0 rgba(255,255,255,.08),-1px 4px 0 -2px #3a2210}
+.worker-wood:before{left:1px;top:-6px;width:6px;height:5px;background:#c9956a;border-color:#4a2a18;border-radius:60% 60% 30% 30%;box-shadow:0 -2px 0 #4a2818}
 .worker-wood:after{
-  left:5px;top:0;width:3px;height:15px;background:#8a5a32;box-shadow:4px -3px 0 #c5cbd3;transform-origin:1px 12px;
+  left:5px;top:-1px;width:3px;height:15px;background:#6b4025;box-shadow:4px -3px 0 #c5cbd3;transform-origin:1px 12px;
 }
-.worker-stone{background:#a9afb8}
-.worker-stone:before{background:#c5cbd3;border-radius:0;box-shadow:0 -3px 0 #6f7890}
+/* === 采石工 — 灰衣 + 方盔(头灯) + 重锤 === */
+.worker-stone{background:#8992a3;width:10px;height:10px;border-color:#3a3f4a;box-shadow:1px 2px 0 rgba(0,0,0,.3),inset 1px 1px 0 rgba(255,255,255,.12),4px 0 0 -2px #545b70}
+.worker-stone:before{left:1px;top:-6px;width:7px;height:5px;background:#b6bcc4;border-color:#4a4f5a;border-radius:2px 2px 1px 1px;box-shadow:0 -2px 0 #545b70,7px -1px 0 1px #f0d060}
 .worker-stone:after{
-  left:2px;top:-3px;width:7px;height:14px;background:#4a4a4a;box-shadow:8px -2px 0 #7c8495;transform-origin:4px 10px;
+  left:1px;top:-4px;width:8px;height:13px;background:#3d3d3d;box-shadow:8px -1px 0 #6f7890;transform-origin:4px 10px;
 }
-.worker-food{background:#d0bd52}
-.worker-food:before{background:#e0c870;border-radius:50% 50% 0 0;height:6px;top:-6px;box-shadow:0 -1px 0 #a08030}
+/* === 粮农 — 黄衣 + 宽草帽 + 镰刀 === */
+.worker-food{background:#c4a040;width:7px;height:12px;border-color:#5a4520;box-shadow:1px 2px 0 rgba(0,0,0,.3),inset 2px 1px 0 rgba(255,255,255,.1),-2px 3px 0 -1px #8a6d28}
+.worker-food:before{left:-1px;top:-7px;width:8px;height:5px;background:#e0c870;border-color:#6a5530;border-radius:70% 70% 15% 15%;box-shadow:0 -1px 0 #b09840,-2px 1px 0 #a08030}
 .worker-food:after{
-  left:-5px;top:5px;width:16px;height:2px;background:#8a5a32;box-shadow:8px -4px 0 #d6a83f;transform-origin:10px 1px;
+  left:-6px;top:6px;width:18px;height:2px;background:#7b5a30;box-shadow:8px -4px 0 #d6a83f;transform-origin:10px 1px;
 }
 .worker-wood-1{left:2px;top:8px}
 .worker-wood-2{left:22px;top:22px;animation-delay:.35s}
@@ -408,89 +411,91 @@ body{
 .worker-mine{animation:townWorkerMine 3.2s linear infinite}
 .worker-harvest{animation:townWorkerHarvest 3.8s linear infinite}
 .worker-step{animation:townWorkerStep 3.8s linear infinite}
-.worker-chop:after{animation:townToolChop .7s steps(2,end) infinite alternate}
-.worker-mine:after{animation:townToolMine .8s steps(2,end) infinite alternate}
-.worker-harvest:after{animation:townToolHarvest .9s steps(2,end) infinite alternate}
+.worker-chop:after{animation:townToolChop .6s ease-in-out infinite}
+.worker-mine:after{animation:townToolMine .5s ease-in-out infinite}
+.worker-harvest:after{animation:townToolHarvest .55s ease-in-out infinite}
 @keyframes townWorkerChop{
   0%{transform:translate(0,0) scaleX(1)}
-  16%{transform:translate(12px,0) scaleX(1)}
-  /* 砍树：上下挥斧 */
-  20%{transform:translate(12px,-3px) scaleX(1)}
-  24%{transform:translate(12px,0) scaleX(1)}
-  28%{transform:translate(12px,-3px) scaleX(1)}
-  32%{transform:translate(12px,1px) scaleX(1)}
-  36%{transform:translate(12px,-2px) scaleX(1)}
-  40%{transform:translate(12px,1px) scaleX(1)}
-  44%{transform:translate(12px,0) scaleX(1)}
-  52%{transform:translate(12px,0) scaleX(1)}
+  15%{transform:translate(14px,0) scaleX(1)}
+  /* 抡斧砍树：身体起伏 */
+  18%{transform:translate(13px,-4px) scaleX(1)}
+  22%{transform:translate(15px,1px) scaleX(1)}
+  26%{transform:translate(13px,-3px) scaleX(1)}
+  30%{transform:translate(15px,0) scaleX(1)}
+  34%{transform:translate(14px,-2px) scaleX(1)}
+  38%{transform:translate(14px,1px) scaleX(1)}
+  44%{transform:translate(14px,0) scaleX(1)}
+  52%{transform:translate(14px,0) scaleX(1)}
   /* 转身走回 */
-  56%{transform:translate(12px,0) scaleX(-1)}
+  56%{transform:translate(14px,0) scaleX(-1)}
   72%{transform:translate(0,0) scaleX(-1)}
   76%{transform:translate(0,0) scaleX(1)}
   100%{transform:translate(0,0) scaleX(1)}
 }
 @keyframes townWorkerMine{
   0%{transform:translate(0,0) scaleX(1)}
-  16%{transform:translate(10px,-2px) scaleX(1)}
-  /* 挖矿：前后凿击 */
-  20%{transform:translate(8px,-3px) scaleX(1)}
-  24%{transform:translate(12px,-1px) scaleX(1)}
-  28%{transform:translate(8px,-3px) scaleX(1)}
-  32%{transform:translate(12px,0) scaleX(1)}
-  36%{transform:translate(9px,-2px) scaleX(1)}
-  40%{transform:translate(11px,0) scaleX(1)}
-  44%{transform:translate(10px,-2px) scaleX(1)}
-  52%{transform:translate(10px,-2px) scaleX(1)}
-  56%{transform:translate(10px,-2px) scaleX(-1)}
+  15%{transform:translate(12px,0) scaleX(1)}
+  /* 举锤砸石：大幅上下 */
+  18%{transform:translate(11px,-5px) scaleX(1)}
+  22%{transform:translate(13px,2px) scaleX(1)}
+  26%{transform:translate(11px,-4px) scaleX(1)}
+  30%{transform:translate(13px,1px) scaleX(1)}
+  34%{transform:translate(12px,-5px) scaleX(1)}
+  38%{transform:translate(12px,2px) scaleX(1)}
+  44%{transform:translate(12px,0) scaleX(1)}
+  52%{transform:translate(12px,0) scaleX(1)}
+  56%{transform:translate(12px,0) scaleX(-1)}
   72%{transform:translate(0,0) scaleX(-1)}
   76%{transform:translate(0,0) scaleX(1)}
   100%{transform:translate(0,0) scaleX(1)}
 }
 @keyframes townWorkerHarvest{
   0%{transform:translate(0,0) scaleX(1)}
-  16%{transform:translate(18px,2px) scaleX(1)}
-  /* 收割：左右横扫 */
-  20%{transform:translate(15px,3px) scaleX(1)}
-  23%{transform:translate(21px,1px) scaleX(1)}
-  26%{transform:translate(16px,2px) scaleX(1)}
-  29%{transform:translate(20px,3px) scaleX(1)}
-  32%{transform:translate(17px,1px) scaleX(1)}
-  35%{transform:translate(19px,2px) scaleX(1)}
-  38%{transform:translate(18px,2px) scaleX(1)}
-  52%{transform:translate(18px,2px) scaleX(1)}
-  56%{transform:translate(18px,2px) scaleX(-1)}
+  15%{transform:translate(20px,0) scaleX(1)}
+  /* 弯腰割麦：身体下沉 + 左右横扫 */
+  18%{transform:translate(16px,5px) scaleX(1)}
+  22%{transform:translate(24px,4px) scaleX(1)}
+  26%{transform:translate(17px,6px) scaleX(1)}
+  30%{transform:translate(23px,5px) scaleX(1)}
+  34%{transform:translate(18px,6px) scaleX(1)}
+  38%{transform:translate(22px,4px) scaleX(1)}
+  44%{transform:translate(20px,0) scaleX(1)}
+  52%{transform:translate(20px,0) scaleX(1)}
+  56%{transform:translate(20px,0) scaleX(-1)}
   72%{transform:translate(0,0) scaleX(-1)}
   76%{transform:translate(0,0) scaleX(1)}
   100%{transform:translate(0,0) scaleX(1)}
 }
 @keyframes townWorkerStep{
   0%{transform:translate(0,0) scaleX(1)}
-  16%{transform:translate(-12px,2px) scaleX(1)}
-  /* 搬运/堆放 */
-  20%{transform:translate(-11px,1px) scaleX(1)}
-  24%{transform:translate(-13px,3px) scaleX(1)}
-  28%{transform:translate(-11px,2px) scaleX(1)}
-  32%{transform:translate(-12px,1px) scaleX(1)}
-  36%{transform:translate(-13px,2px) scaleX(1)}
-  40%{transform:translate(-11px,3px) scaleX(1)}
-  44%{transform:translate(-12px,2px) scaleX(1)}
-  52%{transform:translate(-12px,2px) scaleX(1)}
-  56%{transform:translate(-12px,2px) scaleX(-1)}
+  15%{transform:translate(-10px,1px) scaleX(1)}
+  /* 弯腰堆放 */
+  18%{transform:translate(-9px,4px) scaleX(1)}
+  22%{transform:translate(-11px,3px) scaleX(1)}
+  26%{transform:translate(-9px,5px) scaleX(1)}
+  30%{transform:translate(-10px,3px) scaleX(1)}
+  34%{transform:translate(-11px,4px) scaleX(1)}
+  40%{transform:translate(-10px,1px) scaleX(1)}
+  52%{transform:translate(-10px,1px) scaleX(1)}
+  56%{transform:translate(-10px,1px) scaleX(-1)}
   72%{transform:translate(0,0) scaleX(-1)}
   76%{transform:translate(0,0) scaleX(1)}
   100%{transform:translate(0,0) scaleX(1)}
 }
 @keyframes townToolChop{
-  from{transform:rotate(-28deg)}
-  to{transform:rotate(26deg)}
+  0%{transform:rotate(-35deg)}
+  50%{transform:rotate(30deg)}
+  100%{transform:rotate(-35deg)}
 }
 @keyframes townToolMine{
-  0%,100%{transform:rotate(-15deg)}
+  0%{transform:rotate(-25deg)}
   50%{transform:rotate(20deg)}
+  100%{transform:rotate(-25deg)}
 }
 @keyframes townToolHarvest{
-  from{transform:rotate(0deg)}
-  to{transform:rotate(-18deg)}
+  0%{transform:rotate(5deg)}
+  50%{transform:rotate(-20deg)}
+  100%{transform:rotate(5deg)}
 }
 .town-guard{
   position:absolute;z-index:6;width:12px;height:15px;border:1px solid #161820;background:#8a3b34;
