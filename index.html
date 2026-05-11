@@ -449,9 +449,9 @@ const CFG = {
     barracks:{name:'营帐',build:{wood:30,stone:20,food:10,time:6}, upBase:{wood:22,stone:18,food:10}, upCostLv:1.85, regBonus:20},
     infantry_camp:{name:'步兵营',trains:'infantry',reserveBase:12,reserveBonus:18,build:{wood:18,stone:10,food:8,time:5},upBase:{wood:16,stone:10,food:8},upCostLv:1.7},
     archer_range:{name:'射手靶场',trains:'archer',reserveBase:10,reserveBonus:15,build:{wood:24,stone:10,food:10,time:6},upBase:{wood:20,stone:10,food:10},upCostLv:1.75},
-    stable:{name:'兽栏',trains:'cavalry',reserveBase:8,reserveBonus:12,build:{wood:22,stone:16,food:18,time:7},upBase:{wood:20,stone:15,food:16},upCostLv:1.8},
-    spear_crypt:{name:'枪兵墓穴',trains:'spearman',reserveBase:10,reserveBonus:14,build:{wood:16,stone:24,food:10,time:7},upBase:{wood:14,stone:22,food:10},upCostLv:1.8},
-    mage_tower:{name:'法师塔',trains:'mage',reserveBase:4,reserveBonus:8,requiresMage:true,build:{wood:50,stone:50,food:35,time:10},upBase:{wood:38,stone:38,food:28},upCostLv:1.9}
+    stable:{name:'兽栏',trains:'cavalry',reserveBase:8,reserveBonus:12,needBoss:1,build:{wood:22,stone:16,food:18,time:7},upBase:{wood:20,stone:15,food:16},upCostLv:1.8},
+    spear_crypt:{name:'枪兵墓穴',trains:'spearman',reserveBase:10,reserveBonus:14,needBoss:2,build:{wood:16,stone:24,food:10,time:7},upBase:{wood:14,stone:22,food:10},upCostLv:1.8},
+    mage_tower:{name:'法师塔',trains:'mage',reserveBase:4,reserveBonus:8,needBoss:2,build:{wood:50,stone:50,food:35,time:10},upBase:{wood:38,stone:38,food:28},upCostLv:1.9}
   },
 
   units: {
@@ -487,12 +487,19 @@ const CFG = {
   },
 
   enemies: [
-    {id:1,name:'侦察兵小队',desc:'前排步兵试探',units:{infantry:[28,22]},reward:{wood:35,stone:25,food:22}},
-    {id:2,name:'弓兵巡逻队',desc:'步弓混编，考验前后排',units:{infantry:[34,28],archer:[26,24]},reward:{wood:55,stone:40,food:35}},
-    {id:3,name:'骑兵突袭队',desc:'骑兵压弓，枪兵护阵',units:{cavalry:[42,38],spearman:[34,30]},reward:{wood:75,stone:60,food:55}},
-    {id:4,name:'混合编队',desc:'四兵种成型，需要克制配比',units:{infantry:[45,38],archer:[36,32],cavalry:[34],spearman:[40,34]},reward:{wood:100,stone:85,food:75}},
-    {id:5,name:'精锐卫队',desc:'重枪骑法混编，惩罚单一阵容',units:{spearman:[58,52],cavalry:[50,44],archer:[42],mage:[36]},reward:{wood:135,stone:115,food:100}},
-    {id:99,name:'守关将军',desc:'BOSS·兵力压制，必须依靠克制与阵型',units:{infantry:[150,120],archer:[110,90],cavalry:[120,95],spearman:[130,105],mage:[70]},boss:true,bossMult:{atk:1.45,def:1.35},reward:{wood:220,stone:190,food:160}}
+    // === 第一章：仅步兵+弓兵 (0 Boss) ===
+    {id:1,name:'侦察兵小队',desc:'前排步兵试探，步兵扛线弓兵输出',units:{infantry:[22,18]},reward:{wood:25,stone:18,food:15}},
+    {id:2,name:'弓兵巡逻队',desc:'步弓混编，考验前后排配置',units:{infantry:[26,20],archer:[20,16]},reward:{wood:40,stone:30,food:25}},
+    {id:3,name:'步兵方阵',desc:'重步兵推进，弓兵集火削血',units:{infantry:[38,32]},reward:{wood:55,stone:40,food:35}},
+    {id:99,name:'守关校尉',desc:'BOSS·步弓混编重兵，考验基本战术',units:{infantry:[70,55],archer:[50,40]},boss:true,bossMult:{atk:1.3,def:1.25},reward:{wood:150,stone:120,food:100}},
+    // === 第二章：解锁骑兵 (1 Boss) ===
+    {id:4,name:'骑兵侦察队',desc:'敌方骑兵出现，步兵前排抵御',units:{cavalry:[30,24],infantry:[28,22]},reward:{wood:70,stone:55,food:45}},
+    {id:5,name:'骑步混编',desc:'骑兵冲击后排，布好前中排',units:{cavalry:[40,34],infantry:[34,28],archer:[22]},reward:{wood:90,stone:70,food:60}},
+    {id:98,name:'骑兵统领',desc:'BOSS·骑兵主力，枪兵克制关键',units:{cavalry:[80,65],infantry:[55,44],archer:[40,32]},boss:true,bossMult:{atk:1.35,def:1.3},reward:{wood:200,stone:160,food:140}},
+    // === 第三章：解锁枪兵+法师 (2 Boss) ===
+    {id:6,name:'枪兵方阵',desc:'敌方枪兵出现，反骑破甲',units:{spearman:[48,40],infantry:[30,24]},reward:{wood:110,stone:95,food:80}},
+    {id:7,name:'法师小队',desc:'敌方法师高伤脆皮，骑兵切后',units:{mage:[35,28],infantry:[32,26],spearman:[30]},reward:{wood:130,stone:110,food:95}},
+    {id:97,name:'混编将军',desc:'BOSS·四兵种齐全，多兵种协同破阵',units:{infantry:[80,64],archer:[55,44],cavalry:[60,48],spearman:[50,40],mage:[35]},boss:true,bossMult:{atk:1.4,def:1.35},reward:{wood:260,stone:220,food:190}}
   ]
 };
 
@@ -633,16 +640,16 @@ function reserveLeft(uk){
   return Math.max(0,reserveMax(uk)-(S.pool[uk]||0));
 }
 function trainLockReason(uk){
-  if(uk==='mage'&&!S.mageOk)return '\u51fb\u8d25\u7b2c5\u4e2a\u654c\u4eba\u540e\u89e3\u9501\u6cd5\u5e08';
   const key=trainBuildingKey(uk);
   if(!key)return '';
   const cfg=CFG.buildings[key],st=bldSt(key);
-  if(cfg.requiresMage&&!S.mageOk)return '\u51fb\u8d25\u7b2c5\u4e2a\u654c\u4eba\u540e\u89e3\u9501\u6cd5\u5e08\u5854';
-  if(st.lv<=0&&st.state==='idle')return `\u9700\u5148\u5efa\u9020${cfg.name}`;
-  if(st.state==='building')return `${cfg.name}\u5efa\u8bbe\u4e2d`;
-  if(st.state==='upgrading')return `${cfg.name}\u5347\u7ea7\u4e2d`;
+  if(cfg.needBoss && bossDefeatedCount() < cfg.needBoss)return '击败'+cfg.needBoss+'个Boss后解锁'+cfg.name;
+  if(st.lv<=0&&st.state==='idle')return `需先建造${cfg.name}`;
+  if(st.state==='building')return `${cfg.name}建设中`;
+  if(st.state==='upgrading')return `${cfg.name}升级中`;
   return '';
 }
+function mageOk(){return bossDefeatedCount()>=2;}
 function trainBuildingLabel(uk){
   const key=trainBuildingKey(uk);
   if(!key)return '';
@@ -711,7 +718,7 @@ function tick(){
 // ==================== 操作 ====================
 function buildAct(key){
   const cfg=CFG.buildings[key],st=bldSt(key);
-  if(cfg.requiresMage&&!S.mageOk){toast('\u51fb\u8d25\u7b2c5\u4e2a\u654c\u4eba\u540e\u89e3\u9501');return}
+  if(cfg.needBoss && bossDefeatedCount()<cfg.needBoss){toast(`\u51fb\u8d25${cfg.needBoss}\u4e2aBoss\u540e\u89e3\u9501`);return}
   if(st.state!=='idle'){toast(st.state==='building'?'建造中':'升级中');return}
   const upLock=st.lv>0?upgradeLockReason(key):'';
   if(upLock){toast(upLock);return}
@@ -766,7 +773,7 @@ function train(uk,qty){
     qty=max;
     toast(`\u5df2\u6309\u4e0a\u9650\u8bad\u7ec3${qty}`);
   }
-  if(uk==='mage'&&!S.mageOk){toast('法师未解锁');return}
+  
   const c=CFG.units[uk].cost;
   if(S.res.wood<c.wood*qty||S.res.stone<c.stone*qty||S.res.food<c.food*qty){toast('资源不足');return}
   S.res.wood-=c.wood*qty;S.res.stone-=c.stone*qty;S.res.food-=c.food*qty;
@@ -1187,8 +1194,7 @@ function endBattle(result){
     for(const[r,v] of Object.entries(e.reward))S.res[r]=(S.res[r]||0)+v;
     if(!S.defeated.includes(e.id)){
       S.defeated.push(e.id);
-      if(S.defeated.filter(id=>id<99).length>=5)S.mageOk=true;
-    }
+          }
     addLog(`战胜${e.name}`);
   }else if(result==='lose'){
     cls='lose';text=`${pix('lose','sm')} 战败`;
@@ -1284,7 +1290,7 @@ function rHome(){
 
   h+=`<div class="card"><h3>${pix("army","card-pix")}快速训练</h3>`;
   for(const[k,c] of Object.entries(CFG.units)){
-    if(k=="mage"&&!S.mageOk)continue;
+    
     const inputId=`train-home-${k}`,lock=trainLockReason(k),tm=maxTrainable(k),disabled=tm<=0?"disabled":"";
     h+=`<div class="unit-row"><span class="uicon">${pix(c.icon,"lg")}</span><div class="uinfo"><div class="uname">${c.name}</div><div class="udetail">${c.passive} | ${costHtml(c.cost)}/人</div></div><div class="ucount">${(S.pool[k]||0)}人</div>`;
     h+=`<div class="econ-note" style="flex-basis:100%;padding-left:32px">${trainBuildingLabel(k)} | ${reserveHtml(k)}${lock?`<br><span class="limit-warn">${lock}</span>`:""}</div>`;
@@ -1303,7 +1309,7 @@ function rHome(){
 function rBuild(){
   let h=`<div style="padding:4px 0">`;
   for(const[key,cfg] of Object.entries(CFG.buildings)){
-    const st=bldSt(key),locked=cfg.requiresMage&&!S.mageOk,upLock=st.lv>0?upgradeLockReason(key):'';
+    const st=bldSt(key),locked=cfg.needBoss&&bossDefeatedCount()<cfg.needBoss,upLock=st.lv>0?upgradeLockReason(key):'';
     h+=`<div class="card" style="${locked||upLock?'opacity:.7':''}"><h3>`;
     h+=`${pix(key,'card-pix')}${cfg.name}`;if(st.state==='idle'&&st.lv>0)h+=` <span style="color:#f0d060">Lv.${st.lv}</span>`;
     if(key==='barracks'&&st.state==='idle'&&st.lv>0)h+=` <span style="font-size:11px;color:#888">(\u5175\u56e2\u4e0a\u9650+${st.lv*cfg.regBonus}=${regMax()}\u4eba)</span>`;
