@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>设计框架 v3 - 脑图</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #1a1a2e;
+    color: #e0e0e0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 24px;
+  }
+  .mindmap { max-width: 1700px; width: 100%; }
+  .center-node {
+    background: #e94560;
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0 auto 32px;
+    width: fit-content;
+    box-shadow: 0 0 30px rgba(233,69,96,0.3);
+  }
+  .branches { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .branch {
+    background: #16213e;
+    border-radius: 10px;
+    padding: 16px;
+    border-top: 3px solid;
+  }
+  .branch:nth-child(1) { border-color: #e94560; }
+  .branch:nth-child(2) { border-color: #40bf80; }
+  .branch:nth-child(3) { border-color: #f5c542; }
+  .branch:nth-child(4) { border-color: #4da6ff; }
+  .branch:nth-child(5) { border-color: #b366ff; }
+  .branch:nth-child(6) { border-color: #ff884d; }
+  .branch:nth-child(7) { border-color: #e94560; }
+  .branch:nth-child(8) { border-color: #40bf80; }
+  .branch:nth-child(9) { border-color: #f5c542; }
+  .branch:nth-child(10) { border-color: #4da6ff; }
+  .branch:nth-child(11) { border-color: #b366ff; }
+  .branch:nth-child(12) { border-color: #ff884d; }
+  .branch h3 { font-size: 15px; margin-bottom: 10px; color: #fff; border-bottom: 1px solid #2a3a5e; padding-bottom: 6px; }
+  .sub { margin: 6px 0 6px 10px; padding-left: 10px; border-left: 1px solid #2a3a5e; }
+  .sub h4 { font-size: 13px; color: #aaa; margin-bottom: 3px; }
+  .sub ul { list-style: none; padding: 0; }
+  .sub li { font-size: 12px; color: #ccc; padding: 1px 0 1px 12px; position: relative; line-height: 1.5; }
+  .sub li::before { content: "·"; position: absolute; left: 0; color: #666; }
+  .tag { display: inline-block; background: #333; color: #f5c542; padding: 1px 5px; border-radius: 3px; font-size: 10px; margin-left: 3px; }
+  .new { color: #40bf80; }
+  .mage { color: #b366ff; }
+  .counter { color: #4da6ff; font-size: 11px; }
+  @media (max-width: 1000px) { .branches { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .branches { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="mindmap">
+  <div class="center-node">&#9876; 文字挂机 RTS 游戏 — 设计框架 v3</div>
+
+  <div class="branches">
+
+    <!-- 核心循环 -->
+    <div class="branch">
+      <h3>核心循环</h3>
+      <div class="sub">
+        <ul>
+          <li>资源生产 → 建筑升级 → 解锁</li>
+          <li>训练军队 → 侦察 → 布阵 → 战术</li>
+          <li>自动战斗 → 功勋/掉落 → 下一层</li>
+        </ul>
+      </div>
+      <div class="sub">
+        <h4>多重门槛</h4>
+        <ul>
+          <li>资源 + 建筑等级 + 击败Boss</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 资源系统 -->
+    <div class="branch">
+      <h3>一、资源系统</h3>
+      <div class="sub">
+        <h4>分层资源</h4>
+        <ul>
+          <li><strong>T1：</strong>木材、石料、食物 <span class="tag">初始</span></li>
+          <li><strong>T2：</strong>铁矿、煤炭 <span class="tag">矿场N级</span></li>
+          <li><strong>T3：</strong>秘银、水晶 <span class="tag">秘法建筑N级</span></li>
+          <li><strong>T4：</strong>龙晶、神血 <span class="tag">特殊建筑N级</span></li>
+        </ul>
+      </div>
+      <div class="sub">
+        <h4>采集机制</h4>
+        <ul>
+          <li>建筑按时间自动产出</li>
+          <li>升级建筑提升速率</li>
+          <li>新资源需投入前期资源</li>
+          <li>资源间存在依赖关系</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 兵种系统 -->
+    <div class="branch">
+      <h3>二、兵种系统</h3>
+      <div class="sub">
+        <h4>4 普通兵种 — 经典 RTS 克制环</h4>
+        <ul>
+          <li><strong>步兵（人族）</strong> 前排/格挡</li>
+          <li class="counter">→ 克 枪兵：贴身近战</li>
+          <li><strong>弓兵（精灵）</strong> 后排/暴击</li>
+          <li class="counter">→ 克 步兵：远程消耗</li>
+          <li><strong>骑兵（兽人）</strong> 前排/吸血</li>
+          <li class="counter">→ 克 弓兵：冲锋切入</li>
+          <li><strong>枪兵（亡灵）</strong> 中排/破甲</li>
+          <li class="counter">→ 克 骑兵：反冲锋</li>
+        </ul>
+      </div>
+      <div class="sub">
+        <h4>克制闭环</h4>
+        <ul>
+          <li>步兵 → 枪兵 → 骑兵 → 弓兵 → 步兵</li>
+        </ul>
+      </div>
+      <div class="sub">
+        <h4 class="mage">法师 — 独立体系</h4>
+        <ul>
+          <li class="mage">玻璃大炮：对所有普通兵互易伤</li>
+          <li class="mage">法师 → 普通兵：1.3× 伤害</li>
+          <li class="mage">普通兵 → 法师：1.3× 伤害</li>
+          <li class="mage">需要前排保护才能输出</li>
+        </ul>
+      </div>
+      <div class="sub">
+        <h4>种族被动</h4>
+        <ul>
+          <li>人族→格挡 精灵→暴击</li>
+          <li>兽人→吸血 亡灵→破甲/法伤</li>
+        </ul>
+      </div>
+      <div class="sub">
+        <h4>升级线（分期）</h4>
+        <ul>
+          <li>P1：4+1 基础兵种</li>
+          <li>P2：基础→进阶→精锐</li>
+          <li>P3：分支（攻/防）</li>
+          <li>P4：神级 2 分支</li>
+          <li>总计：5 × 6 = 30 单位（含法师）</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 战斗系统 -->
+    <div class="branch">
+      <h3>三、战斗系统</h3>
+      <div class="sub">
+        <h4>基本规则</h4>
+        <ul>
+          <li>回合制，自动演算，文字播报</li>
+        </ul>
+      </div>
+      <div class="sub">
+        <h4>阵型系统</h4>
+        <ul>
+          <li><strong>前排：</strong>步兵/骑兵，优先承伤</li>
+          <li><strong>中排：</strong>枪兵，稳定输出</li>
+          <li><strong>后排：</strong>弓兵/法师，高伤脆皮</li>
+          <li>前排击破 → 后排暴露 → 承伤+50%</li>
+        </ul>
+      </div>
+      <div class="sub">
+        <h4>战术指令（战前选择）</h4>
+        <ul>
+          <li>稳扎稳打：防+10% 速-5%</li>
+          <li>全军突击：攻+15% 承伤+10%</li>
+          <li>远程压制：后排+12% 前排+8%承伤</li>
+          <li>消耗战：每回合回复 回合+3</li>
+        </ul>
+      </div>
+      <div class="sub">
+        <h4>情报侦察</h4>
+        <ul>
+          <li>敌方构成 / 属性 / 弱点</li>
+          <li>Boss 特殊技能提示</li>
+          <li>建议阵容方向</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 伤害公式 -->
+    <div class="branch">
+      <h3>四、伤害公式</h3>
+      <div class="sub">
+        <h4>公式</h4>
+        <ul>
+          <li>攻击 × 技能 × 克制 × 易伤 × 战术 × 浮动 − 防御</li>
+        </ul>
+      </div>
+      <div class="sub">
+        <h4>克制倍率（普通兵种间）</h4>
+        <ul>
+          <li>优势：1.35 | 普通：1.00 | 劣势：0.75</li>
+        </ul>
+      </div>
+      <div class="sub">
+        <h4>法师易伤（双向）</h4>
+        <ul>
+          <li>法师 ↔ 普通兵：1.3</li>
+          <li>最大倍率 1.35×1.3 ≈ 1.75</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 军营系统 -->
+    <div class="branch">
+      <h3>五、军营系统</h3>
+      <div class="sub">
+        <h4>营地</h4>
+        <ul>
+          <li>人口容量上限（可升级）</li>
+          <li>建筑：采集 / 兵营 / 防御</li>
+        </ul>
+      </div>
+      <div class="sub">
+        <h4>出战阵容</h4>
+        <ul>
+          <li>独立上阵槽位（可扩容）</li>
+          <li>阵型编排（前/中/后排）</li>
+          <li>针对敌情调整配比</li>
+        </ul>
+      </div>
+      <div class="sub">
+        <h4>常驻战斗 (P3+)</h4>
+        <ul>
+          <li>Boss 防御战 + 刷怪点</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 英雄系统 -->
+    <div class="branch">
+      <h3>六、英雄系统 (P3+)</h3>
+      <div class="sub">
+        <ul>
+          <li>独立成长线</li>
+          <li>带队参战 / 全局增益</li>
+          <li>特性 + 装备 + 任务</li>
+          <li>等待期核心养成</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 节奏控制 -->
+    <div class="branch">
+      <h3>七、节奏控制</h3>
+      <div class="sub">
+        <h4>建筑升级时长</h4>
+        <ul>
+          <li>1→2：5min | 3→4：30min</li>
+          <li>5→6：2h</li>
+        </ul>
+      </div>
+      <div class="sub">
+        <h4>人口限制</h4>
+        <ul>
+          <li>高级兵消耗更多人口</li>
+        </ul>
+      </div>
+      <div class="sub">
+        <h4>等待期可做</h4>
+        <ul>
+          <li>刷低层 | 侦察 | 调阵容</li>
+          <li>营地事件 | 养英雄</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- UI -->
+    <div class="branch">
+      <h3>八、UI 布局</h3>
+      <div class="sub">
+        <h4>多标签页</h4>
+        <ul>
+          <li>资源 | 建筑 | 军营 | 阵容</li>
+          <li>战斗 | 英雄 | 日志</li>
+        </ul>
+      </div>
+      <div class="sub">
+        <h4>战斗页</h4>
+        <ul>
+          <li>敌情 → 阵容+战术 → 开战</li>
+          <li>战斗日志逐行播报</li>
+          <li>结果奖励</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 开发阶段 -->
+    <div class="branch">
+      <h3>九、开发阶段</h3>
+      <div class="sub">
+        <h4>Phase 1 — 最小可玩</h4>
+        <ul>
+          <li>3 资源：木材、石料、食物</li>
+          <li>3 建筑：伐木场、采石场、农田</li>
+          <li class="new">4 普通兵种：步/弓/骑/枪</li>
+          <li class="mage">+1 特殊：法师（互易伤）</li>
+          <li>克制环 + 阵型 + 战术 + 侦察</li>
+          <li>5 敌人 + 1 Boss</li>
+          <li>回合战斗 + 文字播报</li>
+          <li>localStorage 存档</li>
+        </ul>
+      </div>
+      <div class="sub">
+        <h4>Phase 2</h4>
+        <ul>
+          <li>T2 资源 + 兵种升级线</li>
+          <li>营地扩容 + 出战槽位</li>
+        </ul>
+      </div>
+      <div class="sub">
+        <h4>Phase 3</h4>
+        <ul>
+          <li>T3 资源 + 兵种分支 + 英雄</li>
+          <li>营地事件</li>
+        </ul>
+      </div>
+      <div class="sub">
+        <h4>Phase 4+</h4>
+        <ul>
+          <li>T4 资源 + 神级双分支</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
