@@ -56,7 +56,7 @@ function rHome(){
 	    const ow=S.pool[k]||0;
 	    const lock=trainLockReason(k);
 	    h+=`<div class="unit-row"><span class="uicon">${pix(c.icon,"lg")}</span><div class="uinfo"><div class="uname" onclick="openUnitDetail('${k}')" style="cursor:pointer">${c.name}</div><div class="udetail">${c.passive} | ${costHtml(c.cost)}/人</div></div><div class="ucount">${ow}人</div>`;
-	    h+=`<div class="econ-note" style="flex-basis:100%;padding-left:32px">${trainBuildingLabel(k)} | ${reserveHtml(k)}${queueTotal(k)>0?' | 队列 '+queueTotal(k)+'人':''}${lock?`<br><span class="limit-warn">${pix('lock','mini')}${lock}</span>`:``}</div></div>`;
+	    h+=`<div class="econ-note" style="flex-basis:100%;padding-left:32px">${trainBuildingLabel(k)} | ${reserveHtml(k)}${queueTotal(k)>0?' | 队列 '+queueTotal(k)+'人':''}${(S.queue[k]||{}).reason?`<br><span class="limit-warn">${pix('lock','mini')}${S.queue[k].reason}</span>`:``}${(S.queue[k]||{}).reason?`<br><span class="limit-warn">${pix('lock','mini')}${S.queue[k].reason}</span>`:``}${lock?`<br><span class="limit-warn">${pix('lock','mini')}${lock}</span>`:``}</div></div>`;
 	  }
 	  h+=`</div>`;
 

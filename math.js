@@ -183,20 +183,21 @@ function queueMax(uk){
 function processQueue(){
   let changed=false;
   for(const[uk,q] of Object.entries(S.queue)){
-    if(!q||!q.count)continue;
+    if(!q||!q.count){q.reason='';continue;}
     const lock=trainLockReason(uk);
-    if(lock)continue;
+    if(lock){q.reason='';continue;}
     const tt=CFG.units[uk].trainTime||1;
-    if(q.timer>0)q.timer--;
+    if(q.timer>0){q.timer--;}
     if(q.timer<=0&&q.count>0){
-      if(reserveLeft(uk)<=0)continue;
+      if(reserveLeft(uk)<=0){q.reason='后备已满';continue;}
       const cost=CFG.units[uk].cost;
-      if(S.res.wood<cost.wood||S.res.stone<cost.stone||S.res.food<cost.food)continue;
+      if(S.res.wood<cost.wood||S.res.stone<cost.stone||S.res.food<cost.food){q.reason='资源不足，暂停生产';continue;}
       S.res.wood-=cost.wood;S.res.stone-=cost.stone;S.res.food-=cost.food;
       S.pool[uk]=(S.pool[uk]||0)+1;
       q.count--;
       changed=true;
-      if(q.count>0)q.timer=tt;else q.timer=0;
+      q.reason='';
+      if(q.count>0)q.timer=tt;else{q.timer=0;q.reason='';}
     }
   }
   if(changed)save();
