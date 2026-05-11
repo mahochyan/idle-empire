@@ -1,10 +1,4 @@
-// ==================== UI 渲染模块 ====================
-// 本模块负责所有 DOM 渲染和事件绑定。
-// 核心流程：updateUI() 每帧刷新顶栏资源 → renderPage() 重新生成当前标签页HTML（有输入焦点时跳过）
-// 标签页渲染：rHome(主页) / rBuild(建筑) / rBarracks(军营) / rFight(战斗) / rLog(日志)
-// 附加系统：编队弹窗、单位详情弹窗、长按加速、导航初始化、toast/addLog
-
-// 刷新顶栏资源显示（每秒由 tick 调用）
+// ==================== UI 渲染 ====================
 function updateUI(){
   if(S.battleActive)return;
   const cap=storageCapacity();
@@ -31,14 +25,12 @@ function updateUI(){
   }
   renderPage(S.page);
 }
-// 渲染当前标签页。如果用户正在输入框中输入，跳过渲染以防止光标被打断
 function renderPage(p){
   const main=document.getElementById('main');
   const el=document.activeElement;
   if(el&&(el.tagName==='INPUT'||el.tagName==='TEXTAREA')&&main.contains(el))return;
   main.innerHTML={home:rHome,build:rBuild,barracks:rBarracks,fight:rFight,log:rLog}[p]();
 }
-// ===== 主页标签页 =====
 function rHome(){
   const tc=townCfg();
   const canUp=townCanUpgrade(), upNeed=townUpgradeNeed();
@@ -75,8 +67,6 @@ function rHome(){
   else for(const e of r)h+=`<div style="font-size:10px;color:#555;padding:1px 0">[${e.time}] ${e.msg}</div>`;
   h+=`</div></div>`;return h;
 }
-// ===== 城镇巡防地图（主页可视化场景）=====
-// 在地图上展示资源区、建筑位置、工人动画、巡逻守卫
 function renderTownMapOverview(){
   const tc=townCfg();
   const woodWorkers=S.popAlloc.wood||0;
@@ -138,7 +128,6 @@ function renderTownMapOverview(){
     <div class="town-troop-summary">驻军：${troopSummary}</div>
   </div>`;
 }
-// 生成资源采集工人动画点（伐木工/采石工/粮农）
 function workerDots(resourceKey,assignedCount,type){
   if(assignedCount<=0)return '';
   const count=assignedCount>=16?3:assignedCount>=6?2:1;
@@ -151,7 +140,6 @@ function workerDots(resourceKey,assignedCount,type){
   h+='</div>';
   return h;
 }
-// 在地图上渲染巡逻守卫（五兵种，有兵才显示）
 function renderTownGuards(counts){
   const guards=[
     ['infantry','guard-infantry','guard-patrol'],
@@ -166,7 +154,6 @@ function renderTownGuards(counts){
     .map(([type,cls,anim])=>`<span class="town-guard ${cls} ${anim}" aria-hidden="true">${pix(type)}</span>`)
     .join('');
 }
-// 增量更新城镇场景：只在数据变化时重绘（通过哈希比较避免每帧重建DOM）
 let _townHash='';
 function updateTownScene(){
   const woodWorkers=S.popAlloc.wood||0;
@@ -185,7 +172,6 @@ function updateTownScene(){
   const html=renderTownMapOverview();
   document.getElementById('town-scene').innerHTML=html;
 }
-// ===== 建筑标签页 =====
 function rBuild(){
   let h=`<div style="padding:4px 0">`;
   for(const[key,cfg] of Object.entries(CFG.buildings)){
@@ -224,12 +210,10 @@ function rBuild(){
   }
   h+=`</div>`;return h;
 }
-// ===== \u519b\u8425\u6807\u7b7e\u9875 =====
-// \u663e\u793a\u603b\u5175\u529b\u3001\u6bcf\u79cd\u5175\u79cd\u7684\u62e5\u6709/\u53ef\u7f16\u5165/\u540e\u5907/\u8bad\u7ec3\u961f\u5217\uff0c\u4ee5\u53ca\u8bad\u7ec3\u8f93\u5165\u63a7\u4ef6
 function rBarracks(){
-  let h=`<div style="padding:4px 0"><div style="font-size:12px;color:#888;margin:4px 0">\u603b\u5175\u529b ${totalSoldiers()} | \u5175\u56e2\u4e0a\u9650 ${regMax()}\u4eba/\u56e2</div>`;
+  let h=`<div style="padding:4px 0"><div style="font-size:12px;color:#888;margin:4px 0">\u603b\u5175\u529b ${totalSoldiers()} | \u8425\u5e10\u4e0a\u9650 ${regMax()}\u4eba/\u56e2</div>`;
   for(const[k,c] of Object.entries(CFG.units)){
-    const ow=S.pool[k]||0,av=deployAvail(k),lock=trainLockReason(k);
+    const ow=S.pool[k]||0,lock=trainLockReason(k);
     const tm=maxTrainable(k),disabled=tm<=0?'disabled':'',muted=lock?'opacity:.55':'';
     h+=`<div class="card" style="${muted}">
       <div style="display:flex;align-items:center;gap:8px">
@@ -238,7 +222,7 @@ function rBarracks(){
           <div style="font-size:10px;color:#777"><span onclick="event.stopPropagation();openUnitDetail('${k}')" style="font-size:9px;padding:1px 5px;border:1px solid #3a4158;border-radius:0;color:#8890a6;cursor:pointer;display:inline-block;margin-right:4px">属性</span>${c.passive} | ATK:${c.atk} DEF:${c.def}</div>
           <div style="font-size:10px;color:#666">${costHtml(c.cost)}/\u4eba</div>
           <div class="econ-note">${trainBuildingLabel(k)} | ${reserveHtml(k)}${queueTotal(k)>0?` | 队列 ${queueTotal(k)}人 <button class="btn btn-danger btn-xs" onclick="event.stopPropagation();cancelQueue('${k}')" style="margin-left:4px">取消</button>`:''}${(S.queue[k]||{}).reason?`<br><span class="limit-warn">${pix('lock','mini')}${S.queue[k].reason}</span>`:``}${lock?`<br><span class="limit-warn">${pix('lock','mini')}${lock}</span>`:''}</div>
-          <div style="font-size:11px;color:#40bf80">\u62e5\u6709:${ow}\u4eba | \u53ef\u7f16\u5165:${av}\u4eba</div>
+          <div style="font-size:11px;color:#40bf80">\u540e\u5907:${ow}\u4eba</div>
           ${lock?'':
           `<div class="train-custom">
             <input id="train-barracks-${k}" type="text" inputmode="numeric" pattern="[0-9]*" value="${(S._trainQty||{})[k]||1}" oninput="(S._trainQty||{})['${k}']=parseInt(this.value)||1">
@@ -251,10 +235,8 @@ function rBarracks(){
   }
   h+=`</div>`;return h;
 }
-// ===== 战斗标签页 =====
-// 显示三排出战阵容配置、敌人列表（当前+下一层）、开战按钮
 function rFight(){
-  let h=`<div style="padding:4px 0"><div class="card"><h3>${pix('army','card-pix')}出战阵容 (${formCnt()}/${formSlots()}团 | 上限${regMax()}人/团)</h3>`;
+  let h=`<div style="padding:4px 0"><div class="card"><h3>${pix('army','card-pix')}出战阵容 [营帐] (${formCnt()}/${formSlots()}团 | 上限${regMax()}人/团)</h3>`;
   const rs=[{k:'front',n:'前排(承伤)',c:'r1'},{k:'mid',n:'中排(输出)',c:'r2'},{k:'back',n:'后排(远程)',c:'r3'}];
   for(const r of rs){
     h+=`<div class="form-row ${r.c}"><div class="ftitle">${r.n} (${S.formation[r.k].length}/${rowSlots(r.k)})</div>`;
@@ -262,8 +244,7 @@ function rFight(){
       h+=`<span class="form-slot" onclick="openFormModal('${r.k}',0)">+ 空位</span>`;
     }else{
       S.formation[r.k].forEach((u,i)=>{
-        const av=deployAvail(u.type);
-        const mx=Math.min(av, regMax()-u.count);
+        const mx=regMax()-u.count;
         h+=`<span class="form-slot filled" style="position:relative">
           <span onclick="rmForm('${r.k}',${i})" style="position:absolute;top:-6px;right:-4px;cursor:pointer;z-index:1">${pix('close','mini')}</span>
           <div onclick="openFormModal('${r.k}',${i})">${pix(CFG.units[u.type].icon,'sm')}${CFG.units[u.type].name}<br>
@@ -298,41 +279,25 @@ function rFight(){
   h+=`</div><button class="btn btn-go" style="width:100%;margin-top:8px;padding:12px;font-size:15px" onclick="openBattle()">${pix('battle','sm')}开战</button></div></div>`;
   return h;
 }
-// ===== 日志标签页 =====
-// 显示事件日志 + 激活码输入 + 测试工具（激活后可见）+ 重置按钮
 function rLog(){
   let h=`<div style="padding:4px 0"><div class="card"><h3>${pix('log','card-pix')}事件日志</h3><div style="max-height:500px;overflow-y:auto;font-size:11px;line-height:1.8">`;
   const l=[...S.log].reverse();
   if(!l.length)h+=`<div style="color:#666">暂无</div>`;
   else for(const e of l)h+=`<span style="color:#555">[${e.time}]</span> ${e.msg}<br>`;
-  h+=`</div></div>`;
-  // 激活码输入（未解锁时显示）
-  if(!S._testUnlocked){
-    h+=`<div class="card"><h3>激活码</h3>
-      <div class="train-custom" style="margin:4px 0">
-        <input id="activation-code" type="text" value="" style="width:100px" placeholder="请输入激活码">
-        <button class="btn btn-go btn-xs" onclick="checkActivationCode('activation-code')">确认</button>
-      </div></div>`;
-  }
-  // 测试工具（激活后显示）
-  if(S._testUnlocked){
-    h+=`<div class="card"><h3>${pix('build','card-pix')}测试工具</h3>
-      <div class="train-custom" style="margin:4px 0"><span style="width:40px">木材</span><input id="test-wood" type="text" inputmode="numeric" pattern="[0-9]*" value="1000" style="width:70px"><button class="btn btn-go btn-xs" onclick="addRes('wood','test-wood')">添加</button></div>
-      <div class="train-custom" style="margin:4px 0"><span style="width:40px">石料</span><input id="test-stone" type="text" inputmode="numeric" pattern="[0-9]*" value="1000" style="width:70px"><button class="btn btn-go btn-xs" onclick="addRes('stone','test-stone')">添加</button></div>
-      <div class="train-custom" style="margin:4px 0"><span style="width:40px">食物</span><input id="test-food" type="text" inputmode="numeric" pattern="[0-9]*" value="1000" style="width:70px"><button class="btn btn-go btn-xs" onclick="addRes('food','test-food')">添加</button></div>
-    </div>`;
-  }
-  h+=`<button class="btn btn-danger btn-sm" onclick="if(confirm('重置?')){localStorage.clear();location.reload()}">${pix('reset','mini')}重置</button></div>`;
+  h+=`</div></div>
+  <div class="card"><h3>${pix('build','card-pix')}测试工具</h3>
+    <div class="train-custom" style="margin:4px 0"><span style="width:40px">木材</span><input id="test-wood" type="text" inputmode="numeric" pattern="[0-9]*" value="100" style="width:70px"><button class="btn btn-go btn-xs" onclick="addRes('wood','test-wood')">添加</button></div>
+    <div class="train-custom" style="margin:4px 0"><span style="width:40px">石料</span><input id="test-stone" type="text" inputmode="numeric" pattern="[0-9]*" value="100" style="width:70px"><button class="btn btn-go btn-xs" onclick="addRes('stone','test-stone')">添加</button></div>
+    <div class="train-custom" style="margin:4px 0"><span style="width:40px">食物</span><input id="test-food" type="text" inputmode="numeric" pattern="[0-9]*" value="100" style="width:70px"><button class="btn btn-go btn-xs" onclick="addRes('food','test-food')">添加</button></div>
+  </div>
+  <button class="btn btn-danger btn-sm" onclick="if(confirm('重置?')){localStorage.clear();location.reload()}">${pix('reset','mini')}重置</button></div>`;
   return h;
 }
 
-// 添加日志条目（保持最多200条）
 function addLog(msg){S.log.push({time:new Date().toLocaleTimeString(),msg});if(S.log.length>200)S.log.splice(0,S.log.length-200)}
-// 弹出 toast 提示（2秒后自动消失）
 function toast(msg){const e=document.createElement('div');e.className='toast';e.textContent=msg;document.body.appendChild(e);setTimeout(()=>e.remove(),2000)}
 
-// ===== 长按加速（阵容人数调整）=====
-// 按住按钮时先延迟400ms，然后每80ms触发一次调整，实现快速加减
+// 长按加速
 let _lpTimer=null,_lpRow=null,_lpIdx=null,_lpDir=null;
 function startLongPress(row,idx,dir){
   _lpRow=row;_lpIdx=idx;_lpDir=dir;
@@ -362,7 +327,7 @@ function stopModalLongPress(){
   }
 }
 
-// ===== 底部导航栏初始化 =====
+// ==================== 导航 ====================
 document.querySelectorAll('.nav-btn').forEach(b=>{
   b.addEventListener('click',()=>{
     document.querySelectorAll('.nav-btn').forEach(x=>x.classList.remove('on'));
@@ -370,8 +335,7 @@ document.querySelectorAll('.nav-btn').forEach(b=>{
   });
 });
 
-// ===== 游戏初始化 =====
-// 注入像素图标CSS → 加载存档 → 初始化敌人选择 → 启动tick循环
+// ==================== init ====================
 injectPixelIcons();
 load();
 if(S.defeated.length<CFG.enemies.length&&S.selEnemy===null)S.selEnemy=S.defeated.length;
