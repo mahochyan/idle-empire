@@ -101,7 +101,7 @@ function renderTownMapOverview(){
       <div class="town-gate" aria-hidden="true"></div>
       <div class="town-woods" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
       <div class="town-stones" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-      <div class="town-fields" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
       ${workerDots('wood',woodWorkers,'wood')}
       ${workerDots('stone',stoneWorkers,'stone')}
       ${workerDots('food',foodWorkers,'food')}
