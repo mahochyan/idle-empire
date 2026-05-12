@@ -217,16 +217,16 @@ function rBarracks(){
     h+=`<div class="card" style="${muted}">
       <div style="display:flex;align-items:center;gap:8px">
         <span>${pix(c.icon,'lg')}</span>
-        <div style="flex:1;min-width:0"><strong style="cursor:pointer" onclick="openUnitDetail('${k}')">${c.name}</strong> <span style="font-size:10px;color:#888">[${c.race}]</span> <span style="font-size:10px;color:#aaa">${trainBuildingLabel(k)}</span> <span onclick="event.stopPropagation();openUnitDetail('${k}')" style="font-size:9px;padding:1px 5px;border:1px solid #3a4158;border-radius:0;color:#8890a6;cursor:pointer;display:inline-block;margin-left:4px">属性</span>
+        <div style="flex:1;min-width:0"><strong style="cursor:pointer" onclick="openUnitDetail('${k}')">${c.name}</strong> <span style="font-size:10px;color:#aaa;margin-left:6px">${trainBuildingLabel(k)}</span> <span onclick="event.stopPropagation();openUnitDetail('${k}')" style="font-size:9px;padding:1px 5px;border:1px solid #3a4158;border-radius:0;color:#8890a6;cursor:pointer;display:inline-block;margin-left:6px">属性</span>
           <div style="font-size:10px;color:#777">${c.passive} | ATK:${c.atk} DEF:${c.def}</div>
-          <div style="font-size:10px;color:#666">${costHtml(c.cost)}/\u4eba</div>
-          <div class="econ-note">${reserveHtml(k)}${queueTotal(k)>0?` | 队列 ${queueTotal(k)}人 <span onclick="event.stopPropagation();cancelQueue('${k}')" style="font-size:9px;padding:1px 5px;border:1px solid #3a4158;border-radius:0;color:#8890a6;cursor:pointer;display:inline-block;margin-left:4px">取消队列</span>`:''}${(S.queue[k]||{}).reason?`<br><span class="limit-warn">${pix('lock','mini')}${S.queue[k].reason}</span>`:``}${lock?`<br><span class="limit-warn">${pix('lock','mini')}${lock}</span>`:''}</div>
+          <div style="font-size:12px;color:#666;line-height:14px">${costHtml(c.cost)}/\u4eba${(S.queue[k]||{}).reason?` <span class="limit-warn" style="margin-left:14px">${pix('lock','mini')}${S.queue[k].reason}</span>`:''}${lock?` <span class="limit-warn" style="margin-left:14px">${pix('lock','mini')}${lock}</span>`:''}</div>
+          <div class="econ-note" style="line-height:16px">${reserveHtml(k)}${queueTotal(k)>0?` | 训练队列 ${queueTotal(k)}人 <span onclick="event.stopPropagation();cancelQueue('${k}')" style="font-size:10px;height:13px;line-height:12px;padding:0 4px;border:1px solid #3a4158;border-radius:0;color:#8890a6;cursor:pointer;display:inline-block;vertical-align:middle;margin-left:4px">取消队列</span>`:''}</div>
           ${lock?'':
           `<div class="train-custom">
             <input id="train-barracks-${k}" type="text" inputmode="numeric" pattern="[0-9]*" value="${(S._trainQty||{})[k]||1}" oninput="(S._trainQty||{})['${k}']=parseInt(this.value)||1">
             <button class="btn btn-go btn-xs" onclick="trainCustom('${k}','train-barracks-${k}')" ${disabled}>\u8bad\u7ec3</button>
             <button class="btn btn-ghost btn-xs" onclick="trainMax('${k}','train-barracks-${k}')" ${disabled}>MAX</button>
-            <button class="btn btn-danger btn-xs" onclick="dismissN('${k}',(S._trainQty||{})['${k}']||1)">\u5220\u9664</button>
+            <button class="btn btn-danger btn-xs" onclick="dismissN('${k}',(S._trainQty||{})['${k}']||1)" style="background:#4a2830;border-color:#6a4050;color:#d09090">\u5220\u9664</button>
           </div>`}
         </div>
       </div></div>`;
