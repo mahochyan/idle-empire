@@ -286,8 +286,17 @@ const PIX_SPRITES = {
 const PIX_IMAGE_SPRITES = {
   infantry:'./assets/unit-infantry.png',
   archer:'./assets/unit-archer.png',
+  cavalry:'./assets/unit-cavalry.png',
   spearman:'./assets/unit-spearman.png',
   mage:'./assets/unit-mage.png'
+};
+
+const MAP_IMAGE_SPRITES = {
+  town_hall:'./assets/map-town-hall-lv1.png',
+  lumber_yard:'./assets/map-lumber-yard.png',
+  quarry_yard:'./assets/map-quarry-yard.png',
+  farm_yard:'./assets/map-farm-yard.png',
+  watch_tower:'./assets/map-garrison-tent.png'
 };
 
 const MAP_SPRITES = {
@@ -381,7 +390,8 @@ function injectPixelIcons(){
   const uiIcons=Object.entries(PIX_SPRITES).map(([k,v])=>`.i-${k}{background-image:${spriteData(v)}}`);
   const imageIcons=Object.entries(PIX_IMAGE_SPRITES).map(([k,v])=>`.i-${k}{background-image:url("${v}");background-size:contain}`);
   const mapIcons=Object.entries(MAP_SPRITES).map(([k,v])=>`.mi-${k}{background-image:${spriteData(v,64)}}`);
-  style.textContent=uiIcons.concat(imageIcons,mapIcons).join('\n');
+  const mapImageIcons=Object.entries(MAP_IMAGE_SPRITES).map(([k,v])=>`.mi-${k}{background-image:url("${v}");background-size:contain}`);
+  style.textContent=uiIcons.concat(imageIcons,mapIcons,mapImageIcons).join('\n');
   document.head.appendChild(style);
 }
 // 生成32px UI图标的HTML span

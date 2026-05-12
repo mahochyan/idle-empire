@@ -270,8 +270,7 @@ function rExpedition(){
         const mx=Math.min(regMax()-u.count, poolAvail(u.type));
         h+=`<span class="form-slot filled" style="position:relative">
           <span onclick="rmForm('${which}','${r.k}',${i})" style="position:absolute;top:-6px;right:-4px;cursor:pointer;z-index:1">${pix('close','mini')}</span>
-          <div onclick="openFormModal('${which}','${r.k}',${i})">${pix(CFG.units[u.type].icon,'sm')}${CFG.units[u.type].name}<br>
-          <span style="font-size:10px;color:#f0d060">${u.count}人</span></div>
+          <div onclick="openFormModal('${which}','${r.k}',${i})">${pix(CFG.units[u.type].icon,'sm')}${CFG.units[u.type].name}</div>
           <div class="qty-ctrl" style="margin-top:3px;gap:2px;justify-content:center">
             <button onpointerdown="startLongPress('${which}','${r.k}',${i},-1)" onpointerup="stopLongPress()" onpointerleave="stopLongPress()" onpointercancel="stopLongPress()" style="width:24px;height:24px;border-radius:50%;border:1px solid #555;background:#1a1a2e;color:#e0e0e0;font-size:14px;cursor:pointer;touch-action:manipulation">−</button>
             <span style="min-width:24px;font-size:12px;color:#f0d060">${u.count}</span>
@@ -319,8 +318,7 @@ function rGarrison(){
         const mx=Math.min(regMax()-u.count, poolAvail(u.type));
         h+=`<span class="form-slot filled" style="position:relative">
           <span onclick="rmForm('${which}','${r.k}',${i})" style="position:absolute;top:-6px;right:-4px;cursor:pointer;z-index:1">${pix('close','mini')}</span>
-          <div onclick="openFormModal('${which}','${r.k}',${i})">${pix(CFG.units[u.type].icon,'sm')}${CFG.units[u.type].name}<br>
-          <span style="font-size:10px;color:#f0d060">${u.count}人</span></div>
+          <div onclick="openFormModal('${which}','${r.k}',${i})">${pix(CFG.units[u.type].icon,'sm')}${CFG.units[u.type].name}</div>
           <div class="qty-ctrl" style="margin-top:3px;gap:2px;justify-content:center">
             <button onpointerdown="startLongPress('${which}','${r.k}',${i},-1)" onpointerup="stopLongPress()" onpointerleave="stopLongPress()" onpointercancel="stopLongPress()" style="width:24px;height:24px;border-radius:50%;border:1px solid #555;background:#1a1a2e;color:#e0e0e0;font-size:14px;cursor:pointer;touch-action:manipulation">−</button>
             <span style="min-width:24px;font-size:12px;color:#f0d060">${u.count}</span>

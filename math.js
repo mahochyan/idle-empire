@@ -816,20 +816,25 @@ function spawnVFX(actorEl,targetEl,type){
   const dist=Math.sqrt(dx*dx+dy*dy);
   const dur=Math.max(0.22, dist/400);
   const el=document.createElement('div');
-  const vfxMap={infantry:'swordqi',archer:'arrow',spearman:'thrust',cavalry:'slash',mage:'slash'};
+  const vfxMap={infantry:'swordqi',archer:'arrow',spearman:'thrust',cavalry:'cavslash',mage:'magebolt'};
   const vfxType=vfxMap[type]||type;
   const isSwordQi=vfxType==='swordqi';
-  const isImageShot=vfxType==='arrow'||vfxType==='thrust';
+  const isArcStrike=vfxType==='cavslash';
+  const isImageShot=vfxType==='arrow'||vfxType==='thrust'||vfxType==='magebolt';
   const swordW=isSwordQi?Math.max(82,Math.min(132,dist*0.68)):0;
   const swordH=isSwordQi?swordW*813/867:0;
-  const shotW=isImageShot?Math.max(vfxType==='arrow'?74:86,Math.min(vfxType==='arrow'?132:150,dist*0.78)):0;
-  const shotH=isImageShot?shotW*(vfxType==='arrow'?511/1016:451/1146):0;
-  const originX=isSwordQi?swordW*0.18:isImageShot?shotW*0.9:0;
-  const originY=isSwordQi?swordH*0.9:isImageShot?shotH*0.5:0;
+  const arcW=isArcStrike?Math.max(98,Math.min(152,dist*0.74)):0;
+  const arcH=isArcStrike?arcW*806/868:0;
+  const shotMin=vfxType==='arrow'?74:vfxType==='thrust'?86:78;
+  const shotMax=vfxType==='arrow'?132:vfxType==='thrust'?150:138;
+  const shotW=isImageShot?Math.max(shotMin,Math.min(shotMax,dist*0.78)):0;
+  const shotH=isImageShot?shotW*(vfxType==='arrow'?511/1016:vfxType==='thrust'?451/1146:497/945):0;
+  const originX=isSwordQi?swordW*0.18:isArcStrike?arcW*0.76:isImageShot?shotW*0.9:0;
+  const originY=isSwordQi?swordH*0.9:isArcStrike?arcH*0.58:isImageShot?shotH*0.5:0;
   el.className=`vfx vfx-${vfxType}`;
-  if(isSwordQi||isImageShot){
-    el.style.width=(isSwordQi?swordW:shotW)+'px';
-    el.style.height=(isSwordQi?swordH:shotH)+'px';
+  if(isSwordQi||isArcStrike||isImageShot){
+    el.style.width=(isSwordQi?swordW:isArcStrike?arcW:shotW)+'px';
+    el.style.height=(isSwordQi?swordH:isArcStrike?arcH:shotH)+'px';
     el.style.left=(ax-originX)+'px';
     el.style.top=(ay-originY)+'px';
     el.style.transformOrigin=`${originX}px ${originY}px`;
@@ -838,20 +843,24 @@ function spawnVFX(actorEl,targetEl,type){
     el.style.top=ay+'px';
   }
   layer.appendChild(el);
-  const rotateOffset=isSwordQi?72:90;
+  const rotateOffset=isSwordQi?72:isArcStrike?180:90;
   const frames=isSwordQi?[
     { transform:`rotate(${angle+rotateOffset}deg) scale(.55)`, opacity:0, filter:'brightness(1.45) drop-shadow(0 0 8px rgba(180,220,255,.95))', offset:0 },
     { transform:`rotate(${angle+rotateOffset}deg) scale(1.08)`, opacity:1, filter:'brightness(1.25) drop-shadow(0 0 16px rgba(210,235,255,.9))', offset:.28 },
     { transform:`rotate(${angle+rotateOffset}deg) scale(.96)`, opacity:.12, filter:'brightness(1) drop-shadow(0 0 4px rgba(120,170,255,.45))', offset:1 }
+  ]:isArcStrike?[
+    { transform:`rotate(${angle+rotateOffset}deg) scale(.55)`, opacity:0, filter:'brightness(1.4) drop-shadow(0 0 10px rgba(110,190,255,.95))', offset:0 },
+    { transform:`rotate(${angle+rotateOffset}deg) scale(1.08)`, opacity:1, filter:'brightness(1.22) drop-shadow(0 0 18px rgba(255,215,90,.9))', offset:.3 },
+    { transform:`rotate(${angle+rotateOffset}deg) scale(.98)`, opacity:.12, filter:'brightness(1) drop-shadow(0 0 5px rgba(110,190,255,.4))', offset:1 }
   ]:isImageShot?[
-    { transform:`translate(0,0) rotate(${angle}deg) scale(.75)`, opacity:0, filter:'brightness(1.35) drop-shadow(0 0 8px rgba(255,205,95,.85))', offset:0 },
-    { transform:`translate(${dx*0.75}px,${dy*0.75}px) rotate(${angle}deg) scale(1)`, opacity:1, filter:'brightness(1.18) drop-shadow(0 0 12px rgba(255,205,95,.75))', offset:.7 },
-    { transform:`translate(${dx}px,${dy}px) rotate(${angle}deg) scale(.92)`, opacity:.2, filter:'brightness(1) drop-shadow(0 0 4px rgba(255,205,95,.35))', offset:1 }
+    { transform:`translate(0,0) rotate(${angle}deg) scale(.75)`, opacity:0, filter:`brightness(1.35) drop-shadow(0 0 8px ${vfxType==='magebolt'?'rgba(135,110,255,.9)':'rgba(255,205,95,.85)'})`, offset:0 },
+    { transform:`translate(${dx*0.75}px,${dy*0.75}px) rotate(${angle}deg) scale(1)`, opacity:1, filter:`brightness(1.18) drop-shadow(0 0 12px ${vfxType==='magebolt'?'rgba(135,110,255,.85)':'rgba(255,205,95,.75)'})`, offset:.7 },
+    { transform:`translate(${dx}px,${dy}px) rotate(${angle}deg) scale(.92)`, opacity:.2, filter:`brightness(1) drop-shadow(0 0 4px ${vfxType==='magebolt'?'rgba(135,110,255,.4)':'rgba(255,205,95,.35)'})`, offset:1 }
   ]:[
     { transform:`rotate(${angle+rotateOffset}deg)`, offset:0 },
     { transform:`translate(${dx}px,${dy}px) rotate(${angle+rotateOffset}deg)`, offset:1 }
   ];
-  el.animate(frames,{duration:dur*1000,easing:(isSwordQi||isImageShot)?'cubic-bezier(.16,.84,.32,1)':'ease-out',fill:'forwards'});
+  el.animate(frames,{duration:dur*1000,easing:(isSwordQi||isArcStrike||isImageShot)?'cubic-bezier(.16,.84,.32,1)':'ease-out',fill:'forwards'});
   setTimeout(()=>el.remove(), dur*1000+200);
 }
 
