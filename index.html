@@ -675,10 +675,11 @@ body{
 .our-zone{border-color:#395f99}
 .zone-label{display:flex;align-items:center;justify-content:center;gap:5px;color:#aab1c4}
 .unit-box{
-  width:62px;min-height:64px;background:#151827;border:3px solid #353b52;
+  width:68px;min-height:76px;background:#151827;border:3px solid #353b52;
   padding:4px 3px;color:#d9deeb;
 }
 .unit-box .ub-icon{font-size:0;line-height:1}
+.unit-box .ub-icon .pix-icon.lg{width:42px;height:42px;vertical-align:0}
 .unit-box .ub-name{font-size:9px;color:#bbc1d4;line-height:1.2;margin-top:2px}
 .unit-box .ub-hp{
   min-width:30px;margin-top:2px;padding:1px 4px;background:#080912;border:1px solid #31384e;
@@ -693,10 +694,10 @@ body{
 .vfx{position:absolute;pointer-events:none;z-index:999;transform-origin:center center}
 .vfx-slash{width:28px;height:28px;border-radius:50%;border:5px solid transparent;border-top-color:#ffe566;border-right-color:#ffb800;box-shadow:0 0 16px rgba(255,215,0,1),0 0 35px rgba(255,180,0,.7),0 0 55px rgba(255,120,0,.4)}
 .vfx-slash::after{content:'';position:absolute;top:2px;left:2px;width:20px;height:20px;border-radius:50%;border:3px solid transparent;border-top-color:#fff9c0;border-right-color:#ffd700;box-shadow:0 0 10px rgba(255,255,200,1)}
-.vfx-arrow{width:3px;height:22px;background:linear-gradient(to bottom,#ffffff,#e8d898);border-radius:1px;box-shadow:0 0 8px rgba(240,220,160,1),0 0 16px rgba(220,200,140,.6)}
-.vfx-arrow::before{content:'';position:absolute;top:-6px;left:-5px;width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;border-bottom:8px solid #f8f0d0;filter:drop-shadow(0 0 5px rgba(255,255,220,1))}
-.vfx-thrust{width:4px;height:28px;background:linear-gradient(to bottom,#e8e0c0,#a09060,#8B7355);border-radius:1px;box-shadow:0 0 8px rgba(220,200,160,1),0 0 18px rgba(200,180,140,.5)}
-.vfx-thrust::before{content:'';position:absolute;top:-6px;left:-4px;width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:8px solid #d8d0b0;filter:drop-shadow(0 0 5px rgba(255,255,240,1))}
+.vfx-swordqi,.vfx-arrow,.vfx-thrust{background-position:center;background-repeat:no-repeat;background-size:contain;image-rendering:pixelated;will-change:transform,opacity,filter}
+.vfx-swordqi{background-image:url('./assets/vfx-infantry-swordqi.png');filter:brightness(1.25) drop-shadow(0 0 10px rgba(195,225,255,.9))}
+.vfx-arrow{background-image:url('./assets/vfx-archer-arrow.png');filter:brightness(1.15) drop-shadow(0 0 10px rgba(255,195,80,.75))}
+.vfx-thrust{background-image:url('./assets/vfx-spearman-thrust.png');filter:brightness(1.12) drop-shadow(0 0 12px rgba(255,205,95,.8))}
 .dummy-zone{border-color:#6b5a3e!important;background:#12100a!important}
 .dummy-box{border-color:#5a4a30!important;background:#1a150a!important}
 .dummy-box .ub-name{color:#c0a860!important}
@@ -726,7 +727,8 @@ body{
   .unit-row .uinfo{min-width:96px}
   .train-custom input{width:46px}
   .form-slot{min-width:48px}
-  .unit-box{width:54px;min-height:58px}
+  .unit-box{width:60px;min-height:72px}
+  .unit-box .ub-icon .pix-icon.lg{width:38px;height:38px}
 }
 @media (min-height:920px){
   #phone{max-height:100dvh}

@@ -283,6 +283,13 @@ const PIX_SPRITES = {
 
 // ===== 64×64 城镇地图建筑精灵 =====
 // 用于主页城镇巡防地图的大尺寸建筑图标，比UI图标更细致
+const PIX_IMAGE_SPRITES = {
+  infantry:'./assets/unit-infantry.png',
+  archer:'./assets/unit-archer.png',
+  spearman:'./assets/unit-spearman.png',
+  mage:'./assets/unit-mage.png'
+};
+
 const MAP_SPRITES = {
   // 城镇中心 — 大钟、柱子、旗帜、台阶
   town_hall:[
@@ -372,8 +379,9 @@ function spriteData(rects,size=32){
 function injectPixelIcons(){
   const style=document.createElement('style');
   const uiIcons=Object.entries(PIX_SPRITES).map(([k,v])=>`.i-${k}{background-image:${spriteData(v)}}`);
+  const imageIcons=Object.entries(PIX_IMAGE_SPRITES).map(([k,v])=>`.i-${k}{background-image:url("${v}");background-size:contain}`);
   const mapIcons=Object.entries(MAP_SPRITES).map(([k,v])=>`.mi-${k}{background-image:${spriteData(v,64)}}`);
-  style.textContent=uiIcons.concat(mapIcons).join('\n');
+  style.textContent=uiIcons.concat(imageIcons,mapIcons).join('\n');
   document.head.appendChild(style);
 }
 // 生成32px UI图标的HTML span

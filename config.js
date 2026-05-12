@@ -45,24 +45,24 @@ const CFG = {
   // 兵种
   units: {
     infantry:{name:'步兵',race:'人类',row:'front',icon:'infantry',
-      cost:{wood:50,stone:20,food:40}, upkeep:0.1, trainTime:1, atk:6,def:8,spd:10, passive:'攻击+10%'},
+      cost:{wood:50,stone:20,food:40}, upkeep:0.1, trainTime:1, atk:6,def:10,spd:10, passive:'攻击+10%'},
     archer:{name:'弓兵',race:'精灵',row:'back',icon:'archer',
-      cost:{wood:80,stone:20,food:30}, upkeep:0.2, trainTime:1, atk:8,def:4,spd:12, passive:'基础MISS20%，打骑兵50%'},
+      cost:{wood:80,stone:20,food:30}, upkeep:0.2, trainTime:1, atk:8,def:8,spd:12, passive:'基础MISS20%，打骑兵MISS50%'},
     cavalry:{name:'骑兵',race:'兽人',row:'front',icon:'cavalry',
-      cost:{wood:40,stone:30,food:80}, upkeep:0.2, trainTime:1, atk:7,def:6,spd:14, passive:'闪避10%'},
+      cost:{wood:40,stone:30,food:80}, upkeep:0.2, trainTime:1, atk:10,def:15,spd:14, passive:'闪避10%'},
     spearman:{name:'长矛兵',race:'人类',row:'front',icon:'spearman',
-      cost:{wood:30,stone:60,food:40}, upkeep:0.1, trainTime:1, atk:7,def:7,spd:11, passive:'暴击10%'},
+      cost:{wood:30,stone:60,food:40}, upkeep:0.1, trainTime:1, atk:7,def:10,spd:10, passive:'暴击10%'},
     mage:{name:'法师',race:'亡灵',row:'back',icon:'mage',
-      cost:{wood:80,stone:60,food:80}, upkeep:0.4, trainTime:1, atk:11,def:2,spd:8, passive:'互易伤1.3x',locked:true}
+      cost:{wood:80,stone:60,food:80}, upkeep:0.4, trainTime:1, atk:15,def:8,spd:8, passive:'互易伤1.3x',locked:true}
   },
 
   // 克制关系
   counters: {
-    infantry:{spearman:1.3,archer:1.0,cavalry:1.0,infantry:1.0,mage:1.0},
-    archer:{infantry:1.3,spearman:1.3,cavalry:1.0,archer:1.0,mage:1.0},
-    cavalry:{infantry:1.3,archer:1.5,spearman:0.7,cavalry:1.0,mage:1.0},
-    spearman:{cavalry:1.5,infantry:1.0,archer:1.0,spearman:1.0,mage:1.0},
-    mage:{infantry:1.3,archer:1.3,cavalry:1.3,spearman:1.3,mage:1.0}
+    infantry:{spearman:1.3,archer:1.3,cavalry:1.3,infantry:1.3,mage:1.0},// 步兵
+    archer:{infantry:1.3,spearman:1.3,cavalry:1.0,archer:1.3,mage:1.0},// 弓兵
+    cavalry:{infantry:1.3,archer:1.5,spearman:0.7,cavalry:1.0,mage:1.0},// 骑兵
+    spearman:{cavalry:1.5,infantry:1.0,archer:1.0,spearman:1.0,mage:1.0},// 长矛兵
+    mage:{infantry:1.3,archer:1.3,cavalry:1.3,spearman:1.3,mage:1.3}// 法师
   },
 
   // 命中率
