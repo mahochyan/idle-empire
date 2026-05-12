@@ -503,7 +503,7 @@ function confirmForm(){
   const type=S._formModalSel,row=formModalTarget.row,idx=formModalTarget.idx;
   const qty=S._formModalQty;
   if(qty<=0){toast('人数无效');return}
-  if(poolAvail(type)<=0){toast('未拥有该兵种');return}
+  if(poolAvail(type)<qty){toast('后备不足');return}
   const target=S.formation[row][idx];
   if(target&&target.type===type){
     if(target.count+qty>regMax()){toast(`超过营帐上限${regMax()}人/团`);return}
@@ -513,6 +513,7 @@ function confirmForm(){
     if(qty>regMax()){toast(`超过营帐上限${regMax()}人/团`);return}
     S.formation[row].push({type,count:qty,id:Date.now()+Math.random()});
   }
+  S.pool[type]-=qty;
   closeFormModal();
   updateUI();
 }
@@ -566,6 +567,7 @@ document.getElementById('unit-detail-modal').addEventListener('click',function(e
 function rmForm(row,idx){
   const u=S.formation[row][idx];
   if(!u)return;
+  S.pool[u.type]=(S.pool[u.type]||0)+u.count;
   S.formation[row].splice(idx,1);
   updateUI();
 }
@@ -575,12 +577,14 @@ function adjForm(row,idx,d){
   if(!u)return;
   const nv=u.count+d;
   if(d>0 && nv>regMax()){toast(`营帐上限${regMax()}人/团`);return}
-  if(d>0 && poolAvail(u.type)<=0){toast('未拥有该兵种');return}
-  if(nv<=0){S.formation[row].splice(idx,1);updateUI();return}
+  if(d>0 && poolAvail(u.type)<d){toast('后备不足');return}
+  if(nv<=0){S.pool[u.type]=(S.pool[u.type]||0)+u.count;S.formation[row].splice(idx,1);updateUI();return}
+  if(d>0){S.pool[u.type]-=d;}
+  else if(d<0){S.pool[u.type]=(S.pool[u.type]||0)+(-d);}
   u.count=nv;
   updateUI();
 }
-function clrForm(){S.formation={front:[],mid:[],back:[]};updateUI()}
+function clrForm(){for(const row of['front','mid','back']){for(const u of S.formation[row]){S.pool[u.type]=(S.pool[u.type]||0)+u.count}}S.formation={front:[],mid:[],back:[]};updateUI()}
 function useLastFormation(){
   if(!S._lastForm){toast('没有上次阵容记录');return}
   const hasAny=S._lastForm.front.length+S._lastForm.mid.length+S._lastForm.back.length>0;
