@@ -88,8 +88,16 @@ function unitCap(uk){
   const arr=cfg.unitCap||[];
   return arr[Math.min(st.lv,arr.length-1)]||0;
 }
+function garrisonCount(uk){
+  let n=0;
+  const gf=S._garrisonForm||{front:[],mid:[],back:[]};
+  for(const row of['front','mid','back']){
+    for(const u of gf[row]){if(u.type===uk)n+=u.count;}
+  }
+  return n;
+}
 function unitCapLeft(uk){
-  return Math.max(0,unitCap(uk)-(S.pool[uk]||0));
+  return Math.max(0,unitCap(uk)-(S.pool[uk]||0)-garrisonCount(uk));
 }
 function queueTotal(uk){
   const q=S.queue[uk];
@@ -107,7 +115,7 @@ function processQueue(){
     const tt=CFG.units[uk].trainTime||1;
     if(q.timer>0){q.timer--;}
     if(q.timer<=0&&q.count>0){
-      if(unitCapLeft(uk)<=0){q.reason='驻军已满';continue;}
+      if(unitCapLeft(uk)<=0){q.reason='已达上限';continue;}
       const cost=CFG.units[uk].cost;
       if(S.res.wood<cost.wood||S.res.stone<cost.stone||S.res.food<cost.food){q.reason='资源不足，暂停生产';continue;}
       S.res.wood-=cost.wood;S.res.stone-=cost.stone;S.res.food-=cost.food;
@@ -139,10 +147,10 @@ function trainBuildingLabel(uk){
   return `${cfg.name}: Lv.${st.lv}${st.state==='idle'?'':' / \u6682\u505c\u8bad\u7ec3'}`;
 }
 function reserveHtml(uk){
-  const cap=unitCap(uk),used=S.pool[uk]||0,left=unitCapLeft(uk);
-  const cls=cap>0&&used<=cap?'limit-ok':'limit-warn';
-  const extra=cap>0?` | \u4f59\u91cf ${left} \u2192 \u4e0a\u9650 ${cap}`:'';
-  return `<span class="${cls}">\u9a7b\u519b ${used}\u4eba</span>${extra}`;
+  const cap=unitCap(uk),pool=S.pool[uk]||0,garrison=garrisonCount(uk);
+  const cls=cap>0&&(pool+garrison)<=cap?'limit-ok':'limit-warn';
+  const extra=cap>0?` | \u4e0a\u9650 ${cap} = \u9a7b\u519b ${garrison} + \u4f59\u91cf ${pool}`:'';
+  return extra;
 }
 function totalSoldiers(){
   let n=0;for(const v of Object.values(S.pool)) n+=v;

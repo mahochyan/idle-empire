@@ -72,19 +72,20 @@ function renderTownMapOverview(){
   const woodWorkers=S.popAlloc.wood||0;
   const stoneWorkers=S.popAlloc.stone||0;
   const foodWorkers=S.popAlloc.food||0;
-  const unitTotal=uk=>{
-    let n=S.pool[uk]||0;
+  const garrisonOnly=uk=>{
+    let n=0;
     const gf=S._garrisonForm||{front:[],mid:[],back:[]};
     for(const row of['front','mid','back']){
-      for(const u of gf[row]){
-        if(u.type===uk)n+=u.count;
-      }
+      for(const u of gf[row]){if(u.type===uk)n+=u.count;}
     }
     return n;
   };
-  const guardCounts=Object.fromEntries(Object.keys(CFG.units).map(k=>[k,unitTotal(k)]));
-  const status=Object.values(guardCounts).some(n=>n>0)?'巡逻中':'防务薄弱';
-  const troopSummary=Object.entries(CFG.units).map(([k,c])=>`${c.name}${unitTotal(k)}`).join('｜');
+  const guardCounts=Object.fromEntries(Object.keys(CFG.units).map(k=>[k,garrisonOnly(k)]));
+  const hasAny=Object.values(guardCounts).some(n=>n>0);
+  const status=hasAny?'巡逻中':'无';
+  const troopSummary=hasAny
+    ?Object.entries(CFG.units).filter(([k])=>garrisonOnly(k)>0).map(([k,c])=>`${c.name}${garrisonOnly(k)}`).join('｜')
+    :'无';
 
   return `<div class="card town-map-card">
     <div class="town-map-head">
@@ -160,17 +161,9 @@ function updateTownScene(){
   const woodWorkers=S.popAlloc.wood||0;
   const stoneWorkers=S.popAlloc.stone||0;
   const foodWorkers=S.popAlloc.food||0;
-  const unitTotal=uk=>{
-    let n=S.pool[uk]||0;
-    const gf=S._garrisonForm||{front:[],mid:[],back:[]};
-    for(const row of['front','mid','back']){
-      for(const u of gf[row]){if(u.type===uk)n+=u.count;}
-    }
-    return n;
-  };
-  // 哈希包含驻军阵容结构（不只是总人数），确保阵容变化时能刷新
+  // 哈希包含驻军阵容结构，确保阵容变化时能刷新
   const gHash=JSON.stringify(S._garrisonForm||{});
-  const h=woodWorkers+','+stoneWorkers+','+foodWorkers+','+Object.keys(CFG.units).map(k=>unitTotal(k)).join(',')+','+S.townLv+','+gHash;
+  const h=woodWorkers+','+stoneWorkers+','+foodWorkers+','+S.townLv+','+gHash;
   if(h===_townHash)return;
   _townHash=h;
   const html=renderTownMapOverview();
@@ -224,11 +217,10 @@ function rBarracks(){
     h+=`<div class="card" style="${muted}">
       <div style="display:flex;align-items:center;gap:8px">
         <span>${pix(c.icon,'lg')}</span>
-        <div style="flex:1;min-width:0"><strong style="cursor:pointer" onclick="openUnitDetail('${k}')">${c.name}</strong> <span style="font-size:10px;color:#888">[${c.race}]</span>
-          <div style="font-size:10px;color:#777"><span onclick="event.stopPropagation();openUnitDetail('${k}')" style="font-size:9px;padding:1px 5px;border:1px solid #3a4158;border-radius:0;color:#8890a6;cursor:pointer;display:inline-block;margin-right:4px">属性</span>${c.passive} | ATK:${c.atk} DEF:${c.def}</div>
+        <div style="flex:1;min-width:0"><strong style="cursor:pointer" onclick="openUnitDetail('${k}')">${c.name}</strong> <span style="font-size:10px;color:#888">[${c.race}]</span> <span style="font-size:10px;color:#aaa">${trainBuildingLabel(k)}</span> <span onclick="event.stopPropagation();openUnitDetail('${k}')" style="font-size:9px;padding:1px 5px;border:1px solid #3a4158;border-radius:0;color:#8890a6;cursor:pointer;display:inline-block;margin-left:4px">属性</span>
+          <div style="font-size:10px;color:#777">${c.passive} | ATK:${c.atk} DEF:${c.def}</div>
           <div style="font-size:10px;color:#666">${costHtml(c.cost)}/\u4eba</div>
-          <div class="econ-note">${trainBuildingLabel(k)} | ${reserveHtml(k)}${queueTotal(k)>0?` | 队列 ${queueTotal(k)}人 <button class="btn btn-danger btn-xs" onclick="event.stopPropagation();cancelQueue('${k}')" style="margin-left:4px">取消</button>`:''}${(S.queue[k]||{}).reason?`<br><span class="limit-warn">${pix('lock','mini')}${S.queue[k].reason}</span>`:``}${lock?`<br><span class="limit-warn">${pix('lock','mini')}${lock}</span>`:''}</div>
-          <div style="font-size:11px;color:#40bf80">\u9a7b\u519b:${ow}\u4eba</div>
+          <div class="econ-note">${reserveHtml(k)}${queueTotal(k)>0?` | 队列 ${queueTotal(k)}人 <span onclick="event.stopPropagation();cancelQueue('${k}')" style="font-size:9px;padding:1px 5px;border:1px solid #3a4158;border-radius:0;color:#8890a6;cursor:pointer;display:inline-block;margin-left:4px">取消队列</span>`:''}${(S.queue[k]||{}).reason?`<br><span class="limit-warn">${pix('lock','mini')}${S.queue[k].reason}</span>`:``}${lock?`<br><span class="limit-warn">${pix('lock','mini')}${lock}</span>`:''}</div>
           ${lock?'':
           `<div class="train-custom">
             <input id="train-barracks-${k}" type="text" inputmode="numeric" pattern="[0-9]*" value="${(S._trainQty||{})[k]||1}" oninput="(S._trainQty||{})['${k}']=parseInt(this.value)||1">
