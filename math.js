@@ -576,6 +576,18 @@ function fleeBattle(){
   save(); updateUI();
 }
 
+function promoteMelee(){
+  const rows=['front','mid','back'];
+  for(const u of B.ourUnits){
+    if(u.alive===false||isRanged(u.type))continue;
+    const curIdx=rows.indexOf(u.row);
+    for(let i=0;i<curIdx;i++){
+      const hasAlive=B.ourUnits.some(x=>x.alive!==false&&x.row===rows[i]);
+      if(!hasAlive){u.row=rows[i];break;}
+    }
+  }
+}
+
 function initBattleState(){
   if(B.isTraining){
     S._preForm=JSON.parse(JSON.stringify(S.formation));
@@ -626,6 +638,7 @@ function initBattleState(){
       }
     }
   }
+  promoteMelee();
 }
 
 function drawBattleField(){
@@ -704,6 +717,8 @@ function getTarget(attacker,enemyList){
   const minR=Math.min(...alive.map(u=>rows[u.row]));
   const front=alive.filter(u=>rows[u.row]===minR);
 
+  if(!isRanged(attacker.type) && attacker.row!=='front') return null;
+
   if(isRanged(attacker.type)){
     // 远程：60%命中前排（被前线阻挡）
     if(front.length>0 && Math.random()<0.6){
@@ -762,6 +777,7 @@ function spawnVFX(actorEl,targetEl,type){
 function battleTurn(){
   if(!S.battleActive)return;
   B.round++;
+  promoteMelee();
   if(B.round>B.maxRound){endBattle('timeout');return}
 
   const rows={front:0,mid:1,back:2};
