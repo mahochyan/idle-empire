@@ -166,7 +166,7 @@ function totalUpkeep(){
 }
 function cm(atk,def){return CFG.counters[atk][def]||1.0}
 function mm(atk,def){
-  if(atk==='mage'&&def!=='mage')return CFG.counters.mage[def];
+  if(atk==='mage'&&def!=='mage')return CFG.counters.mage[def]||1.0;
   if(atk!=='mage'&&def==='mage')return CFG.normalVsMage;
   return 1.0;
 }
