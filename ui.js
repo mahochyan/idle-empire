@@ -138,6 +138,11 @@ function renderTownMapOverview(){
       <div class="town-building town-tower">
         <span class="town-building-sprite">${mapPix('watch_tower','town-building-pix')}</span>
       </div>
+      ${S.buildings.arrow_tower&&S.buildings.arrow_tower.lv>0?`
+      <div class="town-building town-arrow-tower">
+        <span class="town-building-sprite">${mapPix('arrow_tower','town-building-pix')}</span>
+        <span class="town-map-badge">Lv.${S.buildings.arrow_tower.lv}</span>
+      </div>`:''}
     </div>
     <div class="town-troop-summary">驻军：${troopSummary}</div>
   </div>`;
@@ -217,7 +222,7 @@ function updateTownScene(){
 const BUILD_CATEGORIES = {
   basic: {name:'\u57fa\u7840\u5efa\u7b51',keys:['barracks','warehouse','lumber_mill','quarry','farm']},
   barracks: {name:'\u5175\u8425\u5efa\u7b51',keys:['infantry_camp','archer_range','stable','spear_crypt','mage_tower']},
-  special: {name:'\u7279\u6b8a\u5efa\u7b51',keys:[]},
+  special: {name:'\u7279\u6b8a\u5efa\u7b51',keys:['arrow_tower']},
   altar: {name:'\u82f1\u96c4\u796d\u575b',keys:[]}
 };
 
@@ -316,17 +321,15 @@ function rFight(){
   h+=`<div style="display:flex;gap:4px;margin-bottom:8px">`;
   h+=`<button class="btn btn-sm ${tab==='expedition'?'btn-go':'btn-ghost'}" onclick="setFightTab('expedition')">远征</button>`;
   h+=`<button class="btn btn-sm ${tab==='garrison'?'btn-go':'btn-ghost'}" onclick="setFightTab('garrison')">驻军</button>`;
-  h+=`<button class="btn btn-sm ${tab==='training'?'btn-go':'btn-ghost'}" onclick="setFightTab('training')">训练场</button>`;
   h+=`</div>`;
   if(tab==='expedition')h+=rExpedition();
   else if(tab==='garrison')h+=rGarrison();
-  else if(tab==='training')h+=rTraining();
   h+=`</div>`;
   return h;
 }
 // --- 远征子标签 ---
 function rExpedition(){
-  let h=`<div class="card"><h3>${pix('army','card-pix')}远征阵容 (${formCnt()}/${formSlots()}团 | 上限${regMax()}人/团)</h3>`;
+  let h=`<div class="card"><div style="display:flex;align-items:center;justify-content:space-between"><h3 style="margin:0">${pix('army','card-pix')}远征阵容 (${formCnt()}/${formSlots()}团 | 上限${regMax()}人/团)</h3><button class="btn btn-ghost btn-sm" onclick="openTraining()" style="border-color:#8B6914;color:#c9a030;flex-shrink:0">${pix('dummy','mini')}木人桩</button></div>`;
   // 显示可用余量
   const poolParts=[];
   for(const[k,c]of Object.entries(CFG.units)){
@@ -437,17 +440,6 @@ function rGarrison(){
   if(!gl.length)h+=`<div style="font-size:10px;color:#666">暂无驻军事件</div>`;
   else for(const e of gl)h+=`<div style="font-size:10px;color:#777;line-height:1.55">[${e.time}] ${e.msg}</div>`;
   h+=`</div></div>`;
-  return h;
-}
-// --- 训练场子标签 ---
-function rTraining(){
-  let h=`<div class="card" style="border-color:#5a4a30;background:#12100a;margin-bottom:6px">
-    <div style="display:flex;align-items:center;justify-content:space-between">
-      <div><strong>木人桩训练场</strong> <span style="font-size:10px;color:#888">3×3木人桩 各100HP</span></div>
-      <button class="btn btn-go btn-sm" onclick="openTraining()">进入训练</button>
-    </div>
-  </div>`;
-  h+=`<div style="font-size:11px;color:#666;padding:8px">使用远征阵容进行训练，测试伤害输出和兵种搭配。</div>`;
   return h;
 }
 // ==================== 日志界面 ====================

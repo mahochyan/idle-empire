@@ -384,14 +384,46 @@ function calcGarrisonDmg(attacker,defender){
   return Math.max(1,Math.floor(isCrit?raw*2:raw));
 }
 
+function garrisonArrowTowerAttack(enemyUnits,round){
+  const st=S.buildings.arrow_tower;
+  if(!st||st.lv<=0||st.state!=='idle')return null;
+  const lv=st.lv;
+  const interval=lv>=2?2:3;
+  if(round%interval!==0)return null;
+  const alive=enemyUnits.filter(u=>u.alive!==false&&u.hp>0);
+  if(!alive.length)return null;
+  // 目标选择
+  let target;
+  if(lv>=3){
+    const priority=alive.filter(u=>u.type==='archer'||u.type==='mage');
+    target=priority.length?priority[Math.floor(Math.random()*priority.length)]:alive[Math.floor(Math.random()*alive.length)];
+  }else{
+    target=alive[Math.floor(Math.random()*alive.length)];
+  }
+  // 伤害计算
+  const baseDmg=lv>=4?12:lv>=2?8:5;
+  const townBonus=S.townLv*(lv>=4?4:lv>=2?3:2);
+  let dmg=baseDmg+townBonus;
+  let bleed=false;
+  if(lv>=5&&Math.random()<0.3){bleed=true;dmg=Math.floor(dmg*1.5);}
+  dmg=Math.max(1,Math.floor(dmg));
+  target.hp-=dmg;
+  if(target.hp<=0){target.hp=0;target.alive=false;}
+  return {targetType:target.type,targetName:target.name,dmg,bleed,lv};
+}
+
 function resolveGarrisonBattle(inv){
   const ourUnits=buildGarrisonUnitsFromForm();
   const enemyUnits=buildGarrisonEnemyUnits(inv);
   let rounds=0;
+  let towerShots=0,towerDmg=0;
 
   for(;rounds<CFG.garrisonInvade.maxRounds;rounds++){
     shiftGarrisonRows(ourUnits);
     shiftGarrisonRows(enemyUnits);
+
+    const tw=garrisonArrowTowerAttack(enemyUnits,rounds+1);
+    if(tw){towerShots++;towerDmg+=tw.dmg;}
 
     const ourAlive=ourUnits.filter(u=>u.alive!==false&&u.hp>0);
     const enemyAlive=enemyUnits.filter(u=>u.alive!==false&&u.hp>0);
@@ -437,7 +469,7 @@ function resolveGarrisonBattle(inv){
   const ourLeft=ourUnits.filter(u=>u.alive!==false&&u.hp>0).reduce((s,u)=>s+u.hp,0);
   const enemyLeft=enemyUnits.filter(u=>u.alive!==false&&u.hp>0).reduce((s,u)=>s+u.hp,0);
   const outcome=enemyLeft<=0&&ourLeft>0?'win':ourLeft<=0?'lose':'timeout';
-  return {outcome,rounds:rounds+1,ourUnits,enemyUnits,ourLeft,enemyLeft};
+  return {outcome,rounds:rounds+1,ourUnits,enemyUnits,ourLeft,enemyLeft,towerShots,towerDmg};
 }
 
 function rebuildGarrisonFormationAfterBattle(result){
@@ -467,9 +499,10 @@ function applyGarrisonResult(inv,result){
     loss=applyDefeatLoss();
   }
 
+  const towerInfo=(result.towerShots>0)?` 箭塔射击${result.towerShots}次，造成${result.towerDmg}点伤害。`:'';
   const msg=win
-    ?`${inv.name}被击退，获得${formatGarrisonRes(reward)}，功勋+1。`
-    :`${inv.name}突破巡防，损失${formatGarrisonRes(loss)}。`;
+    ?`${inv.name}被击退，获得${formatGarrisonRes(reward)}，功勋+1。${towerInfo}`
+    :`${inv.name}突破巡防，损失${formatGarrisonRes(loss)}。${towerInfo}`;
   addGarrisonLog(msg,true);
 
   const g=ensureGarrisonState();
@@ -480,7 +513,9 @@ function applyGarrisonResult(inv,result){
     loss,
     rounds:result.rounds,
     ourLeft:result.ourLeft,
-    enemyLeft:result.enemyLeft
+    enemyLeft:result.enemyLeft,
+    towerShots:result.towerShots||0,
+    towerDmg:result.towerDmg||0
   };
 }
 
