@@ -769,24 +769,29 @@ function calcDmg(attacker,defender,isOur){
 }
 
 function spawnVFX(actorEl,targetEl,type){
-  const field=document.getElementById('battle-field');
-  if(!field||!actorEl||!targetEl)return;
-  const fRect=field.getBoundingClientRect();
+  const layer=document.getElementById('battle-vfx-layer');
+  if(!layer||!actorEl||!targetEl)return;
+  const lRect=layer.getBoundingClientRect();
   const aRect=actorEl.getBoundingClientRect();
   const tRect=targetEl.getBoundingClientRect();
-  const ax=aRect.left+aRect.width/2-fRect.left+field.scrollLeft;
-  const ay=aRect.top+aRect.height/2-fRect.top+field.scrollTop;
+  const ax=aRect.left+aRect.width/2-lRect.left;
+  const ay=aRect.top+aRect.height/2-lRect.top;
   const dx=tRect.left+tRect.width/2-(aRect.left+aRect.width/2);
   const dy=tRect.top+tRect.height/2-(aRect.top+aRect.height/2);
   const dist=Math.sqrt(dx*dx+dy*dy);
   const angle=Math.atan2(dy,dx)*180/Math.PI;
-  const dur=Math.max(0.12, dist/650);
+  const dur=Math.max(0.15, dist/600);
   const el=document.createElement('div');
   el.className=`vfx vfx-${type}`;
-  el.style.cssText=`left:${ax}px;top:${ay}px;transform:rotate(${angle+90}deg);transition:all ${dur}s ease-out`;
-  field.appendChild(el);
-  requestAnimationFrame(()=>{el.style.left=(ax+dx)+'px';el.style.top=(ay+dy)+'px'});
-  setTimeout(()=>el.remove(), dur*1000+120);
+  el.style.left=ax+'px';
+  el.style.top=ay+'px';
+  el.style.transform=`rotate(${angle+90}deg)`;
+  layer.appendChild(el);
+  el.offsetHeight;
+  el.style.transition=`left ${dur}s ease-out, top ${dur}s ease-out`;
+  el.style.left=(ax+dx)+'px';
+  el.style.top=(ay+dy)+'px';
+  setTimeout(()=>el.remove(), dur*1000+150);
 }
 
 function battleTurn(){
