@@ -690,11 +690,11 @@ body{
 @keyframes die{0%{opacity:1;filter:grayscale(0)}50%{opacity:.6;filter:grayscale(1);transform:translateY(2px)}100%{opacity:0;filter:grayscale(1);transform:scale(.4)}}
 #battle-field{position:relative}
 #battle-vfx-layer{position:absolute;inset:0;pointer-events:none;z-index:50;overflow:visible}
-.vfx{position:absolute;pointer-events:none;transform-origin:center center;will-change:left,top}
-.vfx-slash{width:24px;height:24px;border-radius:50%;border:2px solid transparent;border-top-color:#ffd700;border-right-color:#ffd700;box-shadow:0 0 10px rgba(255,215,0,.8),0 0 20px rgba(255,200,0,.4)}
-.vfx-arrow{width:4px;height:18px;background:linear-gradient(to bottom,#f0e8c0,#c0a060);border-radius:1px;box-shadow:0 0 6px rgba(240,220,160,.7)}
-.vfx-arrow::before{content:'';position:absolute;top:-5px;left:-5px;width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;border-bottom:7px solid #e8e8e8;filter:drop-shadow(0 0 3px rgba(255,255,255,.6))}
-.vfx-thrust{width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-bottom:18px solid #f0e0a0;filter:drop-shadow(0 0 6px rgba(255,240,190,.9))}
+.vfx{position:absolute;pointer-events:none;z-index:999;transform-origin:center center}
+.vfx-slash{width:6px;height:24px;background:linear-gradient(to bottom,#fff8c0,#ffd700,#e09000);border-radius:3px;box-shadow:0 0 10px rgba(255,215,0,1),0 0 22px rgba(255,180,0,.7),0 0 40px rgba(255,150,0,.4)}
+.vfx-arrow{width:3px;height:22px;background:linear-gradient(to bottom,#ffffff,#e8d898);border-radius:1px;box-shadow:0 0 8px rgba(240,220,160,1),0 0 16px rgba(220,200,140,.6)}
+.vfx-arrow::before{content:'';position:absolute;top:-6px;left:-5px;width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;border-bottom:8px solid #f8f0d0;filter:drop-shadow(0 0 5px rgba(255,255,220,1))}
+.vfx-thrust{width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;border-bottom:22px solid #f8e8a0;filter:drop-shadow(0 0 10px rgba(255,240,180,1)) drop-shadow(0 0 20px rgba(255,220,140,.7))}
 #battle-result{background:#121522;border-width:3px}
 #battle-msg{background:#080912;border-top:2px solid #242b3f}
 #battle-title{flex:1;min-width:0;font-size:13px;line-height:1.35}

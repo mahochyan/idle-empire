@@ -783,14 +783,8 @@ function spawnVFX(actorEl,targetEl,type){
   const dur=Math.max(0.22, dist/400);
   const el=document.createElement('div');
   el.className=`vfx vfx-${type}`;
-  el.style.cssText=`
-    position:absolute;left:${ax}px;top:${ay}px;
-    width:14px;height:14px;background:#ff3333;
-    border-radius:50%;z-index:999;
-    box-shadow:0 0 18px #ff0000,0 0 36px #ff6666;
-    pointer-events:none;
-    transform-origin:center center;
-  `;
+  el.style.left=ax+'px';
+  el.style.top=ay+'px';
   layer.appendChild(el);
   el.animate([
     { transform:`rotate(${angle+90}deg)`, offset:0 },
