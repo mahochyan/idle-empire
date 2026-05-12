@@ -778,20 +778,25 @@ function spawnVFX(actorEl,targetEl,type){
   const ay=aRect.top+aRect.height/2-lRect.top;
   const dx=tRect.left+tRect.width/2-(aRect.left+aRect.width/2);
   const dy=tRect.top+tRect.height/2-(aRect.top+aRect.height/2);
-  const dist=Math.sqrt(dx*dx+dy*dy);
   const angle=Math.atan2(dy,dx)*180/Math.PI;
+  const dist=Math.sqrt(dx*dx+dy*dy);
   const dur=Math.max(0.22, dist/400);
   const el=document.createElement('div');
   el.className=`vfx vfx-${type}`;
-  el.style.left=ax+'px';
-  el.style.top=ay+'px';
-  el.style.transform=`rotate(${angle+90}deg)`;
+  el.style.cssText=`
+    position:absolute;left:${ax}px;top:${ay}px;
+    width:14px;height:14px;background:#ff3333;
+    border-radius:50%;z-index:999;
+    box-shadow:0 0 18px #ff0000,0 0 36px #ff6666;
+    pointer-events:none;
+    transform-origin:center center;
+  `;
   layer.appendChild(el);
-  el.offsetHeight;
-  el.style.transition=`left ${dur}s ease-out, top ${dur}s ease-out`;
-  el.style.left=(ax+dx)+'px';
-  el.style.top=(ay+dy)+'px';
-  setTimeout(()=>el.remove(), dur*1000+150);
+  el.animate([
+    { transform:`rotate(${angle+90}deg)`, offset:0 },
+    { transform:`translate(${dx}px,${dy}px) rotate(${angle+90}deg)`, offset:1 }
+  ],{duration:dur*1000,easing:'ease-out',fill:'forwards'});
+  setTimeout(()=>el.remove(), dur*1000+200);
 }
 
 function battleTurn(){
