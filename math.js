@@ -878,20 +878,44 @@ function battleTurn(){
   shiftRows();
   if(B.round>B.maxRound){endBattle('timeout');return}
 
-  const rows={front:0,mid:1,back:2};
-  const all=[];
-  for(const u of B.ourUnits) if(u.alive!==false) all.push({...u,side:'our'});
-  for(const u of B.enemyUnits) if(u.alive!==false&&u.type!=='dummy') all.push({...u,side:'enemy'});
-  for(const a of all){
-    if(a.side==='our') a.spd=Math.floor(a.spd*(1+(B.tactic.spdPct||0)));
+  const ourAlive=[], enemyAlive=[];
+  for(const u of B.ourUnits) if(u.alive!==false) ourAlive.push(u);
+  for(const u of B.enemyUnits) if(u.alive!==false&&u.type!=='dummy') enemyAlive.push(u);
+
+  if(ourAlive.length===0){endBattle('lose');return}
+  if(enemyAlive.length===0){endBattle('win');return}
+
+  const ourSpd=u=>Math.floor(u.spd*(1+(B.tactic.spdPct||0)));
+  const sortFn=(a,b,sf)=>sf(b)-sf(a)||(Math.random()<0.5?1:-1);
+  ourAlive.sort((a,b)=>sortFn(a,b,ourSpd));
+  enemyAlive.sort((a,b)=>sortFn(a,b,u=>u.spd));
+
+  const isBossFight=B.enemyCfg&&B.enemyCfg.boss&&enemyAlive.length===1;
+
+  const actions=[];
+  if(isBossFight){
+    for(const u of ourAlive) actions.push({unit:u,side:'our'});
+    actions.push({unit:enemyAlive[0],side:'enemy'});
+  } else {
+    const maxCnt=Math.max(ourAlive.length,enemyAlive.length);
+    const ourFast=ourSpd(ourAlive[0]), enemyFast=enemyAlive[0].spd;
+    const ourFirst=ourFast>enemyFast?true:enemyFast>ourFast?false:Math.random()<0.5;
+    for(let i=0;i<maxCnt;i++){
+      if(ourFirst){
+        actions.push({unit:ourAlive[i%ourAlive.length],side:'our'});
+        actions.push({unit:enemyAlive[i%enemyAlive.length],side:'enemy'});
+      } else {
+        actions.push({unit:enemyAlive[i%enemyAlive.length],side:'enemy'});
+        actions.push({unit:ourAlive[i%ourAlive.length],side:'our'});
+      }
+    }
   }
-  all.sort((a,b)=>b.spd-a.spd||(Math.random()<0.5?1:-1));
 
   let idx=0,delay=600/S.battleSpeed;
 
   function nextAction(){
     if(!S.battleActive)return;
-    if(idx>=all.length){
+    if(idx>=actions.length){
       drawBattleField();
       const oa=B.ourUnits.filter(u=>u.alive!==false).length;
       const ea=B.enemyUnits.filter(u=>u.alive!==false).length;
@@ -902,15 +926,15 @@ function battleTurn(){
       return;
     }
 
-    const actor=all[idx];
+    const {unit:actor,side}=actions[idx];
     if(actor.alive===false){idx++;nextAction();return}
 
-    const enemyList=actor.side==='our'?B.enemyUnits:B.ourUnits;
+    const enemyList=side==='our'?B.enemyUnits:B.ourUnits;
     const target=getTarget(actor,enemyList);
-    if(!target){idx++;nextAction();return} // 近战不在前排跳过攻击
+    if(!target){idx++;nextAction();return}
 
-    const actorEl=document.getElementById((actor.side==='our'?'ou-':'eu-')+actor.id);
-    const targetEl=document.getElementById((actor.side==='our'?'eu-':'ou-')+target.id);
+    const actorEl=document.getElementById((side==='our'?'ou-':'eu-')+actor.id);
+    const targetEl=document.getElementById((side==='our'?'eu-':'ou-')+target.id);
 
     if(targetEl)targetEl.classList.add('targeted');
     if(actorEl)actorEl.classList.add('attacking');
@@ -918,7 +942,7 @@ function battleTurn(){
     const archerMiss=isAttackMiss(actor,target);
     const cavDodge=!archerMiss&&target.type==='cavalry'&&actor.type!=='archer'&&Math.random()<0.1;
     const missed=archerMiss||cavDodge;
-    const cr=missed?{dmg:0,crit:false}:calcDmg(actor,target,actor.side==='our');
+    const cr=missed?{dmg:0,crit:false}:calcDmg(actor,target,side==='our');
     const dmg=cr.dmg; const isCrit=cr.crit;
     const cmv=cm(actor.type,target.type);
     const mmv=mm(actor.type,target.type);
@@ -928,7 +952,7 @@ function battleTurn(){
       spawnVFX(actorEl,targetEl,actor.type);
     }
 
-    if(B.isTraining&&actor.side==='our'){
+    if(B.isTraining&&side==='our'){
       if(!B.trainingStats[actor.type])B.trainingStats[actor.type]={dmg:0,atks:0,crits:0,misses:0};
       const ts=B.trainingStats[actor.type];
       ts.atks++;
@@ -945,7 +969,7 @@ function battleTurn(){
       const isGood=cmv>=1.3,isBad=cmv<=0.7;
 
       if(missed){
-        bmsg(`${actor.side==="our"?"[我方]":"[敌方]"}${actor.name} \u2192 ${target.name} MISS${cavDodge?' [\u95ea\u907f]':target.type==='cavalry'?' [\u9a91\u5175\u95ea\u907f]':''}`,'#6f7890');
+        bmsg(`${side==="our"?"[我方]":"[敌方]"}${actor.name} \u2192 ${target.name} MISS${cavDodge?' [\u95ea\u907f]':target.type==='cavalry'?' [\u9a91\u5175\u95ea\u907f]':''}`,'#6f7890');
         idx++;
         drawBattleField();
         nextAction();
@@ -957,10 +981,10 @@ function battleTurn(){
       if(target.hp<=0){
         target.hp=0;target.alive=false;
         if(targetEl){targetEl.classList.add('dead');setTimeout(()=>{if(targetEl)targetEl.classList.add('dead-done')},500);}
-        bmsg(`${actor.side==="our"?"[我方]":"[敌方]"}${actor.name} → ${target.name} 击杀${actualKill}人，${target.name}全灭！`+(isGood?'[克制]':'')+(mmv>1?'[易伤]':''),isGood?'#40bf80':'#e06060');
+        bmsg(`${side==="our"?"[我方]":"[敌方]"}${actor.name} → ${target.name} 击杀${actualKill}人，${target.name}全灭！`+(isGood?'[克制]':'')+(mmv>1?'[易伤]':''),isGood?'#40bf80':'#e06060');
       }else{
         if(targetEl){targetEl.classList.add('hit');setTimeout(()=>{if(targetEl)targetEl.classList.remove('hit')},400);}
-        bmsg(`${actor.side==="our"?"[我方]":"[敌方]"}${actor.name} → ${target.name} 击杀${actualKill}人，${target.name}剩余${target.hp}人`+(isBad?'[劣势]':''),'#888');
+        bmsg(`${side==="our"?"[我方]":"[敌方]"}${actor.name} → ${target.name} 击杀${actualKill}人，${target.name}剩余${target.hp}人`+(isBad?'[劣势]':''),'#888');
       }
       idx++;
       drawBattleField();
