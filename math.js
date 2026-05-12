@@ -576,14 +576,19 @@ function fleeBattle(){
   save(); updateUI();
 }
 
-function promoteMelee(){
-  const rows=['front','mid','back'];
-  for(const u of B.ourUnits){
-    if(u.alive===false||isRanged(u.type))continue;
-    const curIdx=rows.indexOf(u.row);
-    for(let i=0;i<curIdx;i++){
-      const hasAlive=B.ourUnits.some(x=>x.alive!==false&&x.row===rows[i]);
-      if(!hasAlive){u.row=rows[i];break;}
+function shiftRows(){
+  const hasAlive=r=>B.ourUnits.some(u=>u.alive!==false&&u.row===r);
+  if(!hasAlive('front')){
+    for(const u of B.ourUnits){
+      if(u.alive===false)continue;
+      if(u.row==='mid')u.row='front';
+      else if(u.row==='back')u.row='mid';
+    }
+  }
+  if(!hasAlive('mid')){
+    for(const u of B.ourUnits){
+      if(u.alive===false)continue;
+      if(u.row==='back')u.row='mid';
     }
   }
 }
@@ -638,7 +643,7 @@ function initBattleState(){
       }
     }
   }
-  promoteMelee();
+  shiftRows();
 }
 
 function drawBattleField(){
@@ -777,7 +782,7 @@ function spawnVFX(actorEl,targetEl,type){
 function battleTurn(){
   if(!S.battleActive)return;
   B.round++;
-  promoteMelee();
+  shiftRows();
   if(B.round>B.maxRound){endBattle('timeout');return}
 
   const rows={front:0,mid:1,back:2};
