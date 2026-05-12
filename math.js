@@ -768,6 +768,27 @@ function calcDmg(attacker,defender,isOur){
   return isCrit?raw*2:raw;
 }
 
+function spawnVFX(actorEl,targetEl,type){
+  const field=document.getElementById('battle-field');
+  if(!field||!actorEl||!targetEl)return;
+  const fRect=field.getBoundingClientRect();
+  const aRect=actorEl.getBoundingClientRect();
+  const tRect=targetEl.getBoundingClientRect();
+  const ax=aRect.left+aRect.width/2-fRect.left+field.scrollLeft;
+  const ay=aRect.top+aRect.height/2-fRect.top+field.scrollTop;
+  const dx=tRect.left+tRect.width/2-(aRect.left+aRect.width/2);
+  const dy=tRect.top+tRect.height/2-(aRect.top+aRect.height/2);
+  const dist=Math.sqrt(dx*dx+dy*dy);
+  const angle=Math.atan2(dy,dx)*180/Math.PI;
+  const dur=Math.max(0.12, dist/650);
+  const el=document.createElement('div');
+  el.className=`vfx vfx-${type}`;
+  el.style.cssText=`left:${ax}px;top:${ay}px;transform:rotate(${angle+90}deg);transition:all ${dur}s ease-out`;
+  field.appendChild(el);
+  requestAnimationFrame(()=>{el.style.left=(ax+dx)+'px';el.style.top=(ay+dy)+'px'});
+  setTimeout(()=>el.remove(), dur*1000+120);
+}
+
 function battleTurn(){
   if(!S.battleActive)return;
   B.round++;
@@ -817,6 +838,10 @@ function battleTurn(){
     const cmv=cm(actor.type,target.type);
     const mmv=mm(actor.type,target.type);
     const actualKill=missed?0:Math.min(dmg,target.hp);
+
+    if(!missed&&actorEl&&targetEl&&['infantry','archer','spearman'].includes(actor.type)){
+      spawnVFX(actorEl,targetEl,actor.type);
+    }
 
     setTimeout(()=>{
       if(!S.battleActive)return;
