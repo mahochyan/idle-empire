@@ -780,7 +780,7 @@ function spawnVFX(actorEl,targetEl,type){
   const dy=tRect.top+tRect.height/2-(aRect.top+aRect.height/2);
   const dist=Math.sqrt(dx*dx+dy*dy);
   const angle=Math.atan2(dy,dx)*180/Math.PI;
-  const dur=Math.max(0.15, dist/600);
+  const dur=Math.max(0.22, dist/400);
   const el=document.createElement('div');
   el.className=`vfx vfx-${type}`;
   el.style.left=ax+'px';
@@ -808,7 +808,7 @@ function battleTurn(){
   }
   all.sort((a,b)=>b.spd-a.spd);
 
-  let idx=0,delay=400/S.battleSpeed;
+  let idx=0,delay=600/S.battleSpeed;
 
   function nextAction(){
     if(!S.battleActive)return;
@@ -819,7 +819,7 @@ function battleTurn(){
       if(oa===0){endBattle('lose');return}
       if(ea===0){endBattle('win');return}
       bmsg(`── 回合${B.round}结束 ──`,'#555');
-      battleTimer=setTimeout(battleTurn,250/S.battleSpeed);
+      battleTimer=setTimeout(battleTurn,375/S.battleSpeed);
       return;
     }
 
