@@ -155,7 +155,10 @@ function upgradeLockReason(key){
   }
   return '';
 }
-function regMax(){ return 100; }
+function regMax(){
+  const s=bldSt('barracks');
+  return 5+(s.state==='idle'&&s.lv>=1?5:0);
+}
 function trainBuildingKey(uk){
   return Object.keys(CFG.buildings).find(k=>CFG.buildings[k].trains===uk)||null;
 }

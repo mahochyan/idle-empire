@@ -244,7 +244,7 @@ function rFight(){
       h+=`<span class="form-slot" onclick="openFormModal('${r.k}',0)">+ 空位</span>`;
     }else{
       S.formation[r.k].forEach((u,i)=>{
-        const mx=regMax()-u.count;
+        const mx=Math.min(regMax()-u.count, poolAvail(u.type));
         h+=`<span class="form-slot filled" style="position:relative">
           <span onclick="rmForm('${r.k}',${i})" style="position:absolute;top:-6px;right:-4px;cursor:pointer;z-index:1">${pix('close','mini')}</span>
           <div onclick="openFormModal('${r.k}',${i})">${pix(CFG.units[u.type].icon,'sm')}${CFG.units[u.type].name}<br>
