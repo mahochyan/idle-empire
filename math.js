@@ -799,7 +799,7 @@ function battleTurn(){
   for(const a of all){
     if(a.side==='our') a.spd=Math.floor(a.spd*(1+(B.tactic.spdPct||0)));
   }
-  all.sort((a,b)=>b.spd-a.spd);
+  all.sort((a,b)=>b.spd-a.spd||(Math.random()<0.5?1:-1));
 
   let idx=0,delay=600/S.battleSpeed;
 
