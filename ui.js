@@ -265,6 +265,12 @@ function rFight(){
   }
   h+=`<button class="btn btn-go btn-sm" onclick="useLastFormation()">使用上次阵容</button>
   <button class="btn btn-ghost btn-sm" onclick="clrForm()">清空阵容</button></div>`;
+  h+=`<div class="card" style="border-color:#5a4a30;background:#12100a;margin-bottom:6px">
+    <div style="display:flex;align-items:center;justify-content:space-between">
+      <div><strong>${pix('dummy','sm')}训练场</strong> <span style="font-size:10px;color:#888">3×3木人桩 各100HP</span></div>
+      <button class="btn btn-go btn-sm" onclick="openTraining()">进入训练</button>
+    </div>
+  </div>`;
   h+=`<div class="card"><h3>${pix('enemy','card-pix')}敌人 — 第${S.defeated.length+1}层</h3>`;
   const cur=S.defeated.length;
   for(let i=cur;i<=cur+1&&i<CFG.enemies.length;i++){

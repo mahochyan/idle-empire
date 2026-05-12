@@ -619,10 +619,25 @@ function selEnemy(idx){
   S.selEnemy=idx;updateUI();
 }
 
+function openTraining(){
+  if(formCnt()===0){toast('请先配置阵容');return}
+  S.battleActive=true; B.isTraining=true;
+  document.getElementById('battle-screen').classList.add('active');
+  document.getElementById('navbar').classList.add('paused');
+  document.getElementById('topbar').classList.add('paused');
+  document.getElementById('main').classList.add('paused');
+  document.getElementById('battle-result').style.display='none';
+  document.getElementById('battle-msg').innerHTML='';
+  initBattleState();
+  drawBattleField();
+  bmsg('训练开始！木人桩×9 各100HP','#f0d060');
+  battleTimer=setTimeout(battleTurn, 600/S.battleSpeed);
+}
+
 function openBattle(){
   if(S.selEnemy===null||S.selEnemy===undefined){toast('请先选敌人');return}
   if(formCnt()===0){toast('请先配置阵容');return}
-  S.battleActive=true;
+  S.battleActive=true; B.isTraining=false;
   document.getElementById('battle-screen').classList.add('active');
   document.getElementById('navbar').classList.add('paused');
   document.getElementById('topbar').classList.add('paused');
@@ -644,34 +659,59 @@ function fleeBattle(){
   document.getElementById('main').classList.remove('paused');
   document.getElementById('battle-result').style.display='none';
   S.formation=S._preForm;
-  addLog('逃离战斗'); save(); updateUI();
+  if(B.isTraining){B.isTraining=false;addLog('退出训练');}
+  else addLog('逃离战斗');
+  save(); updateUI();
 }
 
 function initBattleState(){
-  const e=CFG.enemies[S.selEnemy];
-  const tkey='steady'; // 战术归入英雄技能系统(P3)
-  S._preForm=JSON.parse(JSON.stringify(S.formation));
-  S._lastForm=JSON.parse(JSON.stringify(S.formation));
-  B.tactic=CFG.tactics[tkey]; B.enemyCfg=e;
-  B.round=0; B.maxRound=25+(e.boss?5:0); B.winner=null; B.msgs=[];
-  B.ourUnits=[]; B.enemyUnits=[];
-  let uid=0;
-  for(const row of['front','mid','back']){
-    for(const u of S.formation[row]){
-      const cfg=CFG.units[u.type];
-      B.ourUnits.push({id:uid++, fid:u.id, type:u.type, row, hp:u.count, maxHp:u.count,
-        icon:cfg.icon, name:cfg.name, spd:cfg.spd, atk:cfg.atk, def:cfg.def});
+  if(B.isTraining){
+    S._preForm=JSON.parse(JSON.stringify(S.formation));
+    S._lastForm=JSON.parse(JSON.stringify(S.formation));
+    B.tactic=CFG.tactics.steady; B.enemyCfg={name:'训练场',boss:false};
+    B.round=0; B.maxRound=99; B.winner=null; B.msgs=[];
+    B.ourUnits=[]; B.enemyUnits=[]; B.trainingStats={}; B.dummyDmg=[];
+    let uid=0;
+    for(const row of['front','mid','back']){
+      for(const u of S.formation[row]){
+        const cfg=CFG.units[u.type];
+        B.ourUnits.push({id:uid++, fid:u.id, type:u.type, row, hp:u.count, maxHp:u.count,
+          icon:cfg.icon, name:cfg.name, spd:cfg.spd, atk:cfg.atk, def:cfg.def});
+      }
     }
-  }
-  for(const[k,counts] of Object.entries(e.units)){
-    for(let i=0;i<counts.length;i++){
-      const cfg=CFG.units[k];
-      const bm=e.boss?e.bossMult:null;
-      B.enemyUnits.push({id:uid++, type:k, row:cfg.row, hp:counts[i], maxHp:counts[i],
-        icon:cfg.icon, name:cfg.name,
-        spd:cfg.spd,
-        atk:bm?Math.floor(cfg.atk*bm.atk):cfg.atk,
-        def:bm?Math.floor(cfg.def*bm.def):cfg.def});
+    const rows=['front','mid','back'];
+    for(let i=0;i<9;i++){
+      const rowIdx=Math.floor(i/3);
+      B.enemyUnits.push({id:uid++, type:'dummy', name:'木人桩', row:rows[rowIdx],
+        hp:100, maxHp:100, icon:'dummy', spd:0, atk:0, def:1, alive:true, dummyIdx:i});
+      B.dummyDmg.push(0);
+    }
+  }else{
+    const e=CFG.enemies[S.selEnemy];
+    const tkey='steady';
+    S._preForm=JSON.parse(JSON.stringify(S.formation));
+    S._lastForm=JSON.parse(JSON.stringify(S.formation));
+    B.tactic=CFG.tactics[tkey]; B.enemyCfg=e;
+    B.round=0; B.maxRound=25+(e.boss?5:0); B.winner=null; B.msgs=[];
+    B.ourUnits=[]; B.enemyUnits=[];
+    let uid=0;
+    for(const row of['front','mid','back']){
+      for(const u of S.formation[row]){
+        const cfg=CFG.units[u.type];
+        B.ourUnits.push({id:uid++, fid:u.id, type:u.type, row, hp:u.count, maxHp:u.count,
+          icon:cfg.icon, name:cfg.name, spd:cfg.spd, atk:cfg.atk, def:cfg.def});
+      }
+    }
+    for(const[k,counts] of Object.entries(e.units)){
+      for(let i=0;i<counts.length;i++){
+        const cfg=CFG.units[k];
+        const bm=e.boss?e.bossMult:null;
+        B.enemyUnits.push({id:uid++, type:k, row:cfg.row, hp:counts[i], maxHp:counts[i],
+          icon:cfg.icon, name:cfg.name,
+          spd:cfg.spd,
+          atk:bm?Math.floor(cfg.atk*bm.atk):cfg.atk,
+          def:bm?Math.floor(cfg.def*bm.def):cfg.def});
+      }
     }
   }
 }
@@ -682,23 +722,39 @@ function drawBattleField(){
   const ea=B.enemyUnits.filter(u=>u.alive!==false).length;
   const ohp=B.ourUnits.filter(u=>u.alive!==false).reduce((s,u)=>s+u.hp,0);
   const ehp=B.enemyUnits.filter(u=>u.alive!==false).reduce((s,u)=>s+u.hp,0);
-  document.getElementById('battle-title').innerHTML=`${pix('battle','sm')} ${B.enemyCfg.name} | 回合${B.round} | 我方${oa}团${ohp}人 vs 敌方${ea}团${ehp}人`;
+  document.getElementById('battle-title').innerHTML=`${pix('battle','sm')} ${B.enemyCfg.name} | 回合${B.round} | 我方${oa}团${ohp}人 vs ${B.isTraining?'木人桩':'敌方'}${ea}个${B.isTraining?'':'团'+ehp+'人'}`;
 
   let h='';
-  // 敌方
-  h+=`<div class="enemy-zone"><div class="zone-label">${pix(B.enemyCfg.boss?'boss':'enemy','sm')} 敌方</div>`;
-  for(const row of['back','mid','front']){
-    const units=B.enemyUnits.filter(u=>u.alive!==false&&u.row===row);
-    if(!units.length)continue;
-    h+=`<div class="battle-row"><div class="row-label">${row==='front'?'前排':row==='mid'?'中排':'后排'}</div>`;
-    for(const u of units){
-      h+=`<div class="unit-box" id="eu-${u.id}">
-        <span class="ub-icon">${pix(u.icon,'lg')}</span><span class="ub-name">${u.name}</span>
-        <span class="ub-hp">${u.hp}</span></div>`;
+  if(B.isTraining){
+    h+=`<div class="enemy-zone dummy-zone"><div class="zone-label">${pix('dummy','sm')} 木人桩 (训练目标)</div>`;
+    for(const row of['back','mid','front']){
+      const units=B.enemyUnits.filter(u=>u.alive!==false&&u.row===row);
+      if(!units.length)continue;
+      h+=`<div class="battle-row"><div class="row-label">${row==='front'?'前排':row==='mid'?'中排':'后排'}</div>`;
+      for(const u of units){
+        h+=`<div class="unit-box dummy-box" id="eu-${u.id}">
+          <span class="ub-icon">${pix(u.icon,'lg')}</span><span class="ub-name">${u.name}</span>
+          <span class="ub-hp">${u.hp}</span>
+          ${u.dummyIdx!==undefined?`<div class="dummy-dmg">受伤:${B.dummyDmg[u.dummyIdx]||0}</div>`:''}</div>`;
+      }
+      h+='</div>';
     }
-    h+='</div>';
+    h+=`</div><div style="text-align:center;font-size:10px;color:#3a4158;padding:2px">${pix('battle','sm')} VS ${pix('battle','sm')}</div>`;
+  }else{
+    h+=`<div class="enemy-zone"><div class="zone-label">${pix(B.enemyCfg.boss?'boss':'enemy','sm')} 敌方</div>`;
+    for(const row of['back','mid','front']){
+      const units=B.enemyUnits.filter(u=>u.alive!==false&&u.row===row);
+      if(!units.length)continue;
+      h+=`<div class="battle-row"><div class="row-label">${row==='front'?'前排':row==='mid'?'中排':'后排'}</div>`;
+      for(const u of units){
+        h+=`<div class="unit-box" id="eu-${u.id}">
+          <span class="ub-icon">${pix(u.icon,'lg')}</span><span class="ub-name">${u.name}</span>
+          <span class="ub-hp">${u.hp}</span></div>`;
+      }
+      h+='</div>';
+    }
+    h+=`</div><div style="text-align:center;font-size:10px;color:#3a4158;padding:2px">${pix('battle','sm')} VS ${pix('battle','sm')}</div>`;
   }
-  h+=`</div><div style="text-align:center;font-size:10px;color:#3a4158;padding:2px">${pix('battle','sm')} VS ${pix('battle','sm')}</div>`;
 
   // 我方
   h+=`<div class="our-zone"><div class="zone-label">${pix('army','sm')} 我方</div>`;
@@ -765,7 +821,7 @@ function calcDmg(attacker,defender,isOur){
   const isCrit=attacker.type==='spearman'&&Math.random()<0.1;
   const base=attacker.hp*atk/Math.max(1,def)*cmv*mmv*(0.8+Math.random()*0.4);
   const raw=Math.max(1,Math.floor(base));
-  return isCrit?raw*2:raw;
+  return {dmg:isCrit?raw*2:raw, crit:isCrit};
 }
 
 function spawnVFX(actorEl,targetEl,type){
@@ -802,7 +858,7 @@ function battleTurn(){
   const rows={front:0,mid:1,back:2};
   const all=[];
   for(const u of B.ourUnits) if(u.alive!==false) all.push({...u,side:'our'});
-  for(const u of B.enemyUnits) if(u.alive!==false) all.push({...u,side:'enemy'});
+  for(const u of B.enemyUnits) if(u.alive!==false&&u.type!=='dummy') all.push({...u,side:'enemy'});
   for(const a of all){
     if(a.side==='our') a.spd=Math.floor(a.spd*(1+(B.tactic.spdPct||0)));
   }
@@ -839,13 +895,23 @@ function battleTurn(){
     const archerMiss=isAttackMiss(actor,target);
     const cavDodge=!archerMiss&&target.type==='cavalry'&&actor.type!=='archer'&&Math.random()<0.1;
     const missed=archerMiss||cavDodge;
-    const dmg=missed?0:calcDmg(actor,target,actor.side==='our');
+    const cr=missed?{dmg:0,crit:false}:calcDmg(actor,target,actor.side==='our');
+    const dmg=cr.dmg; const isCrit=cr.crit;
     const cmv=cm(actor.type,target.type);
     const mmv=mm(actor.type,target.type);
     const actualKill=missed?0:Math.min(dmg,target.hp);
 
     if(!missed&&actorEl&&targetEl){
       spawnVFX(actorEl,targetEl,actor.type);
+    }
+
+    if(B.isTraining&&actor.side==='our'){
+      if(!B.trainingStats[actor.type])B.trainingStats[actor.type]={dmg:0,atks:0,crits:0,misses:0};
+      const ts=B.trainingStats[actor.type];
+      ts.atks++;
+      if(missed){ts.misses++;}
+      else{ts.dmg+=actualKill;if(isCrit)ts.crits++;}
+      if(target.dummyIdx!==undefined)B.dummyDmg[target.dummyIdx]+=actualKill;
     }
 
     setTimeout(()=>{
@@ -898,10 +964,68 @@ function rebuildFormation(){
   S.formation=newForm;
 }
 
+function showTrainingResult(){
+  const resEl=document.getElementById('battle-result');
+  const ts=B.trainingStats||{};
+  let h=`<div style="font-size:14px;font-weight:bold;color:#e0c870;margin-bottom:8px">${pix('dummy','sm')} 训练结束 — 数据统计</div>`;
+  h+=`<div style="font-size:10px;color:#888;margin-bottom:8px">回合${B.round} | 击破${B.enemyUnits.filter(u=>u.alive===false).length}/9个木人桩</div>`;
+  let totalDmg=0,totalAtks=0;
+  for(const[uk,t] of Object.entries(ts)){
+    totalDmg+=t.dmg; totalAtks+=t.atks;
+  }
+  h+=`<div style="font-size:11px;color:#aaa;margin-bottom:6px">总伤害: <span style="color:#f0d060">${totalDmg}</span> | 总攻击: <span style="color:#f0d060">${totalAtks}</span></div>`;
+  for(const[uk,t] of Object.entries(ts)){
+    const cfg=CFG.units[uk]; if(!cfg)continue;
+    const avg=t.atks>t.misses?(t.dmg/Math.max(1,t.atks-t.misses)).toFixed(1):'0';
+    h+=`<div class="training-stat-row">
+      <span class="ts-icon">${pix(cfg.icon,'sm')}</span>
+      <div class="ts-info">
+        <div class="ts-name">${cfg.name}</div>
+        <div class="ts-num">伤害:${t.dmg} | 攻击:${t.atks}次 | 均伤:${avg} | 暴击:${t.crits||0} | MISS:${t.misses||0}</div>
+      </div>
+    </div>`;
+  }
+  h+=`<div class="result-btns" style="margin-top:8px">
+    <button class="btn btn-go btn-sm" onclick="retryTraining()">重新测试</button>
+    <button class="btn btn-ghost btn-sm" onclick="exitTraining()">退出训练</button>
+  </div>`;
+  resEl.className='win';
+  resEl.innerHTML=h;
+  resEl.style.display='flex';
+}
+
+function retryTraining(){
+  document.getElementById('battle-result').style.display='none';
+  document.getElementById('battle-msg').innerHTML='';
+  B.isTraining=true;
+  initBattleState();
+  drawBattleField();
+  bmsg('重新测试开始！','#f0d060');
+  battleTimer=setTimeout(battleTurn,600/S.battleSpeed);
+}
+
+function exitTraining(){
+  if(battleTimer)clearTimeout(battleTimer);
+  S.battleActive=false; B.isTraining=false;
+  document.getElementById('battle-screen').classList.remove('active');
+  document.getElementById('navbar').classList.remove('paused');
+  document.getElementById('topbar').classList.remove('paused');
+  document.getElementById('main').classList.remove('paused');
+  document.getElementById('battle-result').style.display='none';
+  S.formation=S._preForm;
+  addLog('退出训练'); save(); updateUI();
+}
+
 function endBattle(result){
   if(battleTimer)clearTimeout(battleTimer);
   S.battleActive=false;
   rebuildFormation();
+  if(B.isTraining){
+    B.isTraining=false;
+    showTrainingResult();
+    save(); updateUI();
+    return;
+  }
   const resEl=document.getElementById('battle-result');
   let text='',cls='';
   if(result==='win'){
