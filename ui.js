@@ -168,7 +168,9 @@ function updateTownScene(){
     }
     return n;
   };
-  const h=woodWorkers+','+stoneWorkers+','+foodWorkers+','+Object.keys(CFG.units).map(k=>unitTotal(k)).join(',')+','+S.townLv;
+  // 哈希包含驻军阵容结构（不只是总人数），确保阵容变化时能刷新
+  const gHash=JSON.stringify(S._garrisonForm||{});
+  const h=woodWorkers+','+stoneWorkers+','+foodWorkers+','+Object.keys(CFG.units).map(k=>unitTotal(k)).join(',')+','+S.townLv+','+gHash;
   if(h===_townHash)return;
   _townHash=h;
   const html=renderTownMapOverview();
