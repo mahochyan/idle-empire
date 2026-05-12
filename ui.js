@@ -251,6 +251,13 @@ function rFight(){
 // ===== 远征子标签 =====
 function rExpedition(){
   let h=`<div class="card"><h3>${pix('army','card-pix')}远征阵容 (${formCnt()}/${formSlots()}团 | 上限${regMax()}人/团)</h3>`;
+  // 显示可用余量
+  const poolParts=[];
+  for(const[k,c]of Object.entries(CFG.units)){
+    const p=S.pool[k]||0;
+    if(p>0)poolParts.push(`${pix(c.icon,'mini')}${c.name}${p}`);
+  }
+  h+=`<div style="font-size:10px;color:#888;margin-bottom:4px">余量: ${poolParts.length?poolParts.join(' '):'无'}</div>`;
   const rs=[{k:'front',n:'前排(承伤)',c:'r1'},{k:'mid',n:'中排(输出)',c:'r2'},{k:'back',n:'后排(远程)',c:'r3'}];
   const which='expedition';
   for(const r of rs){

@@ -96,8 +96,15 @@ function garrisonCount(uk){
   }
   return n;
 }
+function expeditionCount(uk){
+  let n=0;
+  for(const row of['front','mid','back']){
+    for(const u of S.formation[row]){if(u.type===uk)n+=u.count;}
+  }
+  return n;
+}
 function unitCapLeft(uk){
-  return Math.max(0,unitCap(uk)-(S.pool[uk]||0)-garrisonCount(uk));
+  return Math.max(0,unitCap(uk)-(S.pool[uk]||0)-garrisonCount(uk)-expeditionCount(uk));
 }
 function queueTotal(uk){
   const q=S.queue[uk];
@@ -147,9 +154,9 @@ function trainBuildingLabel(uk){
   return `${cfg.name}: Lv.${st.lv}${st.state==='idle'?'':' / \u6682\u505c\u8bad\u7ec3'}`;
 }
 function reserveHtml(uk){
-  const cap=unitCap(uk),pool=S.pool[uk]||0,garrison=garrisonCount(uk);
-  const cls=cap>0&&(pool+garrison)<=cap?'limit-ok':'limit-warn';
-  const extra=cap>0?` | \u4e0a\u9650 ${cap} = \u9a7b\u519b ${garrison} + \u4f59\u91cf ${pool}`:'';
+  const cap=unitCap(uk),pool=S.pool[uk]||0,garrison=garrisonCount(uk),expedition=expeditionCount(uk);
+  const cls=cap>0&&(pool+garrison+expedition)<=cap?'limit-ok':'limit-warn';
+  const extra=cap>0?` | \u4e0a\u9650 ${cap} = \u8fdc\u5f81 ${expedition} + \u9a7b\u519b ${garrison} + \u4f59\u91cf ${pool}`:'';
   return extra;
 }
 function totalSoldiers(){
@@ -387,7 +394,7 @@ function openFormModal(which,row,idx){
   let hasAny=false;
   for(const[k,c] of Object.entries(CFG.units)){
     if(k==='mage'&&!mageOk())continue;
-    const av=poolAvail(k); // 都从驻军池取
+    const av=poolAvail(k);
     if(av<=0)continue;
     hasAny=true;
     const target=form[row][idx];
@@ -399,7 +406,7 @@ function openFormModal(which,row,idx){
       <div class="mu-detail">可编入:${av}人 | 上限 ${rm}人/团 | ${c.passive}</div></div>
     </div>`;
   }
-  if(!hasAny)h+='<div style="text-align:center;color:#666;padding:20px">驻军无可用士兵，请先训练</div>';
+  if(!hasAny)h+='<div style="text-align:center;color:#666;padding:20px">余量无可用士兵，请先训练</div>';
   h+='</div>';
   h+=`<div id="modal-qty-area" style="display:none"><div class="modal-qty">
     <button onpointerdown="startModalLongPress(-1)" onpointerup="stopModalLongPress()" onpointerleave="stopModalLongPress()" onpointercancel="stopModalLongPress()" onclick="event.preventDefault()">-</button>
@@ -452,7 +459,7 @@ function confirmForm(){
   const form=getForm(which);
   const qty=S._formModalQty;
   if(qty<=0){toast('人数无效');return}
-  if(poolAvail(type)<qty){toast('驻军不足');return}
+  if(poolAvail(type)<qty){toast('余量不足');return}
   const target=form[row][idx];
   if(target&&target.type===type){
     if(target.count+qty>regMax()){toast(`超过上限${regMax()}人/团`);return}
@@ -529,7 +536,7 @@ function adjForm(which,row,idx,d){
   if(!u)return;
   const nv=u.count+d;
   if(d>0 && nv>regMax()){toast(`上限${regMax()}人/团`);return}
-  if(d>0 && poolAvail(u.type)<d){toast('驻军不足');return}
+  if(d>0 && poolAvail(u.type)<d){toast('余量不足');return}
   if(nv<=0){S.pool[u.type]=(S.pool[u.type]||0)+u.count;form[row].splice(idx,1);updateUI();return}
   if(d>0){S.pool[u.type]-=d;}
   else if(d<0){S.pool[u.type]=(S.pool[u.type]||0)+(-d);}
@@ -1081,29 +1088,55 @@ function endBattle(result){
     cls='win';text=`${pix('win','sm')} 胜利！`;
     const e=CFG.enemies[S.selEnemy];
     const cap=storageCapacity();
-    for(const[r,v] of Object.entries(e.reward)){S.res[r]=(S.res[r]||0)+v;if(S.res[r]>cap)S.res[r]=cap;}
-    if(!S.defeated.includes(e.id)){
-      S.defeated.push(e.id);
-          }
+    // 统计战损
+    let lossTotal=0;
+    const lossByType={};
+    const preForm=S._preForm||{front:[],mid:[],back:[]};
+    for(const row of['front','mid','back']){
+      for(const u of preForm[row]){lossByType[u.type]=(lossByType[u.type]||0)+u.count;}
+      for(const u of S.formation[row]){lossByType[u.type]=(lossByType[u.type]||0)-u.count;}
+    }
+    for(const[k,v] of Object.entries(lossByType)){if(v>0)lossTotal+=v;}
+    // 发放奖励
+    let rewardHtml='';
+    for(const[r,v] of Object.entries(e.reward)){
+      S.res[r]=(S.res[r]||0)+v;if(S.res[r]>cap)S.res[r]=cap;
+      rewardHtml+=`<div style="font-size:11px;color:#f0d060">${pix(CFG.res[r].icon,'mini')} ${CFG.res[r].name} +${v}</div>`;
+    }
+    if(!S.defeated.includes(e.id)){S.defeated.push(e.id);}
     addLog(`战胜${e.name}`);
+    resEl.innerHTML=`
+      <span class="result-text">${text}</span>
+      ${lossTotal>0?`<div style="font-size:11px;color:#e06060;margin-top:4px">战损: ${lossTotal}人阵亡</div>`:''}
+      <div style="margin-top:8px;padding:8px;background:#121224;border:1px solid #2b3144;border-radius:4px">
+        <div style="font-size:10px;color:#888;margin-bottom:4px">战利品</div>
+        ${rewardHtml}
+      </div>
+      <div class="result-btns" style="margin-top:10px">
+        ${S.selEnemy+1<CFG.enemies.length?`<button class="btn btn-go btn-sm" onclick="nextBattle()">下一关</button>`:''}
+        <button class="btn btn-go btn-sm" onclick="retryBattle()">重新对战</button>
+        <button class="btn btn-ghost btn-sm" onclick="exitBattle()">退出</button>
+      </div>`;
   }else if(result==='lose'){
     cls='lose';text=`${pix('lose','sm')} 战败`;
     addLog(`败于${CFG.enemies[S.selEnemy].name}`);
+    resEl.innerHTML=`
+      <span class="result-text">${text}</span>
+      <div class="result-btns">
+        <button class="btn btn-go btn-sm" onclick="retryBattle()">重新对战</button>
+        <button class="btn btn-ghost btn-sm" onclick="exitBattle()">退出</button>
+      </div>`;
   }else{
     cls='lose';text=`${pix('timer','sm')} 超时`;
+    resEl.innerHTML=`
+      <span class="result-text">${text}</span>
+      <div class="result-btns">
+        <button class="btn btn-go btn-sm" onclick="retryBattle()">重新对战</button>
+        <button class="btn btn-ghost btn-sm" onclick="exitBattle()">退出</button>
+      </div>`;
   }
   save();
-  // 检查下一关是否可用
-  const nextIdx=S.selEnemy+1;
-  const hasNext=nextIdx<CFG.enemies.length && (S.defeated.includes(CFG.enemies[S.selEnemy].id) || result==='win');
   resEl.className=cls;
-  resEl.innerHTML=`
-    <span class="result-text">${text}</span>
-    <div class="result-btns">
-      ${hasNext?`<button class="btn btn-go btn-sm" onclick="nextBattle()">下一关</button>`:''}
-      <button class="btn btn-go btn-sm" onclick="retryBattle()">重新对战</button>
-      <button class="btn btn-ghost btn-sm" onclick="exitBattle()">退出</button>
-    </div>`;
   resEl.style.display='flex';
   updateUI();
 }
