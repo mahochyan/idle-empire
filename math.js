@@ -736,21 +736,28 @@ function getTarget(attacker,enemyList){
 }
 
 // 计算伤害（杀多少兵）
+// damage = hp * atk * DAMAGE_COEF * defenseFactor * counterFactor * mageFactor * passiveFactor * randomFactor
+const DAMAGE_COEF = 0.09;
 function calcDmg(attacker,defender,isOur){
-  const cmv=cm(attacker.type,defender.type);
-  const mmv=mm(attacker.type,defender.type);
+  // 攻击力（含战术加成）
   let atk=attacker.atk;
-  if(attacker.type==='infantry') atk=Math.floor(atk*1.1);
   if(isOur){
-    atk=Math.floor(atk*(1+(B.tactic.atkPct||0)));
-    if(attacker.row==='back') atk=Math.floor(atk*(1+(B.tactic.backPct||0)));
+    if(B.tactic.atkPct) atk=Math.floor(atk*(1+B.tactic.atkPct));
+    if(attacker.row==='back'&&B.tactic.backPct) atk=Math.floor(atk*(1+B.tactic.backPct));
   }
+  // 防御力（我方被攻击时享受战术防御加成）
   let def=defender.def;
-  if(isOur&&B.tactic.defPct)def=Math.floor(def*(1+B.tactic.defPct));
+  if(!isOur&&B.tactic.defPct) def=Math.floor(def*(1+B.tactic.defPct));
+  // 因子拆解
+  const defenseFactor=100/(100+def*8);
+  const counterFactor=cm(attacker.type,defender.type);
+  const mageFactor=mm(attacker.type,defender.type);
+  const passiveFactor=attacker.type==='infantry'?1.1:1.0;
+  const randomFactor=0.9+Math.random()*0.2;
+  // 暴击（长矛兵10%）
   const isCrit=attacker.type==='spearman'&&Math.random()<0.1;
-  const base=attacker.hp*atk/Math.max(1,def)*cmv*mmv*(0.8+Math.random()*0.4);
-  const raw=Math.max(1,Math.floor(base));
-  return {dmg:isCrit?raw*2:raw, crit:isCrit};
+  const raw=attacker.hp*atk*DAMAGE_COEF*defenseFactor*counterFactor*mageFactor*passiveFactor*randomFactor;
+  return {dmg:Math.max(1,Math.floor(isCrit?raw*2:raw)), crit:isCrit};
 }
 
 function spawnVFX(actorEl,targetEl,type){
