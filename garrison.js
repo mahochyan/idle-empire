@@ -207,15 +207,16 @@ function advanceGarrisonPhase(){
 
   if(g.phase==='warning'){
     if(garrisonTotal()<=0){
+      const loss=applyDefeatLoss();
       g.result={
         outcome:'empty',
-        summary:'无人驻守，敌人靠近后自行退去。',
+        summary:'城镇无人驻守，敌人洗劫后离去。',
         reward:{},
-        loss:{}
+        loss
       };
-      addGarrisonLog(`${inv.name}出现，但当前没有驻军。未造成资源损失。`,true);
+      addGarrisonLog(`【防御失败】${inv.name}来袭，城镇无人驻守！损失${formatGarrisonRes(loss)}。`,true);
       scheduleGarrisonCooldown(true);
-      setGarrisonPhase('cooldown',CFG.garrisonInvade.visualCooldownTicks);
+      setGarrisonPhase('result',CFG.garrisonInvade.resultTicks);
       return;
     }
     setGarrisonPhase('spawn',CFG.garrisonInvade.spawnTicks);
@@ -257,6 +258,16 @@ function advanceGarrisonPhase(){
 
 function cloneResMap(src){
   return Object.assign({wood:0,stone:0,food:0},src||{});
+}
+function applyDefeatLoss(){
+  const pct=0.03+Math.random()*0.02; // 3%~5%
+  const loss={wood:0,stone:0,food:0};
+  for(const k of Object.keys(CFG.res)){
+    if(!S.res[k])continue;
+    loss[k]=Math.max(1,Math.floor((S.res[k]||0)*pct));
+    S.res[k]=Math.max(0,(S.res[k]||0)-loss[k]);
+  }
+  return loss;
 }
 
 function formatGarrisonRes(res){
@@ -443,19 +454,17 @@ function applyGarrisonResult(inv,result){
   rebuildGarrisonFormationAfterBattle(result);
 
   const win=result.outcome==='win';
-  const reward=win?cloneResMap(inv.reward):{wood:0,stone:0,food:0};
-  const loss=win?{wood:0,stone:0,food:0}:cloneResMap(inv.loss);
   const cap=storageCapacity();
+  let reward={wood:0,stone:0,food:0},loss={wood:0,stone:0,food:0};
 
   if(win){
+    reward=cloneResMap(inv.reward);
     for(const k of Object.keys(CFG.res)){
       S.res[k]=Math.min(cap,(S.res[k]||0)+(reward[k]||0));
     }
     S.merit=(S.merit||0)+1;
   }else{
-    for(const k of Object.keys(CFG.res)){
-      S.res[k]=Math.max(0,(S.res[k]||0)-(loss[k]||0));
-    }
+    loss=applyDefeatLoss();
   }
 
   const msg=win

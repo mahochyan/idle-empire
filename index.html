@@ -563,12 +563,19 @@ body{
 .town-map.is-warning .town-frontier-zone,.town-map.is-battle .town-frontier-zone,.town-map.is-result .town-frontier-zone{
   display:block;
 }
-.town-map.is-sortie .town-guard{
-  animation:townGuardSortie 1.25s ease-out forwards;
-}
-.town-map.is-battle .town-guard{
-  animation:none!important;transform:translate(58px,-7px) scaleX(-1);
-}
+/* 出击动画 — 每个兵种独立偏移，向右侧敌人方向移动但不出界 */
+.town-map.is-sortie .guard-archer{animation:townGuardSortieArcher 1.25s ease-out forwards}
+.town-map.is-sortie .guard-cavalry{animation:townGuardSortieCavalry 1.25s ease-out forwards}
+.town-map.is-sortie .guard-infantry{animation:townGuardSortieInfantry 1.25s ease-out forwards}
+.town-map.is-sortie .guard-mage{animation:townGuardSortieMage 1.25s ease-out forwards}
+.town-map.is-sortie .guard-spearman{animation:townGuardSortieSpearman 1.25s ease-out forwards}
+/* 交战状态 — 每个兵种停在对应位置，不再统一偏移 */
+.town-map.is-battle .town-guard{animation:none!important}
+.town-map.is-battle .guard-archer{transform:translate(70px,3px) scaleX(-1)}
+.town-map.is-battle .guard-cavalry{transform:translate(45px,-4px) scaleX(-1)}
+.town-map.is-battle .guard-infantry{transform:translate(25px,4px) scaleX(-1)}
+.town-map.is-battle .guard-mage{transform:translate(8px,6px) scaleX(-1)}
+.town-map.is-battle .guard-spearman{transform:translate(-15px,3px) scaleX(-1)}
 .town-invader{
   position:absolute;right:8%;top:62%;width:42px;height:42px;opacity:1;
   filter:drop-shadow(0 3px 0 rgba(0,0,0,.45));
@@ -624,9 +631,25 @@ body{
   0%{right:8%;opacity:1;filter:grayscale(0)}
   100%{right:4%;opacity:0;filter:grayscale(1);transform:translateY(8px) scale(.75)}
 }
-@keyframes townGuardSortie{
+@keyframes townGuardSortieArcher{
   0%{transform:translate(0,0) scaleX(-1)}
-  100%{transform:translate(58px,-7px) scaleX(-1)}
+  100%{transform:translate(70px,3px) scaleX(-1)}
+}
+@keyframes townGuardSortieCavalry{
+  0%{transform:translate(0,0) scaleX(-1)}
+  100%{transform:translate(45px,-4px) scaleX(-1)}
+}
+@keyframes townGuardSortieInfantry{
+  0%{transform:translate(0,0) scaleX(-1)}
+  100%{transform:translate(25px,4px) scaleX(-1)}
+}
+@keyframes townGuardSortieMage{
+  0%{transform:translate(0,0) scaleX(-1)}
+  100%{transform:translate(8px,6px) scaleX(-1)}
+}
+@keyframes townGuardSortieSpearman{
+  0%{transform:translate(0,0) scaleX(-1)}
+  100%{transform:translate(-15px,3px) scaleX(-1)}
 }
 @keyframes townSkirmishFlash{
   0%,100%{opacity:.25;transform:scale(.82)}
