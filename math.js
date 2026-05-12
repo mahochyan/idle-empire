@@ -704,9 +704,6 @@ function getTarget(attacker,enemyList){
   const minR=Math.min(...alive.map(u=>rows[u.row]));
   const front=alive.filter(u=>rows[u.row]===minR);
 
-  // 近战不在前排 → 不能攻击
-  if(!isRanged(attacker.type) && attacker.row!=='front') return null;
-
   if(isRanged(attacker.type)){
     // 远程：60%命中前排（被前线阻挡）
     if(front.length>0 && Math.random()<0.6){
@@ -714,7 +711,7 @@ function getTarget(attacker,enemyList){
     }
     return alive[Math.floor(Math.random()*alive.length)];
   }
-  // 近战(前排)：只能打敌方最前排
+  // 近战：只能打敌方最前排
   return front[Math.floor(Math.random()*front.length)];
 }
 
