@@ -18,7 +18,8 @@ let S = {
   _trainQty:{},
   _testUnlocked:false,
   _garrisonForm:{front:[],mid:[],back:[]},
-  _fightTab:'expedition'
+  _fightTab:'expedition',
+  _buildTab:'basic'
 };
 
 // ==================== 辅助 ====================
@@ -173,6 +174,7 @@ function poolAvail(uk){ return S.pool[uk]||0; }
 function getForm(which){ return which==='garrison'?S._garrisonForm:S.formation; }
 // 切换战斗页子标签
 function setFightTab(tab){ S._fightTab=tab; updateUI(); }
+function setBuildTab(tab){ S._buildTab=tab; updateUI(); }
 function rowSlots(row){
   const boss=bossDefeatedCount();
   if(row==='front') return 1+(boss>=1?1:0);

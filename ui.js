@@ -169,45 +169,69 @@ function updateTownScene(){
   const html=renderTownMapOverview();
   document.getElementById('town-scene').innerHTML=html;
 }
-function rBuild(){
-  let h=`<div style="padding:4px 0">`;
-  for(const[key,cfg] of Object.entries(CFG.buildings)){
-    const st=bldSt(key),locked=cfg.needBoss&&bossDefeatedCount()<cfg.needBoss,upLock=st.lv>0?upgradeLockReason(key):'';
-    h+=`<div class="card" style="${locked||upLock?'opacity:.7':''}"><h3>`;
-    h+=`${pix(key,'card-pix')}${cfg.name}`;if(st.state==='idle'&&st.lv>0)h+=` <span style="color:#f0d060">Lv.${st.lv}</span>`;
-    if(key==='barracks')h+=` <span style="font-size:11px;color:#888">(\u51fa\u6218\u4e0a\u9650${regMax()}\u4eba/\u683c${st.lv<=0?'\uff0c\u5efa\u9020\u540e100\u4eba/\u683c':''})</span>`;
-    if(key==='warehouse'&&st.state==='idle'&&st.lv>0)h+=` <span style="font-size:11px;color:#f0d060">\u5b58\u50a8\u4e0a\u9650 ${storageCapacity()}</span>`;
-    h+=`</h3>`;
-    if(cfg.trains){
-      const u=CFG.units[cfg.trains],cap=unitCap(cfg.trains);
-      const nextCfgLv=Math.max(1,st.lv+(st.lv===0?1:1));
-      const nextCap=(cfg.unitCap||[])[Math.min(nextCfgLv,(cfg.unitCap||[]).length-1)]||0;
-      h+=`<div class="build-meta">\u8bad\u7ec3: ${pix(u.icon,'mini')}${u.name} | \u9a7b\u519b\u4e0a\u9650 ${st.lv>0?cap:0}${st.lv>0?` \u2192 ${nextCap}`:` (\u5efa\u6210\u540e ${nextCap})`}</div>`;
-      if(locked)h+=`<div class="build-meta limit-warn">${pix('lock','mini')}\u51fb\u8d25\u7b2c5\u4e2a\u654c\u4eba\u540e\u89e3\u9501</div>`;
-    }
-    if(cfg.buffRes){
-      h+=`<div class="build-meta">${resourceCapText()} | \u51fb\u8d25Boss\u540e\u89e3\u9501\u4e0b\u4e00\u7ea7</div>`;
-      if(upLock)h+=`<div class="build-meta limit-warn">${pix('lock','mini')}${upLock}</div>`;
-    }
-    if(st.state==='idle'){
-      if(st.lv===0){
-        const c=cfg.build;
-        h+=`<div style="font-size:11px;color:#888">\u5efa\u9020: ${costHtml(c)} | ${c.time}\u79d2</div>`;
-        h+=`<button class="btn btn-go btn-sm" onclick="buildAct('${key}')" ${locked?'disabled':''}>${pix('build','mini')}\u5efa\u9020</button>`;
-      }else{
-        if(cfg.buffRes)h+=`<div style="font-size:12px;color:#40bf80">${pix(CFG.res[cfg.buffRes].icon,'sm')} ${CFG.res[cfg.buffRes].name} Buff: +${((bldSt(key).lv*cfg.buffPerLv+cfg.buffBase)*100).toFixed(0)}%</div>`;
-        const uc=upCost(key);
-        h+=`<div style="font-size:10px;color:#666">\u5347\u7ea7: ${costHtml(uc)} | ${uc.time}\u79d2</div>`;
-        h+=`<button class="btn btn-go btn-sm" onclick="buildAct('${key}')" ${upLock?'disabled':''}>${pix('upgrade','mini')}\u5347\u7ea7\u2192Lv.${st.lv+1}</button>`;
-      }
-    }else{
-      const pct=st.timerEnd>0?((st.timerEnd-st.timer)/st.timerEnd*100).toFixed(0):0;
-      h+=`<div class="timer-text pulsing">${pix('timer','mini')} ${st.state==='building'?'\u5efa\u9020':'\u5347\u7ea7'}\u4e2d... ${st.timer}\u79d2</div>`;
-      h+=`<div class="prog-wrap"><div class="prog-fill" style="width:${pct}%"></div></div>`;
-    }
-    h+=`</div>`;
+const BUILD_CATEGORIES = {
+  basic: {name:'\u57fa\u7840\u5efa\u7b51',keys:['warehouse','lumber_mill','quarry','farm']},
+  barracks: {name:'\u5175\u8425\u5efa\u7b51',keys:['barracks','infantry_camp','archer_range','stable','spear_crypt','mage_tower']},
+  special: {name:'\u7279\u6b8a\u5efa\u7b51',keys:[]},
+  altar: {name:'\u82f1\u96c4\u796d\u575b',keys:[]}
+};
+
+function rBuildCard(key, cfg){
+  const st=bldSt(key),locked=cfg.needBoss&&bossDefeatedCount()<cfg.needBoss,upLock=st.lv>0?upgradeLockReason(key):'';
+  const buffLabel=cfg.buffRes&&st.state==='idle'&&st.lv>0?`<span style="font-size:12px;color:#40bf80">${pix(CFG.res[cfg.buffRes].icon,'sm')} ${CFG.res[cfg.buffRes].name} Buff: +${((st.lv*cfg.buffPerLv+cfg.buffBase)*100).toFixed(0)}%</span>`:'';
+  let h=`<div class="card" style="${locked||upLock?'opacity:.7':''}"><h3 style="display:flex;justify-content:space-between;align-items:center">`;
+  h+=`<span>${pix(key,'card-pix')}${cfg.name}`;if(st.state==='idle'&&st.lv>0)h+=` <span style="color:#f0d060">Lv.${st.lv}</span>`;
+  if(key==='barracks')h+=` <span style="font-size:11px;color:#888">(\u51fa\u6218\u4e0a\u9650${regMax()}\u4eba/\u683c${st.lv<=0?'\uff0c\u5efa\u9020\u540e100\u4eba/\u683c':''})</span>`;
+  if(key==='warehouse'&&st.state==='idle'&&st.lv>0)h+=` <span style="font-size:11px;color:#f0d060">\u5b58\u50a8\u4e0a\u9650 ${storageCapacity()}</span>`;
+  h+=`</span>${buffLabel}</h3>`;
+  if(cfg.trains){
+    const u=CFG.units[cfg.trains],cap=unitCap(cfg.trains);
+    const nextCfgLv=Math.max(1,st.lv+(st.lv===0?1:1));
+    const nextCap=(cfg.unitCap||[])[Math.min(nextCfgLv,(cfg.unitCap||[]).length-1)]||0;
+    h+=`<div class="build-meta">\u8bad\u7ec3: ${pix(u.icon,'mini')}${u.name} | \u9a7b\u519b\u4e0a\u9650 ${st.lv>0?cap:0}${st.lv>0?` \u2192 ${nextCap}`:` (\u5efa\u6210\u540e ${nextCap})`}</div>`;
+    if(locked)h+=`<div class="build-meta limit-warn">${pix('lock','mini')}\u51fb\u8d25\u7b2c5\u4e2a\u654c\u4eba\u540e\u89e3\u9501</div>`;
   }
-  h+=`</div>`;return h;
+  if(cfg.buffRes || cfg.storagePerLv){
+    h+=`<div class="build-meta">${resourceCapText()} | \u51fb\u8d25Boss\u540e\u89e3\u9501\u4e0b\u4e00\u7ea7</div>`;
+    if(upLock)h+=`<div class="build-meta limit-warn">${pix('lock','mini')}${upLock}</div>`;
+  }
+  if(st.state==='idle'){
+    if(st.lv===0){
+      const c=cfg.build;
+      h+=`<div style="font-size:11px;line-height:14px;color:#888">\u5efa\u9020: ${costHtml(c)} | ${c.time}\u79d2</div>`;
+      h+=`<button class="btn btn-go btn-sm" onclick="buildAct('${key}')" ${locked?'disabled':''}>${pix('build','mini')}\u5efa\u9020</button>`;
+    }else{
+      const uc=upCost(key);
+      h+=`<div style="font-size:10px;line-height:14px;color:#666">\u5347\u7ea7: ${costHtml(uc)} | ${uc.time}\u79d2</div>`;
+      h+=`<button class="btn btn-go btn-sm" onclick="buildAct('${key}')" ${upLock?'disabled':''}>${pix('upgrade','mini')}\u5347\u7ea7\u2192Lv.${st.lv+1}</button>`;
+    }
+  }else{
+    const pct=st.timerEnd>0?((st.timerEnd-st.timer)/st.timerEnd*100).toFixed(0):0;
+    h+=`<div class="timer-text pulsing">${pix('timer','mini')} ${st.state==='building'?'\u5efa\u9020':'\u5347\u7ea7'}\u4e2d... ${st.timer}\u79d2</div>`;
+    h+=`<div class="prog-wrap"><div class="prog-fill" style="width:${pct}%"></div></div>`;
+  }
+  h+=`</div>`;
+  return h;
+}
+
+function rBuild(){
+  const tab=S._buildTab||'basic';
+  const tabs=[{k:'basic',n:'\u57fa\u7840\u5efa\u7b51'},{k:'barracks',n:'\u5175\u8425\u5efa\u7b51'},{k:'special',n:'\u7279\u6b8a\u5efa\u7b51'},{k:'altar',n:'\u82f1\u96c4\u796d\u575b'}];
+  let h=`<div style="display:flex;gap:4px;margin-bottom:6px">`;
+  for(const t of tabs){
+    h+=`<button class="btn btn-sm ${tab===t.k?'btn-go':'btn-ghost'}" style="flex:1" onclick="setBuildTab('${t.k}')">${t.n}</button>`;
+  }
+  h+=`</div>`;
+  const cat=BUILD_CATEGORIES[tab];
+  if(!cat||!cat.keys.length){
+    h+=`<div style="text-align:center;color:#666;padding:30px">\u6682\u65e0\u5efa\u7b51</div>`;
+  }else{
+    for(const key of cat.keys){
+      const cfg=CFG.buildings[key];
+      if(cfg)h+=rBuildCard(key,cfg);
+    }
+  }
+  return h;
 }
 function rBarracks(){
   let h=`<div style="padding:4px 0"><div style="font-size:12px;color:#888;margin:4px 0">\u603b\u5175\u529b ${totalSoldiers()} | \u8425\u5e10\u4e0a\u9650 ${regMax()}\u4eba/\u56e2</div>`;
