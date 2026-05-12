@@ -691,7 +691,8 @@ body{
 #battle-field{position:relative}
 #battle-vfx-layer{position:absolute;inset:0;pointer-events:none;z-index:50;overflow:visible}
 .vfx{position:absolute;pointer-events:none;z-index:999;transform-origin:center center}
-.vfx-slash{width:6px;height:24px;background:linear-gradient(to bottom,#fff8c0,#ffd700,#e09000);border-radius:3px;box-shadow:0 0 10px rgba(255,215,0,1),0 0 22px rgba(255,180,0,.7),0 0 40px rgba(255,150,0,.4)}
+.vfx-slash{width:28px;height:28px;border-radius:50%;border:5px solid transparent;border-top-color:#ffe566;border-right-color:#ffb800;box-shadow:0 0 16px rgba(255,215,0,1),0 0 35px rgba(255,180,0,.7),0 0 55px rgba(255,120,0,.4)}
+.vfx-slash::after{content:'';position:absolute;top:2px;left:2px;width:20px;height:20px;border-radius:50%;border:3px solid transparent;border-top-color:#fff9c0;border-right-color:#ffd700;box-shadow:0 0 10px rgba(255,255,200,1)}
 .vfx-arrow{width:3px;height:22px;background:linear-gradient(to bottom,#ffffff,#e8d898);border-radius:1px;box-shadow:0 0 8px rgba(240,220,160,1),0 0 16px rgba(220,200,140,.6)}
 .vfx-arrow::before{content:'';position:absolute;top:-6px;left:-5px;width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;border-bottom:8px solid #f8f0d0;filter:drop-shadow(0 0 5px rgba(255,255,220,1))}
 .vfx-thrust{width:4px;height:28px;background:linear-gradient(to bottom,#e8e0c0,#a09060,#8B7355);border-radius:1px;box-shadow:0 0 8px rgba(220,200,160,1),0 0 18px rgba(200,180,140,.5)}
