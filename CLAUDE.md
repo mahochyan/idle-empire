@@ -13,8 +13,8 @@
 | 文件 | 说明 |
 |------|------|
 | `index.html` | HTML 骨架 + 完整 CSS 样式（像素风皮肤、动画、响应式） |
-| `config.js` | 游戏配置：资源定义、城镇等级、兵种、克制关系、命中率、战术 |
-| `buildings.js` | 建筑配置：资源建筑、兵营、仓库的建造/升级费用和属性 |
+| `config.js` | 游戏配置：资源定义、城镇等级、兵种、克制关系、命中率、战术、建筑配置、升级上限 |
+
 | `levels.js` | 关卡配置：30关敌人阵容、Boss属性、掉落奖励 |
 | `sprites.js` | 像素图标：32×32 像素画生成 + injectPixelIcons() |
 | `math.js` | 全部游戏逻辑：状态 `S`、辅助函数、存档、tick、操作、战斗系统、编队弹窗、单位详情 |
@@ -31,19 +31,18 @@
 
 ```
 index.html     ───  DOM 骨架、CSS 皮肤、弹窗/战斗屏容器
-config.js      ───  CFG 全局配置（资源/城镇/兵种/克制/战术）
-buildings.js   ───  CFG.buildings 建筑配置
+config.js      ───  CFG 全局配置（资源/城镇/兵种/建筑/克制/战术）
 levels.js      ───  CFG.enemies 关卡配置
 sprites.js     ───  pixelIcons 对象 + pix() 渲染函数
 math.js        ───  S状态 + 全部游戏逻辑（不含UI渲染）
 ui.js          ───  HTML拼接渲染 + DOM事件绑定 + 导航
 ```
 
-加载顺序：`config.js` → `buildings.js` → `levels.js` → `sprites.js` → `math.js` → `ui.js`
+加载顺序：`config.js` → `levels.js` → `sprites.js` → `math.js` → `ui.js`
 
 ### 核心全局对象
 
-- `CFG` — 全部静态配置（资源、建筑、兵种、敌人、城镇、克制、miss表、战术），分布在 config.js / buildings.js / levels.js
+- `CFG` — 全部静态配置（资源、建筑、兵种、敌人、城镇、克制、miss表、战术），分布在 config.js / levels.js
 - `S` — 运行时状态（资源、建筑、人口分配、兵力池、编队、队列、日志、battleSpeed等）
 - `B` — 战斗临时状态（每场独立，我方/敌方单位数组、回合计数、战术、消息队列）
 - `pixelIcons` — 32×32 像素图标位图定义（sprites.js）

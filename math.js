@@ -66,15 +66,20 @@ function storageCapacity(){
   return (cfg.storageBase??2000) + whLv * (cfg.storagePerLv??500);
 }
 function upgradeLockReason(key){
-  const cfg=CFG.buildings[key],st=bldSt(key);
-  // \u5175\u8425\u5efa\u7b51\uff1a\u6700\u9ad8\u7b49\u7ea7 = \u57ce\u9547\u7b49\u7ea7 \u00d7 10
-  if(cfg.trains && st.lv>=S.townLv*10) return `\u9700\u5347\u7ea7\u57ce\u9547\u5230Lv.${Math.floor(st.lv/10)+1}`;
-  // \u975e\u5175\u8425\u5efa\u7b51\uff1a\u6700\u9ad8\u7b49\u7ea7 = \u57ce\u9547\u7b49\u7ea7
-  if(!cfg.trains && st.lv>=S.townLv) return `\u9700\u5347\u7ea7\u57ce\u9547\u5230Lv.${S.townLv+1}`;
-  if((cfg.buffRes||cfg.storagePerLv)&&st.lv>=resourceLevelCap()){
+  const cfg=CFG.buildings[key],st=bldSt(key),cap=CFG.buildingCaps;
+  // \u5175\u8425\u5efa\u7b51\uff08\u6b65\u5175/\u5f13\u5175/\u9a91\u5175/\u77db\u5175/\u6cd5\u5e08\uff09\uff1a\u4e0a\u9650 = \u57ce\u9547\u7b49\u7ea7 \u00d7 buildingCaps.training
+  if(cfg.trains && st.lv>=S.townLv*cap.training) return `\u9700\u5347\u7ea7\u57ce\u9547\u5230Lv.${Math.floor(st.lv/cap.training)+1}`;
+  // \u4ed3\u5e93\uff1a\u4e0a\u9650 = \u57ce\u9547\u7b49\u7ea7 \u00d7 buildingCaps.warehouse
+  if(cfg.storagePerLv && st.lv>=S.townLv*cap.warehouse) return `\u9700\u5347\u7ea7\u57ce\u9547\u5230Lv.${Math.floor(st.lv/cap.warehouse)+1}`;
+  // \u8425\u5e10\uff1a\u4e0a\u9650 = \u57ce\u9547\u7b49\u7ea7 \u00d7 buildingCaps.barracks
+  if(!cfg.trains&&!cfg.storagePerLv&&!cfg.buffRes && st.lv>=S.townLv*cap.barracks) return `\u9700\u5347\u7ea7\u57ce\u9547\u5230Lv.${Math.floor(st.lv/cap.barracks)+1}`;
+  // \u8d44\u6e90\u5efa\u7b51\uff08\u4f10\u6728\u573a/\u91c7\u77f3\u573a/\u519c\u7530\uff09\uff1a\u53d7\u7ae0\u8282Boss\u9650\u5236
+  if(cfg.buffRes&&st.lv>=resourceLevelCap()){
     const nextBoss=CFG.enemies.find(e=>e.boss&&!S.defeated.includes(e.id));
     return nextBoss?`\u5df2\u8fbe${resourceCapText()}\uff0c\u51fb\u8d25${nextBoss.name}\u540e\u7ee7\u7eed\u5347\u7ea7`:`\u5df2\u8fbe${resourceCapText()}`;
   }
+  // \u8d44\u6e90\u5efa\u7b51\uff1a\u4e0a\u9650 = \u57ce\u9547\u7b49\u7ea7 \u00d7 buildingCaps.resource
+  if(cfg.buffRes && st.lv>=S.townLv*cap.resource) return `\u9700\u5347\u7ea7\u57ce\u9547\u5230Lv.${Math.floor(st.lv/cap.resource)+1}`;
   return '';
 }
 function regMax(){
