@@ -74,8 +74,9 @@ function renderTownMapOverview(){
   const foodWorkers=S.popAlloc.food||0;
   const unitTotal=uk=>{
     let n=S.pool[uk]||0;
+    const gf=S._garrisonForm||{front:[],mid:[],back:[]};
     for(const row of['front','mid','back']){
-      for(const u of S.formation[row]){
+      for(const u of gf[row]){
         if(u.type===uk)n+=u.count;
       }
     }
@@ -161,8 +162,9 @@ function updateTownScene(){
   const foodWorkers=S.popAlloc.food||0;
   const unitTotal=uk=>{
     let n=S.pool[uk]||0;
+    const gf=S._garrisonForm||{front:[],mid:[],back:[]};
     for(const row of['front','mid','back']){
-      for(const u of S.formation[row]){if(u.type===uk)n+=u.count;}
+      for(const u of gf[row]){if(u.type===uk)n+=u.count;}
     }
     return n;
   };
@@ -236,41 +238,52 @@ function rBarracks(){
   h+=`</div>`;return h;
 }
 function rFight(){
-  let h=`<div style="padding:4px 0"><div class="card"><h3>${pix('army','card-pix')}出战阵容 [营帐] (${formCnt()}/${formSlots()}团 | 上限${regMax()}人/团)</h3>`;
+  const tab=S._fightTab||'expedition';
+  let h=`<div style="padding:4px 0">`;
+  // 子标签切换
+  h+=`<div style="display:flex;gap:4px;margin-bottom:8px">`;
+  h+=`<button class="btn btn-sm ${tab==='expedition'?'btn-go':'btn-ghost'}" onclick="setFightTab('expedition')">远征</button>`;
+  h+=`<button class="btn btn-sm ${tab==='garrison'?'btn-go':'btn-ghost'}" onclick="setFightTab('garrison')">驻军</button>`;
+  h+=`<button class="btn btn-sm ${tab==='training'?'btn-go':'btn-ghost'}" onclick="setFightTab('training')">训练场</button>`;
+  h+=`</div>`;
+  if(tab==='expedition')h+=rExpedition();
+  else if(tab==='garrison')h+=rGarrison();
+  else if(tab==='training')h+=rTraining();
+  h+=`</div>`;
+  return h;
+}
+// ===== 远征子标签 =====
+function rExpedition(){
+  let h=`<div class="card"><h3>${pix('army','card-pix')}远征阵容 (${formCnt()}/${formSlots()}团 | 上限${regMax()}人/团)</h3>`;
   const rs=[{k:'front',n:'前排(承伤)',c:'r1'},{k:'mid',n:'中排(输出)',c:'r2'},{k:'back',n:'后排(远程)',c:'r3'}];
+  const which='expedition';
   for(const r of rs){
     h+=`<div class="form-row ${r.c}"><div class="ftitle">${r.n} (${S.formation[r.k].length}/${rowSlots(r.k)})</div>`;
     if(!S.formation[r.k].length){
-      h+=`<span class="form-slot" onclick="openFormModal('${r.k}',0)">+ 空位</span>`;
+      h+=`<span class="form-slot" onclick="openFormModal('${which}','${r.k}',0)">+ 空位</span>`;
     }else{
       S.formation[r.k].forEach((u,i)=>{
         const mx=Math.min(regMax()-u.count, poolAvail(u.type));
         h+=`<span class="form-slot filled" style="position:relative">
-          <span onclick="rmForm('${r.k}',${i})" style="position:absolute;top:-6px;right:-4px;cursor:pointer;z-index:1">${pix('close','mini')}</span>
-          <div onclick="openFormModal('${r.k}',${i})">${pix(CFG.units[u.type].icon,'sm')}${CFG.units[u.type].name}<br>
+          <span onclick="rmForm('${which}','${r.k}',${i})" style="position:absolute;top:-6px;right:-4px;cursor:pointer;z-index:1">${pix('close','mini')}</span>
+          <div onclick="openFormModal('${which}','${r.k}',${i})">${pix(CFG.units[u.type].icon,'sm')}${CFG.units[u.type].name}<br>
           <span style="font-size:10px;color:#f0d060">${u.count}人</span></div>
           <div class="qty-ctrl" style="margin-top:3px;gap:2px;justify-content:center">
-            <button onpointerdown="startLongPress('${r.k}',${i},-1)" onpointerup="stopLongPress()" onpointerleave="stopLongPress()" onpointercancel="stopLongPress()" style="width:24px;height:24px;border-radius:50%;border:1px solid #555;background:#1a1a2e;color:#e0e0e0;font-size:14px;cursor:pointer;touch-action:manipulation">−</button>
+            <button onpointerdown="startLongPress('${which}','${r.k}',${i},-1)" onpointerup="stopLongPress()" onpointerleave="stopLongPress()" onpointercancel="stopLongPress()" style="width:24px;height:24px;border-radius:50%;border:1px solid #555;background:#1a1a2e;color:#e0e0e0;font-size:14px;cursor:pointer;touch-action:manipulation">−</button>
             <span style="min-width:24px;font-size:12px;color:#f0d060">${u.count}</span>
-            <button onpointerdown="startLongPress('${r.k}',${i},1)" onpointerup="stopLongPress()" onpointerleave="stopLongPress()" onpointercancel="stopLongPress()" style="width:24px;height:24px;border-radius:50%;border:1px solid #555;background:#1a1a2e;color:#e0e0e0;font-size:14px;cursor:pointer;touch-action:manipulation">+</button>
+            <button onpointerdown="startLongPress('${which}','${r.k}',${i},1)" onpointerup="stopLongPress()" onpointerleave="stopLongPress()" onpointercancel="stopLongPress()" style="width:24px;height:24px;border-radius:50%;border:1px solid #555;background:#1a1a2e;color:#e0e0e0;font-size:14px;cursor:pointer;touch-action:manipulation">+</button>
           </div>
           <div style="margin-top:3px;display:flex;gap:3px;justify-content:center">
-            ${mx>0?`<span onclick="event.stopPropagation();adjForm('${r.k}',${i},${mx})" style="font-size:9px;padding:2px 6px;border:1px solid #40bf80;background:#1a2e1a;color:#40bf80;cursor:pointer">MAX</span>`:''}
-            <span onclick="event.stopPropagation();rmForm('${r.k}',${i})" style="font-size:9px;padding:2px 6px;border:1px solid #e06060;background:#2e1a1a;color:#e06060;cursor:pointer">移除</span>
+            ${mx>0?`<span onclick="event.stopPropagation();adjForm('${which}','${r.k}',${i},${mx})" style="font-size:9px;padding:2px 6px;border:1px solid #40bf80;background:#1a2e1a;color:#40bf80;cursor:pointer">MAX</span>`:''}
+            <span onclick="event.stopPropagation();rmForm('${which}','${r.k}',${i})" style="font-size:9px;padding:2px 6px;border:1px solid #e06060;background:#2e1a1a;color:#e06060;cursor:pointer">移除</span>
           </div></span>`;
       });
-      if(S.formation[r.k].length<rowSlots(r.k))h+=`<span class="form-slot" onclick="openFormModal('${r.k}',${S.formation[r.k].length})">+ 空位</span>`;
+      if(S.formation[r.k].length<rowSlots(r.k))h+=`<span class="form-slot" onclick="openFormModal('${which}','${r.k}',${S.formation[r.k].length})">+ 空位</span>`;
     }
     h+=`</div>`;
   }
-  h+=`<button class="btn btn-go btn-sm" onclick="useLastFormation()">使用上次阵容</button>
-  <button class="btn btn-ghost btn-sm" onclick="clrForm()">清空阵容</button></div>`;
-  h+=`<div class="card" style="border-color:#5a4a30;background:#12100a;margin-bottom:6px">
-    <div style="display:flex;align-items:center;justify-content:space-between">
-      <div><strong>${pix('dummy','sm')}训练场</strong> <span style="font-size:10px;color:#888">3×3木人桩 各100HP</span></div>
-      <button class="btn btn-go btn-sm" onclick="openTraining()">进入训练</button>
-    </div>
-  </div>`;
+  h+=`<button class="btn btn-go btn-sm" onclick="useLastFormation('expedition')">使用上次阵容</button>
+  <button class="btn btn-ghost btn-sm" onclick="clrForm('expedition')">清空阵容</button></div>`;
   h+=`<div class="card"><h3>${pix('enemy','card-pix')}敌人 — 第${S.defeated.length+1}层</h3>`;
   const cur=S.defeated.length;
   for(let i=cur;i<=cur+1&&i<CFG.enemies.length;i++){
@@ -282,7 +295,54 @@ function rFight(){
     </div>`;
   }
   if(cur>=CFG.enemies.length)h+=`<div style="color:#40bf80;text-align:center;padding:10px">全部通关！</div>`;
-  h+=`</div><button class="btn btn-go" style="width:100%;margin-top:8px;padding:12px;font-size:15px" onclick="openBattle()">${pix('battle','sm')}开战</button></div></div>`;
+  h+=`</div><button class="btn btn-go" style="width:100%;margin-top:8px;padding:12px;font-size:15px" onclick="openBattle()">${pix('battle','sm')}开战</button>`;
+  return h;
+}
+// ===== 驻军子标签 =====
+function rGarrison(){
+  const gf=S._garrisonForm||{front:[],mid:[],back:[]};
+  const cnt=gf.front.length+gf.mid.length+gf.back.length;
+  const which='garrison';
+  let h=`<div class="card"><h3>${pix('army','card-pix')}驻军阵容 (${cnt}/${formSlots()}团 | 上限${regMax()}人/团)</h3>`;
+  h+=`<div style="font-size:10px;color:#888;margin-bottom:4px">驻军阵容显示在主页城镇巡防地图上</div>`;
+  const rs=[{k:'front',n:'前排',c:'r1'},{k:'mid',n:'中排',c:'r2'},{k:'back',n:'后排',c:'r3'}];
+  for(const r of rs){
+    h+=`<div class="form-row ${r.c}"><div class="ftitle">${r.n} (${gf[r.k].length}/${rowSlots(r.k)})</div>`;
+    if(!gf[r.k].length){
+      h+=`<span class="form-slot" onclick="openFormModal('${which}','${r.k}',0)">+ 空位</span>`;
+    }else{
+      gf[r.k].forEach((u,i)=>{
+        const mx=Math.min(regMax()-u.count, poolAvail(u.type));
+        h+=`<span class="form-slot filled" style="position:relative">
+          <span onclick="rmForm('${which}','${r.k}',${i})" style="position:absolute;top:-6px;right:-4px;cursor:pointer;z-index:1">${pix('close','mini')}</span>
+          <div onclick="openFormModal('${which}','${r.k}',${i})">${pix(CFG.units[u.type].icon,'sm')}${CFG.units[u.type].name}<br>
+          <span style="font-size:10px;color:#f0d060">${u.count}人</span></div>
+          <div class="qty-ctrl" style="margin-top:3px;gap:2px;justify-content:center">
+            <button onpointerdown="startLongPress('${which}','${r.k}',${i},-1)" onpointerup="stopLongPress()" onpointerleave="stopLongPress()" onpointercancel="stopLongPress()" style="width:24px;height:24px;border-radius:50%;border:1px solid #555;background:#1a1a2e;color:#e0e0e0;font-size:14px;cursor:pointer;touch-action:manipulation">−</button>
+            <span style="min-width:24px;font-size:12px;color:#f0d060">${u.count}</span>
+            <button onpointerdown="startLongPress('${which}','${r.k}',${i},1)" onpointerup="stopLongPress()" onpointerleave="stopLongPress()" onpointercancel="stopLongPress()" style="width:24px;height:24px;border-radius:50%;border:1px solid #555;background:#1a1a2e;color:#e0e0e0;font-size:14px;cursor:pointer;touch-action:manipulation">+</button>
+          </div>
+          <div style="margin-top:3px;display:flex;gap:3px;justify-content:center">
+            ${mx>0?`<span onclick="event.stopPropagation();adjForm('${which}','${r.k}',${i},${mx})" style="font-size:9px;padding:2px 6px;border:1px solid #40bf80;background:#1a2e1a;color:#40bf80;cursor:pointer">MAX</span>`:''}
+            <span onclick="event.stopPropagation();rmForm('${which}','${r.k}',${i})" style="font-size:9px;padding:2px 6px;border:1px solid #e06060;background:#2e1a1a;color:#e06060;cursor:pointer">移除</span>
+          </div></span>`;
+      });
+      if(gf[r.k].length<rowSlots(r.k))h+=`<span class="form-slot" onclick="openFormModal('${which}','${r.k}',${gf[r.k].length})">+ 空位</span>`;
+    }
+    h+=`</div>`;
+  }
+  h+=`<button class="btn btn-ghost btn-sm" onclick="clrForm('garrison')">清空驻军</button></div>`;
+  return h;
+}
+// ===== 训练场子标签 =====
+function rTraining(){
+  let h=`<div class="card" style="border-color:#5a4a30;background:#12100a;margin-bottom:6px">
+    <div style="display:flex;align-items:center;justify-content:space-between">
+      <div><strong>木人桩训练场</strong> <span style="font-size:10px;color:#888">3×3木人桩 各100HP</span></div>
+      <button class="btn btn-go btn-sm" onclick="openTraining()">进入训练</button>
+    </div>
+  </div>`;
+  h+=`<div style="font-size:11px;color:#666;padding:8px">使用远征阵容进行训练，测试伤害输出和兵种搭配。</div>`;
   return h;
 }
 function rLog(){
@@ -313,17 +373,17 @@ function addLog(msg){S.log.push({time:new Date().toLocaleTimeString(),msg});if(S
 function toast(msg){const e=document.createElement('div');e.className='toast';e.textContent=msg;document.body.appendChild(e);setTimeout(()=>e.remove(),2000)}
 
 // 长按加速
-let _lpTimer=null,_lpRow=null,_lpIdx=null,_lpDir=null;
-function startLongPress(row,idx,dir){
-  _lpRow=row;_lpIdx=idx;_lpDir=dir;
-  adjForm(row,idx,dir);
+let _lpTimer=null,_lpWhich=null,_lpRow=null,_lpIdx=null,_lpDir=null;
+function startLongPress(which,row,idx,dir){
+  _lpWhich=which;_lpRow=row;_lpIdx=idx;_lpDir=dir;
+  adjForm(which,row,idx,dir);
   _lpTimer=setTimeout(()=>{
-    _lpTimer=setInterval(()=>{adjForm(row,idx,dir);},80);
+    _lpTimer=setInterval(()=>{adjForm(which,row,idx,dir);},80);
   },400);
 }
 function stopLongPress(){
   if(_lpTimer){clearTimeout(_lpTimer);clearInterval(_lpTimer);_lpTimer=null;}
-  _lpRow=_lpIdx=_lpDir=null;
+  _lpWhich=_lpRow=_lpIdx=_lpDir=null;
 }
 
 let _modalLpTimer=null;

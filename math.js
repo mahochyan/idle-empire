@@ -1,6 +1,6 @@
 // ==================== 状态 ====================
 let S = {
-  res:{wood:500,stone:500,food:500},
+  res:{wood:300,stone:300,food:300},
   buildings:{},
   pool:{infantry:0,archer:0,cavalry:0,spearman:0,mage:0},
   formation:{front:[],mid:[],back:[]},
@@ -16,7 +16,9 @@ let S = {
   battleSpeed:1,
   battleActive:false,
   _trainQty:{},
-  _testUnlocked:false
+  _testUnlocked:false,
+  _garrisonForm:{front:[],mid:[],back:[]},
+  _fightTab:'expedition'
 };
 
 // ==================== 辅助 ====================
@@ -143,11 +145,18 @@ function reserveHtml(uk){
 }
 function totalSoldiers(){
   let n=0;for(const v of Object.values(S.pool)) n+=v;
-  for(const row of['front','mid','back']) for(const u of S.formation[row]) n+=u.count;
+  for(const row of['front','mid','back']){
+    for(const u of S.formation[row]) n+=u.count;
+    for(const u of S._garrisonForm[row]) n+=u.count;
+  }
   return n;
 }
 function formCnt(){return S.formation.front.length+S.formation.mid.length+S.formation.back.length}
 function poolAvail(uk){ return S.pool[uk]||0; }
+// 获取当前编辑目标阵容
+function getForm(which){ return which==='garrison'?S._garrisonForm:S.formation; }
+// 切换战斗页子标签
+function setFightTab(tab){ S._fightTab=tab; updateUI(); }
 function rowSlots(row){
   const boss=bossDefeatedCount();
   if(row==='front') return 1+(boss>=1?1:0);
@@ -161,6 +170,7 @@ function totalUpkeep(){
     up+=(S.pool[k]||0)*(c.upkeep||0);
     for(const row of['front','mid','back']){
       for(const u of S.formation[row]){ if(u.type===k) up+=u.count*(c.upkeep||0); }
+      for(const u of S._garrisonForm[row]){ if(u.type===k) up+=u.count*(c.upkeep||0); }
     }
   }
   return up;
@@ -182,12 +192,12 @@ function isAttackMiss(attacker,defender){
 }
 
 function save(){
-  const d={res:S.res,buildings:S.buildings,pool:S.pool,queue:S.queue,formation:S.formation,townLv:S.townLv,popAlloc:S.popAlloc,defeated:S.defeated,mageOk:S.mageOk,tick:S.tick};
+  const d={res:S.res,buildings:S.buildings,pool:S.pool,queue:S.queue,formation:S.formation,townLv:S.townLv,popAlloc:S.popAlloc,defeated:S.defeated,mageOk:S.mageOk,tick:S.tick,garrisonForm:S._garrisonForm};
   localStorage.setItem('rts_save',JSON.stringify(d));
 }
 function load(){
   const r=localStorage.getItem('rts_save');if(!r)return;
-  try{const d=JSON.parse(r);S.res=d.res||S.res;S.buildings=d.buildings||{};S.pool=d.pool||S.pool;S.formation=d.formation||S.formation;S.townLv=d.townLv||1;S.popAlloc=d.popAlloc||{wood:5,stone:3,food:2};S.defeated=d.defeated||[];S.mageOk=d.mageOk||false;S.queue=d.queue||{};S.tick=d.tick||0;}catch(e){}
+  try{const d=JSON.parse(r);S.res=d.res||S.res;S.buildings=d.buildings||{};S.pool=d.pool||S.pool;S.formation=d.formation||S.formation;S.townLv=d.townLv||1;S.popAlloc=d.popAlloc||{wood:5,stone:3,food:2};S.defeated=d.defeated||[];S.mageOk=d.mageOk||false;S.queue=d.queue||{};S.tick=d.tick||0;S._garrisonForm=d.garrisonForm||{front:[],mid:[],back:[]};}catch(e){}
 }
 
 // ==================== 计时 ====================
@@ -355,27 +365,29 @@ function checkActivationCode(inputId){
 }
 
 // ==================== 编队弹窗 ====================
-let formModalTarget=null; // {row, idx: 要填的位置, isNew: 是否填到空位}
+let formModalTarget=null; // {which:'expedition'|'garrison', row, idx}
 
-function openFormModal(row,idx){
-  formModalTarget={row,idx};
+function openFormModal(which,row,idx){
+  formModalTarget={which,row,idx};
+  const form=getForm(which);
   const content=document.getElementById('form-modal-content');
   const rm=regMax();
-  let h=`<h3>${pix('army','card-pix')} 编入兵团 — ${row==='front'?'前排':row==='mid'?'中排':'后排'} (营帐上限 ${rm}人/团)</h3>`;
+  const label=which==='garrison'?'驻军':'远征';
+  let h=`<h3>${pix('army','card-pix')} ${label}编入 — ${row==='front'?'前排':row==='mid'?'中排':'后排'} (上限 ${rm}人/团)</h3>`;
   h+='<div style="max-height:300px;overflow-y:auto">';
   let hasAny=false;
   for(const[k,c] of Object.entries(CFG.units)){
     if(k==='mage'&&!mageOk())continue;
-    const av=poolAvail(k);
+    const av=which==='garrison'?poolAvail(k):poolAvail(k); // 都从后备池取
     if(av<=0)continue;
     hasAny=true;
-    const target=S.formation[row][idx];
+    const target=form[row][idx];
     const remaining=target&&target.type===k?Math.min(rm-target.count, av):Math.min(rm, av);
     if(remaining<=0)continue;
     h+=`<div class="modal-unit" data-type="${k}" data-avail="${remaining}" onclick="selModalUnit(this,'${k}',${remaining})">
       <span class="mu-icon">${pix(c.icon,'lg')}</span>
       <div class="mu-info"><div class="mu-name">${c.name}</div>
-      <div class="mu-detail">可编入:${av}人 | 营帐上限 ${rm}人/团 | ${c.passive}</div></div>
+      <div class="mu-detail">可编入:${av}人 | 上限 ${rm}人/团 | ${c.passive}</div></div>
     </div>`;
   }
   if(!hasAny)h+='<div style="text-align:center;color:#666;padding:20px">后备无可用士兵，请先训练</div>';
@@ -388,7 +400,7 @@ function openFormModal(row,idx){
   <div class="modal-quick">
     <button class="btn btn-ghost btn-xs" onclick="setModalQty(S._formModalMax)">MAX</button>
   </div>
-  <div style="text-align:center;margin-top:6px;font-size:10px;color:#888">部队人数 (HP) | 不消耗后备</div>
+  <div style="text-align:center;margin-top:6px;font-size:10px;color:#888">部队人数 (HP)</div>
   <button class="btn btn-go" style="width:100%;margin-top:8px" onclick="confirmForm()">${pix('check','mini')}确认编入</button></div>`;
   content.innerHTML=h;
   document.getElementById('form-modal').classList.add('active');
@@ -427,17 +439,20 @@ function clampQty(){
 function confirmForm(){
   if(!S._formModalSel||!formModalTarget)return;
   const type=S._formModalSel,row=formModalTarget.row,idx=formModalTarget.idx;
+  const which=formModalTarget.which||'expedition';
+  const form=getForm(which);
   const qty=S._formModalQty;
   if(qty<=0){toast('人数无效');return}
   if(poolAvail(type)<qty){toast('后备不足');return}
-  const target=S.formation[row][idx];
+  const target=form[row][idx];
   if(target&&target.type===type){
-    if(target.count+qty>regMax()){toast(`超过营帐上限${regMax()}人/团`);return}
+    if(target.count+qty>regMax()){toast(`超过上限${regMax()}人/团`);return}
     target.count+=qty;
   } else {
-    if(formCnt()>=formSlots()){toast('阵容已满');return}
-    if(qty>regMax()){toast(`超过营帐上限${regMax()}人/团`);return}
-    S.formation[row].push({type,count:qty,id:Date.now()+Math.random()});
+    const curCnt=form.front.length+form.mid.length+form.back.length;
+    if(curCnt>=formSlots()){toast('阵容已满');return}
+    if(qty>regMax()){toast(`超过上限${regMax()}人/团`);return}
+    form[row].push({type,count:qty,id:Date.now()+Math.random()});
   }
   S.pool[type]-=qty;
   closeFormModal();
@@ -490,38 +505,49 @@ document.getElementById('unit-detail-modal').addEventListener('click',function(e
 });
 
 // 从阵容移除兵团
-function rmForm(row,idx){
-  const u=S.formation[row][idx];
+function rmForm(which,row,idx){
+  const form=getForm(which);
+  const u=form[row][idx];
   if(!u)return;
   S.pool[u.type]=(S.pool[u.type]||0)+u.count;
-  S.formation[row].splice(idx,1);
+  form[row].splice(idx,1);
   updateUI();
 }
 // 调整兵团人数
-function adjForm(row,idx,d){
-  const u=S.formation[row][idx];
+function adjForm(which,row,idx,d){
+  const form=getForm(which);
+  const u=form[row][idx];
   if(!u)return;
   const nv=u.count+d;
-  if(d>0 && nv>regMax()){toast(`营帐上限${regMax()}人/团`);return}
+  if(d>0 && nv>regMax()){toast(`上限${regMax()}人/团`);return}
   if(d>0 && poolAvail(u.type)<d){toast('后备不足');return}
-  if(nv<=0){S.pool[u.type]=(S.pool[u.type]||0)+u.count;S.formation[row].splice(idx,1);updateUI();return}
+  if(nv<=0){S.pool[u.type]=(S.pool[u.type]||0)+u.count;form[row].splice(idx,1);updateUI();return}
   if(d>0){S.pool[u.type]-=d;}
   else if(d<0){S.pool[u.type]=(S.pool[u.type]||0)+(-d);}
   u.count=nv;
   updateUI();
 }
-function clrForm(){for(const row of['front','mid','back']){for(const u of S.formation[row]){S.pool[u.type]=(S.pool[u.type]||0)+u.count}}S.formation={front:[],mid:[],back:[]};updateUI()}
-function useLastFormation(){
-  if(!S._lastForm){toast('没有上次阵容记录');return}
-  const hasAny=S._lastForm.front.length+S._lastForm.mid.length+S._lastForm.back.length>0;
+function clrForm(which){
+  const form=getForm(which);
+  for(const row of['front','mid','back']){for(const u of form[row]){S.pool[u.type]=(S.pool[u.type]||0)+u.count}}
+  if(which==='garrison'){S._garrisonForm={front:[],mid:[],back:[]}}
+  else{S.formation={front:[],mid:[],back:[]}}
+  updateUI();
+}
+function useLastFormation(which){
+  const form=getForm(which);
+  const lastKey=which==='garrison'?'_lastGarrisonForm':'_lastForm';
+  if(!S[lastKey]){toast('没有上次阵容记录');return}
+  const last=S[lastKey];
+  const hasAny=last.front.length+last.mid.length+last.back.length>0;
   if(!hasAny){toast('上次阵容为空');return}
   for(const row of['front','mid','back']){
-    for(const u of S.formation[row]){S.pool[u.type]=(S.pool[u.type]||0)+u.count;}
+    for(const u of form[row]){S.pool[u.type]=(S.pool[u.type]||0)+u.count;}
   }
   const newForm={front:[],mid:[],back:[]};
   let shortage=false;
   for(const row of['front','mid','back']){
-    for(const u of S._lastForm[row]){
+    for(const u of last[row]){
       if(newForm[row].length>=rowSlots(row)){shortage=true;break;}
       const avail=poolAvail(u.type);
       if(avail<=0){shortage=true;continue;}
@@ -531,7 +557,8 @@ function useLastFormation(){
       newForm[row].push({type:u.type,count,id:Date.now()+Math.random()});
     }
   }
-  S.formation=newForm;
+  if(which==='garrison'){S._garrisonForm=newForm}
+  else{S.formation=newForm}
   if(shortage)toast('后备不足，已按可用人数填充');
   save();updateUI();
 }
