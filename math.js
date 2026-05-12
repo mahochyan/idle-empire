@@ -590,7 +590,6 @@ let battleTimer=null;
 let B={};
 
 function selEnemy(idx){
-  if(idx!==0&&!S.defeated.includes(CFG.enemies[idx-1]?.id))return;
   S.selEnemy=idx;updateUI();
 }
 
@@ -610,7 +609,7 @@ function openTraining(){
 }
 
 function openBattle(){
-  if(S.selEnemy===null||S.selEnemy===undefined){toast('请先选敌人');return}
+  if(S.selEnemy===null||S.selEnemy===undefined){toast('请先选择关卡');return}
   if(formCnt()===0){toast('请先配置阵容');return}
   S.battleActive=true; B.isTraining=false;
   document.getElementById('battle-screen').classList.add('active');

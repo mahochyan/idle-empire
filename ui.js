@@ -28,7 +28,7 @@ function updateUI(){
 function renderPage(p){
   const main=document.getElementById('main');
   const el=document.activeElement;
-  if(el&&(el.tagName==='INPUT'||el.tagName==='TEXTAREA')&&main.contains(el))return;
+  if(el&&(el.tagName==='INPUT'||el.tagName==='TEXTAREA'||el.tagName==='SELECT')&&main.contains(el))return;
   main.innerHTML={home:rHome,build:rBuild,barracks:rBarracks,fight:rFight,log:rLog}[p]();
 }
 function rHome(){
@@ -345,17 +345,38 @@ function rExpedition(){
   }
   h+=`<button class="btn btn-go btn-sm" onclick="useLastFormation('expedition')">使用上次阵容</button>
   <button class="btn btn-ghost btn-sm" onclick="clrForm('expedition')">清空阵容</button></div>`;
-  h+=`<div class="card"><h3>${pix('enemy','card-pix')}敌人 — 第${S.defeated.length+1}层</h3>`;
-  const cur=S.defeated.length;
-  for(let i=cur;i<=cur+1&&i<CFG.enemies.length;i++){
-    const e=CFG.enemies[i],df=S.defeated.includes(e.id),av=i===cur;
-    const enemyInfo=Object.entries(e.units).map(([k,counts])=>{const t=counts.reduce((a,b)=>a+b,0);return `${pix(CFG.units[k].icon,'mini')}${CFG.units[k].name}×${t}`;}).join(' ');
-    h+=`<div style="padding:6px 0;border-bottom:1px solid #1e1e2e;${av?'cursor:pointer;':''}opacity:${av?'1':'.55'};${S.selEnemy===i?'background:#1e1e2e;margin:0 -12px;padding:6px 12px;border-radius:4px':''}" ${av?`onclick="selEnemy(${i})"`:''}>
-      <strong>${i===cur?'当前敌人':'下一层'}：${e.name}</strong> ${df?pix('check','mini'):''} ${e.boss?pix('boss','mini'):''}
-      <div style="font-size:10px;color:#777">${e.desc} [${enemyInfo}]</div>
-    </div>`;
+  // 敌人选择
+  const selIdx=S.selEnemy;
+  const hasSel=selIdx!==null&&selIdx!==undefined;
+  h+=`<div class="card"><h3>${pix('enemy','card-pix')}选择敌人</h3>`;
+  h+=`<div style="display:flex;align-items:center;gap:6px;margin-bottom:8px">`;
+  h+=`<button class="btn btn-ghost btn-xs" onclick="selEnemy(${hasSel?selIdx-1:'null'})" ${!hasSel||selIdx<=0?'disabled':''}>◀</button>`;
+  h+=`<select onchange="this.blur();selEnemy(this.value===''?null:parseInt(this.value))" style="flex:1;background:#121224;color:#e0e0e0;border:1px solid #3a4158;padding:4px 8px;font-family:inherit;font-size:13px;cursor:pointer">`;
+  h+=`<option value="" ${hasSel?'':'selected'}>-- 请选择关卡 --</option>`;
+  for(let i=0;i<CFG.enemies.length;i++){
+    const e=CFG.enemies[i],df=S.defeated.includes(e.id);
+    const label=`${df?'✓ ':''}第${i+1}关 - ${e.name}${e.boss?' [BOSS]':''}`;
+    h+=`<option value="${i}" ${hasSel&&i===selIdx?'selected':''}>${label}</option>`;
   }
-  if(cur>=CFG.enemies.length)h+=`<div style="color:#40bf80;text-align:center;padding:10px">全部通关！</div>`;
+  h+=`</select>`;
+  h+=`<button class="btn btn-ghost btn-xs" onclick="selEnemy(${hasSel?selIdx+1:'null'})" ${!hasSel||selIdx>=CFG.enemies.length-1?'disabled':''}>▶</button>`;
+  h+=`</div>`;
+  // 显示选中敌人详情
+  if(hasSel){
+    const selE=CFG.enemies[selIdx];
+    if(selE){
+      const df=S.defeated.includes(selE.id);
+      const enemyInfo=Object.entries(selE.units).map(([k,counts])=>{const t=counts.reduce((a,b)=>a+b,0);return `${pix(CFG.units[k].icon,'mini')}${CFG.units[k].name}×${t}`;}).join(' ');
+      h+=`<div style="background:#121224;border:1px solid #2b3144;border-radius:4px;padding:8px 10px">`;
+      h+=`<div style="margin-bottom:4px"><strong>${selE.name}</strong> ${df?pix('check','mini'):''} ${selE.boss?pix('boss','mini'):''}</div>`;
+      h+=`<div style="font-size:11px;color:#888">${selE.desc}</div>`;
+      h+=`<div style="font-size:10px;color:#777;margin-top:4px">${enemyInfo}</div>`;
+      if(df)h+=`<div style="font-size:11px;color:#40bf80;margin-top:4px">已通关</div>`;
+      h+=`</div>`;
+    }
+  }else{
+    h+=`<div style="text-align:center;color:#666;padding:10px">请从上拉菜单选择要出征的关卡</div>`;
+  }
   h+=`</div><button class="btn btn-go" style="width:100%;margin-top:8px;padding:12px;font-size:15px" onclick="openBattle()">${pix('battle','sm')}开战</button>`;
   return h;
 }
