@@ -694,7 +694,7 @@ function bmsg(m,c=''){
 
 // 兵种攻击类型：melee 只能在前排攻击，ranged 任意排都可攻击
 function isRanged(unitType){
-  return unitType==='archer'||unitType==='mage'||unitType==='spearman';
+  return unitType==='archer'||unitType==='mage';
 }
 
 function getTarget(attacker,enemyList){
