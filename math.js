@@ -1,11 +1,11 @@
 // ==================== 状态 ====================
 let S = {
-  res:{wood:300,stone:300,food:300},
+  res:{wood:500,stone:500,food:500},
   buildings:{},
   pool:{infantry:0,archer:0,cavalry:0,spearman:0,mage:0},
   formation:{front:[],mid:[],back:[]},
   townLv:1,
-  popAlloc:{wood:5,stone:3,food:2},
+  popAlloc:{wood:3,stone:3,food:4},
   defeated:[],
   mageOk:false,
   log:[],
