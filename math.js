@@ -235,13 +235,6 @@ function totalSoldiers(){
 }
 function formCnt(){return S.formation.front.length+S.formation.mid.length+S.formation.back.length}
 function poolAvail(uk){ return S.pool[uk]||0; }
-function deployAvail(uk){
-  let dep=0;
-  for(const row of['front','mid','back']){
-    for(const u of S.formation[row])if(u.type===uk)dep+=u.count;
-  }
-  return Math.max(0,(S.pool[uk]||0)-dep);
-}
 function rowSlots(row){
   const boss=bossDefeatedCount();
   if(row==='front') return 1+(boss>=1?1:0);
@@ -447,7 +440,7 @@ function openFormModal(row,idx){
   let hasAny=false;
   for(const[k,c] of Object.entries(CFG.units)){
     if(k==='mage'&&!mageOk())continue;
-    const av=deployAvail(k);
+    const av=poolAvail(k);
     if(av<=0)continue;
     hasAny=true;
     const target=S.formation[row][idx];
@@ -510,7 +503,7 @@ function confirmForm(){
   const type=S._formModalSel,row=formModalTarget.row,idx=formModalTarget.idx;
   const qty=S._formModalQty;
   if(qty<=0){toast('人数无效');return}
-  if(deployAvail(type)<qty){toast('后备不足');return}
+  if(poolAvail(type)<=0){toast('未拥有该兵种');return}
   const target=S.formation[row][idx];
   if(target&&target.type===type){
     if(target.count+qty>regMax()){toast(`超过营帐上限${regMax()}人/团`);return}
@@ -582,7 +575,7 @@ function adjForm(row,idx,d){
   if(!u)return;
   const nv=u.count+d;
   if(d>0 && nv>regMax()){toast(`营帐上限${regMax()}人/团`);return}
-  if(d>0 && deployAvail(u.type)<d){toast('后备不足');return}
+  if(d>0 && poolAvail(u.type)<=0){toast('未拥有该兵种');return}
   if(nv<=0){S.formation[row].splice(idx,1);updateUI();return}
   u.count=nv;
   updateUI();
