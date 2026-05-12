@@ -81,21 +81,22 @@ function trainBuildingState(uk){
   const key=trainBuildingKey(uk);
   return key?bldSt(key):null;
 }
-function reserveMax(uk){
+function unitCap(uk){
   const key=trainBuildingKey(uk);
   if(!key)return 0;
   const cfg=CFG.buildings[key],st=bldSt(key);
-  return st.lv>0?cfg.reserveBase+st.lv*cfg.reserveBonus:0;
+  const arr=cfg.unitCap||[];
+  return arr[Math.min(st.lv,arr.length-1)]||0;
 }
-function reserveLeft(uk){
-  return Math.max(0,reserveMax(uk)-(S.pool[uk]||0));
+function unitCapLeft(uk){
+  return Math.max(0,unitCap(uk)-(S.pool[uk]||0));
 }
 function queueTotal(uk){
   const q=S.queue[uk];
   return q?q.count:0;
 }
 function queueMax(uk){
-  return reserveMax(uk)*10;
+  return unitCap(uk)*10;
 }
 function processQueue(){
   let changed=false;
@@ -106,7 +107,7 @@ function processQueue(){
     const tt=CFG.units[uk].trainTime||1;
     if(q.timer>0){q.timer--;}
     if(q.timer<=0&&q.count>0){
-      if(reserveLeft(uk)<=0){q.reason='后备已满';continue;}
+      if(unitCapLeft(uk)<=0){q.reason='驻军已满';continue;}
       const cost=CFG.units[uk].cost;
       if(S.res.wood<cost.wood||S.res.stone<cost.stone||S.res.food<cost.food){q.reason='资源不足，暂停生产';continue;}
       S.res.wood-=cost.wood;S.res.stone-=cost.stone;S.res.food-=cost.food;
@@ -138,10 +139,10 @@ function trainBuildingLabel(uk){
   return `${cfg.name}: Lv.${st.lv}${st.state==='idle'?'':' / \u6682\u505c\u8bad\u7ec3'}`;
 }
 function reserveHtml(uk){
-  const cap=reserveMax(uk),used=S.pool[uk]||0,left=reserveLeft(uk);
+  const cap=unitCap(uk),used=S.pool[uk]||0,left=unitCapLeft(uk);
   const cls=cap>0&&used<=cap?'limit-ok':'limit-warn';
-  const extra=cap>0?` | \u4f59\u91cf ${left}`:'';
-  return `<span class="${cls}">\u540e\u5907 ${used}/${cap}</span>${extra}`;
+  const extra=cap>0?` | \u4f59\u91cf ${left} \u2192 \u4e0a\u9650 ${cap}`:'';
+  return `<span class="${cls}">\u9a7b\u519b ${used}\u4eba</span>${extra}`;
 }
 function totalSoldiers(){
   let n=0;for(const v of Object.values(S.pool)) n+=v;
@@ -378,7 +379,7 @@ function openFormModal(which,row,idx){
   let hasAny=false;
   for(const[k,c] of Object.entries(CFG.units)){
     if(k==='mage'&&!mageOk())continue;
-    const av=which==='garrison'?poolAvail(k):poolAvail(k); // 都从后备池取
+    const av=poolAvail(k); // 都从驻军池取
     if(av<=0)continue;
     hasAny=true;
     const target=form[row][idx];
@@ -390,7 +391,7 @@ function openFormModal(which,row,idx){
       <div class="mu-detail">可编入:${av}人 | 上限 ${rm}人/团 | ${c.passive}</div></div>
     </div>`;
   }
-  if(!hasAny)h+='<div style="text-align:center;color:#666;padding:20px">后备无可用士兵，请先训练</div>';
+  if(!hasAny)h+='<div style="text-align:center;color:#666;padding:20px">驻军无可用士兵，请先训练</div>';
   h+='</div>';
   h+=`<div id="modal-qty-area" style="display:none"><div class="modal-qty">
     <button onpointerdown="startModalLongPress(-1)" onpointerup="stopModalLongPress()" onpointerleave="stopModalLongPress()" onpointercancel="stopModalLongPress()" onclick="event.preventDefault()">-</button>
@@ -443,7 +444,7 @@ function confirmForm(){
   const form=getForm(which);
   const qty=S._formModalQty;
   if(qty<=0){toast('人数无效');return}
-  if(poolAvail(type)<qty){toast('后备不足');return}
+  if(poolAvail(type)<qty){toast('驻军不足');return}
   const target=form[row][idx];
   if(target&&target.type===type){
     if(target.count+qty>regMax()){toast(`超过上限${regMax()}人/团`);return}
@@ -520,7 +521,7 @@ function adjForm(which,row,idx,d){
   if(!u)return;
   const nv=u.count+d;
   if(d>0 && nv>regMax()){toast(`上限${regMax()}人/团`);return}
-  if(d>0 && poolAvail(u.type)<d){toast('后备不足');return}
+  if(d>0 && poolAvail(u.type)<d){toast('驻军不足');return}
   if(nv<=0){S.pool[u.type]=(S.pool[u.type]||0)+u.count;form[row].splice(idx,1);updateUI();return}
   if(d>0){S.pool[u.type]-=d;}
   else if(d<0){S.pool[u.type]=(S.pool[u.type]||0)+(-d);}
@@ -559,7 +560,7 @@ function useLastFormation(which){
   }
   if(which==='garrison'){S._garrisonForm=newForm}
   else{S.formation=newForm}
-  if(shortage)toast('后备不足，已按可用人数填充');
+  if(shortage)toast('驻军不足，已按可用人数填充');
   save();updateUI();
 }
 

@@ -186,8 +186,10 @@ function rBuild(){
     if(key==='warehouse'&&st.state==='idle'&&st.lv>0)h+=` <span style="font-size:11px;color:#f0d060">\u5b58\u50a8\u4e0a\u9650 ${storageCapacity()}</span>`;
     h+=`</h3>`;
     if(cfg.trains){
-      const u=CFG.units[cfg.trains],cap=reserveMax(cfg.trains),nextCap=cfg.reserveBase+(Math.max(1,st.lv+1))*cfg.reserveBonus;
-      h+=`<div class="build-meta">\u8bad\u7ec3: ${pix(u.icon,'mini')}${u.name} | \u540e\u5907\u4e0a\u9650 ${st.lv>0?cap:0}${st.lv>0?` \u2192 ${nextCap}`:` (\u5efa\u6210\u540e ${nextCap})`}</div>`;
+      const u=CFG.units[cfg.trains],cap=unitCap(cfg.trains);
+      const nextCfgLv=Math.max(1,st.lv+(st.lv===0?1:1));
+      const nextCap=(cfg.unitCap||[])[Math.min(nextCfgLv,(cfg.unitCap||[]).length-1)]||0;
+      h+=`<div class="build-meta">\u8bad\u7ec3: ${pix(u.icon,'mini')}${u.name} | \u9a7b\u519b\u4e0a\u9650 ${st.lv>0?cap:0}${st.lv>0?` \u2192 ${nextCap}`:` (\u5efa\u6210\u540e ${nextCap})`}</div>`;
       if(locked)h+=`<div class="build-meta limit-warn">${pix('lock','mini')}\u51fb\u8d25\u7b2c5\u4e2a\u654c\u4eba\u540e\u89e3\u9501</div>`;
     }
     if(cfg.buffRes){
@@ -226,7 +228,7 @@ function rBarracks(){
           <div style="font-size:10px;color:#777"><span onclick="event.stopPropagation();openUnitDetail('${k}')" style="font-size:9px;padding:1px 5px;border:1px solid #3a4158;border-radius:0;color:#8890a6;cursor:pointer;display:inline-block;margin-right:4px">属性</span>${c.passive} | ATK:${c.atk} DEF:${c.def}</div>
           <div style="font-size:10px;color:#666">${costHtml(c.cost)}/\u4eba</div>
           <div class="econ-note">${trainBuildingLabel(k)} | ${reserveHtml(k)}${queueTotal(k)>0?` | 队列 ${queueTotal(k)}人 <button class="btn btn-danger btn-xs" onclick="event.stopPropagation();cancelQueue('${k}')" style="margin-left:4px">取消</button>`:''}${(S.queue[k]||{}).reason?`<br><span class="limit-warn">${pix('lock','mini')}${S.queue[k].reason}</span>`:``}${lock?`<br><span class="limit-warn">${pix('lock','mini')}${lock}</span>`:''}</div>
-          <div style="font-size:11px;color:#40bf80">\u540e\u5907:${ow}\u4eba</div>
+          <div style="font-size:11px;color:#40bf80">\u9a7b\u519b:${ow}\u4eba</div>
           ${lock?'':
           `<div class="train-custom">
             <input id="train-barracks-${k}" type="text" inputmode="numeric" pattern="[0-9]*" value="${(S._trainQty||{})[k]||1}" oninput="(S._trainQty||{})['${k}']=parseInt(this.value)||1">
