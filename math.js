@@ -782,7 +782,8 @@ function spawnVFX(actorEl,targetEl,type){
   const dist=Math.sqrt(dx*dx+dy*dy);
   const dur=Math.max(0.22, dist/400);
   const el=document.createElement('div');
-  el.className=`vfx vfx-${type}`;
+  const vfxMap={infantry:'slash',archer:'arrow',spearman:'thrust'};
+  el.className=`vfx vfx-${vfxMap[type]||type}`;
   el.style.left=ax+'px';
   el.style.top=ay+'px';
   layer.appendChild(el);
