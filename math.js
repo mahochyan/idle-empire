@@ -589,7 +589,24 @@ function useLastFormation(){
   if(!S._lastForm){toast('没有上次阵容记录');return}
   const hasAny=S._lastForm.front.length+S._lastForm.mid.length+S._lastForm.back.length>0;
   if(!hasAny){toast('上次阵容为空');return}
-  S.formation=JSON.parse(JSON.stringify(S._lastForm));
+  for(const row of['front','mid','back']){
+    for(const u of S.formation[row]){S.pool[u.type]=(S.pool[u.type]||0)+u.count;}
+  }
+  const newForm={front:[],mid:[],back:[]};
+  let shortage=false;
+  for(const row of['front','mid','back']){
+    for(const u of S._lastForm[row]){
+      if(newForm[row].length>=rowSlots(row)){shortage=true;break;}
+      const avail=poolAvail(u.type);
+      if(avail<=0){shortage=true;continue;}
+      const count=Math.min(u.count, avail, regMax());
+      if(count<u.count)shortage=true;
+      S.pool[u.type]-=count;
+      newForm[row].push({type:u.type,count,id:Date.now()+Math.random()});
+    }
+  }
+  S.formation=newForm;
+  if(shortage)toast('后备不足，已按可用人数填充');
   save();updateUI();
 }
 
