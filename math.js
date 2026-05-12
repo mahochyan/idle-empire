@@ -782,7 +782,7 @@ function spawnVFX(actorEl,targetEl,type){
   const dist=Math.sqrt(dx*dx+dy*dy);
   const dur=Math.max(0.22, dist/400);
   const el=document.createElement('div');
-  const vfxMap={infantry:'slash',archer:'arrow',spearman:'thrust'};
+  const vfxMap={infantry:'slash',archer:'arrow',spearman:'thrust',cavalry:'slash',mage:'slash'};
   el.className=`vfx vfx-${vfxMap[type]||type}`;
   el.style.left=ax+'px';
   el.style.top=ay+'px';
@@ -844,7 +844,7 @@ function battleTurn(){
     const mmv=mm(actor.type,target.type);
     const actualKill=missed?0:Math.min(dmg,target.hp);
 
-    if(!missed&&actorEl&&targetEl&&['infantry','archer','spearman'].includes(actor.type)){
+    if(!missed&&actorEl&&targetEl){
       spawnVFX(actorEl,targetEl,actor.type);
     }
 
