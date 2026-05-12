@@ -73,7 +73,7 @@
       <div class="sub">
         <ul>
           <li>资源生产 → 建筑升级 → 解锁</li>
-          <li>训练军队 → 侦察 → 布阵 → 战术</li>
+          <li>训练军队 → 选关→布阵 → 战斗</li>
           <li>自动战斗 → 功勋/掉落 → 下一层</li>
         </ul>
       </div>
@@ -100,8 +100,8 @@
       <div class="sub">
         <h4>采集机制</h4>
         <ul>
-          <li>建筑按时间自动产出</li>
-          <li>升级建筑提升速率</li>
+          <li>人口分配采集（分配人口×0.5/秒）</li>
+          <li>建筑效率Buff加成采集率</li>
           <li>新资源需投入前期资源</li>
           <li>资源间存在依赖关系</li>
         </ul>
@@ -114,14 +114,14 @@
       <div class="sub">
         <h4>4 普通兵种 — 经典 RTS 克制环</h4>
         <ul>
-          <li><strong>步兵（人族）</strong> 前排/格挡</li>
-          <li class="counter">→ 克 枪兵：贴身近战</li>
-          <li><strong>弓兵（精灵）</strong> 后排/暴击</li>
-          <li class="counter">→ 克 步兵：远程消耗</li>
-          <li><strong>骑兵（兽人）</strong> 前排/吸血</li>
-          <li class="counter">→ 克 弓兵：冲锋切入</li>
-          <li><strong>枪兵（亡灵）</strong> 中排/破甲</li>
-          <li class="counter">→ 克 骑兵：反冲锋</li>
+          <li><strong>步兵（人类）</strong> 前排/均衡</li>
+          <li class="counter">→ 克枪弓骑：1.3× 四系均势</li>
+          <li><strong>弓兵（精灵）</strong> 后排/远程</li>
+          <li class="counter">→ 克步枪：1.3×，惧骑兵50%MISS</li>
+          <li><strong>骑兵（兽人）</strong> 前排/突击</li>
+          <li class="counter">→ 克弓1.5× 惧枪0.7×</li>
+          <li><strong>枪兵（人类）</strong> 前排/反骑</li>
+          <li class="counter">→ 克骑兵：1.5× 反冲锋</li>
         </ul>
       </div>
       <div class="sub">
@@ -140,10 +140,11 @@
         </ul>
       </div>
       <div class="sub">
-        <h4>种族被动</h4>
+        <h4>兵种被动</h4>
         <ul>
-          <li>人族→格挡 精灵→暴击</li>
-          <li>兽人→吸血 亡灵→破甲/法伤</li>
+          <li>步兵→ATK×1.1 弓兵→MISS率</li>
+          <li>骑兵→闪避10% 枪兵→暴击10%</li>
+          <li>法师→互易伤1.3×</li>
         </ul>
       </div>
       <div class="sub">
@@ -170,27 +171,27 @@
       <div class="sub">
         <h4>阵型系统</h4>
         <ul>
-          <li><strong>前排：</strong>步兵/骑兵，优先承伤</li>
-          <li><strong>中排：</strong>枪兵，稳定输出</li>
-          <li><strong>后排：</strong>弓兵/法师，高伤脆皮</li>
-          <li>前排击破 → 后排暴露 → 承伤+50%</li>
+          <li><strong>前排：</strong>步兵/骑兵/枪兵，近战需前排</li>
+          <li><strong>中排：</strong>过渡位置，前排空自动前移</li>
+          <li><strong>后排：</strong>弓兵/法师，任意排攻击</li>
+          <li>前排空→中排整体前移→后排前移</li>
         </ul>
       </div>
       <div class="sub">
-        <h4>战术指令（战前选择）</h4>
+        <h4>战术指令（默认稳扎稳打）</h4>
         <ul>
-          <li>稳扎稳打：防+10% 速-5%</li>
-          <li>全军突击：攻+15% 承伤+10%</li>
-          <li>远程压制：后排+12% 前排+8%承伤</li>
-          <li>消耗战：每回合回复 回合+3</li>
+          <li>稳扎稳打：防+15% 速-10%</li>
+          <li>全军突击：攻+20% 防-10%</li>
+          <li>远程压制：后排+15% 前排防-5%</li>
+          <li>消耗战：防+5% 回复5%</li>
         </ul>
       </div>
       <div class="sub">
-        <h4>情报侦察</h4>
+        <h4>战斗规则</h4>
         <ul>
-          <li>敌方构成 / 属性 / 弱点</li>
-          <li>Boss 特殊技能提示</li>
-          <li>建议阵容方向</li>
+          <li>交替攻击制：速度排序+严格轮替</li>
+          <li>Boss战我方全员先攻</li>
+          <li>文字逐行播报+CSS动画</li>
         </ul>
       </div>
     </div>
@@ -201,20 +202,22 @@
       <div class="sub">
         <h4>公式</h4>
         <ul>
-          <li>攻击 × 技能 × 克制 × 易伤 × 战术 × 浮动 − 防御</li>
+          <li>hp × atk × 0.09 × 100/(100+def×8)</li>
+          <li>× counter × mage × passive × rand(0.9~1.1)</li>
         </ul>
       </div>
       <div class="sub">
-        <h4>克制倍率（普通兵种间）</h4>
+        <h4>克制倍率</h4>
         <ul>
-          <li>优势：1.35 | 普通：1.00 | 劣势：0.75</li>
+          <li>1.5：枪→骑 / 骑→弓</li>
+          <li>1.3：步→多数 / 弓→步枪</li>
+          <li>0.7：骑→枪（被反克）</li>
         </ul>
       </div>
       <div class="sub">
         <h4>法师易伤（双向）</h4>
         <ul>
           <li>法师 ↔ 普通兵：1.3</li>
-          <li>最大倍率 1.35×1.3 ≈ 1.75</li>
         </ul>
       </div>
     </div>
@@ -223,25 +226,25 @@
     <div class="branch">
       <h3>五、军营系统</h3>
       <div class="sub">
-        <h4>营地</h4>
+        <h4>训练建筑</h4>
         <ul>
-          <li>人口容量上限（可升级）</li>
-          <li>建筑：采集 / 兵营 / 防御</li>
+          <li>5兵种各独立训练建筑（可升级）</li>
+          <li>等级决定后备池容量上限</li>
         </ul>
       </div>
       <div class="sub">
         <h4>出战阵容</h4>
         <ul>
-          <li>独立上阵槽位（可扩容）</li>
-          <li>阵型编排（前/中/后排）</li>
-          <li>针对敌情调整配比</li>
+          <li>1×3起步，Boss扩展槽位</li>
+          <li>每格上限100人</li>
+          <li>编队弹窗：选兵种+定人数</li>
         </ul>
       </div>
       <div class="sub">
-        <h4>训练队列</h4>
+        <h4>训练队列+维护费</h4>
         <ul>
-          <li>按秒排队生产士兵</li>
-          <li>资源不足/后备满时暂停</li>
+          <li>按秒生产，资源足时自动扣除</li>
+          <li>军粮维护费控制军队规模</li>
         </ul>
       </div>
     </div>
@@ -287,10 +290,10 @@
       <h3>七、英雄系统 (P3+)</h3>
       <div class="sub">
         <ul>
-          <li>独立成长线</li>
-          <li>带队参战 / 全局增益</li>
-          <li>特性 + 装备 + 任务</li>
-          <li>等待期核心养成</li>
+          <li>方阵核心单位 + 技能载体</li>
+          <li>每场1个英雄上阵</li>
+          <li>主动技能 + 装备成长</li>
+          <li>流派方向发动机</li>
         </ul>
       </div>
     </div>
@@ -314,8 +317,8 @@
       <div class="sub">
         <h4>等待期可做</h4>
         <ul>
-          <li>刷低层 | 侦察 | 调阵容</li>
-          <li>营地事件 | 养英雄</li>
+          <li>刷低层 | 调阵容 | 训练场测试</li>
+          <li>驻军防御 | 养英雄</li>
         </ul>
       </div>
     </div>
@@ -324,18 +327,17 @@
     <div class="branch">
       <h3>九、UI 布局</h3>
       <div class="sub">
-        <h4>多标签页</h4>
+        <h4>底部 5 标签页</h4>
         <ul>
-          <li>资源 | 建筑 | 军营 | 阵容</li>
-          <li>战斗 | 英雄 | 日志</li>
+          <li>主页 | 建筑 | 军营 | 战斗 | 日志</li>
         </ul>
       </div>
       <div class="sub">
-        <h4>战斗页</h4>
+        <h4>战斗页 — 3 子标签</h4>
         <ul>
-          <li>敌情 → 阵容+战术 → 开战</li>
-          <li>战斗日志逐行播报</li>
-          <li>结果奖励</li>
+          <li>远征：关卡选择→编队→开战→日志</li>
+          <li>驻军：防御编队（地图显示）</li>
+          <li>训练场：木人桩测试 DPS</li>
         </ul>
       </div>
     </div>
@@ -344,15 +346,17 @@
     <div class="branch">
       <h3>十、开发阶段</h3>
       <div class="sub">
-        <h4>Phase 1 — 最小可玩</h4>
+        <h4>Phase 1 — 实际完成</h4>
         <ul>
           <li>3 资源：木材、石料、食物</li>
-          <li>3 建筑：伐木场、采石场、农田</li>
-          <li class="new">4 普通兵种：步/弓/骑/枪</li>
-          <li class="mage">+1 特殊：法师（互易伤）</li>
-          <li>克制环 + 阵型 + 战术 + 侦察</li>
-          <li>5 敌人 + 1 Boss</li>
-          <li>回合战斗 + 文字播报</li>
+          <li>10 建筑：采集/兵营/仓库等</li>
+          <li class="new">5 兵种：步/弓/骑/枪/法</li>
+          <li>复杂克制 + 兵种被动</li>
+          <li>10 关（7普通 + 3Boss）分三章</li>
+          <li>交替攻击制回合战斗</li>
+          <li>训练队列+军粮维护费</li>
+          <li>像素画体系+工人动画</li>
+          <li>训练场木人桩测试</li>
           <li>localStorage 存档</li>
         </ul>
       </div>
