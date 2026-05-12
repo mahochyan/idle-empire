@@ -22,7 +22,8 @@ let S = {
   _testUnlocked:false,
   _garrisonForm:{front:[],mid:[],back:[]},
   _fightTab:'expedition',
-  _buildTab:'basic'
+  _buildTab:'basic',
+  townUpgrade:null
 };
 
 // ==================== 辅助 ====================
@@ -49,7 +50,7 @@ function townUpgradeNeed(){
   return next?next.needBoss:999;
 }
 function townCanUpgrade(){
-  return S.townLv<CFG.town.length && bossDefeatedCount()>=townUpgradeNeed();
+  return S.townLv<CFG.town.length && bossDefeatedCount()>=townUpgradeNeed() && !S.townUpgrade;
 }
 function bossDefeatedCount(){
   return CFG.enemies.filter(e=>e.boss&&S.defeated.includes(e.id)).length;
@@ -221,18 +222,27 @@ function isAttackMiss(attacker,defender){
 }
 
 function save(){
-  const d={res:S.res,buildings:S.buildings,pool:S.pool,queue:S.queue,formation:S.formation,townLv:S.townLv,popAlloc:S.popAlloc,defeated:S.defeated,mageOk:S.mageOk,merit:S.merit,garrisonLog:S.garrisonLog,garrison:S.garrison,tick:S.tick,garrisonForm:S._garrisonForm};
+  const d={res:S.res,buildings:S.buildings,pool:S.pool,queue:S.queue,formation:S.formation,townLv:S.townLv,popAlloc:S.popAlloc,defeated:S.defeated,mageOk:S.mageOk,merit:S.merit,garrisonLog:S.garrisonLog,garrison:S.garrison,tick:S.tick,garrisonForm:S._garrisonForm,townUpgrade:S.townUpgrade};
   localStorage.setItem('rts_save',JSON.stringify(d));
 }
 function load(){
   const r=localStorage.getItem('rts_save');if(!r)return;
-  try{const d=JSON.parse(r);S.res=d.res||S.res;S.buildings=d.buildings||{};S.pool=d.pool||S.pool;S.formation=d.formation||S.formation;S.townLv=d.townLv||1;S.popAlloc=d.popAlloc||{wood:5,stone:3,food:2};S.defeated=d.defeated||[];S.mageOk=d.mageOk||false;S.merit=d.merit||0;S.garrisonLog=d.garrisonLog||[];S.garrison=d.garrison||S.garrison;S.queue=d.queue||{};S.tick=d.tick||0;S._garrisonForm=d.garrisonForm||{front:[],mid:[],back:[]};if(typeof ensureGarrisonState==='function')ensureGarrisonState();}catch(e){}
+  try{const d=JSON.parse(r);S.res=d.res||S.res;S.buildings=d.buildings||{};S.pool=d.pool||S.pool;S.formation=d.formation||S.formation;S.townLv=d.townLv||1;S.popAlloc=d.popAlloc||{wood:5,stone:3,food:2};S.defeated=d.defeated||[];S.mageOk=d.mageOk||false;S.merit=d.merit||0;S.garrisonLog=d.garrisonLog||[];S.garrison=d.garrison||S.garrison;S.queue=d.queue||{};S.tick=d.tick||0;S._garrisonForm=d.garrisonForm||{front:[],mid:[],back:[]};S.townUpgrade=d.townUpgrade||null;if(typeof ensureGarrisonState==='function')ensureGarrisonState();}catch(e){}
 }
 
 // ==================== 计时 ====================
 function tick(){
   S.tick++;if(S.battleActive)return;
   let ch=false;
+  // 城镇升级计时
+  if(S.townUpgrade){
+    S.townUpgrade.timer--;
+    if(S.townUpgrade.timer<=0){
+      S.townLv++;
+      addLog(`城镇升级为${townCfg().name}，人口上限${maxPop()}`);
+      S.townUpgrade=null;ch=true;
+    }
+  }
   for(const k of Object.keys(CFG.buildings)){
     const st=bldSt(k);
     if((st.state==='building'||st.state==='upgrading')&&st.timerEnd>0){
@@ -277,8 +287,10 @@ function buildAct(key){
 function upgradeTown(){
   if(!townCanUpgrade()){toast(`需击败${townUpgradeNeed()}个Boss才能升级城镇`);return}
   if(popAllocTotal()>CFG.town.find(t=>t.lv===S.townLv+1).maxPop){toast('请先减少人口分配');return}
-  S.townLv++;
-  addLog(`城镇升级为${townCfg().name}，人口上限${maxPop()}`);
+  const bt=CFG.buildingTimes;
+  const time=bt.cap1Base+(S.townLv-1)*bt.cap1PerLv;
+  S.townUpgrade={timer:time,timerEnd:time};
+  addLog(`开始升级城镇，预计${time}秒`);
   save();updateUI();
 }
 function setPopAlloc(rk,v){
@@ -292,8 +304,10 @@ function setPopAlloc(rk,v){
 function upCost(key){
   const cfg=CFG.buildings[key],lv=bldSt(key).lv||1;
   const b=cfg.upBase,m=Math.pow(cfg.upCostLv,lv);
-  const rawTime=Math.ceil(5*Math.pow(1.45,lv-1)+lv*3);
-  const time=Math.min(CFG.maxUpgradeTime,rawTime);
+  // 升级时间线性增长，不受 upCostLv 倍率影响，参数见 CFG.buildingTimes
+  const isCap1=cfg.buffRes||(!cfg.trains&&!cfg.storagePerLv&&!cfg.buffRes);
+  const bt=CFG.buildingTimes;
+  const time=isCap1?bt.cap1Base+lv*bt.cap1PerLv:bt.otherBase+lv*bt.otherPerLv;
   return{wood:Math.ceil(b.wood*m),stone:Math.ceil(b.stone*m),food:Math.ceil(b.food*m),time};
 }
 function maxTrainable(uk){

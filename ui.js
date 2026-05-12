@@ -35,14 +35,21 @@ function renderPage(p){
 function rHome(){
   const tc=townCfg();
   const canUp=townCanUpgrade(), upNeed=townUpgradeNeed();
+  const tu=S.townUpgrade;
   let h=`<div style="padding:4px 0">`;
 
   h+=`<div class="card"><h3>${pix("home","card-pix")}${tc.name} <span style="color:#f0d060;font-size:12px">Lv.${tc.lv}</span></h3>`;
   h+=`<div style="font-size:12px;color:#999">人口 ${popAllocTotal()}/${maxPop()} | 空闲 ${popFree()} | 仓库 ${storageCapacity()}</div>`;
-  h+=`<div style="font-size:11px;color:#666">击败Boss ${bossDefeatedCount()}/${upNeed}`;
-  if(canUp)h+=` <span style="color:#40bf80">可升级 → ${(CFG.town.find(t=>t.lv===S.townLv+1)||{}).name||"?"} (人口${(CFG.town.find(t=>t.lv===S.townLv+1)||{}).maxPop||"?"})</span>`;
-  h+=`</div>`;
-  if(canUp)h+=`<button class="btn btn-go btn-sm" onclick="upgradeTown()" style="margin-top:4px">${pix("upgrade","mini")}升级城镇</button>`;
+  if(tu){
+    const pct=Math.floor((1-tu.timer/tu.timerEnd)*100);
+    h+=`<div style="margin-top:4px"><span style="color:#f0d060;font-size:11px">城镇升级中...</span> <span style="color:#888;font-size:10px">${tu.timer}秒</span></div>`;
+    h+=`<div class="prog-wrap"><div class="prog-fill" style="width:${pct}%"></div></div>`;
+  } else {
+    h+=`<div style="font-size:11px;color:#666">击败Boss ${bossDefeatedCount()}/${upNeed}`;
+    if(canUp)h+=` <span style="color:#40bf80">可升级 → ${(CFG.town.find(t=>t.lv===S.townLv+1)||{}).name||"?"} (人口${(CFG.town.find(t=>t.lv===S.townLv+1)||{}).maxPop||"?"})</span>`;
+    h+=`</div>`;
+    if(canUp)h+=`<button class="btn btn-go btn-sm" onclick="upgradeTown()" style="margin-top:4px">${pix("upgrade","mini")}升级城镇</button>`;
+  }
   h+=`</div>`;
 
   h+=`<div class="card"><h3>${pix("pop","card-pix")}人口分配</h3>`;

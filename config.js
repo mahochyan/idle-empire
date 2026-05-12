@@ -91,5 +91,16 @@ const CFG = {
     warehouse: 5,
     training: 10,
     resource: 1
+  },
+
+  // 建筑升级时间（秒），不受 upCostLv 倍率影响，线性增长
+  // cap1Base/cap1PerLv: cap=1 建筑（营帐/资源建筑）及城镇使用
+  // otherBase/otherPerLv: 其他建筑（仓库/兵营建筑）使用
+  // 公式: 时间 = base + 当前等级 * perLv
+  buildingTimes: {
+    cap1Base: 90,
+    cap1PerLv: 60,
+    otherBase: 10,
+    otherPerLv: 1
   }
 };
