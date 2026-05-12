@@ -7,12 +7,12 @@ CFG.enemies = [
   {id:1,name:'侦察兵小队',desc:'三五步兵，不堪一击',units:{infantry:[3,2]},reward:{wood:100,stone:70,food:60}},
   {id:2,name:'步兵巡逻队',desc:'两支步兵小队合流',units:{infantry:[5,3]},reward:{wood:140,stone:100,food:85}},
   {id:3,name:'弓兵前哨',desc:'弓兵加入战场，注意后排',units:{infantry:[4,3],archer:[3,2]},reward:{wood:180,stone:130,food:110}},
-  {id:4,name:'步弓混编',desc:'前后排配合，考验布阵',units:{infantry:[6,4],archer:[4,3]},reward:{wood:220,stone:160,food:140}},
-  {id:5,name:'重步方阵',desc:'三队步兵呈品字推进',units:{infantry:[6,5,3]},reward:{wood:260,stone:190,food:170}},
-  {id:6,name:'弓箭手阵地',desc:'弓兵数量增多，前排压力大',units:{infantry:[8,5],archer:[6,5]},reward:{wood:310,stone:230,food:200}},
-  {id:7,name:'突袭营地',desc:'步弓配合默契，数量压制',units:{infantry:[9,7],archer:[8,5]},reward:{wood:360,stone:270,food:240}},
-  {id:8,name:'守备队',desc:'训练有素的守备部队',units:{infantry:[10,8],archer:[10,7]},reward:{wood:420,stone:320,food:280}},
-  {id:9,name:'前线指挥官',desc:'Boss前最后一道防线',units:{infantry:[12,9,6],archer:[10,8,5]},reward:{wood:490,stone:370,food:330}},
+  {id:4,name:'步弓混编',desc:'前后排配合，考验布阵',units:{infantry:[3,4],archer:[4,3]},reward:{wood:220,stone:160,food:140}},
+  {id:5,name:'重步方阵',desc:'三队步兵呈品字推进',units:{infantry:[2,5,3]},reward:{wood:260,stone:190,food:170}},
+  {id:6,name:'弓箭手阵地',desc:'弓兵数量增多，前排压力大',units:{infantry:[4,5],archer:[5,5]},reward:{wood:310,stone:230,food:200}},
+  {id:7,name:'突袭营地',desc:'步弓配合默契，数量压制',units:{infantry:[6,7],archer:[4,3]},reward:{wood:360,stone:270,food:240}},
+  {id:8,name:'守备队',desc:'训练有素的守备部队',units:{infantry:[5,8],archer:[6,7]},reward:{wood:420,stone:320,food:280}},
+  {id:9,name:'前线指挥官',desc:'Boss前最后一道防线',units:{infantry:[7,9,6],archer:[6,8,5]},reward:{wood:490,stone:370,food:330}},
 
   // ===== 第10关 Boss：守关大将 =====
   {id:10,name:'守关大将',desc:'BOSS·重甲步弓，威势逼人',units:{infantry:[16,12,8],archer:[14,10,6]},boss:true,bossMult:{atk:1.30,def:1.25},reward:{wood:1200,stone:900,food:800}},

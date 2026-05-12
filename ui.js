@@ -31,6 +31,7 @@ function renderPage(p){
   if(el&&(el.tagName==='INPUT'||el.tagName==='TEXTAREA'||el.tagName==='SELECT')&&main.contains(el))return;
   main.innerHTML={home:rHome,build:rBuild,barracks:rBarracks,fight:rFight,log:rLog}[p]();
 }
+// ==================== 主页渲染 ====================
 function rHome(){
   const tc=townCfg();
   const canUp=townCanUpgrade(), upNeed=townUpgradeNeed();
@@ -67,6 +68,7 @@ function rHome(){
   else for(const e of r)h+=`<div style="font-size:10px;color:#555;padding:1px 0">[${e.time}] ${e.msg}</div>`;
   h+=`</div></div>`;return h;
 }
+// ==================== 城镇巡防地图 ====================
 function renderTownMapOverview(){
   const tc=townCfg();
   const woodWorkers=S.popAlloc.wood||0;
@@ -204,6 +206,7 @@ function updateTownScene(){
   document.getElementById('town-scene').innerHTML=html;
   updateTownDynamicBits();
 }
+// ==================== 建筑界面（含4个子标签） ====================
 const BUILD_CATEGORIES = {
   basic: {name:'\u57fa\u7840\u5efa\u7b51',keys:['warehouse','lumber_mill','quarry','farm']},
   barracks: {name:'\u5175\u8425\u5efa\u7b51',keys:['barracks','infantry_camp','archer_range','stable','spear_crypt','mage_tower']},
@@ -213,23 +216,28 @@ const BUILD_CATEGORIES = {
 
 function rBuildCard(key, cfg){
   const st=bldSt(key),locked=cfg.needBoss&&bossDefeatedCount()<cfg.needBoss,upLock=st.lv>0?upgradeLockReason(key):'';
+  // \u53f3\u4fa7\u5bf9\u9f50\u6807\u7b7e\uff1a\u8d44\u6e90Buff \u6216 \u89e3\u9501\u6761\u4ef6
   const buffLabel=cfg.buffRes&&st.state==='idle'&&st.lv>0?`<span style="font-size:12px;color:#40bf80">${pix(CFG.res[cfg.buffRes].icon,'sm')} ${CFG.res[cfg.buffRes].name} Buff: +${((st.lv*cfg.buffPerLv+cfg.buffBase)*100).toFixed(0)}%</span>`:'';
+  const lockLabel=locked?`<span style="font-size:11px;color:#e06060">${pix('lock','mini')}\u9700\u51fb\u8d25\u7b2c${cfg.needBoss}\u4e2aBoss</span>`:'';
+  const rightLabel=lockLabel||buffLabel;
   let h=`<div class="card" style="${locked||upLock?'opacity:.7':''}"><h3 style="display:flex;justify-content:space-between;align-items:center">`;
   h+=`<span>${pix(key,'card-pix')}${cfg.name}`;if(st.state==='idle'&&st.lv>0)h+=` <span style="color:#f0d060">Lv.${st.lv}</span>`;
+  // \u8425\u5e10\u7279\u6b8a\uff1a\u663e\u793a\u51fa\u6218\u4e0a\u9650
   if(key==='barracks')h+=` <span style="font-size:11px;color:#888">(\u51fa\u6218\u4e0a\u9650${regMax()}\u4eba/\u683c${st.lv<=0?'\uff0c\u5efa\u9020\u540e100\u4eba/\u683c':''})</span>`;
+  // \u4ed3\u5e93\u7279\u6b8a\uff1a\u663e\u793a\u5b58\u50a8\u4e0a\u9650
   if(key==='warehouse'&&st.state==='idle'&&st.lv>0)h+=` <span style="font-size:11px;color:#f0d060">\u5b58\u50a8\u4e0a\u9650 ${storageCapacity()}</span>`;
-  h+=`</span>${buffLabel}</h3>`;
+  h+=`</span>${rightLabel}</h3>`;
+  // \u5175\u8425\u7c7b\u5efa\u7b51\uff1a\u663e\u793a\u8bad\u7ec3\u5175\u79cd\u548c\u8bad\u7ec3\u4e0a\u9650
   if(cfg.trains){
     const u=CFG.units[cfg.trains],cap=unitCap(cfg.trains);
-    const nextCfgLv=Math.max(1,st.lv+(st.lv===0?1:1));
-    const nextCap=(cfg.unitCap||[])[Math.min(nextCfgLv,(cfg.unitCap||[]).length-1)]||0;
-    h+=`<div class="build-meta">\u8bad\u7ec3: ${pix(u.icon,'mini')}${u.name} | \u9a7b\u519b\u4e0a\u9650 ${st.lv>0?cap:0}${st.lv>0?` \u2192 ${nextCap}`:` (\u5efa\u6210\u540e ${nextCap})`}</div>`;
-    if(locked)h+=`<div class="build-meta limit-warn">${pix('lock','mini')}\u51fb\u8d25\u7b2c5\u4e2a\u654c\u4eba\u540e\u89e3\u9501</div>`;
+    const nextLv=st.lv+(st.lv===0?1:1);
+    const nextCap=(cfg.unitCapBase||0) + nextLv * (cfg.unitCapPerLv||0);
+    h+=`<div class="build-meta">\u8bad\u7ec3: ${pix(u.icon,'mini')}${u.name} | \u8bad\u7ec3\u4e0a\u9650 ${st.lv>0?cap:0}${st.lv>0?` \u2192 ${nextCap}`:` (\u5efa\u6210\u540e ${nextCap})`}</div>`;
   }
   if(cfg.buffRes || cfg.storagePerLv){
     h+=`<div class="build-meta">${resourceCapText()} | \u51fb\u8d25Boss\u540e\u89e3\u9501\u4e0b\u4e00\u7ea7</div>`;
-    if(upLock)h+=`<div class="build-meta limit-warn">${pix('lock','mini')}${upLock}</div>`;
   }
+  if(upLock)h+=`<div class="build-meta limit-warn">${pix('lock','mini')}${upLock}</div>`;
   if(st.state==='idle'){
     if(st.lv===0){
       const c=cfg.build;
@@ -268,6 +276,7 @@ function rBuild(){
   }
   return h;
 }
+// ==================== \u519b\u8425\u754c\u9762 ====================
 function rBarracks(){
   let h=`<div style="padding:4px 0"><div style="font-size:12px;color:#888;margin:4px 0">\u603b\u5175\u529b ${totalSoldiers()} | \u8425\u5e10\u4e0a\u9650 ${regMax()}\u4eba/\u56e2</div>`;
   for(const[k,c] of Object.entries(CFG.units)){
@@ -292,6 +301,7 @@ function rBarracks(){
   }
   h+=`</div>`;return h;
 }
+// ==================== 战斗界面（含3个子标签） ====================
 function rFight(){
   const tab=S._fightTab||'expedition';
   let h=`<div style="padding:4px 0">`;
@@ -307,7 +317,7 @@ function rFight(){
   h+=`</div>`;
   return h;
 }
-// ===== 远征子标签 =====
+// --- 远征子标签 ---
 function rExpedition(){
   let h=`<div class="card"><h3>${pix('army','card-pix')}远征阵容 (${formCnt()}/${formSlots()}团 | 上限${regMax()}人/团)</h3>`;
   // 显示可用余量
@@ -368,10 +378,9 @@ function rExpedition(){
       const df=S.defeated.includes(selE.id);
       const enemyInfo=Object.entries(selE.units).map(([k,counts])=>{const t=counts.reduce((a,b)=>a+b,0);return `${pix(CFG.units[k].icon,'mini')}${CFG.units[k].name}×${t}`;}).join(' ');
       h+=`<div style="background:#121224;border:1px solid #2b3144;border-radius:4px;padding:8px 10px">`;
-      h+=`<div style="margin-bottom:4px"><strong>${selE.name}</strong> ${df?pix('check','mini'):''} ${selE.boss?pix('boss','mini'):''}</div>`;
+      h+=`<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px"><span><strong>${selE.name}</strong> ${df?pix('check','mini'):''} ${selE.boss?pix('boss','mini'):''}</span>${df?`<span style="font-size:11px;color:#40bf80">已通关</span>`:''}</div>`;
       h+=`<div style="font-size:11px;color:#888">${selE.desc}</div>`;
       h+=`<div style="font-size:10px;color:#777;margin-top:4px">${enemyInfo}</div>`;
-      if(df)h+=`<div style="font-size:11px;color:#40bf80;margin-top:4px">已通关</div>`;
       h+=`</div>`;
     }
   }else{
@@ -380,7 +389,7 @@ function rExpedition(){
   h+=`</div><button class="btn btn-go" style="width:100%;margin-top:8px;padding:12px;font-size:15px" onclick="openBattle()">${pix('battle','sm')}开战</button>`;
   return h;
 }
-// ===== 驻军子标签 =====
+// --- 驻军子标签 ---
 function rGarrison(){
   const gf=S._garrisonForm||{front:[],mid:[],back:[]};
   const cnt=gf.front.length+gf.mid.length+gf.back.length;
@@ -423,7 +432,7 @@ function rGarrison(){
   h+=`</div></div>`;
   return h;
 }
-// ===== 训练场子标签 =====
+// --- 训练场子标签 ---
 function rTraining(){
   let h=`<div class="card" style="border-color:#5a4a30;background:#12100a;margin-bottom:6px">
     <div style="display:flex;align-items:center;justify-content:space-between">
@@ -434,6 +443,7 @@ function rTraining(){
   h+=`<div style="font-size:11px;color:#666;padding:8px">使用远征阵容进行训练，测试伤害输出和兵种搭配。</div>`;
   return h;
 }
+// ==================== 日志界面 ====================
 function rLog(){
   let h=`<div style="padding:4px 0"><div class="card"><h3>${pix('log','card-pix')}事件日志</h3><div style="max-height:500px;overflow-y:auto;font-size:11px;line-height:1.8">`;
   const l=[...S.log].reverse();
@@ -458,10 +468,11 @@ function rLog(){
   return h;
 }
 
+// ==================== 工具函数（日志、Toast） ====================
 function addLog(msg){S.log.push({time:new Date().toLocaleTimeString(),msg});if(S.log.length>200)S.log.splice(0,S.log.length-200)}
 function toast(msg){const e=document.createElement('div');e.className='toast';e.textContent=msg;document.body.appendChild(e);setTimeout(()=>e.remove(),2000)}
 
-// 长按加速
+// ==================== 长按加速 ====================
 let _lpTimer=null,_lpWhich=null,_lpRow=null,_lpIdx=null,_lpDir=null;
 function startLongPress(which,row,idx,dir){
   _lpWhich=which;_lpRow=row;_lpIdx=idx;_lpDir=dir;

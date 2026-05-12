@@ -16,7 +16,7 @@ let S = {
   page:'home',
   selEnemy:null,
   queue:{},
-  battleSpeed:1,
+  battleSpeed:2,
   battleActive:false,
   _trainQty:{},
   _testUnlocked:false,
@@ -67,7 +67,10 @@ function storageCapacity(){
 }
 function upgradeLockReason(key){
   const cfg=CFG.buildings[key],st=bldSt(key);
-  if(st.lv>=S.townLv) return `\u9700\u5347\u7ea7\u57ce\u9547\u5230Lv.${S.townLv+1}`;
+  // \u5175\u8425\u5efa\u7b51\uff1a\u6700\u9ad8\u7b49\u7ea7 = \u57ce\u9547\u7b49\u7ea7 \u00d7 10
+  if(cfg.trains && st.lv>=S.townLv*10) return `\u9700\u5347\u7ea7\u57ce\u9547\u5230Lv.${Math.floor(st.lv/10)+1}`;
+  // \u975e\u5175\u8425\u5efa\u7b51\uff1a\u6700\u9ad8\u7b49\u7ea7 = \u57ce\u9547\u7b49\u7ea7
+  if(!cfg.trains && st.lv>=S.townLv) return `\u9700\u5347\u7ea7\u57ce\u9547\u5230Lv.${S.townLv+1}`;
   if((cfg.buffRes||cfg.storagePerLv)&&st.lv>=resourceLevelCap()){
     const nextBoss=CFG.enemies.find(e=>e.boss&&!S.defeated.includes(e.id));
     return nextBoss?`\u5df2\u8fbe${resourceCapText()}\uff0c\u51fb\u8d25${nextBoss.name}\u540e\u7ee7\u7eed\u5347\u7ea7`:`\u5df2\u8fbe${resourceCapText()}`;
@@ -89,8 +92,8 @@ function unitCap(uk){
   const key=trainBuildingKey(uk);
   if(!key)return 0;
   const cfg=CFG.buildings[key],st=bldSt(key);
-  const arr=cfg.unitCap||[];
-  return arr[Math.min(st.lv,arr.length-1)]||0;
+  if(st.lv<=0)return 0;
+  return (cfg.unitCapBase||0) + st.lv * (cfg.unitCapPerLv||0);
 }
 function garrisonCount(uk){
   let n=0;
@@ -115,7 +118,7 @@ function queueTotal(uk){
   return q?q.count:0;
 }
 function queueMax(uk){
-  return unitCap(uk)*10;
+  return unitCap(uk)*5;
 }
 function processQueue(){
   let changed=false;
@@ -330,17 +333,6 @@ function trainMax(uk,inputId){
   if(el)el.value=qty;
   train(uk,qty);
 }
-function dismiss(uk){
-  const q=S.queue[uk];
-  if(q&&q.count>0){
-    q.count--;addLog(`取消训练${CFG.units[uk].name}-1 (队列${q.count}人)`);
-    if(q.count<=0){q.count=0;q.timer=0;q.reason='';}
-    save();updateUI();return;
-  }
-  const a=poolAvail(uk);
-  if(a<=0){toast('无可用士兵');return}
-  S.pool[uk]-=1;addLog(`解散${CFG.units[uk].name}-1`);save();updateUI();
-}
 function dismissN(uk,n){
   let qty=Math.floor(n)||1;
   const q=S.queue[uk];
@@ -359,10 +351,7 @@ function dismissN(uk,n){
 function cancelQueue(uk){
   const q=S.queue[uk];
   if(!q||q.count<=0){toast('队列为空');return}
-  const n=q.count;
-  q.count=0;q.timer=0;q.reason='';
-  addLog(`取消训练${CFG.units[uk].name}-${n} (队列已清空)`);
-  save();updateUI();
+  dismissN(uk, q.count);
 }
 function addRes(rk,inputId){
   const el=document.getElementById(inputId);
