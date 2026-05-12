@@ -546,12 +546,103 @@ body{
   0%,100%{transform:translateY(0)}
   50%{transform:translateY(-3px)}
 }
+.town-invasion-layer,.town-vfx-layer{
+  position:absolute;inset:0;pointer-events:none;
+}
+.town-invasion-layer{z-index:12}
+.town-vfx-layer{z-index:20;overflow:hidden}
+.town-phase-banner{
+  position:absolute;left:50%;top:8px;z-index:32;transform:translateX(-50%);
+  padding:4px 8px;border:2px solid #d6a83f;background:rgba(12,12,20,.88);
+  color:#f0d060;font-size:10px;line-height:1;text-shadow:1px 1px 0 #000;
+  box-shadow:inset 1px 1px 0 rgba(255,255,255,.08),0 2px 0 #05060b;
+}
+.town-map.is-warning{
+  animation:townWarningPulse .9s ease-in-out infinite;
+}
+.town-map.is-warning .town-frontier-zone,.town-map.is-battle .town-frontier-zone,.town-map.is-result .town-frontier-zone{
+  display:block;
+}
+.town-map.is-sortie .town-guard{
+  animation:townGuardSortie 1.25s ease-out forwards;
+}
+.town-map.is-battle .town-guard{
+  animation:none!important;transform:translate(58px,-7px) scaleX(-1);
+}
+.town-invader{
+  position:absolute;right:8%;top:62%;width:42px;height:42px;opacity:1;
+  filter:drop-shadow(0 3px 0 rgba(0,0,0,.45));
+}
+.town-invader .pix-icon{width:100%;height:100%;display:block}
+.town-invader.invader-1{top:56%;animation-delay:.05s}
+.town-invader.invader-2{top:65%;animation-delay:.22s}
+.town-invader.invader-3{top:60%;animation-delay:.38s}
+.town-map.is-spawn .town-invader{
+  right:-58px;opacity:0;animation:townInvaderEnter 1.1s ease-out forwards;
+}
+.town-map.is-battle .town-invader{
+  animation:townInvaderBattle .72s ease-in-out infinite;
+}
+.town-map.is-result.result-win .town-invader{
+  animation:townInvaderDefeat .8s ease forwards;
+}
+.town-map.is-result.result-lose .town-guard{
+  filter:grayscale(.6) brightness(.8);
+}
+.town-skirmish-flash{
+  position:absolute;left:41%;top:55%;width:116px;height:60px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,224,120,.46),rgba(224,96,96,.18) 48%,transparent 70%);
+  animation:townSkirmishFlash .42s ease-in-out infinite;
+}
+.town-demo-vfx{
+  opacity:0;transform:translate(-50%,-50%) rotate(-8deg);
+  animation:townDemoVfx .78s ease-in-out infinite;
+}
+.town-demo-vfx:nth-child(2){animation-delay:.18s}
+.town-demo-vfx:nth-child(3){animation-delay:.34s}
+.town-cooldown-bar{
+  display:none;position:absolute;left:28px;right:28px;bottom:8px;z-index:31;height:5px;
+  border:1px solid #59617b;background:rgba(8,10,18,.82);box-shadow:0 2px 0 rgba(0,0,0,.35);
+}
+.town-map.is-cooldown .town-cooldown-bar{display:block}
+.town-cooldown-bar i{
+  display:block;height:100%;background:repeating-linear-gradient(90deg,#4f9b67 0 6px,#78d18e 6px 9px);
+}
+@keyframes townWarningPulse{
+  0%,100%{box-shadow:inset 0 0 0 3px #090d13,inset 2px 2px 0 rgba(255,255,255,.07),inset -2px -2px 0 rgba(0,0,0,.55),0 2px 0 #05060b}
+  50%{box-shadow:inset 0 0 0 3px #5a1d1d,inset 0 0 28px rgba(224,72,72,.5),0 2px 0 #05060b}
+}
+@keyframes townInvaderEnter{
+  from{right:-58px;opacity:0}
+  to{right:8%;opacity:1}
+}
+@keyframes townInvaderBattle{
+  0%,100%{right:8%;transform:translateY(0) scaleX(-1)}
+  50%{right:14%;transform:translateY(-3px) scaleX(-1)}
+}
+@keyframes townInvaderDefeat{
+  0%{right:8%;opacity:1;filter:grayscale(0)}
+  100%{right:4%;opacity:0;filter:grayscale(1);transform:translateY(8px) scale(.75)}
+}
+@keyframes townGuardSortie{
+  0%{transform:translate(0,0) scaleX(-1)}
+  100%{transform:translate(58px,-7px) scaleX(-1)}
+}
+@keyframes townSkirmishFlash{
+  0%,100%{opacity:.25;transform:scale(.82)}
+  50%{opacity:.9;transform:scale(1.08)}
+}
+@keyframes townDemoVfx{
+  0%{opacity:0;transform:translate(-50%,-50%) rotate(-10deg) scale(.72)}
+  35%{opacity:1;transform:translate(-10%,-50%) rotate(-10deg) scale(1.05)}
+  100%{opacity:0;transform:translate(32%,-50%) rotate(-10deg) scale(.92)}
+}
 .town-troop-summary{
   margin-top:8px;padding:6px 7px;border:2px solid #2b3144;background:#0d101b;color:#c5cad8;
   font-size:10px;line-height:1.45;word-break:break-all;text-shadow:1px 1px 0 #000;
 }
 @media (prefers-reduced-motion: reduce){
-  .town-worker,.town-worker:after,.town-guard{animation:none!important}
+  .town-worker,.town-worker:after,.town-guard,.town-map.is-warning,.town-invader,.town-demo-vfx,.town-skirmish-flash{animation:none!important}
 }
 
 /* ===== 像素风皮肤（CSS变量 + 暗色主题）===== */
@@ -792,6 +883,7 @@ body{
 <script src="levels.js"></script>
 <script src="sprites.js"></script>
 <script src="math.js"></script>
+<script src="garrison.js"></script>
 <script src="ui.js"></script>
 </body>
 </html>

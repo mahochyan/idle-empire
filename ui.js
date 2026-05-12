@@ -82,7 +82,9 @@ function renderTownMapOverview(){
   };
   const guardCounts=Object.fromEntries(Object.keys(CFG.units).map(k=>[k,garrisonOnly(k)]));
   const hasAny=Object.values(guardCounts).some(n=>n>0);
-  const status=hasAny?'巡逻中':'无';
+  const status=typeof garrisonStatusText==='function'?garrisonStatusText(hasAny):(hasAny?'巡逻中':'无');
+  const townMapClass=typeof garrisonTownMapClass==='function'?garrisonTownMapClass():'';
+  const garrisonLayers=typeof renderGarrisonTownLayers==='function'?renderGarrisonTownLayers():'';
   const troopSummary=hasAny
     ?Object.entries(CFG.units).filter(([k])=>garrisonOnly(k)>0).map(([k,c])=>`${c.name}${garrisonOnly(k)}`).join('｜')
     :'无';
@@ -92,7 +94,7 @@ function renderTownMapOverview(){
       <h3>🏰 城镇巡防</h3>
       <span class="town-map-status">${status}</span>
     </div>
-    <div class="town-map" aria-label="城镇巡防地图">
+    <div class="town-map ${townMapClass}" aria-label="城镇巡防地图">
       <div class="town-map-zone town-resource-zone" aria-hidden="true"></div>
       <div class="town-map-zone town-defense-zone" aria-hidden="true"></div>
       <div class="town-map-zone town-frontier-zone" aria-hidden="true"></div>
@@ -102,6 +104,7 @@ function renderTownMapOverview(){
       <div class="town-gate" aria-hidden="true"></div>
       <div class="town-woods" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
       <div class="town-stones" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      ${garrisonLayers}
 
       ${workerDots('wood',woodWorkers,'wood')}
       ${workerDots('stone',stoneWorkers,'stone')}
@@ -153,21 +156,53 @@ function renderTownGuards(counts){
   return guards
     .filter(([type])=>(counts[type]||0)>0)
     .slice(0,5)
-    .map(([type,cls,anim])=>`<span class="town-guard ${cls} ${anim}" aria-hidden="true">${pix(type)}</span>`)
+    .map(([type,cls,anim])=>`<span class="town-guard ${cls} ${anim}" data-unit="${type}" data-count="${counts[type]||0}" aria-hidden="true">${pix(type)}</span>`)
     .join('');
 }
 let _townHash='';
+function townHasAnyGarrison(){
+  const gf=S._garrisonForm||{front:[],mid:[],back:[]};
+  for(const row of['front','mid','back']){
+    for(const u of gf[row]||[]){
+      if((u.count||0)>0)return true;
+    }
+  }
+  return false;
+}
+function updateTownDynamicBits(){
+  if(S.page!=='home')return;
+  const hasAny=townHasAnyGarrison();
+  const statusEl=document.querySelector?.('.town-map-status');
+  if(statusEl&&typeof garrisonStatusText==='function')statusEl.textContent=garrisonStatusText(hasAny);
+
+  const bannerEl=document.querySelector?.('.town-phase-banner');
+  if(bannerEl&&typeof garrisonStatusText==='function'){
+    const gs=S.garrison||{};
+    const inv=typeof garrisonById==='function'?garrisonById(gs.templateId):null;
+    bannerEl.textContent=`${garrisonStatusText(true)}${inv?` · ${inv.name}`:''}`;
+  }
+
+  const barEl=document.querySelector?.('.town-cooldown-bar i');
+  if(barEl&&S.garrison&&S.garrison.phase==='cooldown'&&S.garrison.phaseUntil>S.garrison.phaseStarted){
+    const g=S.garrison;
+    const progress=Math.max(0,Math.min(100,Math.round((g.phaseUntil-S.tick)/(g.phaseUntil-g.phaseStarted)*100)));
+    barEl.style.width=progress+'%';
+  }
+}
 function updateTownScene(){
   const woodWorkers=S.popAlloc.wood||0;
   const stoneWorkers=S.popAlloc.stone||0;
   const foodWorkers=S.popAlloc.food||0;
   // 哈希包含驻军阵容结构，确保阵容变化时能刷新
   const gHash=JSON.stringify(S._garrisonForm||{});
-  const h=woodWorkers+','+stoneWorkers+','+foodWorkers+','+S.townLv+','+gHash;
-  if(h===_townHash)return;
+  const gs=S.garrison||{};
+  const invHash=[gs.phase,gs.templateId,gs.result&&gs.result.outcome,S.merit].join('|');
+  const h=woodWorkers+','+stoneWorkers+','+foodWorkers+','+S.townLv+','+gHash+','+invHash;
+  if(h===_townHash){updateTownDynamicBits();return;}
   _townHash=h;
   const html=renderTownMapOverview();
   document.getElementById('town-scene').innerHTML=html;
+  updateTownDynamicBits();
 }
 const BUILD_CATEGORIES = {
   basic: {name:'\u57fa\u7840\u5efa\u7b51',keys:['warehouse','lumber_mill','quarry','farm']},
@@ -330,7 +365,7 @@ function rGarrison(){
   const cnt=gf.front.length+gf.mid.length+gf.back.length;
   const which='garrison';
   let h=`<div class="card"><h3>${pix('army','card-pix')}驻军阵容 (${cnt}/${formSlots()}团 | 上限${regMax()}人/团)</h3>`;
-  h+=`<div style="font-size:10px;color:#888;margin-bottom:4px">驻军阵容显示在主页城镇巡防地图上</div>`;
+  h+=`<div style="font-size:10px;color:#888;margin-bottom:4px">自动触发：300 tick 新手保护后，每 180 tick 有 25% 概率入侵。驻军阵容会显示在主页城镇巡防地图上。</div>`;
   const rs=[{k:'front',n:'前排',c:'r1'},{k:'mid',n:'中排',c:'r2'},{k:'back',n:'后排',c:'r3'}];
   for(const r of rs){
     h+=`<div class="form-row ${r.c}"><div class="ftitle">${r.n} (${gf[r.k].length}/${rowSlots(r.k)})</div>`;
@@ -356,7 +391,15 @@ function rGarrison(){
     }
     h+=`</div>`;
   }
-  h+=`<button class="btn btn-ghost btn-sm" onclick="clrForm('garrison')">清空驻军</button></div>`;
+  h+=`<button class="btn btn-ghost btn-sm" onclick="clrForm('garrison')">清空驻军</button>
+  <button class="btn btn-go btn-sm" onclick="triggerGarrisonInvasion()" style="margin-left:4px">测试触发入侵</button>`;
+  if(typeof ensureGarrisonState==='function')ensureGarrisonState();
+  const gl=[...(S.garrisonLog||[])].reverse().slice(0,5);
+  h+=`<div style="margin-top:8px;padding-top:7px;border-top:1px solid #2b3144">
+    <div style="font-size:11px;color:#d6a83f;margin-bottom:4px">驻军功勋 ${S.merit||0} · 最近驻军事件</div>`;
+  if(!gl.length)h+=`<div style="font-size:10px;color:#666">暂无驻军事件</div>`;
+  else for(const e of gl)h+=`<div style="font-size:10px;color:#777;line-height:1.55">[${e.time}] ${e.msg}</div>`;
+  h+=`</div></div>`;
   return h;
 }
 // ===== 训练场子标签 =====
