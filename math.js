@@ -15,7 +15,8 @@ let S = {
   queue:{},
   battleSpeed:1,
   battleActive:false,
-  _trainQty:{}
+  _trainQty:{},
+  _testUnlocked:false
 };
 
 // ==================== 辅助 ====================
@@ -338,6 +339,19 @@ function addRes(rk,inputId){
   S.res[rk]=Math.min((S.res[rk]||0)+n,cap);
   addLog(`手动添加${CFG.res[rk].name}+${n}`);
   save();updateUI();
+}
+
+// 激活码校验：输入1122解锁测试工具
+function checkActivationCode(inputId){
+  const el=document.getElementById(inputId);
+  if(!el)return;
+  if(el.value.trim()==='1122'){
+    S._testUnlocked=true;
+    toast('测试工具已解锁');
+    updateUI();
+  }else{
+    toast('激活码错误');
+  }
 }
 
 // ==================== 编队弹窗 ====================

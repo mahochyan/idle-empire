@@ -290,13 +290,22 @@ function rLog(){
   const l=[...S.log].reverse();
   if(!l.length)h+=`<div style="color:#666">暂无</div>`;
   else for(const e of l)h+=`<span style="color:#555">[${e.time}]</span> ${e.msg}<br>`;
-  h+=`</div></div>
-  <div class="card"><h3>${pix('build','card-pix')}测试工具</h3>
-    <div class="train-custom" style="margin:4px 0"><span style="width:40px">木材</span><input id="test-wood" type="text" inputmode="numeric" pattern="[0-9]*" value="100" style="width:70px"><button class="btn btn-go btn-xs" onclick="addRes('wood','test-wood')">添加</button></div>
-    <div class="train-custom" style="margin:4px 0"><span style="width:40px">石料</span><input id="test-stone" type="text" inputmode="numeric" pattern="[0-9]*" value="100" style="width:70px"><button class="btn btn-go btn-xs" onclick="addRes('stone','test-stone')">添加</button></div>
-    <div class="train-custom" style="margin:4px 0"><span style="width:40px">食物</span><input id="test-food" type="text" inputmode="numeric" pattern="[0-9]*" value="100" style="width:70px"><button class="btn btn-go btn-xs" onclick="addRes('food','test-food')">添加</button></div>
-  </div>
-  <button class="btn btn-danger btn-sm" onclick="if(confirm('重置?')){localStorage.clear();location.reload()}">${pix('reset','mini')}重置</button></div>`;
+  h+=`</div></div>`;
+  if(!S._testUnlocked){
+    h+=`<div class="card"><h3>激活码</h3>
+      <div class="train-custom" style="margin:4px 0">
+        <input id="activation-code" type="text" value="" style="width:100px" placeholder="请输入激活码">
+        <button class="btn btn-go btn-xs" onclick="checkActivationCode('activation-code')">确认</button>
+      </div></div>`;
+  }
+  if(S._testUnlocked){
+    h+=`<div class="card"><h3>${pix('build','card-pix')}测试工具</h3>
+      <div class="train-custom" style="margin:4px 0"><span style="width:40px">木材</span><input id="test-wood" type="text" inputmode="numeric" pattern="[0-9]*" value="100" style="width:70px"><button class="btn btn-go btn-xs" onclick="addRes('wood','test-wood')">添加</button></div>
+      <div class="train-custom" style="margin:4px 0"><span style="width:40px">石料</span><input id="test-stone" type="text" inputmode="numeric" pattern="[0-9]*" value="100" style="width:70px"><button class="btn btn-go btn-xs" onclick="addRes('stone','test-stone')">添加</button></div>
+      <div class="train-custom" style="margin:4px 0"><span style="width:40px">食物</span><input id="test-food" type="text" inputmode="numeric" pattern="[0-9]*" value="100" style="width:70px"><button class="btn btn-go btn-xs" onclick="addRes('food','test-food')">添加</button></div>
+    </div>`;
+  }
+  h+=`<button class="btn btn-danger btn-sm" onclick="if(confirm('重置?')){localStorage.clear();location.reload()}">${pix('reset','mini')}重置</button></div>`;
   return h;
 }
 
