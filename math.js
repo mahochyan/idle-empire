@@ -883,7 +883,6 @@ function battleTurn(){
   for(const u of B.enemyUnits) if(u.alive!==false&&u.type!=='dummy') enemyAlive.push(u);
 
   if(ourAlive.length===0){endBattle('lose');return}
-  if(enemyAlive.length===0){endBattle('win');return}
 
   const ourSpd=u=>Math.floor(u.spd*(1+(B.tactic.spdPct||0)));
   const sortFn=(a,b,sf)=>sf(b)-sf(a)||(Math.random()<0.5?1:-1);
@@ -893,7 +892,10 @@ function battleTurn(){
   const isBossFight=B.enemyCfg&&B.enemyCfg.boss&&enemyAlive.length===1;
 
   const actions=[];
-  if(isBossFight){
+  if(enemyAlive.length===0){
+    // 训练场：只有我方攻击，敌方木人桩不还手
+    for(const u of ourAlive) actions.push({unit:u,side:'our'});
+  } else if(isBossFight){
     for(const u of ourAlive) actions.push({unit:u,side:'our'});
     actions.push({unit:enemyAlive[0],side:'enemy'});
   } else {
