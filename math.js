@@ -909,7 +909,7 @@ function showTrainingResult(){
 function retryTraining(){
   document.getElementById('battle-result').style.display='none';
   document.getElementById('battle-msg').innerHTML='';
-  B.isTraining=true;
+  S.battleActive=true; B.isTraining=true;
   initBattleState();
   drawBattleField();
   bmsg('重新测试开始！','#f0d060');
