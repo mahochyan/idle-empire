@@ -20,13 +20,13 @@ const CFG = {
   // 城镇等级
   town: [
     {lv:1,name:'小村庄',maxPop:10, needBoss:0},
-    {lv:2,name:'村庄',maxPop:18, needBoss:1},
-    {lv:3,name:'大村庄',maxPop:28, needBoss:2},
-    {lv:4,name:'小镇',maxPop:42, needBoss:3},
-    {lv:5,name:'城镇',maxPop:60, needBoss:5},
-    {lv:6,name:'大城镇',maxPop:80, needBoss:7},
-    {lv:7,name:'小城',maxPop:105, needBoss:10},
-    {lv:8,name:'城市',maxPop:140, needBoss:13}
+    {lv:2,name:'村庄',maxPop:20, needBoss:1},
+    {lv:3,name:'大村庄',maxPop:30, needBoss:2},
+    {lv:4,name:'小镇',maxPop:40, needBoss:3},
+    {lv:5,name:'城镇',maxPop:50, needBoss:5},
+    {lv:6,name:'大城镇',maxPop:60, needBoss:7},
+    {lv:7,name:'小城',maxPop:70, needBoss:10},
+    {lv:8,name:'城市',maxPop:80, needBoss:13}
   ],
 
   // 兵种
@@ -132,7 +132,7 @@ const CFG = {
     barracks:{name:'营帐',build:{wood:300,stone:200,food:100,time:6}, upBase:{wood:2200,stone:1800,food:1000}, upCostLv:1.85},
     infantry_camp:{name:'步兵营地',trains:'infantry',unitCapBase:4,unitCapPerLv:2,build:{wood:180,stone:100,food:80,time:5},upBase:{wood:1000,stone:1000,food:800},upCostLv:1.1},
     archer_range:{name:'射手靶场',trains:'archer',unitCapBase:2,unitCapPerLv:2,build:{wood:240,stone:100,food:100,time:6},upBase:{wood:1000,stone:1000,food:850},upCostLv:1.1},
-    stable:{name:'骑兵训练场',trains:'cavalry',unitCapBase:1,unitCapPerLv:1,needBoss:1,build:{wood:220,stone:160,food:180,time:7},upBase:{wood:1500,stone:1500,food:1000},upCostLv:1.2},
+    stable:{name:'骑兵训练场',trains:'cavalry',unitCapBase:1,unitCapPerLv:1,needBoss:1,build:{wood:220,stone:160,food:180,time:7},upBase:{wood:1000,stone:1000,food:1000},upCostLv:1.2},
     spear_crypt:{name:'长矛兵营地',trains:'spearman',unitCapBase:1,unitCapPerLv:1,needBoss:2,build:{wood:160,stone:240,food:100,time:7},upBase:{wood:1500,stone:2000,food:1000},upCostLv:1.2},
     mage_tower:{name:'法师塔',trains:'mage',unitCapBase:1,unitCapPerLv:1,needBoss:2,build:{wood:500,stone:500,food:350,time:10},upBase:{wood:3000,stone:3000,food:2000},upCostLv:1.3},
     warehouse:{name:'仓库',storageBase:5000,storagePerLv:2500,build:{wood:200,stone:200,food:100,time:5},upBase:{wood:1000,stone:1000,food:1000},upCostLv:1.3},
@@ -157,8 +157,8 @@ const CFG = {
   // otherBase/otherPerLv: 其他建筑（仓库/兵营建筑）使用
   // 公式: 时间 = base + 当前等级 * perLv
   buildingTimes: {
-    cap1Base: 90,
-    cap1PerLv: 60,
+    cap1Base: 30,
+    cap1PerLv: 10,
     otherBase: 10,
     otherPerLv: 1
   }

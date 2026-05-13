@@ -236,7 +236,7 @@ function rBuildCard(key, cfg){
   let h=`<div class="card" style="${locked||upLock?'opacity:.7':''}"><h3 style="display:flex;justify-content:space-between;align-items:center">`;
   h+=`<span>${pix(key,'card-pix')}${cfg.name}`;if(st.state==='idle'&&st.lv>0)h+=` <span style="color:#f0d060">Lv.${st.lv}</span>`;
   // \u8425\u5e10\u7279\u6b8a\uff1a\u663e\u793a\u51fa\u6218\u4e0a\u9650
-  if(key==='barracks')h+=` <span style="font-size:11px;color:#888">(\u51fa\u6218\u4e0a\u9650${regMax()}\u4eba/\u683c${st.lv<=0?'\uff0c\u5efa\u9020\u540e100\u4eba/\u683c':''})</span>`;
+  if(key==='barracks')h+=` <span style="font-size:11px;color:#888">(\u51fa\u6218\u4e0a\u9650${regMax()}\u4eba/\u683c\uff0c\u6bcf\u7ea7+5)</span>`;
   // \u4ed3\u5e93\u7279\u6b8a\uff1a\u663e\u793a\u5b58\u50a8\u4e0a\u9650
   if(key==='warehouse'&&st.state==='idle'&&st.lv>0)h+=` <span style="font-size:11px;color:#f0d060">\u5b58\u50a8\u4e0a\u9650 ${storageCapacity()}</span>`;
   h+=`</span>${rightLabel}</h3>`;
@@ -610,7 +610,7 @@ function rLog(){
   }
   if(S._testUnlocked){
     h+=`<div class="card"><h3>${pix('build','card-pix')}测试工具</h3>
-      <div class="train-custom" style="margin:4px 0"><span style="width:60px">木/石/食</span><input id="test-all" type="text" inputmode="numeric" pattern="[0-9]*" value="10000" style="width:70px"><button class="btn btn-go btn-xs" onclick="addAllRes('test-all')">一键添加</button></div>
+      <div class="train-custom" style="margin:4px 0"><span style="width:60px">木/石/食/科技</span><input id="test-all" type="text" inputmode="numeric" pattern="[0-9]*" value="10000" style="width:70px"><button class="btn btn-go btn-xs" onclick="addAllRes('test-all')">一键添加</button></div>
     </div>`;
   }
   h+=`<button class="btn btn-danger btn-sm" onclick="if(confirm('重置?')){localStorage.clear();location.reload()}">${pix('reset','mini')}重置</button></div>`;

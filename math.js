@@ -87,7 +87,7 @@ function upgradeLockReason(key){
 }
 function regMax(){
   const s=bldSt('barracks');
-  return 5+(s.state==='idle'&&s.lv>=1?5:0);
+  return 5+(s.state==='idle'?s.lv*5:0);
 }
 function academyLv(){
   const st=bldSt('military_academy');
