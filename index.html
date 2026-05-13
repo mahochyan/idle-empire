@@ -137,6 +137,12 @@ body{
   background:#1a1a2e;color:#e0e0e0;font-size:16px;cursor:pointer;
 }
 
+.settings-time{
+  text-align:center;padding:12px;background:#121224;border:1px solid #2b3144;border-radius:6px;
+  margin-bottom:10px;color:#f0d060;font-size:16px;font-weight:bold;
+}
+.settings-time .label{font-size:10px;color:#666;display:block;margin-bottom:4px}
+
 /* ===== 战斗画面 ===== */
 #battle-screen{
   display:none;position:absolute;top:0;left:0;width:100%;height:100%;
@@ -880,6 +886,11 @@ body{
   <!-- 编队弹窗（选择兵种+人数）-->
   <div class="modal-overlay" id="form-modal">
     <div class="modal-box" id="form-modal-content"></div>
+  </div>
+
+  <!-- 设置弹窗 -->
+  <div class="modal-overlay" id="settings-modal">
+    <div class="modal-box" id="settings-content"></div>
   </div>
 
   <!-- 单位详情弹窗（属性面板）-->
