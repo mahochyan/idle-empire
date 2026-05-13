@@ -307,6 +307,7 @@ function buildGarrisonUnitsFromForm(){
         spd:cfg.spd,
         atk:cfg.atk,
         def:cfg.def,
+        tag:cfg.tag||null,
         alive:true
       });
     }
@@ -333,6 +334,7 @@ function buildGarrisonEnemyUnits(inv){
         spd:cfg.spd,
         atk:cfg.atk,
         def:cfg.def,
+        tag:cfg.tag||null,
         alive:true
       });
     }
@@ -377,11 +379,23 @@ function calcGarrisonDmg(attacker,defender){
   const defenseFactor=100/(100+defender.def*8);
   const counterFactor=cm(attacker.type,defender.type);
   const mageFactor=mm(attacker.type,defender.type);
-  const passiveFactor=attacker.type==='infantry'?1.1:1.0;
+  const passiveFactor=baseUnitType(attacker.type)==='infantry'?1.1:1.0;
   const randomFactor=0.9+Math.random()*0.2;
-  const isCrit=attacker.type==='spearman'&&Math.random()<0.1;
-  const raw=attacker.hp*attacker.atk*DAMAGE_COEF*defenseFactor*counterFactor*mageFactor*passiveFactor*randomFactor;
-  return Math.max(1,Math.floor(isCrit?raw*2:raw));
+  const isCrit=baseUnitType(attacker.type)==='spearman'&&Math.random()<0.1;
+  let specialFactor=1.0;
+  const AS=CFG.archerSpecials||{};
+  // 弩攻击盾兵：穿透80%伤害
+  if(attacker.tag==='crossbow'&&defender.tag==='shield') specialFactor*=AS.crossbow?.attack?.vsShield?.dmgPct||0.8;
+  // 刃攻击远程：+60%伤害
+  if(attacker.tag==='blade'&&isRanged(defender.type)) specialFactor*=AS.blade?.attack?.vsRanged?.dmgPct||1.6;
+  // 刃攻击盾兵：60%伤害
+  if(attacker.tag==='blade'&&defender.tag==='shield') specialFactor*=AS.blade?.attack?.vsShield?.dmgPct||0.6;
+  // 弓防御：被非盾单位攻击时80%格挡
+  if(defender.tag==='bow'&&attacker.tag!=='shield'&&Math.random()<(AS.bow?.defend?.vsNonShield?.block||0.8)){
+    specialFactor=0;
+  }
+  const raw=attacker.hp*attacker.atk*DAMAGE_COEF*defenseFactor*counterFactor*mageFactor*passiveFactor*randomFactor*specialFactor;
+  return Math.max(specialFactor>0?1:0,Math.floor(isCrit?raw*2:raw));
 }
 
 function garrisonArrowTowerAttack(enemyUnits,round){
@@ -395,7 +409,7 @@ function garrisonArrowTowerAttack(enemyUnits,round){
   // 目标选择
   let target;
   if(lv>=3){
-    const priority=alive.filter(u=>u.type==='archer'||u.type==='mage');
+    const priority=alive.filter(u=>isRanged(u.type));
     target=priority.length?priority[Math.floor(Math.random()*priority.length)]:alive[Math.floor(Math.random()*alive.length)];
   }else{
     target=alive[Math.floor(Math.random()*alive.length)];
@@ -454,7 +468,7 @@ function resolveGarrisonBattle(inv){
       if(!target)continue;
 
       const archerMiss=isAttackMiss(actor,target);
-      const cavDodge=!archerMiss&&target.type==='cavalry'&&actor.type!=='archer'&&Math.random()<0.1;
+      const cavDodge=!archerMiss&&baseUnitType(target.type)==='cavalry'&&!isRanged(actor.type)&&Math.random()<0.1;
       if(archerMiss||cavDodge)continue;
 
       const dmg=Math.min(calcGarrisonDmg(actor,target),target.hp);
@@ -558,13 +572,14 @@ function garrisonTownMapClass(){
 }
 
 function garrisonVfxClass(type){
+  const bu=typeof baseUnitType==='function'?baseUnitType(type):type;
   return {
     infantry:'swordqi',
     archer:'arrow',
     spearman:'thrust',
     cavalry:'cavslash',
     mage:'magebolt'
-  }[type]||'swordqi';
+  }[bu]||'swordqi';
 }
 
 function garrisonCombatTypes(){
@@ -602,7 +617,8 @@ function renderGarrisonTownLayers(){
       const cls=garrisonVfxClass(type);
       const top=[59,66,62][i]||62;
       const left=[40,50,57][i]||50;
-      const size=type==='cavalry'?96:type==='infantry'?88:78;
+      const bu=typeof baseUnitType==='function'?baseUnitType(type):type;
+      const size=bu==='cavalry'?96:bu==='infantry'?88:78;
       return `<span class="town-demo-vfx vfx vfx-${cls}" style="left:${left}%;top:${top}%;width:${size}px;height:${Math.floor(size*.55)}px"></span>`;
     }).join('');
   }

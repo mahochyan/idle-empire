@@ -90,7 +90,11 @@ function renderTownMapOverview(){
     }
     return n;
   };
-  const guardCounts=Object.fromEntries(Object.keys(CFG.units).map(k=>[k,garrisonOnly(k)]));
+  const guardCounts={};
+  for(const k of Object.keys(CFG.units)){
+    const bu=typeof baseUnitType==='function'?baseUnitType(k):k;
+    guardCounts[bu]=(guardCounts[bu]||0)+garrisonOnly(k);
+  }
   const hasAny=Object.values(guardCounts).some(n=>n>0);
   const status=typeof garrisonStatusText==='function'?garrisonStatusText(hasAny):(hasAny?'巡逻中':'无');
   const townMapClass=typeof garrisonTownMapClass==='function'?garrisonTownMapClass():'';
@@ -312,11 +316,11 @@ function rBarracks(){
   const tierNum={t0:0,t1:1,t2:2,t3:3}[tier];
   let shown=0;
   for(const[k,c] of Object.entries(CFG.units)){
-    if(c.locked && c.baseUnit && c.baseUnit!==k) continue;
+    if(tier==='t0' && c.locked && c.baseUnit && c.baseUnit!==k) continue;
     const ut=typeof c.tier==='number'?c.tier:0;
     if(tier==='t0' && ut!==0) continue;
     if(tier!=='t0' && ut!==tierNum) continue;
-    if(tier!=='t0' && c.baseUnit!=='infantry') continue;
+    if(tier!=='t0' && c.baseUnit!=='infantry' && c.baseUnit!=='archer') continue;
     const ow=S.pool[k]||0,lock=trainLockReason(k);
     const tm=maxTrainable(k),disabled=tm<=0?'disabled':'',muted=lock?'opacity:.55':'';
     const isLockedVar=tier!=='t0' && c.locked && !(S.upgradedUnits||{})[k];
@@ -396,63 +400,66 @@ function rAcademy(){
   if(acadCfg)h+=rBuildCard('military_academy',acadCfg);
   const alv=academyLv();
   if(alv<1){h+=`<div style="text-align:center;color:#666;padding:20px">建造军事学院后查看兵种升级树</div>`;return h;}
-  const tree=CFG.unitUpgrades.infantry.tree;
-  if(!tree)return h+`<div style="text-align:center;color:#666;padding:20px">暂无兵种升级树</div>`;
   const upgraded=S.upgradedUnits||{};
-  h+=`<div class="card"><h3>${pix('infantry','card-pix')}步兵升级线</h3>
-    <div style="font-size:10px;color:#888;margin-bottom:6px">学院等级 Lv.${alv}</div>`;
-  function nodeStatus(key,node){
-    if(key==='infantry')return{text:'已解锁',color:'#40bf80'};
-    if(upgraded[key])return{text:'已解锁',color:'#40bf80'};
-    for(const[nk,nn]of Object.entries(tree)){
-      for(const br of nn.branches||[]){
-        if(br.to===key){
-          const parentUp=nk==='infantry'||upgraded[nk];
-          if(!parentUp)return{text:'需先解锁'+nn.name,color:'#888'};
-          if(alv>=br.needAcademyLv)return{text:'可研究',color:'#f0d060'};
-          return{text:'需学院Lv.'+br.needAcademyLv,color:'#e06060'};
+  for(const[treeKey,treeCfg] of Object.entries(CFG.unitUpgrades||{})){
+    const tree=treeCfg.tree;
+    if(!tree)continue;
+    const rootKey=Object.keys(tree).find(k=>tree[k].tier===0)||Object.keys(tree)[0];
+    const icon=treeCfg.icon||'infantry';
+    h+=`<div class="card"><h3>${pix(icon,'card-pix')}${treeCfg.name}</h3>
+      <div style="font-size:10px;color:#888;margin-bottom:6px">学院等级 Lv.${alv}</div>`;
+    function nodeStatus(key,node){
+      if(key===rootKey)return{text:'已解锁',color:'#40bf80'};
+      if(upgraded[key])return{text:'已解锁',color:'#40bf80'};
+      for(const[nk,nn]of Object.entries(tree)){
+        for(const br of nn.branches||[]){
+          if(br.to===key){
+            const parentUp=nk===rootKey||upgraded[nk];
+            if(!parentUp)return{text:'需先解锁'+nn.name,color:'#888'};
+            if(alv>=br.needAcademyLv)return{text:'可研究',color:'#f0d060'};
+            return{text:'需学院Lv.'+br.needAcademyLv,color:'#e06060'};
+          }
         }
       }
+      return{text:'未知',color:'#888'};
     }
-    return{text:'未知',color:'#888'};
-  }
-  function renderNode(key,depth){
-    const node=tree[key];
-    if(!node)return'';
-    const isUp=key==='infantry'||upgraded[key];
-    const st=nodeStatus(key,node);
-    const pad=depth*20;
-    let r=`<div style="margin:4px 0;padding:4px 8px;background:${isUp?'#1a2a1a':'#121224'};border:1px solid ${isUp?'#2b4b3b':'#2b3144'};border-radius:3px;font-size:11px;margin-left:${pad}px">
-      <span style="display:inline-block;width:50px;font-size:9px;color:#888">T${node.tier}</span>
-      <span style="color:${isUp?'#40bf80':'#e0e0e0'}">${pix('infantry','mini')}${node.name}</span>
-      ${node.tag?`<span style="font-size:9px;color:#888;margin-left:4px">[${node.tag}]</span>`:''}
-      <span style="float:right;font-size:9px;color:${st.color}">${st.text}</span>`;
-    if(isUp&&node.branches.length){
-      r+=`<div style="margin-top:4px;padding-left:20px;border-left:1px solid #3a4158">`;
-      for(const br of node.branches){
-        const brUp=upgraded[br.to]===true;
-        r+=`<div style="margin:2px 0;font-size:10px;display:flex;align-items:center;gap:4px">
-          <span style="color:#888">→</span>
-          <span style="color:${brUp?'#40bf80':'#aaa'}">${pix('infantry','mini')}${br.name}</span>
-          ${brUp?`<span style="color:#40bf80;font-size:9px">✓ 已解锁</span>`
-            :alv>=br.needAcademyLv
-              ?`<button class="btn btn-xs" onclick="upgradeUnit('${key}','${br.to}')" style="font-size:9px;padding:1px 6px;background:#2a2a1a;border-color:#6a6a3a;color:#f0d060;border:1px solid">研究 ${costHtml(br.cost)}</button>`
-              :`<span style="color:#e06060;font-size:9px">需学院Lv.${br.needAcademyLv}</span>`}
-        </div>`;
+    function renderNode(key,depth){
+      const node=tree[key];
+      if(!node)return'';
+      const isUp=key===rootKey||upgraded[key];
+      const st=nodeStatus(key,node);
+      const pad=depth*20;
+      let r=`<div style="margin:4px 0;padding:4px 8px;background:${isUp?'#1a2a1a':'#121224'};border:1px solid ${isUp?'#2b4b3b':'#2b3144'};border-radius:3px;font-size:11px;margin-left:${pad}px">
+        <span style="display:inline-block;width:50px;font-size:9px;color:#888">T${node.tier}</span>
+        <span style="color:${isUp?'#40bf80':'#e0e0e0'}">${pix(icon,'mini')}${node.name}</span>
+        ${node.tag?`<span style="font-size:9px;color:#888;margin-left:4px">[${node.tag}]</span>`:''}
+        <span style="float:right;font-size:9px;color:${st.color}">${st.text}</span>`;
+      if(isUp&&node.branches.length){
+        r+=`<div style="margin-top:4px;padding-left:20px;border-left:1px solid #3a4158">`;
+        for(const br of node.branches){
+          const brUp=upgraded[br.to]===true;
+          r+=`<div style="margin:2px 0;font-size:10px;display:flex;align-items:center;gap:4px">
+            <span style="color:#888">→</span>
+            <span style="color:${brUp?'#40bf80':'#aaa'}">${pix(icon,'mini')}${br.name}</span>
+            ${brUp?`<span style="color:#40bf80;font-size:9px">✓ 已解锁</span>`
+              :alv>=br.needAcademyLv
+                ?`<button class="btn btn-xs" onclick="upgradeUnit('${key}','${br.to}')" style="font-size:9px;padding:1px 6px;background:#2a2a1a;border-color:#6a6a3a;color:#f0d060;border:1px solid">研究 ${costHtml(br.cost)}</button>`
+                :`<span style="color:#e06060;font-size:9px">需学院Lv.${br.needAcademyLv}</span>`}
+          </div>`;
+        }
+        r+=`</div>`;
       }
       r+=`</div>`;
+      return r;
     }
-    r+=`</div>`;
-    return r;
+    h+=renderNode(rootKey,0);
+    const rootNode=tree[rootKey];
+    if(rootNode){for(const br of rootNode.branches||[]){h+=renderNode(br.to,1);const t1n=tree[br.to];if(t1n){for(const br2 of t1n.branches||[]){h+=renderNode(br2.to,2);const t2n=tree[br2.to];if(t2n){for(const br3 of t2n.branches||[])h+=renderNode(br3.to,3);}}}}}
+    h+=`</div>`;
   }
-  h+=renderNode('infantry',0);
-  h+=renderNode('infantry_t1',1);
-  const t1n=tree['infantry_t1'];
-  if(t1n){for(const br of t1n.branches){h+=renderNode(br.to,2);const t2n=tree[br.to];if(t2n){for(const br2 of t2n.branches)h+=renderNode(br2.to,3);}}}
-  h+=`</div>`;
+  if(!Object.keys(CFG.unitUpgrades||{}).length)h+=`<div style="text-align:center;color:#666;padding:20px">暂无兵种升级树</div>`;
   return h;
 }
-// ==================== 战斗界面（含3个子标签） ====================
 function rFight(){
   const tab=S._fightTab||'expedition';
   let h=`<div style="padding:4px 0">`;

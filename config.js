@@ -48,8 +48,23 @@ const CFG = {
       cost:{wood:120,stone:90,food:100}, upkeep:0.18, trainTime:1, atk:12,def:15,spd:12, passive:'反制剑系1.5x+暴击10%', locked:true},
     infantry_bloodrose:{name:'血蔷薇',race:'人类',row:'front',icon:'infantry',tier:3,baseUnit:'infantry',tag:'sword',
       cost:{wood:100,stone:70,food:130}, upkeep:0.18, trainTime:1, atk:18,def:11,spd:11, passive:'破盾1.5x+攻击+15%', locked:true},
-    archer:{name:'弓兵',race:'精灵',row:'back',icon:'archer',
+    archer:{name:'猎人',race:'精灵',row:'back',icon:'archer', tier:0, baseUnit:'archer',
       cost:{wood:80,stone:20,food:30}, upkeep:0.1, trainTime:1, atk:8,def:8,spd:12, passive:'基础MISS20%，打骑兵MISS50%'},
+    // 猎人升级线 T1~T3（军事学院解锁）
+    archer_t1:{name:'游侠',race:'精灵',row:'back',icon:'archer',tier:1,baseUnit:'archer',tag:'archer',
+      cost:{wood:120,stone:40,food:50}, upkeep:0.14, trainTime:1, atk:12,def:10,spd:13, passive:'攻击+10%', locked:true},
+    archer_silverbow:{name:'银弓猎手',race:'精灵',row:'back',icon:'archer',tier:2,baseUnit:'archer',tag:'bow',
+      cost:{wood:160,stone:50,food:80}, upkeep:0.18, trainTime:1, atk:16,def:10,spd:14, passive:'远程精准+15%', locked:true},
+    archer_crossbow:{name:'重弩手',race:'精灵',row:'back',icon:'archer',tier:2,baseUnit:'archer',tag:'crossbow',
+      cost:{wood:140,stone:100,food:80}, upkeep:0.18, trainTime:1, atk:14,def:14,spd:9, passive:'破甲射击1.3x', locked:true},
+    archer_assassin:{name:'双刃刺客',race:'精灵',row:'back',icon:'archer',tier:2,baseUnit:'archer',tag:'blade',
+      cost:{wood:120,stone:60,food:100}, upkeep:0.18, trainTime:1, atk:12,def:8,spd:17, passive:'闪避15%+暴击10%', locked:true},
+    archer_longbow:{name:'不列颠长弓手',race:'精灵',row:'back',icon:'archer',tier:3,baseUnit:'archer',tag:'bow',
+      cost:{wood:220,stone:80,food:120}, upkeep:0.24, trainTime:1, atk:22,def:12,spd:14, passive:'远程精准+25%+射程压制', locked:true},
+    archer_genoese:{name:'热那亚劲弩',race:'精灵',row:'back',icon:'archer',tier:3,baseUnit:'archer',tag:'crossbow',
+      cost:{wood:180,stone:150,food:120}, upkeep:0.24, trainTime:1, atk:18,def:18,spd:9, passive:'破甲射击1.5x+重装', locked:true},
+    archer_shadowblade:{name:'幽影刃侍',race:'精灵',row:'back',icon:'archer',tier:3,baseUnit:'archer',tag:'blade',
+      cost:{wood:150,stone:90,food:150}, upkeep:0.24, trainTime:1, atk:15,def:10,spd:19, passive:'闪避20%+暴击15%', locked:true},
     cavalry:{name:'骑兵',race:'兽人',row:'front',icon:'cavalry',
       cost:{wood:40,stone:30,food:80}, upkeep:0.15, trainTime:1, atk:10,def:15,spd:14, passive:'闪避10%'},
     spearman:{name:'长矛兵',race:'人类',row:'front',icon:'spearman',
@@ -75,6 +90,12 @@ const CFG = {
 
   // 盾矛剑内部克制（步兵升级线T2+内三角）
   // atk → def 倍率：剑破盾、矛克剑、盾挡矛
+  // 盾矛剑内部克制（步兵升级线T2+内三角）
+  // atk → def 倍率：剑破盾、矛克剑、盾挡矛
+  // 弓弩刃内部克制（猎人升级线T2+内三角）
+  // atk → def 倍率：弓克刃、刃克弩、弩克弓
+  // 盾矛剑内部克制（步兵升级线T2+内三角）
+  // atk → def 倍率：剑破盾、矛克剑、盾挡矛
   innerCounters: {
     shield:{shield:1.0,spear:1.3,sword:0.7,infantry:1.0},
     spear:{shield:0.7,spear:1.0,sword:1.3,infantry:1.3},
@@ -82,6 +103,24 @@ const CFG = {
   },
   // 无 tag 单位受 tag 单位攻击时的倍率（T0/T1步兵无tag，被剑矛克制）
   innerNoTagDef:0.85,
+
+  // 猎人线特殊战斗机制（替代innerCounters）
+  // bow(弓)：被非盾单位攻击时80%格挡；攻击骑兵时50%miss
+  // crossbow(弩)：攻击盾兵时穿透造成80%伤害
+  // blade(刃)：攻击远程单位+60%伤害；攻击盾兵60%伤害；可在中排发动进攻
+  archerSpecials: {
+    bow: {
+      defend: { vsNonShield: { block: 0.8 } },
+      attack: { vsCavalry: { miss: 0.5 } }
+    },
+    crossbow: {
+      attack: { vsShield: { dmgPct: 0.8 } }
+    },
+    blade: {
+      attack: { vsRanged: { dmgPct: 1.6 }, vsShield: { dmgPct: 0.6 } },
+      row: 'mid'
+    }
+  },
 
   // 战术
   tactics: {
@@ -118,7 +157,25 @@ const CFG = {
         infantry_bloodrose:{ tier:3, name:'血蔷薇', tag:'sword', branches:[] }
       }
     },
-    archer:    { name:'弓兵线', icon:'archer',    tree:{archer:{tier:0,name:'弓兵',tag:null,branches:[]}} },
+    archer:    { name:'猎人线', icon:'archer',    tree:{
+      archer:              { tier:0, name:'猎人', tag:null,
+        branches:[{ to:'archer_t1', name:'游侠→T1', cost:{wood:200,stone:100,food:150}, needAcademyLv:1 }] },
+      archer_t1:           { tier:1, name:'游侠', tag:'archer',
+        branches:[
+          { to:'archer_silverbow', name:'银弓猎手(弓)', cost:{wood:700,stone:400,food:600}, needAcademyLv:2 },
+          { to:'archer_crossbow',  name:'重弩手(弩)', cost:{wood:500,stone:700,food:500}, needAcademyLv:2 },
+          { to:'archer_assassin',  name:'双刃刺客(刃)', cost:{wood:500,stone:300,food:800}, needAcademyLv:2 }
+        ]},
+      archer_silverbow:    { tier:2, name:'银弓猎手', tag:'bow',
+        branches:[{ to:'archer_longbow', name:'不列颠长弓手', cost:{wood:2000,stone:1200,food:1500}, needAcademyLv:3 }] },
+      archer_crossbow:     { tier:2, name:'重弩手', tag:'crossbow',
+        branches:[{ to:'archer_genoese', name:'热那亚劲弩', cost:{wood:1500,stone:2000,food:1200}, needAcademyLv:3 }] },
+      archer_assassin:     { tier:2, name:'双刃刺客', tag:'blade',
+        branches:[{ to:'archer_shadowblade', name:'幽影刃侍', cost:{wood:1500,stone:1000,food:2000}, needAcademyLv:3 }] },
+      archer_longbow:      { tier:3, name:'不列颠长弓手', tag:'bow', branches:[] },
+      archer_genoese:      { tier:3, name:'热那亚劲弩', tag:'crossbow', branches:[] },
+      archer_shadowblade:  { tier:3, name:'幽影刃侍', tag:'blade', branches:[] }
+    } },
     cavalry:   { name:'骑兵线', icon:'cavalry',   tree:{cavalry:{tier:0,name:'骑兵',tag:null,branches:[]}} },
     spearman:  { name:'枪兵线', icon:'spearman',  tree:{spearman:{tier:0,name:'枪兵',tag:null,branches:[]}} },
     mage:      { name:'法师线', icon:'mage',      tree:{mage:{tier:0,name:'法师',tag:null,branches:[]}} }
@@ -131,7 +188,7 @@ const CFG = {
     farm:{name:'农田',buffRes:'food',buffBase:0.15,buffPerLv:0.2, build:{wood:80,stone:80,food:200,time:4}, upBase:{wood:5000,stone:5000,food:8000}, upCostLv:2},
     barracks:{name:'营帐',build:{wood:300,stone:200,food:100,time:6}, upBase:{wood:2200,stone:1800,food:1000}, upCostLv:1.85},
     infantry_camp:{name:'步兵营地',trains:'infantry',unitCapBase:4,unitCapPerLv:2,build:{wood:180,stone:100,food:80,time:5},upBase:{wood:1000,stone:1000,food:800},upCostLv:1.1},
-    archer_range:{name:'射手靶场',trains:'archer',unitCapBase:2,unitCapPerLv:2,build:{wood:240,stone:100,food:100,time:6},upBase:{wood:1000,stone:1000,food:850},upCostLv:1.1},
+    archer_range:{name:'猎手营地',trains:'archer',unitCapBase:2,unitCapPerLv:2,build:{wood:240,stone:100,food:100,time:6},upBase:{wood:1000,stone:1000,food:850},upCostLv:1.1},
     stable:{name:'骑兵训练场',trains:'cavalry',unitCapBase:1,unitCapPerLv:1,needBoss:1,build:{wood:220,stone:160,food:180,time:7},upBase:{wood:1500,stone:1500,food:1000},upCostLv:1.2},
     spear_crypt:{name:'长矛兵营地',trains:'spearman',unitCapBase:1,unitCapPerLv:1,needBoss:2,build:{wood:160,stone:240,food:100,time:7},upBase:{wood:1500,stone:2000,food:1000},upCostLv:1.2},
     mage_tower:{name:'法师塔',trains:'mage',unitCapBase:1,unitCapPerLv:1,needBoss:2,build:{wood:500,stone:500,food:350,time:10},upBase:{wood:3000,stone:3000,food:2000},upCostLv:1.3},

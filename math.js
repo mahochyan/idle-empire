@@ -289,12 +289,17 @@ function mm(atk,def){
   return 1.0;
 }
 function missRate(attacker,defender){
-  const cfg=CFG.miss[attacker.type];
+  const cfg=CFG.miss[attacker.type]||CFG.miss[baseUnitType(attacker.type)];
   if(!cfg)return 0;
   return cfg[defender.type]??cfg.base??0;
 }
 function isAttackMiss(attacker,defender){
-  const rate=missRate(attacker,defender);
+  const baseRate=missRate(attacker,defender);
+  let rate=baseRate;
+  // 弓攻击骑兵：额外50%miss
+  if(attacker.tag==='bow'&&baseUnitType(defender.type)==='cavalry'){
+    rate=Math.max(rate,CFG.archerSpecials?.bow?.attack?.vsCavalry?.miss||0.5);
+  }
   return rate>0&&Math.random()<rate;
 }
 
@@ -352,7 +357,8 @@ function buildAct(key){
   if(st.state!=='idle'){toast(st.state==='building'?'建造中':'升级中');return}
   const upLock=st.lv>0?upgradeLockReason(key):'';
   if(upLock){toast(upLock);return}
-  const cost=st.lv===0?cfg.build:upCost(key);
+  const rawCost=st.lv===0?cfg.build:upCost(key);
+  const cost={...rawCost, time:Math.min(rawCost.time, CFG.maxUpgradeTime||120)};
   if(S.res.wood<cost.wood||S.res.stone<cost.stone||S.res.food<cost.food){toast('资源不足');return}
   S.res.wood-=cost.wood;S.res.stone-=cost.stone;S.res.food-=cost.food;
   if(!S.buildings[key])S.buildings[key]={lv:0,state:'idle',timer:0,timerEnd:0};
@@ -365,7 +371,8 @@ function upgradeTown(){
   if(!townCanUpgrade()){toast(`需击败${townUpgradeNeed()}个Boss才能升级城镇`);return}
   if(popAllocTotal()>CFG.town.find(t=>t.lv===S.townLv+1).maxPop){toast('请先减少人口分配');return}
   const bt=CFG.buildingTimes;
-  const time=bt.cap1Base+(S.townLv-1)*bt.cap1PerLv;
+  const rawTime=bt.cap1Base+(S.townLv-1)*bt.cap1PerLv;
+  const time=Math.min(rawTime, CFG.maxUpgradeTime||120);
   S.townUpgrade={timer:time,timerEnd:time};
   addLog(`开始升级城镇，预计${time}秒`);
   save();updateUI();
@@ -384,7 +391,8 @@ function upCost(key){
   // 升级时间线性增长，不受 upCostLv 倍率影响，参数见 CFG.buildingTimes
   const isCap1=cfg.buffRes||(!cfg.trains&&!cfg.storagePerLv&&!cfg.buffRes);
   const bt=CFG.buildingTimes;
-  const time=isCap1?bt.cap1Base+lv*bt.cap1PerLv:bt.otherBase+lv*bt.otherPerLv;
+  const rawTime=isCap1?bt.cap1Base+lv*bt.cap1PerLv:bt.otherBase+lv*bt.otherPerLv;
+  const time=Math.min(rawTime, CFG.maxUpgradeTime||120);
   return{wood:Math.ceil(b.wood*m),stone:Math.ceil(b.stone*m),food:Math.ceil(b.food*m),time};
 }
 function maxTrainable(uk){
@@ -910,12 +918,24 @@ function calcDmg(attacker,defender,isOur){
   const defenseFactor=100/(100+def*8);
   const counterFactor=cm(attacker.type,defender.type);
   const mageFactor=mm(attacker.type,defender.type);
-  const passiveFactor=attacker.type==='infantry'?1.1:1.0;
+  const passiveFactor=baseUnitType(attacker.type)==='infantry'?1.1:1.0;
   const randomFactor=0.9+Math.random()*0.2;
   // 暴击（长矛兵10%）
-  const isCrit=attacker.type==='spearman'&&Math.random()<0.1;
-  const raw=attacker.hp*atk*DAMAGE_COEF*defenseFactor*counterFactor*mageFactor*passiveFactor*randomFactor;
-  return {dmg:Math.max(1,Math.floor(isCrit?raw*2:raw)), crit:isCrit};
+  const isCrit=baseUnitType(attacker.type)==='spearman'&&Math.random()<0.1;
+  let specialFactor=1.0;
+  const AS=CFG.archerSpecials||{};
+  // 弩攻击盾兵：穿透80%伤害
+  if(attacker.tag==='crossbow'&&defender.tag==='shield') specialFactor*=AS.crossbow?.attack?.vsShield?.dmgPct||0.8;
+  // 刃攻击远程：+60%伤害
+  if(attacker.tag==='blade'&&isRanged(defender.type)) specialFactor*=AS.blade?.attack?.vsRanged?.dmgPct||1.6;
+  // 刃攻击盾兵：60%伤害
+  if(attacker.tag==='blade'&&defender.tag==='shield') specialFactor*=AS.blade?.attack?.vsShield?.dmgPct||0.6;
+  // 弓防御：被非盾单位攻击时80%格挡
+  if(defender.tag==='bow'&&attacker.tag!=='shield'&&Math.random()<(AS.bow?.defend?.vsNonShield?.block||0.8)){
+    specialFactor=0;
+  }
+  const raw=attacker.hp*atk*DAMAGE_COEF*defenseFactor*counterFactor*mageFactor*passiveFactor*randomFactor*specialFactor;
+  return {dmg:Math.max(specialFactor>0?1:0,Math.floor(isCrit?raw*2:raw)), crit:isCrit};
 }
 
 function spawnVFX(actorEl,targetEl,type){
@@ -933,7 +953,7 @@ function spawnVFX(actorEl,targetEl,type){
   const dur=Math.max(0.22, dist/400);
   const el=document.createElement('div');
   const vfxMap={infantry:'swordqi',archer:'arrow',spearman:'thrust',cavalry:'cavslash',mage:'magebolt'};
-  const vfxType=vfxMap[type]||type;
+  const vfxType=vfxMap[baseUnitType(type)]||vfxMap[type]||'swordqi';
   const isSwordQi=vfxType==='swordqi';
   const isArcStrike=vfxType==='cavslash';
   const isImageShot=vfxType==='arrow'||vfxType==='thrust'||vfxType==='magebolt';
@@ -1050,7 +1070,7 @@ function battleTurn(){
     if(actorEl)actorEl.classList.add('attacking');
 
     const archerMiss=isAttackMiss(actor,target);
-    const cavDodge=!archerMiss&&target.type==='cavalry'&&actor.type!=='archer'&&Math.random()<0.1;
+    const cavDodge=!archerMiss&&baseUnitType(target.type)==='cavalry'&&!isRanged(actor.type)&&Math.random()<0.1;
     const missed=archerMiss||cavDodge;
     const cr=missed?{dmg:0,crit:false}:calcDmg(actor,target,side==='our');
     const dmg=cr.dmg; const isCrit=cr.crit;
@@ -1079,7 +1099,7 @@ function battleTurn(){
       const isGood=cmv>=1.3,isBad=cmv<=0.7;
 
       if(missed){
-        bmsg(`${side==="our"?"[我方]":"[敌方]"}${actor.name} \u2192 ${target.name} MISS${cavDodge?' [\u95ea\u907f]':target.type==='cavalry'?' [\u9a91\u5175\u95ea\u907f]':''}`,'#6f7890');
+        bmsg(`${side==="our"?"[我方]":"[敌方]"}${actor.name} \u2192 ${target.name} MISS${cavDodge?' [\u95ea\u907f]':baseUnitType(target.type)==='cavalry'?' [\u9a91\u5175\u95ea\u907f]':''}`,'#6f7890');
         idx++;
         drawBattleField();
         nextAction();
