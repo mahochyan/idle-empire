@@ -6,6 +6,7 @@ function updateUI(){
   document.getElementById('res-wood').textContent=wood;
   document.getElementById('res-stone').textContent=stone;
   document.getElementById('res-food').textContent=food;
+  document.getElementById('res-tech').textContent=Math.floor(S.res.tech||0);
   document.getElementById('res-pop').textContent=popAllocTotal()+'/'+maxPop();
   document.getElementById('cap-wood').textContent='/'+cap;
   document.getElementById('cap-stone').textContent='/'+cap;
@@ -29,7 +30,7 @@ function renderPage(p){
   const main=document.getElementById('main');
   const el=document.activeElement;
   if(el&&(el.tagName==='INPUT'||el.tagName==='TEXTAREA'||el.tagName==='SELECT')&&main.contains(el))return;
-  main.innerHTML={home:rHome,build:rBuild,barracks:rBarracks,fight:rFight,log:rLog}[p]();
+  main.innerHTML={home:rHome,build:rBuild,barracks:rBarracks,fight:rFight,tech:rTech,log:rLog}[p]();
 }
 // ==================== 主页渲染 ====================
 function rHome(){
@@ -53,7 +54,7 @@ function rHome(){
   h+=`</div>`;
 
   h+=`<div class="card"><h3>${pix("pop","card-pix")}人口分配</h3>`;
-  for(const[k,c] of Object.entries(CFG.res)){
+  for(const[k,c] of Object.entries(CFG.res)){if(c.basePerPop===0)continue;
     const buf=buildingBuff(k);
     const rate=prodRate(k);
     const alloc=S.popAlloc[k]||0;
@@ -246,7 +247,7 @@ function rBuildCard(key, cfg){
     const nextCap=(cfg.unitCapBase||0) + nextLv * (cfg.unitCapPerLv||0);
     h+=`<div class="build-meta">\u8bad\u7ec3: ${pix(u.icon,'mini')}${u.name} | \u8bad\u7ec3\u4e0a\u9650 ${st.lv>0?cap:0}${st.lv>0?` \u2192 ${nextCap}`:` (\u5efa\u6210\u540e ${nextCap})`}</div>`;
   }
-  if(cfg.buffRes || cfg.storagePerLv){
+  if(cfg.buffRes){
     h+=`<div class="build-meta">${resourceCapText()} | \u51fb\u8d25Boss\u540e\u89e3\u9501\u4e0b\u4e00\u7ea7</div>`;
   }
   if(upLock)h+=`<div class="build-meta limit-warn">${pix('lock','mini')}${upLock}</div>`;
@@ -580,6 +581,16 @@ function rGarrison(){
   h+=`</div></div>`;
   return h;
 }
+// ==================== 科技界面 ====================
+function rTech(){
+  const boss=bossDefeatedCount();
+  let h=`<div style="padding:4px 0">`;
+  h+=`<div class="card"><h3>${pix('tech','card-pix')}科技树</h3>`;
+  h+=`<div style="font-size:12px;color:#888;margin-bottom:8px">击败Boss: ${boss} | 解锁更多科技</div>`;
+  h+=`<div style="text-align:center;color:#666;padding:40px;font-size:13px">科技系统开发中<br><span style="font-size:10px;color:#444">后续版本将开放兵种升级、科技树等功能</span></div>`;
+  h+=`</div></div>`;
+  return h;
+}
 // ==================== 日志界面 ====================
 function rLog(){
   let h=`<div style="padding:4px 0"><div class="card"><h3>${pix('log','card-pix')}事件日志</h3><div style="max-height:500px;overflow-y:auto;font-size:11px;line-height:1.8">`;
@@ -596,9 +607,7 @@ function rLog(){
   }
   if(S._testUnlocked){
     h+=`<div class="card"><h3>${pix('build','card-pix')}测试工具</h3>
-      <div class="train-custom" style="margin:4px 0"><span style="width:40px">木材</span><input id="test-wood" type="text" inputmode="numeric" pattern="[0-9]*" value="5000" style="width:70px"><button class="btn btn-go btn-xs" onclick="addRes('wood','test-wood')">添加</button></div>
-      <div class="train-custom" style="margin:4px 0"><span style="width:40px">石料</span><input id="test-stone" type="text" inputmode="numeric" pattern="[0-9]*" value="5000" style="width:70px"><button class="btn btn-go btn-xs" onclick="addRes('stone','test-stone')">添加</button></div>
-      <div class="train-custom" style="margin:4px 0"><span style="width:40px">食物</span><input id="test-food" type="text" inputmode="numeric" pattern="[0-9]*" value="5000" style="width:70px"><button class="btn btn-go btn-xs" onclick="addRes('food','test-food')">添加</button></div>
+      <div class="train-custom" style="margin:4px 0"><span style="width:60px">木/石/食</span><input id="test-all" type="text" inputmode="numeric" pattern="[0-9]*" value="10000" style="width:70px"><button class="btn btn-go btn-xs" onclick="addAllRes('test-all')">一键添加</button></div>
     </div>`;
   }
   h+=`<button class="btn btn-danger btn-sm" onclick="if(confirm('重置?')){localStorage.clear();location.reload()}">${pix('reset','mini')}重置</button></div>`;

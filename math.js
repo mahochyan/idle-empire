@@ -1,6 +1,6 @@
 // ==================== 状态 ====================
 let S = {
-  res:{wood:300,stone:300,food:300},
+  res:{wood:300,stone:300,food:300,tech:0},
   buildings:{},
   pool:{infantry:0,archer:0,cavalry:0,spearman:0,mage:0},
   formation:{front:[],mid:[],back:[]},
@@ -455,6 +455,16 @@ function addRes(rk,inputId){
   const cap=storageCapacity();
   S.res[rk]=Math.min((S.res[rk]||0)+n,cap);
   addLog(`手动添加${CFG.res[rk].name}+${n}`);
+  save();updateUI();
+}
+function addAllRes(inputId){
+  const el=document.getElementById(inputId);
+  const n=Math.max(1,Math.floor(parseInt(el?.value,10)||0));
+  const cap=storageCapacity();
+  for(const rk of['wood','stone','food']){
+    S.res[rk]=Math.min((S.res[rk]||0)+n,cap);
+  }
+  addLog(`一键添加木/石/食各+${n}`);
   save();updateUI();
 }
 
@@ -1234,6 +1244,27 @@ function endBattle(result){
 
 function nextBattle(){
   S.selEnemy++;
+  const last=S._lastForm;
+  if(last&&(last.front.length+last.mid.length+last.back.length>0)){
+    for(const row of['front','mid','back']){
+      for(const u of S.formation[row]){S.pool[u.type]=(S.pool[u.type]||0)+u.count;}
+    }
+    const newForm={front:[],mid:[],back:[]};
+    let shortage=false;
+    for(const row of['front','mid','back']){
+      for(const u of last[row]){
+        if(newForm[row].length>=rowSlots(row)){shortage=true;break;}
+        const avail=poolAvail(u.type);
+        if(avail<=0){shortage=true;continue;}
+        const count=Math.min(u.count,avail,regMax());
+        if(count<u.count)shortage=true;
+        S.pool[u.type]-=count;
+        newForm[row].push({type:u.type,count,id:Date.now()+Math.random()});
+      }
+    }
+    S.formation=newForm;
+    if(shortage)toast('余量不足，已按可用人数填充');
+  }
   exitBattle();
   setTimeout(()=>openBattle(),150);
 }

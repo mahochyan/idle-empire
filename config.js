@@ -13,7 +13,8 @@ const CFG = {
   res: {
     wood:{name:'木材',icon:'wood',basePerPop:0.5},
     stone:{name:'石料',icon:'stone',basePerPop:0.5},
-    food:{name:'食物',icon:'food',basePerPop:0.5}
+    food:{name:'食物',icon:'food',basePerPop:0.5},
+    tech:{name:'科技点',icon:'tech',basePerPop:0}
   },
 
   // 城镇等级
