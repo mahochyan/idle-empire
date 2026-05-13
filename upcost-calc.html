@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>建筑升级消耗计算器</title>
+<style>
+  body{font-family:"Microsoft YaHei",sans-serif;background:#1a1a24;color:#d0d0d8;padding:20px;max-width:520px;margin:0 auto}
+  h2{color:#f0d060;text-align:center}
+  .card{background:#181828;border:1px solid #262640;border-radius:8px;padding:14px;margin-bottom:10px}
+  label{font-size:12px;color:#888;display:block;margin-bottom:4px}
+  select,input{width:100%;padding:6px 8px;background:#0a0a14;border:2px solid #3a4158;color:#f0d060;font-size:14px;font-family:inherit;border-radius:4px;margin-bottom:8px;box-sizing:border-box}
+  .row{display:flex;gap:6px}
+  .row>*{flex:1;min-width:0}
+  .result{text-align:center;padding:10px;background:#121224;border:1px solid #2b3144;border-radius:6px;margin-top:8px}
+  .result .cost{font-size:14px;color:#f0d060;margin:4px 0}
+  .result .formula{font-size:10px;color:#555;margin-top:4px}
+  .section-label{font-size:11px;color:#d6a83f;margin:8px 0 4px;border-top:1px solid #2b3144;padding-top:8px}
+  .btn-reset{padding:4px 16px;background:#1a1a2e;border:1px solid #4b4f62;color:#c5cad8;font-size:11px;font-family:inherit;cursor:pointer}
+  .btn-reset:hover{background:#242434}
+</style>
+</head>
+<body>
+<h2>建筑升级消耗计算器</h2>
+
+<div class="card">
+  <label>选择建筑</label>
+  <select id="building" onchange="onBuildingChange()"></select>
+
+  <div class="section-label">建造消耗 build:{wood, stone, food, time}</div>
+  <div class="row">
+    <div><label>木材</label><input id="bWood" type="number" value="0" onchange="calc()" oninput="calc()"></div>
+    <div><label>石料</label><input id="bStone" type="number" value="0" onchange="calc()" oninput="calc()"></div>
+    <div><label>食物</label><input id="bFood" type="number" value="0" onchange="calc()" oninput="calc()"></div>
+    <div><label>时间(秒)</label><input id="bTime" type="number" value="0" onchange="calc()" oninput="calc()"></div>
+  </div>
+
+  <div class="section-label">升级参数</div>
+  <div class="row">
+    <div><label>当前等级</label><input id="lv" type="number" value="1" min="1" onchange="calc()" oninput="calc()"></div>
+    <div><label>upCostLv</label><input id="upCostLv" type="number" value="1.3" step="0.01" onchange="calc()" oninput="calc()"></div>
+  </div>
+
+  <div class="section-label">升级基数 upBase:{wood, stone, food}</div>
+  <div class="row">
+    <div><label>木材</label><input id="uWood" type="number" value="0" onchange="calc()" oninput="calc()"></div>
+    <div><label>石料</label><input id="uStone" type="number" value="0" onchange="calc()" oninput="calc()"></div>
+    <div><label>食物</label><input id="uFood" type="number" value="0" onchange="calc()" oninput="calc()"></div>
+  </div>
+</div>
+
+<div class="card result">
+  <div style="color:#888;font-size:12px">升级消耗 (Lv→Lv+1)</div>
+  <div class="cost" id="upgradeResult">—</div>
+  <div style="color:#f0d060;font-size:14px;margin-top:6px" id="timeResult"></div>
+  <div class="formula" id="formulaDetail"></div>
+</div>
+
+<!-- 仓库专用计算 -->
+<div class="card" id="warehouseCard">
+  <h3 style="color:#e0e0e0;font-size:14px;margin-bottom:8px;text-align:center">仓库 — 容量计算</h3>
+  <div class="row">
+    <div><label>storageBase</label><input id="whBase" type="number" value="5000" onchange="calcWh()" oninput="calcWh()"></div>
+    <div><label>storagePerLv</label><input id="whPerLv" type="number" value="2500" onchange="calcWh()" oninput="calcWh()"></div>
+    <div><label>当前等级</label><input id="whLv" type="number" value="1" min="0" onchange="calcWh()" oninput="calcWh()"></div>
+  </div>
+  <div class="row">
+    <div><label>升级成本 upBase (木)</label><input id="whUWood" type="number" value="800" onchange="calcWh()" oninput="calcWh()"></div>
+    <div><label>upBase (石)</label><input id="whUStone" type="number" value="800" onchange="calcWh()" oninput="calcWh()"></div>
+    <div><label>upBase (食)</label><input id="whUFood" type="number" value="800" onchange="calcWh()" oninput="calcWh()"></div>
+  </div>
+  <div class="result" style="margin-top:6px">
+    <div style="color:#888;font-size:12px">当前容量</div>
+    <div class="cost" id="whCapacity">—</div>
+    <div style="color:#888;font-size:12px;margin-top:6px">升级消耗 (Lv→Lv+1)</div>
+    <div class="cost" id="whUpCost">—</div>
+    <div style="color:#f0d060;font-size:14px;margin-top:4px" id="whTime"></div>
+    <div class="formula" id="whFormula"></div>
+  </div>
+</div>
+
+<script src="config.js"></script>
+<script>
+// isCap1 判断逻辑：与 math.js upCost() 一致 — buffRes 或 非trains非storagePerLv非buffRes
+function isCap1(cfg){return cfg.buffRes||(!cfg.trains&&!cfg.storagePerLv&&!cfg.buffRes)}
+
+const sel=document.getElementById('building');
+for(const[k,v] of Object.entries(CFG.buildings)){
+  if(k==='warehouse')continue;
+  sel.innerHTML+=`<option value="${k}">${v.name}</option>`;
+}
+
+function setVal(id,v){document.getElementById(id).value=v}
+
+function onBuildingChange(){
+  const cfg=CFG.buildings[document.getElementById('building').value];
+  setVal('bWood',cfg.build.wood); setVal('bStone',cfg.build.stone); setVal('bFood',cfg.build.food); setVal('bTime',cfg.build.time);
+  setVal('uWood',cfg.upBase.wood); setVal('uStone',cfg.upBase.stone); setVal('uFood',cfg.upBase.food);
+  setVal('upCostLv',cfg.upCostLv);
+  calc();
+}
+
+function calc(){
+  const uWood=parseInt(document.getElementById('uWood').value)||0;
+  const uStone=parseInt(document.getElementById('uStone').value)||0;
+  const uFood=parseInt(document.getElementById('uFood').value)||0;
+  const lv=Math.max(1,parseInt(document.getElementById('lv').value)||1);
+  const m=parseFloat(document.getElementById('upCostLv').value)||1.3;
+  const factor=Math.pow(m,lv);
+  const wood=Math.ceil(uWood*factor);
+  const stone=Math.ceil(uStone*factor);
+  const food=Math.ceil(uFood*factor);
+
+  const cfg=CFG.buildings[document.getElementById('building').value];
+  const bt=CFG.buildingTimes, maxT=CFG.maxUpgradeTime||120;
+  let timeFormula,rawTime;
+  if(isCap1(cfg)){
+    rawTime=bt.cap1Base+lv*bt.cap1PerLv;
+    timeFormula=`${bt.cap1Base} + ${lv} × ${bt.cap1PerLv}`;
+  }else{
+    rawTime=bt.otherBase+lv*bt.otherPerLv;
+    timeFormula=`${bt.otherBase} + ${lv} × ${bt.otherPerLv}`;
+  }
+  const time=Math.min(rawTime,maxT);
+  const timeClamped=rawTime>maxT?` (上限${maxT}秒)`:'';
+  document.getElementById('upgradeResult').textContent=
+    `木材 ${wood.toLocaleString()}  /  石料 ${stone.toLocaleString()}  /  食物 ${food.toLocaleString()}`;
+  document.getElementById('timeResult').textContent=
+    `升级时间: ${time} 秒${timeClamped}`;
+  document.getElementById('formulaDetail').innerHTML=
+    `upBase × ${m}^${lv} = upBase × ${factor.toFixed(4)}<br>`+
+    `木: ${uWood} × ${factor.toFixed(4)} = ${wood} &nbsp; 石: ${uStone} × ${factor.toFixed(4)} = ${stone} &nbsp; 食: ${uFood} × ${factor.toFixed(4)} = ${food}<br>`+
+    `时间: ${timeFormula} = ${rawTime} 秒`;
+}
+
+function calcWh(){
+  const cfg=CFG.buildings.warehouse;
+  const sb=parseInt(document.getElementById('whBase').value)||0;
+  const spl=parseInt(document.getElementById('whPerLv').value)||0;
+  const lv=Math.max(0,parseInt(document.getElementById('whLv').value)||0);
+  const cap=sb+lv*spl;
+  document.getElementById('whCapacity').textContent=
+    `storageBase + 等级 × storagePerLv = ${sb} + ${lv} × ${spl} = ${cap.toLocaleString()}`;
+
+  const uWood=parseInt(document.getElementById('whUWood').value)||0;
+  const uStone=parseInt(document.getElementById('whUStone').value)||0;
+  const uFood=parseInt(document.getElementById('whUFood').value)||0;
+  const upLv=Math.max(1,lv||1);
+  const wood=Math.ceil(uWood*upLv);
+  const stone=Math.ceil(uStone*upLv);
+  const food=Math.ceil(uFood*upLv);
+  document.getElementById('whUpCost').textContent=
+    `木材 ${wood.toLocaleString()}  /  石料 ${stone.toLocaleString()}  /  食物 ${food.toLocaleString()}`;
+
+  const bt=CFG.buildingTimes, maxT=CFG.maxUpgradeTime||120;
+  const rawTime=bt.otherBase+upLv*bt.otherPerLv;
+  const time=Math.min(rawTime,maxT);
+  document.getElementById('whTime').textContent=`升级时间: ${time} 秒`;
+  document.getElementById('whFormula').innerHTML=
+    `公式: 等级 × upBase = ${upLv} × (${uWood}/${uStone}/${uFood})<br>`+
+    `时间: ${bt.otherBase} + ${upLv} × ${bt.otherPerLv} = ${rawTime} 秒`;
+}
+
+function initWh(){
+  const wh=CFG.buildings.warehouse;
+  setVal('whBase',wh.storageBase); setVal('whPerLv',wh.storagePerLv);
+  setVal('whUWood',wh.upBase.wood); setVal('whUStone',wh.upBase.stone); setVal('whUFood',wh.upBase.food);
+}
+initWh();
+onBuildingChange(); calcWh();
+</script>
+</body>
+</html>

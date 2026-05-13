@@ -181,31 +181,33 @@ const CFG = {
   },
 
   // ==================== 建筑配置 ====================
+  //当前仓库50级最大上限为380000
+  //
   buildings: {
-    lumber_mill:{name:'伐木场',buffRes:'wood',buffBase:0.15,buffPerLv:0.2, build:{wood:200,stone:100,food:40,time:4}, upBase:{wood:6000,stone:5000,food:3000}, upCostLv:2},
-    quarry:{name:'采石场',buffRes:'stone',buffBase:0.15,buffPerLv:0.2, build:{wood:50,stone:120,food:40,time:4}, upBase:{wood:5000,stone:6000,food:3000}, upCostLv:2},
-    farm:{name:'农田',buffRes:'food',buffBase:0.15,buffPerLv:0.2, build:{wood:80,stone:80,food:200,time:4}, upBase:{wood:5000,stone:5000,food:8000}, upCostLv:2},
-    barracks:{name:'营帐',build:{wood:300,stone:200,food:100,time:6}, upBase:{wood:2200,stone:1800,food:1000}, upCostLv:1.85},
+    lumber_mill:{name:'伐木场',buffRes:'wood',buffBase:0.15,buffPerLv:0.2, build:{wood:200,stone:100,food:40,time:4}, upBase:{wood:6000,stone:5000,food:2500}, upCostLv:1.5},
+    quarry:{name:'采石场',buffRes:'stone',buffBase:0.15,buffPerLv:0.2, build:{wood:50,stone:120,food:40,time:4}, upBase:{wood:5000,stone:6000,food:2500}, upCostLv:1.5},
+    farm:{name:'农田',buffRes:'food',buffBase:0.15,buffPerLv:0.2, build:{wood:80,stone:80,food:200,time:4}, upBase:{wood:5000,stone:5000,food:6000}, upCostLv:1.5},
+    barracks:{name:'营帐',build:{wood:300,stone:200,food:100,time:6}, upBase:{wood:1800,stone:1800,food:1000}, upCostLv:1.7},
     infantry_camp:{name:'步兵营地',trains:'infantry',unitCapBase:4,unitCapPerLv:2,build:{wood:180,stone:100,food:80,time:5},upBase:{wood:1000,stone:1000,food:800},upCostLv:1.1},
     archer_range:{name:'猎手营地',trains:'archer',unitCapBase:2,unitCapPerLv:2,build:{wood:240,stone:100,food:100,time:6},upBase:{wood:1000,stone:1000,food:850},upCostLv:1.1},
-    stable:{name:'骑兵训练场',trains:'cavalry',unitCapBase:1,unitCapPerLv:1,needBoss:1,build:{wood:220,stone:160,food:180,time:7},upBase:{wood:1000,stone:1000,food:1000},upCostLv:1.2},
-    spear_crypt:{name:'长矛兵营地',trains:'spearman',unitCapBase:1,unitCapPerLv:1,needBoss:2,build:{wood:160,stone:240,food:100,time:7},upBase:{wood:1500,stone:2000,food:1000},upCostLv:1.2},
-    mage_tower:{name:'法师塔',trains:'mage',unitCapBase:1,unitCapPerLv:1,needBoss:2,build:{wood:500,stone:500,food:350,time:10},upBase:{wood:3000,stone:3000,food:2000},upCostLv:1.3},
-    warehouse:{name:'仓库',storageBase:5000,storagePerLv:2500,build:{wood:200,stone:200,food:100,time:5},upBase:{wood:800,stone:800,food:800},upCostLv:1.3},
+    stable:{name:'骑兵训练场',trains:'cavalry',unitCapBase:1,unitCapPerLv:1,needBoss:1,build:{wood:220,stone:160,food:180,time:7},upBase:{wood:1000,stone:1000,food:1000},upCostLv:1.12},
+    spear_crypt:{name:'长矛兵营地',trains:'spearman',unitCapBase:1,unitCapPerLv:1,needBoss:2,build:{wood:160,stone:240,food:100,time:7},upBase:{wood:2000,stone:2000,food:1000},upCostLv:1.1},
+    mage_tower:{name:'法师塔',trains:'mage',unitCapBase:1,unitCapPerLv:1,needBoss:2,build:{wood:500,stone:500,food:350,time:10},upBase:{wood:3000,stone:3000,food:2000},upCostLv:1.1},
+    warehouse:{name:'仓库',storageBase:10000,storagePerLv:10000,build:{wood:200,stone:200,food:100,time:5},upBase:{wood:3000,stone:3000,food:3000},upCostLv:1.3},
     arrow_tower:{name:'箭塔',desc:'城防建筑，驻军战斗中对敌人自动射击',build:{wood:400,stone:350,food:150,time:10},upBase:{wood:1500,stone:1500,food:1000},upCostLv:1.2},
     military_academy:{name:'军事学院',desc:'研究兵种进阶，解锁高阶兵种训练',needBoss:2,build:{wood:7000,stone:7000,food:5000,time:10},upBase:{wood:2000,stone:2000,food:2000},upCostLv:1.3}
   },
 
   // 建筑升级上限倍率（基于城镇等级，修改这里即可调整所有建筑的升级限制）
   // 匹配规则见 math.js upgradeLockReason()：trains→training, storagePerLv→warehouse, buffRes→resource, 其余→barracks
-  // barracks : 营帐、箭塔 — 上限 = 城镇等级 × 此值
-  // warehouse: 仓库 — 上限 = 城镇等级 × 此值
-  // training : 步兵营地/射手靶场/骑兵训练场/长矛兵营地/法师塔 — 上限 = 城镇等级 × 此值
-  // resource : 伐木场/采石场/农田 — 上限 = 城镇等级 × 此值（同时受章节 Boss 限制）
+  // barracks : 营帐、箭塔 — 上限 = 城镇等级 × 此值   MAX10
+  // warehouse: 仓库 — 上限 = 城镇等级 × 此值        MAX50
+  // training : 步兵营地/射手靶场/骑兵训练场/长矛兵营地/法师塔 — 上限 = 城镇等级 × 此值   MAX50
+  // resource : 伐木场/采石场/农田 — 上限 = 城镇等级 × 此值（同时受章节 Boss 限制）   MAX10
   buildingCaps: {
     barracks: 1,
     warehouse: 5,
-    training: 10,
+    training: 5,
     resource: 1
   },
 

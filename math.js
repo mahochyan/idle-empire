@@ -393,7 +393,9 @@ function setPopAlloc(rk,v){
 }
 function upCost(key){
   const cfg=CFG.buildings[key],lv=bldSt(key).lv||1;
-  const b=cfg.upBase,m=Math.pow(cfg.upCostLv,lv);
+  const b=cfg.upBase;
+  // 仓库：升级消耗 = 当前等级 × upBase（线性）
+  const m=cfg.storagePerLv?lv:Math.pow(cfg.upCostLv,lv);
   // 升级时间线性增长，不受 upCostLv 倍率影响，参数见 CFG.buildingTimes
   const isCap1=cfg.buffRes||(!cfg.trains&&!cfg.storagePerLv&&!cfg.buffRes);
   const bt=CFG.buildingTimes;

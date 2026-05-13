@@ -658,8 +658,8 @@ function rTech(){
 // ==================== 设置弹窗 ====================
 function formatGameTime(ticks){
   const totalSec=Math.floor(ticks*(CFG.tickMs||1000)/1000);
-  const h=Math.floor(totalSec/3600),m=Math.floor((totalSec%3600)/60),s=totalSec%60;
-  return `${h}时${String(m).padStart(2,'0')}分${String(s).padStart(2,'0')}秒`;
+  const h=Math.floor(totalSec/3600),m=Math.floor((totalSec%3600)/60);
+  return `${h}时${String(m).padStart(2,'0')}分`;
 }
 function openSettings(){
   let h=`<h3>${pix('build','card-pix')}设置</h3>`;
