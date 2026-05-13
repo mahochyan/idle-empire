@@ -467,7 +467,7 @@ function rFight(){
 }
 // --- 远征子标签 ---
 function rExpedition(){
-  let h=`<div class="card"><div style="display:flex;align-items:center;justify-content:space-between"><h3 style="margin:0">${pix('army','card-pix')}远征阵容 (${formCnt()}/${formSlots()}团 | 上限${regMax()}人/团)</h3><button class="btn btn-ghost btn-sm" onclick="openTraining()" style="border-color:#8B6914;color:#c9a030;flex-shrink:0">${pix('dummy','mini')}木人桩</button></div>`;
+  let h=`<div class="card"><div style="display:flex;align-items:center;justify-content:space-between"><h3 style="margin:0">${pix('army','card-pix')}远征阵容 (${formCnt()}/${formSlots()}团 | 上限${regMax()}人/团)</h3><button class="btn btn-ghost btn-sm" onclick="openTraining()" style="border-color:#8B6914;color:#c9a030;flex-shrink:0">${pix('dummy','mini')}训练场</button></div>`;
   // 显示可用余量
   const poolParts=[];
   for(const[k,c]of Object.entries(CFG.units)){

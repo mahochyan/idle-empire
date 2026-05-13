@@ -689,7 +689,7 @@ function openTraining(){
   document.getElementById('battle-msg').innerHTML='';
   initBattleState();
   drawBattleField();
-  bmsg('训练开始！木人桩×9 各100HP','#f0d060');
+  bmsg('训练开始！训练场×9 各100HP','#f0d060');
   battleTimer=setTimeout(battleTurn, 600/S.battleSpeed);
 }
 
@@ -758,7 +758,7 @@ function initBattleState(){
     const rows=['front','mid','back'];
     for(let i=0;i<9;i++){
       const rowIdx=Math.floor(i/3);
-      B.enemyUnits.push({id:uid++, type:'dummy', name:'木人桩', row:rows[rowIdx],
+      B.enemyUnits.push({id:uid++, type:'dummy', name:'训练场', row:rows[rowIdx],
         hp:100, maxHp:100, icon:'dummy', spd:0, atk:0, def:1, alive:true, dummyIdx:i});
       B.dummyDmg.push(0);
     }
@@ -800,11 +800,11 @@ function drawBattleField(){
   const ea=B.enemyUnits.filter(u=>u.alive!==false).length;
   const ohp=B.ourUnits.filter(u=>u.alive!==false).reduce((s,u)=>s+u.hp,0);
   const ehp=B.enemyUnits.filter(u=>u.alive!==false).reduce((s,u)=>s+u.hp,0);
-  document.getElementById('battle-title').innerHTML=`${pix('battle','sm')} ${B.enemyCfg.name} | 回合${B.round} | 我方${oa}团${ohp}人 vs ${B.isTraining?'木人桩':'敌方'}${ea}个${B.isTraining?'':'团'+ehp+'人'}`;
+  document.getElementById('battle-title').innerHTML=`${pix('battle','sm')} ${B.enemyCfg.name} | 回合${B.round} | 我方${oa}团${ohp}人 vs ${B.isTraining?'训练场':'敌方'}${ea}个${B.isTraining?'':'团'+ehp+'人'}`;
 
   let h='';
   if(B.isTraining){
-    h+=`<div class="enemy-zone dummy-zone"><div class="zone-label">${pix('dummy','sm')} 木人桩 (训练目标)</div>`;
+    h+=`<div class="enemy-zone dummy-zone"><div class="zone-label">${pix('dummy','sm')} 训练场</div>`;
     for(const row of['back','mid','front']){
       const units=B.enemyUnits.filter(u=>u.alive!==false&&u.row===row);
       if(!units.length)continue;
@@ -1115,7 +1115,7 @@ function showTrainingResult(){
   const resEl=document.getElementById('battle-result');
   const ts=B.trainingStats||{};
   let h=`<div style="font-size:14px;font-weight:bold;color:#e0c870;margin-bottom:8px">${pix('dummy','sm')} 训练结束 — 数据统计</div>`;
-  h+=`<div style="font-size:10px;color:#888;margin-bottom:8px">回合${B.round} | 击破${B.enemyUnits.filter(u=>u.alive===false).length}/9个木人桩</div>`;
+  h+=`<div style="font-size:10px;color:#888;margin-bottom:8px">回合${B.round} | 击破${B.enemyUnits.filter(u=>u.alive===false).length}/9个训练目标</div>`;
   let totalDmg=0,totalAtks=0;
   for(const[uk,t] of Object.entries(ts)){
     totalDmg+=t.dmg; totalAtks+=t.atks;
