@@ -236,8 +236,7 @@ function updateTownScene(){
 const BUILD_CATEGORIES = {
   basic: {name:'\u57fa\u7840\u5efa\u7b51',keys:['barracks','warehouse','lumber_mill','quarry','farm']},
   barracks: {name:'\u5175\u8425\u5efa\u7b51',keys:['infantry_camp','archer_range','stable','spear_crypt','mage_tower']},
-  special: {name:'\u7279\u6b8a\u5efa\u7b51',keys:['arrow_tower']},
-  academy: {name:'\u519b\u4e8b\u5b66\u9662',keys:[]}
+  special: {name:'\u7279\u6b8a\u5efa\u7b51',keys:['arrow_tower']}
 };
 
 function rBuildCard(key, cfg){
@@ -270,12 +269,7 @@ function rBuildCard(key, cfg){
       const uc=upCost(key);
       h+=`<div style="font-size:10px;line-height:14px;color:#666">\u5347\u7ea7: ${costHtml(uc)} | ${uc.time}\u79d2</div>`;
       h+=`<button class="btn btn-go btn-sm" onclick="buildAct('${key}')" ${upLock?'disabled':''}>${pix('upgrade','mini')}\u5347\u7ea7\u2192Lv.${st.lv+1}</button>`;
-      if(key==='military_academy' && st.lv>0){
-        h+=`<div style="margin-top:6px;font-size:11px;color:#f0d060;border-top:1px solid #2b3144;padding-top:4px">
-          <div>\u5b66\u9662\u7b49\u7ea7 Lv.${st.lv}</div>
-          <div style="font-size:10px;color:#888">\u89e3\u9501\u5175\u79cd\u5347\u7ea7\u7ebf\uff0c\u524d\u5f80"\u519b\u4e8b\u5b66\u9662"\u6807\u7b7e\u9875\u67e5\u770b</div>
-        </div>`;
-      }
+      // \u519b\u4e8b\u5b66\u9662\u5df2\u79fb\u9664
     }
   }else{
     const pct=st.timerEnd>0?((st.timerEnd-st.timer)/st.timerEnd*100).toFixed(0):0;
@@ -288,23 +282,19 @@ function rBuildCard(key, cfg){
 
 function rBuild(){
   const tab=S._buildTab||'basic';
-  const tabs=[{k:'basic',n:'\u57fa\u7840\u5efa\u7b51'},{k:'barracks',n:'\u5175\u8425\u5efa\u7b51'},{k:'special',n:'\u7279\u6b8a\u5efa\u7b51'},{k:'academy',n:'\u519b\u4e8b\u5b66\u9662'}];
+  const tabs=[{k:'basic',n:'\u57fa\u7840\u5efa\u7b51'},{k:'barracks',n:'\u5175\u8425\u5efa\u7b51'},{k:'special',n:'\u7279\u6b8a\u5efa\u7b51'}];
   let h=`<div style="display:flex;gap:4px;margin-bottom:6px">`;
   for(const t of tabs){
     h+=`<button class="btn btn-sm ${tab===t.k?'btn-go':'btn-ghost'}" style="flex:1" onclick="setBuildTab('${t.k}')">${t.n}</button>`;
   }
   h+=`</div>`;
-  if(tab==='academy'){
-    h+=rAcademy();
+  const cat=BUILD_CATEGORIES[tab];
+  if(!cat||!cat.keys.length){
+    h+=`<div style="text-align:center;color:#666;padding:30px">\u6682\u65e0\u5efa\u7b51</div>`;
   }else{
-    const cat=BUILD_CATEGORIES[tab];
-    if(!cat||!cat.keys.length){
-      h+=`<div style="text-align:center;color:#666;padding:30px">\u6682\u65e0\u5efa\u7b51</div>`;
-    }else{
-      for(const key of cat.keys){
-        const cfg=CFG.buildings[key];
-        if(cfg)h+=rBuildCard(key,cfg);
-      }
+    for(const key of cat.keys){
+      const cfg=CFG.buildings[key];
+      if(cfg)h+=rBuildCard(key,cfg);
     }
   }
   return h;
@@ -415,253 +405,216 @@ function rBarracks(){
       h+=`</div>`;
     }
   }
-  if(!shown)h+=`<div style="text-align:center;color:#666;padding:20px">暂无兵种 (需在军事学院研究解锁)</div>`;
+  if(!shown)h+=`<div style="text-align:center;color:#666;padding:20px">暂无兵种 (需在科技树研究解锁)</div>`;
   h+=`</div>`;return h;
 }
-function rVariantTraining(baseUk){
-  const alv=academyLv();
-  if(alv<1)return '';
-  const tree=CFG.unitUpgrades[baseUk]?.tree;
-  if(!tree)return '';
-  const upgraded=S.upgradedUnits||{};
-  const trainable=[],upgradable=[];
-  for(const[nk,nn] of Object.entries(tree)){
-    for(const br of nn.branches||[]){
-      if(!CFG.units[br.to])continue;
-      if(upgraded[br.to]){trainable.push(br.to)}else{
-        const parentUp=nk==='infantry'||upgraded[nk];
-        if(parentUp&&alv>=br.needAcademyLv)upgradable.push({from:nk,to:br.to,name:br.name,cost:br.cost,needLv:br.needAcademyLv});
-      }
-    }
-  }
-  if(!trainable.length&&!upgradable.length)return '';
-  let h=`<div class="variant-row" style="margin-top:4px;margin-left:32px;border-left:2px solid #f0d060;padding-left:8px">
-    <div style="font-size:10px;color:#f0d060;margin-bottom:2px">已解锁进阶兵种</div>`;
-  for(const vk of trainable){
-    const vc=CFG.units[vk];
-    if(!vc)continue;
-    const tm=maxTrainable(vk);
-    h+=`<div style="display:flex;align-items:center;gap:4px;margin:2px 0;font-size:11px">
-      <span>${pix(vc.icon,'mini')}</span>
-      <span style="color:#e0e0e0">${vc.name}</span>
-      <span style="font-size:9px;color:#888">${costHtml(vc.cost)}/人</span>
-      <input type="text" inputmode="numeric" pattern="[0-9]*" value="1" id="train-v-${vk}" style="width:30px;text-align:center;background:#080912;border:1px solid #3a4158;color:#f0d060;font-family:inherit;font-size:10px">
-      <button class="btn btn-go btn-xs" onclick="trainCustom('${vk}','train-v-${vk}')" ${tm<=0?'disabled':''} style="font-size:9px;padding:1px 6px">训练</button>
-    </div>`;
-  }
-  for(const up of upgradable){
-    h+=`<div style="display:flex;align-items:center;gap:4px;margin:2px 0;font-size:11px">
-      <span>${pix('lock','mini')}</span>
-      <span style="color:#aaa">${up.name}</span>
-      <span style="font-size:9px;color:#888">${costHtml(up.cost)}</span>
-      <button class="btn btn-xs" onclick="upgradeUnit('${up.from}','${up.to}')" style="font-size:9px;padding:1px 6px;background:#2a2a1a;border-color:#6a6a3a;color:#f0d060;border:1px solid">研究</button>
-    </div>`;
-  }
-  h+=`</div>`;
-  return h;
-}
-function rAcademy(){
-  let h='';
-  const acadCfg=CFG.buildings.military_academy;
-  if(acadCfg)h+=rBuildCard('military_academy',acadCfg);
-  const alv=academyLv();
-  if(alv<1){h+=`<div style="text-align:center;color:#666;padding:20px">建造军事学院后查看兵种升级树</div>`;return h;}
-  const upgraded=S.upgradedUnits||{};
-  for(const[treeKey,treeCfg] of Object.entries(CFG.unitUpgrades||{})){
-    const tree=treeCfg.tree;
-    if(!tree)continue;
-    const rootKey=Object.keys(tree).find(k=>tree[k].tier===0)||Object.keys(tree)[0];
-    const icon=treeCfg.icon||'infantry';
-    h+=`<div class="card"><h3>${pix(icon,'card-pix')}${treeCfg.name}</h3>
-      <div style="font-size:10px;color:#888;margin-bottom:6px">学院等级 Lv.${alv}</div>`;
-    function nodeStatus(key,node){
-      if(key===rootKey)return{text:'已解锁',color:'#40bf80'};
-      if(upgraded[key])return{text:'已解锁',color:'#40bf80'};
-      for(const[nk,nn]of Object.entries(tree)){
-        for(const br of nn.branches||[]){
-          if(br.to===key){
-            const parentUp=nk===rootKey||upgraded[nk];
-            if(!parentUp)return{text:'需先解锁'+nn.name,color:'#888'};
-            if(alv>=br.needAcademyLv)return{text:'可研究',color:'#f0d060'};
-            return{text:'需学院Lv.'+br.needAcademyLv,color:'#e06060'};
-          }
-        }
-      }
-      return{text:'未知',color:'#888'};
-    }
-    function renderNode(key,depth){
-      const node=tree[key];
-      if(!node)return'';
-      const isUp=key===rootKey||upgraded[key];
-      const st=nodeStatus(key,node);
-      const pad=depth*20;
-      let r=`<div style="margin:4px 0;padding:4px 8px;background:${isUp?'#1a2a1a':'#121224'};border:1px solid ${isUp?'#2b4b3b':'#2b3144'};border-radius:3px;font-size:11px;margin-left:${pad}px">
-        <span style="display:inline-block;width:50px;font-size:9px;color:#888">T${node.tier}</span>
-        <span style="color:${isUp?'#40bf80':'#e0e0e0'}">${pix(icon,'mini')}${node.name}</span>
-        ${node.tag?`<span style="font-size:9px;color:#888;margin-left:4px">[${node.tag}]</span>`:''}
-        <span style="float:right;font-size:9px;color:${st.color}">${st.text}</span>`;
-      if(isUp&&node.branches.length){
-        r+=`<div style="margin-top:4px;padding-left:20px;border-left:1px solid #3a4158">`;
-        for(const br of node.branches){
-          const brUp=upgraded[br.to]===true;
-          r+=`<div style="margin:2px 0;font-size:10px;display:flex;align-items:center;gap:4px">
-            <span style="color:#888">→</span>
-            <span style="color:${brUp?'#40bf80':'#aaa'}">${pix(icon,'mini')}${br.name}</span>
-            ${brUp?`<span style="color:#40bf80;font-size:9px">✓ 已解锁</span>`
-              :alv>=br.needAcademyLv
-                ?`<button class="btn btn-xs" onclick="upgradeUnit('${key}','${br.to}')" style="font-size:9px;padding:1px 6px;background:#2a2a1a;border-color:#6a6a3a;color:#f0d060;border:1px solid">研究 ${costHtml(br.cost)}</button>`
-                :`<span style="color:#e06060;font-size:9px">需学院Lv.${br.needAcademyLv}</span>`}
-          </div>`;
-        }
-        r+=`</div>`;
-      }
-      r+=`</div>`;
-      return r;
-    }
-    h+=renderNode(rootKey,0);
-    const rootNode=tree[rootKey];
-    if(rootNode){for(const br of rootNode.branches||[]){h+=renderNode(br.to,1);const t1n=tree[br.to];if(t1n){for(const br2 of t1n.branches||[]){h+=renderNode(br2.to,2);const t2n=tree[br2.to];if(t2n){for(const br3 of t2n.branches||[])h+=renderNode(br3.to,3);}}}}}
-    h+=`</div>`;
-  }
-  if(!Object.keys(CFG.unitUpgrades||{}).length)h+=`<div style="text-align:center;color:#666;padding:20px">暂无兵种升级树</div>`;
-  return h;
-}
+// ==================== 战斗界面 ====================
 function rFight(){
   const tab=S._fightTab||'expedition';
   let h=`<div style="padding:4px 0">`;
-  // 子标签切换
-  h+=`<div style="display:flex;gap:4px;margin-bottom:8px">`;
-  h+=`<button class="btn btn-sm ${tab==='expedition'?'btn-go':'btn-ghost'}" onclick="setFightTab('expedition')">远征</button>`;
-  h+=`<button class="btn btn-sm ${tab==='garrison'?'btn-go':'btn-ghost'}" onclick="setFightTab('garrison')">驻军</button>`;
+  h+=`<div style="display:flex;gap:4px;margin-bottom:6px">`;
+  h+=`<button class="btn btn-sm ${tab==='expedition'?'btn-go':'btn-ghost'}" style="flex:1" onclick="setFightTab('expedition')">${pix('battle','mini')}远征</button>`;
+  h+=`<button class="btn btn-sm ${tab==='garrison'?'btn-go':'btn-ghost'}" style="flex:1" onclick="setFightTab('garrison')">${pix('army','mini')}驻军</button>`;
   h+=`</div>`;
-  if(tab==='expedition')h+=rExpedition();
-  else if(tab==='garrison')h+=rGarrison();
-  h+=`</div>`;
-  return h;
-}
-// --- 远征子标签 ---
-function rExpedition(){
-  let h=`<div class="card"><div style="display:flex;align-items:center;justify-content:space-between"><h3 style="margin:0">${pix('army','card-pix')}远征阵容 (${formCnt()}/${formSlots()}团 | 上限${regMax()}人/团)</h3><button class="btn btn-ghost btn-sm" onclick="openTraining()" style="border-color:#8B6914;color:#c9a030;flex-shrink:0">${pix('dummy','mini')}训练场</button></div>`;
-  // 显示可用余量
-  const poolParts=[];
-  for(const[k,c]of Object.entries(CFG.units)){
-    const p=S.pool[k]||0;
-    if(p>0)poolParts.push(`${pix(c.icon,'mini')}${c.name}${p}`);
-  }
-  h+=`<div style="font-size:10px;color:#888;margin-bottom:4px">余量: ${poolParts.length?poolParts.join(' '):'无'}</div>`;
-  const rs=[{k:'front',n:'前排(承伤)',c:'r1'},{k:'mid',n:'中排(输出)',c:'r2'},{k:'back',n:'后排(远程)',c:'r3'}];
-  const which='expedition';
-  for(const r of rs){
-    h+=`<div class="form-row ${r.c}"><div class="ftitle">${r.n} (${S.formation[r.k].length}/${rowSlots(r.k)})</div>`;
-    if(!S.formation[r.k].length){
-      h+=`<span class="form-slot" onclick="openFormModal('${which}','${r.k}',0)">+ 空位</span>`;
-    }else{
-      S.formation[r.k].forEach((u,i)=>{
-        const mx=Math.min(regMax()-u.count, poolAvail(u.type));
-        h+=`<span class="form-slot filled" style="position:relative">
-          <span onclick="rmForm('${which}','${r.k}',${i})" style="position:absolute;top:-6px;right:-4px;cursor:pointer;z-index:1">${pix('close','mini')}</span>
-          <div onclick="openFormModal('${which}','${r.k}',${i})">${pix(CFG.units[u.type].icon,'sm')}${CFG.units[u.type].name}</div>
-          <div class="qty-ctrl" style="margin-top:3px;gap:2px;justify-content:center">
-            <button onpointerdown="startLongPress('${which}','${r.k}',${i},-1)" onpointerup="stopLongPress()" onpointerleave="stopLongPress()" onpointercancel="stopLongPress()" style="width:24px;height:24px;border-radius:50%;border:1px solid #555;background:#1a1a2e;color:#e0e0e0;font-size:14px;cursor:pointer;touch-action:manipulation">−</button>
-            <span style="min-width:24px;font-size:12px;color:#f0d060">${u.count}</span>
-            <button onpointerdown="startLongPress('${which}','${r.k}',${i},1)" onpointerup="stopLongPress()" onpointerleave="stopLongPress()" onpointercancel="stopLongPress()" style="width:24px;height:24px;border-radius:50%;border:1px solid #555;background:#1a1a2e;color:#e0e0e0;font-size:14px;cursor:pointer;touch-action:manipulation">+</button>
-          </div>
-          <div style="margin-top:3px;display:flex;gap:3px;justify-content:center">
-            ${mx>0?`<span onclick="event.stopPropagation();adjForm('${which}','${r.k}',${i},${mx})" style="font-size:9px;padding:2px 6px;border:1px solid #40bf80;background:#1a2e1a;color:#40bf80;cursor:pointer">MAX</span>`:''}
-            <span onclick="event.stopPropagation();rmForm('${which}','${r.k}',${i})" style="font-size:9px;padding:2px 6px;border:1px solid #e06060;background:#2e1a1a;color:#e06060;cursor:pointer">移除</span>
-          </div></span>`;
-      });
-      if(S.formation[r.k].length<rowSlots(r.k))h+=`<span class="form-slot" onclick="openFormModal('${which}','${r.k}',${S.formation[r.k].length})">+ 空位</span>`;
-    }
-    h+=`</div>`;
-  }
-  h+=`<button class="btn btn-go btn-sm" onclick="useLastFormation('expedition')">使用上次阵容</button>
-  <button class="btn btn-ghost btn-sm" onclick="clrForm('expedition')">清空阵容</button></div>`;
-  // 敌人选择
-  const selIdx=S.selEnemy;
-  const hasSel=selIdx!==null&&selIdx!==undefined;
-  h+=`<div class="card"><h3>${pix('enemy','card-pix')}选择敌人</h3>`;
-  h+=`<div style="display:flex;align-items:center;gap:6px;margin-bottom:8px">`;
-  h+=`<button class="btn btn-ghost btn-xs" onclick="selEnemy(${hasSel?selIdx-1:'null'})" ${!hasSel||selIdx<=0?'disabled':''}>◀</button>`;
-  h+=`<select onchange="this.blur();selEnemy(this.value===''?null:parseInt(this.value))" style="flex:1;background:#121224;color:#e0e0e0;border:1px solid #3a4158;padding:4px 8px;font-family:inherit;font-size:13px;cursor:pointer">`;
-  h+=`<option value="" ${hasSel?'':'selected'}>-- 请选择关卡 --</option>`;
-  for(let i=0;i<CFG.enemies.length;i++){
-    const e=CFG.enemies[i],df=S.defeated.includes(e.id);
-    const label=`${df?'✓ ':''}第${i+1}关 - ${e.name}${e.boss?' [BOSS]':''}`;
-    h+=`<option value="${i}" ${hasSel&&i===selIdx?'selected':''}>${label}</option>`;
-  }
-  h+=`</select>`;
-  h+=`<button class="btn btn-ghost btn-xs" onclick="selEnemy(${hasSel?selIdx+1:'null'})" ${!hasSel||selIdx>=CFG.enemies.length-1?'disabled':''}>▶</button>`;
-  h+=`</div>`;
-  // 显示选中敌人详情
-  if(hasSel){
-    const selE=CFG.enemies[selIdx];
-    if(selE){
-      const df=S.defeated.includes(selE.id);
-      const enemyInfo=Object.entries(selE.units).map(([k,counts])=>{const t=counts.reduce((a,b)=>a+b,0);return `${pix(CFG.units[k].icon,'mini')}${CFG.units[k].name}×${t}`;}).join(' ');
-      h+=`<div style="background:#121224;border:1px solid #2b3144;border-radius:4px;padding:8px 10px">`;
-      h+=`<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px"><span><strong>${selE.name}</strong> ${df?pix('check','mini'):''} ${selE.boss?pix('boss','mini'):''}</span>${df?`<span style="font-size:11px;color:#40bf80">已通关</span>`:''}</div>`;
-      h+=`<div style="font-size:11px;color:#888">${selE.desc}</div>`;
-      h+=`<div style="font-size:10px;color:#777;margin-top:4px">${enemyInfo}</div>`;
+
+  if(tab==='expedition'){
+    const form=S.formation;
+    const rowNames={front:'前排',mid:'中排',back:'后排'};
+    const rowCls={front:'r1',mid:'r2',back:'r3'};
+    h+=`<div class="card"><h3>${pix('battle','card-pix')}远征阵容</h3>`;
+    for(const row of['front','mid','back']){
+      const slots=rowSlots(row);
+      h+=`<div class="form-row ${rowCls[row]||''}"><div class="ftitle">${rowNames[row]} (${(form[row]||[]).length}/${slots}格)</div>`;
+      for(let i=0;i<slots;i++){
+        const u=form[row]?.[i];
+        if(u){
+          const uc=CFG.units[u.type];
+          h+=`<span class="form-slot filled" onclick="openFormModal('expedition','${row}',${i})">
+            ${pix(uc.icon,'sm')}<span style="font-size:10px;color:#e0e0e0">${uc.name}</span>
+            <span class="qty-ctrl" style="margin-top:2px" onclick="event.stopPropagation()">
+              <button onpointerdown="startLongPress('expedition','${row}',${i},-1)" onpointerup="stopLongPress()" onpointerleave="stopLongPress()">-</button>
+              <span>${u.count}</span>
+              <button onpointerdown="startLongPress('expedition','${row}',${i},1)" onpointerup="stopLongPress()" onpointerleave="stopLongPress()">+</button>
+            </span>
+            <div style="display:flex;gap:3px;margin-top:2px" onclick="event.stopPropagation()">
+              <button class="btn btn-xs btn-ghost" onclick="fillFormMax('expedition','${row}',${i})" style="font-size:9px">MAX</button>
+              <button class="btn btn-xs btn-ghost" onclick="removeFormSlot('expedition','${row}',${i})" style="font-size:9px;color:#e06060">✕</button>
+            </div>
+          </span>`;
+        } else {
+          h+=`<span class="form-slot" onclick="openFormModal('expedition','${row}',${i})"><span class="form-empty">+ 编入</span></span>`;
+        }
+      }
       h+=`</div>`;
     }
-  }else{
-    h+=`<div style="text-align:center;color:#666;padding:10px">请从上拉菜单选择要出征的关卡</div>`;
-  }
-  h+=`</div><button class="btn btn-go" style="width:100%;margin-top:8px;padding:12px;font-size:15px" onclick="openBattle()">${pix('battle','sm')}开战</button>`;
-  return h;
-}
-// --- 驻军子标签 ---
-function rGarrison(){
-  const gf=S._garrisonForm||{front:[],mid:[],back:[]};
-  const cnt=gf.front.length+gf.mid.length+gf.back.length;
-  const which='garrison';
-  let h=`<div class="card"><h3>${pix('army','card-pix')}驻军阵容 (${cnt}/${formSlots()}团 | 上限${regMax()}人/团)</h3>`;
-  h+=`<div style="font-size:10px;color:#888;margin-bottom:4px">自动触发：300 tick 新手保护后，每 180 tick 有 25% 概率入侵。驻军阵容会显示在主页城镇巡防地图上。</div>`;
-  const rs=[{k:'front',n:'前排',c:'r1'},{k:'mid',n:'中排',c:'r2'},{k:'back',n:'后排',c:'r3'}];
-  for(const r of rs){
-    h+=`<div class="form-row ${r.c}"><div class="ftitle">${r.n} (${gf[r.k].length}/${rowSlots(r.k)})</div>`;
-    if(!gf[r.k].length){
-      h+=`<span class="form-slot" onclick="openFormModal('${which}','${r.k}',0)">+ 空位</span>`;
-    }else{
-      gf[r.k].forEach((u,i)=>{
-        const mx=Math.min(regMax()-u.count, poolAvail(u.type));
-        h+=`<span class="form-slot filled" style="position:relative">
-          <span onclick="rmForm('${which}','${r.k}',${i})" style="position:absolute;top:-6px;right:-4px;cursor:pointer;z-index:1">${pix('close','mini')}</span>
-          <div onclick="openFormModal('${which}','${r.k}',${i})">${pix(CFG.units[u.type].icon,'sm')}${CFG.units[u.type].name}</div>
-          <div class="qty-ctrl" style="margin-top:3px;gap:2px;justify-content:center">
-            <button onpointerdown="startLongPress('${which}','${r.k}',${i},-1)" onpointerup="stopLongPress()" onpointerleave="stopLongPress()" onpointercancel="stopLongPress()" style="width:24px;height:24px;border-radius:50%;border:1px solid #555;background:#1a1a2e;color:#e0e0e0;font-size:14px;cursor:pointer;touch-action:manipulation">−</button>
-            <span style="min-width:24px;font-size:12px;color:#f0d060">${u.count}</span>
-            <button onpointerdown="startLongPress('${which}','${r.k}',${i},1)" onpointerup="stopLongPress()" onpointerleave="stopLongPress()" onpointercancel="stopLongPress()" style="width:24px;height:24px;border-radius:50%;border:1px solid #555;background:#1a1a2e;color:#e0e0e0;font-size:14px;cursor:pointer;touch-action:manipulation">+</button>
-          </div>
-          <div style="margin-top:3px;display:flex;gap:3px;justify-content:center">
-            ${mx>0?`<span onclick="event.stopPropagation();adjForm('${which}','${r.k}',${i},${mx})" style="font-size:9px;padding:2px 6px;border:1px solid #40bf80;background:#1a2e1a;color:#40bf80;cursor:pointer">MAX</span>`:''}
-            <span onclick="event.stopPropagation();rmForm('${which}','${r.k}',${i})" style="font-size:9px;padding:2px 6px;border:1px solid #e06060;background:#2e1a1a;color:#e06060;cursor:pointer">移除</span>
-          </div></span>`;
-      });
-      if(gf[r.k].length<rowSlots(r.k))h+=`<span class="form-slot" onclick="openFormModal('${which}','${r.k}',${gf[r.k].length})">+ 空位</span>`;
+    h+=`<div style="display:flex;gap:6px;margin-top:8px">`;
+    h+=`<button class="btn btn-ghost btn-sm" onclick="useLastFormation('expedition')">${pix('check','mini')}使用上次阵容</button>`;
+    h+=`<button class="btn btn-ghost btn-sm" onclick="clrForm('expedition')" style="color:#e06060">${pix('reset','mini')}清空阵容</button>`;
+    h+=`</div>`;
+    h+=`<div style="margin-top:6px"><button class="btn btn-ghost btn-sm" onclick="openTraining()">${pix('battle','mini')}训练场</button></div>`;
+    h+=`</div>`;
+
+    // 关卡选择
+    h+=`<div class="card"><h3>${pix('battle','card-pix')}关卡选择</h3>`;
+    const cur=S.selEnemy!==null?CFG.enemies[S.selEnemy]:null;
+    const prevDisabled=S.selEnemy===null||S.selEnemy<=0;
+    const nextDisabled=S.selEnemy===null||S.selEnemy>=CFG.enemies.length-1;
+    h+=`<div style="display:flex;align-items:center;gap:6px;margin-bottom:8px">`;
+    h+=`<button class="btn btn-ghost btn-sm" onclick="selEnemy(${Math.max(0,(S.selEnemy||0)-1)})" ${prevDisabled?'disabled':''}>◀</button>`;
+    h+=`<div style="flex:1;text-align:center;font-size:12px;color:#e0e0e0">`;
+    if(cur){
+      h+=`${cur.name} <span style="color:#888;font-size:10px">(${S.selEnemy+1}/${CFG.enemies.length})</span>`;
+      if(S.defeated.includes(cur.id))h+=` <span style="color:#40bf80;font-size:10px">✓已通关</span>`;
+      if(cur.boss)h+=` <span style="color:#e06060;font-size:10px">[Boss]</span>`;
+      h+=`<div style="font-size:10px;color:#888">${cur.desc||''}</div>`;
+    } else {
+      h+=`<span style="color:#666">未选择</span>`;
     }
     h+=`</div>`;
+    h+=`<button class="btn btn-ghost btn-sm" onclick="selEnemy(${Math.min(CFG.enemies.length-1,(S.selEnemy||0)+1)})" ${nextDisabled?'disabled':''}>▶</button>`;
+    h+=`</div>`;
+    h+=`<button class="btn btn-go" style="width:100%" onclick="openBattle()" ${cur?'':'disabled'}>${pix('battle','mini')}开战</button>`;
+    h+=`</div>`;
+  } else {
+    // 驻军
+    const g=S.garrison||{};
+    const form=S._garrisonForm||{front:[],mid:[],back:[]};
+    const rowNames={front:'前排',mid:'中排',back:'后排'};
+    const rowCls={front:'r1',mid:'r2',back:'r3'};
+    h+=`<div class="card"><h3>${pix('army','card-pix')}驻军阵容</h3>`;
+    for(const row of['front','mid','back']){
+      const slots=rowSlots(row);
+      h+=`<div class="form-row ${rowCls[row]||''}"><div class="ftitle">${rowNames[row]} (${(form[row]||[]).length}/${slots}格)</div>`;
+      for(let i=0;i<slots;i++){
+        const u=form[row]?.[i];
+        if(u){
+          const uc=CFG.units[u.type];
+          h+=`<span class="form-slot filled" onclick="openFormModal('garrison','${row}',${i})">
+            ${pix(uc.icon,'sm')}<span style="font-size:10px;color:#e0e0e0">${uc.name}</span>
+            <span class="qty-ctrl" style="margin-top:2px" onclick="event.stopPropagation()">
+              <button onpointerdown="startLongPress('garrison','${row}',${i},-1)" onpointerup="stopLongPress()" onpointerleave="stopLongPress()">-</button>
+              <span>${u.count}</span>
+              <button onpointerdown="startLongPress('garrison','${row}',${i},1)" onpointerup="stopLongPress()" onpointerleave="stopLongPress()">+</button>
+            </span>
+            <div style="display:flex;gap:3px;margin-top:2px" onclick="event.stopPropagation()">
+              <button class="btn btn-xs btn-ghost" onclick="fillFormMax('garrison','${row}',${i})" style="font-size:9px">MAX</button>
+              <button class="btn btn-xs btn-ghost" onclick="removeFormSlot('garrison','${row}',${i})" style="font-size:9px;color:#e06060">✕</button>
+            </div>
+          </span>`;
+        } else {
+          h+=`<span class="form-slot" onclick="openFormModal('garrison','${row}',${i})"><span class="form-empty">+ 编入</span></span>`;
+        }
+      }
+      h+=`</div>`;
+    }
+    h+=`<div style="display:flex;gap:6px;margin-top:8px">`;
+    h+=`<button class="btn btn-ghost btn-sm" onclick="useLastFormation('garrison')">${pix('check','mini')}使用上次阵容</button>`;
+    h+=`<button class="btn btn-ghost btn-sm" onclick="clrForm('garrison')" style="color:#e06060">${pix('reset','mini')}清空驻军</button>`;
+    h+=`</div>`;
+    h+=`</div>`;
+
+    // 驻军状态与操作
+    h+=`<div class="card"><h3>${pix('army','card-pix')}驻军状态</h3>`;
+    h+=`<div style="font-size:11px;color:#888;margin-bottom:4px">驻军功勋: <span style="color:#c0a060">${S.merit||0}</span> · 驻军人数: ${garrisonTotal()}</div>`;
+    const gsText=typeof garrisonStatusText==='function'?garrisonStatusText(garrisonTotal()>0):'巡逻中';
+    h+=`<div style="font-size:11px;color:#aaa;margin-bottom:8px">状态: ${gsText}</div>`;
+    h+=`<button class="btn btn-ghost btn-sm" onclick="triggerGarrisonInvasion()">${pix('battle','mini')}测试触发入侵</button>`;
+    h+=`</div>`;
+
+    // 驻军日志
+    h+=`<div class="card"><h3>${pix('log','card-pix')}最近驻军事件</h3>`;
+    h+=`<div style="max-height:120px;overflow-y:auto;font-size:11px;line-height:1.8">`;
+    const gl=[...(S.garrisonLog||[])].reverse().slice(0,6);
+    if(!gl.length)h+=`<span style="color:#666">暂无驻军事件</span>`;
+    else for(const e of gl)h+=`<span style="color:#555">[${e.time}]</span> ${e.msg}<br>`;
+    h+=`</div></div>`;
   }
-  h+=`<button class="btn btn-ghost btn-sm" onclick="clrForm('garrison')">清空驻军</button>
-  <button class="btn btn-go btn-sm" onclick="triggerGarrisonInvasion()" style="margin-left:4px">测试触发入侵</button>`;
-  if(typeof ensureGarrisonState==='function')ensureGarrisonState();
-  const gl=[...(S.garrisonLog||[])].reverse().slice(0,5);
-  h+=`<div style="margin-top:8px;padding-top:7px;border-top:1px solid #2b3144">
-    <div style="font-size:11px;color:#d6a83f;margin-bottom:4px">驻军功勋 ${S.merit||0} · 最近驻军事件</div>`;
-  if(!gl.length)h+=`<div style="font-size:10px;color:#666">暂无驻军事件</div>`;
-  else for(const e of gl)h+=`<div style="font-size:10px;color:#777;line-height:1.55">[${e.time}] ${e.msg}</div>`;
-  h+=`</div></div>`;
+
+  h+=`</div>`;
   return h;
 }
-// ==================== 科技界面 ====================
 function rTech(){
   const boss=bossDefeatedCount();
   let h=`<div style="padding:4px 0">`;
-  h+=`<div class="card"><h3>${pix('tech','card-pix')}科技树</h3>`;
-  h+=`<div style="font-size:12px;color:#888;margin-bottom:8px">击败Boss: ${boss} | 解锁更多科技</div>`;
-  h+=`<div style="text-align:center;color:#666;padding:40px;font-size:13px">科技系统开发中<br><span style="font-size:10px;color:#444">后续版本将开放兵种升级、科技树等功能</span></div>`;
-  h+=`</div></div>`;
+
+  // 精魄库存卡片
+  h+=`<div class="card"><h3>${pix('tech','card-pix')}精魄库存</h3>`;
+  h+=`<div style="font-size:10px;color:#888;margin-bottom:6px">击败Boss概率掉落精魄，用于解锁T2/T3兵种</div>`;
+  h+=`<div style="display:flex;flex-wrap:wrap;gap:2px;padding:4px 0">`;
+  let hasEssence=false;
+  for(const[ek,ei] of Object.entries(CFG.essences||{})){
+    const cnt=S.essence[ek]||0;
+    hasEssence=hasEssence||cnt>0;
+    h+=`<span style="display:inline-flex;align-items:center;gap:3px;margin:2px 8px 2px 0;font-size:11px;color:#aab">
+      ${pix(ei.icon||ek,'mini')} ${ei.name}: <span style="color:${cnt>0?'#f0d060':'#555'}">${cnt}</span></span>`;
+  }
+  if(!hasEssence)h+=`<span style="font-size:10px;color:#555">暂无精魄，击败Boss获取</span>`;
+  h+=`</div>`;
+  h+=`<div style="font-size:10px;color:#888;margin-top:4px">击败Boss: ${boss} | 科技点: <span style="color:#f0d060">${Math.floor(S.res.tech||0)}</span> | 战功: <span style="color:#c0a060">${S.merit||0}</span></div>`;
+  h+=`</div>`;
+
+  // 兵谱 — 总收纳
+  if(!S._techFold)S._techFold={};
+  const compFolded=S._techFold._compendium===true;
+  const treeOrder=['infantry','archer'];
+  const treeNames={infantry:'\u6b65\u5175\u7ebf',archer:'\u730e\u4eba\u7ebf'};
+
+  h+=`<div class="branch-header" onclick="S._techFold._compendium=!S._techFold._compendium;updateUI()">
+    <span class="branch-arrow${compFolded?'':' open'}">\u25b6</span>
+    <span class="branch-icon">${pix('army','md')}</span>
+    <div style="flex:1;min-width:0">
+      <div style="font-size:14px;font-weight:bold;color:#e0d070;letter-spacing:1px">\u5175\u8c31</div>
+      <div style="font-size:9px;color:#5a6078;margin-top:2px">\u70b9\u51fb${compFolded?'\u5c55\u5f00':'\u6298\u53e0'} \u00b7 ${treeOrder.length}\u4e2a\u5206\u652f</div>
+    </div>
+  </div>`;
+  h+=`<div class="branch-body${compFolded?' folded':' expanded'}" style="margin-bottom:8px">`;
+
+  for(const treeKey of treeOrder){
+    const treeCfg=CFG.unitUpgrades[treeKey];
+    if(!treeCfg||!treeCfg.tree)continue;
+    const tree=treeCfg.tree;
+    const rootKey=Object.keys(tree).find(k=>tree[k].tier===0)||Object.keys(tree)[0];
+    const iconKey=treeCfg.icon||'infantry';
+    const folded=S._techFold[treeKey]===true;
+
+    h+=`<div class="branch-header" style="margin:4px 0;padding:8px 12px" onclick="S._techFold['${treeKey}']=!S._techFold['${treeKey}'];updateUI()">
+      <span class="branch-arrow${folded?'':' open'}">\u25b6</span>
+      <span class="branch-icon">${pix(iconKey,'sm')}</span>
+      <div style="flex:1;min-width:0">
+        <div style="font-size:12px;font-weight:bold;color:#c0c8e0;letter-spacing:1px">${treeNames[treeKey]||treeCfg.name}</div>
+        <div style="font-size:9px;color:#5a6078;margin-top:2px">\u70b9\u51fb${folded?'\u5c55\u5f00':'\u6298\u53e0'}</div>
+      </div>
+    </div>`;
+    h+=`<div class="branch-body${folded?' folded':' expanded'}" style="margin-bottom:4px">`;
+
+    function renderOwnedNode(key,depth){
+      const node=tree[key];
+      if(!node)return'';
+      const isRoot=key===rootKey;
+      const isUpgraded=S.upgradedUnits[key]===true;
+      if(!isRoot&&!isUpgraded)return'';
+      const pad=depth*20;
+      let r='';
+      r+=`<div style="margin:4px 0;padding:6px 10px;background:#1a2a1a;border:1px solid #2b4b3b;border-radius:4px;font-size:11px;margin-left:${pad}px">
+        <div style="display:flex;align-items:center;gap:6px">
+          <span style="font-size:9px;color:#888;min-width:28px">T${node.tier}</span>
+          <span style="color:#40bf80">${pix(iconKey,'mini')}${node.name}</span>
+          ${node.tag?`<span style="font-size:9px;color:#888">[${node.tag}]</span>`:''}
+        </div>
+      </div>`;
+      if(isRoot||isUpgraded){
+        for(const br of node.branches||[]){
+          r+=renderOwnedNode(br.to, depth+1);
+        }
+      }
+      return r;
+    }
+
+    h+=renderOwnedNode(rootKey,0);
+    h+=`</div>`;
+  }
+  h+=`</div>`;
+  h+=`</div>`;
   return h;
 }
 // ==================== 设置弹窗 ====================

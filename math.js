@@ -26,7 +26,8 @@ let S = {
   _barracksTier:'t0',
   _barracksFold:{},
   townUpgrade:null,
-  upgradedUnits:{}
+  upgradedUnits:{},
+  essence:{}
 };
 
 // ==================== 辅助 ====================
@@ -90,9 +91,9 @@ function regMax(){
   const s=bldSt('barracks');
   return 5+(s.state==='idle'?s.lv*5:0);
 }
-function academyLv(){
-  const st=bldSt('military_academy');
-  return st.state==='idle'?st.lv:0;
+// 军事学院已移除，解锁条件见 unitUpgrades 中的 needTech/needMerit/needEssence
+function bossEssenceCount(){
+  return Object.values(S.essence||{}).reduce((a,b)=>a+(b||0),0);
 }
 function baseUnitType(uk){
   return CFG.units[uk]?.baseUnit||uk;
@@ -110,26 +111,43 @@ function innerCM(atkType,defType){
 function unlockedVariants(baseUk){
   const tree=CFG.unitUpgrades[baseUk]?.tree;
   if(!tree)return[];
-  const alv=academyLv(),result=[];
+  const result=[];
   for(const[,node] of Object.entries(tree)){
     for(const br of node.branches||[]){
-      if(CFG.units[br.to]&&(S.upgradedUnits[br.to]||alv>=br.needAcademyLv)) result.push(br.to);
+      if(CFG.units[br.to]&&S.upgradedUnits[br.to]) result.push(br.to);
     }
   }
   return result;
 }
 function upgradeUnit(fromKey,toKey){
+  if(S.upgradedUnits[toKey]){toast('已解锁');return;}
   const tree=CFG.unitUpgrades[baseUnitType(fromKey)]?.tree;
   if(!tree)return;
   const node=tree[fromKey];
   if(!node)return;
   const branch=node.branches.find(b=>b.to===toKey);
   if(!branch)return;
-  const alv=academyLv();
-  if(alv<branch.needAcademyLv){toast('军事学院等级不足');return;}
+  // 科技点
+  const needTech=branch.needTech||0;
+  if((S.res.tech||0)<needTech){toast('科技点不足');return;}
+  // 战功
+  const needMerit=branch.needMerit||0;
+  if((S.merit||0)<needMerit){toast('战功不足');return;}
+  // 精魄
+  const needEssence=branch.needEssence||null;
+  if(needEssence){
+    if((S.essence[needEssence.type]||0)<needEssence.count){
+      const ei=CFG.essences?.[needEssence.type];
+      toast((ei?.name||needEssence.type)+'不足');return;
+    }
+  }
+  // 资源
   const cost=branch.cost;
   if(S.res.wood<cost.wood||S.res.stone<cost.stone||S.res.food<cost.food){toast('资源不足');return;}
   S.res.wood-=cost.wood;S.res.stone-=cost.stone;S.res.food-=cost.food;
+  S.res.tech-=needTech;
+  S.merit-=needMerit;
+  if(needEssence){S.essence[needEssence.type]-=needEssence.count;}
   S.upgradedUnits[toKey]=true;
   addLog('解锁'+(CFG.units[toKey]?CFG.units[toKey].name:toKey)+'兵种升级');
   save();updateUI();
@@ -207,8 +225,6 @@ function processQueue(){
 function trainLockReason(uk){
   const unitCfg=CFG.units[uk];
   if(unitCfg&&unitCfg.locked){
-    const alv=academyLv();
-    if(alv<1)return '需建造军事学院';
     if(baseUnitType(uk)===uk){
       const key=trainBuildingKey(uk);
       if(!key)return '';
@@ -223,10 +239,19 @@ function trainLockReason(uk){
         const tree=CFG.unitUpgrades[baseUnitType(uk)]?.tree;
         for(const[,node] of Object.entries(tree||{})){
           for(const br of node.branches||[]){
-            if(br.to===uk)return `需在军事学院研究「${br.name}」(Lv.${br.needAcademyLv}，资源:${br.cost.wood}/${br.cost.stone}/${br.cost.food})`;
+            if(br.to===uk){
+              let msg=`需在科技树研究「${br.name}」(科技点:${br.needTech||0}`;
+              msg+=`, 战功:${br.needMerit||0}`;
+              if(br.needEssence){
+                const ei=CFG.essences?.[br.needEssence.type];
+                msg+=`, ${ei?.name||br.needEssence.type}:${br.needEssence.count}`;
+              }
+              msg+=`)`;
+              return msg;
+            }
           }
         }
-        return '需在军事学院研究升级';
+        return '需在科技树研究升级';
       }
     }
   }
@@ -323,12 +348,12 @@ function isAttackMiss(attacker,defender){
 }
 
 function save(){
-  const d={res:S.res,buildings:S.buildings,pool:S.pool,queue:S.queue,formation:S.formation,townLv:S.townLv,popAlloc:S.popAlloc,defeated:S.defeated,mageOk:S.mageOk,merit:S.merit,garrisonLog:S.garrisonLog,garrison:S.garrison,tick:S.tick,garrisonForm:S._garrisonForm,townUpgrade:S.townUpgrade,upgradedUnits:S.upgradedUnits};
+  const d={res:S.res,buildings:S.buildings,pool:S.pool,queue:S.queue,formation:S.formation,townLv:S.townLv,popAlloc:S.popAlloc,defeated:S.defeated,mageOk:S.mageOk,merit:S.merit,garrisonLog:S.garrisonLog,garrison:S.garrison,tick:S.tick,garrisonForm:S._garrisonForm,townUpgrade:S.townUpgrade,upgradedUnits:S.upgradedUnits,essence:S.essence};
   localStorage.setItem('rts_save',JSON.stringify(d));
 }
 function load(){
   const r=localStorage.getItem('rts_save');if(!r)return;
-  try{const d=JSON.parse(r);S.res=d.res||S.res;S.buildings=d.buildings||{};S.pool=d.pool||S.pool;S.formation=d.formation||S.formation;S.townLv=d.townLv||1;S.popAlloc=d.popAlloc||{wood:5,stone:3,food:2};S.defeated=d.defeated||[];S.mageOk=d.mageOk||false;S.merit=d.merit||0;S.garrisonLog=d.garrisonLog||[];S.garrison=d.garrison||S.garrison;S.queue=d.queue||{};S.tick=d.tick||0;S._garrisonForm=d.garrisonForm||{front:[],mid:[],back:[]};S.townUpgrade=d.townUpgrade||null;S.upgradedUnits=d.upgradedUnits||{};if(typeof ensureGarrisonState==='function')ensureGarrisonState();}catch(e){}
+  try{const d=JSON.parse(r);S.res=d.res||S.res;S.buildings=d.buildings||{};S.pool=d.pool||S.pool;S.formation=d.formation||S.formation;S.townLv=d.townLv||1;S.popAlloc=d.popAlloc||{wood:5,stone:3,food:2};S.defeated=d.defeated||[];S.mageOk=d.mageOk||false;S.merit=d.merit||0;S.garrisonLog=d.garrisonLog||[];S.garrison=d.garrison||S.garrison;S.queue=d.queue||{};S.tick=d.tick||0;S._garrisonForm=d.garrisonForm||{front:[],mid:[],back:[]};S.townUpgrade=d.townUpgrade||null;S.upgradedUnits=d.upgradedUnits||{};S.essence=d.essence||{};if(typeof ensureGarrisonState==='function')ensureGarrisonState();}catch(e){}
 }
 
 // ==================== 计时 ====================
@@ -685,6 +710,26 @@ function clrForm(which){
   for(const row of['front','mid','back']){for(const u of form[row]){S.pool[u.type]=(S.pool[u.type]||0)+u.count}}
   if(which==='garrison'){S._garrisonForm={front:[],mid:[],back:[]}}
   else{S.formation={front:[],mid:[],back:[]}}
+  updateUI();
+}
+function removeFormSlot(which,row,idx){
+  const form=getForm(which);
+  const u=form[row][idx];
+  if(!u)return;
+  S.pool[u.type]=(S.pool[u.type]||0)+u.count;
+  form[row].splice(idx,1);
+  updateUI();
+}
+function fillFormMax(which,row,idx){
+  const form=getForm(which);
+  const u=form[row][idx];
+  if(!u)return;
+  const avail=poolAvail(u.type);
+  const cap=regMax();
+  const add=Math.min(avail, cap-u.count);
+  if(add<=0){toast('已满或余量不足');return}
+  u.count+=add;
+  S.pool[u.type]-=add;
   updateUI();
 }
 function useLastFormation(which){
@@ -1254,6 +1299,17 @@ function endBattle(result){
     for(const[r,v] of Object.entries(e.reward)){
       S.res[r]=(S.res[r]||0)+v;if(S.res[r]>cap)S.res[r]=cap;
       rewardHtml+=`<div style="font-size:11px;color:#f0d060">${pix(CFG.res[r].icon,'mini')} ${CFG.res[r].name} +${v}</div>`;
+    }
+    // 精魄掉落（Boss概率掉落）
+    if(e.boss&&e.drops){
+      for(const[ek,dc] of Object.entries(e.drops)){
+        if(Math.random()<dc.prob){
+          const cnt=dc.count||1;
+          S.essence[ek]=(S.essence[ek]||0)+cnt;
+          const ei=CFG.essences?.[ek];
+          rewardHtml+=`<div style="font-size:11px;color:#b0a0d0">${pix(ei?.icon||ek,'mini')} ${ei?.name||ek} +${cnt}</div>`;
+        }
+      }
     }
     if(!S.defeated.includes(e.id)){S.defeated.push(e.id);}
     addLog(`战胜${e.name}`);

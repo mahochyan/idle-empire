@@ -17,6 +17,16 @@ const CFG = {
     tech:{name:'科技点',icon:'tech',basePerPop:0}
   },
 
+  // 精魄道具（Boss掉落，用于T2/T3兵种解锁）
+  essences: {
+    shield_essence:{name:'盾卫精魄',icon:'shield_essence'},
+    spear_essence:{name:'矛卫精魄',icon:'spear_essence'},
+    sword_essence:{name:'剑士精魄',icon:'sword_essence'},
+    bow_essence:{name:'弓手精魄',icon:'bow_essence'},
+    crossbow_essence:{name:'弩手精魄',icon:'crossbow_essence'},
+    blade_essence:{name:'刺客精魄',icon:'blade_essence'}
+  },
+
   // 城镇等级
   town: [
     {lv:1,name:'小村庄',maxPop:10, needBoss:0},
@@ -33,7 +43,7 @@ const CFG = {
   units: {
     infantry:{name:'农民',race:'人类',row:'front',icon:'infantry',
       cost:{wood:30,stone:10,food:20}, upkeep:0.03, trainTime:1, atk:4,def:8,spd:9, passive:'基础步兵', tier:0, baseUnit:'infantry'},
-    // 步兵升级线 T1~T3（军事学院解锁）
+    // 步兵升级线 T1~T3（科技树解锁）
     infantry_t1:{name:'民兵',race:'人类',row:'front',icon:'infantry',tier:1,baseUnit:'infantry',tag:'infantry',
       cost:{wood:80,stone:40,food:60}, upkeep:0.08, trainTime:1, atk:8,def:12,spd:10, passive:'攻击+10%', locked:true},
     infantry_shield:{name:'重盾手',race:'人类',row:'front',icon:'infantry',tier:2,baseUnit:'infantry',tag:'shield',
@@ -50,7 +60,7 @@ const CFG = {
       cost:{wood:100,stone:70,food:130}, upkeep:0.18, trainTime:1, atk:18,def:11,spd:11, passive:'破盾1.5x+攻击+15%', locked:true},
     archer:{name:'猎人',race:'精灵',row:'back',icon:'archer', tier:0, baseUnit:'archer',
       cost:{wood:80,stone:20,food:30}, upkeep:0.1, trainTime:1, atk:8,def:8,spd:12, passive:'基础MISS20%，打骑兵MISS50%'},
-    // 猎人升级线 T1~T3（军事学院解锁）
+    // 猎人升级线 T1~T3（科技树解锁）
     archer_t1:{name:'游侠',race:'精灵',row:'back',icon:'archer',tier:1,baseUnit:'archer',tag:'archer',
       cost:{wood:120,stone:40,food:50}, upkeep:0.14, trainTime:1, atk:12,def:10,spd:13, passive:'攻击+10%', locked:true},
     archer_silverbow:{name:'银弓猎手',race:'精灵',row:'back',icon:'archer',tier:2,baseUnit:'archer',tag:'bow',
@@ -138,19 +148,19 @@ const CFG = {
       icon: 'infantry',
       tree: {
         infantry:          { tier:0, name:'农民', tag:null,
-          branches:[{ to:'infantry_t1', name:'民兵→T1', cost:{wood:200,stone:100,food:150}, needAcademyLv:1 }] },
+          branches:[{ to:'infantry_t1', name:'民兵→T1', cost:{wood:200,stone:100,food:150}, needTech:200, needMerit:5 }] },
         infantry_t1:       { tier:1, name:'民兵', tag:'infantry',
           branches:[
-            { to:'infantry_shield', name:'重盾手(盾)', cost:{wood:800,stone:600,food:500}, needAcademyLv:2 },
-            { to:'infantry_spear',  name:'长矛扈从(矛)', cost:{wood:600,stone:400,food:700}, needAcademyLv:2 },
-            { to:'infantry_sword',  name:'双手剑士(剑)', cost:{wood:500,stone:300,food:800}, needAcademyLv:2 }
+            { to:'infantry_shield', name:'重盾手(盾)', cost:{wood:800,stone:600,food:500}, needTech:500, needMerit:10, needEssence:{type:'shield_essence',count:2} },
+            { to:'infantry_spear',  name:'长矛扈从(矛)', cost:{wood:600,stone:400,food:700}, needTech:500, needMerit:10, needEssence:{type:'spear_essence',count:2} },
+            { to:'infantry_sword',  name:'双手剑士(剑)', cost:{wood:500,stone:300,food:800}, needTech:500, needMerit:10, needEssence:{type:'sword_essence',count:2} }
           ]},
         infantry_shield:   { tier:2, name:'重盾手', tag:'shield',
-          branches:[{ to:'infantry_fortress', name:'堡垒巨盾', cost:{wood:2000,stone:1500,food:1200}, needAcademyLv:3 }] },
+          branches:[{ to:'infantry_fortress', name:'堡垒巨盾', cost:{wood:2000,stone:1500,food:1200}, needTech:1000, needMerit:20, needEssence:{type:'shield_essence',count:3} }] },
         infantry_spear:    { tier:2, name:'长矛扈从', tag:'spear',
-          branches:[{ to:'infantry_ironrose', name:'铁玫瑰', cost:{wood:1800,stone:1200,food:1500}, needAcademyLv:3 }] },
+          branches:[{ to:'infantry_ironrose', name:'铁玫瑰', cost:{wood:1800,stone:1200,food:1500}, needTech:1000, needMerit:20, needEssence:{type:'spear_essence',count:3} }] },
         infantry_sword:    { tier:2, name:'双手剑士', tag:'sword',
-          branches:[{ to:'infantry_bloodrose', name:'血蔷薇', cost:{wood:1600,stone:1000,food:1800}, needAcademyLv:3 }] },
+          branches:[{ to:'infantry_bloodrose', name:'血蔷薇', cost:{wood:1600,stone:1000,food:1800}, needTech:1000, needMerit:20, needEssence:{type:'sword_essence',count:3} }] },
         infantry_fortress: { tier:3, name:'堡垒巨盾', tag:'shield', branches:[] },
         infantry_ironrose: { tier:3, name:'铁玫瑰', tag:'spear', branches:[] },
         infantry_bloodrose:{ tier:3, name:'血蔷薇', tag:'sword', branches:[] }
@@ -158,19 +168,19 @@ const CFG = {
     },
     archer:    { name:'猎人线', icon:'archer',    tree:{
       archer:              { tier:0, name:'猎人', tag:null,
-        branches:[{ to:'archer_t1', name:'游侠→T1', cost:{wood:200,stone:100,food:150}, needAcademyLv:1 }] },
+        branches:[{ to:'archer_t1', name:'游侠→T1', cost:{wood:200,stone:100,food:150}, needTech:200, needMerit:5 }] },
       archer_t1:           { tier:1, name:'游侠', tag:'archer',
         branches:[
-          { to:'archer_silverbow', name:'银弓猎手(弓)', cost:{wood:700,stone:400,food:600}, needAcademyLv:2 },
-          { to:'archer_crossbow',  name:'重弩手(弩)', cost:{wood:500,stone:700,food:500}, needAcademyLv:2 },
-          { to:'archer_assassin',  name:'双刃刺客(刃)', cost:{wood:500,stone:300,food:800}, needAcademyLv:2 }
+          { to:'archer_silverbow', name:'银弓猎手(弓)', cost:{wood:700,stone:400,food:600}, needTech:500, needMerit:10, needEssence:{type:'bow_essence',count:2} },
+          { to:'archer_crossbow',  name:'重弩手(弩)', cost:{wood:500,stone:700,food:500}, needTech:500, needMerit:10, needEssence:{type:'crossbow_essence',count:2} },
+          { to:'archer_assassin',  name:'双刃刺客(刃)', cost:{wood:500,stone:300,food:800}, needTech:500, needMerit:10, needEssence:{type:'blade_essence',count:2} }
         ]},
       archer_silverbow:    { tier:2, name:'银弓猎手', tag:'bow',
-        branches:[{ to:'archer_longbow', name:'不列颠长弓手', cost:{wood:2000,stone:1200,food:1500}, needAcademyLv:3 }] },
+        branches:[{ to:'archer_longbow', name:'不列颠长弓手', cost:{wood:2000,stone:1200,food:1500}, needTech:1000, needMerit:20, needEssence:{type:'bow_essence',count:3} }] },
       archer_crossbow:     { tier:2, name:'重弩手', tag:'crossbow',
-        branches:[{ to:'archer_genoese', name:'热那亚劲弩', cost:{wood:1500,stone:2000,food:1200}, needAcademyLv:3 }] },
+        branches:[{ to:'archer_genoese', name:'热那亚劲弩', cost:{wood:1500,stone:2000,food:1200}, needTech:1000, needMerit:20, needEssence:{type:'crossbow_essence',count:3} }] },
       archer_assassin:     { tier:2, name:'双刃刺客', tag:'blade',
-        branches:[{ to:'archer_shadowblade', name:'幽影刃侍', cost:{wood:1500,stone:1000,food:2000}, needAcademyLv:3 }] },
+        branches:[{ to:'archer_shadowblade', name:'幽影刃侍', cost:{wood:1500,stone:1000,food:2000}, needTech:1000, needMerit:20, needEssence:{type:'blade_essence',count:3} }] },
       archer_longbow:      { tier:3, name:'不列颠长弓手', tag:'bow', branches:[] },
       archer_genoese:      { tier:3, name:'热那亚劲弩', tag:'crossbow', branches:[] },
       archer_shadowblade:  { tier:3, name:'幽影刃侍', tag:'blade', branches:[] }
@@ -195,7 +205,7 @@ const CFG = {
     mage_tower:{name:'法师塔',trains:'mage',unitCapBase:1,unitCapPerLv:1,needBoss:2,build:{wood:500,stone:500,food:350,time:10},upBase:{wood:3000,stone:3000,food:2000},upCostLv:1.1},
     warehouse:{name:'仓库',storageBase:10000,storagePerLv:10000,build:{wood:200,stone:200,food:100,time:5},upBase:{wood:3000,stone:3000,food:3000},upCostLv:1.3},
     arrow_tower:{name:'箭塔',desc:'城防建筑，驻军战斗中对敌人自动射击',build:{wood:400,stone:350,food:150,time:10},upBase:{wood:1500,stone:1500,food:1000},upCostLv:1.2},
-    military_academy:{name:'军事学院',desc:'研究兵种进阶，解锁高阶兵种训练',needBoss:2,build:{wood:7000,stone:7000,food:5000,time:10},upBase:{wood:2000,stone:2000,food:2000},upCostLv:1.3}
+    // 军事学院已移除，兵种升级已迁移至科技页面
   },
 
   // 建筑升级上限倍率（基于城镇等级，修改这里即可调整所有建筑的升级限制）
