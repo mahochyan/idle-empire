@@ -223,7 +223,7 @@ const BUILD_CATEGORIES = {
   basic: {name:'\u57fa\u7840\u5efa\u7b51',keys:['barracks','warehouse','lumber_mill','quarry','farm']},
   barracks: {name:'\u5175\u8425\u5efa\u7b51',keys:['infantry_camp','archer_range','stable','spear_crypt','mage_tower']},
   special: {name:'\u7279\u6b8a\u5efa\u7b51',keys:['arrow_tower']},
-  altar: {name:'\u82f1\u96c4\u796d\u575b',keys:[]}
+  academy: {name:'\u519b\u4e8b\u5b66\u9662',keys:[]}
 };
 
 function rBuildCard(key, cfg){
@@ -259,6 +259,12 @@ function rBuildCard(key, cfg){
       const uc=upCost(key);
       h+=`<div style="font-size:10px;line-height:14px;color:#666">\u5347\u7ea7: ${costHtml(uc)} | ${uc.time}\u79d2</div>`;
       h+=`<button class="btn btn-go btn-sm" onclick="buildAct('${key}')" ${upLock?'disabled':''}>${pix('upgrade','mini')}\u5347\u7ea7\u2192Lv.${st.lv+1}</button>`;
+      if(key==='military_academy' && st.lv>0){
+        h+=`<div style="margin-top:6px;font-size:11px;color:#f0d060;border-top:1px solid #2b3144;padding-top:4px">
+          <div>\u5b66\u9662\u7b49\u7ea7 Lv.${st.lv}</div>
+          <div style="font-size:10px;color:#888">\u89e3\u9501\u5175\u79cd\u5347\u7ea7\u7ebf\uff0c\u524d\u5f80"\u519b\u4e8b\u5b66\u9662"\u6807\u7b7e\u9875\u67e5\u770b</div>
+        </div>`;
+      }
     }
   }else{
     const pct=st.timerEnd>0?((st.timerEnd-st.timer)/st.timerEnd*100).toFixed(0):0;
@@ -271,47 +277,179 @@ function rBuildCard(key, cfg){
 
 function rBuild(){
   const tab=S._buildTab||'basic';
-  const tabs=[{k:'basic',n:'\u57fa\u7840\u5efa\u7b51'},{k:'barracks',n:'\u5175\u8425\u5efa\u7b51'},{k:'special',n:'\u7279\u6b8a\u5efa\u7b51'},{k:'altar',n:'\u82f1\u96c4\u796d\u575b'}];
+  const tabs=[{k:'basic',n:'\u57fa\u7840\u5efa\u7b51'},{k:'barracks',n:'\u5175\u8425\u5efa\u7b51'},{k:'special',n:'\u7279\u6b8a\u5efa\u7b51'},{k:'academy',n:'\u519b\u4e8b\u5b66\u9662'}];
   let h=`<div style="display:flex;gap:4px;margin-bottom:6px">`;
   for(const t of tabs){
     h+=`<button class="btn btn-sm ${tab===t.k?'btn-go':'btn-ghost'}" style="flex:1" onclick="setBuildTab('${t.k}')">${t.n}</button>`;
   }
   h+=`</div>`;
-  const cat=BUILD_CATEGORIES[tab];
-  if(!cat||!cat.keys.length){
-    h+=`<div style="text-align:center;color:#666;padding:30px">\u6682\u65e0\u5efa\u7b51</div>`;
+  if(tab==='academy'){
+    h+=rAcademy();
   }else{
-    for(const key of cat.keys){
-      const cfg=CFG.buildings[key];
-      if(cfg)h+=rBuildCard(key,cfg);
+    const cat=BUILD_CATEGORIES[tab];
+    if(!cat||!cat.keys.length){
+      h+=`<div style="text-align:center;color:#666;padding:30px">\u6682\u65e0\u5efa\u7b51</div>`;
+    }else{
+      for(const key of cat.keys){
+        const cfg=CFG.buildings[key];
+        if(cfg)h+=rBuildCard(key,cfg);
+      }
     }
   }
   return h;
 }
 // ==================== \u519b\u8425\u754c\u9762 ====================
 function rBarracks(){
-  let h=`<div style="padding:4px 0"><div style="font-size:12px;color:#888;margin:4px 0">\u603b\u5175\u529b ${totalSoldiers()} | \u8425\u5e10\u4e0a\u9650 ${regMax()}\u4eba/\u56e2</div>`;
+  const tier=S._barracksTier||'t0';
+  let h=`<div style="padding:4px 0"><div style="font-size:12px;color:#888;margin:4px 0">总兵力 ${totalSoldiers()} | 营帐上限 ${regMax()}人/团</div>`;
+  const tierLabels={t0:'T0 基础',t1:'T1 进阶',t2:'T2 精锐',t3:'T3 终极'};
+  h+=`<div style="display:flex;gap:4px;margin-bottom:6px">`;
+  for(const[tk,tn] of Object.entries(tierLabels)){
+    h+=`<button class="btn btn-sm ${tier===tk?'btn-go':'btn-ghost'}" style="flex:1" onclick="setBarracksTier('${tk}')">${tn}</button>`;
+  }
+  h+=`</div>`;
+  const tierNum={t0:0,t1:1,t2:2,t3:3}[tier];
+  let shown=0;
   for(const[k,c] of Object.entries(CFG.units)){
+    if(c.locked && c.baseUnit && c.baseUnit!==k) continue;
+    const ut=typeof c.tier==='number'?c.tier:0;
+    if(tier==='t0' && ut!==0) continue;
+    if(tier!=='t0' && ut!==tierNum) continue;
+    if(tier!=='t0' && c.baseUnit!=='infantry') continue;
     const ow=S.pool[k]||0,lock=trainLockReason(k);
     const tm=maxTrainable(k),disabled=tm<=0?'disabled':'',muted=lock?'opacity:.55':'';
+    const isLockedVar=tier!=='t0' && c.locked && !(S.upgradedUnits||{})[k];
+    let researchInfo=null;
+    if(isLockedVar){
+      const tree=CFG.unitUpgrades[baseUnitType(k)]?.tree;
+      if(tree){for(const[,node] of Object.entries(tree)){for(const br of node.branches||[]){if(br.to===k){researchInfo=br;break;}}if(researchInfo)break;}}
+    }
     h+=`<div class="card" style="${muted}">
       <div style="display:flex;align-items:center;gap:8px">
         <span>${pix(c.icon,'lg')}</span>
         <div style="flex:1;min-width:0"><strong style="cursor:pointer" onclick="openUnitDetail('${k}')">${c.name}</strong> <span style="font-size:10px;color:#aaa;margin-left:6px">${trainBuildingLabel(k)}</span> <span onclick="event.stopPropagation();openUnitDetail('${k}')" style="font-size:9px;padding:1px 5px;border:1px solid #3a4158;border-radius:0;color:#8890a6;cursor:pointer;display:inline-block;margin-left:6px">属性</span>
-          <div style="font-size:10px;color:#777">${c.passive} | ATK:${c.atk} DEF:${c.def}</div>
-          <div style="font-size:12px;color:#666;line-height:14px">${costHtml(c.cost)}/\u4eba${(S.queue[k]||{}).reason?` <span class="limit-warn" style="margin-left:14px">${pix('lock','mini')}${S.queue[k].reason}</span>`:''}${lock?` <span class="limit-warn" style="margin-left:14px">${pix('lock','mini')}${lock}</span>`:''}</div>
+          <div style="font-size:10px;color:#777">${c.passive} | ATK:${c.atk} DEF:${c.def}${c.tag?` | [${c.tag}]`:''}</div>
+          <div style="font-size:12px;color:#666;line-height:14px">${costHtml(c.cost)}/人${(S.queue[k]||{}).reason?` <span class="limit-warn" style="margin-left:14px">${pix('lock','mini')}${S.queue[k].reason}</span>`:''}${lock?` <span class="limit-warn" style="margin-left:14px">${pix('lock','mini')}${lock}</span>`:''}</div>
           <div class="econ-note" style="line-height:16px">${reserveHtml(k)}${queueTotal(k)>0?` | 训练队列 ${queueTotal(k)}人 <span onclick="event.stopPropagation();cancelQueue('${k}')" style="font-size:10px;height:13px;line-height:12px;padding:0 4px;border:1px solid #3a4158;border-radius:0;color:#8890a6;cursor:pointer;display:inline-block;vertical-align:middle;margin-left:4px">取消队列</span>`:''}</div>
-          ${lock?'':
-          `<div class="train-custom">
+          ${isLockedVar?`<button class="btn btn-xs" onclick="upgradeUnit('${researchInfo?.from||''}','${k}')" style="font-size:9px;padding:1px 6px;background:#2a2a1a;border-color:#6a6a3a;color:#f0d060;border:1px solid">研究 ${costHtml(researchInfo?.cost||{})}</button>`
+          :lock?'':`<div class="train-custom">
             <input id="train-barracks-${k}" type="text" inputmode="numeric" pattern="[0-9]*" value="${(S._trainQty||{})[k]||1}" oninput="(S._trainQty||{})['${k}']=parseInt(this.value)||1">
-            <button class="btn btn-go btn-xs" onclick="trainCustom('${k}','train-barracks-${k}')" ${disabled}>\u8bad\u7ec3</button>
+            <button class="btn btn-go btn-xs" onclick="trainCustom('${k}','train-barracks-${k}')" ${disabled}>训练</button>
             <button class="btn btn-ghost btn-xs" onclick="trainMax('${k}','train-barracks-${k}')" ${disabled}>MAX</button>
-            <button class="btn btn-danger btn-xs" onclick="dismissN('${k}',(S._trainQty||{})['${k}']||1)" style="background:#4a2830;border-color:#6a4050;color:#d09090">\u5220\u9664</button>
+            <button class="btn btn-danger btn-xs" onclick="dismissN('${k}',(S._trainQty||{})['${k}']||1)" style="background:#4a2830;border-color:#6a4050;color:#d09090">删除</button>
           </div>`}
         </div>
       </div></div>`;
+    shown++;
   }
+  if(!shown)h+=`<div style="text-align:center;color:#666;padding:20px">暂无兵种 (需在军事学院研究解锁)</div>`;
   h+=`</div>`;return h;
+}
+
+// ==================== 兵种升级变体训练 / 军事学院面板 ====================
+function rVariantTraining(baseUk){
+  const alv=academyLv();
+  if(alv<1)return '';
+  const tree=CFG.unitUpgrades[baseUk]?.tree;
+  if(!tree)return '';
+  const upgraded=S.upgradedUnits||{};
+  const trainable=[],upgradable=[];
+  for(const[nk,nn] of Object.entries(tree)){
+    for(const br of nn.branches||[]){
+      if(!CFG.units[br.to])continue;
+      if(upgraded[br.to]){trainable.push(br.to)}else{
+        const parentUp=nk==='infantry'||upgraded[nk];
+        if(parentUp&&alv>=br.needAcademyLv)upgradable.push({from:nk,to:br.to,name:br.name,cost:br.cost,needLv:br.needAcademyLv});
+      }
+    }
+  }
+  if(!trainable.length&&!upgradable.length)return '';
+  let h=`<div class="variant-row" style="margin-top:4px;margin-left:32px;border-left:2px solid #f0d060;padding-left:8px">
+    <div style="font-size:10px;color:#f0d060;margin-bottom:2px">已解锁进阶兵种</div>`;
+  for(const vk of trainable){
+    const vc=CFG.units[vk];
+    if(!vc)continue;
+    const tm=maxTrainable(vk);
+    h+=`<div style="display:flex;align-items:center;gap:4px;margin:2px 0;font-size:11px">
+      <span>${pix(vc.icon,'mini')}</span>
+      <span style="color:#e0e0e0">${vc.name}</span>
+      <span style="font-size:9px;color:#888">${costHtml(vc.cost)}/人</span>
+      <input type="text" inputmode="numeric" pattern="[0-9]*" value="1" id="train-v-${vk}" style="width:30px;text-align:center;background:#080912;border:1px solid #3a4158;color:#f0d060;font-family:inherit;font-size:10px">
+      <button class="btn btn-go btn-xs" onclick="trainCustom('${vk}','train-v-${vk}')" ${tm<=0?'disabled':''} style="font-size:9px;padding:1px 6px">训练</button>
+    </div>`;
+  }
+  for(const up of upgradable){
+    h+=`<div style="display:flex;align-items:center;gap:4px;margin:2px 0;font-size:11px">
+      <span>${pix('lock','mini')}</span>
+      <span style="color:#aaa">${up.name}</span>
+      <span style="font-size:9px;color:#888">${costHtml(up.cost)}</span>
+      <button class="btn btn-xs" onclick="upgradeUnit('${up.from}','${up.to}')" style="font-size:9px;padding:1px 6px;background:#2a2a1a;border-color:#6a6a3a;color:#f0d060;border:1px solid">研究</button>
+    </div>`;
+  }
+  h+=`</div>`;
+  return h;
+}
+function rAcademy(){
+  let h='';
+  const acadCfg=CFG.buildings.military_academy;
+  if(acadCfg)h+=rBuildCard('military_academy',acadCfg);
+  const alv=academyLv();
+  if(alv<1){h+=`<div style="text-align:center;color:#666;padding:20px">建造军事学院后查看兵种升级树</div>`;return h;}
+  const tree=CFG.unitUpgrades.infantry.tree;
+  if(!tree)return h+`<div style="text-align:center;color:#666;padding:20px">暂无兵种升级树</div>`;
+  const upgraded=S.upgradedUnits||{};
+  h+=`<div class="card"><h3>${pix('infantry','card-pix')}步兵升级线</h3>
+    <div style="font-size:10px;color:#888;margin-bottom:6px">学院等级 Lv.${alv}</div>`;
+  function nodeStatus(key,node){
+    if(key==='infantry')return{text:'已解锁',color:'#40bf80'};
+    if(upgraded[key])return{text:'已解锁',color:'#40bf80'};
+    for(const[nk,nn]of Object.entries(tree)){
+      for(const br of nn.branches||[]){
+        if(br.to===key){
+          const parentUp=nk==='infantry'||upgraded[nk];
+          if(!parentUp)return{text:'需先解锁'+nn.name,color:'#888'};
+          if(alv>=br.needAcademyLv)return{text:'可研究',color:'#f0d060'};
+          return{text:'需学院Lv.'+br.needAcademyLv,color:'#e06060'};
+        }
+      }
+    }
+    return{text:'未知',color:'#888'};
+  }
+  function renderNode(key,depth){
+    const node=tree[key];
+    if(!node)return'';
+    const isUp=key==='infantry'||upgraded[key];
+    const st=nodeStatus(key,node);
+    const pad=depth*20;
+    let r=`<div style="margin:4px 0;padding:4px 8px;background:${isUp?'#1a2a1a':'#121224'};border:1px solid ${isUp?'#2b4b3b':'#2b3144'};border-radius:3px;font-size:11px;margin-left:${pad}px">
+      <span style="display:inline-block;width:50px;font-size:9px;color:#888">T${node.tier}</span>
+      <span style="color:${isUp?'#40bf80':'#e0e0e0'}">${pix('infantry','mini')}${node.name}</span>
+      ${node.tag?`<span style="font-size:9px;color:#888;margin-left:4px">[${node.tag}]</span>`:''}
+      <span style="float:right;font-size:9px;color:${st.color}">${st.text}</span>`;
+    if(isUp&&node.branches.length){
+      r+=`<div style="margin-top:4px;padding-left:20px;border-left:1px solid #3a4158">`;
+      for(const br of node.branches){
+        const brUp=upgraded[br.to]===true;
+        r+=`<div style="margin:2px 0;font-size:10px;display:flex;align-items:center;gap:4px">
+          <span style="color:#888">→</span>
+          <span style="color:${brUp?'#40bf80':'#aaa'}">${pix('infantry','mini')}${br.name}</span>
+          ${brUp?`<span style="color:#40bf80;font-size:9px">✓ 已解锁</span>`
+            :alv>=br.needAcademyLv
+              ?`<button class="btn btn-xs" onclick="upgradeUnit('${key}','${br.to}')" style="font-size:9px;padding:1px 6px;background:#2a2a1a;border-color:#6a6a3a;color:#f0d060;border:1px solid">研究 ${costHtml(br.cost)}</button>`
+              :`<span style="color:#e06060;font-size:9px">需学院Lv.${br.needAcademyLv}</span>`}
+        </div>`;
+      }
+      r+=`</div>`;
+    }
+    r+=`</div>`;
+    return r;
+  }
+  h+=renderNode('infantry',0);
+  h+=renderNode('infantry_t1',1);
+  const t1n=tree['infantry_t1'];
+  if(t1n){for(const br of t1n.branches){h+=renderNode(br.to,2);const t2n=tree[br.to];if(t2n){for(const br2 of t2n.branches)h+=renderNode(br2.to,3);}}}
+  h+=`</div>`;
+  return h;
 }
 // ==================== 战斗界面（含3个子标签） ====================
 function rFight(){

@@ -30,8 +30,23 @@ const CFG = {
 
   // 兵种
   units: {
-    infantry:{name:'步兵',race:'人类',row:'front',icon:'infantry',
-      cost:{wood:50,stone:20,food:40}, upkeep:0.05, trainTime:1, atk:6,def:10,spd:10, passive:'攻击+10%'},
+    infantry:{name:'农民',race:'人类',row:'front',icon:'infantry',
+      cost:{wood:30,stone:10,food:20}, upkeep:0.03, trainTime:1, atk:4,def:8,spd:9, passive:'基础步兵', tier:0, baseUnit:'infantry'},
+    // 步兵升级线 T1~T3（军事学院解锁）
+    infantry_t1:{name:'民兵',race:'人类',row:'front',icon:'infantry',tier:1,baseUnit:'infantry',tag:'infantry',
+      cost:{wood:80,stone:40,food:60}, upkeep:0.08, trainTime:1, atk:8,def:12,spd:10, passive:'攻击+10%', locked:true},
+    infantry_shield:{name:'重盾手',race:'人类',row:'front',icon:'infantry',tier:2,baseUnit:'infantry',tag:'shield',
+      cost:{wood:100,stone:80,food:60}, upkeep:0.12, trainTime:1, atk:6,def:18,spd:7, passive:'格挡20%', locked:true},
+    infantry_spear:{name:'长矛扈从',race:'人类',row:'front',icon:'infantry',tier:2,baseUnit:'infantry',tag:'spear',
+      cost:{wood:80,stone:60,food:80}, upkeep:0.12, trainTime:1, atk:9,def:12,spd:11, passive:'反制剑系1.3x', locked:true},
+    infantry_sword:{name:'双手剑士',race:'人类',row:'front',icon:'infantry',tier:2,baseUnit:'infantry',tag:'sword',
+      cost:{wood:60,stone:40,food:100}, upkeep:0.12, trainTime:1, atk:13,def:9,spd:10, passive:'破盾1.3x', locked:true},
+    infantry_fortress:{name:'堡垒巨盾',race:'人类',row:'front',icon:'infantry',tier:3,baseUnit:'infantry',tag:'shield',
+      cost:{wood:150,stone:120,food:80}, upkeep:0.18, trainTime:1, atk:8,def:24,spd:7, passive:'格挡25%+每回合回复5%HP', locked:true},
+    infantry_ironrose:{name:'铁玫瑰',race:'人类',row:'front',icon:'infantry',tier:3,baseUnit:'infantry',tag:'spear',
+      cost:{wood:120,stone:90,food:100}, upkeep:0.18, trainTime:1, atk:12,def:15,spd:12, passive:'反制剑系1.5x+暴击10%', locked:true},
+    infantry_bloodrose:{name:'血蔷薇',race:'人类',row:'front',icon:'infantry',tier:3,baseUnit:'infantry',tag:'sword',
+      cost:{wood:100,stone:70,food:130}, upkeep:0.18, trainTime:1, atk:18,def:11,spd:11, passive:'破盾1.5x+攻击+15%', locked:true},
     archer:{name:'弓兵',race:'精灵',row:'back',icon:'archer',
       cost:{wood:80,stone:20,food:30}, upkeep:0.1, trainTime:1, atk:8,def:8,spd:12, passive:'基础MISS20%，打骑兵MISS50%'},
     cavalry:{name:'骑兵',race:'兽人',row:'front',icon:'cavalry',
@@ -57,6 +72,16 @@ const CFG = {
   },
   normalVsMage:1.3,
 
+  // 盾矛剑内部克制（步兵升级线T2+内三角）
+  // atk → def 倍率：剑破盾、矛克剑、盾挡矛
+  innerCounters: {
+    shield:{shield:1.0,spear:1.3,sword:0.7,infantry:1.0},
+    spear:{shield:0.7,spear:1.0,sword:1.3,infantry:1.3},
+    sword:{shield:1.3,spear:0.7,sword:1.0,infantry:1.3}
+  },
+  // 无 tag 单位受 tag 单位攻击时的倍率（T0/T1步兵无tag，被剑矛克制）
+  innerNoTagDef:0.85,
+
   // 战术
   tactics: {
     steady:{name:'稳扎稳打',desc:'防御+15% 速度-10%',defPct:.15,atkPct:0,spdPct:-.1,backPct:0,heal:0},
@@ -66,6 +91,37 @@ const CFG = {
   },
 
   // 关卡配置见 levels.js
+
+  // ==================== 兵种升级树 ====================
+  unitUpgrades: {
+    infantry: {
+      name: '步兵线',
+      icon: 'infantry',
+      tree: {
+        infantry:          { tier:0, name:'农民', tag:null,
+          branches:[{ to:'infantry_t1', name:'民兵→T1', cost:{wood:200,stone:100,food:150}, needAcademyLv:1 }] },
+        infantry_t1:       { tier:1, name:'民兵', tag:'infantry',
+          branches:[
+            { to:'infantry_shield', name:'重盾手(盾)', cost:{wood:800,stone:600,food:500}, needAcademyLv:2 },
+            { to:'infantry_spear',  name:'长矛扈从(矛)', cost:{wood:600,stone:400,food:700}, needAcademyLv:2 },
+            { to:'infantry_sword',  name:'双手剑士(剑)', cost:{wood:500,stone:300,food:800}, needAcademyLv:2 }
+          ]},
+        infantry_shield:   { tier:2, name:'重盾手', tag:'shield',
+          branches:[{ to:'infantry_fortress', name:'堡垒巨盾', cost:{wood:2000,stone:1500,food:1200}, needAcademyLv:3 }] },
+        infantry_spear:    { tier:2, name:'长矛扈从', tag:'spear',
+          branches:[{ to:'infantry_ironrose', name:'铁玫瑰', cost:{wood:1800,stone:1200,food:1500}, needAcademyLv:3 }] },
+        infantry_sword:    { tier:2, name:'双手剑士', tag:'sword',
+          branches:[{ to:'infantry_bloodrose', name:'血蔷薇', cost:{wood:1600,stone:1000,food:1800}, needAcademyLv:3 }] },
+        infantry_fortress: { tier:3, name:'堡垒巨盾', tag:'shield', branches:[] },
+        infantry_ironrose: { tier:3, name:'铁玫瑰', tag:'spear', branches:[] },
+        infantry_bloodrose:{ tier:3, name:'血蔷薇', tag:'sword', branches:[] }
+      }
+    },
+    archer:    { name:'弓兵线', icon:'archer',    tree:{archer:{tier:0,name:'弓兵',tag:null,branches:[]}} },
+    cavalry:   { name:'骑兵线', icon:'cavalry',   tree:{cavalry:{tier:0,name:'骑兵',tag:null,branches:[]}} },
+    spearman:  { name:'枪兵线', icon:'spearman',  tree:{spearman:{tier:0,name:'枪兵',tag:null,branches:[]}} },
+    mage:      { name:'法师线', icon:'mage',      tree:{mage:{tier:0,name:'法师',tag:null,branches:[]}} }
+  },
 
   // ==================== 建筑配置 ====================
   buildings: {
@@ -79,7 +135,8 @@ const CFG = {
     spear_crypt:{name:'长矛兵营地',trains:'spearman',unitCapBase:1,unitCapPerLv:1,needBoss:2,build:{wood:160,stone:240,food:100,time:7},upBase:{wood:1500,stone:2000,food:1000},upCostLv:1.2},
     mage_tower:{name:'法师塔',trains:'mage',unitCapBase:1,unitCapPerLv:1,needBoss:2,build:{wood:500,stone:500,food:350,time:10},upBase:{wood:3000,stone:3000,food:2000},upCostLv:1.3},
     warehouse:{name:'仓库',storageBase:5000,storagePerLv:2500,build:{wood:200,stone:200,food:100,time:5},upBase:{wood:1000,stone:1000,food:1000},upCostLv:1.3},
-    arrow_tower:{name:'箭塔',desc:'城防建筑，驻军战斗中对敌人自动射击',build:{wood:400,stone:350,food:150,time:10},upBase:{wood:3000,stone:2800,food:1800},upCostLv:1.55}
+    arrow_tower:{name:'箭塔',desc:'城防建筑，驻军战斗中对敌人自动射击',build:{wood:400,stone:350,food:150,time:10},upBase:{wood:3000,stone:2800,food:1800},upCostLv:1.55},
+    military_academy:{name:'军事学院',desc:'研究兵种进阶，解锁高阶兵种训练',needBoss:2,build:{wood:1000,stone:800,food:500,time:20},upBase:{wood:8000,stone:7000,food:5000},upCostLv:1.5}
   },
 
   // 建筑升级上限倍率（基于城镇等级，修改这里即可调整所有建筑的升级限制）

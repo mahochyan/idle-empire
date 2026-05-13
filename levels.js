@@ -15,7 +15,7 @@ CFG.enemies = [
   {id:9,name:'前线指挥官',desc:'Boss前最后一道防线',units:{infantry:[7,9,6],archer:[6,8,5]},reward:{wood:490,stone:370,food:330}},
 
   // ===== 第10关 Boss：守关大将 =====
-  {id:10,name:'守关大将',desc:'BOSS·重甲步弓，威势逼人',units:{infantry:[16,12,8],archer:[14,10,6]},boss:true,bossMult:{atk:1.30,def:1.25},reward:{wood:1200,stone:900,food:800}},
+  {id:10,name:'守关大将',desc:'BOSS·重甲步弓，威势逼人',units:{infantry:[1,1,1],archer:[1,1,1]},boss:true,bossMult:{atk:1.30,def:1.25},reward:{wood:1200,stone:900,food:800}},
 
   // ===== 第二章：骑兵+矛兵加入 (L11-L19) =====
   {id:11,name:'骑兵斥候',desc:'骑兵首现，速度快冲击猛',units:{cavalry:[8,5],infantry:[6]},reward:{wood:520,stone:390,food:350}},
@@ -29,7 +29,7 @@ CFG.enemies = [
   {id:19,name:'副将镇守',desc:'Boss前哨，兵力雄厚',units:{cavalry:[16,10],spearman:[12,8],infantry:[12,8],archer:[10,7]},reward:{wood:950,stone:720,food:650}},
 
   // ===== 第20关 Boss：骑兵统领 =====
-  {id:20,name:'骑兵统领',desc:'BOSS·铁骑如潮，雷霆万钧',units:{cavalry:[20,14,8],spearman:[14,10],infantry:[14],archer:[12,8]},boss:true,bossMult:{atk:1.35,def:1.30},reward:{wood:2200,stone:1700,food:1500}},
+  {id:20,name:'骑兵统领',desc:'BOSS·铁骑如潮，雷霆万钧',units:{cavalry:[1,1,1],spearman:[1,1],infantry:[1],archer:[1,1]},boss:true,bossMult:{atk:1.35,def:1.30},reward:{wood:2200,stone:1700,food:1500}},
 
   // ===== 第三章：全兵种混编+法师 (L21-L29) =====
   {id:21,name:'法师小队',desc:'法师首现，高伤脆皮',units:{mage:[8,5],infantry:[10,7],archer:[6]},reward:{wood:980,stone:750,food:680}},
@@ -43,5 +43,5 @@ CFG.enemies = [
   {id:29,name:'统帅近卫',desc:'Boss前的终极考验',units:{infantry:[24,16,8],cavalry:[18,12],spearman:[16,12],archer:[16,12,8],mage:[14,10]},reward:{wood:1550,stone:1200,food:1090}},
 
   // ===== 第30关 Boss：帝国元帅 =====
-  {id:30,name:'帝国元帅',desc:'BOSS·万军之主，最终决战',units:{infantry:[28,20,12],cavalry:[22,16,8],spearman:[20,14],archer:[18,14,10],mage:[18,12,8]},boss:true,bossMult:{atk:1.45,def:1.40},reward:{wood:4000,stone:3200,food:2800}}
+  {id:30,name:'帝国元帅',desc:'BOSS·万军之主，最终决战',units:{infantry:[1,1,1],cavalry:[1,1,1],spearman:[1,1],archer:[1,1,1],mage:[1,1,1]},boss:true,bossMult:{atk:1.45,def:1.40},reward:{wood:4000,stone:3200,food:2800}}
 ];

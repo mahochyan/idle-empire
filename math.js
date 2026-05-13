@@ -23,7 +23,9 @@ let S = {
   _garrisonForm:{front:[],mid:[],back:[]},
   _fightTab:'expedition',
   _buildTab:'basic',
-  townUpgrade:null
+  _barracksTier:'t0',
+  townUpgrade:null,
+  upgradedUnits:{}
 };
 
 // ==================== 辅助 ====================
@@ -87,15 +89,61 @@ function regMax(){
   const s=bldSt('barracks');
   return 5+(s.state==='idle'&&s.lv>=1?5:0);
 }
+function academyLv(){
+  const st=bldSt('military_academy');
+  return st.state==='idle'?st.lv:0;
+}
+function baseUnitType(uk){
+  return CFG.units[uk]?.baseUnit||uk;
+}
+function unitTag(uk){
+  return CFG.units[uk]?.tag||null;
+}
+function innerCM(atkType,defType){
+  const atkTag=unitTag(atkType),defTag=unitTag(defType);
+  if(atkTag&&defTag)return CFG.innerCounters[atkTag]?.[defTag]||1.0;
+  if(atkTag&&!defTag)return 1.0;
+  if(!atkTag&&defTag)return CFG.innerNoTagDef;
+  return 1.0;
+}
+function unlockedVariants(baseUk){
+  const tree=CFG.unitUpgrades[baseUk]?.tree;
+  if(!tree)return[];
+  const alv=academyLv(),result=[];
+  for(const[,node] of Object.entries(tree)){
+    for(const br of node.branches||[]){
+      if(CFG.units[br.to]&&(S.upgradedUnits[br.to]||alv>=br.needAcademyLv)) result.push(br.to);
+    }
+  }
+  return result;
+}
+function upgradeUnit(fromKey,toKey){
+  const tree=CFG.unitUpgrades[baseUnitType(fromKey)]?.tree;
+  if(!tree)return;
+  const node=tree[fromKey];
+  if(!node)return;
+  const branch=node.branches.find(b=>b.to===toKey);
+  if(!branch)return;
+  const alv=academyLv();
+  if(alv<branch.needAcademyLv){toast('军事学院等级不足');return;}
+  const cost=branch.cost;
+  if(S.res.wood<cost.wood||S.res.stone<cost.stone||S.res.food<cost.food){toast('资源不足');return;}
+  S.res.wood-=cost.wood;S.res.stone-=cost.stone;S.res.food-=cost.food;
+  S.upgradedUnits[toKey]=true;
+  addLog('解锁'+(CFG.units[toKey]?CFG.units[toKey].name:toKey)+'兵种升级');
+  save();updateUI();
+}
 function trainBuildingKey(uk){
-  return Object.keys(CFG.buildings).find(k=>CFG.buildings[k].trains===uk)||null;
+  const bu=baseUnitType(uk);
+  return Object.keys(CFG.buildings).find(k=>CFG.buildings[k].trains===bu)||null;
 }
 function trainBuildingState(uk){
   const key=trainBuildingKey(uk);
   return key?bldSt(key):null;
 }
 function unitCap(uk){
-  const key=trainBuildingKey(uk);
+  const bu=baseUnitType(uk);
+  const key=trainBuildingKey(bu);
   if(!key)return 0;
   const cfg=CFG.buildings[key],st=bldSt(key);
   if(st.lv<=0)return 0;
@@ -105,14 +153,14 @@ function garrisonCount(uk){
   let n=0;
   const gf=S._garrisonForm||{front:[],mid:[],back:[]};
   for(const row of['front','mid','back']){
-    for(const u of gf[row]){if(u.type===uk)n+=u.count;}
+    for(const u of gf[row]){if(u.type===uk||baseUnitType(u.type)===uk)n+=u.count;}
   }
   return n;
 }
 function expeditionCount(uk){
   let n=0;
   for(const row of['front','mid','back']){
-    for(const u of S.formation[row]){if(u.type===uk)n+=u.count;}
+    for(const u of S.formation[row]){if(u.type===uk||baseUnitType(u.type)===uk)n+=u.count;}
   }
   return n;
 }
@@ -149,10 +197,35 @@ function processQueue(){
   if(changed)save();
 }
 function trainLockReason(uk){
+  const unitCfg=CFG.units[uk];
+  if(unitCfg&&unitCfg.locked){
+    const alv=academyLv();
+    if(alv<1)return '需建造军事学院';
+    if(baseUnitType(uk)===uk){
+      const key=trainBuildingKey(uk);
+      if(!key)return '';
+      const cfg=CFG.buildings[key],st=bldSt(key);
+      if(cfg.needBoss&&bossDefeatedCount()<cfg.needBoss)return '击败'+cfg.needBoss+'个Boss后解锁'+cfg.name;
+      if(st.lv<=0&&st.state==='idle')return `需先建造${cfg.name}`;
+      if(st.state==='building')return `${cfg.name}建设中`;
+      if(st.state==='upgrading')return `${cfg.name}升级中`;
+      return '';
+    }else{
+      if(!S.upgradedUnits[uk]){
+        const tree=CFG.unitUpgrades[baseUnitType(uk)]?.tree;
+        for(const[,node] of Object.entries(tree||{})){
+          for(const br of node.branches||[]){
+            if(br.to===uk)return `需在军事学院研究「${br.name}」(Lv.${br.needAcademyLv}，资源:${br.cost.wood}/${br.cost.stone}/${br.cost.food})`;
+          }
+        }
+        return '需在军事学院研究升级';
+      }
+    }
+  }
   const key=trainBuildingKey(uk);
   if(!key)return '';
   const cfg=CFG.buildings[key],st=bldSt(key);
-  if(cfg.needBoss && bossDefeatedCount() < cfg.needBoss)return '击败'+cfg.needBoss+'个Boss后解锁'+cfg.name;
+  if(cfg.needBoss&&bossDefeatedCount()<cfg.needBoss)return '击败'+cfg.needBoss+'个Boss后解锁'+cfg.name;
   if(st.lv<=0&&st.state==='idle')return `需先建造${cfg.name}`;
   if(st.state==='building')return `${cfg.name}建设中`;
   if(st.state==='upgrading')return `${cfg.name}升级中`;
@@ -187,6 +260,7 @@ function getForm(which){ return which==='garrison'?S._garrisonForm:S.formation; 
 // 切换战斗页子标签
 function setFightTab(tab){ S._fightTab=tab; updateUI(); }
 function setBuildTab(tab){ S._buildTab=tab; updateUI(); }
+function setBarracksTier(tier){ S._barracksTier=tier; updateUI(); }
 function rowSlots(row){
   const boss=bossDefeatedCount();
   if(row==='front') return 1+(boss>=1?1:0);
@@ -205,7 +279,10 @@ function totalUpkeep(){
   }
   return up;
 }
-function cm(atk,def){return CFG.counters[atk][def]||1.0}
+function cm(atk,def){
+  const base=(CFG.counters[baseUnitType(atk)]?.[baseUnitType(def)]||1.0);
+  return base*innerCM(atk,def);
+}
 function mm(atk,def){
   if(atk==='mage'&&def!=='mage')return CFG.counters.mage[def]||1.0;
   if(atk!=='mage'&&def==='mage')return CFG.normalVsMage;
@@ -222,12 +299,12 @@ function isAttackMiss(attacker,defender){
 }
 
 function save(){
-  const d={res:S.res,buildings:S.buildings,pool:S.pool,queue:S.queue,formation:S.formation,townLv:S.townLv,popAlloc:S.popAlloc,defeated:S.defeated,mageOk:S.mageOk,merit:S.merit,garrisonLog:S.garrisonLog,garrison:S.garrison,tick:S.tick,garrisonForm:S._garrisonForm,townUpgrade:S.townUpgrade};
+  const d={res:S.res,buildings:S.buildings,pool:S.pool,queue:S.queue,formation:S.formation,townLv:S.townLv,popAlloc:S.popAlloc,defeated:S.defeated,mageOk:S.mageOk,merit:S.merit,garrisonLog:S.garrisonLog,garrison:S.garrison,tick:S.tick,garrisonForm:S._garrisonForm,townUpgrade:S.townUpgrade,upgradedUnits:S.upgradedUnits};
   localStorage.setItem('rts_save',JSON.stringify(d));
 }
 function load(){
   const r=localStorage.getItem('rts_save');if(!r)return;
-  try{const d=JSON.parse(r);S.res=d.res||S.res;S.buildings=d.buildings||{};S.pool=d.pool||S.pool;S.formation=d.formation||S.formation;S.townLv=d.townLv||1;S.popAlloc=d.popAlloc||{wood:5,stone:3,food:2};S.defeated=d.defeated||[];S.mageOk=d.mageOk||false;S.merit=d.merit||0;S.garrisonLog=d.garrisonLog||[];S.garrison=d.garrison||S.garrison;S.queue=d.queue||{};S.tick=d.tick||0;S._garrisonForm=d.garrisonForm||{front:[],mid:[],back:[]};S.townUpgrade=d.townUpgrade||null;if(typeof ensureGarrisonState==='function')ensureGarrisonState();}catch(e){}
+  try{const d=JSON.parse(r);S.res=d.res||S.res;S.buildings=d.buildings||{};S.pool=d.pool||S.pool;S.formation=d.formation||S.formation;S.townLv=d.townLv||1;S.popAlloc=d.popAlloc||{wood:5,stone:3,food:2};S.defeated=d.defeated||[];S.mageOk=d.mageOk||false;S.merit=d.merit||0;S.garrisonLog=d.garrisonLog||[];S.garrison=d.garrison||S.garrison;S.queue=d.queue||{};S.tick=d.tick||0;S._garrisonForm=d.garrisonForm||{front:[],mid:[],back:[]};S.townUpgrade=d.townUpgrade||null;S.upgradedUnits=d.upgradedUnits||{};if(typeof ensureGarrisonState==='function')ensureGarrisonState();}catch(e){}
 }
 
 // ==================== 计时 ====================
@@ -675,7 +752,7 @@ function initBattleState(){
       for(const u of S.formation[row]){
         const cfg=CFG.units[u.type];
         B.ourUnits.push({id:uid++, fid:u.id, type:u.type, row, hp:u.count, maxHp:u.count,
-          icon:cfg.icon, name:cfg.name, spd:cfg.spd, atk:cfg.atk, def:cfg.def});
+          icon:cfg.icon, name:cfg.name, spd:cfg.spd, atk:cfg.atk, def:cfg.def, tag:cfg.tag||null});
       }
     }
     const rows=['front','mid','back'];
@@ -698,7 +775,7 @@ function initBattleState(){
       for(const u of S.formation[row]){
         const cfg=CFG.units[u.type];
         B.ourUnits.push({id:uid++, fid:u.id, type:u.type, row, hp:u.count, maxHp:u.count,
-          icon:cfg.icon, name:cfg.name, spd:cfg.spd, atk:cfg.atk, def:cfg.def});
+          icon:cfg.icon, name:cfg.name, spd:cfg.spd, atk:cfg.atk, def:cfg.def, tag:cfg.tag||null});
       }
     }
     for(const[k,counts] of Object.entries(e.units)){
@@ -709,7 +786,8 @@ function initBattleState(){
           icon:cfg.icon, name:cfg.name,
           spd:cfg.spd,
           atk:bm?Math.floor(cfg.atk*bm.atk):cfg.atk,
-          def:bm?Math.floor(cfg.def*bm.def):cfg.def});
+          def:bm?Math.floor(cfg.def*bm.def):cfg.def,
+          tag:cfg.tag||null});
       }
     }
   }
