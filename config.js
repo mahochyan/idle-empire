@@ -203,7 +203,7 @@ const CFG = {
   // barracks : 营帐、箭塔 — 上限 = 城镇等级 × 此值   MAX10
   // warehouse: 仓库 — 上限 = 城镇等级 × 此值        MAX50
   // training : 步兵营地/射手靶场/骑兵训练场/长矛兵营地/法师塔 — 上限 = 城镇等级 × 此值   MAX50
-  // resource : 伐木场/采石场/农田 — 上限 = 城镇等级 × 此值（同时受章节 Boss 限制）   MAX10
+  // resource : 伐木场/采石场/农田 — 上限 = 城镇等级 × 此值   MAX10
   buildingCaps: {
     barracks: 1,
     warehouse: 5,

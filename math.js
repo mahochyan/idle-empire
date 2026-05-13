@@ -165,8 +165,15 @@ function expeditionCount(uk){
   }
   return n;
 }
+function sameLine(a,b){return baseUnitType(a)===baseUnitType(b)}
 function unitCapLeft(uk){
-  return Math.max(0,unitCap(uk)-(S.pool[uk]||0)-garrisonCount(uk)-expeditionCount(uk));
+  let used=0;
+  for(const[k,v] of Object.entries(S.pool)){if(sameLine(k,uk))used+=v;}
+  for(const row of['front','mid','back']){
+    for(const u of S.formation[row]){if(sameLine(u.type,uk))used+=u.count;}
+    for(const u of S._garrisonForm[row]){if(sameLine(u.type,uk))used+=u.count;}
+  }
+  return Math.max(0,unitCap(uk)-used);
 }
 function queueTotal(uk){
   const q=S.queue[uk];
@@ -241,9 +248,16 @@ function trainBuildingLabel(uk){
   return `${cfg.name}: Lv.${st.lv}${st.state==='idle'?'':' / \u6682\u505c\u8bad\u7ec3'}`;
 }
 function reserveHtml(uk){
-  const cap=unitCap(uk),pool=S.pool[uk]||0,garrison=garrisonCount(uk),expedition=expeditionCount(uk);
-  const cls=cap>0&&(pool+garrison+expedition)<=cap?'limit-ok':'limit-warn';
-  const extra=cap>0?` | \u4e0a\u9650 ${cap} = \u8fdc\u5f81 ${expedition} + \u9a7b\u519b ${garrison} + \u4f59\u91cf ${pool}`:'';
+  const cap=unitCap(uk);
+  let pool=0,garrison=0,expedition=0;
+  for(const[k,v] of Object.entries(S.pool)){if(sameLine(k,uk))pool+=v;}
+  for(const row of['front','mid','back']){
+    for(const u of S.formation[row]){if(sameLine(u.type,uk))expedition+=u.count;}
+    for(const u of S._garrisonForm[row]){if(sameLine(u.type,uk))garrison+=u.count;}
+  }
+  const used=pool+garrison+expedition;
+  const cls=cap>0&&used<=cap?'limit-ok':'limit-warn';
+  const extra=cap>0?` | \u4e0a\u9650 ${cap} = \u8fdc\u5f81 ${expedition} + \u9a7b\u519b ${garrison} + \u4f59\u91cf ${pool} (\u672c\u7ebf\u5408\u8ba1)`:'';
   return extra;
 }
 function totalSoldiers(){
@@ -458,7 +472,13 @@ function dismissN(uk,n){
   const a=poolAvail(uk);
   if(a<=0){toast('无可用士兵');return}
   const fromP=Math.min(a,qty);
-  S.pool[uk]-=fromP;addLog(`解散${CFG.units[uk].name}-${fromP}`);save();updateUI();
+  S.pool[uk]-=fromP;
+  const cost=CFG.units[uk].cost,cap=storageCapacity();
+  const refund={wood:Math.floor(cost.wood*fromP*0.5),stone:Math.floor(cost.stone*fromP*0.5),food:Math.floor(cost.food*fromP*0.5)};
+  S.res.wood=Math.min((S.res.wood||0)+refund.wood,cap);
+  S.res.stone=Math.min((S.res.stone||0)+refund.stone,cap);
+  S.res.food=Math.min((S.res.food||0)+refund.food,cap);
+  addLog(`解散${CFG.units[uk].name}-${fromP}，返还木${refund.wood}石${refund.stone}食${refund.food}`);save();updateUI();
 }
 function cancelQueue(uk){
   const q=S.queue[uk];

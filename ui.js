@@ -11,7 +11,9 @@ function updateUI(){
   document.getElementById('cap-wood').textContent='/'+cap;
   document.getElementById('cap-stone').textContent='/'+cap;
   const netFood=prodRate('food')-totalUpkeep()-popAllocTotal()*0.1;
-  document.getElementById('cap-food').textContent=(netFood>=0?'+':'')+netFood.toFixed(1)+'/秒';
+  const capFoodEl=document.getElementById('cap-food');
+  capFoodEl.textContent=(netFood>=0?'+':'')+netFood.toFixed(1)+'/秒';
+  capFoodEl.style.color=netFood<0?'#e06060':'';
   document.getElementById('cap-pop').textContent='';
   const woodFull=wood>=cap,stoneFull=stone>=cap,foodFull=food>=cap||(food<=0&&netFood<0);
   document.getElementById('res-wood').style.color=woodFull?'#e06060':'#f0d060';
@@ -251,15 +253,12 @@ function rBuildCard(key, cfg){
   // \u4ed3\u5e93\u7279\u6b8a\uff1a\u663e\u793a\u5b58\u50a8\u4e0a\u9650
   if(key==='warehouse'&&st.state==='idle'&&st.lv>0)h+=` <span style="font-size:11px;color:#f0d060">\u5b58\u50a8\u4e0a\u9650 ${storageCapacity()}</span>`;
   h+=`</span>${rightLabel}</h3>`;
-  // \u5175\u8425\u7c7b\u5efa\u7b51\uff1a\u663e\u793a\u8bad\u7ec3\u5175\u79cd\u548c\u8bad\u7ec3\u4e0a\u9650
+  // 兵营类建筑：显示训练兵种和训练上限
   if(cfg.trains){
     const u=CFG.units[cfg.trains],cap=unitCap(cfg.trains);
     const nextLv=st.lv+(st.lv===0?1:1);
     const nextCap=(cfg.unitCapBase||0) + nextLv * (cfg.unitCapPerLv||0);
     h+=`<div class="build-meta">\u8bad\u7ec3: ${pix(u.icon,'mini')}${u.name} | \u8bad\u7ec3\u4e0a\u9650 ${st.lv>0?cap:0}${st.lv>0?` \u2192 ${nextCap}`:` (\u5efa\u6210\u540e ${nextCap})`}</div>`;
-  }
-  if(cfg.buffRes){
-    h+=`<div class="build-meta">${resourceCapText()} | \u51fb\u8d25Boss\u540e\u89e3\u9501\u4e0b\u4e00\u7ea7</div>`;
   }
   if(upLock)h+=`<div class="build-meta limit-warn">${pix('lock','mini')}${upLock}</div>`;
   if(st.state==='idle'){
@@ -313,7 +312,7 @@ function rBuild(){
 // ==================== \u519b\u8425\u754c\u9762 ====================
 function rBarracks(){
   const tier=S._barracksTier||'t0';
-  let h=`<div style="padding:4px 0"><div style="font-size:12px;color:#888;margin:4px 0">总兵力 ${totalSoldiers()} | 营帐上限 ${regMax()}人/团</div>`;
+  let h=`<div style="padding:4px 0"><div style="font-size:12px;color:#888;margin:4px 0">总兵力 ${totalSoldiers()} | 营帐上限 ${regMax()}人/团 <span style="margin-left:10px;color:#e06060">口粮：-${totalUpkeep().toFixed(1)}/秒</span></div>`;
   const tierLabels={t0:'T0 基础',t1:'T1 进阶',t2:'T2 精锐',t3:'T3 终极'};
   h+=`<div style="display:flex;gap:4px;margin-bottom:6px">`;
   for(const[tk,tn] of Object.entries(tierLabels)){
@@ -344,6 +343,13 @@ function rBarracks(){
       const tree=CFG.unitUpgrades[baseUnitType(k)]?.tree;
       if(tree){for(const[,node] of Object.entries(tree)){for(const br of node.branches||[]){if(br.to===k){researchInfo=br;break;}}if(researchInfo)break;}}
     }
+    const isVariant=tier!=='t0'&&(c.tier||0)>0;
+    let capInfo;
+    if(isVariant){
+      capInfo=`<span style="font-size:10px;color:#888">拥有: ${ow}人</span>`;
+    }else{
+      capInfo=reserveHtml(k);
+    }
     let card=`<div class="card" style="${muted}">
       <div style="display:flex;align-items:center;gap:8px">
         <span>${pix(c.icon,'lg')}</span>
@@ -353,7 +359,7 @@ function rBarracks(){
             <span>${costHtml(c.cost)}/人${(S.queue[k]||{}).reason?` <span class="limit-warn" style="margin-left:14px">${pix('lock','mini')}${S.queue[k].reason}</span>`:''}${lock?` <span class="limit-warn" style="margin-left:14px">${pix('lock','mini')}${lock}</span>`:''}</span>
             ${queueTotal(k)>0?`<span onclick="event.stopPropagation();cancelQueue('${k}')" style="font-size:10px;line-height:12px;padding:0 4px;border:1px solid #3a4158;color:#8890a6;cursor:pointer;margin-right:6px;flex-shrink:0">取消队列</span>`:''}
           </div>
-          <div class="econ-note" style="line-height:16px">${reserveHtml(k)}${queueTotal(k)>0?` | 训练队列 ${queueTotal(k)}人`:''}</div>
+          <div class="econ-note" style="line-height:16px">${capInfo}${queueTotal(k)>0?`<span style="margin-left:${isVariant?'24px':'4px'}">| 训练队列 ${queueTotal(k)}人</span>`:''}</div>
           ${isLockedVar?`<button class="btn btn-xs" onclick="upgradeUnit('${researchInfo?.from||''}','${k}')" style="font-size:9px;padding:1px 6px;background:#2a2a1a;border-color:#6a6a3a;color:#f0d060;border:1px solid">研究 ${costHtml(researchInfo?.cost||{})}</button>`
           :lock?'':`<div class="train-custom">
             <input id="train-barracks-${k}" type="text" inputmode="numeric" pattern="[0-9]*" value="${(S._trainQty||{})[k]||1}" oninput="(S._trainQty||{})['${k}']=parseInt(this.value)||1">
@@ -388,12 +394,15 @@ function rBarracks(){
       const iconKey=bu==='infantry'?'infantry':bu==='archer'?'archer':bu;
       const tierNum={t2:2,t3:3}[tier]||2;
       // 收纳头
+      const firstKey=list[0][0];
+      const lineCap=unitCap(firstKey);
+      const lineLeft=unitCapLeft(firstKey);
       h+=`<div class="branch-header" onclick="(S._barracksFold||{})['${foldKey}']=!((S._barracksFold||{})['${foldKey}']);updateUI()">
         <span class="branch-arrow${folded?'':' open'}">▶</span>
         <span class="branch-icon">${pix(iconKey,'md')}</span>
         <div style="flex:1;min-width:0">
           <div style="font-size:14px;font-weight:bold;color:#e0d070;letter-spacing:1px">${branchNames[bu]||bu}<span style="font-size:10px;color:#6a7290;font-weight:normal;margin-left:8px">T${tierNum}</span></div>
-          <div style="font-size:9px;color:#5a6078;margin-top:2px">${list.length}种兵种 · 点击${folded?'展开':'折叠'}</div>
+          <div style="font-size:12px;color:#5a6078;margin-top:2px">${list.length}种兵种  总上限 ${lineCap} </div>
         </div>
         ${anyOwn?`<span class="branch-badge-own">✓ 已拥有</span>`:''}
       </div>`;
