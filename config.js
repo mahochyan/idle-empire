@@ -105,13 +105,12 @@ const CFG = {
   innerNoTagDef:0.85,
 
   // 猎人线特殊战斗机制（替代innerCounters）
-  // bow(弓)：被非盾单位攻击时80%格挡；攻击骑兵时50%miss
+  // bow(弓)：攻击盾兵80%被格挡无伤；攻击骑兵时50%miss
   // crossbow(弩)：攻击盾兵时穿透造成80%伤害
   // blade(刃)：攻击远程单位+60%伤害；攻击盾兵60%伤害；可在中排发动进攻
   archerSpecials: {
     bow: {
-      defend: { vsNonShield: { block: 0.8 } },
-      attack: { vsCavalry: { miss: 0.5 } }
+      attack: { vsShield: { block: 0.8 }, vsCavalry: { miss: 0.5 } }
     },
     crossbow: {
       attack: { vsShield: { dmgPct: 0.8 } }

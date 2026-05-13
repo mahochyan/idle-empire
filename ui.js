@@ -321,13 +321,21 @@ function rBarracks(){
   }
   h+=`</div>`;
   const tierNum={t0:0,t1:1,t2:2,t3:3}[tier];
-  let shown=0;
+  const branchNames={infantry:'步兵线',archer:'猎人线',cavalry:'骑兵线',spearman:'枪兵线',mage:'法师线'};
+  // 收集当前tier的单位，按分支分组
+  const branches={};
   for(const[k,c] of Object.entries(CFG.units)){
     if(tier==='t0' && c.locked && c.baseUnit && c.baseUnit!==k) continue;
     const ut=typeof c.tier==='number'?c.tier:0;
     if(tier==='t0' && ut!==0) continue;
     if(tier!=='t0' && ut!==tierNum) continue;
     if(tier!=='t0' && c.baseUnit!=='infantry' && c.baseUnit!=='archer') continue;
+    const bu=c.baseUnit||k;
+    if(!branches[bu])branches[bu]=[];
+    branches[bu].push([k,c]);
+  }
+  let shown=0;
+  function renderUnitCard(k,c){
     const ow=S.pool[k]||0,lock=trainLockReason(k);
     const tm=maxTrainable(k),disabled=tm<=0?'disabled':'',muted=lock?'opacity:.55':'';
     const isLockedVar=tier!=='t0' && c.locked && !(S.upgradedUnits||{})[k];
@@ -336,7 +344,7 @@ function rBarracks(){
       const tree=CFG.unitUpgrades[baseUnitType(k)]?.tree;
       if(tree){for(const[,node] of Object.entries(tree)){for(const br of node.branches||[]){if(br.to===k){researchInfo=br;break;}}if(researchInfo)break;}}
     }
-    h+=`<div class="card" style="${muted}">
+    let card=`<div class="card" style="${muted}">
       <div style="display:flex;align-items:center;gap:8px">
         <span>${pix(c.icon,'lg')}</span>
         <div style="flex:1;min-width:0"><strong style="cursor:pointer" onclick="openUnitDetail('${k}')">${c.name}</strong> <span style="font-size:10px;color:#aaa;margin-left:6px">${trainBuildingLabel(k)}</span> <span onclick="event.stopPropagation();openUnitDetail('${k}')" style="font-size:9px;padding:1px 5px;border:1px solid #3a4158;border-radius:0;color:#8890a6;cursor:pointer;display:inline-block;margin-left:6px">属性</span>
@@ -355,13 +363,52 @@ function rBarracks(){
           </div>`}
         </div>
       </div></div>`;
-    shown++;
+    return card;
+  }
+  const branchOrder=['infantry','archer','cavalry','spearman','mage'];
+  if(tier==='t0'||tier==='t1'){
+    // T0/T1: 平铺显示
+    for(const bu of branchOrder){
+      const list=branches[bu];
+      if(!list)continue;
+      for(const[k,c] of list){
+        h+=renderUnitCard(k,c);
+        shown++;
+      }
+    }
+  }else{
+    // T2/T3: 按分支收纳，带动效折叠
+    if(!S._barracksFold)S._barracksFold={};
+    for(const bu of branchOrder){
+      const list=branches[bu];
+      if(!list||!list.length)continue;
+      const foldKey=bu+'_'+tier;
+      const folded=S._barracksFold[foldKey]===true;
+      const anyOwn=list.some(([k])=>(S.pool[k]||0)>0);
+      const iconKey=bu==='infantry'?'infantry':bu==='archer'?'archer':bu;
+      const tierNum={t2:2,t3:3}[tier]||2;
+      // 收纳头
+      h+=`<div class="branch-header" onclick="(S._barracksFold||{})['${foldKey}']=!((S._barracksFold||{})['${foldKey}']);updateUI()">
+        <span class="branch-arrow${folded?'':' open'}">▶</span>
+        <span class="branch-icon">${pix(iconKey,'md')}</span>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:14px;font-weight:bold;color:#e0d070;letter-spacing:1px">${branchNames[bu]||bu}<span style="font-size:10px;color:#6a7290;font-weight:normal;margin-left:8px">T${tierNum}</span></div>
+          <div style="font-size:9px;color:#5a6078;margin-top:2px">${list.length}种兵种 · 点击${folded?'展开':'折叠'}</div>
+        </div>
+        ${anyOwn?`<span class="branch-badge-own">✓ 已拥有</span>`:''}
+      </div>`;
+      // 收纳体（带动画）
+      h+=`<div class="branch-body${folded?' folded':' expanded'}">`;
+      for(const[k,c] of list){
+        h+=renderUnitCard(k,c);
+        shown++;
+      }
+      h+=`</div>`;
+    }
   }
   if(!shown)h+=`<div style="text-align:center;color:#666;padding:20px">暂无兵种 (需在军事学院研究解锁)</div>`;
   h+=`</div>`;return h;
 }
-
-// ==================== 兵种升级变体训练 / 军事学院面板 ====================
 function rVariantTraining(baseUk){
   const alv=academyLv();
   if(alv<1)return '';

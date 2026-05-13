@@ -390,12 +390,14 @@ function calcGarrisonDmg(attacker,defender){
   if(attacker.tag==='blade'&&isRanged(defender.type)) specialFactor*=AS.blade?.attack?.vsRanged?.dmgPct||1.6;
   // 刃攻击盾兵：60%伤害
   if(attacker.tag==='blade'&&defender.tag==='shield') specialFactor*=AS.blade?.attack?.vsShield?.dmgPct||0.6;
-  // 弓防御：被非盾单位攻击时80%格挡
-  if(defender.tag==='bow'&&attacker.tag!=='shield'&&Math.random()<(AS.bow?.defend?.vsNonShield?.block||0.8)){
+  // 弓攻击盾兵：80%被格挡无伤
+  if(attacker.tag==='bow'&&defender.tag==='shield'&&Math.random()<(AS.bow?.attack?.vsShield?.block||0.8)){
     specialFactor=0;
   }
   const raw=attacker.hp*attacker.atk*DAMAGE_COEF*defenseFactor*counterFactor*mageFactor*passiveFactor*randomFactor*specialFactor;
-  return Math.max(specialFactor>0?1:0,Math.floor(isCrit?raw*2:raw));
+  const baseDmg=Math.max(specialFactor>0?1:0,Math.floor(isCrit?raw*2:raw));
+  const dmgVar=Math.floor(Math.random()*7)-3;
+  return Math.max(specialFactor>0?1:0, baseDmg+dmgVar);
 }
 
 function garrisonArrowTowerAttack(enemyUnits,round){

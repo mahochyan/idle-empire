@@ -24,6 +24,7 @@ let S = {
   _fightTab:'expedition',
   _buildTab:'basic',
   _barracksTier:'t0',
+  _barracksFold:{},
   townUpgrade:null,
   upgradedUnits:{}
 };
@@ -289,8 +290,12 @@ function mm(atk,def){
   return 1.0;
 }
 function missRate(attacker,defender){
+  // 刃(blade)刺客不受弓兵基础miss影响
+  if(attacker.tag==='blade')return 0;
   const cfg=CFG.miss[attacker.type]||CFG.miss[baseUnitType(attacker.type)];
   if(!cfg)return 0;
+  // 弩(crossbow)不受骑兵额外miss影响，仅保留基础miss
+  if(attacker.tag==='crossbow'&&baseUnitType(defender.type)==='cavalry')return cfg.base||0;
   return cfg[defender.type]??cfg.base??0;
 }
 function isAttackMiss(attacker,defender){
@@ -606,7 +611,7 @@ function openUnitDetail(uk){
   h+=`<div style="background:#121224;border:2px solid #2b3144;border-radius:6px;padding:10px 12px;margin-bottom:8px">`;
   h+=`<div style="font-size:11px;color:#f0d060;margin-bottom:8px;text-align:center;letter-spacing:2px">◆ 属性 ◆</div>`;
   h+=`<div style="font-size:12px;line-height:2.2">`;
-  h+=`<div><span style="color:#888">攻击力</span> <span style="color:#f0d060;float:right">${c.atk}</span></div>`;
+  h+=`<div><span style="color:#888">攻击力</span><span style="color:#f0d060;float:right">${c.atk} <span style="color:#888;font-size:10px">→ ${Math.max(1,c.atk-3)}~${c.atk+3}</span></span></div>`;
   h+=`<div><span style="color:#888">防御力</span> <span style="color:#f0d060;float:right">${c.def}</span></div>`;
   h+=`<div><span style="color:#888">速度</span> <span style="color:#f0d060;float:right">${c.spd}</span></div>`;
   h+=`<div style="margin-top:4px;padding-top:4px;border-top:1px solid #2b3144"><span style="color:#888">训练费</span> <span style="color:#f0d060;float:right">${costHtml(c.cost)}</span></div>`;
@@ -879,7 +884,8 @@ function bmsg(m,c=''){
 
 // 兵种攻击类型：melee 只能在前排攻击，ranged 任意排都可攻击
 function isRanged(unitType){
-  return unitType==='archer'||unitType==='mage';
+  const bu=baseUnitType(unitType);
+  return bu==='archer'||bu==='mage';
 }
 
 function getTarget(attacker,enemyList){
@@ -931,12 +937,14 @@ function calcDmg(attacker,defender,isOur){
   if(attacker.tag==='blade'&&isRanged(defender.type)) specialFactor*=AS.blade?.attack?.vsRanged?.dmgPct||1.6;
   // 刃攻击盾兵：60%伤害
   if(attacker.tag==='blade'&&defender.tag==='shield') specialFactor*=AS.blade?.attack?.vsShield?.dmgPct||0.6;
-  // 弓防御：被非盾单位攻击时80%格挡
-  if(defender.tag==='bow'&&attacker.tag!=='shield'&&Math.random()<(AS.bow?.defend?.vsNonShield?.block||0.8)){
+  // 弓攻击盾兵：80%被格挡无伤
+  if(attacker.tag==='bow'&&defender.tag==='shield'&&Math.random()<(AS.bow?.attack?.vsShield?.block||0.8)){
     specialFactor=0;
   }
   const raw=attacker.hp*atk*DAMAGE_COEF*defenseFactor*counterFactor*mageFactor*passiveFactor*randomFactor*specialFactor;
-  return {dmg:Math.max(specialFactor>0?1:0,Math.floor(isCrit?raw*2:raw)), crit:isCrit};
+  const baseDmg=Math.max(specialFactor>0?1:0,Math.floor(isCrit?raw*2:raw));
+  const dmgVar=Math.floor(Math.random()*7)-3;
+  return {dmg:Math.max(specialFactor>0?1:0, baseDmg+dmgVar), crit:isCrit};
 }
 
 function spawnVFX(actorEl,targetEl,type){
