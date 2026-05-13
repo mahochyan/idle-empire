@@ -87,7 +87,7 @@ function upgradeLockReason(key){
 }
 function regMax(){
   const s=bldSt('barracks');
-  return 5+(s.state==='idle'&&s.lv>=1?5:0);
+  return 5+(s.state==='idle'?s.lv*5:0);
 }
 function academyLv(){
   const st=bldSt('military_academy');
@@ -338,6 +338,7 @@ function tick(){
   if(ch)save();processQueue();
   const cap=storageCapacity();
   for(const rk of Object.keys(CFG.res)){
+    if(rk==='tech')continue;
     if(rk==='food'){
       S.res[rk]=Math.min(S.res[rk]+prodRate(rk)-totalUpkeep()-popAllocTotal()*0.1, cap);
       if(S.res[rk]<0)S.res[rk]=0;
@@ -469,10 +470,10 @@ function addAllRes(inputId){
   const el=document.getElementById(inputId);
   const n=Math.max(1,Math.floor(parseInt(el?.value,10)||0));
   const cap=storageCapacity();
-  for(const rk of['wood','stone','food']){
-    S.res[rk]=Math.min((S.res[rk]||0)+n,cap);
+  for(const rk of['wood','stone','food','tech']){
+    S.res[rk]=Math.min((S.res[rk]||0)+n,rk==='tech'?999999:cap);
   }
-  addLog(`一键添加木/石/食各+${n}`);
+  addLog(`一键添加木/石/食/科技点各+${n}`);
   save();updateUI();
 }
 

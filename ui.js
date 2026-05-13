@@ -70,11 +70,18 @@ function rHome(){
   }
   h+=`</div>`;
 
-  h+=`<div class="card"><h3>${pix("log","card-pix")}最近事件</h3>`;
+  h+=`<div class="card"><h3>${pix("log","card-pix")}最近事件</h3><div style="line-height:18px;height:108px;overflow:hidden">`;
   const r=[...S.log].reverse().slice(0,6);
   if(!r.length)h+=`<div style="font-size:11px;color:#666">暂无</div>`;
-  else for(const e of r)h+=`<div style="font-size:10px;color:#555;padding:1px 0">[${e.time}] ${e.msg}</div>`;
-  h+=`</div></div>`;return h;
+  else for(const e of r)h+=`<div style="font-size:10px;color:#555">[${e.time}] ${e.msg}</div>`;
+  h+=`</div></div>`;
+  h+=`<div style="text-align:center;margin-bottom:8px"><button class="btn btn-ghost btn-sm" onclick="openSettings()">${pix('build','mini')}设置</button></div>`;
+  if(S._testUnlocked){
+    h+=`<div class="card"><h3>${pix('build','card-pix')}测试工具</h3>
+      <div class="train-custom" style="margin:4px 0"><span style="width:100px">木/石/食/科技</span><input id="test-all" type="text" inputmode="numeric" pattern="[0-9]*" value="10000" style="width:100px"><button class="btn btn-go btn-xs" onclick="addAllRes('test-all')">一键添加</button></div>
+    </div>`;
+  }
+  h+=`</div>`;return h;
 }
 // ==================== 城镇巡防地图 ====================
 function renderTownMapOverview(){
@@ -240,7 +247,7 @@ function rBuildCard(key, cfg){
   let h=`<div class="card" style="${locked||upLock?'opacity:.7':''}"><h3 style="display:flex;justify-content:space-between;align-items:center">`;
   h+=`<span>${pix(key,'card-pix')}${cfg.name}`;if(st.state==='idle'&&st.lv>0)h+=` <span style="color:#f0d060">Lv.${st.lv}</span>`;
   // \u8425\u5e10\u7279\u6b8a\uff1a\u663e\u793a\u51fa\u6218\u4e0a\u9650
-  if(key==='barracks')h+=` <span style="font-size:11px;color:#888">(\u51fa\u6218\u4e0a\u9650${regMax()}\u4eba/\u683c${st.lv<=0?'\uff0c\u5efa\u9020\u540e100\u4eba/\u683c':''})</span>`;
+  if(key==='barracks')h+=` <span style="font-size:11px;color:#888">(\u51fa\u6218\u4e0a\u9650${regMax()}\u4eba/\u683c\uff0c\u6bcf\u7ea7+5)</span>`;
   // \u4ed3\u5e93\u7279\u6b8a\uff1a\u663e\u793a\u5b58\u50a8\u4e0a\u9650
   if(key==='warehouse'&&st.state==='idle'&&st.lv>0)h+=` <span style="font-size:11px;color:#f0d060">\u5b58\u50a8\u4e0a\u9650 ${storageCapacity()}</span>`;
   h+=`</span>${rightLabel}</h3>`;
@@ -334,8 +341,11 @@ function rBarracks(){
         <span>${pix(c.icon,'lg')}</span>
         <div style="flex:1;min-width:0"><strong style="cursor:pointer" onclick="openUnitDetail('${k}')">${c.name}</strong> <span style="font-size:10px;color:#aaa;margin-left:6px">${trainBuildingLabel(k)}</span> <span onclick="event.stopPropagation();openUnitDetail('${k}')" style="font-size:9px;padding:1px 5px;border:1px solid #3a4158;border-radius:0;color:#8890a6;cursor:pointer;display:inline-block;margin-left:6px">属性</span>
           <div style="font-size:10px;color:#777">${c.passive} | ATK:${c.atk} DEF:${c.def}${c.tag?` | [${c.tag}]`:''}</div>
-          <div style="font-size:12px;color:#666;line-height:14px">${costHtml(c.cost)}/人${(S.queue[k]||{}).reason?` <span class="limit-warn" style="margin-left:14px">${pix('lock','mini')}${S.queue[k].reason}</span>`:''}${lock?` <span class="limit-warn" style="margin-left:14px">${pix('lock','mini')}${lock}</span>`:''}</div>
-          <div class="econ-note" style="line-height:16px">${reserveHtml(k)}${queueTotal(k)>0?` | 训练队列 ${queueTotal(k)}人 <span onclick="event.stopPropagation();cancelQueue('${k}')" style="font-size:10px;height:13px;line-height:12px;padding:0 4px;border:1px solid #3a4158;border-radius:0;color:#8890a6;cursor:pointer;display:inline-block;vertical-align:middle;margin-left:4px">取消队列</span>`:''}</div>
+          <div style="font-size:12px;color:#666;line-height:14px;display:flex;justify-content:space-between;align-items:center">
+            <span>${costHtml(c.cost)}/人${(S.queue[k]||{}).reason?` <span class="limit-warn" style="margin-left:14px">${pix('lock','mini')}${S.queue[k].reason}</span>`:''}${lock?` <span class="limit-warn" style="margin-left:14px">${pix('lock','mini')}${lock}</span>`:''}</span>
+            ${queueTotal(k)>0?`<span onclick="event.stopPropagation();cancelQueue('${k}')" style="font-size:10px;line-height:12px;padding:0 4px;border:1px solid #3a4158;color:#8890a6;cursor:pointer;margin-right:6px;flex-shrink:0">取消队列</span>`:''}
+          </div>
+          <div class="econ-note" style="line-height:16px">${reserveHtml(k)}${queueTotal(k)>0?` | 训练队列 ${queueTotal(k)}人`:''}</div>
           ${isLockedVar?`<button class="btn btn-xs" onclick="upgradeUnit('${researchInfo?.from||''}','${k}')" style="font-size:9px;padding:1px 6px;background:#2a2a1a;border-color:#6a6a3a;color:#f0d060;border:1px solid">研究 ${costHtml(researchInfo?.cost||{})}</button>`
           :lock?'':`<div class="train-custom">
             <input id="train-barracks-${k}" type="text" inputmode="numeric" pattern="[0-9]*" value="${(S._trainQty||{})[k]||1}" oninput="(S._trainQty||{})['${k}']=parseInt(this.value)||1">
@@ -598,27 +608,41 @@ function rTech(){
   h+=`</div></div>`;
   return h;
 }
+// ==================== 设置弹窗 ====================
+function formatGameTime(ticks){
+  const totalSec=Math.floor(ticks*(CFG.tickMs||1000)/1000);
+  const h=Math.floor(totalSec/3600),m=Math.floor((totalSec%3600)/60),s=totalSec%60;
+  return `${h}时${String(m).padStart(2,'0')}分${String(s).padStart(2,'0')}秒`;
+}
+function openSettings(){
+  let h=`<h3>${pix('build','card-pix')}设置</h3>`;
+  h+=`<div class="settings-time"><span class="label">游戏时间</span>${formatGameTime(S.tick||0)}</div>`;
+  h+=`<div class="card"><h3>激活码</h3>
+    <div class="train-custom" style="margin:4px 0">
+      <input id="activation-code" type="text" value="" style="width:220px" placeholder="请输入激活码">
+      <button class="btn btn-go btn-xs" onclick="checkActivationCode('activation-code')">确认</button>
+    </div></div>`;
+  h+=`<div class="card" style="text-align:center">
+    <button class="btn btn-danger btn-sm" onclick="if(confirm('确定重置所有存档?')){localStorage.clear();location.reload()}">重置存档</button>
+  </div>`;
+  h+=`<button class="btn btn-ghost btn-sm" style="width:100%" onclick="closeSettings()">关闭</button>`;
+  document.getElementById('settings-content').innerHTML=h;
+  document.getElementById('settings-modal').classList.add('active');
+}
+function closeSettings(){
+  document.getElementById('settings-modal').classList.remove('active');
+}
+document.getElementById('settings-modal').addEventListener('click',function(e){
+  if(e.target===this) closeSettings();
+});
+
 // ==================== 日志界面 ====================
 function rLog(){
   let h=`<div style="padding:4px 0"><div class="card"><h3>${pix('log','card-pix')}事件日志</h3><div style="max-height:500px;overflow-y:auto;font-size:11px;line-height:1.8">`;
   const l=[...S.log].reverse();
   if(!l.length)h+=`<div style="color:#666">暂无</div>`;
   else for(const e of l)h+=`<span style="color:#555">[${e.time}]</span> ${e.msg}<br>`;
-  h+=`</div></div>`;
-  if(!S._testUnlocked){
-    h+=`<div class="card"><h3>激活码</h3>
-      <div class="train-custom" style="margin:4px 0">
-        <input id="activation-code" type="text" value="" style="width:100px" placeholder="请输入激活码">
-        <button class="btn btn-go btn-xs" onclick="checkActivationCode('activation-code')">确认</button>
-      </div></div>`;
-  }
-  if(S._testUnlocked){
-    h+=`<div class="card"><h3>${pix('build','card-pix')}测试工具</h3>
-      <div class="train-custom" style="margin:4px 0"><span style="width:60px">木/石/食</span><input id="test-all" type="text" inputmode="numeric" pattern="[0-9]*" value="10000" style="width:70px"><button class="btn btn-go btn-xs" onclick="addAllRes('test-all')">一键添加</button></div>
-    </div>`;
-  }
-  h+=`<button class="btn btn-danger btn-sm" onclick="if(confirm('重置?')){localStorage.clear();location.reload()}">${pix('reset','mini')}重置</button></div>`;
-  return h;
+  h+=`</div></div></div>`;return h;
 }
 
 // ==================== 工具函数（日志、Toast） ====================
