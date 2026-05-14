@@ -63,7 +63,7 @@ function resourceLevelCap(){
   return bossDefeatedCount() + 1;
 }
 function resourceCapText(){
-  return `\u672c\u7ae0\u4e0a\u9650 Lv.${resourceLevelCap()}`;
+  return `本章上限 Lv.${resourceLevelCap()}`;
 }
 function storageCapacity(){
   const whLv=(S.buildings.warehouse||{lv:0}).lv;
@@ -72,19 +72,19 @@ function storageCapacity(){
 }
 function upgradeLockReason(key){
   const cfg=CFG.buildings[key],st=bldSt(key),cap=CFG.buildingCaps;
-  // \u5175\u8425\u5efa\u7b51\uff08\u6b65\u5175/\u5f13\u5175/\u9a91\u5175/\u77db\u5175/\u6cd5\u5e08\uff09\uff1a\u4e0a\u9650 = \u57ce\u9547\u7b49\u7ea7 \u00d7 buildingCaps.training
-  if(cfg.trains && st.lv>=S.townLv*cap.training) return `\u9700\u5347\u7ea7\u57ce\u9547\u5230Lv.${Math.floor(st.lv/cap.training)+1}`;
-  // \u4ed3\u5e93\uff1a\u4e0a\u9650 = \u57ce\u9547\u7b49\u7ea7 \u00d7 buildingCaps.warehouse
-  if(cfg.storagePerLv && st.lv>=S.townLv*cap.warehouse) return `\u9700\u5347\u7ea7\u57ce\u9547\u5230Lv.${Math.floor(st.lv/cap.warehouse)+1}`;
-  // \u8425\u5e10\uff1a\u4e0a\u9650 = \u57ce\u9547\u7b49\u7ea7 \u00d7 buildingCaps.barracks
-  if(!cfg.trains&&!cfg.storagePerLv&&!cfg.buffRes && st.lv>=S.townLv*cap.barracks) return `\u9700\u5347\u7ea7\u57ce\u9547\u5230Lv.${Math.floor(st.lv/cap.barracks)+1}`;
-  // \u8d44\u6e90\u5efa\u7b51\uff08\u4f10\u6728\u573a/\u91c7\u77f3\u573a/\u519c\u7530\uff09\uff1a\u53d7\u7ae0\u8282Boss\u9650\u5236
+  // 兵营建筑（步兵/弓兵/骑兵/矛兵/法师）：上限 = 城镇等级 × buildingCaps.training
+  if(cfg.trains && st.lv>=S.townLv*cap.training) return `需升级城镇到Lv.${Math.floor(st.lv/cap.training)+1}`;
+  // 仓库：上限 = 城镇等级 × buildingCaps.warehouse
+  if(cfg.storagePerLv && st.lv>=S.townLv*cap.warehouse) return `需升级城镇到Lv.${Math.floor(st.lv/cap.warehouse)+1}`;
+  // 营帐：上限 = 城镇等级 × buildingCaps.barracks
+  if(!cfg.trains&&!cfg.storagePerLv&&!cfg.buffRes && st.lv>=S.townLv*cap.barracks) return `需升级城镇到Lv.${Math.floor(st.lv/cap.barracks)+1}`;
+  // 资源建筑（伐木场/采石场/农田）：受章节Boss限制
   if(cfg.buffRes&&st.lv>=resourceLevelCap()){
     const nextBoss=CFG.enemies.find(e=>e.boss&&!S.defeated.includes(e.id));
-    return nextBoss?`\u5df2\u8fbe${resourceCapText()}\uff0c\u51fb\u8d25${nextBoss.name}\u540e\u7ee7\u7eed\u5347\u7ea7`:`\u5df2\u8fbe${resourceCapText()}`;
+    return nextBoss?`已达${resourceCapText()}，击败${nextBoss.name}后继续升级`:`已达${resourceCapText()}`;
   }
-  // \u8d44\u6e90\u5efa\u7b51\uff1a\u4e0a\u9650 = \u57ce\u9547\u7b49\u7ea7 \u00d7 buildingCaps.resource
-  if(cfg.buffRes && st.lv>=S.townLv*cap.resource) return `\u9700\u5347\u7ea7\u57ce\u9547\u5230Lv.${Math.floor(st.lv/cap.resource)+1}`;
+  // 资源建筑：上限 = 城镇等级 × buildingCaps.resource
+  if(cfg.buffRes && st.lv>=S.townLv*cap.resource) return `需升级城镇到Lv.${Math.floor(st.lv/cap.resource)+1}`;
   return '';
 }
 function regMax(){
@@ -270,8 +270,8 @@ function trainBuildingLabel(uk){
   const key=trainBuildingKey(uk);
   if(!key)return '';
   const cfg=CFG.buildings[key],st=bldSt(key);
-  if(st.lv<=0)return `${cfg.name}: \u672a\u5efa\u9020`;
-  return `${cfg.name}: Lv.${st.lv}${st.state==='idle'?'':' / \u6682\u505c\u8bad\u7ec3'}`;
+  if(st.lv<=0)return `${cfg.name}: 未建造`;
+  return `${cfg.name}: Lv.${st.lv}${st.state==='idle'?'':' / 暂停训练'}`;
 }
 function reserveHtml(uk){
   const cap=unitCap(uk);
@@ -283,7 +283,7 @@ function reserveHtml(uk){
   }
   const used=pool+garrison+expedition;
   const cls=cap>0&&used<=cap?'limit-ok':'limit-warn';
-  const extra=cap>0?` | \u4e0a\u9650 ${cap} = \u8fdc\u5f81 ${expedition} + \u9a7b\u519b ${garrison} + \u4f59\u91cf ${pool} (\u672c\u7ebf\u5408\u8ba1)`:'';
+  const extra=cap>0?` | 上限 ${cap} = 远征 ${expedition} + 驻军 ${garrison} + 余量 ${pool} (本线合计)`:'';
   return extra;
 }
 function totalSoldiers(){
@@ -395,7 +395,7 @@ function tick(){
 // ==================== 操作 ====================
 function buildAct(key){
   const cfg=CFG.buildings[key],st=bldSt(key);
-  if(cfg.needBoss && bossDefeatedCount()<cfg.needBoss){toast(`\u51fb\u8d25${cfg.needBoss}\u4e2aBoss\u540e\u89e3\u9501`);return}
+  if(cfg.needBoss && bossDefeatedCount()<cfg.needBoss){toast(`击败${cfg.needBoss}个Boss后解锁`);return}
   if(st.state!=='idle'){toast(st.state==='building'?'建造中':'升级中');return}
   const upLock=st.lv>0?upgradeLockReason(key):'';
   if(upLock){toast(upLock);return}
@@ -1179,7 +1179,7 @@ function battleTurn(){
       const isGood=cmv>=1.3,isBad=cmv<=0.7;
 
       if(missed){
-        bmsg(`${side==="our"?"[我方]":"[敌方]"}${actor.name} \u2192 ${target.name} MISS${cavDodge?' [\u95ea\u907f]':baseUnitType(target.type)==='cavalry'?' [\u9a91\u5175\u95ea\u907f]':''}`,'#6f7890');
+        bmsg(`${side==="our"?"[我方]":"[敌方]"}${actor.name} → ${target.name} MISS${cavDodge?' [闪避]':baseUnitType(target.type)==='cavalry'?' [骑兵闪避]':''}`,'#6f7890');
         idx++;
         drawBattleField();
         nextAction();
