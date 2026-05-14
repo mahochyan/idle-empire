@@ -340,7 +340,7 @@ function rBarracks(){
   }
   h+=`</div>`;
   const tierNum={t0:0,t1:1,t2:2,t3:3}[tier];
-  const branchNames={infantry:'步兵线',archer:'猎人线',cavalry:'骑兵线',spearman:'枪兵线',mage:'法师线'};
+  const branchNames={infantry:'步兵线',archer:'猎人线',cavalry:'骑兵线',mage:'法师线'};
   // 收集当前tier的单位，按分支分组
   const branches={};
   for(const[k,c] of Object.entries(CFG.units)){
@@ -395,7 +395,7 @@ function rBarracks(){
       </div></div>`;
     return card;
   }
-  const branchOrder=['infantry','archer','cavalry','spearman','mage'];
+  const branchOrder=['infantry','archer','cavalry','mage'];
   if(tier==='t0'||tier==='t1'){
     // T0/T1: 平铺显示
     for(const bu of branchOrder){

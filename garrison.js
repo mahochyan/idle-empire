@@ -386,7 +386,7 @@ function calcGarrisonDmg(attacker,defender){
   const mageFactor=mm(attacker.type,defender.type);
   const passiveFactor=baseUnitType(attacker.type)==='infantry'?1.1:1.0;
   const randomFactor=0.9+Math.random()*0.2;
-  const isCrit=baseUnitType(attacker.type)==='spearman'&&Math.random()<0.1;
+  const isCrit=(attacker.tag==='spear')&&Math.random()<0.1;
   let specialFactor=1.0;
   const AS=CFG.archerSpecials||{};
   // 弩攻击盾兵：穿透80%伤害
