@@ -321,7 +321,7 @@ function tick(){
     S.townUpgrade.timer--;
     if(S.townUpgrade.timer<=0){
       S.townLv++;
-      addLog(`城镇升级为${townCfg().name}，人口上限${maxPop()}`);
+      addLog(`城镇升级为${townCfg().name}，村民上限${maxPop()}`);
       S.townUpgrade=null;ch=true;
     }
   }
@@ -344,7 +344,7 @@ function tick(){
   for(const rk of Object.keys(CFG.res)){
     if(rk==='tech')continue;
     if(rk==='food'){
-      S.res[rk]=Math.min(S.res[rk]+prodRate(rk)-totalUpkeep()-popAllocTotal()*0.1, cap);
+      S.res[rk]=Math.min(S.res[rk]+prodRate(rk)-totalUpkeep()-popAllocTotal()*(CFG.popFoodCost||0.1), cap);
       if(S.res[rk]<0)S.res[rk]=0;
     }else{
       S.res[rk]=Math.min(S.res[rk]+prodRate(rk), cap);
@@ -420,7 +420,7 @@ function buildTierUpgradeAct(key){
 }
 function upgradeTown(){
   if(!townCanUpgrade()){const bid=townUpgradeNeedBossId();const be=CFG.enemies.find(e=>e.id===bid);toast(`需击败第${bid}关Boss「${be?.name||'?'}」才能升级城镇`);return}
-  if(popAllocTotal()>CFG.town.find(t=>t.lv===S.townLv+1).maxPop){toast('请先减少人口分配');return}
+  if(popAllocTotal()>CFG.town.find(t=>t.lv===S.townLv+1).maxPop){toast('请先减少村民分配');return}
   const bt=CFG.buildingTimes;
   const rawTime=bt.cap1Base+(S.townLv-1)*bt.cap1PerLv;
   const time=Math.min(rawTime, CFG.maxUpgradeTime||120);
@@ -432,7 +432,7 @@ function setPopAlloc(rk,v){
   const nv=Math.max(0,Math.min(Math.floor(v),999));
   const old=S.popAlloc[rk]||0;
   const diff=nv-old;
-  if(diff>0&&popFree()<diff){toast(`空闲人口不足，最多${popAllocTotal()+popFree()}`);return}
+  if(diff>0&&popFree()<diff){toast(`空闲村民不足，最多${popAllocTotal()+popFree()}`);return}
   S.popAlloc[rk]=nv;
   save();updateUI();
 }

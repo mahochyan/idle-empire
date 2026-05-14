@@ -9,6 +9,7 @@ const CFG = {
   chapterResourceLevels: 10,      // 章节资源建筑上限（保留参数）
   maxUpgradeTime: 120,            // 建筑升级最大时间（秒）
   queueMultiplier: 3,             // 训练队列上限 = 训练上限 × 此值
+  popFoodCost: 0.1,               // 每个村民每秒消耗的食物
 
   // 资源定义
   res: {
@@ -90,7 +91,11 @@ const CFG = {
       cost:{wood:200,stone:150,food:220}, upkeep:0.28, trainTime:1, atk:24,def:18,spd:18, passive:'龙息1.3x+暴击15%', locked:true},
     cavalry_teutonic:{name:'条顿骑士',race:'兽人',row:'front',icon:'cavalry',tier:3,baseUnit:'cavalry',tag:'teutonic',
       cost:{wood:180,stone:200,food:180}, upkeep:0.28, trainTime:1, atk:18,def:26,spd:10, passive:'重甲格挡25%+反击', locked:true},
-    mage:{name:'法师',race:'亡灵',row:'back',icon:'mage',
+    cavalry:{name:'骑兵',race:'兽人',row:'front',icon:'cavalry',tier:0,baseUnit:'cavalry',
+      cost:{wood:40,stone:30,food:80}, upkeep:0.15, trainTime:1, atk:10,def:15,spd:14, passive:'闪避10%',locked:true},
+    spearman:{name:'长矛兵',race:'人类',row:'front',icon:'spearman',tier:0,baseUnit:'spearman',
+      cost:{wood:30,stone:60,food:40}, upkeep:0.15, trainTime:1, atk:7,def:10,spd:10, passive:'暴击10%',locked:true},
+    mage:{name:'法师',race:'亡灵',row:'back',icon:'mage',tier:2,baseUnit:'mage',
       cost:{wood:80,stone:60,food:80}, upkeep:0.3, trainTime:1, atk:15,def:8,spd:8, passive:'互易伤1.3x',locked:true}
   },
 
@@ -183,14 +188,14 @@ const CFG = {
     quarry:{name:'采石场',buffRes:'stone',buffBase:0.15,buffPerLv:0.2, build:{wood:50,stone:120,food:40,time:4}, upBase:{wood:5000,stone:6000,food:2500}, upCostLv:1.5},
     farm:{name:'农田',buffRes:'food',buffBase:0.15,buffPerLv:0.2, build:{wood:80,stone:80,food:200,time:4}, upBase:{wood:5000,stone:5000,food:6000}, upCostLv:1.5},
     barracks:{name:'营帐',build:{wood:300,stone:200,food:100,time:6}, upBase:{wood:1800,stone:1800,food:1000}, upCostLv:1.7},
-    infantry_camp:{name:'步兵营地',trains:'infantry',unitCapBase:4,unitCapPerLv:2,tier:0,
+    infantry_camp:{name:'步兵营地',trains:'infantry',unitCapBase:0,unitCapPerLv:4,tier:0,
       tierUpgrade:[
         {needBossId:5,  cost:{wood:500,stone:300,food:200},time:20},
         {needBossId:20, cost:{wood:2000,stone:1500,food:1000},time:45},
         {needBossId:40, cost:{wood:4000,stone:3000,food:2500},time:90},
         {needBossId:65, cost:{wood:8000,stone:6000,food:5000},time:150}
       ],build:{wood:180,stone:100,food:80,time:5},upBase:{wood:1000,stone:1000,food:800},upCostLv:1.1},
-    archer_range:{name:'弓兵营地',trains:'archer',unitCapBase:2,unitCapPerLv:2,tier:0,
+    archer_range:{name:'弓兵营地',trains:'archer',unitCapBase:0,unitCapPerLv:2,tier:0,
       tierUpgrade:[
         {needBossId:5,  cost:{wood:600,stone:300,food:200},time:20},
         {needBossId:20, cost:{wood:2500,stone:1500,food:1200},time:45},
@@ -203,14 +208,14 @@ const CFG = {
         {needBossId:40, cost:{wood:5000,stone:5000,food:4000},time:90},
         {needBossId:65, cost:{wood:10000,stone:8000,food:7000},time:150}
       ],build:{wood:220,stone:160,food:180,time:7},upBase:{wood:1000,stone:1000,food:1000},upCostLv:1.12},
-    spear_crypt:{name:'长矛兵营地',trains:'infantry',unitCapBase:1,unitCapPerLv:1,tier:0,needBoss:2,
+    spear_crypt:{name:'长矛兵营地',trains:'infantry',unitCapBase:1,unitCapPerLv:1,tier:0,needBoss:10,
       tierUpgrade:[
         {needBossId:5,  cost:{wood:500,stone:500,food:300},time:25},
         {needBossId:20, cost:{wood:2000,stone:2500,food:1500},time:50},
         {needBossId:40, cost:{wood:4500,stone:4500,food:3500},time:100},
         {needBossId:65, cost:{wood:9000,stone:9000,food:7000},time:160}
       ],build:{wood:160,stone:240,food:100,time:7},upBase:{wood:2000,stone:2000,food:1000},upCostLv:1.1},
-    mage_tower:{name:'法师塔',trains:'mage',unitCapBase:1,unitCapPerLv:1,tier:0,needBoss:2,
+    mage_tower:{name:'法师塔',trains:'mage',unitCapBase:1,unitCapPerLv:1,tier:2,needBoss:4,
       tierUpgrade:[
         {needBossId:5,  cost:{wood:800,stone:800,food:600},time:30},
         {needBossId:20, cost:{wood:3000,stone:3000,food:2500},time:60},

@@ -10,7 +10,7 @@ function updateUI(){
   document.getElementById('res-pop').textContent=popAllocTotal()+'/'+maxPop();
   document.getElementById('cap-wood').textContent='/'+cap;
   document.getElementById('cap-stone').textContent='/'+cap;
-  const netFood=prodRate('food')-totalUpkeep()-popAllocTotal()*0.1;
+  const netFood=prodRate('food')-totalUpkeep()-popAllocTotal()*(CFG.popFoodCost||0.1);
   const capFoodEl=document.getElementById('cap-food');
   capFoodEl.textContent=(netFood>=0?'+':'')+netFood.toFixed(1)+'/秒';
   capFoodEl.style.color=netFood<0?'#e06060':'';
@@ -42,7 +42,7 @@ function rHome(){
   const bossName=bossId?((CFG.enemies.find(e=>e.id===bossId)||{}).name||'?'):'';
   let h=`<div style="padding:4px 0">`;
 
-  // 城镇 + 人口分配 合并卡片
+  // 城镇 + 村民分配 合并卡片
   h+=`<div class="card">`;
   h+=`<h3 style="display:flex;justify-content:space-between;align-items:center">`;
   h+=`<span>${pix("home","card-pix")}${tc.name} <span style="color:#f0d060;font-size:12px">Lv.${tc.lv}</span></span>`;
@@ -55,14 +55,15 @@ function rHome(){
     h+=`<span style="font-size:10px;color:#666">需击败第${bossId}关Boss「${bossName}」</span>`;
   }
   h+=`</h3>`;
-  h+=`<div style="font-size:12px;color:#999;margin-bottom:4px">人口 ${popAllocTotal()}/${maxPop()} | 空闲 ${popFree()} | 仓库 ${storageCapacity()}</div>`;
+  h+=`<div style="display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#999;margin-bottom:4px">`;
+  h+=`<span>村民 ${popAllocTotal()}/${maxPop()} | 空闲 ${popFree()} | 仓库 ${storageCapacity()}</span>`;
+  if(canUp&&!tu)h+=`<button class="btn btn-go btn-sm" onclick="upgradeTown()">${pix("upgrade","mini")}升级城镇</button>`;
+  h+=`</div>`;
   if(tu){
     const pct=Math.floor((1-tu.timer/tu.timerEnd)*100);
     h+=`<div class="prog-wrap"><div class="prog-fill" style="width:${pct}%"></div></div>`;
-  } else if(canUp){
-    h+=`<button class="btn btn-go btn-sm" onclick="upgradeTown()">${pix("upgrade","mini")}升级城镇</button>`;
   }
-  h+=`<div style="border-top:1px solid #1e1e32;margin:8px 0 4px;padding-top:6px;font-size:10px;color:#666">${pix("pop","mini")}人口分配</div>`;
+  h+=`<div style="border-top:1px solid #1e1e32;margin:8px 0 4px;padding-top:6px;font-size:10px;color:#666">${pix("pop","mini")}村民分配</div>`;
   for(const[k,c] of Object.entries(CFG.res)){if(c.basePerPop===0)continue;
     const buf=buildingBuff(k);
     const rate=prodRate(k);
@@ -72,9 +73,10 @@ function rHome(){
     h+=`<button class="btn btn-ghost btn-xs" onclick="setPopAlloc('${k}',(S.popAlloc['${k}']||0)-1)" ${alloc<=0?"disabled":""}>−</button>`;
     h+=`<input type="text" inputmode="numeric" pattern="[0-9]*" value="${alloc}" onchange="setPopAlloc('${k}',parseInt(this.value)||0)" style="width:42px;text-align:center;font-weight:bold;color:#f0d060;background:#080912;border:2px solid #3a4158;font-family:inherit;font-size:12px">`;
     h+=`<button class="btn btn-ghost btn-xs" onclick="setPopAlloc('${k}',(S.popAlloc['${k}']||0)+1)" ${popFree()<=0?"disabled":""}>+</button>`;
-    const rawRate=k==='food'?rate-totalUpkeep()-popAllocTotal()*0.1:rate;
-    h+=`<span style="color:${rawRate>=0?'#40bf80':'#e06060'};margin-left:auto">${rawRate>=0?'+':''}${rawRate.toFixed(1)}/秒</span>`;
-    h+=`<span style="font-size:10px;color:#666">Buff ${buf>0?"+":""}${(buf*100).toFixed(0)}%${k==='food'?' | 口粮 -'+(totalUpkeep()+popAllocTotal()*0.1).toFixed(1):''}</span>`;
+    if(k==='food')h+=`<span style="font-size:10px;color:#666;margin-left:auto">口粮 -${(totalUpkeep()+popAllocTotal()*(CFG.popFoodCost||0.1)).toFixed(1)}</span>`;
+    const rawRate=k==='food'?rate-totalUpkeep()-popAllocTotal()*(CFG.popFoodCost||0.1):rate;
+    h+=`<span style="font-size:10px;color:#666;margin-left:${k==='food'?'2px':'auto'}">Buff ${buf>0?"+":""}${(buf*100).toFixed(0)}%</span>`;
+    h+=`<span style="color:${rawRate>=0?'#40bf80':'#e06060'};margin-left:2px">${rawRate>=0?'+':''}${rawRate.toFixed(1)}/秒</span>`;
     h+=`</div>`;
   }
   h+=`</div>`;
@@ -87,7 +89,7 @@ function rHome(){
   h+=`<div style="text-align:center;margin-bottom:8px"><button class="btn btn-ghost btn-sm" onclick="openSettings()">${pix('build','mini')}设置</button></div>`;
   if(S._testUnlocked){
     h+=`<div class="card"><h3>${pix('build','card-pix')}测试工具</h3>
-      <div class="train-custom" style="margin:4px 0"><span style="width:100px">木/石/食/科技</span><input id="test-all" type="text" inputmode="numeric" pattern="[0-9]*" value="10000" style="width:100px"><button class="btn btn-go btn-xs" onclick="addAllRes('test-all')">一键添加</button></div>
+      <div class="train-custom" style="margin:4px 0"><span style="width:100px">木/石/食/科技</span><input id="test-all" type="text" inputmode="numeric" pattern="[0-9]*" value="30000" style="width:100px"><button class="btn btn-go btn-xs" onclick="addAllRes('test-all')">一键添加</button></div>
       <div class="train-custom" style="margin:4px 0"><span style="width:100px">⚔ 战功</span><input id="test-merit" type="text" inputmode="numeric" pattern="[0-9]*" value="50" style="width:100px"><button class="btn btn-go btn-xs" onclick="addMerit('test-merit')">添加战功</button></div>
     </div>`;
   }
@@ -253,7 +255,7 @@ function rBuildCard(key, cfg){
   const buffLabel=cfg.buffRes&&st.state==='idle'&&st.lv>0?`<span style="font-size:12px;color:#40bf80">${pix(CFG.res[cfg.buffRes].icon,'sm')} ${CFG.res[cfg.buffRes].name} Buff: +${((st.lv*cfg.buffPerLv+cfg.buffBase)*100).toFixed(0)}%</span>`:'';
   const lockLabel=locked?`<span style="font-size:11px;color:#e06060">${pix('lock','mini')}需击败第${cfg.needBoss}个Boss</span>`:'';
   const rightLabel=lockLabel||buffLabel;
-  let h=`<div class="card" style="${locked||upLock?'opacity:.7':''}"><h3 style="display:flex;justify-content:space-between;align-items:center">`;
+  let h=`<div class="card" style="${locked?'opacity:.7':''}"><h3 style="display:flex;justify-content:space-between;align-items:center">`;
   h+=`<span>${pix(key,'card-pix')}${cfg.name}`;if(st.state==='idle'&&st.lv>0)h+=` <span style="color:#f0d060">Lv.${st.lv}</span>`;
   // 营帐特殊：显示出战上限
   if(key==='barracks')h+=` <span style="font-size:11px;color:#888">(出战上限${regMax()}人/格，每级+5)</span>`;
@@ -276,31 +278,32 @@ function rBuildCard(key, cfg){
     if(st.state==='tier_upgrading')h+=` → <span style="color:#40bf80">${tierLabels[bldTier+1]||'T'+(bldTier+1)}</span>`;
     h+=`</div>`;
   }
-  if(upLock)h+=`<div class="build-meta limit-warn">${pix('lock','mini')}${upLock}</div>`;
   if(st.state==='idle'){
     if(st.lv===0){
       const c=cfg.build;
       h+=`<div style="display:flex;justify-content:space-between;align-items:center">`;
       h+=`<span style="font-size:11px;color:#888">建造: ${costHtml(c)} | ${c.time}秒</span>`;
-      h+=`<button class="btn btn-go btn-sm" onclick="buildAct('${key}')" ${locked?'disabled':''}>建造</button>`;
+      h+=`<button class="btn btn-go btn-sm" style="width:80px;text-align:center" onclick="buildAct('${key}')" ${locked?'disabled':''}>建造</button>`;
       h+=`</div>`;
+      if(upLock)h+=`<div class="build-meta limit-warn" style="margin-top:2px">${pix('lock','mini')}${upLock}</div>`;
     }else{
       const uc=upCost(key);
       h+=`<div style="display:flex;justify-content:space-between;align-items:center">`;
       h+=`<span style="font-size:10px;color:#666">升级: ${costHtml(uc)} | ${uc.time}秒</span>`;
-      h+=`<button class="btn btn-go btn-sm" onclick="buildAct('${key}')" ${upLock?'disabled':''}>升级→Lv.${st.lv+1}</button>`;
+      h+=`<button class="btn btn-go btn-sm" style="width:80px;text-align:center" onclick="buildAct('${key}')" ${upLock?'disabled':''}>升级→Lv.${st.lv+1}</button>`;
       h+=`</div>`;
-      // 时代升级按钮
+      if(upLock)h+=`<div class="build-meta limit-warn" style="margin-top:2px">${pix('lock','mini')}${upLock}</div>`;
+      // 时代进阶按钮
       if(cfg.tierUpgrade&&st.lv>0){
         const tuCost=tierUpgradeCost(key);
         const tuLock=tierUpgradeLockReason(key);
         if(tuCost){
           const nextTier=bldTier+1;
-          h+=`<div style="margin-top:4px;display:flex;align-items:center;gap:4px;flex-wrap:wrap">`;
-          h+=`<span style="font-size:10px;color:#888">时代: ${pix('tech','mini')}${costHtml(tuCost)} | ${tuCost.time}秒</span>`;
-          h+=`<button class="btn btn-sm" style="font-size:10px;background:#2a2a1a;border:1px solid #6a6a3a;color:#f0d060;cursor:pointer" onclick="buildTierUpgradeAct('${key}')" ${tuLock?'disabled':''}>${pix('upgrade','mini')}→T${nextTier}</button>`;
-          if(tuLock)h+=`<span style="font-size:9px;color:#e06060">${tuLock}</span>`;
+          h+=`<div style="margin-top:4px;display:flex;justify-content:space-between;align-items:center">`;
+          h+=`<span style="font-size:10px;color:#888">进阶: ${costHtml(tuCost)} | ${tuCost.time}秒</span>`;
+          h+=`<button class="btn btn-go btn-sm" style="width:80px;text-align:center" onclick="buildTierUpgradeAct('${key}')" ${tuLock?'disabled':''}>进阶→T${nextTier}</button>`;
           h+=`</div>`;
+          if(tuLock)h+=`<div style="font-size:9px;color:#e06060;margin-top:2px">${tuLock}</div>`;
         }
       }
       // 军事学院已移除
@@ -337,7 +340,7 @@ function rBuild(){
 // ==================== 军营界面 ====================
 function rBarracks(){
   const tier=S._barracksTier||'t0';
-  let h=`<div style="padding:4px 0"><div style="font-size:12px;color:#888;margin:4px 0">总兵力 ${totalSoldiers()} | 营帐上限 ${regMax()}人/团 <span style="margin-left:10px;color:#e06060">口粮：-${totalUpkeep().toFixed(1)}/秒</span></div>`;
+  let h=`<div style="padding:4px 0"><div style="font-size:12px;color:#888;margin:4px 0">总兵力 ${totalSoldiers()} | 营帐上限 ${regMax()}人/团 <span style="margin-left:10px;color:#e06060">口粮消耗：-${totalUpkeep().toFixed(1)}/秒</span></div>`;
   const tierLabels={t0:'T0 基础',t1:'T1 进阶',t2:'T2 精锐',t3:'T3 终极',t4:'T4 传说'};
   h+=`<div style="display:flex;gap:4px;margin-bottom:6px">`;
   for(const[tk,tn] of Object.entries(tierLabels)){
@@ -349,11 +352,11 @@ function rBarracks(){
   // 收集当前tier的单位，按分支分组
   const branches={};
   for(const[k,c] of Object.entries(CFG.units)){
-    if(tier==='t0' && c.locked && c.baseUnit && c.baseUnit!==k) continue;
+    if(tier==='t0' && c.locked && c.baseUnit) continue;
     const ut=typeof c.tier==='number'?c.tier:0;
     if(tier==='t0' && ut!==0) continue;
     if(tier!=='t0' && ut!==tierNum) continue;
-    if(tier!=='t0' && c.baseUnit!=='infantry' && c.baseUnit!=='archer' && c.baseUnit!=='cavalry') continue;
+    if(tier!=='t0' && c.baseUnit!=='infantry' && c.baseUnit!=='archer' && c.baseUnit!=='cavalry' && c.baseUnit!=='mage') continue;
     const bu=c.baseUnit||k;
     if(!branches[bu])branches[bu]=[];
     branches[bu].push([k,c]);
