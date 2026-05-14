@@ -42,7 +42,7 @@ function buildingBuff(rk){
   const bk=Object.keys(CFG.buildings).find(k=>CFG.buildings[k].buffRes===rk);
   if(!bk)return 0;
   const cfg=CFG.buildings[bk],st=bldSt(bk);
-  if(st.state==='idle'&&st.lv>0)return cfg.buffBase+st.lv*cfg.buffPerLv;
+  if(st.state==='idle'&&st.lv>0)return cfg.bﾺse+st.lv*cfg.buffPerLv;
   return 0;
 }
 function townCfg(){return CFG.town.find(t=>t.lv===S.townLv)||CFG.town[0]}
@@ -228,9 +228,8 @@ function trainBuildingLabel(uk){
   const key=trainBuildingKey(uk);
   if(!key)return '';
   const cfg=CFG.buildings[key],st=bldSt(key);
-  if(st.lv<=0)return `${cfg.name}: \u672a\u5efa\u9020`;
-  const tLabel='T'+(st.tier||0);
-  return `${cfg.name}: Lv.${st.lv} ${tLabel}${st.state==='idle'?'':' / \u6682\u505c\u8bad\u7ec3'}`;
+  if(st.lv<=0)return `${cfg.name}: \未\建\造`;
+  return `${cfg.name}: Lv.${st.lv}${st.state==='idle'?'':' / \暂\停\训\练'}`;
 }
 function reserveHtml(uk){
   const cap=unitCap(uk);

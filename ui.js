@@ -71,7 +71,7 @@ function rHome(){
     h+=`<div style="display:flex;align-items:center;gap:6px;padding:3px 0;font-size:12px">`;
     h+=`<span style="width:60px">${pix(c.icon,"sm")} ${c.name}</span>`;
     h+=`<button class="btn btn-ghost btn-xs" onclick="setPopAlloc('${k}',(S.popAlloc['${k}']||0)-1)" ${alloc<=0?"disabled":""}>−</button>`;
-    h+=`<input type="text" inputmode="numeric" pattern="[0-9]*" value="${alloc}" onchange="setPopAlloc('${k}',parseInt(this.value)||0)" style="width:42px;text-align:center;font-weight:bold;color:#f0d060;background:#080912;border:2px solid #3a4158;font-family:inherit;font-size:12px">`;
+    h+=`<span style="width:36px;text-align:center;font-weight:bold;color:#f0d060;font-size:14px">${alloc}</span>`;
     h+=`<button class="btn btn-ghost btn-xs" onclick="setPopAlloc('${k}',(S.popAlloc['${k}']||0)+1)" ${popFree()<=0?"disabled":""}>+</button>`;
     if(k==='food')h+=`<span style="font-size:10px;color:#666;margin-left:auto">口粮 -${(totalUpkeep()+popAllocTotal()*(CFG.popFoodCost||0.1)).toFixed(1)}</span>`;
     const rawRate=k==='food'?rate-totalUpkeep()-popAllocTotal()*(CFG.popFoodCost||0.1):rate;
@@ -84,7 +84,11 @@ function rHome(){
   h+=`<div class="card"><h3>${pix("log","card-pix")}最近事件</h3><div style="line-height:18px;height:90px;overflow:hidden">`;
   const r=[...S.log].reverse().slice(0,5);
   if(!r.length)h+=`<div style="font-size:11px;color:#666">暂无</div>`;
-  else for(const e of r)h+=`<div style="font-size:10px;color:#555">[${e.time}] ${e.msg}</div>`;
+  else for(const e of r){
+    const isG=e.msg.startsWith('[驻军]');
+    const txt=isG?e.msg.replace('[驻军] ','').replace(/预警.*$/,'[防御预警]').replace(/【防御失败】.*$/,'[防御失败] 敌人来袭，城镇遭受损失').replace(/突破巡防.*$/,'[防御失败] 城镇遭受损失').replace(/被击退.*$/,'[防御成功]'):e.msg;
+    h+=`<div style="font-size:10px;color:${isG?'#c0a060':'#555'}">[${e.time}] ${txt}</div>`;
+  }
   h+=`</div></div>`;
   h+=`<div style="text-align:center;margin-bottom:8px"><button class="btn btn-ghost btn-sm" onclick="openSettings()">${pix('build','mini')}设置</button></div>`;
   if(S._testUnlocked){
@@ -376,23 +380,24 @@ function rBarracks(){
       }
     }
     const cap=unitCap(k);
-    let capInfo=`<span style="font-size:10px;color:#888">上限 ${cap} | 拥有 ${ow}</span>`;
+    const isVariantLocked=!(S.upgradedUnits||{})[k]&&c.locked;
+    let capInfo=isVariantLocked?'':`<span style="font-size:12px;margin-left:15px;color:#888">上限 ${cap} | 拥有 ${ow}</span>`;
     let card=`<div class="card" style="${muted}">
       <div style="display:flex;align-items:center;gap:8px">
         <span>${pix(c.icon,'lg')}</span>
-        <div style="flex:1;min-width:0"><strong style="cursor:pointer" onclick="openUnitDetail('${k}')">${c.name}</strong> <span style="font-size:10px;color:#aaa;margin-left:6px">${trainBuildingLabel(k)}</span> <span onclick="event.stopPropagation();openUnitDetail('${k}')" style="font-size:9px;padding:1px 5px;border:1px solid #3a4158;border-radius:0;color:#8890a6;cursor:pointer;display:inline-block;margin-left:6px">属性</span>
-          <div style="font-size:10px;color:#777">${c.passive} | ATK:${c.atk} DEF:${c.def}${c.tag?` | [${c.tag}]`:''}</div>
+        <div style="flex:1;min-width:0"><div style="display:flex;align-items:center;gap:6px"><strong style="cursor:pointer" onclick="openUnitDetail('${k}')">${c.name}</strong> <span style="font-size:10px;color:#aaa">${trainBuildingLabel(k)}</span> <span onclick="event.stopPropagation();openUnitDetail('${k}')" style="font-size:9px;padding:1px 5px;border:1px solid #3a4158;border-radius:0;color:#8890a6;cursor:pointer;display:inline-block">属性</span>${!isLockedVar&&unitCapLeft(k)<=0?`<span class="limit-warn" style="margin-left:auto;font-size:9px">${pix('lock','mini')}已达上限</span>`:''}</div>
+          <div style="font-size:10px;color:#777">${c.passive} | ATK:${c.atk} DEF:${c.def}${!isLockedVar&&c.tag?` | [${c.tag}]`:''}</div>
           <div style="font-size:12px;color:#666;line-height:14px;display:flex;justify-content:space-between;align-items:center">
-            <span>${costHtml(c.cost)}/人${(S.queue[k]||{}).reason?` <span class="limit-warn" style="margin-left:14px">${pix('lock','mini')}${S.queue[k].reason}</span>`:''}${lock?` <span class="limit-warn" style="margin-left:14px">${pix('lock','mini')}${lock}</span>`:''}</span>
-            ${queueTotal(k)>0?`<span onclick="event.stopPropagation();cancelQueue('${k}')" style="font-size:10px;line-height:12px;padding:0 4px;border:1px solid #3a4158;color:#8890a6;cursor:pointer;margin-right:6px;flex-shrink:0">取消队列</span>`:''}
+            <span>${costHtml(c.cost)}/人${(S.queue[k]||{}).reason?` <span class="limit-warn" style="margin-left:14px">${pix('lock','mini')}${S.queue[k].reason}</span>`:''}${!isLockedVar&&lock?` <span class="limit-warn" style="margin-left:14px">${pix('lock','mini')}${lock}</span>`:''}</span>
+            ${queueTotal(k)>0?`<span style="display:inline-flex;align-items:center;gap:5px;margin-right:6px;flex-shrink:0"><span style="font-size:10px;color:#888">训练队列 ${queueTotal(k)}人</span><span onclick="event.stopPropagation();cancelQueue('${k}')" style="font-size:10px;line-height:12px;padding:0 4px;border:1px solid #3a4158;color:#8890a6;cursor:pointer">取消队列</span></span>`:''}
           </div>
-          <div class="econ-note" style="line-height:16px">${capInfo}${unitCapLeft(k)<=0?` <span class="limit-warn" style="margin-left:8px">${pix('lock','mini')}已达上限</span>`:''}${queueTotal(k)>0?`<span style="margin-left:8px">| 训练队列 ${queueTotal(k)}人</span>`:''}</div>
-          ${isLockedVar?`<button class="btn btn-xs" onclick="${isRootUnlock?`unlockUnitRoot('${k}')`:`upgradeUnit('${researchInfo?.from||''}','${k}')`}" style="font-size:9px;padding:1px 6px;background:#2a2a1a;border-color:#6a6a3a;color:#f0d060;border:1px solid">研究 ${costHtml(researchInfo?.cost||{})}</button>`
-          :lock?'':`<div class="train-custom">
+          ${isLockedVar?`<div style="font-size:10px;color:#e06060;margin:2px 0">${lock.replace(/ ?\(科技点[^)]*\)/,'')}</div>`:''}
+          ${isLockedVar||lock?'':`<div class="train-custom">
             <input id="train-barracks-${k}" type="text" inputmode="numeric" pattern="[0-9]*" value="${(S._trainQty||{})[k]||1}" oninput="(S._trainQty||{})['${k}']=parseInt(this.value)||1">
             <button class="btn btn-go btn-xs" onclick="trainCustom('${k}','train-barracks-${k}')" ${disabled}>训练</button>
             <button class="btn btn-ghost btn-xs" onclick="trainMax('${k}','train-barracks-${k}')" ${disabled}>MAX</button>
             <button class="btn btn-danger btn-xs" onclick="dismissN('${k}',(S._trainQty||{})['${k}']||1)" style="background:#4a2830;border-color:#6a4050;color:#d09090">删除</button>
+            ${capInfo}
           </div>`}
         </div>
       </div></div>`;
