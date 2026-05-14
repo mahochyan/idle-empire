@@ -260,6 +260,8 @@ function rBuildCard(key, cfg){
   if(key==='warehouse'&&st.state==='idle'&&st.lv>0)h+=` <span style="font-size:11px;color:#f0d060">存储上限 ${storageCapacity()}</span>`;
   h+=`</span>${rightLabel}</h3>`;
   // 兵营类建筑：显示训练兵种和训练上限
+  const tierLabels=['T0\u57fa\u7840','T1\u8fdb\u9636','T2\u7cbe\u9510','T3\u7ec8\u6781'];
+  const bldTier=st.tier??0;
   if(cfg.trains){
     const baseK=cfg.trains;
     const repU=CFG.units[baseK]||Object.values(CFG.units).find(u=>u.baseUnit===baseK);
@@ -269,8 +271,6 @@ function rBuildCard(key, cfg){
     const nextCap=(cfg.unitCapBase||0) + nextLv * (cfg.unitCapPerLv||0);
     h+=`<div class="build-meta">\u8bad\u7ec3: ${pix(u.icon,'mini')}${u.name} | \u8bad\u7ec3\u4e0a\u9650 ${st.lv>0?cap:0}${st.lv>0?` \u2192 ${nextCap}`:` (\u5efa\u6210\u540e ${nextCap})`}</div>`;
     // \u65f6\u4ee3\u663e\u793a
-    const tierLabels=['T0\u57fa\u7840','T1\u8fdb\u9636','T2\u7cbe\u9510','T3\u7ec8\u6781'];
-    const bldTier=st.tier??0;
     h+=`<div class="build-meta">\u65f6\u4ee3: <span style="color:#f0d060">${tierLabels[bldTier]||'T'+bldTier}</span>`;
     if(st.state==='tier_upgrading')h+=` \u2192 <span style="color:#40bf80">${tierLabels[bldTier+1]||'T'+(bldTier+1)}</span>`;
     h+=`</div>`;
