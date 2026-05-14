@@ -89,6 +89,8 @@ const CFG = {
       cost:{wood:200,stone:150,food:220}, upkeep:0.28, trainTime:1, atk:24,def:18,spd:18, passive:'龙息1.3x+暴击15%', locked:true},
     cavalry_teutonic:{name:'条顿骑士',race:'兽人',row:'front',icon:'cavalry',tier:3,baseUnit:'cavalry',tag:'teutonic',
       cost:{wood:180,stone:200,food:180}, upkeep:0.28, trainTime:1, atk:18,def:26,spd:10, passive:'重甲格挡25%+反击', locked:true},
+    spearman:{name:'长矛兵',race:'人类',row:'front',icon:'spearman',
+      cost:{wood:30,stone:60,food:40}, upkeep:0.15, trainTime:1, atk:7,def:10,spd:10, passive:'暴击10%'},
     mage:{name:'法师',race:'亡灵',row:'back',icon:'mage',
       cost:{wood:80,stone:60,food:80}, upkeep:0.3, trainTime:1, atk:15,def:8,spd:8, passive:'互易伤1.3x',locked:true}
   },

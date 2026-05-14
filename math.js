@@ -78,12 +78,7 @@ function upgradeLockReason(key){
   if(cfg.storagePerLv && st.lv>=S.townLv*cap.warehouse) return `需升级城镇到Lv.${Math.floor(st.lv/cap.warehouse)+1}`;
   // 营帐：上限 = 城镇等级 × buildingCaps.barracks
   if(!cfg.trains&&!cfg.storagePerLv&&!cfg.buffRes && st.lv>=S.townLv*cap.barracks) return `需升级城镇到Lv.${Math.floor(st.lv/cap.barracks)+1}`;
-  // 资源建筑（伐木场/采石场/农田）：受章节Boss限制
-  if(cfg.buffRes&&st.lv>=resourceLevelCap()){
-    const nextBoss=CFG.enemies.find(e=>e.boss&&!S.defeated.includes(e.id));
-    return nextBoss?`已达${resourceCapText()}，击败${nextBoss.name}后继续升级`:`已达${resourceCapText()}`;
-  }
-  // 资源建筑：上限 = 城镇等级 × buildingCaps.resource
+  // 资源建筑（伐木场/采石场/农田）：上限 = 城镇等级 × buildingCaps.resource
   if(cfg.buffRes && st.lv>=S.townLv*cap.resource) return `需升级城镇到Lv.${Math.floor(st.lv/cap.resource)+1}`;
   return '';
 }
