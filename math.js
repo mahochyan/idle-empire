@@ -2,7 +2,7 @@
 let S = {
   res:{wood:300,stone:300,food:300,tech:0},
   buildings:{},
-  pool:{infantry:0,archer:0,cavalry:0,spearman:0,mage:0},
+  pool:{infantry:0,archer:0,mage:0},
   formation:{front:[],mid:[],back:[]},
   townLv:1,
   popAlloc:{wood:3,stone:3,food:4},
@@ -101,12 +101,13 @@ function baseUnitType(uk){
 function unitTag(uk){
   return CFG.units[uk]?.tag||null;
 }
-function innerCM(atkType,defType){
-  const atkTag=unitTag(atkType),defTag=unitTag(defType);
+// 统一克制结算：有tag优先innerCounters，无tag fallback到counters（避免双重结算）
+function cm(atk,def){
+  const atkTag=unitTag(atk),defTag=unitTag(def);
   if(atkTag&&defTag)return CFG.innerCounters[atkTag]?.[defTag]||1.0;
-  if(atkTag&&!defTag)return 1.0;
-  if(!atkTag&&defTag)return CFG.innerNoTagDef;
-  return 1.0;
+  if(atkTag&&!defTag)return CFG.innerCounters[atkTag]?._default||(CFG.counters[baseUnitType(atk)]?.[baseUnitType(def)]||1.0);
+  if(!atkTag&&defTag)return (CFG.innerNoTagDef||1.0)*(CFG.counters[baseUnitType(atk)]?.[baseUnitType(def)]||1.0);
+  return CFG.counters[baseUnitType(atk)]?.[baseUnitType(def)]||1.0;
 }
 function unlockedVariants(baseUk){
   const tree=CFG.unitUpgrades[baseUk]?.tree;
@@ -319,10 +320,6 @@ function totalUpkeep(){
   }
   return up;
 }
-function cm(atk,def){
-  const base=(CFG.counters[baseUnitType(atk)]?.[baseUnitType(def)]||1.0);
-  return base*innerCM(atk,def);
-}
 function mm(atk,def){
   if(atk==='mage'&&def!=='mage')return CFG.counters.mage[def]||1.0;
   if(atk!=='mage'&&def==='mage')return CFG.normalVsMage;
@@ -526,6 +523,13 @@ function addAllRes(inputId){
     S.res[rk]=Math.min((S.res[rk]||0)+n,rk==='tech'?999999:cap);
   }
   addLog(`一键添加木/石/食/科技点各+${n}`);
+  save();updateUI();
+}
+function addMerit(inputId){
+  const el=document.getElementById(inputId);
+  const n=Math.max(1,Math.floor(parseInt(el?.value,10)||0));
+  S.merit=(S.merit||0)+n;
+  addLog(`战功 +${n}`);
   save();updateUI();
 }
 
@@ -1294,8 +1298,11 @@ function endBattle(result){
       for(const u of S.formation[row]){lossByType[u.type]=(lossByType[u.type]||0)-u.count;}
     }
     for(const[k,v] of Object.entries(lossByType)){if(v>0)lossTotal+=v;}
-    // 发放奖励
+    // 发放奖励（含战功）
     let rewardHtml='';
+    const meritGain=e.boss?15+(Math.floor(e.id/10)-1)*10:Math.ceil(e.id/2)+1;
+    S.merit=(S.merit||0)+meritGain;
+    rewardHtml+=`<div style="font-size:11px;color:#c0a060">⚔ 战功 +${meritGain}</div>`;
     for(const[r,v] of Object.entries(e.reward)){
       S.res[r]=(S.res[r]||0)+v;if(S.res[r]>cap)S.res[r]=cap;
       rewardHtml+=`<div style="font-size:11px;color:#f0d060">${pix(CFG.res[r].icon,'mini')} ${CFG.res[r].name} +${v}</div>`;

@@ -26,7 +26,8 @@ CFG.invasions = [
     desc:'小股盗匪在林缘探路。',
     units:{infantry:[3,2]},
     reward:{wood:60,stone:30,food:40},
-    loss:{wood:40,food:40}
+    loss:{wood:40,food:40},
+    merit:2
   },
   {
     id:'grain_raiders',
@@ -34,7 +35,8 @@ CFG.invasions = [
     desc:'几名盗匪试图趁巡夜空隙偷走粮食。',
     units:{infantry:[4],archer:[2]},
     reward:{wood:70,stone:40,food:90},
-    loss:{food:80}
+    loss:{food:80},
+    merit:2
   },
   {
     id:'quarry_ambush',
@@ -43,7 +45,8 @@ CFG.invasions = [
     units:{infantry:[5,3]},
     reward:{wood:80,stone:110,food:50},
     loss:{stone:90},
-    minTownLv:2
+    minTownLv:2,
+    merit:3
   },
   {
     id:'night_archers',
@@ -52,7 +55,8 @@ CFG.invasions = [
     units:{infantry:[4],archer:[3,2]},
     reward:{wood:120,stone:80,food:90},
     loss:{wood:50,stone:50,food:50},
-    minTownLv:2
+    minTownLv:2,
+    merit:3
   },
   {
     id:'cavalry_probe',
@@ -61,7 +65,8 @@ CFG.invasions = [
     units:{cavalry:[4],infantry:[5]},
     reward:{wood:160,stone:120,food:130},
     loss:{wood:80,food:120},
-    requires:()=>bossDefeatedCount()>=1
+    requires:()=>bossDefeatedCount()>=1,
+    merit:5
   }
 ];
 
@@ -510,14 +515,15 @@ function applyGarrisonResult(inv,result){
     for(const k of Object.keys(CFG.res)){
       S.res[k]=Math.min(cap,(S.res[k]||0)+(reward[k]||0));
     }
-    S.merit=(S.merit||0)+1;
+    const meritGain=inv.merit||2;
+    S.merit=(S.merit||0)+meritGain;
   }else{
     loss=applyDefeatLoss();
   }
 
   const towerInfo=(result.towerShots>0)?` 箭塔射击${result.towerShots}次，造成${result.towerDmg}点伤害。`:'';
   const msg=win
-    ?`${inv.name}被击退，获得${formatGarrisonRes(reward)}，功勋+1。${towerInfo}`
+    ?`${inv.name}被击退，获得${formatGarrisonRes(reward)}，战功+${inv.merit||2}。${towerInfo}`
     :`${inv.name}突破巡防，损失${formatGarrisonRes(loss)}。${towerInfo}`;
   addGarrisonLog(msg,true);
 

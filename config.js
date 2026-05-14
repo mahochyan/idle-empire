@@ -24,7 +24,9 @@ const CFG = {
     sword_essence:{name:'剑士精魄',icon:'sword_essence'},
     bow_essence:{name:'弓手精魄',icon:'bow_essence'},
     crossbow_essence:{name:'弩手精魄',icon:'crossbow_essence'},
-    blade_essence:{name:'刺客精魄',icon:'blade_essence'}
+    blade_essence:{name:'刺客精魄',icon:'blade_essence'},
+    wind_essence:{name:'疾风精魄',icon:'wind_essence'},
+    iron_essence:{name:'铁壁精魄',icon:'iron_essence'}
   },
 
   // 城镇等级
@@ -48,13 +50,13 @@ const CFG = {
       cost:{wood:80,stone:40,food:60}, upkeep:0.08, trainTime:1, atk:8,def:12,spd:10, passive:'攻击+10%', locked:true},
     infantry_shield:{name:'重盾手',race:'人类',row:'front',icon:'infantry',tier:2,baseUnit:'infantry',tag:'shield',
       cost:{wood:100,stone:80,food:60}, upkeep:0.12, trainTime:1, atk:6,def:18,spd:7, passive:'格挡20%', locked:true},
-    infantry_spear:{name:'长矛扈从',race:'人类',row:'front',icon:'infantry',tier:2,baseUnit:'infantry',tag:'spear',
+    infantry_spear:{name:'长矛扈从',race:'人类',row:'front',icon:'spearman',tier:2,baseUnit:'infantry',tag:'spear',
       cost:{wood:80,stone:60,food:80}, upkeep:0.12, trainTime:1, atk:9,def:12,spd:11, passive:'反制剑系1.3x', locked:true},
     infantry_sword:{name:'双手剑士',race:'人类',row:'front',icon:'infantry',tier:2,baseUnit:'infantry',tag:'sword',
       cost:{wood:60,stone:40,food:100}, upkeep:0.12, trainTime:1, atk:13,def:9,spd:10, passive:'破盾1.3x', locked:true},
     infantry_fortress:{name:'堡垒巨盾',race:'人类',row:'front',icon:'infantry',tier:3,baseUnit:'infantry',tag:'shield',
       cost:{wood:150,stone:120,food:80}, upkeep:0.18, trainTime:1, atk:8,def:24,spd:7, passive:'格挡25%+每回合回复5%HP', locked:true},
-    infantry_ironrose:{name:'铁玫瑰',race:'人类',row:'front',icon:'infantry',tier:3,baseUnit:'infantry',tag:'spear',
+    infantry_ironrose:{name:'铁玫瑰',race:'人类',row:'front',icon:'spearman',tier:3,baseUnit:'infantry',tag:'spear',
       cost:{wood:120,stone:90,food:100}, upkeep:0.18, trainTime:1, atk:12,def:15,spd:12, passive:'反制剑系1.5x+暴击10%', locked:true},
     infantry_bloodrose:{name:'血蔷薇',race:'人类',row:'front',icon:'infantry',tier:3,baseUnit:'infantry',tag:'sword',
       cost:{wood:100,stone:70,food:130}, upkeep:0.18, trainTime:1, atk:18,def:11,spd:11, passive:'破盾1.5x+攻击+15%', locked:true},
@@ -75,10 +77,16 @@ const CFG = {
       cost:{wood:180,stone:150,food:120}, upkeep:0.24, trainTime:1, atk:18,def:18,spd:9, passive:'破甲射击1.5x+重装', locked:true},
     archer_shadowblade:{name:'幽影刃侍',race:'精灵',row:'back',icon:'archer',tier:3,baseUnit:'archer',tag:'blade',
       cost:{wood:150,stone:90,food:150}, upkeep:0.24, trainTime:1, atk:15,def:10,spd:19, passive:'闪避20%+暴击15%', locked:true},
-    cavalry:{name:'骑兵',race:'兽人',row:'front',icon:'cavalry',
-      cost:{wood:40,stone:30,food:80}, upkeep:0.15, trainTime:1, atk:10,def:15,spd:14, passive:'闪避10%'},
-    spearman:{name:'长矛兵',race:'人类',row:'front',icon:'spearman',
-      cost:{wood:30,stone:60,food:40}, upkeep:0.15, trainTime:1, atk:7,def:10,spd:10, passive:'暴击10%'},
+    cavalry_t1:{name:'侍从骑士',race:'兽人',row:'front',icon:'cavalry',tier:1,baseUnit:'cavalry',tag:'cavalry',
+      cost:{wood:120,stone:80,food:150}, upkeep:0.18, trainTime:1, atk:15,def:18,spd:16, passive:'冲锋+10%', locked:true},
+    cavalry_wind:{name:'猎风弩骑',race:'兽人',row:'front',icon:'cavalry',tier:2,baseUnit:'cavalry',tag:'wind',
+      cost:{wood:160,stone:100,food:180}, upkeep:0.22, trainTime:1, atk:18,def:15,spd:18, passive:'远程射击+暴击10%', locked:true},
+    cavalry_iron:{name:'重装骑士',race:'兽人',row:'front',icon:'cavalry',tier:2,baseUnit:'cavalry',tag:'iron',
+      cost:{wood:120,stone:160,food:150}, upkeep:0.22, trainTime:1, atk:14,def:22,spd:12, passive:'格挡20%', locked:true},
+    cavalry_dragon:{name:'破晓龙息',race:'兽人',row:'front',icon:'cavalry',tier:3,baseUnit:'cavalry',tag:'dragon',
+      cost:{wood:200,stone:150,food:220}, upkeep:0.28, trainTime:1, atk:24,def:18,spd:18, passive:'龙息1.3x+暴击15%', locked:true},
+    cavalry_teutonic:{name:'条顿骑士',race:'兽人',row:'front',icon:'cavalry',tier:3,baseUnit:'cavalry',tag:'teutonic',
+      cost:{wood:180,stone:200,food:180}, upkeep:0.28, trainTime:1, atk:18,def:26,spd:10, passive:'重甲格挡25%+反击', locked:true},
     mage:{name:'法师',race:'亡灵',row:'back',icon:'mage',
       cost:{wood:80,stone:60,food:80}, upkeep:0.3, trainTime:1, atk:15,def:8,spd:8, passive:'互易伤1.3x',locked:true}
   },
@@ -98,18 +106,40 @@ const CFG = {
   },
   normalVsMage:1.3,
 
-  // 盾矛剑内部克制（步兵升级线T2+内三角）
-  // atk → def 倍率：剑破盾、矛克剑、盾挡矛
-  // 盾矛剑内部克制（步兵升级线T2+内三角）
-  // atk → def 倍率：剑破盾、矛克剑、盾挡矛
-  // 弓弩刃内部克制（猎人升级线T2+内三角）
-  // atk → def 倍率：弓克刃、刃克弩、弩克弓
-  // 盾矛剑内部克制（步兵升级线T2+内三角）
-  // atk → def 倍率：剑破盾、矛克剑、盾挡矛
+  // ================================================================
+  // 二级克制矩阵 innerCounters（ATK tag × DEF tag，双方有tag时优先使用）
+  //
+  // ATK\DEF |无tag|步兵|弓兵|骑兵|大盾|长枪| 剑 | 弓 | 弩 | 刃 |疾风|铁壁|龙息|条顿
+  // ---------|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----
+  //   无tag  | 1.3 | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 | 1.1 | 1.1
+  //   步兵   | 1.3 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0
+  //   弓兵   | 1.3 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0
+  //   骑兵   | 1.3 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0
+  //   大盾   | 1.3 | 1.0 | 1.0 | 1.0 | 1.0 | 1.3 | 0.7 | 1.0 | 1.0 | 1.0 | 1.0 | 0.7 | 1.0 | 0.7
+  //   长枪   | 1.3 | 1.3 | 1.0 | 1.0 | 0.7 | 1.0 | 1.3 | 1.0 | 1.0 | 1.0 | 1.0 | 1.5 | 1.0 | 1.5
+  //    剑    | 1.3 | 1.3 | 1.0 | 1.0 | 1.3 | 0.7 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 0.7 | 1.0 | 0.7
+  //    弓    | 1.3 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0
+  //    弩    | 1.3 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0
+  //    刃    | 1.3 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0
+  //   疾风   | 1.3 | 1.2 | 1.0 | 1.2 | 1.5 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 0.7 | 1.0 | 0.7
+  //   铁壁   | 1.5 | 1.5 | 1.0 | 1.5 | 1.5 | 0.7 | 1.5 | 1.5 | 1.5 | 1.5 | 1.5 | 1.0 | 1.0 | 1.0
+  //   龙息   | 1.3 | 1.3 | 1.0 | 1.3 | 1.5 | 1.0 | 1.0 | 1.0 | 1.0 | 1.0 | 1.3 | 1.0 | 1.0 | 1.0
+  //   条顿   | 1.5 | 1.5 | 1.0 | 1.5 | 1.5 | 0.7 | 1.5 | 1.5 | 1.5 | 1.5 | 1.5 | 1.0 | 1.0 | 1.0
+  //
+  // 结算规则（cm函数）：
+  //   双方有tag → 只用上表 innerCounters
+  //   仅ATK有tag → _default || fallback到counters
+  //   仅DEF有tag → innerNoTagDef(0.85) × counters
+  //   双方无tag → 纯counters
+  // ================================================================
   innerCounters: {
-    shield:{shield:1.0,spear:1.3,sword:0.7,infantry:1.0},
-    spear:{shield:0.7,spear:1.0,sword:1.3,infantry:1.3},
-    sword:{shield:1.3,spear:0.7,sword:1.0,infantry:1.3}
+    shield:{shield:1.0,spear:1.3,sword:0.7,infantry:1.0,iron:0.7,teutonic:0.7},
+    spear:{shield:0.7,spear:1.0,sword:1.3,infantry:1.3,iron:1.5,teutonic:1.5},
+    sword:{shield:1.3,spear:0.7,sword:1.0,infantry:1.3,iron:0.7,teutonic:0.7},
+    wind:{wind:1.0,iron:0.7,teutonic:0.7,infantry:1.2,cavalry:1.2,shield:1.5,spear:1.0,sword:1.0,dragon:1.0,bow:1.0,crossbow:1.0,blade:1.0},
+    iron:{wind:1.5,iron:1.0,teutonic:1.0,infantry:1.5,cavalry:1.5,shield:1.5,spear:0.7,sword:1.5,dragon:1.0,bow:1.5,crossbow:1.5,blade:1.5,_default:1.5},
+    dragon:{wind:1.3,iron:1.0,teutonic:1.0,infantry:1.3,cavalry:1.3,shield:1.5,spear:1.0,sword:1.0,bow:1.0,crossbow:1.0,blade:1.0},
+    teutonic:{wind:1.5,iron:1.0,teutonic:1.0,infantry:1.5,cavalry:1.5,shield:1.5,spear:0.7,sword:1.5,dragon:1.0,bow:1.5,crossbow:1.5,blade:1.5,_default:1.5}
   },
   // 无 tag 单位受 tag 单位攻击时的倍率（T0/T1步兵无tag，被剑矛克制）
   innerNoTagDef:0.85,
@@ -185,8 +215,21 @@ const CFG = {
       archer_genoese:      { tier:3, name:'热那亚劲弩', tag:'crossbow', branches:[] },
       archer_shadowblade:  { tier:3, name:'幽影刃侍', tag:'blade', branches:[] }
     } },
-    cavalry:   { name:'骑兵线', icon:'cavalry',   tree:{cavalry:{tier:0,name:'骑兵',tag:null,branches:[]}} },
-    spearman:  { name:'枪兵线', icon:'spearman',  tree:{spearman:{tier:0,name:'枪兵',tag:null,branches:[]}} },
+    cavalry:   { name:'骑兵线', icon:'cavalry',   tree:{
+      cavalry:            { tier:0, name:'骑兵', tag:null,
+        branches:[{ to:'cavalry_t1', name:'侍从骑士→T1', cost:{wood:300,stone:200,food:250}, needTech:250, needMerit:8 }] },
+      cavalry_t1:         { tier:1, name:'侍从骑士', tag:'cavalry',
+        branches:[
+          { to:'cavalry_wind', name:'猎风弩骑(疾风)', cost:{wood:700,stone:500,food:600}, needTech:600, needMerit:15, needEssence:{type:'wind_essence',count:2} },
+          { to:'cavalry_iron', name:'重装骑士(铁壁)', cost:{wood:500,stone:700,food:600}, needTech:600, needMerit:15, needEssence:{type:'iron_essence',count:2} }
+        ]},
+      cavalry_wind:       { tier:2, name:'猎风弩骑', tag:'wind',
+        branches:[{ to:'cavalry_dragon', name:'破晓龙息', cost:{wood:2000,stone:1500,food:1800}, needTech:1200, needMerit:25, needEssence:{type:'wind_essence',count:3} }] },
+      cavalry_iron:       { tier:2, name:'重装骑士', tag:'iron',
+        branches:[{ to:'cavalry_teutonic', name:'条顿骑士', cost:{wood:1500,stone:2000,food:1500}, needTech:1200, needMerit:25, needEssence:{type:'iron_essence',count:3} }] },
+      cavalry_dragon:     { tier:3, name:'破晓龙息', tag:'dragon', branches:[] },
+      cavalry_teutonic:   { tier:3, name:'条顿骑士', tag:'teutonic', branches:[] }
+    } },
     mage:      { name:'法师线', icon:'mage',      tree:{mage:{tier:0,name:'法师',tag:null,branches:[]}} }
   },
 
@@ -201,7 +244,7 @@ const CFG = {
     infantry_camp:{name:'步兵营地',trains:'infantry',unitCapBase:4,unitCapPerLv:2,build:{wood:180,stone:100,food:80,time:5},upBase:{wood:1000,stone:1000,food:800},upCostLv:1.1},
     archer_range:{name:'猎手营地',trains:'archer',unitCapBase:2,unitCapPerLv:2,build:{wood:240,stone:100,food:100,time:6},upBase:{wood:1000,stone:1000,food:850},upCostLv:1.1},
     stable:{name:'骑兵训练场',trains:'cavalry',unitCapBase:1,unitCapPerLv:1,needBoss:1,build:{wood:220,stone:160,food:180,time:7},upBase:{wood:1000,stone:1000,food:1000},upCostLv:1.12},
-    spear_crypt:{name:'长矛兵营地',trains:'spearman',unitCapBase:1,unitCapPerLv:1,needBoss:2,build:{wood:160,stone:240,food:100,time:7},upBase:{wood:2000,stone:2000,food:1000},upCostLv:1.1},
+    spear_crypt:{name:'长矛兵营地',trains:'infantry',unitCapBase:1,unitCapPerLv:1,needBoss:2,build:{wood:160,stone:240,food:100,time:7},upBase:{wood:2000,stone:2000,food:1000},upCostLv:1.1},
     mage_tower:{name:'法师塔',trains:'mage',unitCapBase:1,unitCapPerLv:1,needBoss:2,build:{wood:500,stone:500,food:350,time:10},upBase:{wood:3000,stone:3000,food:2000},upCostLv:1.1},
     warehouse:{name:'仓库',storageBase:10000,storagePerLv:10000,build:{wood:200,stone:200,food:100,time:5},upBase:{wood:3000,stone:3000,food:3000},upCostLv:1.3},
     arrow_tower:{name:'箭塔',desc:'城防建筑，驻军战斗中对敌人自动射击',build:{wood:400,stone:350,food:150,time:10},upBase:{wood:1500,stone:1500,food:1000},upCostLv:1.2},

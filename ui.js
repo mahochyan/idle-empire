@@ -81,6 +81,7 @@ function rHome(){
   if(S._testUnlocked){
     h+=`<div class="card"><h3>${pix('build','card-pix')}测试工具</h3>
       <div class="train-custom" style="margin:4px 0"><span style="width:100px">木/石/食/科技</span><input id="test-all" type="text" inputmode="numeric" pattern="[0-9]*" value="10000" style="width:100px"><button class="btn btn-go btn-xs" onclick="addAllRes('test-all')">一键添加</button></div>
+      <div class="train-custom" style="margin:4px 0"><span style="width:100px">⚔ 战功</span><input id="test-merit" type="text" inputmode="numeric" pattern="[0-9]*" value="50" style="width:100px"><button class="btn btn-go btn-xs" onclick="addMerit('test-merit')">添加战功</button></div>
     </div>`;
   }
   h+=`</div>`;return h;
@@ -556,8 +557,8 @@ function rTech(){
   // 兵谱 — 总收纳
   if(!S._techFold)S._techFold={};
   const compFolded=S._techFold._compendium===true;
-  const treeOrder=['infantry','archer'];
-  const treeNames={infantry:'\u6b65\u5175\u7ebf',archer:'\u730e\u4eba\u7ebf'};
+  const treeOrder=['infantry','archer','cavalry'];
+  const treeNames={infantry:'\u6b65\u5175\u7ebf',archer:'\u730e\u4eba\u7ebf',cavalry:'\u9a91\u5175\u7ebf'};
 
   h+=`<div class="branch-header" onclick="S._techFold._compendium=!S._techFold._compendium;updateUI()">
     <span class="branch-arrow${compFolded?'':' open'}">\u25b6</span>
