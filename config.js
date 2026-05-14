@@ -30,16 +30,18 @@ const CFG = {
     iron_essence:{name:'铁壁精魄',icon:'iron_essence'}
   },
 
-  // 城镇等级
+  // 城镇等级（击败指定Boss关卡解锁）
   town: [
-    {lv:1,name:'小村庄',maxPop:10, needBoss:0},
-    {lv:2,name:'村庄',maxPop:20, needBoss:1},
-    {lv:3,name:'大村庄',maxPop:30, needBoss:2},
-    {lv:4,name:'小镇',maxPop:40, needBoss:3},
-    {lv:5,name:'城镇',maxPop:50, needBoss:5},
-    {lv:6,name:'大城镇',maxPop:60, needBoss:7},
-    {lv:7,name:'小城',maxPop:70, needBoss:10},
-    {lv:8,name:'城市',maxPop:80, needBoss:13}
+    {lv:1, name:'小村庄', maxPop:10, needBossId:0},
+    {lv:2, name:'村庄',   maxPop:20, needBossId:10},
+    {lv:3, name:'大村庄', maxPop:30, needBossId:20},
+    {lv:4, name:'小镇',   maxPop:40, needBossId:30},
+    {lv:5, name:'城镇',   maxPop:50, needBossId:40},
+    {lv:6, name:'大城镇', maxPop:60, needBossId:50},
+    {lv:7, name:'小城',   maxPop:70, needBossId:60},
+    {lv:8, name:'城市',   maxPop:80, needBossId:70},
+    {lv:9, name:'大城',   maxPop:95, needBossId:80},
+    {lv:10,name:'王都',   maxPop:110,needBossId:90}
   ],
 
   // 兵种
@@ -183,32 +185,37 @@ const CFG = {
     barracks:{name:'营帐',build:{wood:300,stone:200,food:100,time:6}, upBase:{wood:1800,stone:1800,food:1000}, upCostLv:1.7},
     infantry_camp:{name:'步兵营地',trains:'infantry',unitCapBase:4,unitCapPerLv:2,tier:0,
       tierUpgrade:[
-        {cost:{wood:500,stone:300,food:200},time:20},
-        {cost:{wood:2000,stone:1500,food:1000},time:45},
-        {cost:{wood:4000,stone:3000,food:2500},time:90}
+        {needBossId:5,  cost:{wood:500,stone:300,food:200},time:20},
+        {needBossId:20, cost:{wood:2000,stone:1500,food:1000},time:45},
+        {needBossId:40, cost:{wood:4000,stone:3000,food:2500},time:90},
+        {needBossId:65, cost:{wood:8000,stone:6000,food:5000},time:150}
       ],build:{wood:180,stone:100,food:80,time:5},upBase:{wood:1000,stone:1000,food:800},upCostLv:1.1},
-    archer_range:{name:'猎手营地',trains:'archer',unitCapBase:2,unitCapPerLv:2,tier:0,
+    archer_range:{name:'弓兵营地',trains:'archer',unitCapBase:2,unitCapPerLv:2,tier:0,
       tierUpgrade:[
-        {cost:{wood:600,stone:300,food:200},time:20},
-        {cost:{wood:2500,stone:1500,food:1200},time:45},
-        {cost:{wood:5000,stone:4000,food:3000},time:90}
+        {needBossId:5,  cost:{wood:600,stone:300,food:200},time:20},
+        {needBossId:20, cost:{wood:2500,stone:1500,food:1200},time:45},
+        {needBossId:40, cost:{wood:5000,stone:4000,food:3000},time:90},
+        {needBossId:65, cost:{wood:10000,stone:8000,food:6000},time:150}
       ],build:{wood:240,stone:100,food:100,time:6},upBase:{wood:1000,stone:1000,food:850},upCostLv:1.1},
     stable:{name:'骑兵训练场',trains:'cavalry',unitCapBase:1,unitCapPerLv:1,tier:1,needBoss:1,
       tierUpgrade:[
-        {cost:{wood:2500,stone:2000,food:2000},time:45},
-        {cost:{wood:5000,stone:5000,food:4000},time:90}
+        {needBossId:20, cost:{wood:2500,stone:2000,food:2000},time:45},
+        {needBossId:40, cost:{wood:5000,stone:5000,food:4000},time:90},
+        {needBossId:65, cost:{wood:10000,stone:8000,food:7000},time:150}
       ],build:{wood:220,stone:160,food:180,time:7},upBase:{wood:1000,stone:1000,food:1000},upCostLv:1.12},
     spear_crypt:{name:'长矛兵营地',trains:'infantry',unitCapBase:1,unitCapPerLv:1,tier:0,needBoss:2,
       tierUpgrade:[
-        {cost:{wood:500,stone:500,food:300},time:25},
-        {cost:{wood:2000,stone:2500,food:1500},time:50},
-        {cost:{wood:4500,stone:4500,food:3500},time:100}
+        {needBossId:5,  cost:{wood:500,stone:500,food:300},time:25},
+        {needBossId:20, cost:{wood:2000,stone:2500,food:1500},time:50},
+        {needBossId:40, cost:{wood:4500,stone:4500,food:3500},time:100},
+        {needBossId:65, cost:{wood:9000,stone:9000,food:7000},time:160}
       ],build:{wood:160,stone:240,food:100,time:7},upBase:{wood:2000,stone:2000,food:1000},upCostLv:1.1},
     mage_tower:{name:'法师塔',trains:'mage',unitCapBase:1,unitCapPerLv:1,tier:0,needBoss:2,
       tierUpgrade:[
-        {cost:{wood:800,stone:800,food:600},time:30},
-        {cost:{wood:3000,stone:3000,food:2500},time:60},
-        {cost:{wood:6000,stone:6000,food:5000},time:120}
+        {needBossId:5,  cost:{wood:800,stone:800,food:600},time:30},
+        {needBossId:20, cost:{wood:3000,stone:3000,food:2500},time:60},
+        {needBossId:40, cost:{wood:6000,stone:6000,food:5000},time:120},
+        {needBossId:65, cost:{wood:12000,stone:12000,food:10000},time:180}
       ],build:{wood:500,stone:500,food:350,time:10},upBase:{wood:3000,stone:3000,food:2000},upCostLv:1.1},
     warehouse:{name:'仓库',storageBase:10000,storagePerLv:10000,build:{wood:200,stone:200,food:100,time:5},upBase:{wood:3000,stone:3000,food:3000},upCostLv:1.3},
     arrow_tower:{name:'箭塔',desc:'城防建筑，驻军战斗中对敌人自动射击',build:{wood:400,stone:350,food:150,time:10},upBase:{wood:1500,stone:1500,food:1000},upCostLv:1.2},

@@ -49,12 +49,16 @@ function townCfg(){return CFG.town.find(t=>t.lv===S.townLv)||CFG.town[0]}
 function maxPop(){return townCfg().maxPop}
 function popAllocTotal(){return Object.values(S.popAlloc).reduce((a,b)=>a+b,0)}
 function popFree(){return Math.max(0,maxPop()-popAllocTotal())}
-function townUpgradeNeed(){
+function townUpgradeNeedBossId(){
   const next=CFG.town.find(t=>t.lv===S.townLv+1);
-  return next?next.needBoss:999;
+  return next?next.needBossId:999;
 }
 function townCanUpgrade(){
-  return S.townLv<CFG.town.length && bossDefeatedCount()>=townUpgradeNeed() && !S.townUpgrade;
+  if(S.townUpgrade)return false;
+  if(S.townLv>=CFG.town.length)return false;
+  const needId=townUpgradeNeedBossId();
+  if(needId===0)return true;
+  return S.defeated.includes(needId);
 }
 function bossDefeatedCount(){
   return CFG.enemies.filter(e=>e.boss&&S.defeated.includes(e.id)).length;
@@ -372,7 +376,7 @@ function tierUpgradeLockReason(key){
   const cfg=CFG.buildings[key],st=bldSt(key);
   if(!cfg.tierUpgrade||!cfg.tierUpgrade.length)return '无法时代升级';
   const currentTier=st.tier||0;
-  if(currentTier>=3)return '已达最高时代';
+  if(currentTier>=4)return '已达最高时代';
   if(!cfg.tierUpgrade[currentTier])return '无法继续升级';
   if(st.state!=='idle'){
     if(st.state==='building')return '建造中';
@@ -381,6 +385,10 @@ function tierUpgradeLockReason(key){
     return '建设中';
   }
   const upg=cfg.tierUpgrade[currentTier];
+  if(upg.needBossId&&!S.defeated.includes(upg.needBossId)){
+    const be=CFG.enemies.find(e=>e.id===upg.needBossId);
+    return `需击败第${upg.needBossId}关Boss「${be?.name||'?'}」`;
+  }
   const cost=upg.cost;
   if(S.res.wood<cost.wood||S.res.stone<cost.stone||S.res.food<cost.food)return '资源不足';
   return '';
@@ -396,7 +404,7 @@ function buildTierUpgradeAct(key){
   const cfg=CFG.buildings[key],st=bldSt(key);
   if(st.state!=='idle'){toast(st.state==='building'?'建造中':st.state==='upgrading'?'升级中':'时代升级中');return}
   const currentTier=st.tier||0;
-  if(currentTier>=3){toast('已达最高时代');return}
+  if(currentTier>=4){toast('已达最高时代');return}
   const upg=cfg.tierUpgrade?.[currentTier];
   if(!upg){toast('无法继续升级');return}
   const cost=upg.cost;
@@ -411,7 +419,7 @@ function buildTierUpgradeAct(key){
   save();updateUI();
 }
 function upgradeTown(){
-  if(!townCanUpgrade()){toast(`需击败${townUpgradeNeed()}个Boss才能升级城镇`);return}
+  if(!townCanUpgrade()){const bid=townUpgradeNeedBossId();const be=CFG.enemies.find(e=>e.id===bid);toast(`需击败第${bid}关Boss「${be?.name||'?'}」才能升级城镇`);return}
   if(popAllocTotal()>CFG.town.find(t=>t.lv===S.townLv+1).maxPop){toast('请先减少人口分配');return}
   const bt=CFG.buildingTimes;
   const rawTime=bt.cap1Base+(S.townLv-1)*bt.cap1PerLv;
