@@ -260,7 +260,7 @@ function rBuildCard(key, cfg){
   if(key==='warehouse'&&st.state==='idle'&&st.lv>0)h+=` <span style="font-size:11px;color:#f0d060">存储上限 ${storageCapacity()}</span>`;
   h+=`</span>${rightLabel}</h3>`;
   // 兵营类建筑：显示训练兵种和训练上限
-  const tierLabels=['T0\u57fa\u7840','T1\u8fdb\u9636','T2\u7cbe\u9510','T3\u7ec8\u6781'];
+  const tierLabels=['T0基础','T1进阶','T2精锐','T3终极'];
   const bldTier=st.tier??0;
   if(cfg.trains){
     const baseK=cfg.trains;
@@ -269,41 +269,45 @@ function rBuildCard(key, cfg){
     const cap=unitCap(baseK);
     const nextLv=st.lv+(st.lv===0?1:1);
     const nextCap=(cfg.unitCapBase||0) + nextLv * (cfg.unitCapPerLv||0);
-    h+=`<div class="build-meta">\u8bad\u7ec3: ${pix(u.icon,'mini')}${u.name} | \u8bad\u7ec3\u4e0a\u9650 ${st.lv>0?cap:0}${st.lv>0?` \u2192 ${nextCap}`:` (\u5efa\u6210\u540e ${nextCap})`}</div>`;
-    // \u65f6\u4ee3\u663e\u793a
-    h+=`<div class="build-meta">\u65f6\u4ee3: <span style="color:#f0d060">${tierLabels[bldTier]||'T'+bldTier}</span>`;
-    if(st.state==='tier_upgrading')h+=` \u2192 <span style="color:#40bf80">${tierLabels[bldTier+1]||'T'+(bldTier+1)}</span>`;
+    h+=`<div class="build-meta">训练: ${pix(u.icon,'mini')}${u.name} | 训练上限 ${st.lv>0?cap:0}${st.lv>0?` → ${nextCap}`:` (建成后 ${nextCap})`}</div>`;
+    // 时代显示
+    h+=`<div class="build-meta">时代: <span style="color:#f0d060">${tierLabels[bldTier]||'T'+bldTier}</span>`;
+    if(st.state==='tier_upgrading')h+=` → <span style="color:#40bf80">${tierLabels[bldTier+1]||'T'+(bldTier+1)}</span>`;
     h+=`</div>`;
   }
   if(upLock)h+=`<div class="build-meta limit-warn">${pix('lock','mini')}${upLock}</div>`;
   if(st.state==='idle'){
     if(st.lv===0){
       const c=cfg.build;
-      h+=`<div style="font-size:11px;line-height:14px;color:#888">建造: ${costHtml(c)} | ${c.time}秒</div>`;
-      h+=`<button class="btn btn-go btn-sm" onclick="buildAct('${key}')" ${locked?'disabled':''}>${pix('build','mini')}建造</button>`;
+      h+=`<div style="display:flex;justify-content:space-between;align-items:center">`;
+      h+=`<span style="font-size:11px;color:#888">建造: ${costHtml(c)} | ${c.time}秒</span>`;
+      h+=`<button class="btn btn-go btn-sm" onclick="buildAct('${key}')" ${locked?'disabled':''}>建造</button>`;
+      h+=`</div>`;
     }else{
       const uc=upCost(key);
-      h+=`<div style="font-size:10px;line-height:14px;color:#666">\u5347\u7ea7: ${costHtml(uc)} | ${uc.time}\u79d2</div>`;
-      h+=`<button class="btn btn-go btn-sm" onclick="buildAct('${key}')" ${upLock?'disabled':''}>${pix('upgrade','mini')}\u5347\u7ea7\u2192Lv.${st.lv+1}</button>`;
-      // \u65f6\u4ee3\u5347\u7ea7\u6309\u94ae
+      h+=`<div style="display:flex;justify-content:space-between;align-items:center">`;
+      h+=`<span style="font-size:10px;color:#666">升级: ${costHtml(uc)} | ${uc.time}秒</span>`;
+      h+=`<button class="btn btn-go btn-sm" onclick="buildAct('${key}')" ${upLock?'disabled':''}>升级→Lv.${st.lv+1}</button>`;
+      h+=`</div>`;
+      // 时代升级按钮
       if(cfg.tierUpgrade&&st.lv>0){
         const tuCost=tierUpgradeCost(key);
         const tuLock=tierUpgradeLockReason(key);
         if(tuCost){
           const nextTier=bldTier+1;
           h+=`<div style="margin-top:4px;display:flex;align-items:center;gap:4px;flex-wrap:wrap">`;
-          h+=`<span style="font-size:10px;color:#888">\u65f6\u4ee3: ${pix('tech','mini')}${costHtml(tuCost)} | ${tuCost.time}\u79d2</span>`;
-          h+=`<button class="btn btn-sm" style="font-size:10px;background:#2a2a1a;border:1px solid #6a6a3a;color:#f0d060;cursor:pointer" onclick="buildTierUpgradeAct('${key}')" ${tuLock?'disabled':''}>${pix('upgrade','mini')}\u2192T${nextTier}</button>`;
+          h+=`<span style="font-size:10px;color:#888">时代: ${pix('tech','mini')}${costHtml(tuCost)} | ${tuCost.time}秒</span>`;
+          h+=`<button class="btn btn-sm" style="font-size:10px;background:#2a2a1a;border:1px solid #6a6a3a;color:#f0d060;cursor:pointer" onclick="buildTierUpgradeAct('${key}')" ${tuLock?'disabled':''}>${pix('upgrade','mini')}→T${nextTier}</button>`;
           if(tuLock)h+=`<span style="font-size:9px;color:#e06060">${tuLock}</span>`;
           h+=`</div>`;
         }
       }
-      // \u519b\u4e8b\u5b66\u9662\u5df2\u79fb\u9664
+      // 军事学院已移除
     }
   }else{
     const pct=st.timerEnd>0?((st.timerEnd-st.timer)/st.timerEnd*100).toFixed(0):0;
-    const stateLabels={building:'\u5efa\u9020',upgrading:'\u5347\u7ea7',tier_upgrading:'\u65f6\u4ee3\u5347\u7ea7'};
-    h+=`<div class="timer-text pulsing">${pix('timer','mini')} ${stateLabels[st.state]||st.state}\u4e2d... ${st.timer}\u79d2</div>`;
+    const stateLabels={building:'建造',upgrading:'升级',tier_upgrading:'时代升级'};
+    h+=`<div class="timer-text pulsing">${pix('timer','mini')} ${stateLabels[st.state]||st.state}中... ${st.timer}秒</div>`;
     h+=`<div class="prog-wrap"><div class="prog-fill" style="width:${pct}%"></div></div>`;
   }
   h+=`</div>`;

@@ -86,10 +86,6 @@ function regMax(){
   const s=bldSt('barracks');
   return 5+(s.state==='idle'?s.lv*5:0);
 }
-// 军事学院已移除，解锁条件见 unitUpgrades 中的 needTech/needMerit/needEssence
-function bossEssenceCount(){
-  return Object.values(S.essence||{}).reduce((a,b)=>a+(b||0),0);
-}
 function baseUnitType(uk){
   return CFG.units[uk]?.baseUnit||uk;
 }
@@ -103,78 +99,6 @@ function cm(atk,def){
   if(atkTag&&!defTag)return CFG.innerCounters[atkTag]?._default||(CFG.counters[baseUnitType(atk)]?.[baseUnitType(def)]||1.0);
   if(!atkTag&&defTag)return (CFG.innerNoTagDef||1.0)*(CFG.counters[baseUnitType(atk)]?.[baseUnitType(def)]||1.0);
   return CFG.counters[baseUnitType(atk)]?.[baseUnitType(def)]||1.0;
-}
-function unlockedVariants(baseUk){
-  const tree=CFG.unitUpgrades[baseUk]?.tree;
-  if(!tree)return[];
-  const result=[];
-  for(const[,node] of Object.entries(tree)){
-    for(const br of node.branches||[]){
-      if(CFG.units[br.to]&&S.upgradedUnits[br.to]) result.push(br.to);
-    }
-  }
-  return result;
-}
-function upgradeUnit(fromKey,toKey){
-  if(S.upgradedUnits[toKey]){toast('已解锁');return;}
-  const tree=CFG.unitUpgrades[baseUnitType(fromKey)]?.tree;
-  if(!tree)return;
-  const node=tree[fromKey];
-  if(!node)return;
-  const branch=node.branches.find(b=>b.to===toKey);
-  if(!branch)return;
-  // 科技点
-  const needTech=branch.needTech||0;
-  if((S.res.tech||0)<needTech){toast('科技点不足');return;}
-  // 战功
-  const needMerit=branch.needMerit||0;
-  if((S.merit||0)<needMerit){toast('战功不足');return;}
-  // 精魄
-  const needEssence=branch.needEssence||null;
-  if(needEssence){
-    if((S.essence[needEssence.type]||0)<needEssence.count){
-      const ei=CFG.essences?.[needEssence.type];
-      toast((ei?.name||needEssence.type)+'不足');return;
-    }
-  }
-  // 资源
-  const cost=branch.cost;
-  if(S.res.wood<cost.wood||S.res.stone<cost.stone||S.res.food<cost.food){toast('资源不足');return;}
-  S.res.wood-=cost.wood;S.res.stone-=cost.stone;S.res.food-=cost.food;
-  S.res.tech-=needTech;
-  S.merit-=needMerit;
-  if(needEssence){S.essence[needEssence.type]-=needEssence.count;}
-  S.upgradedUnits[toKey]=true;
-  addLog('解锁'+(CFG.units[toKey]?CFG.units[toKey].name:toKey)+'兵种升级');
-  save();updateUI();
-}
-function unlockUnitRoot(unitKey){
-  if(S.upgradedUnits[unitKey]){toast('已解锁');return;}
-  const tree=CFG.unitUpgrades[baseUnitType(unitKey)]?.tree;
-  if(!tree)return;
-  const node=tree[unitKey];
-  if(!node||!node.unlock)return;
-  const ul=node.unlock;
-  const needTech=ul.needTech||0;
-  if((S.res.tech||0)<needTech){toast('科技点不足');return;}
-  const needMerit=ul.needMerit||0;
-  if((S.merit||0)<needMerit){toast('战功不足');return;}
-  const needEssence=ul.needEssence||null;
-  if(needEssence){
-    if((S.essence[needEssence.type]||0)<needEssence.count){
-      const ei=CFG.essences?.[needEssence.type];
-      toast((ei?.name||needEssence.type)+'不足');return;
-    }
-  }
-  const cost=ul.cost;
-  if(S.res.wood<cost.wood||S.res.stone<cost.stone||S.res.food<cost.food){toast('资源不足');return;}
-  S.res.wood-=cost.wood;S.res.stone-=cost.stone;S.res.food-=cost.food;
-  S.res.tech-=needTech;
-  S.merit-=needMerit;
-  if(needEssence){S.essence[needEssence.type]-=needEssence.count;}
-  S.upgradedUnits[unitKey]=true;
-  addLog('解锁'+(CFG.units[unitKey]?CFG.units[unitKey].name:unitKey)+'兵种');
-  save();updateUI();
 }
 function trainBuildingKey(uk){
   const bu=baseUnitType(uk);
@@ -225,7 +149,7 @@ function queueTotal(uk){
   return q?q.count:0;
 }
 function queueMax(uk){
-  return unitCap(uk)*5;
+  return unitCap(uk)*(CFG.queueMultiplier||5);
 }
 function processQueue(){
   let changed=false;
@@ -236,7 +160,7 @@ function processQueue(){
     const tt=CFG.units[uk].trainTime||1;
     if(q.timer>0){q.timer--;}
     if(q.timer<=0&&q.count>0){
-      if(unitCapLeft(uk)<=0){q.reason='已达上限';continue;}
+      if(unitCapLeft(uk)<=0)continue;
       const cost=CFG.units[uk].cost;
       if(S.res.wood<cost.wood||S.res.stone<cost.stone||S.res.food<cost.food){q.reason='资源不足，暂停生产';continue;}
       S.res.wood-=cost.wood;S.res.stone-=cost.stone;S.res.food-=cost.food;

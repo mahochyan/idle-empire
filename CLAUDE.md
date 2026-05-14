@@ -28,13 +28,14 @@
 | `sprites.js` | 像素图标：32×32 像素画字符网格 + `gridToRects()` → SVG data URI |
 | `math.js` | 全部游戏逻辑：状态 `S`、辅助函数、存档、tick、操作、战斗系统、编队弹窗、单位详情 |
 | `garrison.js` | 驻军入侵系统：入侵模板、阶段状态机、无头自动战斗、箭塔攻击、奖励/惩罚、日志 |
+| `technology.js` | 科技树系统：科技树节点配置、解锁逻辑、科技点消耗 |
 | `ui.js` | UI 渲染：updateUI、各标签页渲染、长按加速、导航、toast |
 | `设计框架.md` | 完整设计文档（资源/兵种/战斗/英雄/远征/周目） |
 | `开发日记.md` | 开发记录与更新日志 |
 
 ## 代码架构
 
-### 六文件分工
+### 文件分工
 
 ```
 index.html     ───  DOM 骨架、CSS 皮肤、弹窗/战斗屏容器
@@ -43,10 +44,11 @@ levels.js      ───  CFG.enemies 关卡配置 + CFG.invasions 入侵配置
 sprites.js     ───  pixelIcons 对象 + pix() 渲染函数
 math.js        ───  S状态 + 全部游戏逻辑（不含UI渲染和驻军系统）
 garrison.js    ───  驻军入侵系统（阶段状态机/自动战斗/箭塔/奖励惩罚）
+technology.js  ───  科技树系统（科技树节点配置/解锁逻辑/科技点消耗）
 ui.js          ───  HTML拼接渲染 + DOM事件绑定 + 导航
 ```
 
-加载顺序（严格不可变）：`config.js` → `levels.js` → `sprites.js` → `math.js` → `garrison.js` → `ui.js`
+加载顺序（严格不可变）：`config.js` → `levels.js` → `sprites.js` → `math.js` → `garrison.js` → `technology.js` → `ui.js`
 
 ### 核心全局对象
 
@@ -88,11 +90,10 @@ S 序列化 → localStorage 存档
 ## 开发规范
 
 1. 配置数据放 `CFG`，游戏状态放 `S`，战斗临时放 `B`
-2. 保持手机框体 + 底部导航的 UI 布局（宽400px，小屏自适应）
-3. 驼峰命名，配置键名与设计文档一致
-4. 所有 UI 文本使用中文（JS中字符串内中文需写 `\uXXXX` unicode转义，如 `'建造'` = '建造'）
+2. 写新代码时参考文件分工，再决定代码存放的位置
+3. 保持手机框体 + 底部导航的 UI 布局（宽400px，小屏自适应）
+4. 驼峰命名，配置键名与设计文档一致
 5. 提交前确认存档兼容性
-6. 写完代码立即 commit + push，不积累未提交更改
 
 ## 关键陷阱
 
