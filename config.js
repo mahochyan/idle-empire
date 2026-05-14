@@ -77,6 +77,8 @@ const CFG = {
       cost:{wood:180,stone:150,food:120}, upkeep:0.24, trainTime:1, atk:18,def:18,spd:9, passive:'破甲射击1.5x+重装', locked:true},
     archer_shadowblade:{name:'幽影刃侍',race:'精灵',row:'back',icon:'archer',tier:3,baseUnit:'archer',tag:'blade',
       cost:{wood:150,stone:90,food:150}, upkeep:0.24, trainTime:1, atk:15,def:10,spd:19, passive:'闪避20%+暴击15%', locked:true},
+    cavalry:{name:'骑兵',race:'兽人',row:'front',icon:'cavalry', tier:0, baseUnit:'cavalry',
+      cost:{wood:40,stone:30,food:80}, upkeep:0.15, trainTime:1, atk:10,def:15,spd:14, passive:'闪避10%'},
     cavalry_t1:{name:'侍从骑士',race:'兽人',row:'front',icon:'cavalry',tier:1,baseUnit:'cavalry',tag:'cavalry',
       cost:{wood:120,stone:80,food:150}, upkeep:0.18, trainTime:1, atk:15,def:18,spd:16, passive:'冲锋+10%', locked:true},
     cavalry_wind:{name:'猎风弩骑',race:'兽人',row:'front',icon:'cavalry',tier:2,baseUnit:'cavalry',tag:'wind',
@@ -87,6 +89,8 @@ const CFG = {
       cost:{wood:200,stone:150,food:220}, upkeep:0.28, trainTime:1, atk:24,def:18,spd:18, passive:'龙息1.3x+暴击15%', locked:true},
     cavalry_teutonic:{name:'条顿骑士',race:'兽人',row:'front',icon:'cavalry',tier:3,baseUnit:'cavalry',tag:'teutonic',
       cost:{wood:180,stone:200,food:180}, upkeep:0.28, trainTime:1, atk:18,def:26,spd:10, passive:'重甲格挡25%+反击', locked:true},
+    spearman:{name:'长矛兵',race:'人类',row:'front',icon:'spearman',
+      cost:{wood:30,stone:60,food:40}, upkeep:0.15, trainTime:1, atk:7,def:10,spd:10, passive:'暴击10%'},
     mage:{name:'法师',race:'亡灵',row:'back',icon:'mage',
       cost:{wood:80,stone:60,food:80}, upkeep:0.3, trainTime:1, atk:15,def:8,spd:8, passive:'互易伤1.3x',locked:true}
   },

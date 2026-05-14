@@ -41,26 +41,32 @@ function rHome(){
   const tu=S.townUpgrade;
   let h=`<div style="padding:4px 0">`;
 
-  h+=`<div class="card"><h3>${pix("home","card-pix")}${tc.name} <span style="color:#f0d060;font-size:12px">Lv.${tc.lv}</span></h3>`;
-  h+=`<div style="font-size:12px;color:#999">人口 ${popAllocTotal()}/${maxPop()} | 空闲 ${popFree()} | 仓库 ${storageCapacity()}</div>`;
+  // 城镇 + 人口分配 合并卡片
+  h+=`<div class="card">`;
+  h+=`<h3 style="display:flex;justify-content:space-between;align-items:center">`;
+  h+=`<span>${pix("home","card-pix")}${tc.name} <span style="color:#f0d060;font-size:12px">Lv.${tc.lv}</span></span>`;
   if(tu){
     const pct=Math.floor((1-tu.timer/tu.timerEnd)*100);
-    h+=`<div style="margin-top:4px"><span style="color:#f0d060;font-size:11px">城镇升级中...</span> <span style="color:#888;font-size:10px">${tu.timer}秒</span></div>`;
-    h+=`<div class="prog-wrap"><div class="prog-fill" style="width:${pct}%"></div></div>`;
+    h+=`<span style="font-size:10px;color:#f0d060">升级中 ${tu.timer}秒</span>`;
+  } else if(canUp){
+    h+=`<span style="font-size:10px;color:#40bf80">可升级 → ${(CFG.town.find(t=>t.lv===S.townLv+1)||{}).name||"?"} (${(CFG.town.find(t=>t.lv===S.townLv+1)||{}).maxPop||"?"}人)</span>`;
   } else {
-    h+=`<div style="font-size:11px;color:#666">击败Boss ${bossDefeatedCount()}/${upNeed}`;
-    if(canUp)h+=` <span style="color:#40bf80">可升级 → ${(CFG.town.find(t=>t.lv===S.townLv+1)||{}).name||"?"} (人口${(CFG.town.find(t=>t.lv===S.townLv+1)||{}).maxPop||"?"})</span>`;
-    h+=`</div>`;
-    if(canUp)h+=`<button class="btn btn-go btn-sm" onclick="upgradeTown()" style="margin-top:4px">${pix("upgrade","mini")}升级城镇</button>`;
+    h+=`<span style="font-size:10px;color:#666">击败Boss ${bossDefeatedCount()}/${upNeed}</span>`;
   }
-  h+=`</div>`;
-
-  h+=`<div class="card"><h3>${pix("pop","card-pix")}人口分配</h3>`;
+  h+=`</h3>`;
+  h+=`<div style="font-size:12px;color:#999;margin-bottom:4px">人口 ${popAllocTotal()}/${maxPop()} | 空闲 ${popFree()} | 仓库 ${storageCapacity()}</div>`;
+  if(tu){
+    const pct=Math.floor((1-tu.timer/tu.timerEnd)*100);
+    h+=`<div class="prog-wrap"><div class="prog-fill" style="width:${pct}%"></div></div>`;
+  } else if(canUp){
+    h+=`<button class="btn btn-go btn-sm" onclick="upgradeTown()">${pix("upgrade","mini")}升级城镇</button>`;
+  }
+  h+=`<div style="border-top:1px solid #1e1e32;margin:8px 0 4px;padding-top:6px;font-size:10px;color:#666">${pix("pop","mini")}人口分配</div>`;
   for(const[k,c] of Object.entries(CFG.res)){if(c.basePerPop===0)continue;
     const buf=buildingBuff(k);
     const rate=prodRate(k);
     const alloc=S.popAlloc[k]||0;
-    h+=`<div style="display:flex;align-items:center;gap:6px;padding:4px 0;font-size:12px">`;
+    h+=`<div style="display:flex;align-items:center;gap:6px;padding:3px 0;font-size:12px">`;
     h+=`<span style="width:60px">${pix(c.icon,"sm")} ${c.name}</span>`;
     h+=`<button class="btn btn-ghost btn-xs" onclick="setPopAlloc('${k}',(S.popAlloc['${k}']||0)-1)" ${alloc<=0?"disabled":""}>−</button>`;
     h+=`<input type="text" inputmode="numeric" pattern="[0-9]*" value="${alloc}" onchange="setPopAlloc('${k}',parseInt(this.value)||0)" style="width:42px;text-align:center;font-weight:bold;color:#f0d060;background:#080912;border:2px solid #3a4158;font-family:inherit;font-size:12px">`;
@@ -72,8 +78,8 @@ function rHome(){
   }
   h+=`</div>`;
 
-  h+=`<div class="card"><h3>${pix("log","card-pix")}最近事件</h3><div style="line-height:18px;height:108px;overflow:hidden">`;
-  const r=[...S.log].reverse().slice(0,6);
+  h+=`<div class="card"><h3>${pix("log","card-pix")}最近事件</h3><div style="line-height:18px;height:90px;overflow:hidden">`;
+  const r=[...S.log].reverse().slice(0,5);
   if(!r.length)h+=`<div style="font-size:11px;color:#666">暂无</div>`;
   else for(const e of r)h+=`<div style="font-size:10px;color:#555">[${e.time}] ${e.msg}</div>`;
   h+=`</div></div>`;
@@ -235,23 +241,23 @@ function updateTownScene(){
 }
 // ==================== 建筑界面（含4个子标签） ====================
 const BUILD_CATEGORIES = {
-  basic: {name:'\u57fa\u7840\u5efa\u7b51',keys:['barracks','warehouse','lumber_mill','quarry','farm']},
-  barracks: {name:'\u5175\u8425\u5efa\u7b51',keys:['infantry_camp','archer_range','stable','spear_crypt','mage_tower']},
-  special: {name:'\u7279\u6b8a\u5efa\u7b51',keys:['arrow_tower']}
+  basic: {name:'基础建筑',keys:['barracks','warehouse','lumber_mill','quarry','farm']},
+  barracks: {name:'兵营建筑',keys:['infantry_camp','archer_range','stable','spear_crypt','mage_tower']},
+  special: {name:'特殊建筑',keys:['arrow_tower']}
 };
 
 function rBuildCard(key, cfg){
   const st=bldSt(key),locked=cfg.needBoss&&bossDefeatedCount()<cfg.needBoss,upLock=st.lv>0?upgradeLockReason(key):'';
-  // \u53f3\u4fa7\u5bf9\u9f50\u6807\u7b7e\uff1a\u8d44\u6e90Buff \u6216 \u89e3\u9501\u6761\u4ef6
+  // 右侧对齐标签：资源Buff 或 解锁条件
   const buffLabel=cfg.buffRes&&st.state==='idle'&&st.lv>0?`<span style="font-size:12px;color:#40bf80">${pix(CFG.res[cfg.buffRes].icon,'sm')} ${CFG.res[cfg.buffRes].name} Buff: +${((st.lv*cfg.buffPerLv+cfg.buffBase)*100).toFixed(0)}%</span>`:'';
-  const lockLabel=locked?`<span style="font-size:11px;color:#e06060">${pix('lock','mini')}\u9700\u51fb\u8d25\u7b2c${cfg.needBoss}\u4e2aBoss</span>`:'';
+  const lockLabel=locked?`<span style="font-size:11px;color:#e06060">${pix('lock','mini')}需击败第${cfg.needBoss}个Boss</span>`:'';
   const rightLabel=lockLabel||buffLabel;
   let h=`<div class="card" style="${locked||upLock?'opacity:.7':''}"><h3 style="display:flex;justify-content:space-between;align-items:center">`;
   h+=`<span>${pix(key,'card-pix')}${cfg.name}`;if(st.state==='idle'&&st.lv>0)h+=` <span style="color:#f0d060">Lv.${st.lv}</span>`;
-  // \u8425\u5e10\u7279\u6b8a\uff1a\u663e\u793a\u51fa\u6218\u4e0a\u9650
-  if(key==='barracks')h+=` <span style="font-size:11px;color:#888">(\u51fa\u6218\u4e0a\u9650${regMax()}\u4eba/\u683c\uff0c\u6bcf\u7ea7+5)</span>`;
-  // \u4ed3\u5e93\u7279\u6b8a\uff1a\u663e\u793a\u5b58\u50a8\u4e0a\u9650
-  if(key==='warehouse'&&st.state==='idle'&&st.lv>0)h+=` <span style="font-size:11px;color:#f0d060">\u5b58\u50a8\u4e0a\u9650 ${storageCapacity()}</span>`;
+  // 营帐特殊：显示出战上限
+  if(key==='barracks')h+=` <span style="font-size:11px;color:#888">(出战上限${regMax()}人/格，每级+5)</span>`;
+  // 仓库特殊：显示存储上限
+  if(key==='warehouse'&&st.state==='idle'&&st.lv>0)h+=` <span style="font-size:11px;color:#f0d060">存储上限 ${storageCapacity()}</span>`;
   h+=`</span>${rightLabel}</h3>`;
   // 兵营类建筑：显示训练兵种和训练上限
   if(cfg.trains){
@@ -273,8 +279,8 @@ function rBuildCard(key, cfg){
   if(st.state==='idle'){
     if(st.lv===0){
       const c=cfg.build;
-      h+=`<div style="font-size:11px;line-height:14px;color:#888">\u5efa\u9020: ${costHtml(c)} | ${c.time}\u79d2</div>`;
-      h+=`<button class="btn btn-go btn-sm" onclick="buildAct('${key}')" ${locked?'disabled':''}>${pix('build','mini')}\u5efa\u9020</button>`;
+      h+=`<div style="font-size:11px;line-height:14px;color:#888">建造: ${costHtml(c)} | ${c.time}秒</div>`;
+      h+=`<button class="btn btn-go btn-sm" onclick="buildAct('${key}')" ${locked?'disabled':''}>${pix('build','mini')}建造</button>`;
     }else{
       const uc=upCost(key);
       h+=`<div style="font-size:10px;line-height:14px;color:#666">\u5347\u7ea7: ${costHtml(uc)} | ${uc.time}\u79d2</div>`;
@@ -306,7 +312,7 @@ function rBuildCard(key, cfg){
 
 function rBuild(){
   const tab=S._buildTab||'basic';
-  const tabs=[{k:'basic',n:'\u57fa\u7840\u5efa\u7b51'},{k:'barracks',n:'\u5175\u8425\u5efa\u7b51'},{k:'special',n:'\u7279\u6b8a\u5efa\u7b51'}];
+  const tabs=[{k:'basic',n:'基础建筑'},{k:'barracks',n:'兵营建筑'},{k:'special',n:'特殊建筑'}];
   let h=`<div style="display:flex;gap:4px;margin-bottom:6px">`;
   for(const t of tabs){
     h+=`<button class="btn btn-sm ${tab===t.k?'btn-go':'btn-ghost'}" style="flex:1" onclick="setBuildTab('${t.k}')">${t.n}</button>`;
@@ -314,7 +320,7 @@ function rBuild(){
   h+=`</div>`;
   const cat=BUILD_CATEGORIES[tab];
   if(!cat||!cat.keys.length){
-    h+=`<div style="text-align:center;color:#666;padding:30px">\u6682\u65e0\u5efa\u7b51</div>`;
+    h+=`<div style="text-align:center;color:#666;padding:30px">暂无建筑</div>`;
   }else{
     for(const key of cat.keys){
       const cfg=CFG.buildings[key];
@@ -323,7 +329,7 @@ function rBuild(){
   }
   return h;
 }
-// ==================== \u519b\u8425\u754c\u9762 ====================
+// ==================== 军营界面 ====================
 function rBarracks(){
   const tier=S._barracksTier||'t0';
   let h=`<div style="padding:4px 0"><div style="font-size:12px;color:#888;margin:4px 0">总兵力 ${totalSoldiers()} | 营帐上限 ${regMax()}人/团 <span style="margin-left:10px;color:#e06060">口粮：-${totalUpkeep().toFixed(1)}/秒</span></div>`;
@@ -484,23 +490,28 @@ function rFight(){
 
     // 关卡选择
     h+=`<div class="card"><h3>${pix('battle','card-pix')}关卡选择</h3>`;
-    const cur=S.selEnemy!==null?CFG.enemies[S.selEnemy]:null;
-    const prevDisabled=S.selEnemy===null||S.selEnemy<=0;
-    const nextDisabled=S.selEnemy===null||S.selEnemy>=CFG.enemies.length-1;
+    const cur=S.selEnemy!==null&&S.selEnemy!==undefined?CFG.enemies[S.selEnemy]:null;
+    const hasSel=cur!==null;
     h+=`<div style="display:flex;align-items:center;gap:6px;margin-bottom:8px">`;
-    h+=`<button class="btn btn-ghost btn-sm" onclick="selEnemy(${Math.max(0,(S.selEnemy||0)-1)})" ${prevDisabled?'disabled':''}>◀</button>`;
-    h+=`<div style="flex:1;text-align:center;font-size:12px;color:#e0e0e0">`;
-    if(cur){
-      h+=`${cur.name} <span style="color:#888;font-size:10px">(${S.selEnemy+1}/${CFG.enemies.length})</span>`;
-      if(S.defeated.includes(cur.id))h+=` <span style="color:#40bf80;font-size:10px">✓已通关</span>`;
-      if(cur.boss)h+=` <span style="color:#e06060;font-size:10px">[Boss]</span>`;
-      h+=`<div style="font-size:10px;color:#888">${cur.desc||''}</div>`;
-    } else {
-      h+=`<span style="color:#666">未选择</span>`;
+    h+=`<button class="btn btn-ghost btn-xs" onclick="selEnemy(${hasSel?(S.selEnemy-1):'null'})" ${!hasSel||S.selEnemy<=0?'disabled':''}>◀</button>`;
+    h+=`<select onchange="this.blur();selEnemy(this.value===''?null:parseInt(this.value))" style="flex:1;background:#121224;color:#e0e0e0;border:1px solid #3a4158;padding:4px 8px;font-family:inherit;font-size:13px;cursor:pointer">`;
+    h+=`<option value="" ${hasSel?'':'selected'}>-- 请选择关卡 --</option>`;
+    for(let i=0;i<CFG.enemies.length;i++){
+      const e=CFG.enemies[i],df=S.defeated.includes(e.id);
+      h+=`<option value="${i}" ${hasSel&&i===S.selEnemy?'selected':''}>${df?'✓ ':''}第${i+1}关 - ${e.name}${e.boss?' [BOSS]':''}</option>`;
     }
+    h+=`</select>`;
+    h+=`<button class="btn btn-ghost btn-xs" onclick="selEnemy(${hasSel?(S.selEnemy+1):'null'})" ${!hasSel||S.selEnemy>=CFG.enemies.length-1?'disabled':''}>▶</button>`;
     h+=`</div>`;
-    h+=`<button class="btn btn-ghost btn-sm" onclick="selEnemy(${Math.min(CFG.enemies.length-1,(S.selEnemy||0)+1)})" ${nextDisabled?'disabled':''}>▶</button>`;
-    h+=`</div>`;
+    if(cur){
+      const df=S.defeated.includes(cur.id);
+      h+=`<div style="background:#121224;border:1px solid #2b3144;border-radius:4px;padding:8px 10px;margin-bottom:8px">`;
+      h+=`<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px"><span><strong>${cur.name}</strong> ${df?pix('check','mini'):''} ${cur.boss?pix('boss','mini'):''}</span>${df?'<span style="font-size:11px;color:#40bf80">已通关</span>':''}</div>`;
+      h+=`<div style="font-size:11px;color:#888">${cur.desc||''}</div>`;
+      const enemyInfo=Object.entries(cur.units).map(([k,counts])=>{const t=counts.reduce((a,b)=>a+b,0);return `${pix(CFG.units[k].icon,'mini')}${CFG.units[k].name}×${t}`;}).join(' ');
+      h+=`<div style="font-size:10px;color:#777;margin-top:4px">${enemyInfo}</div>`;
+      h+=`</div>`;
+    }
     h+=`<button class="btn btn-go" style="width:100%" onclick="openBattle()" ${cur?'':'disabled'}>${pix('battle','mini')}开战</button>`;
     h+=`</div>`;
   } else {
@@ -585,14 +596,14 @@ function rTech(){
   if(!S._techFold)S._techFold={};
   const compFolded=S._techFold._compendium===true;
   const treeOrder=['infantry','archer','cavalry'];
-  const treeNames={infantry:'\u6b65\u5175\u7ebf',archer:'\u730e\u4eba\u7ebf',cavalry:'\u9a91\u5175\u7ebf'};
+  const treeNames={infantry:'步兵线',archer:'猎人线',cavalry:'骑兵线'};
 
   h+=`<div class="branch-header" onclick="S._techFold._compendium=!S._techFold._compendium;updateUI()">
-    <span class="branch-arrow${compFolded?'':' open'}">\u25b6</span>
+    <span class="branch-arrow${compFolded?'':' open'}">▶</span>
     <span class="branch-icon">${pix('army','md')}</span>
     <div style="flex:1;min-width:0">
-      <div style="font-size:14px;font-weight:bold;color:#e0d070;letter-spacing:1px">\u5175\u8c31</div>
-      <div style="font-size:9px;color:#5a6078;margin-top:2px">\u70b9\u51fb${compFolded?'\u5c55\u5f00':'\u6298\u53e0'} \u00b7 ${treeOrder.length}\u4e2a\u5206\u652f</div>
+      <div style="font-size:14px;font-weight:bold;color:#e0d070;letter-spacing:1px">兵谱</div>
+      <div style="font-size:9px;color:#5a6078;margin-top:2px">点击${compFolded?'展开':'折叠'} · ${treeOrder.length}个分支</div>
     </div>
   </div>`;
   h+=`<div class="branch-body${compFolded?' folded':' expanded'}" style="margin-bottom:8px">`;
@@ -666,11 +677,11 @@ function rTech(){
     const folded=S._techFold[treeKey]===true;
 
     h+=`<div class="branch-header" style="margin:4px 0;padding:8px 12px" onclick="S._techFold['${treeKey}']=!S._techFold['${treeKey}'];updateUI()">
-      <span class="branch-arrow${folded?'':' open'}">\u25b6</span>
+      <span class="branch-arrow${folded?'':' open'}">▶</span>
       <span class="branch-icon">${pix(iconKey,'sm')}</span>
       <div style="flex:1;min-width:0">
         <div style="font-size:12px;font-weight:bold;color:#c0c8e0;letter-spacing:1px">${treeNames[treeKey]||treeCfg.name}</div>
-        <div style="font-size:9px;color:#5a6078;margin-top:2px">\u70b9\u51fb${folded?'\u5c55\u5f00':'\u6298\u53e0'}</div>
+        <div style="font-size:9px;color:#5a6078;margin-top:2px">点击${folded?'展开':'折叠'}</div>
       </div>
     </div>`;
     h+=`<div class="branch-body${folded?' folded':' expanded'}" style="margin-bottom:4px">`;
