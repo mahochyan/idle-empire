@@ -569,6 +569,51 @@ function rTech(){
   </div>`;
   h+=`<div class="branch-body${compFolded?' folded':' expanded'}" style="margin-bottom:8px">`;
 
+  function renderOwnedNode(tree,rootKey,iconKey,key,depth){
+    const node=tree[key];
+    if(!node)return'';
+    const isRoot=key===rootKey;
+    const isUpgraded=S.upgradedUnits[key]===true;
+    if(!isRoot&&!isUpgraded)return'';
+    const pad=depth*20;
+    let r='';
+    r+=`<div style="margin:4px 0;padding:6px 10px;background:#1a2a1a;border:1px solid #2b4b3b;border-radius:4px;font-size:11px;margin-left:${pad}px">
+      <div style="display:flex;align-items:center;gap:6px">
+        <span style="font-size:9px;color:#888;min-width:28px">T${node.tier}</span>
+        <span style="color:#40bf80">${pix(iconKey,'mini')}${node.name}</span>
+        ${node.tag?`<span style="font-size:9px;color:#888">[${node.tag}]</span>`:''}
+      </div>`;
+    if((isRoot||isUpgraded)&&node.branches&&node.branches.length){
+      r+=`<div style="margin-top:6px;padding-left:16px;border-left:2px solid #3a4158">`;
+      for(const br of node.branches){
+        const brUp=S.upgradedUnits[br.to]===true;
+        if(brUp)continue;
+        const needTech=br.needTech||0;
+        const needMerit=br.needMerit||0;
+        const needEssence=br.needEssence||null;
+        const canAfford=(S.res.tech||0)>=needTech
+          && (S.merit||0)>=needMerit
+          && (!needEssence||(S.essence[needEssence.type]||0)>=needEssence.count)
+          && S.res.wood>=br.cost.wood&&S.res.stone>=br.cost.stone&&S.res.food>=br.cost.food;
+        r+=`<div style="margin:3px 0;font-size:10px;display:flex;align-items:center;gap:4px;flex-wrap:wrap">
+          <span style="color:#888">→</span>
+          <span style="color:#aaa">${pix(iconKey,'mini')}${br.name}</span>
+          <button class="btn btn-xs" onclick="upgradeUnit('${key}','${br.to}')"
+            style="font-size:9px;padding:1px 6px;background:${canAfford?'#2a2a1a':'#1a1a1a'};border-color:${canAfford?'#6a6a3a':'#333'};color:${canAfford?'#f0d060':'#666'};border:1px solid"
+            ${canAfford?'':'disabled'}>研究 ${techCostHtml(br.cost,needTech,needMerit,needEssence)}</button>
+        </div>`;
+      }
+      r+=`</div>`;
+    }
+    r+=`</div>`;
+    if(isRoot||isUpgraded){
+      for(const br of node.branches||[]){
+        r+=renderOwnedNode(tree,rootKey,iconKey,br.to, depth+1);
+      }
+    }
+    return r;
+  }
+
   for(const treeKey of treeOrder){
     const treeCfg=CFG.unitUpgrades[treeKey];
     if(!treeCfg||!treeCfg.tree)continue;
@@ -587,53 +632,7 @@ function rTech(){
     </div>`;
     h+=`<div class="branch-body${folded?' folded':' expanded'}" style="margin-bottom:4px">`;
 
-    function renderOwnedNode(key,depth){
-      const node=tree[key];
-      if(!node)return'';
-      const isRoot=key===rootKey;
-      const isUpgraded=S.upgradedUnits[key]===true;
-      if(!isRoot&&!isUpgraded)return'';
-      const pad=depth*20;
-      let r='';
-      r+=`<div style="margin:4px 0;padding:6px 10px;background:#1a2a1a;border:1px solid #2b4b3b;border-radius:4px;font-size:11px;margin-left:${pad}px">
-        <div style="display:flex;align-items:center;gap:6px">
-          <span style="font-size:9px;color:#888;min-width:28px">T${node.tier}</span>
-          <span style="color:#40bf80">${pix(iconKey,'mini')}${node.name}</span>
-          ${node.tag?`<span style="font-size:9px;color:#888">[${node.tag}]</span>`:''}
-        </div>`;
-      // 显示研究按钮（下一级未解锁的）
-      if((isRoot||isUpgraded)&&node.branches&&node.branches.length){
-        r+=`<div style="margin-top:6px;padding-left:16px;border-left:2px solid #3a4158">`;
-        for(const br of node.branches){
-          const brUp=S.upgradedUnits[br.to]===true;
-          if(brUp)continue; // 已解锁的走递归渲染
-          const needTech=br.needTech||0;
-          const needMerit=br.needMerit||0;
-          const needEssence=br.needEssence||null;
-          const canAfford=(S.res.tech||0)>=needTech
-            && (S.merit||0)>=needMerit
-            && (!needEssence||(S.essence[needEssence.type]||0)>=needEssence.count)
-            && S.res.wood>=br.cost.wood&&S.res.stone>=br.cost.stone&&S.res.food>=br.cost.food;
-          r+=`<div style="margin:3px 0;font-size:10px;display:flex;align-items:center;gap:4px;flex-wrap:wrap">
-            <span style="color:#888">→</span>
-            <span style="color:#aaa">${pix(iconKey,'mini')}${br.name}</span>
-            <button class="btn btn-xs" onclick="upgradeUnit('${key}','${br.to}')"
-              style="font-size:9px;padding:1px 6px;background:${canAfford?'#2a2a1a':'#1a1a1a'};border-color:${canAfford?'#6a6a3a':'#333'};color:${canAfford?'#f0d060':'#666'};border:1px solid"
-              ${canAfford?'':'disabled'}>研究 ${techCostHtml(br.cost,needTech,needMerit,needEssence)}</button>
-          </div>`;
-        }
-        r+=`</div>`;
-      }
-      r+=`</div>`;
-      if(isRoot||isUpgraded){
-        for(const br of node.branches||[]){
-          r+=renderOwnedNode(br.to, depth+1);
-        }
-      }
-      return r;
-    }
-
-    h+=renderOwnedNode(rootKey,0);
+    h+=renderOwnedNode(tree,rootKey,iconKey,rootKey,0);
     h+=`</div>`;
   }
   h+=`</div>`;
