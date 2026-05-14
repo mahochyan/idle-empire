@@ -31,7 +31,7 @@ let S = {
 };
 
 // ==================== 辅助 ====================
-function bldSt(k){return S.buildings[k]||{lv:0,state:'idle',timer:0,timerEnd:0}}
+function bldSt(k){return S.buildings[k]||{lv:0,state:'idle',timer:0,timerEnd:0,tier:0}}
 function bldCfg(k){return CFG.buildings[k]}
 function prodRate(rk){
   const alloc=S.popAlloc[rk]||0;
@@ -153,6 +153,34 @@ function upgradeUnit(fromKey,toKey){
   addLog('解锁'+(CFG.units[toKey]?CFG.units[toKey].name:toKey)+'兵种升级');
   save();updateUI();
 }
+function unlockUnitRoot(unitKey){
+  if(S.upgradedUnits[unitKey]){toast('已解锁');return;}
+  const tree=CFG.unitUpgrades[baseUnitType(unitKey)]?.tree;
+  if(!tree)return;
+  const node=tree[unitKey];
+  if(!node||!node.unlock)return;
+  const ul=node.unlock;
+  const needTech=ul.needTech||0;
+  if((S.res.tech||0)<needTech){toast('科技点不足');return;}
+  const needMerit=ul.needMerit||0;
+  if((S.merit||0)<needMerit){toast('战功不足');return;}
+  const needEssence=ul.needEssence||null;
+  if(needEssence){
+    if((S.essence[needEssence.type]||0)<needEssence.count){
+      const ei=CFG.essences?.[needEssence.type];
+      toast((ei?.name||needEssence.type)+'不足');return;
+    }
+  }
+  const cost=ul.cost;
+  if(S.res.wood<cost.wood||S.res.stone<cost.stone||S.res.food<cost.food){toast('资源不足');return;}
+  S.res.wood-=cost.wood;S.res.stone-=cost.stone;S.res.food-=cost.food;
+  S.res.tech-=needTech;
+  S.merit-=needMerit;
+  if(needEssence){S.essence[needEssence.type]-=needEssence.count;}
+  S.upgradedUnits[unitKey]=true;
+  addLog('解锁'+(CFG.units[unitKey]?CFG.units[unitKey].name:unitKey)+'兵种');
+  save();updateUI();
+}
 function trainBuildingKey(uk){
   const bu=baseUnitType(uk);
   return Object.keys(CFG.buildings).find(k=>CFG.buildings[k].trains===bu)||null;
@@ -167,6 +195,9 @@ function unitCap(uk){
   if(!key)return 0;
   const cfg=CFG.buildings[key],st=bldSt(key);
   if(st.lv<=0)return 0;
+  const bldTier=st.tier??0;
+  const unitTier=CFG.units[uk]?.tier??0;
+  if(unitTier>bldTier)return 0;
   return (cfg.unitCapBase||0) + st.lv * (cfg.unitCapPerLv||0);
 }
 function garrisonCount(uk){
@@ -263,6 +294,10 @@ function trainLockReason(uk){
   if(st.lv<=0&&st.state==='idle')return `需先建造${cfg.name}`;
   if(st.state==='building')return `${cfg.name}建设中`;
   if(st.state==='upgrading')return `${cfg.name}升级中`;
+  if(st.state==='tier_upgrading')return `${cfg.name}时代升级中`;
+  const bldTier=st.tier??0;
+  const unitTier=CFG.units[uk]?.tier??0;
+  if(unitTier>bldTier)return `需将${cfg.name}升级至T${unitTier}`;
   return '';
 }
 function mageOk(){return bossDefeatedCount()>=2;}
@@ -271,7 +306,8 @@ function trainBuildingLabel(uk){
   if(!key)return '';
   const cfg=CFG.buildings[key],st=bldSt(key);
   if(st.lv<=0)return `${cfg.name}: \u672a\u5efa\u9020`;
-  return `${cfg.name}: Lv.${st.lv}${st.state==='idle'?'':' / \u6682\u505c\u8bad\u7ec3'}`;
+  const tLabel='T'+(st.tier||0);
+  return `${cfg.name}: Lv.${st.lv} ${tLabel}${st.state==='idle'?'':' / \u6682\u505c\u8bad\u7ec3'}`;
 }
 function reserveHtml(uk){
   const cap=unitCap(uk);
@@ -368,9 +404,13 @@ function tick(){
   }
   for(const k of Object.keys(CFG.buildings)){
     const st=bldSt(k);
-    if((st.state==='building'||st.state==='upgrading')&&st.timerEnd>0){
+    if((st.state==='building'||st.state==='upgrading'||st.state==='tier_upgrading')&&st.timerEnd>0){
       st.timer--;if(st.timer<=0){
         if(st.state==='building'){st.lv=1;addLog(`${CFG.buildings[k].name}建成`)}
+        else if(st.state==='tier_upgrading'){
+          st.tier=(st.tier||0)+1;
+          addLog(`${CFG.buildings[k].name}升级到T${st.tier}`);
+        }
         else{st.lv++;addLog(`${CFG.buildings[k].name}→Lv.${st.lv}`)}
         st.state='idle';st.timer=0;st.timerEnd=0;ch=true;
       }
@@ -403,10 +443,52 @@ function buildAct(key){
   const cost={...rawCost, time:Math.min(rawCost.time, CFG.maxUpgradeTime||120)};
   if(S.res.wood<cost.wood||S.res.stone<cost.stone||S.res.food<cost.food){toast('资源不足');return}
   S.res.wood-=cost.wood;S.res.stone-=cost.stone;S.res.food-=cost.food;
-  if(!S.buildings[key])S.buildings[key]={lv:0,state:'idle',timer:0,timerEnd:0};
+  if(!S.buildings[key])S.buildings[key]={lv:0,state:'idle',timer:0,timerEnd:0,tier:(CFG.buildings[key]?.tier||0)};
   const bs=S.buildings[key];
   if(bs.lv===0){bs.state='building';bs.timerEnd=cost.time;bs.timer=cost.time;addLog(`开始建造${cfg.name}`)}
   else{bs.state='upgrading';bs.timerEnd=cost.time;bs.timer=cost.time;addLog(`开始升级${cfg.name}`)}
+  save();updateUI();
+}
+function tierUpgradeLockReason(key){
+  const cfg=CFG.buildings[key],st=bldSt(key);
+  if(!cfg.tierUpgrade||!cfg.tierUpgrade.length)return '无法时代升级';
+  const currentTier=st.tier||0;
+  if(currentTier>=3)return '已达最高时代';
+  if(!cfg.tierUpgrade[currentTier])return '无法继续升级';
+  if(st.state!=='idle'){
+    if(st.state==='building')return '建造中';
+    if(st.state==='upgrading')return '升级中';
+    if(st.state==='tier_upgrading')return '时代升级中';
+    return '建设中';
+  }
+  const upg=cfg.tierUpgrade[currentTier];
+  const cost=upg.cost;
+  if(S.res.wood<cost.wood||S.res.stone<cost.stone||S.res.food<cost.food)return '资源不足';
+  return '';
+}
+function tierUpgradeCost(key){
+  const cfg=CFG.buildings[key],st=bldSt(key);
+  const currentTier=st.tier||0;
+  const upg=cfg.tierUpgrade?.[currentTier];
+  if(!upg)return null;
+  return {wood:upg.cost.wood,stone:upg.cost.stone,food:upg.cost.food,time:Math.min(upg.time||30,CFG.maxUpgradeTime||120)};
+}
+function buildTierUpgradeAct(key){
+  const cfg=CFG.buildings[key],st=bldSt(key);
+  if(st.state!=='idle'){toast(st.state==='building'?'建造中':st.state==='upgrading'?'升级中':'时代升级中');return}
+  const currentTier=st.tier||0;
+  if(currentTier>=3){toast('已达最高时代');return}
+  const upg=cfg.tierUpgrade?.[currentTier];
+  if(!upg){toast('无法继续升级');return}
+  const cost=upg.cost;
+  const time=Math.min(upg.time||30,CFG.maxUpgradeTime||120);
+  if(S.res.wood<cost.wood||S.res.stone<cost.stone||S.res.food<cost.food){toast('资源不足');return}
+  S.res.wood-=cost.wood;S.res.stone-=cost.stone;S.res.food-=cost.food;
+  if(!S.buildings[key])S.buildings[key]={lv:0,state:'idle',timer:0,timerEnd:0,tier:(CFG.buildings[key]?.tier||0)};
+  S.buildings[key].state='tier_upgrading';
+  S.buildings[key].timerEnd=time;
+  S.buildings[key].timer=time;
+  addLog(`开始升级${cfg.name}至T${currentTier+1}`);
   save();updateUI();
 }
 function upgradeTown(){

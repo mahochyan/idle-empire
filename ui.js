@@ -255,10 +255,19 @@ function rBuildCard(key, cfg){
   h+=`</span>${rightLabel}</h3>`;
   // 兵营类建筑：显示训练兵种和训练上限
   if(cfg.trains){
-    const u=CFG.units[cfg.trains],cap=unitCap(cfg.trains);
+    const baseK=cfg.trains;
+    const repU=CFG.units[baseK]||Object.values(CFG.units).find(u=>u.baseUnit===baseK);
+    const u=repU||{icon:baseK,name:baseK};
+    const cap=unitCap(baseK);
     const nextLv=st.lv+(st.lv===0?1:1);
     const nextCap=(cfg.unitCapBase||0) + nextLv * (cfg.unitCapPerLv||0);
     h+=`<div class="build-meta">\u8bad\u7ec3: ${pix(u.icon,'mini')}${u.name} | \u8bad\u7ec3\u4e0a\u9650 ${st.lv>0?cap:0}${st.lv>0?` \u2192 ${nextCap}`:` (\u5efa\u6210\u540e ${nextCap})`}</div>`;
+    // \u65f6\u4ee3\u663e\u793a
+    const tierLabels=['T0\u57fa\u7840','T1\u8fdb\u9636','T2\u7cbe\u9510','T3\u7ec8\u6781'];
+    const bldTier=st.tier??0;
+    h+=`<div class="build-meta">\u65f6\u4ee3: <span style="color:#f0d060">${tierLabels[bldTier]||'T'+bldTier}</span>`;
+    if(st.state==='tier_upgrading')h+=` \u2192 <span style="color:#40bf80">${tierLabels[bldTier+1]||'T'+(bldTier+1)}</span>`;
+    h+=`</div>`;
   }
   if(upLock)h+=`<div class="build-meta limit-warn">${pix('lock','mini')}${upLock}</div>`;
   if(st.state==='idle'){
@@ -270,11 +279,25 @@ function rBuildCard(key, cfg){
       const uc=upCost(key);
       h+=`<div style="font-size:10px;line-height:14px;color:#666">\u5347\u7ea7: ${costHtml(uc)} | ${uc.time}\u79d2</div>`;
       h+=`<button class="btn btn-go btn-sm" onclick="buildAct('${key}')" ${upLock?'disabled':''}>${pix('upgrade','mini')}\u5347\u7ea7\u2192Lv.${st.lv+1}</button>`;
+      // \u65f6\u4ee3\u5347\u7ea7\u6309\u94ae
+      if(cfg.tierUpgrade&&st.lv>0){
+        const tuCost=tierUpgradeCost(key);
+        const tuLock=tierUpgradeLockReason(key);
+        if(tuCost){
+          const nextTier=bldTier+1;
+          h+=`<div style="margin-top:4px;display:flex;align-items:center;gap:4px;flex-wrap:wrap">`;
+          h+=`<span style="font-size:10px;color:#888">\u65f6\u4ee3: ${pix('tech','mini')}${costHtml(tuCost)} | ${tuCost.time}\u79d2</span>`;
+          h+=`<button class="btn btn-sm" style="font-size:10px;background:#2a2a1a;border:1px solid #6a6a3a;color:#f0d060;cursor:pointer" onclick="buildTierUpgradeAct('${key}')" ${tuLock?'disabled':''}>${pix('upgrade','mini')}\u2192T${nextTier}</button>`;
+          if(tuLock)h+=`<span style="font-size:9px;color:#e06060">${tuLock}</span>`;
+          h+=`</div>`;
+        }
+      }
       // \u519b\u4e8b\u5b66\u9662\u5df2\u79fb\u9664
     }
   }else{
     const pct=st.timerEnd>0?((st.timerEnd-st.timer)/st.timerEnd*100).toFixed(0):0;
-    h+=`<div class="timer-text pulsing">${pix('timer','mini')} ${st.state==='building'?'\u5efa\u9020':'\u5347\u7ea7'}\u4e2d... ${st.timer}\u79d2</div>`;
+    const stateLabels={building:'\u5efa\u9020',upgrading:'\u5347\u7ea7',tier_upgrading:'\u65f6\u4ee3\u5347\u7ea7'};
+    h+=`<div class="timer-text pulsing">${pix('timer','mini')} ${stateLabels[st.state]||st.state}\u4e2d... ${st.timer}\u79d2</div>`;
     h+=`<div class="prog-wrap"><div class="prog-fill" style="width:${pct}%"></div></div>`;
   }
   h+=`</div>`;
@@ -319,7 +342,7 @@ function rBarracks(){
     const ut=typeof c.tier==='number'?c.tier:0;
     if(tier==='t0' && ut!==0) continue;
     if(tier!=='t0' && ut!==tierNum) continue;
-    if(tier!=='t0' && c.baseUnit!=='infantry' && c.baseUnit!=='archer') continue;
+    if(tier!=='t0' && c.baseUnit!=='infantry' && c.baseUnit!=='archer' && c.baseUnit!=='cavalry') continue;
     const bu=c.baseUnit||k;
     if(!branches[bu])branches[bu]=[];
     branches[bu].push([k,c]);
@@ -329,10 +352,14 @@ function rBarracks(){
     const ow=S.pool[k]||0,lock=trainLockReason(k);
     const tm=maxTrainable(k),disabled=tm<=0?'disabled':'',muted=lock?'opacity:.55':'';
     const isLockedVar=tier!=='t0' && c.locked && !(S.upgradedUnits||{})[k];
-    let researchInfo=null;
+    let researchInfo=null,isRootUnlock=false;
     if(isLockedVar){
       const tree=CFG.unitUpgrades[baseUnitType(k)]?.tree;
-      if(tree){for(const[,node] of Object.entries(tree)){for(const br of node.branches||[]){if(br.to===k){researchInfo=br;break;}}if(researchInfo)break;}}
+      if(tree){
+        const rootNode=tree[k];
+        if(rootNode&&rootNode.unlock){researchInfo=rootNode.unlock;isRootUnlock=true;}
+        else{for(const[,node] of Object.entries(tree)){for(const br of node.branches||[]){if(br.to===k){researchInfo=br;break;}}if(researchInfo)break;}}
+      }
     }
     const isVariant=tier!=='t0'&&(c.tier||0)>0;
     let capInfo;
@@ -351,7 +378,7 @@ function rBarracks(){
             ${queueTotal(k)>0?`<span onclick="event.stopPropagation();cancelQueue('${k}')" style="font-size:10px;line-height:12px;padding:0 4px;border:1px solid #3a4158;color:#8890a6;cursor:pointer;margin-right:6px;flex-shrink:0">取消队列</span>`:''}
           </div>
           <div class="econ-note" style="line-height:16px">${capInfo}${queueTotal(k)>0?`<span style="margin-left:${isVariant?'24px':'4px'}">| 训练队列 ${queueTotal(k)}人</span>`:''}</div>
-          ${isLockedVar?`<button class="btn btn-xs" onclick="upgradeUnit('${researchInfo?.from||''}','${k}')" style="font-size:9px;padding:1px 6px;background:#2a2a1a;border-color:#6a6a3a;color:#f0d060;border:1px solid">研究 ${costHtml(researchInfo?.cost||{})}</button>`
+          ${isLockedVar?`<button class="btn btn-xs" onclick="${isRootUnlock?`unlockUnitRoot('${k}')`:`upgradeUnit('${researchInfo?.from||''}','${k}')`}" style="font-size:9px;padding:1px 6px;background:#2a2a1a;border-color:#6a6a3a;color:#f0d060;border:1px solid">研究 ${costHtml(researchInfo?.cost||{})}</button>`
           :lock?'':`<div class="train-custom">
             <input id="train-barracks-${k}" type="text" inputmode="numeric" pattern="[0-9]*" value="${(S._trainQty||{})[k]||1}" oninput="(S._trainQty||{})['${k}']=parseInt(this.value)||1">
             <button class="btn btn-go btn-xs" onclick="trainCustom('${k}','train-barracks-${k}')" ${disabled}>训练</button>
@@ -584,6 +611,21 @@ function rTech(){
         <span style="color:#40bf80">${pix(iconKey,'mini')}${node.name}</span>
         ${node.tag?`<span style="font-size:9px;color:#888">[${node.tag}]</span>`:''}
       </div>`;
+    if(isRoot&&!isUpgraded&&node.unlock){
+      const ul=node.unlock;
+      const needTech=ul.needTech||0;
+      const needMerit=ul.needMerit||0;
+      const needEssence=ul.needEssence||null;
+      const canAfford=(S.res.tech||0)>=needTech
+        && (S.merit||0)>=needMerit
+        && (!needEssence||(S.essence[needEssence.type]||0)>=needEssence.count)
+        && S.res.wood>=ul.cost.wood&&S.res.stone>=ul.cost.stone&&S.res.food>=ul.cost.food;
+      r+=`<div style="margin-top:5px">
+        <button class="btn btn-xs" onclick="unlockUnitRoot('${key}')"
+          style="font-size:10px;padding:2px 8px;background:${canAfford?'#2a2a1a':'#1a1a1a'};border-color:${canAfford?'#6a6a3a':'#333'};color:${canAfford?'#f0d060':'#666'};border:1px solid"
+          ${canAfford?'':'disabled'}>🔬 研究解锁 ${techCostHtml(ul.cost,needTech,needMerit,needEssence)}</button>
+      </div>`;
+    }
     if((isRoot||isUpgraded)&&node.branches&&node.branches.length){
       r+=`<div style="margin-top:6px;padding-left:16px;border-left:2px solid #3a4158">`;
       for(const br of node.branches){

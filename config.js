@@ -216,9 +216,8 @@ const CFG = {
       archer_shadowblade:  { tier:3, name:'幽影刃侍', tag:'blade', branches:[] }
     } },
     cavalry:   { name:'骑兵线', icon:'cavalry',   tree:{
-      cavalry:            { tier:0, name:'骑兵', tag:null,
-        branches:[{ to:'cavalry_t1', name:'侍从骑士→T1', cost:{wood:300,stone:200,food:250}, needTech:250, needMerit:8 }] },
       cavalry_t1:         { tier:1, name:'侍从骑士', tag:'cavalry',
+        unlock:{cost:{wood:300,stone:200,food:250},needTech:250,needMerit:8},
         branches:[
           { to:'cavalry_wind', name:'猎风弩骑(疾风)', cost:{wood:700,stone:500,food:600}, needTech:600, needMerit:15, needEssence:{type:'wind_essence',count:2} },
           { to:'cavalry_iron', name:'重装骑士(铁壁)', cost:{wood:500,stone:700,food:600}, needTech:600, needMerit:15, needEssence:{type:'iron_essence',count:2} }
@@ -241,11 +240,35 @@ const CFG = {
     quarry:{name:'采石场',buffRes:'stone',buffBase:0.15,buffPerLv:0.2, build:{wood:50,stone:120,food:40,time:4}, upBase:{wood:5000,stone:6000,food:2500}, upCostLv:1.5},
     farm:{name:'农田',buffRes:'food',buffBase:0.15,buffPerLv:0.2, build:{wood:80,stone:80,food:200,time:4}, upBase:{wood:5000,stone:5000,food:6000}, upCostLv:1.5},
     barracks:{name:'营帐',build:{wood:300,stone:200,food:100,time:6}, upBase:{wood:1800,stone:1800,food:1000}, upCostLv:1.7},
-    infantry_camp:{name:'步兵营地',trains:'infantry',unitCapBase:4,unitCapPerLv:2,build:{wood:180,stone:100,food:80,time:5},upBase:{wood:1000,stone:1000,food:800},upCostLv:1.1},
-    archer_range:{name:'猎手营地',trains:'archer',unitCapBase:2,unitCapPerLv:2,build:{wood:240,stone:100,food:100,time:6},upBase:{wood:1000,stone:1000,food:850},upCostLv:1.1},
-    stable:{name:'骑兵训练场',trains:'cavalry',unitCapBase:1,unitCapPerLv:1,needBoss:1,build:{wood:220,stone:160,food:180,time:7},upBase:{wood:1000,stone:1000,food:1000},upCostLv:1.12},
-    spear_crypt:{name:'长矛兵营地',trains:'infantry',unitCapBase:1,unitCapPerLv:1,needBoss:2,build:{wood:160,stone:240,food:100,time:7},upBase:{wood:2000,stone:2000,food:1000},upCostLv:1.1},
-    mage_tower:{name:'法师塔',trains:'mage',unitCapBase:1,unitCapPerLv:1,needBoss:2,build:{wood:500,stone:500,food:350,time:10},upBase:{wood:3000,stone:3000,food:2000},upCostLv:1.1},
+    infantry_camp:{name:'步兵营地',trains:'infantry',unitCapBase:4,unitCapPerLv:2,tier:0,
+      tierUpgrade:[
+        {cost:{wood:500,stone:300,food:200},time:20},
+        {cost:{wood:2000,stone:1500,food:1000},time:45},
+        {cost:{wood:4000,stone:3000,food:2500},time:90}
+      ],build:{wood:180,stone:100,food:80,time:5},upBase:{wood:1000,stone:1000,food:800},upCostLv:1.1},
+    archer_range:{name:'猎手营地',trains:'archer',unitCapBase:2,unitCapPerLv:2,tier:0,
+      tierUpgrade:[
+        {cost:{wood:600,stone:300,food:200},time:20},
+        {cost:{wood:2500,stone:1500,food:1200},time:45},
+        {cost:{wood:5000,stone:4000,food:3000},time:90}
+      ],build:{wood:240,stone:100,food:100,time:6},upBase:{wood:1000,stone:1000,food:850},upCostLv:1.1},
+    stable:{name:'骑兵训练场',trains:'cavalry',unitCapBase:1,unitCapPerLv:1,tier:1,needBoss:1,
+      tierUpgrade:[
+        {cost:{wood:2500,stone:2000,food:2000},time:45},
+        {cost:{wood:5000,stone:5000,food:4000},time:90}
+      ],build:{wood:220,stone:160,food:180,time:7},upBase:{wood:1000,stone:1000,food:1000},upCostLv:1.12},
+    spear_crypt:{name:'长矛兵营地',trains:'infantry',unitCapBase:1,unitCapPerLv:1,tier:0,needBoss:2,
+      tierUpgrade:[
+        {cost:{wood:500,stone:500,food:300},time:25},
+        {cost:{wood:2000,stone:2500,food:1500},time:50},
+        {cost:{wood:4500,stone:4500,food:3500},time:100}
+      ],build:{wood:160,stone:240,food:100,time:7},upBase:{wood:2000,stone:2000,food:1000},upCostLv:1.1},
+    mage_tower:{name:'法师塔',trains:'mage',unitCapBase:1,unitCapPerLv:1,tier:0,needBoss:2,
+      tierUpgrade:[
+        {cost:{wood:800,stone:800,food:600},time:30},
+        {cost:{wood:3000,stone:3000,food:2500},time:60},
+        {cost:{wood:6000,stone:6000,food:5000},time:120}
+      ],build:{wood:500,stone:500,food:350,time:10},upBase:{wood:3000,stone:3000,food:2000},upCostLv:1.1},
     warehouse:{name:'仓库',storageBase:10000,storagePerLv:10000,build:{wood:200,stone:200,food:100,time:5},upBase:{wood:3000,stone:3000,food:3000},upCostLv:1.3},
     arrow_tower:{name:'箭塔',desc:'城防建筑，驻军战斗中对敌人自动射击',build:{wood:400,stone:350,food:150,time:10},upBase:{wood:1500,stone:1500,food:1000},upCostLv:1.2},
     // 军事学院已移除，兵种升级已迁移至科技页面
