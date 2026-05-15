@@ -125,14 +125,14 @@ function garrisonCount(uk){
   let n=0;
   const gf=S._garrisonForm||{front:[],mid:[],back:[]};
   for(const row of['front','mid','back']){
-    for(const u of gf[row]){if(u.type===uk||baseUnitType(u.type)===uk)n+=u.count;}
+    for(const u of gf[row]){if(u.type===uk)n+=u.count;}
   }
   return n;
 }
 function expeditionCount(uk){
   let n=0;
   for(const row of['front','mid','back']){
-    for(const u of S.formation[row]){if(u.type===uk||baseUnitType(u.type)===uk)n+=u.count;}
+    for(const u of S.formation[row]){if(u.type===uk)n+=u.count;}
   }
   return n;
 }
@@ -489,7 +489,11 @@ function dismissN(uk,n){
   }
   if(qty<=0){save();updateUI();return;}
   const a=poolAvail(uk);
-  if(a<=0){toast('无可用士兵');return}
+  if(a<=0){
+    const inExp=expeditionCount(uk),inGar=garrisonCount(uk);
+    const hint=inExp+inGar>0?`（远征${inExp}人 驻军${inGar}人，需先撤下）`:'';
+    toast('后备无可用士兵'+hint);return;
+  }
   const fromP=Math.min(a,qty);
   S.pool[uk]-=fromP;
   // 解散返还50%训练资源
@@ -528,6 +532,16 @@ function addMerit(inputId){
   const n=Math.max(1,Math.floor(parseInt(el?.value,10)||0));
   S.merit=(S.merit||0)+n;
   addLog(`战功 +${n}`);
+  save();updateUI();
+}
+
+function addAllEssences(inputId){
+  const el=document.getElementById(inputId);
+  const n=Math.max(1,Math.floor(parseInt(el?.value,10)||0));
+  for(const ek of Object.keys(CFG.essences||{})){
+    S.essence[ek]=(S.essence[ek]||0)+n;
+  }
+  addLog(`精魄全部 +${n}`);
   save();updateUI();
 }
 
@@ -1412,7 +1426,9 @@ function nextBattle(){
 }
 
 function retryBattle(){
+  const saveIdx=S.selEnemy; // 保存当前关卡，防止 exitBattle 自动跳关
   exitBattle();
+  S.selEnemy=saveIdx;
   setTimeout(()=>openBattle(),150);
 }
 

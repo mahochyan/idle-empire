@@ -95,6 +95,7 @@ function rHome(){
     h+=`<div class="card"><h3>${pix('build','card-pix')}测试工具</h3>
       <div class="train-custom" style="margin:4px 0"><span style="width:100px">木/石/食/科技</span><input id="test-all" type="text" inputmode="numeric" pattern="[0-9]*" value="30000" style="width:100px"><button class="btn btn-go btn-xs" onclick="addAllRes('test-all')">一键添加</button></div>
       <div class="train-custom" style="margin:4px 0"><span style="width:100px">⚔ 战功</span><input id="test-merit" type="text" inputmode="numeric" pattern="[0-9]*" value="50" style="width:100px"><button class="btn btn-go btn-xs" onclick="addMerit('test-merit')">添加战功</button></div>
+  <div class="train-custom" style="margin:4px 0"><span style="width:100px">💎 精魄</span><input id="test-essence" type="text" inputmode="numeric" pattern="[0-9]*" value="5" style="width:100px"><button class="btn btn-go btn-xs" onclick="addAllEssences('test-essence')">添加精魄</button></div>
     </div>`;
   }
   h+=`</div>`;return h;
