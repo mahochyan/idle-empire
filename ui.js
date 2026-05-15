@@ -260,14 +260,13 @@ function rBuildCard(key, cfg){
   const lockLabel=locked?`<span style="font-size:11px;color:#e06060">${pix('lock','mini')}需击败第${cfg.needBoss}个Boss</span>`:'';
   const rightLabel=lockLabel||buffLabel;
   let h=`<div class="card" style="${locked?'opacity:.7':''}"><h3 style="display:flex;justify-content:space-between;align-items:center">`;
-  h+=`<span>${pix(key,'card-pix')}${cfg.name}`;if(st.state==='idle'&&st.lv>0)h+=` <span style="color:#f0d060">Lv.${st.lv}</span>`;
+  h+=`<span>${pix(key,'card-pix')}${cfg.name}`;if(st.state==='idle'&&st.lv>0)h+=` <span style="color:#f0d060">Lv.${st.lv}</span>`;if(cfg.trains){const tls=['T0基础','T1进阶','T2精锐','T3终极','T4传说'];h+=` <span style="font-size:10px;color:#f0d060">时代:${tls[st.tier??0]||'T'+(st.tier??0)}</span>`;if(st.state==='tier_upgrading')h+=` → <span style="color:#40bf80">${tls[(st.tier??0)+1]||'T'+((st.tier??0)+1)}</span>`;}
   // 营帐特殊：显示出战上限
   if(key==='barracks')h+=` <span style="font-size:11px;color:#888">(出战上限${regMax()}人/格，每级+5)</span>`;
   // 仓库特殊：显示存储上限
   if(key==='warehouse'&&st.state==='idle'&&st.lv>0)h+=` <span style="font-size:11px;color:#f0d060">存储上限 ${storageCapacity()}</span>`;
   h+=`</span>${rightLabel}</h3>`;
   // 兵营类建筑：显示训练兵种和训练上限
-  const tierLabels=['T0基础','T1进阶','T2精锐','T3终极','T4传说'];
   const bldTier=st.tier??0;
   if(cfg.trains){
     const baseK=cfg.trains;
@@ -277,10 +276,6 @@ function rBuildCard(key, cfg){
     const nextLv=st.lv+(st.lv===0?1:1);
     const nextCap=(cfg.unitCapBase||0) + nextLv * (cfg.unitCapPerLv||0);
     h+=`<div class="build-meta">训练: ${pix(u.icon,'mini')}${u.name} | 训练上限 ${st.lv>0?cap:0}${st.lv>0?` → ${nextCap}`:` (建成后 ${nextCap})`}</div>`;
-    // 时代显示
-    h+=`<div class="build-meta">时代: <span style="color:#f0d060">${tierLabels[bldTier]||'T'+bldTier}</span>`;
-    if(st.state==='tier_upgrading')h+=` → <span style="color:#40bf80">${tierLabels[bldTier+1]||'T'+(bldTier+1)}</span>`;
-    h+=`</div>`;
   }
   if(st.state==='idle'){
     if(st.lv===0){
@@ -367,7 +362,7 @@ function rBarracks(){
   }
   let shown=0;
   function renderUnitCard(k,c){
-    const ow=S.pool[k]||0,lock=trainLockReason(k);
+    const ow=(S.pool[k]||0)+expeditionCount(k)+garrisonCount(k),lock=trainLockReason(k);
     const tm=maxTrainable(k),disabled=tm<=0?'disabled':'',muted=lock?'opacity:.55':'';
     const isLockedVar=tier!=='t0' && c.locked && !(S.upgradedUnits||{})[k];
     let researchInfo=null,isRootUnlock=false;

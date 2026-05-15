@@ -164,7 +164,7 @@ function processQueue(){
     const tt=CFG.units[uk].trainTime||1;
     if(q.timer>0){q.timer--;}
     if(q.timer<=0&&q.count>0){
-      if(unitCapLeft(uk)<=0)continue;
+      if(unitCapLeft(uk)<=0){q.reason='';continue;}
       const cost=CFG.units[uk].cost;
       if(S.res.wood<cost.wood||S.res.stone<cost.stone||S.res.food<cost.food){q.reason='资源不足，暂停生产';continue;}
       S.res.wood-=cost.wood;S.res.stone-=cost.stone;S.res.food-=cost.food;
@@ -241,7 +241,7 @@ function reserveHtml(uk){
   }
   const used=pool+garrison+expedition;
   const cls=cap>0&&used<=cap?'limit-ok':'limit-warn';
-  const extra=cap>0?` | 上限 ${cap} = 远征 ${expedition} + 驻军 ${garrison} + 余量 ${pool} (本线合计)`:'';
+  const extra=cap>0?` | 上限 ${cap} = 远征 ${expedition} + 驻军 ${garrison} + 后备 ${pool} + 空闲 ${cap-used} (本线合计)`:'';
   return extra;
 }
 function totalSoldiers(){
