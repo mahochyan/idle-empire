@@ -1,4 +1,10 @@
-// ==================== 状态 ====================
+// ==================== 全局状态 S ====================
+// pool: 训练完成但未编队的后备兵力（拥有 = pool + 远征编队 + 驻军编队）
+// formation: 远征阵容（前/中/后排，每团人数≤regMax）
+// _garrisonForm: 驻军阵容（防守用，结构与 formation 相同）
+// queue: 训练队列 {uk: {count, timer, reason}}，资源在生产完成时扣除
+// upgradedUnits: 科技树已研究解锁的兵种变体
+// essence: Boss 掉落的精魄库存，用于 T2/T3 兵种研究
 let S = {
   res:{wood:300,stone:300,food:300,tech:0},
   buildings:{},
@@ -7,7 +13,6 @@ let S = {
   townLv:1,
   popAlloc:{wood:3,stone:3,food:4},
   defeated:[],
-  mageOk:false,
   merit:0,
   log:[],
   garrisonLog:[],
@@ -32,7 +37,6 @@ let S = {
 
 // ==================== 辅助 ====================
 function bldSt(k){return S.buildings[k]||{lv:0,state:'idle',timer:0,timerEnd:0,tier:0}}
-function bldCfg(k){return CFG.buildings[k]}
 function prodRate(rk){
   const alloc=S.popAlloc[rk]||0;
   const base=CFG.res[rk].basePerPop||0.5;
@@ -62,12 +66,6 @@ function townCanUpgrade(){
 }
 function bossDefeatedCount(){
   return CFG.enemies.filter(e=>e.boss&&S.defeated.includes(e.id)).length;
-}
-function resourceLevelCap(){
-  return bossDefeatedCount() + 1;
-}
-function resourceCapText(){
-  return `本章上限 Lv.${resourceLevelCap()}`;
 }
 function storageCapacity(){
   const whLv=(S.buildings.warehouse||{lv:0}).lv;
@@ -155,6 +153,8 @@ function queueTotal(uk){
 function queueMax(uk){
   return unitCap(uk)*(CFG.queueMultiplier||5);
 }
+// 训练队列生产：每秒触发，timer倒数→0时产出1个→资源在产出时扣除（非排队时）
+// 暂停条件：解锁未满足 / 上限已满 / 资源不足 → 分别设置 reason 供 UI 显示
 function processQueue(){
   let changed=false;
   for(const[uk,q] of Object.entries(S.queue)){
@@ -231,19 +231,6 @@ function trainBuildingLabel(uk){
   if(st.lv<=0)return `${cfg.name}: \未\建\造`;
   return `${cfg.name}: Lv.${st.lv}${st.state==='idle'?'':' / \暂\停\训\练'}`;
 }
-function reserveHtml(uk){
-  const cap=unitCap(uk);
-  let pool=0,garrison=0,expedition=0;
-  for(const[k,v] of Object.entries(S.pool)){if(sameLine(k,uk))pool+=v;}
-  for(const row of['front','mid','back']){
-    for(const u of S.formation[row]){if(sameLine(u.type,uk))expedition+=u.count;}
-    for(const u of S._garrisonForm[row]){if(sameLine(u.type,uk))garrison+=u.count;}
-  }
-  const used=pool+garrison+expedition;
-  const cls=cap>0&&used<=cap?'limit-ok':'limit-warn';
-  const extra=cap>0?` | 上限 ${cap} = 远征 ${expedition} + 驻军 ${garrison} + 后备 ${pool} + 空闲 ${cap-used} (本线合计)`:'';
-  return extra;
-}
 function totalSoldiers(){
   let n=0;for(const v of Object.values(S.pool)) n+=v;
   for(const row of['front','mid','back']){
@@ -302,13 +289,14 @@ function isAttackMiss(attacker,defender){
   return rate>0&&Math.random()<rate;
 }
 
+// 存档：手动 pick 字段序列化 —— 新增 S 字段时必须同步修改 save() 和 load()，否则重启丢失数据
 function save(){
-  const d={res:S.res,buildings:S.buildings,pool:S.pool,queue:S.queue,formation:S.formation,townLv:S.townLv,popAlloc:S.popAlloc,defeated:S.defeated,mageOk:S.mageOk,merit:S.merit,garrisonLog:S.garrisonLog,garrison:S.garrison,tick:S.tick,garrisonForm:S._garrisonForm,townUpgrade:S.townUpgrade,upgradedUnits:S.upgradedUnits,essence:S.essence};
+  const d={res:S.res,buildings:S.buildings,pool:S.pool,queue:S.queue,formation:S.formation,townLv:S.townLv,popAlloc:S.popAlloc,defeated:S.defeated,merit:S.merit,garrisonLog:S.garrisonLog,garrison:S.garrison,tick:S.tick,garrisonForm:S._garrisonForm,townUpgrade:S.townUpgrade,upgradedUnits:S.upgradedUnits,essence:S.essence};
   localStorage.setItem('rts_save',JSON.stringify(d));
 }
 function load(){
   const r=localStorage.getItem('rts_save');if(!r)return;
-  try{const d=JSON.parse(r);S.res=d.res||S.res;S.buildings=d.buildings||{};S.pool=d.pool||S.pool;S.formation=d.formation||S.formation;S.townLv=d.townLv||1;S.popAlloc=d.popAlloc||{wood:5,stone:3,food:2};S.defeated=d.defeated||[];S.mageOk=d.mageOk||false;S.merit=d.merit||0;S.garrisonLog=d.garrisonLog||[];S.garrison=d.garrison||S.garrison;S.queue=d.queue||{};S.tick=d.tick||0;S._garrisonForm=d.garrisonForm||{front:[],mid:[],back:[]};S.townUpgrade=d.townUpgrade||null;S.upgradedUnits=d.upgradedUnits||{};S.essence=d.essence||{};if(typeof ensureGarrisonState==='function')ensureGarrisonState();}catch(e){}
+  try{const d=JSON.parse(r);S.res=d.res||S.res;S.buildings=d.buildings||{};S.pool=d.pool||S.pool;S.formation=d.formation||S.formation;S.townLv=d.townLv||1;S.popAlloc=d.popAlloc||{wood:5,stone:3,food:2};S.defeated=d.defeated||[];S.merit=d.merit||0;S.garrisonLog=d.garrisonLog||[];S.garrison=d.garrison||S.garrison;S.queue=d.queue||{};S.tick=d.tick||0;S._garrisonForm=d.garrisonForm||{front:[],mid:[],back:[]};S.townUpgrade=d.townUpgrade||null;S.upgradedUnits=d.upgradedUnits||{};S.essence=d.essence||{};if(typeof ensureGarrisonState==='function')ensureGarrisonState();}catch(e){}
 }
 
 // ==================== 计时 ====================
@@ -435,12 +423,13 @@ function setPopAlloc(rk,v){
   S.popAlloc[rk]=nv;
   save();updateUI();
 }
+// 建筑升级消耗计算
+// 仓库 = 等级 × upBase（线性增长），其他建筑 = upBase × upCostLv^lv（指数增长）
+// 升级时间统一线性增长，不受 upCostLv 影响
 function upCost(key){
   const cfg=CFG.buildings[key],lv=bldSt(key).lv||1;
   const b=cfg.upBase;
-  // 仓库：升级消耗 = 当前等级 × upBase（线性）
   const m=cfg.storagePerLv?lv:Math.pow(cfg.upCostLv,lv);
-  // 升级时间线性增长，不受 upCostLv 倍率影响，参数见 CFG.buildingTimes
   const isCap1=cfg.buffRes||(!cfg.trains&&!cfg.storagePerLv&&!cfg.buffRes);
   const bt=CFG.buildingTimes;
   const rawTime=isCap1?bt.cap1Base+lv*bt.cap1PerLv:bt.otherBase+lv*bt.otherPerLv;
@@ -503,6 +492,7 @@ function dismissN(uk,n){
   if(a<=0){toast('无可用士兵');return}
   const fromP=Math.min(a,qty);
   S.pool[uk]-=fromP;
+  // 解散返还50%训练资源
   const cost=CFG.units[uk].cost,cap=storageCapacity();
   const refund={wood:Math.floor(cost.wood*fromP*0.5),stone:Math.floor(cost.stone*fromP*0.5),food:Math.floor(cost.food*fromP*0.5)};
   S.res.wood=Math.min((S.res.wood||0)+refund.wood,cap);
@@ -1017,8 +1007,8 @@ function getTarget(attacker,enemyList){
   return front[Math.floor(Math.random()*front.length)];
 }
 
-// 计算伤害（杀多少兵）
-// damage = hp * atk * DAMAGE_COEF * defenseFactor * counterFactor * mageFactor * passiveFactor * randomFactor
+// 伤害公式：击杀人数 = 攻方HP × ATK × 0.09 × (100/(100+DEF×8)) × 克制 × 法师互易伤 × 被动 × 随机(0.9~1.1) × 特殊Tag因子
+// 乘攻方HP确保总伤害与编队分组无关——1个100人的团 ≈ 2个50人的团
 const DAMAGE_COEF = 0.09;
 function calcDmg(attacker,defender,isOur){
   // 攻击力（含战术加成）
