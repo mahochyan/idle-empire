@@ -104,15 +104,15 @@ const CFG = {
       cost:{wood:30,stone:60,food:40}, upkeep:0.15, atk:7,def:10,spd:10, passive:'暴击10%',locked:true},
     // 法师升级线 T1~T3（科技树解锁，类似骑兵线）
     mage_t1:{name:'魔法学徒',race:'人类',row:'back',icon:'mage_t1',tier:1,baseUnit:'mage',tag:'mage',
-      cost:{wood:100,stone:60,food:100}, upkeep:0.2, atk:12,def:6,spd:8, passive:'基础法师',locked:true},
+      cost:{wood:100,stone:60,food:100}, upkeep:0.2, atk:12,def:6,spd:8, passive:'法师互易伤1.3x',locked:true},
     mage_time:{name:'时序术士',race:'人类',row:'back',icon:'mage_time',tier:2,baseUnit:'mage',tag:'time',
-      cost:{wood:150,stone:100,food:150}, upkeep:0.25, atk:16,def:8,spd:11, passive:'60%时锁 敌人跳过下回合',locked:true},
+      cost:{wood:150,stone:100,food:150}, upkeep:0.25, atk:16,def:8,spd:11, passive:'【攻击】时锁40%：命中后概率使目标跳过下回合\n时光回声30%：伤害的30%在下回合初再次释放\n【防御】时光折射20%：概率预见未来闪避攻击\n【固有】时序疾行：每回合速度+15%（可累积）\n时光倒流：击杀目标后回复30%HP',locked:true},
     mage_space:{name:'虚空术士',race:'人类',row:'back',icon:'mage_space',tier:2,baseUnit:'mage',tag:'space',
-      cost:{wood:130,stone:120,food:160}, upkeep:0.25, atk:14,def:7,spd:9, passive:'AOE溅射1目标50%伤害',locked:true},
+      cost:{wood:130,stone:120,food:160}, upkeep:0.25, atk:14,def:7,spd:9, passive:'【攻击】虚空溅射：对相邻1个目标造成50%溅射伤害\n穿甲：攻击忽略目标20%防御\n【防御】空间扭曲20%：被攻击时概率将伤害转移给随机敌人\n裂隙反伤15%：被攻击时反弹伤害\n【固有】虚空护盾：开场获得20%最大HP护盾',locked:true},
     mage_chrono:{name:'万古之瞳',race:'人类',row:'back',icon:'mage_chrono',tier:3,baseUnit:'mage',tag:'time',
-      cost:{wood:220,stone:150,food:200}, upkeep:0.32, atk:22,def:10,spd:13, passive:'85%时锁 敌人跳过下回合',locked:true},
+      cost:{wood:220,stone:150,food:200}, upkeep:0.32, atk:22,def:10,spd:13, passive:'【攻击】时锁65%：命中后概率使目标跳过下回合\n时光回声50%：伤害的50%在下回合初再次释放\n【防御】时光折射30%：概率预见未来闪避攻击\n【固有】先制：每回合额外行动一次\n时序疾行：每回合速度+20%（可累积）\n时光倒流：击杀目标后回复50%HP',locked:true},
     mage_merlin:{name:'梅林贤者',race:'人类',row:'back',icon:'mage_merlin',tier:3,baseUnit:'mage',tag:'space',
-      cost:{wood:180,stone:180,food:220}, upkeep:0.32, atk:20,def:9,spd:10, passive:'AOE溅射2目标60%伤害',locked:true}
+      cost:{wood:180,stone:180,food:220}, upkeep:0.32, atk:20,def:9,spd:10, passive:'【攻击】虚空溅射：对相邻2个目标造成60%溅射伤害\n穿甲：攻击忽略目标35%防御\n次元打击15%：概率造成双倍伤害暴击\n【防御】空间扭曲30%：被攻击时概率将伤害转移给随机敌人\n裂隙反伤25%：被攻击时反弹伤害\n【固有】虚空护盾：开场获得30%最大HP护盾',locked:true}
   },
 
   // 克制关系
@@ -187,15 +187,39 @@ const CFG = {
     }
   },
 
-  // 法师线特殊战斗机制
-  // time(时序)：攻击时概率附加时锁，目标跳过下次行动
-  // space(虚空)：攻击时溅射相邻敌人
+  // 法师线特殊战斗机制（按单位key索引，支持不同Tier不同数值）
+  // 时间系(时序)：时锁/时光折射/时序疾行/时光回声/先制/时光倒流
+  // 空间系(虚空)：溅射/虚空护盾/伤害转移/穿甲/裂隙反伤/次元打击
   mageSpecials: {
-    time: {
-      attack: { timeLockChance: 0.6 }
+    mage_time: {
+      timeLock: { chance: 0.4 },
+      temporalDodge: { chance: 0.2 },
+      temporalHaste: { speedPct: 0.15 },
+      temporalEcho: { dmgPct: 0.3 },
+      rewind: { healPct: 0.3 }
     },
-    space: {
-      attack: { aoeTargets: 1, aoeDmgPct: 0.5 }
+    mage_chrono: {
+      timeLock: { chance: 0.65 },
+      temporalDodge: { chance: 0.3 },
+      temporalHaste: { speedPct: 0.2 },
+      temporalEcho: { dmgPct: 0.5 },
+      precognition: { extraAction: true },
+      rewind: { healPct: 0.5 }
+    },
+    mage_space: {
+      aoe: { targets: 1, dmgPct: 0.5 },
+      voidShield: { hpPct: 0.2 },
+      redirect: { chance: 0.2 },
+      armorPierce: { defPct: 0.2 },
+      riftReflect: { dmgPct: 0.15 }
+    },
+    mage_merlin: {
+      aoe: { targets: 2, dmgPct: 0.6 },
+      voidShield: { hpPct: 0.3 },
+      redirect: { chance: 0.3 },
+      armorPierce: { defPct: 0.35 },
+      riftReflect: { dmgPct: 0.25 },
+      dimensionalStrike: { critChance: 0.15 }
     }
   },
 

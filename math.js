@@ -293,6 +293,10 @@ function mm(atk,def){
   if(atkBase!=='mage'&&defBase==='mage')return CFG.normalVsMage;
   return 1.0;
 }
+function mageSpec(unitType){
+  const MS=CFG.mageSpecials||{};
+  return MS[unitType]||null;
+}
 function missRate(attacker,defender){
   // 刃(blade)刺客不受弓兵基础miss影响
   if(attacker.tag==='blade')return 0;
@@ -606,7 +610,7 @@ function openFormModal(which,row,idx){
     h+=`<div class="modal-unit" data-type="${k}" data-avail="${remaining}" onclick="selModalUnit(this,'${k}',${remaining})">
       <span class="mu-icon">${pix(c.icon,'lg')}</span>
       <div class="mu-info"><div class="mu-name">${c.name}</div>
-      <div class="mu-detail">可编入:${av}人 | 上限 ${rm}人/团 | ${c.passive}</div></div>
+      <div class="mu-detail">可编入:${av}人 | 上限 ${rm}人/团 | ${c.passive.replace(/\n/g,' · ')}</div></div>
     </div>`;
   }
   if(!hasAny)h+='<div style="text-align:center;color:#666;padding:20px">余量无可用士兵，请先训练</div>';
@@ -711,7 +715,7 @@ function openUnitDetail(uk){
   h+=`<div><span style="color:#888">拥有</span> <span style="color:#f0d060;float:right">${pool}人${qNow>0?' | 队列'+qNow+'人':''}</span></div>`;
   h+=`</div></div>`;
   h+=`<div style="background:#1a2220;border:1px solid #2b443b;border-radius:6px;padding:8px 12px;margin-bottom:8px">`;
-  h+=`<span style="font-size:11px;color:#888">被动: </span><span style="font-size:12px;color:#40bf80">${c.passive}</span></div>`;
+  h+=`<span style="font-size:11px;color:#888">技能: </span><span style="font-size:11px;color:#40bf80;white-space:pre-line;line-height:1.6">${c.passive}</span></div>`;
   h+=`<button class="btn btn-ghost btn-sm" style="width:100%" onclick="closeUnitDetail()">关闭</button>`;
   document.getElementById('unit-detail-content').innerHTML=h;
   document.getElementById('unit-detail-modal').classList.add('active');
@@ -886,8 +890,14 @@ function initBattleState(){
     for(const row of['front','mid','back']){
       for(const u of S.formation[row]){
         const cfg=CFG.units[u.type];
-        B.ourUnits.push({id:uid++, fid:u.id, type:u.type, row, hp:u.count, maxHp:u.count,
-          icon:cfg.icon, name:cfg.name, tier:cfg.tier??0, spd:cfg.spd, atk:cfg.atk, def:cfg.def, tag:cfg.tag||null});
+        const spec=mageSpec(u.type);
+        let hp=u.count, maxHp=u.count;
+        if(spec?.voidShield){
+          const shieldHp=Math.floor(maxHp*spec.voidShield.hpPct);
+          hp+=shieldHp; maxHp+=shieldHp;
+        }
+        B.ourUnits.push({id:uid++, fid:u.id, type:u.type, row, hp, maxHp,
+          icon:cfg.icon, name:cfg.name, tier:cfg.tier??0, spd:cfg.spd, baseSpd:cfg.spd, atk:cfg.atk, def:cfg.def, tag:cfg.tag||null});
       }
     }
     const rows=['front','mid','back'];
@@ -909,8 +919,14 @@ function initBattleState(){
     for(const row of['front','mid','back']){
       for(const u of S.formation[row]){
         const cfg=CFG.units[u.type];
-        B.ourUnits.push({id:uid++, fid:u.id, type:u.type, row, hp:u.count, maxHp:u.count,
-          icon:cfg.icon, name:cfg.name, tier:cfg.tier??0, spd:cfg.spd, atk:cfg.atk, def:cfg.def, tag:cfg.tag||null});
+        const spec=mageSpec(u.type);
+        let hp=u.count, maxHp=u.count;
+        if(spec?.voidShield){
+          const shieldHp=Math.floor(maxHp*spec.voidShield.hpPct);
+          hp+=shieldHp; maxHp+=shieldHp;
+        }
+        B.ourUnits.push({id:uid++, fid:u.id, type:u.type, row, hp, maxHp,
+          icon:cfg.icon, name:cfg.name, tier:cfg.tier??0, spd:cfg.spd, baseSpd:cfg.spd, atk:cfg.atk, def:cfg.def, tag:cfg.tag||null});
       }
     }
     for(const[k,counts] of Object.entries(e.units)){
@@ -1060,14 +1076,18 @@ function calcDmg(attacker,defender,isOur){
   // 防御力（我方被攻击时享受战术防御加成）
   let def=defender.def;
   if(!isOur&&B.tactic.defPct) def=Math.floor(def*(1+B.tactic.defPct));
+  // 空间系穿甲：忽略目标部分防御
+  const aSpec=mageSpec(attacker.type);
+  if(aSpec?.armorPierce) def=Math.floor(def*(1-aSpec.armorPierce.defPct));
   // 因子拆解
   const defenseFactor=100/(100+def*8);
   const counterFactor=cm(attacker.type,defender.type);
   const mageFactor=mm(attacker.type,defender.type);
   const passiveFactor=baseUnitType(attacker.type)==='infantry'?1.1:1.0;
   const randomFactor=0.9+Math.random()*0.2;
-  // 暴击（长矛兵10%）
-  const isCrit=(attacker.tag==='spear')&&Math.random()<0.1;
+  // 暴击（长矛兵10% / 梅林贤者次元打击）
+  let isCrit=(attacker.tag==='spear')&&Math.random()<0.1;
+  if(!isCrit&&aSpec?.dimensionalStrike&&Math.random()<aSpec.dimensionalStrike.critChance) isCrit=true;
   let specialFactor=1.0;
   const AS=CFG.archerSpecials||{};
   // 弩攻击盾兵：穿透80%伤害
@@ -1160,6 +1180,30 @@ function battleTurn(){
 
   if(ourAlive.length===0){endBattle('lose');return}
 
+  // 时光回声结算（上回合存储的回声伤害）
+  if(B.temporalEchoes&&B.temporalEchoes.length>0){
+    const allUnits=[...B.ourUnits,...B.enemyUnits];
+    for(const echo of B.temporalEchoes){
+      const t=allUnits.find(u=>u.id===echo.targetId);
+      if(t&&t.alive!==false&&t.hp>0){
+        t.hp=Math.max(0,t.hp-echo.dmg);
+        if(t.hp<=0){t.hp=0;t.alive=false;}
+        bmsg(`[时光回声] ${echo.actorName} 回声 → ${t.name} ${echo.dmg}点伤害`,'#c0a060');
+      }
+    }
+    B.temporalEchoes=[];
+  }
+
+  // 时序疾行：每回合速度累积增长
+  for(const u of ourAlive){
+    const spec=mageSpec(u.type);
+    if(spec?.temporalHaste){
+      if(!u.hasteRounds)u.hasteRounds=0;
+      u.hasteRounds++;
+      u.spd=Math.floor((u.baseSpd||u.spd)*(1+spec.temporalHaste.speedPct*u.hasteRounds));
+    }
+  }
+
   const ourSpd=u=>Math.floor(u.spd*(1+(B.tactic.spdPct||0)));
   const sortFn=(a,b,sf)=>sf(b)-sf(a)||(Math.random()<0.5?1:-1);
   ourAlive.sort((a,b)=>sortFn(a,b,ourSpd));
@@ -1170,9 +1214,15 @@ function battleTurn(){
   const actions=[];
   if(enemyAlive.length===0){
     // 训练场：只有我方攻击，敌方木人桩不还手
-    for(const u of ourAlive) actions.push({unit:u,side:'our'});
+    for(const u of ourAlive){
+      actions.push({unit:u,side:'our'});
+      if(mageSpec(u.type)?.precognition?.extraAction) actions.push({unit:u,side:'our'});
+    }
   } else if(isBossFight){
-    for(const u of ourAlive) actions.push({unit:u,side:'our'});
+    for(const u of ourAlive){
+      actions.push({unit:u,side:'our'});
+      if(mageSpec(u.type)?.precognition?.extraAction) actions.push({unit:u,side:'our'});
+    }
     actions.push({unit:enemyAlive[0],side:'enemy'});
   } else {
     const maxCnt=Math.max(ourAlive.length,enemyAlive.length);
@@ -1180,11 +1230,15 @@ function battleTurn(){
     const ourFirst=ourFast>enemyFast?true:enemyFast>ourFast?false:Math.random()<0.5;
     for(let i=0;i<maxCnt;i++){
       if(ourFirst){
-        actions.push({unit:ourAlive[i%ourAlive.length],side:'our'});
+        const ou=ourAlive[i%ourAlive.length];
+        actions.push({unit:ou,side:'our'});
+        if(mageSpec(ou.type)?.precognition?.extraAction) actions.push({unit:ou,side:'our'});
         actions.push({unit:enemyAlive[i%enemyAlive.length],side:'enemy'});
       } else {
         actions.push({unit:enemyAlive[i%enemyAlive.length],side:'enemy'});
-        actions.push({unit:ourAlive[i%ourAlive.length],side:'our'});
+        const ou=ourAlive[i%ourAlive.length];
+        actions.push({unit:ou,side:'our'});
+        if(mageSpec(ou.type)?.precognition?.extraAction) actions.push({unit:ou,side:'our'});
       }
     }
   }
@@ -1221,12 +1275,27 @@ function battleTurn(){
 
     const archerMiss=isAttackMiss(actor,target);
     const cavDodge=!archerMiss&&baseUnitType(target.type)==='cavalry'&&!isRanged(actor.type)&&Math.random()<0.1;
-    const missed=archerMiss||cavDodge;
+    // 时光折射：时间系法师预见未来闪避攻击
+    const tSpec=mageSpec(target.type);
+    const temporalDodge=tSpec?.temporalDodge&&Math.random()<tSpec.temporalDodge.chance;
+    const missed=archerMiss||cavDodge||temporalDodge;
     const cr=missed?{dmg:0,crit:false}:calcDmg(actor,target,side==='our');
     const dmg=cr.dmg; const isCrit=cr.crit;
     const cmv=cm(actor.type,target.type);
     const mmv=mm(actor.type,target.type);
     const actualKill=missed?0:Math.min(dmg,target.hp);
+
+    // 伤害转移：空间系法师被攻击时概率转移伤害给随机敌人
+    let redirectTarget=null;
+    if(!missed){
+      const tSpec2=mageSpec(target.type);
+      if(tSpec2?.redirect&&Math.random()<tSpec2.redirect.chance){
+        const candidates=enemyList.filter(u=>u!==target&&u.alive!==false&&u.hp>0&&u!==actor);
+        if(candidates.length>0){
+          redirectTarget=candidates[Math.floor(Math.random()*candidates.length)];
+        }
+      }
+    }
 
     if(!missed&&actorEl&&targetEl){
       spawnVFX(actorEl,targetEl,actor.type);
@@ -1249,45 +1318,78 @@ function battleTurn(){
       const isGood=cmv>=1.3,isBad=cmv<=0.7;
 
       if(missed){
-        bmsg(`${side==="our"?"[我方]":"[敌方]"}${actor.name} → ${target.name} MISS${cavDodge?' [闪避]':baseUnitType(target.type)==='cavalry'?' [骑兵闪避]':''}`,'#6f7890');
+        const reason=cavDodge?' [闪避]':temporalDodge?' [时光折射]':baseUnitType(target.type)==='cavalry'?' [骑兵闪避]':'';
+        bmsg(`${side==="our"?"[我方]":"[敌方]"}${actor.name} → ${target.name} MISS${reason}`,'#6f7890');
         idx++;
         drawBattleField();
         nextAction();
         return;
       }
 
-      target.hp-=actualKill;
+      // 伤害转移生效：切换目标
+      let finalTarget=target, finalEl=targetEl;
+      if(redirectTarget){
+        bmsg(`[空间扭曲] ${target.name} 将伤害转移至 ${redirectTarget.name}`,'#7a90c0');
+        finalTarget=redirectTarget;
+        finalEl=document.getElementById((side==='our'?'eu-':'ou-')+redirectTarget.id);
+        if(finalEl)finalEl.classList.add('targeted');
+      }
 
-      if(target.hp<=0){
-        target.hp=0;target.alive=false;
-        if(targetEl){targetEl.classList.add('dead');setTimeout(()=>{if(targetEl)targetEl.classList.add('dead-done')},500);}
-        bmsg(`${side==="our"?"[我方]":"[敌方]"}${actor.name} → ${target.name} 击杀${actualKill}人，${target.name}全灭！`+(isGood?'[克制]':'')+(mmv>1?'[易伤]':''),isGood?'#40bf80':'#e06060');
+      const finalKill=Math.min(actualKill,finalTarget.hp);
+      finalTarget.hp-=finalKill;
+
+      if(finalTarget.hp<=0){
+        finalTarget.hp=0;finalTarget.alive=false;
+        if(finalEl){finalEl.classList.add('dead');setTimeout(()=>{if(finalEl)finalEl.classList.add('dead-done')},500);}
+        bmsg(`${side==="our"?"[我方]":"[敌方]"}${actor.name} → ${finalTarget.name} 击杀${finalKill}人，${finalTarget.name}全灭！`+(isGood?'[克制]':'')+(mmv>1?'[易伤]':''),isGood?'#40bf80':'#e06060');
+        // 时光倒流：时间系法师击杀时回复HP
+        const aSpec=mageSpec(actor.type);
+        if(aSpec?.rewind){
+          const heal=Math.floor(finalKill*aSpec.rewind.healPct);
+          actor.hp=Math.min(actor.maxHp,actor.hp+heal);
+          bmsg(`[时光倒流] ${actor.name} 回复${heal}人`,'#40bf80');
+        }
       }else{
-        if(targetEl){targetEl.classList.add('hit');setTimeout(()=>{if(targetEl)targetEl.classList.remove('hit')},400);}
-        bmsg(`${side==="our"?"[我方]":"[敌方]"}${actor.name} → ${target.name} 击杀${actualKill}人，${target.name}剩余${target.hp}人`+(isBad?'[劣势]':''),'#888');
-        // 时间系：概率时锁，目标跳过下次行动
-        const MS=CFG.mageSpecials||{};
-        if(MS[actor.tag]?.attack?.timeLockChance&&Math.random()<MS[actor.tag].attack.timeLockChance){
-          target.skipNextAction=true;
-          bmsg(`[时锁] ${target.name}行动被跳过`,'#c0a060');
+        if(finalEl){finalEl.classList.add('hit');setTimeout(()=>{if(finalEl)finalEl.classList.remove('hit')},400);}
+        bmsg(`${side==="our"?"[我方]":"[敌方]"}${actor.name} → ${finalTarget.name} 击杀${finalKill}人，${finalTarget.name}剩余${finalTarget.hp}人`+(isBad?'[劣势]':''),'#888');
+        // 时锁：时间系法师概率使目标跳过下次行动
+        const aSpec=mageSpec(actor.type);
+        if(aSpec?.timeLock&&Math.random()<aSpec.timeLock.chance){
+          finalTarget.skipNextAction=true;
+          bmsg(`[时锁] ${finalTarget.name}行动被跳过`,'#c0a060');
         }
       }
-      // 空间系：AOE溅射相邻敌人
-      if(!missed){
-        const MS=CFG.mageSpecials||{};
-        if(MS[actor.tag]?.attack?.aoeTargets){
-          const aoeCount=MS[actor.tag].attack.aoeTargets;
-          const aoePct=MS[actor.tag].attack.aoeDmgPct;
-          const others=enemyList.filter(u=>u!==target&&u.alive!==false&&u.hp>0);
-          for(let i=0;i<Math.min(aoeCount,others.length);i++){
-            const at=others[i];
-            const aoeDmg=Math.max(1,Math.floor(actualKill*aoePct));
-            at.hp-=aoeDmg;
-            if(at.hp<=0){at.hp=0;at.alive=false;}
-            bmsg(`[溅射] ${actor.name} → ${at.name} ${aoeDmg}点伤害`,'#7a90c0');
-          }
+      // 裂隙反伤：空间系法师被攻击时反弹伤害
+      const tSpec3=mageSpec(target.type);
+      if(tSpec3?.riftReflect&&!redirectTarget){
+        const reflectDmg=Math.max(1,Math.floor(finalKill*tSpec3.riftReflect.dmgPct));
+        actor.hp-=reflectDmg;
+        if(actor.hp<=0){actor.hp=0;actor.alive=false;}
+        bmsg(`[裂隙反伤] ${target.name} → ${actor.name} 反弹${reflectDmg}点伤害`,'#b080d0');
+      }
+      // 空间系AOE溅射
+      const aSpec=mageSpec(actor.type);
+      if(aSpec?.aoe){
+        const aoeCount=aSpec.aoe.targets;
+        const aoePct=aSpec.aoe.dmgPct;
+        const others=enemyList.filter(u=>u!==finalTarget&&u.alive!==false&&u.hp>0);
+        for(let i=0;i<Math.min(aoeCount,others.length);i++){
+          const at=others[i];
+          const aoeDmg=Math.max(1,Math.floor(finalKill*aoePct));
+          at.hp-=aoeDmg;
+          if(at.hp<=0){at.hp=0;at.alive=false;}
+          bmsg(`[虚空溅射] ${actor.name} → ${at.name} ${aoeDmg}点伤害`,'#7a90c0');
         }
       }
+      // 时光回声：时间系法师造成的伤害部分存储，下回合初释放
+      if(aSpec?.temporalEcho&&!redirectTarget){
+        const echoDmg=Math.max(1,Math.floor(finalKill*aSpec.temporalEcho.dmgPct));
+        if(!B.temporalEchoes)B.temporalEchoes=[];
+        B.temporalEchoes.push({targetId:finalTarget.id, dmg:echoDmg, actorName:actor.name});
+      }
+      // 清理redirectTarget的高亮
+      if(redirectTarget&&finalEl) setTimeout(()=>{if(finalEl)finalEl.classList.remove('targeted')},300);
+
       idx++;
       drawBattleField();
       nextAction();
