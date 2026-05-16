@@ -184,9 +184,9 @@ const CFG = {
   //当前仓库50级最大上限为380000
   //
   buildings: {
-    lumber_mill:{name:'伐木场',buffRes:'wood',buffBase:0.15,buffPerLv:0.2, build:{wood:200,stone:100,food:40,time:4}, upBase:{wood:6000,stone:5000,food:2500}, upCostLv:1.5},
-    quarry:{name:'采石场',buffRes:'stone',buffBase:0.15,buffPerLv:0.2, build:{wood:50,stone:120,food:40,time:4}, upBase:{wood:5000,stone:6000,food:2500}, upCostLv:1.5},
-    farm:{name:'农田',buffRes:'food',buffBase:0.15,buffPerLv:0.2, build:{wood:80,stone:80,food:200,time:4}, upBase:{wood:5000,stone:5000,food:6000}, upCostLv:1.5},
+    lumber_mill:{name:'伐木场',buffRes:'wood',buffBase:0.20,buffPerLv:0.25, build:{wood:200,stone:100,food:40,time:4}, upBase:{wood:6000,stone:5000,food:2500}, upCostLv:1.5},
+    quarry:{name:'采石场',buffRes:'stone',buffBase:0.20,buffPerLv:0.25, build:{wood:50,stone:120,food:40,time:4}, upBase:{wood:5000,stone:6000,food:2500}, upCostLv:1.5},
+    farm:{name:'农田',buffRes:'food',buffBase:0.20,buffPerLv:0.25, build:{wood:80,stone:80,food:200,time:4}, upBase:{wood:5000,stone:5000,food:6000}, upCostLv:1.5},
     barracks:{name:'营帐',build:{wood:300,stone:200,food:100,time:6}, upBase:{wood:1800,stone:1800,food:1000}, upCostLv:1.7},
     infantry_camp:{name:'步兵营地',trains:'infantry',unitCapBase:0,unitCapPerLv:4,tier:0,
       tierUpgrade:[
@@ -208,13 +208,6 @@ const CFG = {
         {needBossId:40, cost:{wood:5000,stone:5000,food:4000},time:90},
         {needBossId:65, cost:{wood:10000,stone:8000,food:7000},time:150}
       ],build:{wood:220,stone:160,food:180,time:7},upBase:{wood:1000,stone:1000,food:1000},upCostLv:1.12},
-    spear_crypt:{name:'长矛兵营地',trains:'infantry',unitCapBase:1,unitCapPerLv:1,tier:0,needBoss:10,
-      tierUpgrade:[
-        {needBossId:5,  cost:{wood:500,stone:500,food:300},time:25},
-        {needBossId:20, cost:{wood:2000,stone:2500,food:1500},time:50},
-        {needBossId:40, cost:{wood:4500,stone:4500,food:3500},time:100},
-        {needBossId:65, cost:{wood:9000,stone:9000,food:7000},time:160}
-      ],build:{wood:160,stone:240,food:100,time:7},upBase:{wood:2000,stone:2000,food:1000},upCostLv:1.1},
     mage_tower:{name:'法师塔',trains:'mage',unitCapBase:1,unitCapPerLv:1,tier:2,needBoss:4,
       tierUpgrade:[
         {needBossId:5,  cost:{wood:800,stone:800,food:600},time:30},

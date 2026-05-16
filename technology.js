@@ -9,57 +9,57 @@ CFG.unitUpgrades = {
     name: '步兵线',
     icon: 'infantry',
     tree: {
-      infantry:          { tier:0, name:'农民', tag:null,
+      infantry:          { tier:0, name:'农民', 
         branches:[{ to:'infantry_t1', name:'民兵→T1', cost:{wood:200,stone:100,food:150}, needTech:200, needMerit:5 }] },
-      infantry_t1:       { tier:1, name:'民兵', tag:'infantry',
+      infantry_t1:       { tier:1, name:'民兵', 
         branches:[
           { to:'infantry_shield', name:'重盾手(盾)', cost:{wood:800,stone:600,food:500}, needTech:500, needMerit:10, needEssence:{type:'shield_essence',count:2} },
           { to:'infantry_spear',  name:'长矛扈从(矛)', cost:{wood:600,stone:400,food:700}, needTech:500, needMerit:10, needEssence:{type:'spear_essence',count:2} },
           { to:'infantry_sword',  name:'双手剑士(剑)', cost:{wood:500,stone:300,food:800}, needTech:500, needMerit:10, needEssence:{type:'sword_essence',count:2} }
         ]},
-      infantry_shield:   { tier:2, name:'重盾手', tag:'shield',
+      infantry_shield:   { tier:2, name:'重盾手',
         branches:[{ to:'infantry_fortress', name:'堡垒巨盾', cost:{wood:2000,stone:1500,food:1200}, needTech:1000, needMerit:20, needEssence:{type:'shield_essence',count:3} }] },
-      infantry_spear:    { tier:2, name:'长矛扈从', tag:'spear',
+      infantry_spear:    { tier:2, name:'长矛扈从',
         branches:[{ to:'infantry_ironrose', name:'铁玫瑰', cost:{wood:1800,stone:1200,food:1500}, needTech:1000, needMerit:20, needEssence:{type:'spear_essence',count:3} }] },
-      infantry_sword:    { tier:2, name:'双手剑士', tag:'sword',
+      infantry_sword:    { tier:2, name:'双手剑士',
         branches:[{ to:'infantry_bloodrose', name:'血蔷薇', cost:{wood:1600,stone:1000,food:1800}, needTech:1000, needMerit:20, needEssence:{type:'sword_essence',count:3} }] },
-      infantry_fortress: { tier:3, name:'堡垒巨盾', tag:'shield', branches:[] },
-      infantry_ironrose: { tier:3, name:'铁玫瑰', tag:'spear', branches:[] },
-      infantry_bloodrose:{ tier:3, name:'血蔷薇', tag:'sword', branches:[] }
+      infantry_fortress: { tier:3, name:'堡垒巨盾', branches:[] },
+      infantry_ironrose: { tier:3, name:'铁玫瑰', branches:[] },
+      infantry_bloodrose:{ tier:3, name:'血蔷薇', branches:[] }
     }
   },
   archer:    { name:'弓兵线', icon:'archer',    tree:{
-    archer:              { tier:0, name:'猎人', tag:null,
+    archer:              { tier:0, name:'猎人', 
       branches:[{ to:'archer_t1', name:'游侠→T1', cost:{wood:200,stone:100,food:150}, needTech:200, needMerit:5 }] },
-    archer_t1:           { tier:1, name:'游侠', tag:'archer',
+    archer_t1:           { tier:1, name:'游侠', 
       branches:[
         { to:'archer_silverbow', name:'银弓猎手(弓)', cost:{wood:700,stone:400,food:600}, needTech:500, needMerit:10, needEssence:{type:'bow_essence',count:2} },
         { to:'archer_crossbow',  name:'重弩手(弩)', cost:{wood:500,stone:700,food:500}, needTech:500, needMerit:10, needEssence:{type:'crossbow_essence',count:2} },
         { to:'archer_assassin',  name:'双刃刺客(刃)', cost:{wood:500,stone:300,food:800}, needTech:500, needMerit:10, needEssence:{type:'blade_essence',count:2} }
       ]},
-    archer_silverbow:    { tier:2, name:'银弓猎手', tag:'bow',
+    archer_silverbow:    { tier:2, name:'银弓猎手',
       branches:[{ to:'archer_longbow', name:'不列颠长弓手', cost:{wood:2000,stone:1200,food:1500}, needTech:1000, needMerit:20, needEssence:{type:'bow_essence',count:3} }] },
-    archer_crossbow:     { tier:2, name:'重弩手', tag:'crossbow',
+    archer_crossbow:     { tier:2, name:'重弩手',
       branches:[{ to:'archer_genoese', name:'热那亚劲弩', cost:{wood:1500,stone:2000,food:1200}, needTech:1000, needMerit:20, needEssence:{type:'crossbow_essence',count:3} }] },
-    archer_assassin:     { tier:2, name:'双刃刺客', tag:'blade',
+    archer_assassin:     { tier:2, name:'双刃刺客',
       branches:[{ to:'archer_shadowblade', name:'幽影刃侍', cost:{wood:1500,stone:1000,food:2000}, needTech:1000, needMerit:20, needEssence:{type:'blade_essence',count:3} }] },
-    archer_longbow:      { tier:3, name:'不列颠长弓手', tag:'bow', branches:[] },
-    archer_genoese:      { tier:3, name:'热那亚劲弩', tag:'crossbow', branches:[] },
-    archer_shadowblade:  { tier:3, name:'幽影刃侍', tag:'blade', branches:[] }
+    archer_longbow:      { tier:3, name:'不列颠长弓手',branches:[] },
+    archer_genoese:      { tier:3, name:'热那亚劲弩', branches:[] },
+    archer_shadowblade:  { tier:3, name:'幽影刃侍', branches:[] }
   } },
   cavalry:   { name:'骑兵线', icon:'cavalry',   tree:{
-    cavalry_t1:         { tier:1, name:'侍从骑士', tag:'cavalry',
+    cavalry_t1:         { tier:1, name:'侍从骑士', 
       unlock:{cost:{wood:300,stone:200,food:250},needTech:250,needMerit:8},
       branches:[
         { to:'cavalry_wind', name:'猎风弩骑(疾风)', cost:{wood:700,stone:500,food:600}, needTech:600, needMerit:15, needEssence:{type:'wind_essence',count:2} },
         { to:'cavalry_iron', name:'重装骑士(铁壁)', cost:{wood:500,stone:700,food:600}, needTech:600, needMerit:15, needEssence:{type:'iron_essence',count:2} }
       ]},
-    cavalry_wind:       { tier:2, name:'猎风弩骑', tag:'wind',
+    cavalry_wind:       { tier:2, name:'猎风弩骑', 
       branches:[{ to:'cavalry_dragon', name:'破晓龙息', cost:{wood:2000,stone:1500,food:1800}, needTech:1200, needMerit:25, needEssence:{type:'wind_essence',count:3} }] },
-    cavalry_iron:       { tier:2, name:'重装骑士', tag:'iron',
+    cavalry_iron:       { tier:2, name:'重装骑士', 
       branches:[{ to:'cavalry_teutonic', name:'条顿骑士', cost:{wood:1500,stone:2000,food:1500}, needTech:1200, needMerit:25, needEssence:{type:'iron_essence',count:3} }] },
-    cavalry_dragon:     { tier:3, name:'破晓龙息', tag:'dragon', branches:[] },
-    cavalry_teutonic:   { tier:3, name:'条顿骑士', tag:'teutonic', branches:[] }
+    cavalry_dragon:     { tier:3, name:'破晓龙息',  branches:[] },
+    cavalry_teutonic:   { tier:3, name:'条顿骑士', branches:[] }
   } },
   mage:      { name:'法师线', icon:'mage',      tree:{mage:{tier:0,name:'法师',tag:null,branches:[]}} }
 };

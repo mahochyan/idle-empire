@@ -247,11 +247,30 @@ function getForm(which){ return which==='garrison'?S._garrisonForm:S.formation; 
 function setFightTab(tab){ S._fightTab=tab; updateUI(); }
 function setBuildTab(tab){ S._buildTab=tab; updateUI(); }
 function setBarracksTier(tier){ S._barracksTier=tier; updateUI(); }
+// 检查指定关卡索引（0-based）是否已击败
+function hasLevelDefeated(idx){ return S.defeated.includes(CFG.enemies[idx]?.id); }
+// 阵容空位：随关卡进度逐步解锁，上限 3×4（前4/中4/后4）
+// 解锁顺序：前→中→后 轮替，每5关解锁一个，从第5关开始
 function rowSlots(row){
-  const boss=bossDefeatedCount();
-  if(row==='front') return 1+(boss>=1?1:0);
-  if(row==='mid') return 1+(boss>=2?1:0);
-  return 1;
+  if(row==='front'){
+    let s=1;
+    if(hasLevelDefeated(4)) s++;   // 第5关
+    if(hasLevelDefeated(19)) s++;  // 第20关
+    if(hasLevelDefeated(34)) s++;  // 第35关
+    return s;
+  }
+  if(row==='mid'){
+    let s=1;
+    if(hasLevelDefeated(9)) s++;   // 第10关
+    if(hasLevelDefeated(24)) s++;  // 第25关
+    if(hasLevelDefeated(39)) s++;  // 第40关
+    return s;
+  }
+  let s=1;
+  if(hasLevelDefeated(14)) s++;  // 第15关
+  if(hasLevelDefeated(29)) s++;  // 第30关
+  if(hasLevelDefeated(44)) s++;  // 第45关
+  return s;
 }
 function formSlots(){ return rowSlots('front')+rowSlots('mid')+rowSlots('back'); }
 function totalUpkeep(){
@@ -762,7 +781,8 @@ function useLastFormation(which){
   let shortage=false;
   for(const row of['front','mid','back']){
     for(const u of last[row]){
-      if(newForm[row].length>=rowSlots(row)){shortage=true;break;}
+      const rowMax=rowSlots(row);
+      if(newForm[row].length>=rowMax){shortage=true;break;}
       const avail=poolAvail(u.type);
       if(avail<=0){shortage=true;continue;}
       const count=Math.min(u.count, avail, regMax());

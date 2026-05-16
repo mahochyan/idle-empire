@@ -365,9 +365,9 @@ function rBarracks(){
   function renderUnitCard(k,c){
     const ow=(S.pool[k]||0)+expeditionCount(k)+garrisonCount(k),lock=trainLockReason(k);
     const tm=maxTrainable(k),disabled=tm<=0?'disabled':'',muted=lock?'opacity:.55':'';
-    const isLockedVar=tier!=='t0' && c.locked && !(S.upgradedUnits||{})[k];
+    const isLockedUnit=c.locked && !(S.upgradedUnits||{})[k];
     let researchInfo=null,isRootUnlock=false;
-    if(isLockedVar){
+    if(isLockedUnit){
       const tree=CFG.unitUpgrades[baseUnitType(k)]?.tree;
       if(tree){
         const rootNode=tree[k];
@@ -381,14 +381,14 @@ function rBarracks(){
     let card=`<div class="card" style="${muted}">
       <div style="display:flex;align-items:center;gap:8px">
         <span>${pix(c.icon,'lg')}</span>
-        <div style="flex:1;min-width:0"><div style="display:flex;align-items:center;gap:6px"><strong style="cursor:pointer" onclick="openUnitDetail('${k}')">${c.name}</strong> <span style="font-size:10px;color:#aaa">${trainBuildingLabel(k)}</span> <span onclick="event.stopPropagation();openUnitDetail('${k}')" style="font-size:9px;padding:1px 5px;border:1px solid #3a4158;border-radius:0;color:#8890a6;cursor:pointer;display:inline-block">属性</span>${!isLockedVar&&unitCapLeft(k)<=0?`<span class="limit-warn" style="margin-left:auto;font-size:9px">${pix('lock','mini')}已达上限</span>`:''}</div>
-          <div style="font-size:10px;color:#777">${c.passive} | ATK:${c.atk} DEF:${c.def}${!isLockedVar&&c.tag?` | [${c.tag}]`:''}</div>
+        <div style="flex:1;min-width:0"><div style="display:flex;align-items:center;gap:6px"><strong style="cursor:pointer" onclick="openUnitDetail('${k}')">${c.name}</strong> <span style="font-size:10px;color:#aaa">${trainBuildingLabel(k)}</span> <span onclick="event.stopPropagation();openUnitDetail('${k}')" style="font-size:9px;padding:1px 5px;border:1px solid #3a4158;border-radius:0;color:#8890a6;cursor:pointer;display:inline-block">属性</span>${!isLockedUnit&&unitCapLeft(k)<=0?`<span class="limit-warn" style="margin-left:auto;font-size:9px">${pix('lock','mini')}已达上限</span>`:''}</div>
+          <div style="font-size:10px;color:#777">${c.passive} | ATK:${c.atk} DEF:${c.def}</div>
           <div style="font-size:12px;color:#666;line-height:14px;display:flex;justify-content:space-between;align-items:center">
-            <span>${costHtml(c.cost)}/人${(S.queue[k]||{}).reason?` <span class="limit-warn" style="margin-left:14px">${pix('lock','mini')}${S.queue[k].reason}</span>`:''}${!isLockedVar&&lock?` <span class="limit-warn" style="margin-left:14px">${pix('lock','mini')}${lock}</span>`:''}</span>
+            <span>${costHtml(c.cost)}/人${(S.queue[k]||{}).reason?` <span class="limit-warn" style="margin-left:14px">${pix('lock','mini')}${S.queue[k].reason}</span>`:''}${!isLockedUnit&&lock?` <span class="limit-warn" style="margin-left:14px">${pix('lock','mini')}${lock}</span>`:''}</span>
             ${queueTotal(k)>0?`<span style="display:inline-flex;align-items:center;gap:5px;margin-right:6px;flex-shrink:0"><span style="font-size:10px;color:#888">训练队列 ${queueTotal(k)}人</span><span onclick="event.stopPropagation();cancelQueue('${k}')" style="font-size:10px;line-height:12px;padding:0 4px;border:1px solid #3a4158;color:#8890a6;cursor:pointer">取消队列</span></span>`:''}
           </div>
-          ${isLockedVar?`<div style="font-size:10px;color:#e06060;margin:2px 0">${lock.replace(/ ?\(科技点[^)]*\)/,'')}</div>`:''}
-          ${isLockedVar||lock?'':`<div class="train-custom">
+          ${isLockedUnit?`<div style="font-size:10px;color:#e06060;margin:2px 0">${lock.replace(/ ?\(科技点[^)]*\)/,'')}</div>`:''}
+          ${isLockedUnit||lock?'':`<div class="train-custom">
             <input id="train-barracks-${k}" type="text" inputmode="numeric" pattern="[0-9]*" value="${(S._trainQty||{})[k]||1}" oninput="(S._trainQty||{})['${k}']=parseInt(this.value)||1">
             <button class="btn btn-go btn-xs" onclick="trainCustom('${k}','train-barracks-${k}')" ${disabled}>训练</button>
             <button class="btn btn-ghost btn-xs" onclick="trainMax('${k}','train-barracks-${k}')" ${disabled}>MAX</button>
@@ -488,8 +488,8 @@ function rFight(){
     h+=`<div style="display:flex;gap:6px;margin-top:8px">`;
     h+=`<button class="btn btn-ghost btn-sm" onclick="useLastFormation('expedition')">${pix('check','mini')}使用上次阵容</button>`;
     h+=`<button class="btn btn-ghost btn-sm" onclick="clrForm('expedition')" style="color:#e06060">${pix('reset','mini')}清空阵容</button>`;
+    h+=`<button class="btn btn-ghost btn-sm" onclick="openTraining()">${pix('battle','mini')}训练场</button>`;
     h+=`</div>`;
-    h+=`<div style="margin-top:6px"><button class="btn btn-ghost btn-sm" onclick="openTraining()">${pix('battle','mini')}训练场</button></div>`;
     h+=`</div>`;
 
     // 关卡选择

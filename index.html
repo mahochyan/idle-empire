@@ -90,21 +90,21 @@ body{
 .unit-row .ucount{font-size:14px;font-weight:bold;color:#f0d060;min-width:24px;text-align:center}
 
 /* ===== 阵型行（前/中/后排）===== */
-.form-row{margin:4px 0;padding:6px 8px;background:#121224;border-radius:6px;border-left:3px solid #444}
+.form-row{margin:4px 0;padding:0px 0px;background:#121224;border-radius:6px;border-left:3px solid #444;white-space:nowrap;text-align:center}
 .form-row.r1{border-color:#e06060}
 .form-row.r2{border-color:#f0d060}
 .form-row.r3{border-color:#6090e0}
-.form-row .ftitle{font-size:11px;color:#aaa;margin-bottom:3px}
+.form-row .ftitle{font-size:11px;color:#aaa;margin-bottom:3px;text-align:left}
 .form-slot{
-  display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
-  background:#202038;padding:7px 8px;border-radius:4px;
-  font-size:11px;cursor:pointer;margin:2px;min-width:72px;min-height:90px;text-align:center;
+  display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;
+  background:#202038;padding:3px 5px;border-radius:4px;
+  font-size:10px;cursor:pointer;margin:1px;min-width:56px;min-height:92px;text-align:center;vertical-align:middle;
   border:1px dashed #333;transition:.15s;
 }
-.form-slot .pix-icon.sm{width:46px;height:46px;display:block;margin:0 auto 2px;vertical-align:0}
+.form-slot .pix-icon.sm{width:30px;height:30px;display:block;margin:0 auto 1px;vertical-align:0}
 .form-slot.filled{background:#252545;border:1px solid #3a3a5e}
 .form-slot:active{background:#303048}
-.form-empty{font-size:10px;color:#444;padding:4px 0}
+.form-empty{font-size:10px;color:#444;padding:4px 0;flex:1;display:flex;align-items:center;justify-content:center}
 
 /* ===== 弹窗系统 ===== */
 .modal-overlay{
@@ -810,7 +810,7 @@ body{
 .form-row.r2{border-color:#2b3144;border-left-color:var(--px-gold)}
 .form-row.r3{border-color:#2b3144;border-left-color:var(--px-blue)}
 .form-slot{
-  background:#171a27;border:2px dashed #3a4158;min-width:72px;
+  background:#171a27;border:2px dashed #3a4158;min-width:56px;min-height:92px;
 }
 .form-slot.filled{background:#202538;border:2px solid #59617b}
 .modal-overlay{background:rgba(0,0,0,.78)}
@@ -977,8 +977,8 @@ body{
   .unit-row{gap:6px}
   .unit-row .uinfo{min-width:96px}
   .train-custom input{width:46px}
-  .form-slot{min-width:62px;min-height:82px}
-  .form-slot .pix-icon.sm{width:38px;height:38px}
+  .form-slot{min-width:50px;min-height:82px;padding:2px 4px}
+  .form-slot .pix-icon.sm{width:28px;height:28px}
   .modal-unit .mu-icon{width:54px;height:54px}
   .modal-unit .mu-icon .pix-icon.lg{width:50px;height:50px}
   .unit-box{width:62px;height:82px;min-height:0}
