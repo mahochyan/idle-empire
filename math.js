@@ -21,10 +21,11 @@ let S = {
   page:'home',
   selEnemy:null,
   queue:{},
-  battleSpeed:2,
+  battleSpeed:CFG.defaultBattleSpeed||2,
   battleActive:false,
   _trainQty:{},
   _testUnlocked:false,
+  _fastBuild:false,
   _garrisonForm:{front:[],mid:[],back:[]},
   _fightTab:'expedition',
   _buildTab:'basic',
@@ -114,12 +115,14 @@ function unitCap(uk){
   const bu=baseUnitType(uk);
   const key=trainBuildingKey(bu);
   if(!key)return 0;
-  const cfg=CFG.buildings[key],st=bldSt(key);
+  const st=bldSt(key);
   if(st.lv<=0)return 0;
   const bldTier=st.tier??0;
   const unitTier=CFG.units[uk]?.tier??0;
   if(unitTier>bldTier)return 0;
-  return (cfg.unitCapBase||0) + st.lv * (cfg.unitCapPerLv||0);
+  const cap=CFG.unitCaps?.[bu];
+  if(!cap)return 0;
+  return cap.base + st.lv * cap.perLv;
 }
 function garrisonCount(uk){
   let n=0;
@@ -161,7 +164,7 @@ function processQueue(){
     if(!q||!q.count){q.reason='';continue;}
     const lock=trainLockReason(uk);
     if(lock){q.reason='';continue;}
-    const tt=CFG.units[uk].trainTime||1;
+    const tt=CFG.unitTrainTime||1;
     if(q.timer>0){q.timer--;}
     if(q.timer<=0&&q.count>0){
       if(unitCapLeft(uk)<=0){q.reason='';continue;}
@@ -369,7 +372,7 @@ function buildAct(key){
   const upLock=st.lv>0?upgradeLockReason(key):'';
   if(upLock){toast(upLock);return}
   const rawCost=st.lv===0?cfg.build:upCost(key);
-  const cost={...rawCost, time:Math.min(rawCost.time, CFG.maxUpgradeTime||120)};
+  const cost={...rawCost, time:buildTime(Math.min(rawCost.time, CFG.maxUpgradeTime||120))};
   if(S.res.wood<cost.wood||S.res.stone<cost.stone||S.res.food<cost.food){toast('资源不足');return}
   S.res.wood-=cost.wood;S.res.stone-=cost.stone;S.res.food-=cost.food;
   if(!S.buildings[key])S.buildings[key]={lv:0,state:'idle',timer:0,timerEnd:0,tier:(CFG.buildings[key]?.tier||0)};
@@ -404,7 +407,7 @@ function tierUpgradeCost(key){
   const currentTier=st.tier||0;
   const upg=cfg.tierUpgrade?.[currentTier];
   if(!upg)return null;
-  return {wood:upg.cost.wood,stone:upg.cost.stone,food:upg.cost.food,time:Math.min(upg.time||30,CFG.maxUpgradeTime||120)};
+  return {wood:upg.cost.wood,stone:upg.cost.stone,food:upg.cost.food,time:buildTime(Math.min(upg.time||30,CFG.maxUpgradeTime||120))};
 }
 function buildTierUpgradeAct(key){
   const cfg=CFG.buildings[key],st=bldSt(key);
@@ -414,7 +417,7 @@ function buildTierUpgradeAct(key){
   const upg=cfg.tierUpgrade?.[currentTier];
   if(!upg){toast('无法继续升级');return}
   const cost=upg.cost;
-  const time=Math.min(upg.time||30,CFG.maxUpgradeTime||120);
+  const time=buildTime(Math.min(upg.time||30,CFG.maxUpgradeTime||120));
   if(S.res.wood<cost.wood||S.res.stone<cost.stone||S.res.food<cost.food){toast('资源不足');return}
   S.res.wood-=cost.wood;S.res.stone-=cost.stone;S.res.food-=cost.food;
   if(!S.buildings[key])S.buildings[key]={lv:0,state:'idle',timer:0,timerEnd:0,tier:(CFG.buildings[key]?.tier||0)};
@@ -429,7 +432,7 @@ function upgradeTown(){
   if(popAllocTotal()>CFG.town.find(t=>t.lv===S.townLv+1).maxPop){toast('请先减少村民分配');return}
   const bt=CFG.buildingTimes;
   const rawTime=bt.cap1Base+(S.townLv-1)*bt.cap1PerLv;
-  const time=Math.min(rawTime, CFG.maxUpgradeTime||120);
+  const time=buildTime(Math.min(rawTime, CFG.maxUpgradeTime||120));
   S.townUpgrade={timer:time,timerEnd:time};
   addLog(`开始升级城镇，预计${time}秒`);
   save();updateUI();
@@ -452,7 +455,7 @@ function upCost(key){
   const isCap1=cfg.buffRes||(!cfg.trains&&!cfg.storagePerLv&&!cfg.buffRes);
   const bt=CFG.buildingTimes;
   const rawTime=isCap1?bt.cap1Base+lv*bt.cap1PerLv:bt.otherBase+lv*bt.otherPerLv;
-  const time=Math.min(rawTime, CFG.maxUpgradeTime||120);
+  const time=buildTime(Math.min(rawTime, CFG.maxUpgradeTime||120));
   return{wood:Math.ceil(b.wood*m),stone:Math.ceil(b.stone*m),food:Math.ceil(b.food*m),time};
 }
 function maxTrainable(uk){
@@ -469,7 +472,7 @@ function train(uk,qty){
   if(qty>max){qty=max;toast('已按队列上限训练'+qty);}
   if(!S.queue[uk])S.queue[uk]={count:0,timer:0};
   S.queue[uk].count+=qty;
-  if(S.queue[uk].timer<=0)S.queue[uk].timer=CFG.units[uk].trainTime||1;
+  if(S.queue[uk].timer<=0)S.queue[uk].timer=CFG.unitTrainTime||1;
   addLog('排队训练'+CFG.units[uk].name+'+'+qty+' (队列'+queueTotal(uk)+'/'+queueMax(uk)+')');
   save();updateUI();
 }
@@ -554,6 +557,8 @@ function addMerit(inputId){
   save();updateUI();
 }
 
+function buildTime(t){ return S._fastBuild?1:t; }
+function toggleFastBuild(){ S._fastBuild=!S._fastBuild; toast(S._fastBuild?'秒升建筑：开':'秒升建筑：关'); updateUI(); }
 function addAllEssences(inputId){
   const el=document.getElementById(inputId);
   const n=Math.max(1,Math.floor(parseInt(el?.value,10)||0));
@@ -698,7 +703,7 @@ function openUnitDetail(uk){
   h+=`<div><span style="color:#888">速度</span> <span style="color:#f0d060;float:right">${c.spd}</span></div>`;
   h+=`<div style="margin-top:4px;padding-top:4px;border-top:1px solid #2b3144"><span style="color:#888">训练费</span> <span style="color:#f0d060;float:right">${costHtml(c.cost)}</span></div>`;
   h+=`<div><span style="color:#888">维护费</span> <span style="color:#f0d060;float:right">${c.upkeep||0}食物/秒</span></div>`;
-  h+=`<div><span style="color:#888">训练时间</span> <span style="color:#f0d060;float:right">${c.trainTime||1}秒/人</span></div>`;
+  h+=`<div><span style="color:#888">训练时间</span> <span style="color:#f0d060;float:right">${CFG.unitTrainTime||1}秒/人</span></div>`;
   h+=`<div style="margin-top:4px;padding-top:4px;border-top:1px solid #2b3144"><span style="color:#888">训练建筑</span> <span style="color:#aaa;float:right">${bldName||'无'}</span></div>`;
   const pool=S.pool[uk]||0;
   const qNow=queueTotal(uk);
@@ -818,7 +823,7 @@ function openTraining(){
   initBattleState();
   drawBattleField();
   bmsg('训练开始！训练场×9 各100HP','#f0d060');
-  battleTimer=setTimeout(battleTurn, 840/S.battleSpeed);
+  battleTimer=setTimeout(battleTurn, (CFG.battleStepDelay||840)/S.battleSpeed);
 }
 
 function openBattle(){
@@ -835,7 +840,7 @@ function openBattle(){
   initBattleState();
   drawBattleField();
   bmsg('战斗开始！','#f0d060');
-  battleTimer=setTimeout(battleTurn, 840/S.battleSpeed);
+  battleTimer=setTimeout(battleTurn, (CFG.battleStepDelay||840)/S.battleSpeed);
 }
 
 function fleeBattle(){
@@ -1183,7 +1188,7 @@ function battleTurn(){
     }
   }
 
-  let idx=0,delay=840/S.battleSpeed;
+  let idx=0,delay=(CFG.battleStepDelay||840)/S.battleSpeed;
 
   function nextAction(){
     if(!S.battleActive)return;
@@ -1194,7 +1199,7 @@ function battleTurn(){
       if(oa===0){endBattle('lose');return}
       if(ea===0){endBattle('win');return}
       bmsg(`── 回合${B.round}结束 ──`,'#555');
-      battleTimer=setTimeout(battleTurn,525/S.battleSpeed);
+      battleTimer=setTimeout(battleTurn,(CFG.battleRoundDelay||525)/S.battleSpeed);
       return;
     }
 
@@ -1320,7 +1325,7 @@ function retryTraining(){
   initBattleState();
   drawBattleField();
   bmsg('重新测试开始！','#f0d060');
-  battleTimer=setTimeout(battleTurn,840/S.battleSpeed);
+  battleTimer=setTimeout(battleTurn,(CFG.battleStepDelay||840)/S.battleSpeed);
 }
 
 function exitTraining(){

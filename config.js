@@ -10,6 +10,10 @@ const CFG = {
   maxUpgradeTime: 120,            // 建筑升级最大时间（秒）
   queueMultiplier: 3,             // 训练队列上限 = 训练上限 × 此值
   popFoodCost: 0.1,               // 每个村民每秒消耗的食物
+  unitTrainTime: 0.5,                 // 所有兵种统一训练时间（秒/人）
+  battleStepDelay: 840,               // 战斗回合内每步动画延迟（ms，除以 battleSpeed）
+  battleRoundDelay: 525,              // 战斗回合间延迟（ms，除以 battleSpeed）
+  defaultBattleSpeed: 2,              // 默认战斗倍速
 
   // 资源定义
   res: {
@@ -45,56 +49,66 @@ const CFG = {
     {lv:10,name:'王都',   maxPop:110,needBossId:90}
   ],
 
+  // 兵种训练上限（公式：base + 建筑等级 × perLv）
+  unitCaps: {
+    infantry: {base:10, perLv:5},   // 步兵营地
+    archer:   {base:10, perLv:3},   // 弓兵营地
+    cavalry:  {base:5, perLv:2},   // 骑兵训练场
+    mage:     {base:0, perLv:1}    // 法师塔
+  },
+
   // 兵种
   units: {
-    infantry:{name:'农民',race:'人类',row:'front',icon:'infantry_t0',
-      cost:{wood:30,stone:10,food:20}, upkeep:0.03, trainTime:1, atk:4,def:8,spd:9, passive:'基础步兵', tier:0, baseUnit:'infantry'},
     // 步兵升级线 T1~T3（科技树解锁）
+    infantry:{name:'农民',race:'人类',row:'front',icon:'infantry_t0',
+      cost:{wood:30,stone:10,food:20}, upkeep:0.03, atk:4,def:8,spd:9, passive:'基础步兵', tier:0, baseUnit:'infantry'},
     infantry_t1:{name:'民兵',race:'人类',row:'front',icon:'infantry_t1',tier:1,baseUnit:'infantry',tag:'infantry',
-      cost:{wood:80,stone:40,food:60}, upkeep:0.08, trainTime:1, atk:8,def:12,spd:10, passive:'攻击+10%', locked:true},
+      cost:{wood:80,stone:40,food:60}, upkeep:0.08, atk:8,def:12,spd:10, passive:'攻击+10%', locked:true},
     infantry_shield:{name:'重盾手',race:'人类',row:'front',icon:'infantry_shield',tier:2,baseUnit:'infantry',tag:'shield',
-      cost:{wood:100,stone:80,food:60}, upkeep:0.12, trainTime:1, atk:6,def:18,spd:7, passive:'格挡20%', locked:true},
+      cost:{wood:100,stone:80,food:60}, upkeep:0.12, atk:6,def:18,spd:7, passive:'格挡20%', locked:true},
     infantry_spear:{name:'长矛扈从',race:'人类',row:'front',icon:'infantry_spear',tier:2,baseUnit:'infantry',tag:'spear',
-      cost:{wood:80,stone:60,food:80}, upkeep:0.12, trainTime:1, atk:9,def:12,spd:11, passive:'反制剑系1.3x', locked:true},
+      cost:{wood:80,stone:60,food:80}, upkeep:0.12, atk:9,def:12,spd:11, passive:'反制剑系1.3x', locked:true},
     infantry_sword:{name:'双手剑士',race:'人类',row:'front',icon:'infantry_sword',tier:2,baseUnit:'infantry',tag:'sword',
-      cost:{wood:60,stone:40,food:100}, upkeep:0.12, trainTime:1, atk:13,def:9,spd:10, passive:'破盾1.3x', locked:true},
+      cost:{wood:60,stone:40,food:100}, upkeep:0.12, atk:13,def:9,spd:10, passive:'破盾1.3x', locked:true},
     infantry_fortress:{name:'堡垒巨盾',race:'人类',row:'front',icon:'infantry_fortress',tier:3,baseUnit:'infantry',tag:'shield',
-      cost:{wood:150,stone:120,food:80}, upkeep:0.18, trainTime:1, atk:8,def:24,spd:7, passive:'格挡25%+每回合回复5%HP', locked:true},
+      cost:{wood:150,stone:120,food:80}, upkeep:0.18, atk:8,def:24,spd:7, passive:'格挡25%+每回合回复5%HP', locked:true},
     infantry_ironrose:{name:'铁玫瑰',race:'人类',row:'front',icon:'infantry_ironrose',tier:3,baseUnit:'infantry',tag:'spear',
-      cost:{wood:120,stone:90,food:100}, upkeep:0.18, trainTime:1, atk:12,def:15,spd:12, passive:'反制剑系1.5x+暴击10%', locked:true},
+      cost:{wood:120,stone:90,food:100}, upkeep:0.18, atk:12,def:15,spd:12, passive:'反制剑系1.5x+暴击10%', locked:true},
     infantry_bloodrose:{name:'血蔷薇',race:'人类',row:'front',icon:'infantry_bloodrose',tier:3,baseUnit:'infantry',tag:'sword',
-      cost:{wood:100,stone:70,food:130}, upkeep:0.18, trainTime:1, atk:18,def:11,spd:11, passive:'破盾1.5x+攻击+15%', locked:true},
-    archer:{name:'猎人',race:'精灵',row:'back',icon:'archer_t0', tier:0, baseUnit:'archer',
-      cost:{wood:80,stone:20,food:30}, upkeep:0.1, trainTime:1, atk:8,def:8,spd:12, passive:'基础MISS20%，打骑兵MISS50%'},
+      cost:{wood:100,stone:70,food:130}, upkeep:0.18, atk:18,def:11,spd:11, passive:'破盾1.5x+攻击+15%', locked:true},
     // 猎人升级线 T1~T3（科技树解锁）
+    archer:{name:'猎人',race:'精灵',row:'back',icon:'archer_t0', tier:0, baseUnit:'archer',
+      cost:{wood:80,stone:20,food:30}, upkeep:0.1, atk:8,def:8,spd:12, passive:'基础MISS20%，打骑兵MISS50%'},
     archer_t1:{name:'游侠',race:'精灵',row:'back',icon:'archer_t1',tier:1,baseUnit:'archer',tag:'archer',
-      cost:{wood:120,stone:40,food:50}, upkeep:0.14, trainTime:1, atk:12,def:10,spd:13, passive:'攻击+10%', locked:true},
+      cost:{wood:120,stone:40,food:50}, upkeep:0.14, atk:12,def:10,spd:13, passive:'攻击+10%', locked:true},
     archer_silverbow:{name:'银弓猎手',race:'精灵',row:'back',icon:'archer_silverbow',tier:2,baseUnit:'archer',tag:'bow',
-      cost:{wood:160,stone:50,food:80}, upkeep:0.18, trainTime:1, atk:16,def:10,spd:14, passive:'远程精准+15%', locked:true},
+      cost:{wood:160,stone:50,food:80}, upkeep:0.18, atk:16,def:10,spd:14, passive:'远程精准+15%', locked:true},
     archer_crossbow:{name:'重弩手',race:'精灵',row:'back',icon:'archer_crossbow',tier:2,baseUnit:'archer',tag:'crossbow',
-      cost:{wood:140,stone:100,food:80}, upkeep:0.18, trainTime:1, atk:14,def:14,spd:9, passive:'破甲射击1.3x', locked:true},
+      cost:{wood:140,stone:100,food:80}, upkeep:0.18, atk:14,def:14,spd:9, passive:'破甲射击1.3x', locked:true},
     archer_assassin:{name:'双刃刺客',race:'精灵',row:'back',icon:'archer_assassin',tier:2,baseUnit:'archer',tag:'blade',
-      cost:{wood:120,stone:60,food:100}, upkeep:0.18, trainTime:1, atk:12,def:8,spd:17, passive:'闪避15%+暴击10%', locked:true},
+      cost:{wood:120,stone:60,food:100}, upkeep:0.18, atk:12,def:8,spd:17, passive:'闪避15%+暴击10%', locked:true},
     archer_longbow:{name:'不列颠长弓手',race:'精灵',row:'back',icon:'archer_longbow',tier:3,baseUnit:'archer',tag:'bow',
-      cost:{wood:220,stone:80,food:120}, upkeep:0.24, trainTime:1, atk:22,def:12,spd:14, passive:'远程精准+25%+射程压制', locked:true},
+      cost:{wood:220,stone:80,food:120}, upkeep:0.24, atk:22,def:12,spd:14, passive:'远程精准+25%+射程压制', locked:true},
     archer_genoese:{name:'热那亚劲弩',race:'精灵',row:'back',icon:'archer_genoese',tier:3,baseUnit:'archer',tag:'crossbow',
-      cost:{wood:180,stone:150,food:120}, upkeep:0.24, trainTime:1, atk:18,def:18,spd:9, passive:'破甲射击1.5x+重装', locked:true},
+      cost:{wood:180,stone:150,food:120}, upkeep:0.24, atk:18,def:18,spd:9, passive:'破甲射击1.5x+重装', locked:true},
     archer_shadowblade:{name:'幽影刃侍',race:'精灵',row:'back',icon:'archer_shadowblade',tier:3,baseUnit:'archer',tag:'blade',
-      cost:{wood:150,stone:90,food:150}, upkeep:0.24, trainTime:1, atk:15,def:10,spd:19, passive:'闪避20%+暴击15%', locked:true},
+      cost:{wood:150,stone:90,food:150}, upkeep:0.24, atk:15,def:10,spd:19, passive:'闪避20%+暴击15%', locked:true},
+    
+    // 骑兵升级线 （科技树解锁）
     cavalry_t1:{name:'侍从骑士',race:'兽人',row:'front',icon:'cavalry_t1',tier:1,baseUnit:'cavalry',tag:'cavalry',
-      cost:{wood:120,stone:80,food:150}, upkeep:0.18, trainTime:1, atk:15,def:18,spd:16, passive:'冲锋+10%', locked:true},
+      cost:{wood:120,stone:80,food:150}, upkeep:0.18, atk:15,def:18,spd:16, passive:'冲锋+10%', locked:true},
     cavalry_wind:{name:'猎风弩骑',race:'兽人',row:'front',icon:'cavalry_wind',tier:2,baseUnit:'cavalry',tag:'wind',
-      cost:{wood:160,stone:100,food:180}, upkeep:0.22, trainTime:1, atk:18,def:15,spd:18, passive:'远程射击+暴击10%', locked:true},
+      cost:{wood:160,stone:100,food:180}, upkeep:0.22, atk:18,def:15,spd:18, passive:'远程射击+暴击10%', locked:true},
     cavalry_iron:{name:'重装骑士',race:'兽人',row:'front',icon:'cavalry_iron',tier:2,baseUnit:'cavalry',tag:'iron',
-      cost:{wood:120,stone:160,food:150}, upkeep:0.22, trainTime:1, atk:14,def:22,spd:12, passive:'格挡20%', locked:true},
+      cost:{wood:120,stone:160,food:150}, upkeep:0.22, atk:14,def:22,spd:12, passive:'格挡20%', locked:true},
     cavalry_dragon:{name:'破晓龙息',race:'兽人',row:'front',icon:'cavalry_dragon',tier:3,baseUnit:'cavalry',tag:'dragon',
-      cost:{wood:200,stone:150,food:220}, upkeep:0.28, trainTime:1, atk:24,def:18,spd:18, passive:'龙息1.3x+暴击15%', locked:true},
+      cost:{wood:200,stone:150,food:220}, upkeep:0.28, atk:24,def:18,spd:18, passive:'龙息1.3x+暴击15%', locked:true},
     cavalry_teutonic:{name:'条顿骑士',race:'兽人',row:'front',icon:'cavalry_teutonic',tier:3,baseUnit:'cavalry',tag:'teutonic',
-      cost:{wood:180,stone:200,food:180}, upkeep:0.28, trainTime:1, atk:18,def:26,spd:10, passive:'重甲格挡25%+反击', locked:true},
-    spearman:{name:'长矛兵',race:'人类',row:'front',icon:'spearman',tier:0,baseUnit:'spearman',
-      cost:{wood:30,stone:60,food:40}, upkeep:0.15, trainTime:1, atk:7,def:10,spd:10, passive:'暴击10%',locked:true},
-    mage:{name:'法师',race:'亡灵',row:'back',icon:'mage',tier:2,baseUnit:'mage',
-      cost:{wood:80,stone:60,food:80}, upkeep:0.3, trainTime:1, atk:15,def:8,spd:8, passive:'互易伤1.3x',locked:true}
+      cost:{wood:180,stone:200,food:180}, upkeep:0.28, atk:18,def:26,spd:10, passive:'重甲格挡25%+反击', locked:true},
+    
+    // 法师升级线 （科技树解锁）
+      mage:{name:'法师',race:'亡灵',row:'back',icon:'mage',tier:2,baseUnit:'mage',
+      cost:{wood:80,stone:60,food:80}, upkeep:0.3, atk:15,def:8,spd:8, passive:'互易伤1.3x',locked:true}
   },
 
   // 克制关系
@@ -186,36 +200,36 @@ const CFG = {
     quarry:{name:'采石场',buffRes:'stone',buffBase:0.20,buffPerLv:0.25, build:{wood:50,stone:120,food:40,time:4}, upBase:{wood:5000,stone:6000,food:2500}, upCostLv:1.5},
     farm:{name:'农田',buffRes:'food',buffBase:0.20,buffPerLv:0.25, build:{wood:80,stone:80,food:200,time:4}, upBase:{wood:5000,stone:5000,food:6000}, upCostLv:1.5},
     barracks:{name:'营帐',build:{wood:300,stone:200,food:100,time:6}, upBase:{wood:1800,stone:1800,food:1000}, upCostLv:1.7},
-    infantry_camp:{name:'步兵营地',trains:'infantry',unitCapBase:0,unitCapPerLv:4,tier:0,
+    infantry_camp:{name:'步兵营地',trains:'infantry',tier:0,
       tierUpgrade:[
         {needBossId:5,  cost:{wood:500,stone:300,food:200},time:20},
         {needBossId:20, cost:{wood:2000,stone:1500,food:1000},time:45},
-        {needBossId:40, cost:{wood:4000,stone:3000,food:2500},time:90},
-        {needBossId:65, cost:{wood:8000,stone:6000,food:5000},time:150}
+        {needBossId:40, cost:{wood:8000,stone:9000,food:5200},time:90},
+        {needBossId:65, cost:{wood:20000,stone:20000,food:15000},time:150}
       ],build:{wood:180,stone:100,food:80,time:5},upBase:{wood:1000,stone:1000,food:800},upCostLv:1.1},
-    archer_range:{name:'弓兵营地',trains:'archer',unitCapBase:0,unitCapPerLv:2,tier:0,
+    archer_range:{name:'弓兵营地',trains:'archer',tier:0,
       tierUpgrade:[
         {needBossId:5,  cost:{wood:600,stone:300,food:200},time:20},
         {needBossId:20, cost:{wood:2500,stone:1500,food:1200},time:45},
-        {needBossId:40, cost:{wood:5000,stone:4000,food:3000},time:90},
-        {needBossId:65, cost:{wood:10000,stone:8000,food:6000},time:150}
+        {needBossId:40, cost:{wood:8000,stone:8000,food:5000},time:90},
+        {needBossId:65, cost:{wood:13000,stone:11000,food:8000},time:150}
       ],build:{wood:240,stone:100,food:100,time:6},upBase:{wood:1000,stone:1000,food:850},upCostLv:1.1},
-    stable:{name:'骑兵训练场',trains:'cavalry',unitCapBase:1,unitCapPerLv:1,tier:1,needBoss:1,
+    stable:{name:'骑兵训练场',trains:'cavalry',tier:1,needBoss:1,
       tierUpgrade:[
         {needBossId:20, cost:{wood:2500,stone:2000,food:2000},time:45},
-        {needBossId:40, cost:{wood:5000,stone:5000,food:4000},time:90},
-        {needBossId:65, cost:{wood:10000,stone:8000,food:7000},time:150}
+        {needBossId:40, cost:{wood:8000,stone:8000,food:5000},time:90},
+        {needBossId:65, cost:{wood:12000,stone:10000,food:7000},time:150}
       ],build:{wood:220,stone:160,food:180,time:7},upBase:{wood:1000,stone:1000,food:1000},upCostLv:1.12},
-    mage_tower:{name:'法师塔',trains:'mage',unitCapBase:1,unitCapPerLv:1,tier:2,needBoss:4,
+    mage_tower:{name:'法师塔',trains:'mage',tier:2,needBoss:4,
       tierUpgrade:[
         {needBossId:5,  cost:{wood:800,stone:800,food:600},time:30},
-        {needBossId:20, cost:{wood:3000,stone:3000,food:2500},time:60},
-        {needBossId:40, cost:{wood:6000,stone:6000,food:5000},time:120},
-        {needBossId:65, cost:{wood:12000,stone:12000,food:10000},time:180}
+        {needBossId:20, cost:{wood:5000,stone:5000,food:3000},time:60},
+        {needBossId:40, cost:{wood:9000,stone:11000,food:5000},time:120},
+        {needBossId:65, cost:{wood:22000,stone:25000,food:10000},time:180}
       ],build:{wood:500,stone:500,food:350,time:10},upBase:{wood:3000,stone:3000,food:2000},upCostLv:1.1},
     warehouse:{name:'仓库',storageBase:10000,storagePerLv:10000,build:{wood:200,stone:200,food:100,time:5},upBase:{wood:3000,stone:3000,food:3000},upCostLv:1.3},
     arrow_tower:{name:'箭塔',desc:'城防建筑，驻军战斗中对敌人自动射击',build:{wood:400,stone:350,food:150,time:10},upBase:{wood:1500,stone:1500,food:1000},upCostLv:1.2},
-    // 军事学院已移除，兵种升级已迁移至科技页面
+    
   },
 
   // 建筑升级上限倍率（基于城镇等级，修改这里即可调整所有建筑的升级限制）
