@@ -1,15 +1,10 @@
 // ==================== 游戏配置 ====================
 // 独立配置文件，方便数值测试和调整
 const CFG = {
-  tickMs: 1000,                   // 游戏主循环间隔（毫秒）
-  campBase: 0,                    // 训练营基础容量（预留）
-  maxRows: {front:1, mid:1, back:1}, // 阵型初始行列数（击败Boss后扩展）
-  battleTimeoutMs: 10*60*1000,    // 战斗超时时间（毫秒）= 10分钟
-  initRegMax: 10,                 // 初始兵团上限（营帐建造前）
-  chapterResourceLevels: 10,      // 章节资源建筑上限（保留参数）
-  maxUpgradeTime: 120,            // 建筑升级最大时间（秒）
-  queueMultiplier: 3,             // 训练队列上限 = 训练上限 × 此值
-  popFoodCost: 0.1,               // 每个村民每秒消耗的食物
+  tickMs: 1000,                       // 游戏主循环间隔（毫秒）
+  maxUpgradeTime: 120,                // 建筑升级最大时间（秒）
+  queueMultiplier: 3,                 // 训练队列上限 = 训练上限 × 此值
+  popFoodCost: 0.1,                   // 每个村民每秒消耗的食物
   unitTrainTime: 0.5,                 // 所有兵种统一训练时间（秒/人）
   battleStepDelay: 840,               // 战斗回合内每步动画延迟（ms，除以 battleSpeed）
   battleRoundDelay: 525,              // 战斗回合间延迟（ms，除以 battleSpeed）
