@@ -93,9 +93,10 @@ function rHome(){
   h+=`<div style="text-align:center;margin-bottom:8px"><button class="btn btn-ghost btn-sm" onclick="openSettings()">${pix('build','mini')}设置</button></div>`;
   if(S._testUnlocked){
     h+=`<div class="card"><h3>${pix('build','card-pix')}测试工具</h3>
-      <div class="train-custom" style="margin:4px 0"><span style="width:100px">木/石/食/科技</span><input id="test-all" type="text" inputmode="numeric" pattern="[0-9]*" value="30000" style="width:100px"><button class="btn btn-go btn-xs" onclick="addAllRes('test-all')">一键添加</button></div>
+      <div class="train-custom" style="margin:4px 0"><span style="width:100px">木/石/食/科技</span><input id="test-all" type="text" inputmode="numeric" pattern="[0-9]*" value="50000" style="width:100px"><button class="btn btn-go btn-xs" onclick="addAllRes('test-all')">一键添加</button></div>
       <div class="train-custom" style="margin:4px 0"><span style="width:100px">⚔ 战功</span><input id="test-merit" type="text" inputmode="numeric" pattern="[0-9]*" value="50" style="width:100px"><button class="btn btn-go btn-xs" onclick="addMerit('test-merit')">添加战功</button></div>
   <div class="train-custom" style="margin:4px 0"><span style="width:100px">💎 精魄</span><input id="test-essence" type="text" inputmode="numeric" pattern="[0-9]*" value="5" style="width:100px"><button class="btn btn-go btn-xs" onclick="addAllEssences('test-essence')">添加精魄</button></div>
+  <div class="train-custom" style="margin:4px 0"><span style="width:100px">⚡ 秒升建筑</span><button class="btn btn-xs" style="${S._fastBuild?'background:#40bf80;color:#121224':'background:#444;color:#888'}" onclick="toggleFastBuild()">${S._fastBuild?'✓ 已开启':'✗ 已关闭'}</button></div>
     </div>`;
   }
   h+=`</div>`;return h;
@@ -275,7 +276,7 @@ function rBuildCard(key, cfg){
     const u=repU||{icon:baseK,name:baseK};
     const cap=unitCap(baseK);
     const nextLv=st.lv+(st.lv===0?1:1);
-    const nextCap=(cfg.unitCapBase||0) + nextLv * (cfg.unitCapPerLv||0);
+    const capCfg=CFG.unitCaps?.[baseK]; const nextCap=capCfg?capCfg.base+nextLv*capCfg.perLv:0;
     h+=`<div class="build-meta">训练: ${pix(u.icon,'mini')}${u.name} | 训练上限 ${st.lv>0?cap:0}${st.lv>0?` → ${nextCap}`:` (建成后 ${nextCap})`}</div>`;
   }
   if(st.state==='idle'){
