@@ -790,6 +790,7 @@ function openTraining(){
   document.getElementById('main').classList.add('paused');
   document.getElementById('battle-result').style.display='none';
   document.getElementById('battle-msg').innerHTML='';
+  setBattleLogOpen(false);
   initBattleState();
   drawBattleField();
   bmsg('训练开始！训练场×9 各100HP','#f0d060');
@@ -806,6 +807,7 @@ function openBattle(){
   document.getElementById('main').classList.add('paused');
   document.getElementById('battle-result').style.display='none';
   document.getElementById('battle-msg').innerHTML='';
+  setBattleLogOpen(false);
   initBattleState();
   drawBattleField();
   bmsg('战斗开始！','#f0d060');
@@ -855,14 +857,14 @@ function initBattleState(){
       for(const u of S.formation[row]){
         const cfg=CFG.units[u.type];
         B.ourUnits.push({id:uid++, fid:u.id, type:u.type, row, hp:u.count, maxHp:u.count,
-          icon:cfg.icon, name:cfg.name, spd:cfg.spd, atk:cfg.atk, def:cfg.def, tag:cfg.tag||null});
+          icon:cfg.icon, name:cfg.name, tier:cfg.tier??0, spd:cfg.spd, atk:cfg.atk, def:cfg.def, tag:cfg.tag||null});
       }
     }
     const rows=['front','mid','back'];
     for(let i=0;i<9;i++){
       const rowIdx=Math.floor(i/3);
       B.enemyUnits.push({id:uid++, type:'dummy', name:'训练场', row:rows[rowIdx],
-        hp:100, maxHp:100, icon:'dummy', spd:0, atk:0, def:1, alive:true, dummyIdx:i});
+        hp:100, maxHp:100, icon:'dummy', tier:0, spd:0, atk:0, def:1, alive:true, dummyIdx:i});
       B.dummyDmg.push(0);
     }
   }else{
@@ -878,7 +880,7 @@ function initBattleState(){
       for(const u of S.formation[row]){
         const cfg=CFG.units[u.type];
         B.ourUnits.push({id:uid++, fid:u.id, type:u.type, row, hp:u.count, maxHp:u.count,
-          icon:cfg.icon, name:cfg.name, spd:cfg.spd, atk:cfg.atk, def:cfg.def, tag:cfg.tag||null});
+          icon:cfg.icon, name:cfg.name, tier:cfg.tier??0, spd:cfg.spd, atk:cfg.atk, def:cfg.def, tag:cfg.tag||null});
       }
     }
     for(const[k,counts] of Object.entries(e.units)){
@@ -886,7 +888,7 @@ function initBattleState(){
         const cfg=CFG.units[k];
         const bm=e.boss?e.bossMult:null;
         B.enemyUnits.push({id:uid++, type:k, row:cfg.row, hp:counts[i], maxHp:counts[i],
-          icon:cfg.icon, name:cfg.name,
+          icon:cfg.icon, name:cfg.name, tier:cfg.tier??0,
           spd:cfg.spd,
           atk:bm?Math.floor(cfg.atk*bm.atk):cfg.atk,
           def:bm?Math.floor(cfg.def*bm.def):cfg.def,
@@ -895,6 +897,41 @@ function initBattleState(){
     }
   }
   shiftRows();
+}
+
+function hpTone(u){
+  const ratio=Math.max(0, Math.min(1, (u.hp||0)/Math.max(1,u.maxHp||1)));
+  if(ratio<=0.28)return 'hp-low';
+  if(ratio<=0.58)return 'hp-mid';
+  return 'hp-high';
+}
+
+function renderBattleUnit(u, side){
+  const hpPct=Math.max(0, Math.min(100, Math.round((u.hp||0)/Math.max(1,u.maxHp||1)*100)));
+  const tier=Math.max(0, Math.min(3, u.tier??0));
+  const id=`${side==='our'?'ou':'eu'}-${u.id}`;
+  const dummyCls=u.type==='dummy'?' dummy-box':'';
+  const label=`${u.name} ${u.hp}/${u.maxHp}`;
+  return `<div class="unit-box tier-t${tier} ${hpTone(u)}${dummyCls}" id="${id}" title="${label}" aria-label="${label}">
+    <span class="unit-art">${pix(u.icon,'lg')}</span>
+    <span class="unit-hpbar" aria-hidden="true"><span class="unit-hpfill" style="width:${hpPct}%"></span></span>
+  </div>`;
+}
+
+function setBattleLogOpen(open){
+  B.battleLogOpen=!!open;
+  const screen=document.getElementById('battle-screen');
+  const btn=document.getElementById('battle-log-toggle');
+  if(screen)screen.classList.toggle('log-open', B.battleLogOpen);
+  if(btn){
+    btn.classList.toggle('on', B.battleLogOpen);
+    btn.textContent=B.battleLogOpen?'收起':'日志';
+    btn.setAttribute('aria-expanded', B.battleLogOpen?'true':'false');
+  }
+}
+
+function toggleBattleLog(){
+  setBattleLogOpen(!B.battleLogOpen);
 }
 
 function drawBattleField(){
@@ -913,10 +950,7 @@ function drawBattleField(){
       if(!units.length)continue;
       h+=`<div class="battle-row"><div class="row-label">${row==='front'?'前排':row==='mid'?'中排':'后排'}</div>`;
       for(const u of units){
-        h+=`<div class="unit-box dummy-box" id="eu-${u.id}">
-          <span class="ub-icon">${pix(u.icon,'lg')}</span><span class="ub-name">${u.name}</span>
-          <span class="ub-hp">${u.hp}</span>
-          ${u.dummyIdx!==undefined?`<div class="dummy-dmg">受伤:${B.dummyDmg[u.dummyIdx]||0}</div>`:''}</div>`;
+        h+=renderBattleUnit(u,'enemy');
       }
       h+='</div>';
     }
@@ -928,9 +962,7 @@ function drawBattleField(){
       if(!units.length)continue;
       h+=`<div class="battle-row"><div class="row-label">${row==='front'?'前排':row==='mid'?'中排':'后排'}</div>`;
       for(const u of units){
-        h+=`<div class="unit-box" id="eu-${u.id}">
-          <span class="ub-icon">${pix(u.icon,'lg')}</span><span class="ub-name">${u.name}</span>
-          <span class="ub-hp">${u.hp}</span></div>`;
+        h+=renderBattleUnit(u,'enemy');
       }
       h+='</div>';
     }
@@ -944,9 +976,7 @@ function drawBattleField(){
     if(!units.length)continue;
     h+=`<div class="battle-row"><div class="row-label">${row==='front'?'前排':row==='mid'?'中排':'后排'}</div>`;
     for(const u of units){
-      h+=`<div class="unit-box" id="ou-${u.id}">
-        <span class="ub-icon">${pix(u.icon,'lg')}</span><span class="ub-name">${u.name}</span>
-        <span class="ub-hp">${u.hp}</span></div>`;
+      h+=renderBattleUnit(u,'our');
     }
     h+='</div>';
   }
@@ -1415,3 +1445,5 @@ document.getElementById('battle-speed').addEventListener('click',e=>{
     S.battleSpeed=parseInt(e.target.dataset.spd);
   }
 });
+
+document.getElementById('battle-log-toggle').addEventListener('click',toggleBattleLog);
