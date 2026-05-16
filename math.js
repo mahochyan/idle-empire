@@ -818,7 +818,7 @@ function openTraining(){
   initBattleState();
   drawBattleField();
   bmsg('训练开始！训练场×9 各100HP','#f0d060');
-  battleTimer=setTimeout(battleTurn, 600/S.battleSpeed);
+  battleTimer=setTimeout(battleTurn, 840/S.battleSpeed);
 }
 
 function openBattle(){
@@ -835,7 +835,7 @@ function openBattle(){
   initBattleState();
   drawBattleField();
   bmsg('战斗开始！','#f0d060');
-  battleTimer=setTimeout(battleTurn, 600/S.battleSpeed);
+  battleTimer=setTimeout(battleTurn, 840/S.battleSpeed);
 }
 
 function fleeBattle(){
@@ -1183,7 +1183,7 @@ function battleTurn(){
     }
   }
 
-  let idx=0,delay=600/S.battleSpeed;
+  let idx=0,delay=840/S.battleSpeed;
 
   function nextAction(){
     if(!S.battleActive)return;
@@ -1194,7 +1194,7 @@ function battleTurn(){
       if(oa===0){endBattle('lose');return}
       if(ea===0){endBattle('win');return}
       bmsg(`── 回合${B.round}结束 ──`,'#555');
-      battleTimer=setTimeout(battleTurn,375/S.battleSpeed);
+      battleTimer=setTimeout(battleTurn,525/S.battleSpeed);
       return;
     }
 
@@ -1320,7 +1320,7 @@ function retryTraining(){
   initBattleState();
   drawBattleField();
   bmsg('重新测试开始！','#f0d060');
-  battleTimer=setTimeout(battleTurn,600/S.battleSpeed);
+  battleTimer=setTimeout(battleTurn,840/S.battleSpeed);
 }
 
 function exitTraining(){
