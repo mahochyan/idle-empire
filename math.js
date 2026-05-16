@@ -8,7 +8,7 @@
 let S = {
   res:{wood:300,stone:300,food:300,tech:0},
   buildings:{},
-  pool:{infantry:0,archer:0,mage:0},
+  pool:{infantry:0,archer:0},
   formation:{front:[],mid:[],back:[]},
   townLv:1,
   popAlloc:{wood:3,stone:3,food:4},
@@ -285,8 +285,9 @@ function totalUpkeep(){
   return up;
 }
 function mm(atk,def){
-  if(atk==='mage'&&def!=='mage')return CFG.counters.mage[def]||1.0;
-  if(atk!=='mage'&&def==='mage')return CFG.normalVsMage;
+  const atkBase=baseUnitType(atk), defBase=baseUnitType(def);
+  if(atkBase==='mage'&&defBase!=='mage')return CFG.counters.mage[defBase]||1.0;
+  if(atkBase!=='mage'&&defBase==='mage')return CFG.normalVsMage;
   return 1.0;
 }
 function missRate(attacker,defender){
@@ -1200,6 +1201,8 @@ function battleTurn(){
 
     const {unit:actor,side}=actions[idx];
     if(actor.alive===false){idx++;nextAction();return}
+    // 时锁：跳过本次行动
+    if(actor.skipNextAction){actor.skipNextAction=false;idx++;nextAction();return}
 
     const enemyList=side==='our'?B.enemyUnits:B.ourUnits;
     const target=getTarget(actor,enemyList);
@@ -1257,6 +1260,28 @@ function battleTurn(){
       }else{
         if(targetEl){targetEl.classList.add('hit');setTimeout(()=>{if(targetEl)targetEl.classList.remove('hit')},400);}
         bmsg(`${side==="our"?"[我方]":"[敌方]"}${actor.name} → ${target.name} 击杀${actualKill}人，${target.name}剩余${target.hp}人`+(isBad?'[劣势]':''),'#888');
+        // 时间系：概率时锁，目标跳过下次行动
+        const MS=CFG.mageSpecials||{};
+        if(MS[actor.tag]?.attack?.timeLockChance&&Math.random()<MS[actor.tag].attack.timeLockChance){
+          target.skipNextAction=true;
+          bmsg(`[时锁] ${target.name}行动被跳过`,'#c0a060');
+        }
+      }
+      // 空间系：AOE溅射相邻敌人
+      if(!missed){
+        const MS=CFG.mageSpecials||{};
+        if(MS[actor.tag]?.attack?.aoeTargets){
+          const aoeCount=MS[actor.tag].attack.aoeTargets;
+          const aoePct=MS[actor.tag].attack.aoeDmgPct;
+          const others=enemyList.filter(u=>u!==target&&u.alive!==false&&u.hp>0);
+          for(let i=0;i<Math.min(aoeCount,others.length);i++){
+            const at=others[i];
+            const aoeDmg=Math.max(1,Math.floor(actualKill*aoePct));
+            at.hp-=aoeDmg;
+            if(at.hp<=0){at.hp=0;at.alive=false;}
+            bmsg(`[溅射] ${actor.name} → ${at.name} ${aoeDmg}点伤害`,'#7a90c0');
+          }
+        }
       }
       idx++;
       drawBattleField();

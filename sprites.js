@@ -197,6 +197,22 @@ const MAGE_GRID=[
 ];
 const mageRects=gridToRects(MAGE_GRID,MAGE_PAL);
 
+// 时序术士 — 琥珀金时砂配色
+const MAGE_TIME_PAL={k:"#1a1008",p:"#8B6914",v:"#C79A34",l:"#e0c060",b:"#f0d060",g:"#7a9060",y:"#d6a83f",e:"#5a3a10",d:"#2B2118"};
+const mageTimeRects=gridToRects(MAGE_GRID,MAGE_TIME_PAL);
+
+// 虚空术士 — 深蓝星渊配色
+const MAGE_SPACE_PAL={k:"#080c18",p:"#1a1440",v:"#2a40a0",l:"#6080e0",b:"#c0d0ff",g:"#3a6070",y:"#8a7a40",e:"#101840",d:"#0a0c14"};
+const mageSpaceRects=gridToRects(MAGE_GRID,MAGE_SPACE_PAL);
+
+// 万古之瞳 — 白金永恒配色
+const MAGE_CHRONO_PAL={k:"#2a1a08",p:"#a07020",v:"#d6a83f",l:"#f0e0a0",b:"#f8f0d0",g:"#809a70",y:"#f0d060",e:"#6a3a10",d:"#2a1a10"};
+const mageChronoRects=gridToRects(MAGE_GRID,MAGE_CHRONO_PAL);
+
+// 梅林贤者 — 蓝银经典巫师配色
+const MAGE_MERLIN_PAL={k:"#0a1020",p:"#1a2a60",v:"#3a5ac0",l:"#80a0f0",b:"#e0e8ff",g:"#5a7a5a",y:"#c0c0d0",e:"#101840",d:"#080c14"};
+const mageMerlinRects=gridToRects(MAGE_GRID,MAGE_MERLIN_PAL);
+
 // 骑兵（兽人狼骑）：绿色皮肤、棕色座狼、红色战纹
 const CAV_PAL={
   k:"#111111",o:"#496D24",O:"#7FA33B",a:"#4A4A4A",A:"#A3A3A3",
@@ -260,6 +276,11 @@ const PIX_SPRITES = {
   cavalry:cavalryRects,
   spearman:spearmanRects,
   mage:mageRects,
+  mage_t1:mageRects,
+  mage_time:mageTimeRects,
+  mage_space:mageSpaceRects,
+  mage_chrono:mageChronoRects,
+  mage_merlin:mageMerlinRects,
   infantry_t1:infantryRects,
   infantry_shield:infantryRects,
   infantry_spear:infantryRects,
@@ -312,6 +333,11 @@ const PIX_IMAGE_SPRITES = {
   cavalry:'./assets/侍从骑士.png',
   spearman:'./image/长矛兵.png',
   mage:'./image/法师.png',
+  mage_t1:'./image/法师.png',
+  mage_time:'./image/法师.png',
+  mage_space:'./image/法师.png',
+  mage_chrono:'./image/法师.png',
+  mage_merlin:'./image/法师.png',
   // 步兵线（T0~T3）
   infantry_t0:'./assets/农民.png',
   infantry_t1:'./assets/民兵.png',

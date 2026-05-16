@@ -61,7 +61,20 @@ CFG.unitUpgrades = {
     cavalry_dragon:     { tier:3, name:'破晓龙息',  branches:[] },
     cavalry_teutonic:   { tier:3, name:'条顿骑士', branches:[] }
   } },
-  mage:      { name:'法师线', icon:'mage',      tree:{mage:{tier:0,name:'法师',tag:null,branches:[]}} }
+  mage:      { name:'法师线', icon:'mage',      tree:{
+    mage_t1:       { tier:1, name:'魔法学徒', tag:'mage',
+      unlock:{cost:{wood:300,stone:300,food:250},needTech:300,needMerit:8},
+      branches:[
+        { to:'mage_time',  name:'时序术士(时)', cost:{wood:700,stone:500,food:600}, needTech:600, needMerit:15, needEssence:{type:'wind_essence',count:2} },
+        { to:'mage_space', name:'虚空术士(空)', cost:{wood:500,stone:700,food:600}, needTech:600, needMerit:15, needEssence:{type:'iron_essence',count:2} }
+      ]},
+    mage_time:     { tier:2, name:'时序术士', tag:'time',
+      branches:[{ to:'mage_chrono', name:'万古之瞳', cost:{wood:2000,stone:1500,food:1800}, needTech:1200, needMerit:25, needEssence:{type:'wind_essence',count:3} }] },
+    mage_space:    { tier:2, name:'虚空术士', tag:'space',
+      branches:[{ to:'mage_merlin', name:'梅林贤者', cost:{wood:1500,stone:2000,food:1800}, needTech:1200, needMerit:25, needEssence:{type:'iron_essence',count:3} }] },
+    mage_chrono:   { tier:3, name:'万古之瞳', tag:'time', branches:[] },
+    mage_merlin:   { tier:3, name:'梅林贤者', tag:'space', branches:[] }
+  } }
 };
 
 // ==================== 解锁逻辑 ====================
@@ -161,8 +174,8 @@ function rTech(){
   // 兵谱 — 总收纳
   if(!S._techFold)S._techFold={};
   const compFolded=S._techFold._compendium===true;
-  const treeOrder=['infantry','archer','cavalry'];
-  const treeNames={infantry:'步兵线',archer:'弓兵线',cavalry:'骑兵线'};
+  const treeOrder=['infantry','archer','cavalry','mage'];
+  const treeNames={infantry:'步兵线',archer:'弓兵线',cavalry:'骑兵线',mage:'法师线'};
 
   h+=`<div class="branch-header" onclick="S._techFold._compendium=!S._techFold._compendium;updateUI()">
     <span class="branch-arrow${compFolded?'':' open'}">▶</span>
@@ -252,7 +265,7 @@ function rTech(){
     </div>`;
     h+=`<div class="branch-body${folded?' folded':' expanded'}" style="margin-left:8px">`;
     for(const[key] of Object.entries(tree)){
-      if(tree[key].tier===0||S.upgradedUnits[key]){
+      if(key===rootKey||tree[key].tier===0||S.upgradedUnits[key]){
         h+=renderOwnedNode(tree,rootKey,iconKey,key,0);
       }
     }

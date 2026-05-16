@@ -600,8 +600,8 @@ function rTech(){
   // 兵谱 — 总收纳
   if(!S._techFold)S._techFold={};
   const compFolded=S._techFold._compendium===true;
-  const treeOrder=['infantry','archer','cavalry'];
-  const treeNames={infantry:'步兵线',archer:'弓兵线',cavalry:'骑兵线'};
+  const treeOrder=['infantry','archer','cavalry','mage'];
+  const treeNames={infantry:'步兵线',archer:'弓兵线',cavalry:'骑兵线',mage:'法师线'};
 
   h+=`<div class="branch-header" onclick="S._techFold._compendium=!S._techFold._compendium;updateUI()">
     <span class="branch-arrow${compFolded?'':' open'}">▶</span>

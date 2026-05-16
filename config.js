@@ -93,8 +93,17 @@ const CFG = {
       cost:{wood:180,stone:200,food:180}, upkeep:0.28, trainTime:1, atk:18,def:26,spd:10, passive:'重甲格挡25%+反击', locked:true},
     spearman:{name:'长矛兵',race:'人类',row:'front',icon:'spearman',tier:0,baseUnit:'spearman',
       cost:{wood:30,stone:60,food:40}, upkeep:0.15, trainTime:1, atk:7,def:10,spd:10, passive:'暴击10%',locked:true},
-    mage:{name:'法师',race:'亡灵',row:'back',icon:'mage',tier:2,baseUnit:'mage',
-      cost:{wood:80,stone:60,food:80}, upkeep:0.3, trainTime:1, atk:15,def:8,spd:8, passive:'互易伤1.3x',locked:true}
+    // 法师升级线 T1~T3（科技树解锁，类似骑兵线）
+    mage_t1:{name:'魔法学徒',race:'人类',row:'back',icon:'mage_t1',tier:1,baseUnit:'mage',tag:'mage',
+      cost:{wood:100,stone:60,food:100}, upkeep:0.2, trainTime:1, atk:12,def:6,spd:8, passive:'基础法师',locked:true},
+    mage_time:{name:'时序术士',race:'人类',row:'back',icon:'mage_time',tier:2,baseUnit:'mage',tag:'time',
+      cost:{wood:150,stone:100,food:150}, upkeep:0.25, trainTime:1, atk:16,def:8,spd:11, passive:'60%时锁 敌人跳过下回合',locked:true},
+    mage_space:{name:'虚空术士',race:'人类',row:'back',icon:'mage_space',tier:2,baseUnit:'mage',tag:'space',
+      cost:{wood:130,stone:120,food:160}, upkeep:0.25, trainTime:1, atk:14,def:7,spd:9, passive:'AOE溅射1目标50%伤害',locked:true},
+    mage_chrono:{name:'万古之瞳',race:'人类',row:'back',icon:'mage_chrono',tier:3,baseUnit:'mage',tag:'time',
+      cost:{wood:220,stone:150,food:200}, upkeep:0.32, trainTime:1, atk:22,def:10,spd:13, passive:'85%时锁 敌人跳过下回合',locked:true},
+    mage_merlin:{name:'梅林贤者',race:'人类',row:'back',icon:'mage_merlin',tier:3,baseUnit:'mage',tag:'space',
+      cost:{wood:180,stone:180,food:220}, upkeep:0.32, trainTime:1, atk:20,def:9,spd:10, passive:'AOE溅射2目标60%伤害',locked:true}
   },
 
   // 克制关系
@@ -144,7 +153,10 @@ const CFG = {
     wind:{wind:1.0,iron:0.7,teutonic:0.7,infantry:1.2,cavalry:1.2,shield:1.5,spear:1.0,sword:1.0,dragon:1.0,bow:1.0,crossbow:1.0,blade:1.0},
     iron:{wind:1.5,iron:1.0,teutonic:1.0,infantry:1.5,cavalry:1.5,shield:1.5,spear:0.7,sword:1.5,dragon:1.0,bow:1.5,crossbow:1.5,blade:1.5,_default:1.5},
     dragon:{wind:1.3,iron:1.0,teutonic:1.0,infantry:1.3,cavalry:1.3,shield:1.5,spear:1.0,sword:1.0,bow:1.0,crossbow:1.0,blade:1.0},
-    teutonic:{wind:1.5,iron:1.0,teutonic:1.0,infantry:1.5,cavalry:1.5,shield:1.5,spear:0.7,sword:1.5,dragon:1.0,bow:1.5,crossbow:1.5,blade:1.5,_default:1.5}
+    teutonic:{wind:1.5,iron:1.0,teutonic:1.0,infantry:1.5,cavalry:1.5,shield:1.5,spear:0.7,sword:1.5,dragon:1.0,bow:1.5,crossbow:1.5,blade:1.5,_default:1.5},
+    time:{wind:1.0,iron:0.7,teutonic:0.7,infantry:1.2,cavalry:1.2,shield:1.0,spear:1.0,sword:1.0,dragon:1.0,bow:1.0,crossbow:1.0,blade:1.0,space:1.3,_default:1.1},
+    space:{wind:1.0,iron:1.5,teutonic:1.5,infantry:1.0,cavalry:1.0,shield:1.3,spear:1.3,sword:1.0,dragon:1.0,bow:1.0,crossbow:1.0,blade:1.0,time:0.7,_default:1.1},
+    mage:{wind:1.0,iron:1.0,teutonic:1.0,infantry:1.0,cavalry:1.0,shield:1.0,spear:1.0,sword:1.0,_default:1.0}
   },
   // 无 tag 单位受 tag 单位攻击时的倍率（T0/T1步兵无tag，被剑矛克制）
   innerNoTagDef:0.85,
@@ -163,6 +175,18 @@ const CFG = {
     blade: {
       attack: { vsRanged: { dmgPct: 1.6 }, vsShield: { dmgPct: 0.6 } },
       row: 'mid'
+    }
+  },
+
+  // 法师线特殊战斗机制
+  // time(时序)：攻击时概率附加时锁，目标跳过下次行动
+  // space(虚空)：攻击时溅射相邻敌人
+  mageSpecials: {
+    time: {
+      attack: { timeLockChance: 0.6 }
+    },
+    space: {
+      attack: { aoeTargets: 1, aoeDmgPct: 0.5 }
     }
   },
 
@@ -206,7 +230,7 @@ const CFG = {
         {needBossId:40, cost:{wood:5000,stone:5000,food:4000},time:90},
         {needBossId:65, cost:{wood:10000,stone:8000,food:7000},time:150}
       ],build:{wood:220,stone:160,food:180,time:7},upBase:{wood:1000,stone:1000,food:1000},upCostLv:1.12},
-    mage_tower:{name:'法师塔',trains:'mage',unitCapBase:1,unitCapPerLv:1,tier:2,needBoss:4,
+    mage_tower:{name:'法师塔',trains:'mage',unitCapBase:1,unitCapPerLv:1,tier:1,needBoss:4,
       tierUpgrade:[
         {needBossId:5,  cost:{wood:800,stone:800,food:600},time:30},
         {needBossId:20, cost:{wood:3000,stone:3000,food:2500},time:60},
