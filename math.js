@@ -42,7 +42,7 @@ function buildingBuff(rk){
   const bk=Object.keys(CFG.buildings).find(k=>CFG.buildings[k].buffRes===rk);
   if(!bk)return 0;
   const cfg=CFG.buildings[bk],st=bldSt(bk);
-  if(st.state==='idle'&&st.lv>0)return cfg.bﾺse+st.lv*cfg.buffPerLv;
+  if(st.state==='idle'&&st.lv>0)return cfg.buffBase+st.lv*cfg.buffPerLv;
   return 0;
 }
 function townCfg(){return CFG.town.find(t=>t.lv===S.townLv)||CFG.town[0]}
