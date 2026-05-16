@@ -309,7 +309,7 @@ const PIX_IMAGE_SPRITES = {
   // 旧icon名回退（守卫/分支头等仍用baseUnit键）
   infantry:'./assets/农民.png',
   archer:'./assets/猎人.png',
-  cavalry:'./assets/unit-cavalry.png',
+  cavalry:'./assets/侍从骑士.png',
   spearman:'./image/长矛兵.png',
   mage:'./image/法师.png',
   // 步兵线（T0~T3）
@@ -331,12 +331,11 @@ const PIX_IMAGE_SPRITES = {
   archer_genoese:'./assets/热那亚劲弩手.png',
   archer_shadowblade:'./assets/幽影刀侍.png',
   // 骑兵线（T0~T3）
-  cavalry_t0:'./assets/unit-cavalry.png',
   cavalry_t1:'./assets/侍从骑士.png',
   cavalry_wind:'./assets/弩风骑士.png',
-  cavalry_iron:'./image/重装骑士.png',
+  cavalry_iron:'./assets/重装骑士.png',
   cavalry_dragon:'./assets/破晓龙息.png',
-  cavalry_teutonic:'./image/条顿骑士.png',
+  cavalry_teutonic:'./assets/条顿骑士.png',
 };
 
 const MAP_IMAGE_SPRITES = {
