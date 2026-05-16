@@ -306,25 +306,37 @@ const PIX_SPRITES = {
 // ===== 64×64 城镇地图建筑精灵 =====
 // 用于主页城镇巡防地图的大尺寸建筑图标，比UI图标更细致
 const PIX_IMAGE_SPRITES = {
-  infantry:'./assets/unit-infantry.png',
-  archer:'./assets/unit-archer.png',
+  // 旧icon名回退（守卫/分支头等仍用baseUnit键）
+  infantry:'./assets/农民.png',
+  archer:'./assets/猎人.png',
   cavalry:'./assets/unit-cavalry.png',
-  spearman:'./assets/unit-spearman.png',
-  mage:'./assets/unit-mage.png',
-  infantry_t1:'./assets/unit-infantry.png',
-  infantry_shield:'./assets/unit-infantry.png',
-  infantry_spear:'./assets/unit-infantry.png',
-  infantry_sword:'./assets/unit-infantry.png',
-  infantry_fortress:'./assets/unit-infantry.png',
-  infantry_ironrose:'./assets/unit-infantry.png',
-  infantry_bloodrose:'./assets/unit-infantry.png',
-  archer_t1:'./assets/unit-archer.png',
-  archer_silverbow:'./assets/unit-archer.png',
-  archer_crossbow:'./assets/unit-archer.png',
-  archer_assassin:'./assets/unit-archer.png',
-  archer_longbow:'./assets/unit-archer.png',
-  archer_genoese:'./assets/unit-archer.png',
-  archer_shadowblade:'./assets/unit-archer.png'
+  spearman:'./image/长矛兵.png',
+  mage:'./image/法师.png',
+  // 步兵线（T0~T3）
+  infantry_t0:'./assets/农民.png',
+  infantry_t1:'./assets/民兵.png',
+  infantry_shield:'./assets/重盾手.png',
+  infantry_spear:'./assets/长矛扈从.png',
+  infantry_sword:'./assets/双手剑士.png',
+  infantry_fortress:'./assets/堡垒巨盾.png',
+  infantry_ironrose:'./assets/铁玫瑰.png',
+  infantry_bloodrose:'./assets/血蔷薇.png',
+  // 弓兵线（T0~T3）
+  archer_t0:'./assets/猎人.png',
+  archer_t1:'./assets/游侠.png',
+  archer_silverbow:'./assets/银弓射手.png',
+  archer_crossbow:'./assets/重弩手.png',
+  archer_assassin:'./assets/双刀刺客.png',
+  archer_longbow:'./assets/不列颠长弓手.png',
+  archer_genoese:'./assets/热那亚劲弩手.png',
+  archer_shadowblade:'./assets/幽影刀侍.png',
+  // 骑兵线（T0~T3）
+  cavalry_t0:'./assets/unit-cavalry.png',
+  cavalry_t1:'./assets/侍从骑士.png',
+  cavalry_wind:'./assets/弩风骑士.png',
+  cavalry_iron:'./image/重装骑士.png',
+  cavalry_dragon:'./assets/破晓龙息.png',
+  cavalry_teutonic:'./image/条顿骑士.png',
 };
 
 const MAP_IMAGE_SPRITES = {
