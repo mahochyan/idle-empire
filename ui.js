@@ -250,7 +250,7 @@ function updateTownScene(){
 // ==================== 建筑界面（含4个子标签） ====================
 const BUILD_CATEGORIES = {
   basic: {name:'基础建筑',keys:['barracks','warehouse','lumber_mill','quarry','farm']},
-  barracks: {name:'兵营建筑',keys:['infantry_camp','archer_range','stable','spear_crypt','mage_tower']},
+  barracks: {name:'兵营建筑',keys:['infantry_camp','archer_range','stable','mage_tower']},
   special: {name:'特殊建筑',keys:['arrow_tower']}
 };
 

@@ -224,7 +224,7 @@ const CFG = {
   // 匹配规则见 math.js upgradeLockReason()：trains→training, storagePerLv→warehouse, buffRes→resource, 其余→barracks
   // barracks : 营帐、箭塔 — 上限 = 城镇等级 × 此值   MAX10
   // warehouse: 仓库 — 上限 = 城镇等级 × 此值        MAX50
-  // training : 步兵营地/射手靶场/骑兵训练场/长矛兵营地/法师塔 — 上限 = 城镇等级 × 此值   MAX50
+  // training : 步兵营地/射手靶场/骑兵训练场/法师塔 — 上限 = 城镇等级 × 此值   MAX50
   // resource : 伐木场/采石场/农田 — 上限 = 城镇等级 × 此值   MAX10
   buildingCaps: {
     barracks: 1,

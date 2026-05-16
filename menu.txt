@@ -27,7 +27,6 @@
   │   │   ├─ 步兵营地 (infantry_camp)
   │   │   ├─ 弓兵营地 (archer_range)
   │   │   ├─ 骑兵训练场 (stable)
-  │   │   ├─ 长矛兵营地 (spear_crypt) — 训练步兵线
   │   │   └─ 法师塔 (mage_tower) — T2起步，需击败第4个Boss解锁
   │   ├─ 特殊建筑 (special)
   │   │   └─ 箭塔 (arrow_tower)
