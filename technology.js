@@ -140,6 +140,14 @@ function upgradeUnit(fromKey,toKey){
   const targetTier=CFG.units[toKey]?.tier??0;
   const levelLock=checkTierLevel(targetTier);
   if(levelLock){toast(levelLock);return;}
+  // 建筑时代门槛：训练建筑 tier 必须 >= 目标兵种 tier
+  const bKey=Object.keys(CFG.buildings).find(k=>CFG.buildings[k].trains===baseUnitType(fromKey));
+  if(bKey){
+    const bldTier=(S.buildings[bKey]||{tier:0}).tier??0;
+    if(bldTier<targetTier){
+      toast(`需先将${CFG.buildings[bKey].name}晋升至T${targetTier}`);return;
+    }
+  }
   const needTech=branch.needTech||0;
   if((S.res.tech||0)<needTech){toast('科技点不足');return;}
   const needMerit=branch.needMerit||0;
@@ -178,6 +186,14 @@ function unlockUnitRoot(unitKey){
   const targetTier=CFG.units[unitKey]?.tier??0;
   const levelLock=checkTierLevel(targetTier);
   if(levelLock){toast(levelLock);return;}
+  // 建筑时代门槛
+  const bKey=Object.keys(CFG.buildings).find(k=>CFG.buildings[k].trains===baseUnitType(unitKey));
+  if(bKey){
+    const bldTier=(S.buildings[bKey]||{tier:0}).tier??0;
+    if(bldTier<targetTier){
+      toast(`需先将${CFG.buildings[bKey].name}晋升至T${targetTier}`);return;
+    }
+  }
   const needTech=ul.needTech||0;
   if((S.res.tech||0)<needTech){toast('科技点不足');return;}
   const needMerit=ul.needMerit||0;
