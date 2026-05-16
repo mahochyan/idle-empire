@@ -259,9 +259,9 @@ const CFG = {
       ],build:{wood:240,stone:100,food:100,time:6},upBase:{wood:1000,stone:1000,food:850},upCostLv:1.1},
     stable:{name:'骑兵训练场',trains:'cavalry',tier:1,needBoss:1,
       tierUpgrade:[
-        {needBossId:20, cost:{wood:2500,stone:2000,food:2000},time:45},
-        {needBossId:40, cost:{wood:8000,stone:8000,food:5000},time:90},
-        {needBossId:65, cost:{wood:12000,stone:10000,food:7000},time:150}
+        {needBossId:5, cost:{wood:2500,stone:2000,food:2000},time:20},
+        {needBossId:20, cost:{wood:8000,stone:8000,food:5000},time:45},
+        {needBossId:40, cost:{wood:12000,stone:12000,food:8000},time:90}
       ],build:{wood:220,stone:160,food:180,time:7},upBase:{wood:1000,stone:1000,food:1000},upCostLv:1.12},
     mage_tower:{name:'法师塔',trains:'mage',unitCapBase:1,unitCapPerLv:1,tier:1,needBoss:4,
       tierUpgrade:[

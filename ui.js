@@ -340,43 +340,19 @@ function rBuild(){
 }
 // ==================== 军营界面 ====================
 function rBarracks(){
-  const tier=S._barracksTier||'t0';
+  const tab=S._barracksTab||'train';
   let h=`<div style="padding:4px 0"><div style="font-size:12px;color:#888;margin:4px 0">总兵力 ${totalSoldiers()} | 营帐上限 ${regMax()}人/团 <span style="margin-left:10px;color:#e06060">口粮消耗：-${totalUpkeep().toFixed(1)}/秒</span></div>`;
-  const tierLabels={t0:'T0 基础',t1:'T1 进阶',t2:'T2 精锐',t3:'T3 终极',t4:'T4 传说'};
+  // 主标签
   h+=`<div style="display:flex;gap:4px;margin-bottom:6px">`;
-  for(const[tk,tn] of Object.entries(tierLabels)){
-    h+=`<button class="btn btn-sm ${tier===tk?'btn-go':'btn-ghost'}" style="flex:1" onclick="setBarracksTier('${tk}')">${tn}</button>`;
-  }
+  h+=`<button class="btn btn-sm ${tab==='train'?'btn-go':'btn-ghost'}" style="flex:1" onclick="setBarracksTab('train')">训练军队</button>`;
+  h+=`<button class="btn btn-sm ${tab==='formation'?'btn-go':'btn-ghost'}" style="flex:1" onclick="setBarracksTab('formation')">阵容方案</button>`;
   h+=`</div>`;
-  const tierNum={t0:0,t1:1,t2:2,t3:3,t4:4}[tier];
-  const branchNames={infantry:'步兵线',archer:'弓兵线',cavalry:'骑兵线',mage:'法师线'};
-  // 收集当前tier的单位，按分支分组
-  const branches={};
-  for(const[k,c] of Object.entries(CFG.units)){
-    if(tier==='t0' && c.locked && c.baseUnit) continue;
-    const ut=typeof c.tier==='number'?c.tier:0;
-    if(tier==='t0' && ut!==0) continue;
-    if(tier!=='t0' && ut!==tierNum) continue;
-    if(tier!=='t0' && c.baseUnit!=='infantry' && c.baseUnit!=='archer' && c.baseUnit!=='cavalry' && c.baseUnit!=='mage') continue;
-    const bu=c.baseUnit||k;
-    if(!branches[bu])branches[bu]=[];
-    branches[bu].push([k,c]);
-  }
-  let shown=0;
+
+  // 共用兵种卡片渲染
   function renderUnitCard(k,c){
     const ow=(S.pool[k]||0)+expeditionCount(k)+garrisonCount(k),lock=trainLockReason(k);
     const tm=maxTrainable(k),disabled=tm<=0?'disabled':'',muted=lock?'opacity:.55':'';
-    // 根单位（baseUnitType===自己）的锁由建筑/Boss决定，lock为空即已解锁
     const isLockedUnit=c.locked && !(S.upgradedUnits||{})[k] && (baseUnitType(k)!==k||!!lock);
-    let researchInfo=null,isRootUnlock=false;
-    if(isLockedUnit){
-      const tree=CFG.unitUpgrades[baseUnitType(k)]?.tree;
-      if(tree){
-        const rootNode=tree[k];
-        if(rootNode&&rootNode.unlock){researchInfo=rootNode.unlock;isRootUnlock=true;}
-        else{for(const[,node] of Object.entries(tree)){for(const br of node.branches||[]){if(br.to===k){researchInfo=br;break;}}if(researchInfo)break;}}
-      }
-    }
     const cap=unitCap(k);
     const isVariantLocked=!(S.upgradedUnits||{})[k]&&c.locked;
     let capInfo=isVariantLocked?'':`<span style="font-size:12px;margin-left:15px;color:#888">上限 ${cap} | 拥有 ${ow}</span>`;
@@ -401,51 +377,150 @@ function rBarracks(){
       </div></div>`;
     return card;
   }
-  const branchOrder=['infantry','archer','cavalry','mage'];
-  if(tier==='t0'||tier==='t1'){
-    // T0/T1: 平铺显示
-    for(const bu of branchOrder){
-      const list=branches[bu];
-      if(!list)continue;
-      for(const[k,c] of list){
-        h+=renderUnitCard(k,c);
-        shown++;
-      }
-    }
-  }else{
-    // T2/T3: 按分支收纳，带动效折叠
+
+  if(tab==='train'){
+    // ===== 训练军队标签 =====
+    const branchOrder=['infantry','archer','cavalry','mage'];
+    const branchNames={infantry:'步兵线',archer:'弓兵线',cavalry:'骑兵线',mage:'法师线'};
+    const iconKeys={infantry:'infantry',archer:'archer',cavalry:'cavalry',mage:'mage'};
     if(!S._barracksFold)S._barracksFold={};
+    let totalShown=0;
     for(const bu of branchOrder){
-      const list=branches[bu];
-      if(!list||!list.length)continue;
-      const foldKey=bu+'_'+tier;
+      const bKey=trainBuildingKey(bu);
+      const cfg=bKey?CFG.buildings[bKey]:null;
+      const st=bldSt(bKey);
+      // 找出该线最新已解锁的 tier
+      let latestTier=-1;
+      for(const[k,c] of Object.entries(CFG.units)){
+        if(baseUnitType(k)!==bu)continue;
+        const tier=c.tier??0;
+        // 根单位：trainLockReason 为空即已解锁
+        const ul=baseUnitType(k)===k?!trainLockReason(k):!!S.upgradedUnits[k];
+        if(ul&&tier>latestTier)latestTier=tier;
+      }
+      const tierLabel=latestTier>=0?'T'+latestTier:'未解锁';
+      // 收集该线最新 tier 的兵种
+      const lineUnits=[];
+      if(latestTier>=0){
+        for(const[k,c] of Object.entries(CFG.units)){
+          if(baseUnitType(k)!==bu)continue;
+          if((c.tier??0)!==latestTier)continue;
+          lineUnits.push([k,c]);
+        }
+      }
+      const lineCap=unitCap(bu);
+      const lineLeft=unitCapLeft(bu);
+      // 解锁状态
+      const bossLock=cfg&&cfg.needBoss&&bossDefeatedCount()<cfg.needBoss;
+      const notBuilt=!cfg||st.lv<=0;
+      const isLocked=bossLock||notBuilt;
+      let lockReason='';
+      if(bossLock)lockReason=`需击败${cfg.needBoss}个Boss`;
+      else if(notBuilt&&cfg)lockReason=`需先建造${cfg.name}`;
+      const foldKey='line_'+bu;
       const folded=S._barracksFold[foldKey]===true;
-      const anyOwn=list.some(([k])=>(S.pool[k]||0)>0);
-      const iconKey=bu==='infantry'?'infantry':bu==='archer'?'archer':bu;
-      const tierNum={t2:2,t3:3,t4:4}[tier]||2;
-      // 收纳头
-      const firstKey=list[0][0];
-      const lineCap=unitCap(firstKey);
-      const lineLeft=unitCapLeft(firstKey);
-      h+=`<div class="branch-header" onclick="(S._barracksFold||{})['${foldKey}']=!((S._barracksFold||{})['${foldKey}']);updateUI()">
+      // 检查是否有满足条件的可研究升级
+      let canResearch=false;
+      const checkAfford=(br)=> {
+        if(S.upgradedUnits[br.to])return false;
+        return (S.res.tech||0)>=(br.needTech||0)
+          && (S.merit||0)>=(br.needMerit||0)
+          && S.res.wood>=(br.cost?.wood||0)
+          && S.res.stone>=(br.cost?.stone||0)
+          && S.res.food>=(br.cost?.food||0)
+          && (!br.needEssence||(S.essence[br.needEssence.type]||0)>=br.needEssence.count);
+      };
+      if(!isLocked){
+        const tree=CFG.unitUpgrades[bu]?.tree;
+        if(tree){
+          if(lineUnits.length>0){
+            // 已有解锁单位：检查分支升级
+            for(const[k] of lineUnits){
+              const node=tree[k];
+              if(!node||!node.branches)continue;
+              for(const br of node.branches){if(checkAfford(br)){canResearch=true;break;}}
+              if(canResearch)break;
+            }
+          }else{
+            // 无解锁单位：检查是否有可解锁的根（如骑兵线入口）
+            const rootKey=Object.keys(tree).find(rk=>tree[rk].tier===0)||Object.keys(tree)[0];
+            const rootNode=tree[rootKey];
+            if(rootNode&&rootNode.unlock&&!S.upgradedUnits[rootKey]){
+              const ul=rootNode.unlock;
+              canResearch=(S.res.tech||0)>=(ul.needTech||0)
+                && (S.merit||0)>=(ul.needMerit||0)
+                && S.res.wood>=(ul.cost?.wood||0)
+                && S.res.stone>=(ul.cost?.stone||0)
+                && S.res.food>=(ul.cost?.food||0)
+                && (!ul.needEssence||(S.essence[ul.needEssence.type]||0)>=ul.needEssence.count);
+            }
+          }
+        }
+      }
+      // 分支头
+      h+=`<div class="branch-header" onclick="(S._barracksFold||{})['${foldKey}']=!((S._barracksFold||{})['${foldKey}']);updateUI()" style="${isLocked?'opacity:.55':''}">
         <span class="branch-arrow${folded?'':' open'}">▶</span>
-        <span class="branch-icon">${pix(iconKey,'md')}</span>
+        <span class="branch-icon">${pix(iconKeys[bu]||bu,'md')}</span>
         <div style="flex:1;min-width:0">
-          <div style="font-size:14px;font-weight:bold;color:#e0d070;letter-spacing:1px">${branchNames[bu]||bu}<span style="font-size:10px;color:#6a7290;font-weight:normal;margin-left:8px">T${tierNum}</span></div>
-          <div style="font-size:12px;color:#5a6078;margin-top:2px">${list.length}种兵种  总上限 ${lineCap} </div>
+          <div style="font-size:14px;font-weight:bold;color:#e0d070;letter-spacing:1px">${branchNames[bu]}<span style="font-size:10px;color:#6a7290;font-weight:normal;margin-left:8px">${tierLabel}</span></div>
+          <div style="font-size:12px;color:#5a6078;margin-top:2px">${isLocked?lockReason:(lineUnits.length+'种兵种  总上限 '+lineCap+(st.lv>0?'  余量 '+lineLeft:''))}</div>
         </div>
-        ${anyOwn?`<span class="branch-badge-own">✓ 已拥有</span>`:''}
+        ${canResearch?`<span class="branch-badge-own">可研究</span>`:''}
+        ${isLocked?`<span style="font-size:10px;color:#e06060">🔒</span>`:''}
       </div>`;
-      // 收纳体（带动画）
+      // 折叠体
       h+=`<div class="branch-body${folded?' folded':' expanded'}">`;
-      for(const[k,c] of list){
-        h+=renderUnitCard(k,c);
-        shown++;
+      if(isLocked){
+        h+=`<div style="text-align:center;color:#666;padding:12px">${lockReason}后才可训练</div>`;
+      }else if(!lineUnits.length){
+        h+=`<div style="text-align:center;color:#666;padding:12px">暂无可训练兵种</div>`;
+      }else{
+        for(const[k,c] of lineUnits){
+          h+=renderUnitCard(k,c);
+          totalShown++;
+        }
       }
       h+=`</div>`;
     }
+    if(!totalShown)h+=`<div style="text-align:center;color:#666;padding:20px">暂无可训练兵种</div>`;
+  }else{
+    // ===== 阵容方案标签 =====
+    const rowNames={front:'前排',mid:'中排',back:'后排'};
+    // 远征阵容
+    h+=`<div class="card"><h3>${pix('battle','card-pix')}远征阵容</h3>`;
+    for(const row of['front','mid','back']){
+      const slots=rowSlots(row);
+      const units=S.formation[row]||[];
+      h+=`<div style="margin:4px 0;font-size:12px;color:#aaa">${rowNames[row]} (${units.length}/${slots}格)</div>`;
+      if(!units.length)h+=`<div style="font-size:10px;color:#555;padding:2px 8px">空</div>`;
+      else for(const u of units){
+        const uc=CFG.units[u.type];
+        h+=`<div style="display:inline-flex;align-items:center;gap:4px;margin:2px 6px 2px 0;padding:3px 8px;background:#1a1a30;border:1px solid #2a2a4a;border-radius:4px;font-size:11px">${pix(uc.icon,'mini')}${uc.name} <span style="color:#f0d060">${u.count}</span></div>`;
+      }
+    }
+    h+=`<div style="margin-top:8px;display:flex;gap:6px">
+      <button class="btn btn-ghost btn-xs" onclick="useLastFormation('expedition')">使用上次阵容</button>
+      <button class="btn btn-ghost btn-xs" onclick="clrForm('expedition')" style="color:#e06060">清空阵容</button>
+      <button class="btn btn-ghost btn-xs" onclick="S.page='fight';S._fightTab='expedition';updateUI()">编队 →</button>
+    </div></div>`;
+    // 驻军阵容
+    h+=`<div class="card"><h3>${pix('army','card-pix')}驻军阵容</h3>`;
+    for(const row of['front','mid','back']){
+      const slots=rowSlots(row);
+      const units=(S._garrisonForm||{front:[],mid:[],back:[]})[row]||[];
+      h+=`<div style="margin:4px 0;font-size:12px;color:#aaa">${rowNames[row]} (${units.length}/${slots}格)</div>`;
+      if(!units.length)h+=`<div style="font-size:10px;color:#555;padding:2px 8px">空</div>`;
+      else for(const u of units){
+        const uc=CFG.units[u.type];
+        h+=`<div style="display:inline-flex;align-items:center;gap:4px;margin:2px 6px 2px 0;padding:3px 8px;background:#1a1a30;border:1px solid #2a2a4a;border-radius:4px;font-size:11px">${pix(uc.icon,'mini')}${uc.name} <span style="color:#f0d060">${u.count}</span></div>`;
+      }
+    }
+    h+=`<div style="margin-top:8px;display:flex;gap:6px">
+      <button class="btn btn-ghost btn-xs" onclick="useLastFormation('garrison')">使用上次阵容</button>
+      <button class="btn btn-ghost btn-xs" onclick="clrForm('garrison')" style="color:#e06060">清空阵容</button>
+      <button class="btn btn-ghost btn-xs" onclick="S.page='fight';S._fightTab='garrison';updateUI()">编队 →</button>
+    </div></div>`;
   }
-  if(!shown)h+=`<div style="text-align:center;color:#666;padding:20px">暂无兵种 (需在科技树研究解锁)</div>`;
   h+=`</div>`;return h;
 }
 // ==================== 战斗界面 ====================

@@ -29,7 +29,7 @@ let S = {
   _garrisonForm:{front:[],mid:[],back:[]},
   _fightTab:'expedition',
   _buildTab:'basic',
-  _barracksTier:'t0',
+  _barracksTab:'train',
   _barracksFold:{},
   townUpgrade:null,
   upgradedUnits:{},
@@ -165,17 +165,42 @@ function processQueue(){
     const lock=trainLockReason(uk);
     if(lock){q.reason='';continue;}
     const tt=CFG.unitTrainTime||1;
-    if(q.timer>0){q.timer--;}
-    if(q.timer<=0&&q.count>0){
-      if(unitCapLeft(uk)<=0){q.reason='';continue;}
-      const cost=CFG.units[uk].cost;
-      if(S.res.wood<cost.wood||S.res.stone<cost.stone||S.res.food<cost.food){q.reason='资源不足，暂停生产';continue;}
-      S.res.wood-=cost.wood;S.res.stone-=cost.stone;S.res.food-=cost.food;
-      S.pool[uk]=(S.pool[uk]||0)+1;
-      q.count--;
-      changed=true;
-      q.reason='';
-      if(q.count>0)q.timer=tt;else{q.timer=0;q.reason='';}
+    // 每tick产出 = max(1, 1/训练秒数)，tt=0.2→5个/tick, tt=1→1个/tick
+    const perTick=tt<1?Math.round(1/tt):1;
+    if(perTick>1){
+      // 亚秒级训练：每tick直接产出 perTick 个
+      if(q.count>0){
+        if(unitCapLeft(uk)<=0){q.reason='';continue;}
+        const cost=CFG.units[uk].cost;
+        const can=Math.min(perTick, q.count, unitCapLeft(uk));
+        const maxByRes=Math.min(
+          cost.wood>0?Math.floor(S.res.wood/cost.wood):999,
+          cost.stone>0?Math.floor(S.res.stone/cost.stone):999,
+          cost.food>0?Math.floor(S.res.food/cost.food):999
+        );
+        const n=Math.min(can, maxByRes);
+        if(n<=0){q.reason='资源不足，暂停生产';continue;}
+        S.res.wood-=cost.wood*n;S.res.stone-=cost.stone*n;S.res.food-=cost.food*n;
+        S.pool[uk]=(S.pool[uk]||0)+n;
+        q.count-=n;
+        changed=true;
+        q.reason='';
+        if(q.count<=0){q.count=0;q.timer=0;q.reason='';}
+      }
+    }else{
+      // 标准训练：timer倒数
+      if(q.timer>0){q.timer--;}
+      if(q.timer<=0&&q.count>0){
+        if(unitCapLeft(uk)<=0){q.reason='';continue;}
+        const cost=CFG.units[uk].cost;
+        if(S.res.wood<cost.wood||S.res.stone<cost.stone||S.res.food<cost.food){q.reason='资源不足，暂停生产';continue;}
+        S.res.wood-=cost.wood;S.res.stone-=cost.stone;S.res.food-=cost.food;
+        S.pool[uk]=(S.pool[uk]||0)+1;
+        q.count--;
+        changed=true;
+        q.reason='';
+        if(q.count>0)q.timer=tt;else{q.timer=0;q.reason='';}
+      }
     }
   }
   if(changed)save();
@@ -249,7 +274,7 @@ function getForm(which){ return which==='garrison'?S._garrisonForm:S.formation; 
 // 切换战斗页子标签
 function setFightTab(tab){ S._fightTab=tab; updateUI(); }
 function setBuildTab(tab){ S._buildTab=tab; updateUI(); }
-function setBarracksTier(tier){ S._barracksTier=tier; updateUI(); }
+function setBarracksTab(tab){ S._barracksTab=tab; updateUI(); }
 // 检查指定关卡索引（0-based）是否已击败
 function hasLevelDefeated(idx){ return S.defeated.includes(CFG.enemies[idx]?.id); }
 // 阵容空位：随关卡进度逐步解锁，上限 3×4（前4/中4/后4）
@@ -345,6 +370,7 @@ function tick(){
       st.timer--;if(st.timer<=0){
         if(st.state==='building'){st.lv=1;addLog(`${CFG.buildings[k].name}建成`)}
         else if(st.state==='tier_upgrading'){
+          refundUnitsByLine(k);  // 先退旧时代兵再升tier
           st.tier=(st.tier||0)+1;
           addLog(`${CFG.buildings[k].name}升级到T${st.tier}`);
         }
@@ -431,6 +457,61 @@ function buildTierUpgradeAct(key){
   S.buildings[key].timer=time;
   addLog(`开始升级${cfg.name}至T${currentTier+1}`);
   save();updateUI();
+}
+// 时代升级时退还旧时代兵力：遍历 pool + 远征阵容 + 驻军阵容，退还同线且 tier <= maxTier 的单位
+// maxTier 可选，默认取建筑当前 tier（建筑升级时），技术研究时传入旧单位 tier
+function refundUnitsByLine(buildingKey, maxTier){
+  const cfg=CFG.buildings[buildingKey];
+  if(!cfg||!cfg.trains)return;
+  const lineKey=cfg.trains;
+  const threshold=maxTier??(S.buildings[buildingKey]?.tier??0);
+  const cap=storageCapacity();
+  let totalRefund={wood:0,stone:0,food:0}, totalCount=0;
+  function refund(uk,count){
+    const uc=CFG.units[uk];
+    if(!uc||!count)return;
+    if((uc.tier??0) > threshold)return;
+    const cost=uc.cost||{};
+    totalRefund.wood+=Math.floor((cost.wood||0)*count);
+    totalRefund.stone+=Math.floor((cost.stone||0)*count);
+    totalRefund.food+=Math.floor((cost.food||0)*count);
+    totalCount+=count;
+  }
+  // pool
+  for(const[uk,count] of Object.entries(S.pool)){
+    if(!count || baseUnitType(uk)!==lineKey)continue;
+    refund(uk,count);
+    S.pool[uk]=0;
+  }
+  // 远征阵容
+  for(const row of['front','mid','back']){
+    S.formation[row]=S.formation[row].filter(u=>{
+      if(baseUnitType(u.type)!==lineKey)return true;
+      refund(u.type,u.count);
+      return false;
+    });
+  }
+  // 驻军阵容
+  for(const row of['front','mid','back']){
+    S._garrisonForm[row]=(S._garrisonForm[row]||[]).filter(u=>{
+      if(baseUnitType(u.type)!==lineKey)return true;
+      refund(u.type,u.count);
+      return false;
+    });
+  }
+  // 训练队列（取消即可，资源在产出时才扣除所以无需退款）
+  for(const[uk,q] of Object.entries(S.queue)){
+    if(baseUnitType(uk)!==lineKey)continue;
+    const uc=CFG.units[uk];
+    if(!uc||(uc.tier??0)>threshold)continue;
+    q.count=0;q.timer=0;q.reason='';
+  }
+  if(totalCount>0){
+    S.res.wood=Math.min((S.res.wood||0)+totalRefund.wood,cap);
+    S.res.stone=Math.min((S.res.stone||0)+totalRefund.stone,cap);
+    S.res.food=Math.min((S.res.food||0)+totalRefund.food,cap);
+    addLog(`退还${totalCount}名旧时代士兵，木${totalRefund.wood}石${totalRefund.stone}食${totalRefund.food}`);
+  }
 }
 function upgradeTown(){
   if(!townCanUpgrade()){const bid=townUpgradeNeedBossId();const be=CFG.enemies.find(e=>e.id===bid);toast(`需击败第${bid}关Boss「${be?.name||'?'}」才能升级城镇`);return}

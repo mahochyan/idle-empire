@@ -2,6 +2,25 @@
 // 独立文件，类似 levels.js / garrison.js
 // 科技树节点配置、解锁逻辑、科技点消耗
 // 依赖：config.js(sprites.js)math.js 已加载
+//
+// 科技树节点字段说明：
+//   tier       — 兵种时代等级（0=基础 1=进阶 2=精锐 3=终极）
+//   name       — 兵种显示名称
+//   tag        — 二级克制标签（shield/spear/sword/bow/crossbow/blade/wind/iron等）
+//   branches[] — 分支升级列表，每个分支：
+//     to          — 目标兵种 key
+//     name        — 分支显示名称
+//     cost        — 资源消耗 {wood, stone, food}
+//     needTech    — 科技点消耗
+//     needMerit   — 战功消耗
+//     needEssence — 精魄消耗 {type: 精魄类型, count: 数量}（T2+需要）
+//   unlock     — 根单位解锁条件（仅骑兵线/法师线等需要解锁入口的兵种）：
+//     {cost, needTech, needMerit, needEssence?}
+//
+// 解锁逻辑：
+//   - upgradeUnit(fromKey, toKey) — 研究分支升级
+//   - unlockUnitRoot(unitKey)    — 解锁根单位入口
+//   - 研究到更高 tier 时自动退还旧 tier 兵力（pool + 编队 + 队列）
 
 // ==================== 科技树配置 ====================
 CFG.unitUpgrades = {
@@ -78,6 +97,24 @@ CFG.unitUpgrades = {
 };
 
 // ==================== 解锁逻辑 ====================
+// 时代科技关卡门槛：T1需第5关 / T2需第20关 / T3需第40关
+function tierNeedLevel(tier){
+  if(tier<=0)return 0;
+  if(tier===1)return 5;
+  if(tier===2)return 20;
+  if(tier===3)return 40;
+  return 65; // T4+
+}
+function checkTierLevel(tier){
+  const need=tierNeedLevel(tier);
+  if(need<=0)return '';
+  const idx=need-1; // 0-based
+  if(!hasLevelDefeated(idx)){
+    const en=CFG.enemies[idx];
+    return `需先击败第${need}关「${en?.name||'?'}」`;
+  }
+  return '';
+}
 function bossEssenceCount(){
   return Object.values(S.essence||{}).reduce((a,b)=>a+(b||0),0);
 }
@@ -100,6 +137,9 @@ function upgradeUnit(fromKey,toKey){
   if(!node)return;
   const branch=node.branches.find(b=>b.to===toKey);
   if(!branch)return;
+  const targetTier=CFG.units[toKey]?.tier??0;
+  const levelLock=checkTierLevel(targetTier);
+  if(levelLock){toast(levelLock);return;}
   const needTech=branch.needTech||0;
   if((S.res.tech||0)<needTech){toast('科技点不足');return;}
   const needMerit=branch.needMerit||0;
@@ -118,6 +158,13 @@ function upgradeUnit(fromKey,toKey){
   S.merit-=needMerit;
   if(needEssence){S.essence[needEssence.type]-=needEssence.count;}
   S.upgradedUnits[toKey]=true;
+  // 研究到更高tier时退还旧tier兵力
+  const newTier=CFG.units[toKey]?.tier??0;
+  const oldTier=CFG.units[fromKey]?.tier??0;
+  if(newTier>oldTier){
+    const bKey=Object.keys(CFG.buildings).find(k=>CFG.buildings[k].trains===baseUnitType(fromKey));
+    if(bKey&&typeof refundUnitsByLine==='function')refundUnitsByLine(bKey, oldTier);
+  }
   addLog('解锁'+(CFG.units[toKey]?CFG.units[toKey].name:toKey)+'兵种升级');
   save();updateUI();
 }
@@ -128,6 +175,9 @@ function unlockUnitRoot(unitKey){
   const node=tree[unitKey];
   if(!node||!node.unlock)return;
   const ul=node.unlock;
+  const targetTier=CFG.units[unitKey]?.tier??0;
+  const levelLock=checkTierLevel(targetTier);
+  if(levelLock){toast(levelLock);return;}
   const needTech=ul.needTech||0;
   if((S.res.tech||0)<needTech){toast('科技点不足');return;}
   const needMerit=ul.needMerit||0;
