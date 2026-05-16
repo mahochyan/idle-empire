@@ -365,7 +365,8 @@ function rBarracks(){
   function renderUnitCard(k,c){
     const ow=(S.pool[k]||0)+expeditionCount(k)+garrisonCount(k),lock=trainLockReason(k);
     const tm=maxTrainable(k),disabled=tm<=0?'disabled':'',muted=lock?'opacity:.55':'';
-    const isLockedUnit=c.locked && !(S.upgradedUnits||{})[k];
+    // 根单位（baseUnitType===自己）的锁由建筑/Boss决定，lock为空即已解锁
+    const isLockedUnit=c.locked && !(S.upgradedUnits||{})[k] && (baseUnitType(k)!==k||!!lock);
     let researchInfo=null,isRootUnlock=false;
     if(isLockedUnit){
       const tree=CFG.unitUpgrades[baseUnitType(k)]?.tree;
