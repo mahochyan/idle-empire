@@ -341,14 +341,164 @@ function isAttackMiss(attacker,defender){
   return rate>0&&Math.random()<rate;
 }
 
-// 存档：手动 pick 字段序列化 —— 新增 S 字段时必须同步修改 save() 和 load()，否则重启丢失数据
-function save(){
-  const d={res:S.res,buildings:S.buildings,pool:S.pool,queue:S.queue,formation:S.formation,townLv:S.townLv,popAlloc:S.popAlloc,defeated:S.defeated,merit:S.merit,garrisonLog:S.garrisonLog,garrison:S.garrison,tick:S.tick,garrisonForm:S._garrisonForm,townUpgrade:S.townUpgrade,upgradedUnits:S.upgradedUnits,essence:S.essence};
-  localStorage.setItem('rts_save',JSON.stringify(d));
+// ==================== 存档子系统（IE-001）====================
+// key 布局：rts_save 主档 | rts_save_backup_1/_2 最近有效备份（轮转） | rts_save_premigration 覆盖前原始副本（仅迁移/导入/恢复时写）
+// 写回单点 writeRawKey；自动保存入口 save() 在保护模式下无条件跳过（坏档/未来版本不会被静默覆盖成新档）。
+// 单位约定：ts=毫秒时间戳，tick=秒。兼容策略：v 缺失的旧档按 legacy 迁移到 v=1；v>SAVE_VERSION 拒绝读写回。
+const SAVE_KEY='rts_save',SAVE_VERSION=1,BACKUP_KEYS=['rts_save_backup_1','rts_save_backup_2'],PRE_MIGRATION_KEY='rts_save_premigration';
+let _saveProtected=false,_saveProtectReason='',_lastSaveWarn=0;
+function saveProtected(){return _saveProtected}
+function saveProtectReason(){return _saveProtectReason}
+function _isNum(x){return typeof x==='number'&&Number.isFinite(x)}
+function _isInt(x){return _isNum(x)&&Math.floor(x)===x}
+function _isObj(o){return o!==null&&typeof o==='object'&&!Array.isArray(o)}
+// legacy（无 v）旧档缺字段补齐：数值逐项复刻原 load() 的 || 缺省行为（含 popAlloc {5,3,2} 的旧口径，如实保留不修正）
+function _legacyDefaults(){return{res:{wood:300,stone:300,food:300,tech:0},buildings:{},pool:{},queue:{},formation:{front:[],mid:[],back:[]},townLv:1,popAlloc:{wood:5,stone:3,food:2},defeated:[],merit:0,garrisonLog:[],garrison:null,tick:0,garrisonForm:{front:[],mid:[],back:[]},townUpgrade:null,upgradedUnits:{},essence:{}}}
+function serializeSave(){
+  return {v:SAVE_VERSION,ts:Date.now(),res:S.res,buildings:S.buildings,pool:S.pool,queue:S.queue,formation:S.formation,townLv:S.townLv,popAlloc:S.popAlloc,defeated:S.defeated,merit:S.merit,garrisonLog:S.garrisonLog,garrison:S.garrison,tick:S.tick,garrisonForm:S._garrisonForm,townUpgrade:S.townUpgrade,upgradedUnits:S.upgradedUnits,essence:S.essence};
 }
-function load(){
-  const r=localStorage.getItem('rts_save');if(!r)return;
-  try{const d=JSON.parse(r);S.res=d.res||S.res;S.buildings=d.buildings||{};S.pool=d.pool||S.pool;S.formation=d.formation||S.formation;S.townLv=d.townLv||1;S.popAlloc=d.popAlloc||{wood:5,stone:3,food:2};S.defeated=d.defeated||[];S.merit=d.merit||0;S.garrisonLog=d.garrisonLog||[];S.garrison=d.garrison||S.garrison;S.queue=d.queue||{};S.tick=d.tick||0;S._garrisonForm=d.garrisonForm||{front:[],mid:[],back:[]};S.townUpgrade=d.townUpgrade||null;S.upgradedUnits=d.upgradedUnits||{};S.essence=d.essence||{};if(typeof ensureGarrisonState==='function')ensureGarrisonState();}catch(e){}
+// 校验策略：结构/枚举/引用严格（未知兵种/建筑/关卡/资源 → 保护，不静默裁剪）；数值宽松（有限数且≥0 即可，超限不裁剪只报告）
+function validateSave(d){
+  const errors=[];
+  if(!_isObj(d))return{ok:false,future:false,errors:['顶层结构不是对象']};
+  const hasV='v' in d;
+  if(hasV){
+    if(!_isInt(d.v)||d.v<1)errors.push('v 版本字段非法');
+    else if(d.v>SAVE_VERSION)return{ok:false,future:true,errors:['存档版本 v='+d.v+' 高于当前支持的 v='+SAVE_VERSION]};
+  }
+  if('ts' in d&&!_isNum(d.ts))errors.push('ts 非法');
+  if('res' in d){if(!_isObj(d.res))errors.push('res 不是对象');else for(const k of Object.keys(d.res)){if(!(k in CFG.res))errors.push('res: 未知资源 '+k);else if(!_isNum(d.res[k])||d.res[k]<0)errors.push('res.'+k+' 非法（负数或非有限数）')}}
+  if('popAlloc' in d){if(!_isObj(d.popAlloc))errors.push('popAlloc 不是对象');else for(const k of Object.keys(d.popAlloc)){if(!['wood','stone','food'].includes(k))errors.push('popAlloc: 未知项 '+k);else if(!_isNum(d.popAlloc[k])||d.popAlloc[k]<0)errors.push('popAlloc.'+k+' 非法')}}
+  if('buildings' in d){if(!_isObj(d.buildings))errors.push('buildings 不是对象');else for(const k of Object.keys(d.buildings)){const b=d.buildings[k];if(!(k in CFG.buildings))errors.push('buildings: 未知建筑 '+k);else if(!_isObj(b))errors.push('buildings.'+k+' 不是对象');else{if('lv' in b&&!_isInt(b.lv))errors.push('buildings.'+k+'.lv 非法');if('state' in b&&b.state!=null&&!['idle','building','upgrading','tier_upgrading'].includes(b.state))errors.push('buildings.'+k+'.state 非法');if('timer' in b&&b.timer!=null&&!_isNum(b.timer))errors.push('buildings.'+k+'.timer 非法');if('tier' in b&&'tier' in b&&b.tier!=null&&!_isInt(b.tier))errors.push('buildings.'+k+'.tier 非法');}}}
+  const checkUnits=(where,arr)=>{if(!Array.isArray(arr)){errors.push(where+' 不是数组');return;}arr.forEach((u,i)=>{if(!_isObj(u))errors.push(where+'['+i+'] 不是对象');else{if(!(u.type in CFG.units))errors.push(where+'['+i+'].type 未知兵种');if(!_isNum(u.count)||u.count<0)errors.push(where+'['+i+'].count 非法');if('id' in u&&!_isNum(u.id))errors.push(where+'['+i+'].id 非法');}})};
+  const chkFormation=(name,f)=>{if(!_isObj(f))errors.push(name+' 不是对象');else for(const r of['front','mid','back']){if(!(r in f))errors.push(name+' 缺少排 '+r);else checkUnits(name+'.'+r,f[r]);}};
+  if('formation' in d)chkFormation('formation',d.formation);
+  if('garrisonForm' in d)chkFormation('garrisonForm',d.garrisonForm);
+  if('pool' in d){if(!_isObj(d.pool))errors.push('pool 不是对象');else for(const k of Object.keys(d.pool)){if(!(k in CFG.units))errors.push('pool: 未知兵种 '+k);else if(!_isNum(d.pool[k])||d.pool[k]<0)errors.push('pool.'+k+' 非法')}}
+  if('queue' in d){if(!_isObj(d.queue))errors.push('queue 不是对象');else for(const k of Object.keys(d.queue)){const q=d.queue[k];if(!(k in CFG.units))errors.push('queue: 未知兵种 '+k);else if(!_isObj(q))errors.push('queue.'+k+' 不是对象');else{if(q.count!=null&&!_isNum(q.count))errors.push('queue.'+k+'.count 非法');if(q.timer!=null&&!_isNum(q.timer))errors.push('queue.'+k+'.timer 非法');}}}
+  if('defeated' in d){if(!Array.isArray(d.defeated))errors.push('defeated 不是数组');else{const ids=new Set(CFG.enemies.map(e=>e.id));d.defeated.forEach(id=>{if(!_isInt(id)||!ids.has(id))errors.push('defeated: 未知或非法关卡 id');});}}
+  if('upgradedUnits' in d){if(!_isObj(d.upgradedUnits))errors.push('upgradedUnits 不是对象');else for(const k of Object.keys(d.upgradedUnits))if(!(k in CFG.units))errors.push('upgradedUnits: 未知兵种 '+k)}
+  if('essence' in d){if(!_isObj(d.essence))errors.push('essence 不是对象');else for(const k of Object.keys(d.essence)){if(!(k in CFG.essences))errors.push('essence: 未知精魄 '+k);else if(!_isNum(d.essence[k])||d.essence[k]<0)errors.push('essence.'+k+' 非法')}}
+  if('townLv' in d&&(!_isInt(d.townLv)||d.townLv<1||d.townLv>CFG.town.length))errors.push('townLv 非法（超出城镇表范围）');
+  if('merit' in d&&(!_isNum(d.merit)||d.merit<0))errors.push('merit 非法');
+  if('tick' in d&&(!_isNum(d.tick)||d.tick<0))errors.push('tick 非法');
+  if('garrisonLog' in d&&!Array.isArray(d.garrisonLog))errors.push('garrisonLog 不是数组');
+  if('townUpgrade' in d&&d.townUpgrade!=null){if(!_isObj(d.townUpgrade))errors.push('townUpgrade 非法');else if(!_isNum(d.townUpgrade.timer))errors.push('townUpgrade.timer 非法')}
+  if('garrison' in d&&d.garrison!=null){if(!_isObj(d.garrison))errors.push('garrison 不是对象');else{const g=d.garrison;if('phase' in g&&typeof g.phase!=='string')errors.push('garrison.phase 非法');for(const k of['phaseStarted','phaseUntil','cooldownUntil','nextCheckTick','seed'])if(k in g&&!_isNum(g[k]))errors.push('garrison.'+k+' 非法');}}
+  // v=1 档必须字段齐全（由 serializeSave 保证）；legacy（无 v）允许缺字段，由迁移补齐
+  if(hasV){for(const k of Object.keys(_legacyDefaults()))if(!(k in d))errors.push('缺少必需字段 '+k)}
+  return{ok:errors.length===0,future:false,errors};
+}
+// 迁移：当前只有 legacy(无v)→v1；可重复执行（v1 输入原样返回），不增删资源/兵力/进度
+function migrateSave(d){
+  const filled=[];
+  if(!('v' in d)){
+    const def=_legacyDefaults();
+    for(const k of Object.keys(def))if(!(k in d)){d[k]=def[k];filled.push(k)}
+    d.v=1;d.ts=Date.now();
+    return{d,migrated:true,filled};
+  }
+  return{d,migrated:false,filled};
+}
+// 应用到 S：显式逐字段，不再使用 || 吞合法 0；默认对象全部独立新建
+function applySaveToS(d){
+  S.res=d.res;S.buildings=d.buildings;S.pool=d.pool;S.queue=d.queue;S.formation=d.formation;S.townLv=d.townLv;S.popAlloc=d.popAlloc;S.defeated=d.defeated;S.merit=d.merit;S.garrisonLog=d.garrisonLog;if(d.garrison)S.garrison=d.garrison;S.tick=d.tick;S._garrisonForm=d.garrisonForm;S.townUpgrade=d.townUpgrade;S.upgradedUnits=d.upgradedUnits;S.essence=d.essence;
+  if(typeof ensureGarrisonState==='function')ensureGarrisonState();
+}
+function readRawKey(key){try{const t=localStorage.getItem(key);return{ok:true,text:t}}catch(e){return{ok:false,err:'存储读取失败'}}}
+function writeRawKey(key,text){try{localStorage.setItem(key,text);return{ok:true}}catch(e){return{ok:false,err:'存储写入失败（可能已满）'}}}
+function _isGoodText(t){if(t==null)return false;try{return validateSave(JSON.parse(t)).ok}catch(e){return false}}
+// 轮转备份：仅当主档内容自身有效时才进备份槽；损坏内容绝不挤掉已有有效备份
+function backUpMaster(){
+  const cur=readRawKey(SAVE_KEY);if(!cur.ok)return{ok:false,stage:'backup',reason:cur.err};
+  if(!_isGoodText(cur.text))return{ok:true,skipped:true};
+  const b1=readRawKey(BACKUP_KEYS[0]);
+  if(b1.ok&&_isGoodText(b1.text)){const c=writeRawKey(BACKUP_KEYS[1],b1.text);if(!c.ok)return{ok:false,stage:'backup',reason:c.err}}
+  const w=writeRawKey(BACKUP_KEYS[0],cur.text);if(!w.ok)return{ok:false,stage:'backup',reason:w.err};
+  return{ok:true};
+}
+function _warnUnsaved(reason){const now=Date.now();if(now-_lastSaveWarn>30000){_lastSaveWarn=now;if(typeof toast==='function')toast('保存失败：'+reason+'，原存档未被改动')}}
+function writeSave(text){
+  if(_saveProtected)return{ok:false,stage:'protected'};
+  const b=backUpMaster();if(!b.ok){_warnUnsaved(b.reason||'备份无法写入');return{ok:false,stage:'backup'}}
+  const w=writeRawKey(SAVE_KEY,text);if(!w.ok){_warnUnsaved(w.err);return{ok:false,stage:'write'}}
+  return{ok:true};
+}
+function save(){if(_saveProtected)return;writeSave(JSON.stringify(serializeSave()))}
+function enterProtection(reason){_saveProtected=true;_saveProtectReason=reason;if(typeof addLog==='function')addLog('存档保护：'+reason);if(typeof toast==='function')toast('存档保护模式：'+reason)}
+// 启动加载：读原文→解析/校验/迁移在候选对象上完成→备份→才提交使用；一切失败路径保持主档原样并进入保护
+function loadSaveAndApply(){
+  const r=readRawKey(SAVE_KEY);
+  if(!r.ok){enterProtection('存储不可读，本轮不会尝试读写主档');return{status:'storage_error'}}
+  if(r.text==null)return{status:'fresh'}; // 无档≠坏档
+  let p=null;try{p=JSON.parse(r.text)}catch(e){enterProtection('主档解析失败（损坏档），原文已保留可导出');return{status:'corrupt'}}
+  const v=validateSave(p);
+  if(!v.ok){enterProtection(v.future?v.errors[0]:'主档校验失败：'+v.errors.slice(0,3).join('；'));return{status:v.future?'future':'invalid',errors:v.errors}}
+  const m=migrateSave(p);
+  if(m.migrated){
+    const pre=writeRawKey(PRE_MIGRATION_KEY,r.text);
+    if(!pre.ok){applySaveToS(m.d);enterProtection('无法写入迁移前原始副本，已终止格式升级（本会话只读）');return{status:'migrated_readonly'}}
+  }
+  applySaveToS(m.d);
+  if(m.migrated){
+    const w=writeSave(JSON.stringify(serializeSave())); // 提交 v/ts；失败→主档保持 legacy 原文且本会话只读
+    if(!w.ok){enterProtection('迁移后主档写入失败（'+(w.stage==='backup'?'备份失败':'存储写入失败')+'），主档保持原样（本会话只读）');return{status:'migrated_readonly'}}
+  }
+  return{status:m.migrated?'migrated':'ok',filled:m.filled};
+}
+function load(){loadSaveAndApply()}
+// ============ 存档管理（导出/导入/恢复/重置）：逻辑在此，UI 只做接线，供测试直接调用真实实现 ============
+// 异步回写闸口：远征/训练（battleTimer setTimeout 链 + S.battleActive）、驻军状态机活跃相位
+function saveOpsBlocked(){
+  if(typeof S!=='undefined'&&S.battleActive||typeof battleTimer!=='undefined'&&battleTimer)return'战斗或训练进行中，请结算后再操作存档';
+  const g=(typeof S!=='undefined')?S.garrison:null;
+  if(g&&['warning','spawn','sortie','battle','result'].includes(g.phase))return'驻军侵袭进行中，请结算后再操作存档';
+  return'';
+}
+function exportCurrentSaveText(){return JSON.stringify(serializeSave())}
+function exportMasterRawText(){const r=readRawKey(SAVE_KEY);return r.ok?r.text:null}
+// 校验+摘要，不改任何状态；确认前 UI 只拿摘要数字（字符串仅来自 CFG 城镇名，导入文本永不进 innerHTML）
+function inspectSaveText(text){
+  const blocked=saveOpsBlocked();if(blocked)return{ok:false,reason:blocked};
+  let p=null;try{p=JSON.parse(text)}catch(e){return{ok:false,reason:'JSON 解析失败'}}
+  const v=validateSave(p);if(!v.ok)return{ok:false,reason:v.errors[0]};
+  const m=migrateSave(p);
+  const town=CFG.town.find(t=>t.lv===m.d.townLv)||{};
+  const poolTotal=Object.values(m.d.pool).reduce((a,b)=>a+(b||0),0);
+  let formTotal=0;for(const r of['front','mid','back'])for(const u of(m.d.formation[r]||[]))formTotal+=(u&&u.count)||0;
+  return{ok:true,data:m.d,text:JSON.stringify(m.d),summary:{version:SAVE_VERSION,townLv:m.d.townLv,townName:town.name||'?',levelsDefeated:m.d.defeated.length,merit:m.d.merit,poolTotal,formTotal}};
+}
+// 覆盖前保护：①当前主档（若存在）写覆盖前副本 ②轮转有效备份 ③才写主档；任一步失败=原档原样
+function commitSaveData(text){
+  const blocked=saveOpsBlocked();if(blocked)return{ok:false,reason:blocked};
+  const cur=readRawKey(SAVE_KEY);if(!cur.ok)return{ok:false,reason:(cur.err||'存储读取失败')+'，未做任何改动'};
+  if(cur.text!=null){const pre=writeRawKey(PRE_MIGRATION_KEY,cur.text);if(!pre.ok)return{ok:false,reason:'无法写入覆盖前原始副本，已中止本次覆盖'}}
+  const b=backUpMaster();if(!b.ok)return{ok:false,reason:'备份写入失败，已中止本次覆盖，原主档未动'};
+  const w=writeRawKey(SAVE_KEY,text);if(!w.ok)return{ok:false,reason:'主档写入失败（存储异常），原主档保留'};
+  return{ok:true};
+}
+function backupSlotSummaries(){
+  return BACKUP_KEYS.map((k,i)=>{
+    const r=readRawKey(k);if(!r.ok||r.text==null)return{slot:i+1,exists:false,valid:false};
+    let p=null;try{p=JSON.parse(r.text)}catch(e){}
+    if(!p)return{slot:i+1,exists:true,valid:false};
+    const v=validateSave(p);if(!v.ok)return{slot:i+1,exists:true,valid:false};
+    const m=migrateSave(p);const town=CFG.town.find(t=>t.lv===m.d.townLv)||{};
+    return{slot:i+1,exists:true,valid:true,text:r.text,summary:{townLv:m.d.townLv,townName:town.name||'?',levelsDefeated:m.d.defeated.length,merit:m.d.merit,ts:m.d.ts}};
+  });
+}
+// 恢复：备份文本必须先过同一校验管线（含战斗闸口），再走与导入相同的覆盖前保护
+function restoreBackupByText(text){
+  const r=inspectSaveText(text);if(!r.ok)return{ok:false,reason:'备份校验未通过：'+r.reason};
+  return commitSaveData(r.text);
+}
+// 定向删除本游戏全部存档 key（替代 localStorage.clear()：不波及同 origin 其它站点数据）
+// 返回 removed/failed 清单：删除失败必须显式上报，不得虚报全部完成（IE-001-R1 §4.4）
+function resetAllSaves(){
+  const keys=[SAVE_KEY,PRE_MIGRATION_KEY,...BACKUP_KEYS];
+  const removed=[],failed=[];
+  for(const k of keys){try{localStorage.removeItem(k);removed.push(k)}catch(e){failed.push(k)}}
+  return{ok:failed.length===0,removed,failed};
 }
 
 // ==================== 计时 ====================
@@ -930,7 +1080,7 @@ function openBattle(){
 }
 
 function fleeBattle(){
-  if(battleTimer)clearTimeout(battleTimer);
+  if(battleTimer)clearTimeout(battleTimer);battleTimer=null; // 置空供存档闸口判断（IE-001）
   S.battleActive=false;
   document.getElementById('battle-screen').classList.remove('active');
   document.getElementById('navbar').classList.remove('paused');
@@ -1537,7 +1687,7 @@ function retryTraining(){
 }
 
 function exitTraining(){
-  if(battleTimer)clearTimeout(battleTimer);
+  if(battleTimer)clearTimeout(battleTimer);battleTimer=null; // 置空供存档闸口判断（IE-001）
   S.battleActive=false; B.isTraining=false;
   document.getElementById('battle-screen').classList.remove('active');
   document.getElementById('navbar').classList.remove('paused');
@@ -1549,7 +1699,7 @@ function exitTraining(){
 }
 
 function endBattle(result){
-  if(battleTimer)clearTimeout(battleTimer);
+  if(battleTimer)clearTimeout(battleTimer);battleTimer=null; // 置空供存档闸口判断（IE-001）
   S.battleActive=false;
   rebuildFormation();
   if(B.isTraining){

@@ -41,6 +41,7 @@ function rHome(){
   const tu=S.townUpgrade;
   const bossName=bossId?((CFG.enemies.find(e=>e.id===bossId)||{}).name||'?'):'';
   let h=`<div style="padding:4px 0">`;
+  if(saveProtected())h+=`<div class="card" style="border-color:#7a3040"><div style="font-size:11px;color:#e06060">⚠ 存档保护模式：${esc(saveProtectReason())}</div><button class="btn btn-ghost btn-xs" style="margin-top:4px" onclick="openSettings()">前往设置处理</button></div>`;
 
   // 城镇 + 村民分配 合并卡片
   h+=`<div class="card">`;
@@ -783,17 +784,82 @@ function formatGameTime(ticks){
 function openSettings(){
   let h=`<h3>${pix('build','card-pix')}设置</h3>`;
   h+=`<div class="settings-time"><span class="label">游戏时间</span>${formatGameTime(S.tick||0)}</div>`;
+  if(saveProtected()){
+    h+=`<div class="card" style="border-color:#7a3040"><h3 style="color:#e06060">存档保护模式</h3>
+      <div style="font-size:10px;color:#c09090;margin:4px 0">${esc(saveProtectReason())}</div>
+      <div style="font-size:9px;color:#888;margin-bottom:6px">游戏运行在只读状态：一切自动保存已被阻止，主档原文不会被改动。可导出异常原文用于检查，或在下方恢复有效备份。</div>
+      <button class="btn btn-ghost btn-xs" onclick="settingsShowExport(true)">导出主档原文</button></div>`;
+  }
+  h+=`<div class="card"><h3>存档管理</h3>
+    <div class="train-custom" style="gap:4px">
+      <button class="btn btn-ghost btn-xs" onclick="settingsShowExport(false)">导出当前存档</button>
+      <button class="btn btn-ghost btn-xs" onclick="settingsShowImport()">导入存档</button>
+      <button class="btn btn-ghost btn-xs" onclick="settingsShowRestore()">恢复备份</button>
+    </div>
+    <div id="save-mgmt-body" style="margin-top:6px"></div></div>`;
   h+=`<div class="card"><h3>激活码</h3>
     <div class="train-custom" style="margin:4px 0">
       <input id="activation-code" type="text" value="" style="width:220px" placeholder="请输入激活码">
       <button class="btn btn-go btn-xs" onclick="checkActivationCode('activation-code')">确认</button>
     </div></div>`;
   h+=`<div class="card" style="text-align:center">
-    <button class="btn btn-danger btn-sm" onclick="if(confirm('确定重置所有存档?')){localStorage.clear();location.reload()}">重置存档</button>
+    <button class="btn btn-danger btn-sm" onclick="if(confirm('重置将永久删除：主档、备份×2、覆盖前副本，不可恢复（仅本游戏数据，不波及浏览器其它站点）。确定？')){settingsDoReset()}">重置存档</button>
   </div>`;
   h+=`<button class="btn btn-ghost btn-sm" style="width:100%" onclick="closeSettings()">关闭</button>`;
   document.getElementById('settings-content').innerHTML=h;
   document.getElementById('settings-modal').classList.add('active');
+}
+// ==================== 存档管理 UI 接线（逻辑在 math.js 存档子系统，此处仅渲染与调用）====================
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+// 重置=定向删除本游戏 4 个 key；部分删除失败时不重载不谎报（IE-001-R1 §4.4）
+function settingsDoReset(){
+  const r=resetAllSaves();
+  if(r.ok){toast('已重置，重新加载…');setTimeout(()=>location.reload(),300);}
+  else{toast('部分存档键删除失败：'+r.failed.join('、')+'（未重载）');}
+}
+function settingsShowExport(rawOnly){
+  const el=document.getElementById('save-mgmt-body');if(!el)return;
+  const t=rawOnly?exportMasterRawText():exportCurrentSaveText();
+  el.innerHTML=`<textarea id="save-out" readonly rows="5" style="width:100%;font-size:9px;background:#12121f;color:#c0c8e0;border:1px solid #2b3144;border-radius:4px" onclick="this.select()"></textarea><div style="font-size:9px;color:#5a6078;margin-top:2px">点选文本框全选后手动复制（不依赖剪贴板授权）</div>`;
+  const ta=document.getElementById('save-out');if(ta)ta.value=(t==null)?'(主档不可读)':t;
+}
+let _pendingImportText=null;
+function settingsShowImport(){
+  _pendingImportText=null;
+  const el=document.getElementById('save-mgmt-body');if(!el)return;
+  el.innerHTML=`<textarea id="save-in" rows="4" placeholder="粘贴存档 JSON" style="width:100%;font-size:9px;background:#12121f;color:#c0c8e0;border:1px solid #2b3144;border-radius:4px"></textarea>
+    <button class="btn btn-go btn-xs" style="margin-top:4px" onclick="settingsImportCheck()">校验并预览</button><div id="import-preview"></div>`;
+}
+function settingsImportCheck(){
+  const ta=document.getElementById('save-in'),pv=document.getElementById('import-preview');if(!ta||!pv)return;
+  _pendingImportText=null;
+  const r=inspectSaveText(ta.value);
+  if(!r.ok){pv.innerHTML=`<div style="font-size:10px;color:#e06060;margin-top:4px">✗ ${esc(r.reason)}</div>`;return}
+  _pendingImportText=r.text;
+  const s=r.summary;
+  pv.innerHTML=`<div style="font-size:10px;color:#7ed0ff;margin-top:4px">✓ 校验通过 v${s.version} · ${esc(s.townName)} Lv${s.townLv} · 通关 ${s.levelsDefeated} 关 · 战功 ${s.merit} · 后备 ${s.poolTotal}（编队 ${s.formTotal}）</div>
+    <div style="font-size:9px;color:#888;margin-top:2px">确认后将：当前主档 → 覆盖前副本+有效备份 → 被导入档替换并重载游戏。</div>
+    <button class="btn btn-danger btn-xs" style="margin-top:4px" onclick="settingsImportCommit()">确认覆盖导入</button>`;
+}
+function settingsImportCommit(){
+  if(!_pendingImportText)return;
+  const r=commitSaveData(_pendingImportText);
+  if(!r.ok){_pendingImportText=null;const pv=document.getElementById('import-preview');if(pv)pv.innerHTML=`<div style="font-size:10px;color:#e06060;margin-top:4px">✗ ${esc(r.reason)}（原主档未被改动）</div>`;return}
+  _pendingImportText=null;toast('导入成功，重新加载…');setTimeout(()=>location.reload(),300);
+}
+function settingsShowRestore(){
+  const el=document.getElementById('save-mgmt-body');if(!el)return;
+  const bs=backupSlotSummaries(),good=bs.filter(b=>b.valid);
+  if(!good.length){el.innerHTML=`<div style="font-size:10px;color:#888">暂无可恢复的有效备份${bs.some(b=>b.exists&&!b.valid)?'（存在备份槽但内容无效）':''}</div>`;return}
+  el.innerHTML=good.map(b=>`<div class="train-custom" style="margin:3px 0"><span style="flex:1;font-size:10px;color:#c0c8e0">备份 ${b.slot} · ${esc(b.summary.townName)} Lv${b.summary.townLv} · 通关 ${b.summary.levelsDefeated} 关 · ${b.summary.ts?new Date(b.summary.ts).toLocaleString():'未知时间'}</span><button class="btn btn-ghost btn-xs" onclick="settingsRestoreCommit(${b.slot})">恢复</button></div>`).join('');
+}
+function settingsRestoreCommit(slot){
+  if(!confirm('恢复备份 '+slot+'？当前主档将先保存为覆盖前副本。'))return;
+  const b=backupSlotSummaries().find(x=>x.slot===slot);
+  if(!b||!b.valid||!b.text){toast('该备份无效或已不存在');return}
+  const r=restoreBackupByText(b.text);
+  if(!r.ok){toast(r.reason);return}
+  toast('恢复成功，重新加载…');setTimeout(()=>location.reload(),300);
 }
 function closeSettings(){
   document.getElementById('settings-modal').classList.remove('active');
