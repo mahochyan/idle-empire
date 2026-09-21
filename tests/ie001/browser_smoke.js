@@ -17,6 +17,10 @@ async function evalJs(expr) {
   return r.result.value;
 }
 const ASSETS = require('path').join(__dirname, '..', '..', 'docs', 'codex', 'reports', 'assets');
+function killEdgeTree(pid){ // 进程树清理：防 headless 子进程变僵尸堆积拖垮环境
+  try { require('child_process').spawn('taskkill', ['/PID', String(pid), '/T', '/F'], { stdio: 'ignore' }); } catch (e) { }
+  try { process.kill(pid, 'SIGKILL'); } catch (e) { }
+}
 async function shot(name) {
   const s = await send('Page.captureScreenshot', { format: 'png' });
   require('fs').mkdirSync(ASSETS, { recursive: true });
@@ -91,9 +95,11 @@ function test(name, ok, extra) { if (ok) { pass++; rows.push('[PASS] ' + name); 
   await send('Page.reload'); await sleep(2500);
   test('游玩后刷新：进度可读且无保护误触发', (await evalJs('saveProtected()')) === false && (await evalJs('S.buildings.lumber_mill.lv')) >= 0);
   // —— IE-007 资源增减视觉反馈 + 新资源 topbar + 经济建筑页（真实 DOM）——
-  await evalJs("S.res.wood+=50;updateUI();'ok'"); await sleep(160);
-  test('IE007 增减气泡显示 +50', (await evalJs("(()=>{const ds=[...document.querySelectorAll('.res-delta')];return ds.some(x=>x.textContent.includes('+50'))})()")) === true);
-  test('IE007 增闪类已挂载(气泡+数值)', (await evalJs("document.querySelector('.res-delta.up')!==null&&document.querySelector('#res-wood.up')!==null")) === true);
+  // 触发+捕获合并在同一 eval：消除 1s tick 与断言的竞态窗口（测试硬化，非掩盖失败）
+  const flashInfo = await evalJs("(()=>{updateUI();S.res.wood+=50;updateUI();return JSON.stringify({bubbles:[...document.querySelectorAll('.res-delta')].map(x=>x.textContent),upCls:!!document.querySelector('.res-delta.up'),valCls:document.getElementById('res-wood').classList.contains('up')})})()");
+  const fi = JSON.parse(flashInfo);
+  test('IE007 增减气泡显示 +50', fi.bubbles.some(x => x.includes('+50')), flashInfo);
+  test('IE007 增闪类已挂载(气泡+数值)', fi.upCls === true && fi.valCls === true, flashInfo);
   test('IE007 topbar 渲染铜/铁/金币', await evalJs("['res-copper','res-iron','res-coin'].every(k=>{const el=document.getElementById(k);return el!==null&&/^\\d+$/.test(el.textContent)})"));
   await shot('IE007-01-delta-flash-360');
   await evalJs("S._buildTab='economy';document.getElementById('main').innerHTML=rBuild();'ok'"); await sleep(200);
@@ -102,7 +108,11 @@ function test(name, ok, extra) { if (ok) { pass++; rows.push('[PASS] ' + name); 
   await shot('IE007-02-build-economy-360');
   await evalJs("S.buildings.market={lv:1,state:'idle',timer:0,timerEnd:0,tier:0};document.getElementById('main').innerHTML=rBuild();'ok'"); await sleep(200);
   test('IE007 市场兑换面板出现且含≥4 汇率项', await evalJs("document.getElementById('mk-rate')!==null&&document.getElementById('mk-rate').options.length>=4"),
-    'mk-rate=' + await evalJs("document.getElementById('mk-rate')!==null") + ' hasPanel=' + await evalJs("document.getElementById('main').innerHTML.includes('市场兑换')") + ' opts=' + await evalJs("document.getElementById('mk-rate')!==null?document.getElementById('mk-rate').options.length:-1"));
+    'mainHas=' + await evalJs("document.getElementById('main').innerHTML.includes('市场兑换')") +
+    ' mk=' + await evalJs("JSON.stringify(bldSt('market'))") +
+    ' tab=' + await evalJs("S._buildTab") +
+    ' rBuildHas=' + await evalJs("rBuild().includes('市场兑换')") +
+    ' tail=' + await evalJs("document.getElementById('main').innerHTML.slice(-60).replace(/\\n/g,' ')"));
   await shot('IE007-03-market-panel-360');
   // 迁移真链路：写入 legacy 形状 → 重载 → 迁移成功且 PRE 建立
   await evalJs("localStorage.setItem('rts_save',JSON.stringify({res:{wood:1234,stone:2,food:3,tech:0},townLv:2,defeated:[1,10],merit:5,tick:66,popAlloc:{wood:2,stone:1,food:1}}));'ok'");
@@ -115,8 +125,8 @@ function test(name, ok, extra) { if (ok) { pass++; rows.push('[PASS] ' + name); 
   console.log('\n浏览器异常列表：' + (exceptions.length ? exceptions.join('\n') : '（空）'));
   console.log('node ' + process.version + ' + Edge(headless=new) CDP | 通过 ' + pass + ' / 失败 ' + fail);
   try { ws.close(); } catch (e) { }
-  try { edge.kill(); } catch (e) { }
+  killEdgeTree(edge.pid);
   await sleep(800);
   try { fs.rmSync(udd, { recursive: true, force: true }); } catch (e) { console.log('（临时 profile 目录清理失败，可手动删除：' + udd + '）'); }
   process.exit(fail ? 1 : 0);
-})().catch(e => { console.log('驱动失败: ' + e.message); try { edge.kill(); } catch (_) { } process.exit(2); });
+})().catch(e => { console.log('驱动失败: ' + e.message); try { killEdgeTree(edge && edge.pid); } catch (_) { } process.exit(2); });

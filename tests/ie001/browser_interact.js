@@ -7,6 +7,10 @@ const EDGE = ['C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe
 if (!EDGE) { console.log('NO_BROWSER'); process.exit(2); }
 const PORT = 9300 + Math.floor(Math.random() * 900), udd = path.join(os.tmpdir(), 'ie001-i-' + Date.now());
 const ASSETS = path.join(__dirname, '..', '..', 'docs', 'codex', 'reports', 'assets');
+function killEdgeTree(pid){ // 进程树清理：防 headless 子进程变僵尸堆积拖垮环境
+  try { require('child_process').spawn('taskkill', ['/PID', String(pid), '/T', '/F'], { stdio: 'ignore' }); } catch (e) { }
+  try { process.kill(pid, 'SIGKILL'); } catch (e) { }
+}
 fs.mkdirSync(ASSETS, { recursive: true });
 const URL = 'file:///E:/AIprogram/idlgame/index.html';
 const edge = spawn(EDGE, ['--headless=new', '--disable-gpu', '--no-first-run', '--remote-debugging-port=' + PORT, '--user-data-dir=' + udd, URL], { stdio: 'ignore' });
@@ -41,7 +45,7 @@ async function shot(name) {
 (async () => {
   let targets = null;
   for (let i = 0; i < 40 && !targets; i++) { await sleep(500); try { const r = await fetch('http://127.0.0.1:' + PORT + '/json'); targets = await r.json(); } catch (e) { } }
-  if (!targets) { console.log('CDP 未就绪'); edge.kill(); process.exit(2); }
+  if (!targets) { console.log('CDP 未就绪'); killEdgeTree(edge.pid); process.exit(2); }
   const page = targets.find(t => t.type === 'page' && /idle-empire/.test(t.url)) || targets.find(t => t.type === 'page');
   ws = new WebSocket(page.webSocketDebuggerUrl);
   await new Promise((r, j) => { ws.onopen = r; ws.onerror = j; });
@@ -154,8 +158,8 @@ async function shot(name) {
   console.log('\n浏览器异常列表：' + (exceptions.length ? exceptions.join('\n') : '（空）'));
   console.log('node ' + process.version + ' + Edge(headless=new) CDP | 通过 ' + pass + ' / 失败 ' + fail);
   try { ws.close(); } catch (e) { }
-  try { edge.kill(); } catch (e) { }
+  killEdgeTree(edge.pid);
   await sleep(800);
   try { fs.rmSync(udd, { recursive: true, force: true }); } catch (e) { console.log('（临时 profile 未清理：' + udd + '）'); }
   process.exit(fail ? 1 : 0);
-})().catch(e => { console.log('驱动失败: ' + e.message); for (const r of rows) console.log(r); try { edge.kill(); } catch (_) { } process.exit(2); });
+})().catch(e => { console.log('驱动失败: ' + e.message); for (const r of rows) console.log(r); try { killEdgeTree(edge && edge.pid); } catch (_) { } process.exit(2); });
