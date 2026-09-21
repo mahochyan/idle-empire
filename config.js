@@ -285,8 +285,8 @@ const CFG = {
       build:{wood:600,stone:400,food:500,time:12},upBase:{wood:3500,stone:3000,food:3000},upCostLv:1.15},
     market:{name:'市场',type:'utility',needScience:'sci_coin',desc:'金币兑换基础资源（需研究货币铸造；每日限制与多汇率由 IE-006 补齐）',
       build:{wood:400,stone:400,food:300,time:10},upBase:{wood:3000,stone:3000,food:2500},upCostLv:1.2},
-    academy:{name:'学院',type:'science',produces:{tech:1},desc:'被动产出科技点（知识来源，初始即可建造）',
-      build:{wood:300,stone:200,food:150,time:6},upBase:{wood:1000,stone:1000,food:800},upCostLv:1.1}
+    academy:{name:'学院',type:'science',produces:{tech:5},desc:'被动产出科技点（知识来源，初始即可建造）',
+      build:{wood:150,stone:100,food:80,time:6},upBase:{wood:1000,stone:1000,food:800},upCostLv:1.1}
   },
 
   // 建筑升级上限倍率（基于城镇等级，修改这里即可调整所有建筑的升级限制）
@@ -319,9 +319,9 @@ const CFG = {
   // 对齐映射：冶铜术≈450009（铜）、冶铁术≈450011（铁）、货币铸造≈450609（货币）
   // 门控模型：纯科技门（科技点+战功），无击杀前置——对齐放置时代"资源/建筑=科技门"；战斗主线（城镇/营地tier）仍为击杀门（台账记录差异）
   sciences: {
-    sci_copper:{name:'冶铜术',desc:'解锁矿井（铜矿开采）',cost:{tech:50,merit:5},unlocks:['mine']},
-    sci_iron:{name:'冶铁术',desc:'解锁冶炼厂（铁冶炼）',cost:{tech:200,merit:20},need:['sci_copper'],unlocks:['smelter']},
-    sci_coin:{name:'货币铸造',desc:'解锁铸币厂与市场',cost:{tech:500,merit:50},need:['sci_iron'],unlocks:['mint','market']}
+    sci_copper:{name:'冶铜术',desc:'解锁矿井（铜矿开采）',cost:{tech:10,merit:0},unlocks:['mine']},
+    sci_iron:{name:'冶铁术',desc:'解锁冶炼厂（铁冶炼）',cost:{tech:80,merit:10},need:['sci_copper'],unlocks:['smelter']},
+    sci_coin:{name:'货币铸造',desc:'解锁铸币厂与市场',cost:{tech:200,merit:30},need:['sci_iron'],unlocks:['mint','market']}
   },
 
   // ==================== 市场（IE-007 交易所雏形）====================

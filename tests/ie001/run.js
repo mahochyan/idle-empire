@@ -426,7 +426,7 @@ test('V07', '学院被动产出科技点并按上限钳制', () => {
   e.run('loadSaveAndApply()');
   e.run('S.res.tech=10;S.buildings.academy={lv:1,state:"idle",timer:0,timerEnd:0,tier:0}');
   e.run('tick();tick();tick()');
-  assert(e.run('S.res.tech') === 13, '学院产出错误 actual=' + e.run('S.res.tech'));
+  assert(e.run('S.res.tech') === 25, '学院产出错误(期望 5/s/级) actual=' + e.run('S.res.tech'));
   assert(e.run('resCap("tech")') === 700, 'resCap(tech)=500+200×1 错误 actual=' + e.run('resCap("tech")'));
   e.run('S.res.tech=699');e.run('tick()');
   assert(e.run('S.res.tech') === 700, '科技点上限钳制错误 actual=' + e.run('S.res.tech'));
@@ -440,7 +440,7 @@ test('V08', '资源科技链：研究解锁建筑、未研究拒绝、前置门�
   assert(e.run('S.buildings.mine') === undefined, '未研究冶铜术竟可建矿井');
   assert(e.calls.toast.some(t => /研究/.test(t)), '拒绝提示应含研究：' + JSON.stringify(e.calls.toast));
   let r = JSON.parse(e.run('JSON.stringify(researchScience("sci_copper"))'));
-  assert(r.ok === true && e.run('S.res.tech') === 950 && e.run('S.merit') === 195, '研究冶铜术失败');
+  assert(r.ok === true && e.run('S.res.tech') === 990 && e.run('S.merit') === 200, '研究冶铜术失败（10科技/0战功）');
   r = JSON.parse(e.run('JSON.stringify(researchScience("sci_copper"))'));
   assert(r.ok === false, '重复研究应拒绝');
   e.run('S.res.tech=300;S.merit=100');
@@ -448,10 +448,10 @@ test('V08', '资源科技链：研究解锁建筑、未研究拒绝、前置门�
   assert(r.ok === false, '货币铸造在铁未研时应被前置拒绝');
   e.run('S.res.tech=300;S.merit=100');
   r = JSON.parse(e.run('JSON.stringify(researchScience("sci_iron"))'));
-  assert(r.ok === true && e.run('S.res.tech') === 100 && e.run('S.merit') === 80, '研究冶铁术失败');
-  e.run('S.res.tech=600;S.merit=60');
+  assert(r.ok === true && e.run('S.res.tech') === 220 && e.run('S.merit') === 90, '研究冶铁术失败（80科技/10战功）');
+  e.run('S.res.tech=250;S.merit=100');
   r = JSON.parse(e.run('JSON.stringify(researchScience("sci_coin"))'));
-  assert(r.ok === true && e.run('S.merit') === 10, '货币铸造研究失败');
+  assert(r.ok === true && e.run('S.merit') === 70, '货币铸造研究失败（200科技/30战功）');
   e.run('buildAct("smelter");buildAct("market")');
   assert(e.run('S.buildings.smelter') && e.run('S.buildings.smelter.state') === 'building', '已研究后应可建冶炼厂');
   assert(e.run('S.buildings.market') && e.run('S.buildings.market.state') === 'building', '已研究后应可建市场');

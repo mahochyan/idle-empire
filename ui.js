@@ -269,10 +269,10 @@ function updateTownScene(){
 }
 // ==================== 建筑界面（含4个子标签） ====================
 const BUILD_CATEGORIES = {
-  basic: {name:'基础建筑',keys:['barracks','warehouse','lumber_mill','quarry','farm']},
+  basic: {name:'基础建筑',keys:['academy','barracks','warehouse','lumber_mill','quarry','farm']},
   barracks: {name:'兵营建筑',keys:['infantry_camp','archer_range','stable','mage_tower']},
   special: {name:'特殊建筑',keys:['arrow_tower']},
-  economy: {name:'经济建筑',keys:['academy','mine','smelter','mint','market']}
+  economy: {name:'经济建筑',keys:['mine','smelter','mint','market']}
 };
 
 function rBuildCard(key, cfg){

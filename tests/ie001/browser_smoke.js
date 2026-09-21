@@ -97,7 +97,8 @@ function test(name, ok, extra) { if (ok) { pass++; rows.push('[PASS] ' + name); 
   test('IE007 topbar 渲染铜/铁/金币', await evalJs("['res-copper','res-iron','res-coin'].every(k=>{const el=document.getElementById(k);return el!==null&&/^\\d+$/.test(el.textContent)})"));
   await shot('IE007-01-delta-flash-360');
   await evalJs("S._buildTab='economy';document.getElementById('main').innerHTML=rBuild();'ok'"); await sleep(200);
-  test('IE007 经济建筑页含四新建筑', await evalJs("(()=>{const t=document.getElementById('main').innerHTML;return ['矿井','冶炼厂','铸币厂','市场'].every(x=>t.includes(x))})()"));
+  test('IE007 经济建筑页含四新建筑', await evalJs("(()=>{const t=document.getElementById('main').innerHTML;return ['矿井','冶炼厂','铸币厂','市场'].every(x=>t.includes(x))})()"),
+    'len=' + await evalJs("document.getElementById('main').innerHTML.length") + ' hasMine=' + await evalJs("document.getElementById('main').innerHTML.includes('矿井')") + ' tab=' + await evalJs("S._buildTab") + ' cats=' + await evalJs("Object.keys(CFG.sciences).join(',')"));
   await shot('IE007-02-build-economy-360');
   await evalJs("S.buildings.market={lv:1,state:'idle',timer:0,timerEnd:0,tier:0};document.getElementById('main').innerHTML=rBuild();'ok'"); await sleep(200);
   test('IE007 市场兑换面板出现且含≥4 汇率项', await evalJs("document.getElementById('mk-rate')!==null&&document.getElementById('mk-rate').options.length>=4"),
