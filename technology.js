@@ -237,6 +237,22 @@ function rTech(){
   h+=`<div style="font-size:10px;color:#888;margin-top:4px">击败Boss: ${boss} | 科技点: <span style="color:#f0d060">${Math.floor(S.res.tech||0)}</span> | 战功: <span style="color:#c0a060">${S.merit||0}</span></div>`;
   h+=`</div>`;
 
+  // 资源科技（IE-008 · 对齐放置时代发展科技 45xxxx：纯科技门）
+  h+=`<div class="card"><h3>${pix('academy','card-pix')}资源科技</h3>`;
+  h+=`<div style="font-size:10px;color:#888;margin-bottom:6px">研究消耗科技点+战功（学院产出科技点），研究后解锁对应经济建筑</div>`;
+  for(const[id,sc] of Object.entries(CFG.sciences||{})){
+    const done=S.sciences.includes(id);
+    const pre=sc.need&&sc.need.some(p=>!S.sciences.includes(p));
+    const can=(S.res.tech||0)>=sc.cost.tech&&(S.merit||0)>=sc.cost.merit&&!pre;
+    h+=`<div style="display:flex;align-items:center;gap:6px;padding:5px 0;border-bottom:1px dashed #232839">
+      <div style="flex:1;min-width:0"><strong>${sc.name}</strong>
+        <span style="font-size:10px;color:#888;margin-left:6px">${sc.desc||''}</span>
+        <div style="font-size:10px;color:#c0a060">科技点 ${sc.cost.tech} · 战功 ${sc.cost.merit}${sc.need?` · 前置「${CFG.sciences[sc.need[0]]?.name||sc.need[0]}」`:''}</div></div>
+      ${done?`<span style="color:#40bf80;font-size:11px">✔ 已研究</span>`:`<button class="btn btn-go btn-xs" ${can?'':'disabled'} onclick="researchScience('${id}')">研究</button>`}
+    </div>`;
+  }
+  h+=`</div>`;
+
   // 兵谱 — 总收纳
   if(!S._techFold)S._techFold={};
   const compFolded=S._techFold._compendium===true;

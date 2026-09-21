@@ -420,6 +420,58 @@ test('V06', '未知资源键仍拒绝（回归 S12 语义）', () => {
   assert(v.ok === false && v.errors.some(x => /未知资源 cheese/.test(x)), '未知键未拒绝: ' + JSON.stringify(v.errors));
 });
 
+// ============ IE-008 资源科技（对齐放置时代发展科技门）用例 ============
+test('V07', '学院被动产出科技点并按上限钳制', () => {
+  const e = makeEnv({ 'rts_save': JSON.stringify(fullLegacy()) });
+  e.run('loadSaveAndApply()');
+  e.run('S.res.tech=10;S.buildings.academy={lv:1,state:"idle",timer:0,timerEnd:0,tier:0}');
+  e.run('tick();tick();tick()');
+  assert(e.run('S.res.tech') === 13, '学院产出错误 actual=' + e.run('S.res.tech'));
+  assert(e.run('resCap("tech")') === 700, 'resCap(tech)=500+200×1 错误 actual=' + e.run('resCap("tech")'));
+  e.run('S.res.tech=699');e.run('tick()');
+  assert(e.run('S.res.tech') === 700, '科技点上限钳制错误 actual=' + e.run('S.res.tech'));
+});
+
+test('V08', '资源科技链：研究解锁建筑、未研究拒绝、前置门控、重复拒绝', () => {
+  const e = makeEnv({ 'rts_save': JSON.stringify(fullLegacy()) });
+  e.run('loadSaveAndApply()');
+  e.run('S.res.tech=1000;S.merit=200;S.res.wood=99999;S.res.stone=99999;S.res.food=99999');
+  e.run('buildAct("mine")');
+  assert(e.run('S.buildings.mine') === undefined, '未研究冶铜术竟可建矿井');
+  assert(e.calls.toast.some(t => /研究/.test(t)), '拒绝提示应含研究：' + JSON.stringify(e.calls.toast));
+  let r = JSON.parse(e.run('JSON.stringify(researchScience("sci_copper"))'));
+  assert(r.ok === true && e.run('S.res.tech') === 950 && e.run('S.merit') === 195, '研究冶铜术失败');
+  r = JSON.parse(e.run('JSON.stringify(researchScience("sci_copper"))'));
+  assert(r.ok === false, '重复研究应拒绝');
+  e.run('S.res.tech=300;S.merit=100');
+  r = JSON.parse(e.run('JSON.stringify(researchScience("sci_coin"))'));
+  assert(r.ok === false, '货币铸造在铁未研时应被前置拒绝');
+  e.run('S.res.tech=300;S.merit=100');
+  r = JSON.parse(e.run('JSON.stringify(researchScience("sci_iron"))'));
+  assert(r.ok === true && e.run('S.res.tech') === 100 && e.run('S.merit') === 80, '研究冶铁术失败');
+  e.run('S.res.tech=600;S.merit=60');
+  r = JSON.parse(e.run('JSON.stringify(researchScience("sci_coin"))'));
+  assert(r.ok === true && e.run('S.merit') === 10, '货币铸造研究失败');
+  e.run('buildAct("smelter");buildAct("market")');
+  assert(e.run('S.buildings.smelter') && e.run('S.buildings.smelter.state') === 'building', '已研究后应可建冶炼厂');
+  assert(e.run('S.buildings.market') && e.run('S.buildings.market.state') === 'building', '已研究后应可建市场');
+});
+
+test('V09', 'sciences 存档：v2 往返、legacy 补空、未知科技保护', () => {
+  const e = makeEnv({ 'rts_save': JSON.stringify(fullLegacy()) });
+  e.run('loadSaveAndApply();S.sciences.push("sci_copper");save()');
+  const d = JSON.parse(e.store.get('rts_save'));
+  assert(Array.isArray(d.sciences) && d.sciences.includes('sci_copper'), 'sciences 未入档');
+  const e2 = makeEnv({ 'rts_save': e.store.get('rts_save') });
+  assert(e2.run('loadSaveAndApply().status') === 'ok' && e2.run('S.sciences.length') === 1, 'sciences 往返失败');
+  const e3 = makeEnv({ 'rts_save': JSON.stringify({ res: { wood: 1, stone: 1, food: 1, tech: 0 } }) });
+  const st = e3.run('loadSaveAndApply().status');
+  assert(['migrated','ok'].includes(st) && Array.isArray(e3.run('S.sciences')) && e3.run('S.sciences.length') === 0, 'legacy sciences 补空失败 status=' + st);
+  const bad = JSON.stringify(Object.assign({}, fullLegacy(), { v: 2, ts: 1, sciences: ['sci_nix'] }));
+  const e4 = makeEnv({ 'rts_save': bad });
+  assert(['corrupt','invalid'].includes(e4.run('loadSaveAndApply().status')) && e4.run('saveProtected()') === true, '未知科技应进保护');
+});
+
 // —— 汇总输出 ——
 for (const [st, id, name] of rows) console.log('[' + st + '] ' + id + ' — ' + name);
 console.log('\nS13/S14 归属：S13 真实浏览器冒烟=browser_smoke.js（新档+legacy 迁移+游玩链路）；S14 窄屏与输入交互=browser_interact.js；实体手机/Android WebView 均未运行。');

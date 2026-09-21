@@ -272,11 +272,11 @@ const BUILD_CATEGORIES = {
   basic: {name:'基础建筑',keys:['barracks','warehouse','lumber_mill','quarry','farm']},
   barracks: {name:'兵营建筑',keys:['infantry_camp','archer_range','stable','mage_tower']},
   special: {name:'特殊建筑',keys:['arrow_tower']},
-  economy: {name:'经济建筑',keys:['mine','smelter','mint','market']}
+  economy: {name:'经济建筑',keys:['academy','mine','smelter','mint','market']}
 };
 
 function rBuildCard(key, cfg){
-  const st=bldSt(key),locked=cfg.needBoss&&bossDefeatedCount()<cfg.needBoss,upLock=st.lv>0?upgradeLockReason(key):'';
+  const st=bldSt(key),locked=(cfg.needBoss&&bossDefeatedCount()<cfg.needBoss)||(cfg.needScience&&!S.sciences.includes(cfg.needScience)),upLock=st.lv>0?upgradeLockReason(key):'';
   // 右侧对齐标签：资源Buff 或 解锁条件
   const buffLabel=cfg.buffRes&&st.state==='idle'&&st.lv>0?`<span style="font-size:12px;color:#40bf80">${pix(CFG.res[cfg.buffRes].icon,'sm')} ${CFG.res[cfg.buffRes].name} Buff: +${((st.lv*cfg.buffPerLv+cfg.buffBase)*100).toFixed(0)}%</span>`:'';
   // IE-007：被动产出/消耗标识
@@ -286,7 +286,9 @@ function rBuildCard(key, cfg){
     if(cfg.consumes)for(const[rk,v] of Object.entries(cfg.consumes))t+=`<span style="color:#d09090">消耗${CFG.res[rk]?.name||rk} ${v*st.lv}/s</span> `;
     return `<span style="font-size:11px;color:#78b8e8">${t}</span>`;
   })():'';
-  const lockLabel=locked?`<span style="font-size:11px;color:#e06060">${pix('lock','mini')}需击败第${cfg.needBoss}个Boss</span>`:'';
+  const lockLabel=locked?(cfg.needScience&&!S.sciences.includes(cfg.needScience)
+    ?`<span style="font-size:11px;color:#e06060">${pix('lock','mini')}需先研究「${CFG.sciences?.[cfg.needScience]?.name||cfg.needScience}」</span>`
+    :`<span style="font-size:11px;color:#e06060">${pix('lock','mini')}需击败第${cfg.needBoss}个Boss</span>`):'';
   const rightLabel=lockLabel||buffLabel||prodLabel;
   let h=`<div class="card" style="${locked?'opacity:.7':''}"><h3 style="display:flex;justify-content:space-between;align-items:center">`;
   h+=`<span>${pix(key,'card-pix')}${cfg.name}`;if(st.state==='idle'&&st.lv>0)h+=` <span style="color:#f0d060">Lv.${st.lv}</span>`;if(cfg.trains){const tls=['T0基础','T1进阶','T2精锐','T3终极','T4传说'];h+=` <span style="font-size:10px;color:#f0d060">时代:${tls[st.tier??0]||'T'+(st.tier??0)}</span>`;if(st.state==='tier_upgrading')h+=` → <span style="color:#40bf80">${tls[(st.tier??0)+1]||'T'+((st.tier??0)+1)}</span>`;}

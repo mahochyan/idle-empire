@@ -15,7 +15,7 @@ const CFG = {
     wood:{name:'木材',icon:'wood',basePerPop:1},
     stone:{name:'石料',icon:'stone',basePerPop:1},
     food:{name:'食物',icon:'food',basePerPop:0.75},
-    tech:{name:'科技点',icon:'tech',basePerPop:0},
+    tech:{name:'科技点',icon:'tech',basePerPop:0,type:'science',max:500,maxPerLv:200,desc:'学院产出，研究科技与兵种'},
     // IE-007 新增：放置类型体系（basic=村民产出/passive=建筑被动产出/currency=软通货/material=材料/science=科技点）
     copper:{name:'铜',icon:'copper',type:'passive',max:2000,maxPerLv:500,desc:'矿井产出，冶炼厂原料'},
     iron:{name:'铁',icon:'iron',type:'passive',max:1500,maxPerLv:400,desc:'冶炼厂炼铜所得，高等级消耗'},
@@ -277,14 +277,16 @@ const CFG = {
     warehouse:{name:'仓库',type:'storage',storageBase:10000,storagePerLv:10000,build:{wood:200,stone:200,food:100,time:5},upBase:{wood:3000,stone:3000,food:3000},upCostLv:1.3},
     arrow_tower:{name:'箭塔',type:'defense',desc:'城防建筑，驻军战斗中对敌人自动射击',build:{wood:400,stone:350,food:150,time:10},upBase:{wood:1500,stone:1500,food:1000},upCostLv:1.2},
     // ===== IE-007 新增：经济建筑（放置时代 矿井/冶铁厂/铸币厂/市场 对应，数值为保守起点值·待推演）=====
-    mine:{name:'矿井',type:'production',needBoss:5,produces:{copper:2},desc:'被动产出铜',
+    mine:{name:'矿井',type:'production',needScience:'sci_copper',produces:{copper:2},desc:'被动产出铜（需研究冶铜术）',
       build:{wood:300,stone:500,food:200,time:8},upBase:{wood:2000,stone:3000,food:1500},upCostLv:1.15},
-    smelter:{name:'冶炼厂',type:'production',needBoss:10,consumes:{copper:3},produces:{iron:1},desc:'消耗铜冶炼铁（原料不足停产）',
+    smelter:{name:'冶炼厂',type:'production',needScience:'sci_iron',consumes:{copper:3},produces:{iron:1},desc:'消耗铜冶炼铁（需研究冶铁术；原料不足停产）',
       build:{wood:500,stone:600,food:300,time:10},upBase:{wood:3000,stone:4000,food:2500},upCostLv:1.15},
-    mint:{name:'铸币厂',type:'production',needBoss:15,consumes:{food:5},produces:{coin:2},desc:'消耗食物铸造金币（原料不足停产）',
+    mint:{name:'铸币厂',type:'production',needScience:'sci_coin',consumes:{food:5},produces:{coin:2},desc:'消耗食物铸造金币（需研究货币铸造；原料不足停产）',
       build:{wood:600,stone:400,food:500,time:12},upBase:{wood:3500,stone:3000,food:3000},upCostLv:1.15},
-    market:{name:'市场',type:'utility',needBoss:10,desc:'金币兑换基础资源（交易所雏形；每日限制与多汇率由 IE-006 补齐）',
-      build:{wood:400,stone:400,food:300,time:10},upBase:{wood:3000,stone:3000,food:2500},upCostLv:1.2}
+    market:{name:'市场',type:'utility',needScience:'sci_coin',desc:'金币兑换基础资源（需研究货币铸造；每日限制与多汇率由 IE-006 补齐）',
+      build:{wood:400,stone:400,food:300,time:10},upBase:{wood:3000,stone:3000,food:2500},upCostLv:1.2},
+    academy:{name:'学院',type:'science',produces:{tech:1},desc:'被动产出科技点（知识来源，初始即可建造）',
+      build:{wood:300,stone:200,food:150,time:6},upBase:{wood:1000,stone:1000,food:800},upCostLv:1.1}
   },
 
   // 建筑升级上限倍率（基于城镇等级，修改这里即可调整所有建筑的升级限制）
@@ -311,6 +313,15 @@ const CFG = {
     cap1PerLv: 10,
     otherBase: 10,
     otherPerLv: 1
+  },
+
+  // ==================== 资源科技（对齐《放置时代》发展科技 45xxxx）====================
+  // 对齐映射：冶铜术≈450009（铜）、冶铁术≈450011（铁）、货币铸造≈450609（货币）
+  // 门控模型：纯科技门（科技点+战功），无击杀前置——对齐放置时代"资源/建筑=科技门"；战斗主线（城镇/营地tier）仍为击杀门（台账记录差异）
+  sciences: {
+    sci_copper:{name:'冶铜术',desc:'解锁矿井（铜矿开采）',cost:{tech:50,merit:5},unlocks:['mine']},
+    sci_iron:{name:'冶铁术',desc:'解锁冶炼厂（铁冶炼）',cost:{tech:200,merit:20},need:['sci_copper'],unlocks:['smelter']},
+    sci_coin:{name:'货币铸造',desc:'解锁铸币厂与市场',cost:{tech:500,merit:50},need:['sci_iron'],unlocks:['mint','market']}
   },
 
   // ==================== 市场（IE-007 交易所雏形）====================

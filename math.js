@@ -33,7 +33,8 @@ let S = {
   _barracksFold:{},
   townUpgrade:null,
   upgradedUnits:{},
-  essence:{}
+  essence:{},
+  sciences:[]
 };
 
 // ==================== 辅助 ====================
@@ -353,9 +354,9 @@ function _isNum(x){return typeof x==='number'&&Number.isFinite(x)}
 function _isInt(x){return _isNum(x)&&Math.floor(x)===x}
 function _isObj(o){return o!==null&&typeof o==='object'&&!Array.isArray(o)}
 // legacy（无 v）旧档缺字段补齐：数值逐项复刻原 load() 的 || 缺省行为（含 popAlloc {5,3,2} 的旧口径，如实保留不修正）
-function _legacyDefaults(){return{res:{wood:300,stone:300,food:300,tech:0,copper:0,iron:0,coin:0},buildings:{},pool:{},queue:{},formation:{front:[],mid:[],back:[]},townLv:1,popAlloc:{wood:5,stone:3,food:2},defeated:[],merit:0,garrisonLog:[],garrison:null,tick:0,garrisonForm:{front:[],mid:[],back:[]},townUpgrade:null,upgradedUnits:{},essence:{}}}
+function _legacyDefaults(){return{res:{wood:300,stone:300,food:300,tech:0,copper:0,iron:0,coin:0},buildings:{},pool:{},queue:{},formation:{front:[],mid:[],back:[]},townLv:1,popAlloc:{wood:5,stone:3,food:2},defeated:[],merit:0,garrisonLog:[],garrison:null,tick:0,garrisonForm:{front:[],mid:[],back:[]},townUpgrade:null,upgradedUnits:{},essence:{},sciences:[]}}
 function serializeSave(){
-  return {v:SAVE_VERSION,ts:Date.now(),res:S.res,buildings:S.buildings,pool:S.pool,queue:S.queue,formation:S.formation,townLv:S.townLv,popAlloc:S.popAlloc,defeated:S.defeated,merit:S.merit,garrisonLog:S.garrisonLog,garrison:S.garrison,tick:S.tick,garrisonForm:S._garrisonForm,townUpgrade:S.townUpgrade,upgradedUnits:S.upgradedUnits,essence:S.essence};
+  return {v:SAVE_VERSION,ts:Date.now(),res:S.res,buildings:S.buildings,pool:S.pool,queue:S.queue,formation:S.formation,townLv:S.townLv,popAlloc:S.popAlloc,defeated:S.defeated,merit:S.merit,garrisonLog:S.garrisonLog,garrison:S.garrison,tick:S.tick,garrisonForm:S._garrisonForm,townUpgrade:S.townUpgrade,upgradedUnits:S.upgradedUnits,essence:S.essence,sciences:S.sciences};
 }
 // 校验策略：结构/枚举/引用严格（未知兵种/建筑/关卡/资源 → 保护，不静默裁剪）；数值宽松（有限数且≥0 即可，超限不裁剪只报告）
 function validateSave(d){
@@ -385,13 +386,15 @@ function validateSave(d){
   if('garrisonLog' in d&&!Array.isArray(d.garrisonLog))errors.push('garrisonLog 不是数组');
   if('townUpgrade' in d&&d.townUpgrade!=null){if(!_isObj(d.townUpgrade))errors.push('townUpgrade 非法');else if(!_isNum(d.townUpgrade.timer))errors.push('townUpgrade.timer 非法')}
   if('garrison' in d&&d.garrison!=null){if(!_isObj(d.garrison))errors.push('garrison 不是对象');else{const g=d.garrison;if('phase' in g&&typeof g.phase!=='string')errors.push('garrison.phase 非法');for(const k of['phaseStarted','phaseUntil','cooldownUntil','nextCheckTick','seed'])if(k in g&&!_isNum(g[k]))errors.push('garrison.'+k+' 非法');}}
-  // v=1 档必须字段齐全（由 serializeSave 保证）；legacy（无 v）允许缺字段，由迁移补齐
-  if(hasV){for(const k of Object.keys(_legacyDefaults()))if(!(k in d))errors.push('缺少必需字段 '+k)}
+  // v=1 档必须字段齐全（由 serializeSave 保证）；legacy（无 v）允许缺字段，由迁移补齐；sciences 为上线后追加字段，不强制、由迁移补齐
+  if(hasV){for(const k of Object.keys(_legacyDefaults()))if(k!=='sciences'&&!(k in d))errors.push('缺少必需字段 '+k)}
   // v=2 起新增被动/货币资源键（IE-007）；v1 档缺键由迁移补齐
   if(hasV&&d.v>=2){for(const k of['copper','iron','coin'])if(!_isObj(d.res)||!(k in d.res))errors.push('res 缺少 v2 必需字段 '+k)}
+  // sciences（IE-008 资源科技，上线后追加字段）：存在才校验，缺键由迁移补齐（兼容已在线的 v2 旧档）
+  if('sciences' in d){if(!Array.isArray(d.sciences))errors.push('sciences 不是数组');else for(const s of d.sciences){if(!(s in CFG.sciences))errors.push('sciences: 未知科技 '+s)}}
   return{ok:errors.length===0,future:false,errors};
 }
-// 迁移：legacy(无v)→v2 与 v1→v2 同路径；可重复执行（v2 输入原样返回），不增删资源/兵力/进度
+// 迁移：legacy(无v)→v2 与 v1→v2 同路径；上线后追加字段（sciences）对所有缺键版本补齐；可重复执行，不增删资源/兵力/进度
 function migrateSave(d){
   const filled=[];
   if(!('v' in d)){
@@ -404,13 +407,13 @@ function migrateSave(d){
     d.res=nr;
     d.v=2;
     if(!('ts' in d))d.ts=Date.now();
-    return{d,migrated:true,filled};
   }
-  return{d,migrated:false,filled};
+  if(!('sciences' in d)){d.sciences=[];filled.push('sciences')}
+  return{d,migrated:filled.length>0,filled};
 }
 // 应用到 S：显式逐字段，不再使用 || 吞合法 0；默认对象全部独立新建
 function applySaveToS(d){
-  S.res=d.res;S.buildings=d.buildings;S.pool=d.pool;S.queue=d.queue;S.formation=d.formation;S.townLv=d.townLv;S.popAlloc=d.popAlloc;S.defeated=d.defeated;S.merit=d.merit;S.garrisonLog=d.garrisonLog;if(d.garrison)S.garrison=d.garrison;S.tick=d.tick;S._garrisonForm=d.garrisonForm;S.townUpgrade=d.townUpgrade;S.upgradedUnits=d.upgradedUnits;S.essence=d.essence;
+  S.res=d.res;S.buildings=d.buildings;S.pool=d.pool;S.queue=d.queue;S.formation=d.formation;S.townLv=d.townLv;S.popAlloc=d.popAlloc;S.defeated=d.defeated;S.merit=d.merit;S.garrisonLog=d.garrisonLog;if(d.garrison)S.garrison=d.garrison;S.tick=d.tick;S._garrisonForm=d.garrisonForm;S.townUpgrade=d.townUpgrade;S.upgradedUnits=d.upgradedUnits;S.essence=d.essence;S.sciences=d.sciences||[];
   if(typeof ensureGarrisonState==='function')ensureGarrisonState();
 }
 function readRawKey(key){try{const t=localStorage.getItem(key);return{ok:true,text:t}}catch(e){return{ok:false,err:'存储读取失败'}}}
@@ -551,6 +554,23 @@ function exchangeResource(from,to,qty){
   return{ok:true,get};
 }
 
+// IE-008 资源科技（对齐放置时代发展科技 45xxxx：纯科技门=科技点+战功，无击杀前置）
+function scienceUnlocked(id){return S.sciences.includes(id)}
+function researchScience(id){
+  const sc=CFG.sciences&&CFG.sciences[id];
+  if(!sc){if(typeof toast==='function')toast('未知科技');return{ok:false}}
+  if(S.sciences.includes(id)){if(typeof toast==='function')toast('已研究');return{ok:false}}
+  if(sc.need){for(const p of sc.need){if(!S.sciences.includes(p)){if(typeof toast==='function')toast('需先研究「'+(CFG.sciences[p]?.name||p)+'」');return{ok:false}}}}
+  if((S.res.tech||0)<sc.cost.tech){if(typeof toast==='function')toast('科技点不足');return{ok:false}}
+  if((S.merit||0)<sc.cost.merit){if(typeof toast==='function')toast('战功不足');return{ok:false}}
+  S.res.tech-=sc.cost.tech;S.merit-=sc.cost.merit;
+  S.sciences.push(id);
+  if(typeof addLog==='function')addLog('研究完成：「'+sc.name+'」');
+  if(typeof save==='function')save();
+  if(typeof updateUI==='function')updateUI();
+  return{ok:true};
+}
+
 function tick(){
   S.tick++;if(S.battleActive)return;
   let ch=false;
@@ -598,6 +618,7 @@ function tick(){
 // ==================== 操作 ====================
 function buildAct(key){
   const cfg=CFG.buildings[key],st=bldSt(key);
+  if(cfg.needScience&&!S.sciences.includes(cfg.needScience)){toast('需先研究「'+(CFG.sciences?.[cfg.needScience]?.name||cfg.needScience)+'」');return}
   if(cfg.needBoss && bossDefeatedCount()<cfg.needBoss){toast(`击败${cfg.needBoss}个Boss后解锁`);return}
   if(st.state!=='idle'){toast(st.state==='building'?'建造中':'升级中');return}
   const upLock=st.lv>0?upgradeLockReason(key):'';
