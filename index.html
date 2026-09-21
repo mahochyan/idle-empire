@@ -1066,15 +1066,16 @@ body{
   </div>
 </div>
 
-<script src="config.js"></script>
-
-<script src="levels.js"></script>
-<script src="sprites.js"></script>
-<script src="math.js"></script>
-<script src="garrison.js"></script>
-<script src="technology.js"></script>
-<script src="ui.js"></script>
-<!-- 注：GitHub Pages CDN 对旧 JS 缓存约 10 分钟；部署后请以 Ctrl+F5 强刷一次确认新版本。
-     发布流程：部署后先跑缓存旁路探针（?v=n 或直接抓文件核对新标记），再提示用户刷新。 -->
+<!-- 缓存版本号：每次上线发布新代码时把 V 数字 +1。
+     GitHub Pages CDN 按 URL 缓存 JS（旧缓存可能超过 10 分钟），带 ?v= 的新 URL 强制 CDN 回源，
+     从根上杜绝“看不到更新”。file:// 本地打开不带查询串，行为与静态标签完全一致（document.write 同步顺序加载）。 -->
+<script>
+(function(){
+  var V='1';
+  var q=(location.protocol==='http:'||location.protocol==='https:')?('?v='+V):'';
+  var files=['config.js','levels.js','sprites.js','math.js','garrison.js','technology.js','ui.js'];
+  for(var i=0;i<files.length;i++){document.write('<scr'+'ipt src="'+files[i]+q+'"></scr'+'ipt>');}
+})();
+</script>
 </body>
 </html>

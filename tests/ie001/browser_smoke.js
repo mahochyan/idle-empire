@@ -102,17 +102,13 @@ function test(name, ok, extra) { if (ok) { pass++; rows.push('[PASS] ' + name); 
   test('IE007 增闪类已挂载(气泡+数值)', fi.upCls === true && fi.valCls === true, flashInfo);
   test('IE007 topbar 渲染铜/铁/金币', await evalJs("['res-copper','res-iron','res-coin'].every(k=>{const el=document.getElementById(k);return el!==null&&/^\\d+$/.test(el.textContent)})"));
   await shot('IE007-01-delta-flash-360');
-  await evalJs("S._buildTab='economy';document.getElementById('main').innerHTML=rBuild();'ok'"); await sleep(200);
-  test('IE007 经济建筑页含四新建筑', await evalJs("(()=>{const t=document.getElementById('main').innerHTML;return ['矿井','冶炼厂','铸币厂','市场'].every(x=>t.includes(x))})()"),
-    'len=' + await evalJs("document.getElementById('main').innerHTML.length") + ' hasMine=' + await evalJs("document.getElementById('main').innerHTML.includes('矿井')") + ' tab=' + await evalJs("S._buildTab") + ' cats=' + await evalJs("Object.keys(CFG.sciences).join(',')"));
+  // 走真实页面状态（S.page='build'）：updateUI 每个 tick 都会 renderPage(S.page)，
+  // 手动塞 innerHTML 会被下一 tick 覆盖成主页（此前"随机失败"的真凶）；由页面状态驱动则重渲染结果一致
+  await evalJs("S.page='build';S._buildTab='economy';updateUI();'ok'"); await sleep(50);
+  test('IE007 经济建筑页含四新建筑', await evalJs("(()=>{const t=document.getElementById('main').innerHTML;return ['矿井','冶炼厂','铸币厂','市场'].every(x=>t.includes(x))})()"));
   await shot('IE007-02-build-economy-360');
-  await evalJs("S.buildings.market={lv:1,state:'idle',timer:0,timerEnd:0,tier:0};document.getElementById('main').innerHTML=rBuild();'ok'"); await sleep(200);
-  test('IE007 市场兑换面板出现且含≥4 汇率项', await evalJs("document.getElementById('mk-rate')!==null&&document.getElementById('mk-rate').options.length>=4"),
-    'mainHas=' + await evalJs("document.getElementById('main').innerHTML.includes('市场兑换')") +
-    ' mk=' + await evalJs("JSON.stringify(bldSt('market'))") +
-    ' tab=' + await evalJs("S._buildTab") +
-    ' rBuildHas=' + await evalJs("rBuild().includes('市场兑换')") +
-    ' tail=' + await evalJs("document.getElementById('main').innerHTML.slice(-60).replace(/\\n/g,' ')"));
+  await evalJs("S.buildings.market={lv:1,state:'idle',timer:0,timerEnd:0,tier:0};S.page='build';S._buildTab='economy';updateUI();'ok'"); await sleep(50);
+  test('IE007 市场兑换面板出现且含≥4 汇率项', await evalJs("document.getElementById('mk-rate')!==null&&document.getElementById('mk-rate').options.length>=4"));
   await shot('IE007-03-market-panel-360');
   // 迁移真链路：写入 legacy 形状 → 重载 → 迁移成功且 PRE 建立
   await evalJs("localStorage.setItem('rts_save',JSON.stringify({res:{wood:1234,stone:2,food:3,tech:0},townLv:2,defeated:[1,10],merit:5,tick:66,popAlloc:{wood:2,stone:1,food:1}}));'ok'");
