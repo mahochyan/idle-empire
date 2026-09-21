@@ -16,6 +16,13 @@ async function evalJs(expr) {
   if (r.exceptionDetails) throw new Error('eval异常: ' + expr + ' :: ' + (r.exceptionDetails.exception?.description || r.exceptionDetails.text));
   return r.result.value;
 }
+const ASSETS = require('path').join(__dirname, '..', '..', 'docs', 'codex', 'reports', 'assets');
+async function shot(name) {
+  const s = await send('Page.captureScreenshot', { format: 'png' });
+  require('fs').mkdirSync(ASSETS, { recursive: true });
+  require('fs').writeFileSync(require('path').join(ASSETS, name + '.png'), Buffer.from(s.data, 'base64'));
+  return name + '.png';
+}
 let pass = 0, fail = 0; const rows = [];
 function test(name, ok, extra) { if (ok) { pass++; rows.push('[PASS] ' + name); } else { fail++; rows.push('[FAIL] ' + name + (extra ? ' :: ' + extra : '')); } }
 (async () => {
@@ -40,7 +47,7 @@ function test(name, ok, extra) { if (ok) { pass++; rows.push('[PASS] ' + name); 
   test('tick 时钟推进(≥2秒)', (await evalJs('S.tick')) >= 2, 'S.tick=' + await evalJs('S.tick'));
   test('存档子系统已就位(saveProtected=false)', (await evalJs('saveProtected()')) === false);
   await evalJs('save()');
-  test('save() 在真实 localStorage 写出 v1+ts', await evalJs("(()=>{const d=JSON.parse(localStorage.getItem('rts_save'));return d&&d.v===1&&d.ts>0})()"));
+  test('save() 在真实 localStorage 写出 v2+ts', await evalJs("(()=>{const d=JSON.parse(localStorage.getItem('rts_save'));return d&&d.v===2&&d.ts>0})()"));
   // 注入坏档 → 重载 → 保护模式且不覆盖
   await evalJs("localStorage.setItem('rts_save','BROKEN{{');'ok'");
   await send('Page.reload'); await sleep(3000);
@@ -58,7 +65,7 @@ function test(name, ok, extra) { if (ok) { pass++; rows.push('[PASS] ' + name); 
   await evalJs("openSettings();'ok'"); await sleep(200);
   test('设置弹窗含存档管理卡片', (await evalJs("document.getElementById('settings-content').innerHTML.includes('存档管理')")) === true);
   await evalJs("settingsShowExport(false);'ok'"); await sleep(100);
-  test('导出UI在真实DOM回显可解析的v1存档', await evalJs("(()=>{try{const d=JSON.parse(document.getElementById('save-out').value);return d.v===1&&d.res.wood>=300}catch(e){return false}})()"));
+  test('导出UI在真实DOM回显可解析的v2存档', await evalJs("(()=>{try{const d=JSON.parse(document.getElementById('save-out').value);return d.v===2&&d.res.wood>=300}catch(e){return false}})()"));
   await evalJs("settingsShowImport();document.getElementById('save-in').value=JSON.stringify({res:{wood:77,stone:1,food:1,tech:0},townLv:2,defeated:[1,10],merit:3});settingsImportCheck();'ok'"); await sleep(200);
   test('导入校验预览显示摘要(未确认前不写档)', await evalJs("document.getElementById('import-preview').innerHTML.includes('校验通过')"));
   const beforeMaster = await evalJs("localStorage.getItem('rts_save')||''");
@@ -83,12 +90,25 @@ function test(name, ok, extra) { if (ok) { pass++; rows.push('[PASS] ' + name); 
   test('撤退后存档操作不被陈旧计时器误拦', (await evalJs('inspectSaveText(exportCurrentSaveText()).ok')) === true);
   await send('Page.reload'); await sleep(2500);
   test('游玩后刷新：进度可读且无保护误触发', (await evalJs('saveProtected()')) === false && (await evalJs('S.buildings.lumber_mill.lv')) >= 0);
+  // —— IE-007 资源增减视觉反馈 + 新资源 topbar + 经济建筑页（真实 DOM）——
+  await evalJs("S.res.wood+=50;updateUI();'ok'"); await sleep(160);
+  test('IE007 增减气泡显示 +50', (await evalJs("(()=>{const ds=[...document.querySelectorAll('.res-delta')];return ds.some(x=>x.textContent.includes('+50'))})()")) === true);
+  test('IE007 增闪类已挂载(气泡+数值)', (await evalJs("document.querySelector('.res-delta.up')!==null&&document.querySelector('#res-wood.up')!==null")) === true);
+  test('IE007 topbar 渲染铜/铁/金币', await evalJs("['res-copper','res-iron','res-coin'].every(k=>{const el=document.getElementById(k);return el!==null&&/^\\d+$/.test(el.textContent)})"));
+  await shot('IE007-01-delta-flash-360');
+  await evalJs("S._buildTab='economy';document.getElementById('main').innerHTML=rBuild();'ok'"); await sleep(200);
+  test('IE007 经济建筑页含四新建筑', await evalJs("(()=>{const t=document.getElementById('main').innerHTML;return ['矿井','冶炼厂','铸币厂','市场'].every(x=>t.includes(x))})()"));
+  await shot('IE007-02-build-economy-360');
+  await evalJs("S.buildings.market={lv:1,state:'idle',timer:0,timerEnd:0,tier:0};document.getElementById('main').innerHTML=rBuild();'ok'"); await sleep(200);
+  test('IE007 市场兑换面板出现且含≥4 汇率项', await evalJs("document.getElementById('mk-rate')!==null&&document.getElementById('mk-rate').options.length>=4"),
+    'mk-rate=' + await evalJs("document.getElementById('mk-rate')!==null") + ' hasPanel=' + await evalJs("document.getElementById('main').innerHTML.includes('市场兑换')") + ' opts=' + await evalJs("document.getElementById('mk-rate')!==null?document.getElementById('mk-rate').options.length:-1"));
+  await shot('IE007-03-market-panel-360');
   // 迁移真链路：写入 legacy 形状 → 重载 → 迁移成功且 PRE 建立
   await evalJs("localStorage.setItem('rts_save',JSON.stringify({res:{wood:1234,stone:2,food:3,tech:0},townLv:2,defeated:[1,10],merit:5,tick:66,popAlloc:{wood:2,stone:1,food:1}}));'ok'");
   await send('Page.reload'); await sleep(2500);
   test('真实浏览器 legacy 迁移成功（tick推进后为活体值，主档快照见下项）', (await evalJs('S.res.wood')) >= 1234 && (await evalJs('S.tick')) >= 66 && (await evalJs('saveProtected()')) === false);
   test('迁移前原始副本已建立', await evalJs("(()=>{const p=JSON.parse(localStorage.getItem('rts_save_premigration'));return p&&p.v===undefined&&p.tick===66})()"));
-  test('主档升级 v1 且进度不增不减', await evalJs("(()=>{const m=JSON.parse(localStorage.getItem('rts_save'));return m.v===1&&m.res.wood===1234&&m.merit===5})()"));
+  test('主档升级 v2 且进度不增不减', await evalJs("(()=>{const m=JSON.parse(localStorage.getItem('rts_save'));return m.v===2&&m.res.wood===1234&&m.merit===5})()"));
   test('全程零未捕获异常(含两次重载)', exceptions.length === 0, exceptions.slice(0, 2).join(' | '));
   for (const r of rows) console.log(r);
   console.log('\n浏览器异常列表：' + (exceptions.length ? exceptions.join('\n') : '（空）'));

@@ -1,4 +1,16 @@
 // ==================== UI 渲染 ====================
+// IE-007：资源增减直观反馈（CSS-only 浮泡+闪色；首帧建立基线不闪）
+let _prevResUI=null;
+function flashRes(el,rk,d){
+  const cell=el.closest?el.closest('.top-res'):null;if(!cell)return;
+  let dt=cell.querySelector('.res-delta');
+  if(!dt){dt=document.createElement('span');dt.className='res-delta';cell.appendChild(dt)}
+  dt.textContent=(d>0?'+':'')+(Math.abs(d)>=100?Math.floor(d).toString():d.toFixed(1));
+  dt.classList.remove('up','down');void dt.offsetWidth;
+  dt.classList.add(d>0?'up':'down');
+  el.classList.remove('up','down');void el.offsetWidth;
+  el.classList.add(d>0?'up':'down');
+}
 function updateUI(){
   if(S.battleActive)return;
   const cap=storageCapacity();
@@ -7,6 +19,12 @@ function updateUI(){
   document.getElementById('res-stone').textContent=stone;
   document.getElementById('res-food').textContent=food;
   document.getElementById('res-tech').textContent=Math.floor(S.res.tech||0);
+  document.getElementById('res-copper').textContent=Math.floor(S.res.copper||0);
+  document.getElementById('res-iron').textContent=Math.floor(S.res.iron||0);
+  document.getElementById('res-coin').textContent=Math.floor(S.res.coin||0);
+  // IE-007：增减气泡/闪色（对比上一帧；首帧仅建基线）
+  if(_prevResUI){for(const rk of Object.keys(CFG.res)){const el=document.getElementById('res-'+rk);if(!el)continue;const d=(S.res[rk]||0)-(_prevResUI[rk]||0);if(d!==0)flashRes(el,rk,d);}}
+  _prevResUI={};for(const rk of Object.keys(CFG.res))_prevResUI[rk]=S.res[rk]||0;
   document.getElementById('res-pop').textContent=popAllocTotal()+'/'+maxPop();
   document.getElementById('cap-wood').textContent='/'+cap;
   document.getElementById('cap-stone').textContent='/'+cap;
@@ -253,15 +271,23 @@ function updateTownScene(){
 const BUILD_CATEGORIES = {
   basic: {name:'基础建筑',keys:['barracks','warehouse','lumber_mill','quarry','farm']},
   barracks: {name:'兵营建筑',keys:['infantry_camp','archer_range','stable','mage_tower']},
-  special: {name:'特殊建筑',keys:['arrow_tower']}
+  special: {name:'特殊建筑',keys:['arrow_tower']},
+  economy: {name:'经济建筑',keys:['mine','smelter','mint','market']}
 };
 
 function rBuildCard(key, cfg){
   const st=bldSt(key),locked=cfg.needBoss&&bossDefeatedCount()<cfg.needBoss,upLock=st.lv>0?upgradeLockReason(key):'';
   // 右侧对齐标签：资源Buff 或 解锁条件
   const buffLabel=cfg.buffRes&&st.state==='idle'&&st.lv>0?`<span style="font-size:12px;color:#40bf80">${pix(CFG.res[cfg.buffRes].icon,'sm')} ${CFG.res[cfg.buffRes].name} Buff: +${((st.lv*cfg.buffPerLv+cfg.buffBase)*100).toFixed(0)}%</span>`:'';
+  // IE-007：被动产出/消耗标识
+  const prodLabel=cfg.produces&&st.state==='idle'&&st.lv>0?(()=>{
+    let t='';
+    for(const[rk,v] of Object.entries(cfg.produces))t+=`${pix(CFG.res[rk]?.icon||rk,'sm')} ${CFG.res[rk]?.name||rk} +${v*st.lv}/s `;
+    if(cfg.consumes)for(const[rk,v] of Object.entries(cfg.consumes))t+=`<span style="color:#d09090">消耗${CFG.res[rk]?.name||rk} ${v*st.lv}/s</span> `;
+    return `<span style="font-size:11px;color:#78b8e8">${t}</span>`;
+  })():'';
   const lockLabel=locked?`<span style="font-size:11px;color:#e06060">${pix('lock','mini')}需击败第${cfg.needBoss}个Boss</span>`:'';
-  const rightLabel=lockLabel||buffLabel;
+  const rightLabel=lockLabel||buffLabel||prodLabel;
   let h=`<div class="card" style="${locked?'opacity:.7':''}"><h3 style="display:flex;justify-content:space-between;align-items:center">`;
   h+=`<span>${pix(key,'card-pix')}${cfg.name}`;if(st.state==='idle'&&st.lv>0)h+=` <span style="color:#f0d060">Lv.${st.lv}</span>`;if(cfg.trains){const tls=['T0基础','T1进阶','T2精锐','T3终极','T4传说'];h+=` <span style="font-size:10px;color:#f0d060">时代:${tls[st.tier??0]||'T'+(st.tier??0)}</span>`;if(st.state==='tier_upgrading')h+=` → <span style="color:#40bf80">${tls[(st.tier??0)+1]||'T'+((st.tier??0)+1)}</span>`;}
   // 营帐特殊：显示出战上限
@@ -322,7 +348,7 @@ function rBuildCard(key, cfg){
 
 function rBuild(){
   const tab=S._buildTab||'basic';
-  const tabs=[{k:'basic',n:'基础建筑'},{k:'barracks',n:'兵营建筑'},{k:'special',n:'特殊建筑'}];
+  const tabs=[{k:'basic',n:'基础建筑'},{k:'barracks',n:'兵营建筑'},{k:'economy',n:'经济建筑'},{k:'special',n:'特殊建筑'}];
   let h=`<div style="display:flex;gap:4px;margin-bottom:6px">`;
   for(const t of tabs){
     h+=`<button class="btn btn-sm ${tab===t.k?'btn-go':'btn-ghost'}" style="flex:1" onclick="setBuildTab('${t.k}')">${t.n}</button>`;
@@ -337,7 +363,28 @@ function rBuild(){
       if(cfg)h+=rBuildCard(key,cfg);
     }
   }
+  if(tab==='economy'){ // IE-007：市场兑换面板（交易所雏形）
+    const mk=CFG.buildings.market,st=bldSt('market');
+    if(CFG.market&&mk&&st.state==='idle'&&st.lv>0)h+=marketPanel();
+  }
   return h;
+}
+function marketPanel(){
+  const opts=(CFG.market.rates||[]).map(r=>`<option value="${r.from}|${r.to}">${CFG.res[r.from]?.name||r.from} → ${CFG.res[r.to]?.name||r.to}（1:${r.rate}）</option>`).join('');
+  return `<div class="card"><h3>${pix('coin','card-pix')}市场兑换</h3>
+    <div style="display:flex;gap:4px;flex-wrap:wrap;align-items:center">
+      <select id="mk-rate" style="flex:1;min-width:150px">${opts}</select>
+      <input id="mk-qty" type="text" inputmode="numeric" pattern="[0-9]*" value="10" style="width:64px">
+      <button class="btn btn-go btn-xs" onclick="marketExchange()">兑换</button>
+    </div>
+    <div style="font-size:10px;color:#888;margin-top:4px">汇率即官方调控把手；每日限制与多汇率由 IE-006 补齐</div></div>`;
+}
+function marketExchange(){
+  const sel=document.getElementById('mk-rate');if(!sel)return;
+  const v=sel.value.split('|');const from=v[0],to=v[1];
+  const qty=parseInt((document.getElementById('mk-qty')||{}).value,10)||0;
+  const r=exchangeResource(from,to,qty);
+  if(r.ok&&typeof toast==='function')toast('兑换成功：'+(CFG.res[to]?.name||to)+' +'+r.get);
 }
 // ==================== 军营界面 ====================
 function rBarracks(){

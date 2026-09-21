@@ -716,8 +716,18 @@ body{
   margin-top:8px;padding:6px 7px;border:2px solid #2b3144;background:#0d101b;color:#c5cad8;
   font-size:10px;line-height:1.45;word-break:break-all;text-shadow:1px 1px 0 #000;
 }
+/* IE-007：资源增减直观反馈（CSS-only） */
+.top-res{position:relative}
+.res-delta{position:absolute;right:2px;top:0;font-size:9px;line-height:1;pointer-events:none;opacity:0}
+.res-delta.up{color:#5ad06a}
+.res-delta.down{color:#ff7070}
+.res-delta.up,.res-delta.down{animation:resFloatUp .9s ease-out forwards}
+@keyframes resFloatUp{0%{opacity:0;transform:translateY(3px)}18%{opacity:1}100%{opacity:0;transform:translateY(-7px)}}
+#topbar .val.up{color:#8fe89f!important;text-shadow:0 0 6px #5ad06a}
+#topbar .val.down{color:#ff8a8a!important;text-shadow:0 0 6px #e05050}
 @media (prefers-reduced-motion: reduce){
   .town-worker,.town-worker:after,.town-guard,.town-map.is-warning,.town-invader,.town-demo-vfx,.town-skirmish-flash{animation:none!important}
+  .res-delta.up,.res-delta.down{animation:none!important}
 }
 
 /* ===== 像素风皮肤（CSS变量 + 暗色主题）===== */
@@ -1001,6 +1011,9 @@ body{
     <div class="top-res"><span class="pix-icon i-stone top-pix"></span><div class="val" id="res-stone">0</div><span class="cap" id="cap-stone"></span><div class="label">石料</div></div>
     <div class="top-res"><span class="pix-icon i-food top-pix"></span><div class="val" id="res-food">0</div><span class="cap" id="cap-food"></span><div class="label">食物</div></div>
     <div class="top-res"><span class="pix-icon i-tech top-pix"></span><div class="val" id="res-tech">0</div><span class="cap" id="cap-tech"></span><div class="label">科技点</div></div>
+    <div class="top-res"><span class="pix-icon i-copper top-pix"></span><div class="val" id="res-copper">0</div><span class="cap" id="cap-copper"></span><div class="label">铜</div></div>
+    <div class="top-res"><span class="pix-icon i-iron top-pix"></span><div class="val" id="res-iron">0</div><span class="cap" id="cap-iron"></span><div class="label">铁</div></div>
+    <div class="top-res"><span class="pix-icon i-coin top-pix"></span><div class="val" id="res-coin">0</div><span class="cap" id="cap-coin"></span><div class="label">金币</div></div>
     <div class="top-res"><span class="pix-icon i-pop top-pix"></span><div class="val" id="res-pop">0</div><span class="cap" id="cap-pop"></span><div class="label">村民</div></div>
   </div>
 

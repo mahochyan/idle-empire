@@ -15,7 +15,11 @@ const CFG = {
     wood:{name:'木材',icon:'wood',basePerPop:1},
     stone:{name:'石料',icon:'stone',basePerPop:1},
     food:{name:'食物',icon:'food',basePerPop:0.75},
-    tech:{name:'科技点',icon:'tech',basePerPop:0}
+    tech:{name:'科技点',icon:'tech',basePerPop:0},
+    // IE-007 新增：放置类型体系（basic=村民产出/passive=建筑被动产出/currency=软通货/material=材料/science=科技点）
+    copper:{name:'铜',icon:'copper',type:'passive',max:2000,maxPerLv:500,desc:'矿井产出，冶炼厂原料'},
+    iron:{name:'铁',icon:'iron',type:'passive',max:1500,maxPerLv:400,desc:'冶炼厂炼铜所得，高等级消耗'},
+    coin:{name:'金币',icon:'coin',type:'currency',max:5000,maxPerLv:1000,desc:'铸币厂铸造，市场兑换'}
   },
 
   // 精魄道具（Boss掉落，用于T2/T3兵种解锁）
@@ -239,40 +243,48 @@ const CFG = {
   //当前仓库50级最大上限为380000
   //
   buildings: {
-    lumber_mill:{name:'伐木场',buffRes:'wood',buffBase:0.20,buffPerLv:0.25, build:{wood:200,stone:100,food:40,time:4}, upBase:{wood:6000,stone:5000,food:2500}, upCostLv:1.5},
-    quarry:{name:'采石场',buffRes:'stone',buffBase:0.20,buffPerLv:0.25, build:{wood:50,stone:120,food:40,time:4}, upBase:{wood:5000,stone:6000,food:2500}, upCostLv:1.5},
-    farm:{name:'农田',buffRes:'food',buffBase:0.20,buffPerLv:0.25, build:{wood:80,stone:80,food:200,time:4}, upBase:{wood:5000,stone:5000,food:6000}, upCostLv:1.5},
-    barracks:{name:'营帐',build:{wood:300,stone:200,food:100,time:6}, upBase:{wood:1800,stone:1800,food:1000}, upCostLv:1.7},
-    infantry_camp:{name:'步兵营地',trains:'infantry',tier:0,
+    lumber_mill:{name:'伐木场',type:'resource',buffRes:'wood',buffBase:0.20,buffPerLv:0.25, build:{wood:200,stone:100,food:40,time:4}, upBase:{wood:6000,stone:5000,food:2500}, upCostLv:1.5},
+    quarry:{name:'采石场',type:'resource',buffRes:'stone',buffBase:0.20,buffPerLv:0.25, build:{wood:50,stone:120,food:40,time:4}, upBase:{wood:5000,stone:6000,food:2500}, upCostLv:1.5},
+    farm:{name:'农田',type:'resource',buffRes:'food',buffBase:0.20,buffPerLv:0.25, build:{wood:80,stone:80,food:200,time:4}, upBase:{wood:5000,stone:5000,food:6000}, upCostLv:1.5},
+    barracks:{name:'营帐',type:'barracks',build:{wood:300,stone:200,food:100,time:6}, upBase:{wood:1800,stone:1800,food:1000}, upCostLv:1.7},
+    infantry_camp:{name:'步兵营地',type:'training',trains:'infantry',tier:0,
       tierUpgrade:[
         {needBossId:5,  cost:{wood:500,stone:300,food:200},time:20},
         {needBossId:20, cost:{wood:2000,stone:1500,food:1000},time:45},
         {needBossId:40, cost:{wood:8000,stone:9000,food:5200},time:90},
         {needBossId:65, cost:{wood:20000,stone:20000,food:15000},time:150}
       ],build:{wood:180,stone:100,food:80,time:5},upBase:{wood:1000,stone:1000,food:800},upCostLv:1.1},
-    archer_range:{name:'弓兵营地',trains:'archer',tier:0,
+    archer_range:{name:'弓兵营地',type:'training',trains:'archer',tier:0,
       tierUpgrade:[
         {needBossId:5,  cost:{wood:600,stone:300,food:200},time:20},
         {needBossId:20, cost:{wood:2500,stone:1500,food:1200},time:45},
         {needBossId:40, cost:{wood:8000,stone:8000,food:5000},time:90},
         {needBossId:65, cost:{wood:13000,stone:11000,food:8000},time:150}
       ],build:{wood:240,stone:100,food:100,time:6},upBase:{wood:1000,stone:1000,food:850},upCostLv:1.1},
-    stable:{name:'骑兵训练场',trains:'cavalry',tier:1,needBoss:1,
+    stable:{name:'骑兵训练场',type:'training',trains:'cavalry',tier:1,needBoss:1,
       tierUpgrade:[
         {needBossId:5, cost:{wood:2500,stone:2000,food:2000},time:20},
         {needBossId:20, cost:{wood:8000,stone:8000,food:5000},time:45},
         {needBossId:40, cost:{wood:12000,stone:12000,food:8000},time:90}
       ],build:{wood:220,stone:160,food:180,time:7},upBase:{wood:1000,stone:1000,food:1000},upCostLv:1.12},
-    mage_tower:{name:'法师塔',trains:'mage',unitCapBase:1,unitCapPerLv:1,tier:1,needBoss:4,
+    mage_tower:{name:'法师塔',type:'training',trains:'mage',unitCapBase:1,unitCapPerLv:1,tier:1,needBoss:4,
       tierUpgrade:[
         {needBossId:5,  cost:{wood:800,stone:800,food:600},time:30},
         {needBossId:20, cost:{wood:5000,stone:5000,food:3000},time:60},
         {needBossId:40, cost:{wood:9000,stone:11000,food:5000},time:120},
         {needBossId:65, cost:{wood:22000,stone:25000,food:10000},time:180}
       ],build:{wood:500,stone:500,food:350,time:10},upBase:{wood:3000,stone:3000,food:2000},upCostLv:1.1},
-    warehouse:{name:'仓库',storageBase:10000,storagePerLv:10000,build:{wood:200,stone:200,food:100,time:5},upBase:{wood:3000,stone:3000,food:3000},upCostLv:1.3},
-    arrow_tower:{name:'箭塔',desc:'城防建筑，驻军战斗中对敌人自动射击',build:{wood:400,stone:350,food:150,time:10},upBase:{wood:1500,stone:1500,food:1000},upCostLv:1.2},
-    
+    warehouse:{name:'仓库',type:'storage',storageBase:10000,storagePerLv:10000,build:{wood:200,stone:200,food:100,time:5},upBase:{wood:3000,stone:3000,food:3000},upCostLv:1.3},
+    arrow_tower:{name:'箭塔',type:'defense',desc:'城防建筑，驻军战斗中对敌人自动射击',build:{wood:400,stone:350,food:150,time:10},upBase:{wood:1500,stone:1500,food:1000},upCostLv:1.2},
+    // ===== IE-007 新增：经济建筑（放置时代 矿井/冶铁厂/铸币厂/市场 对应，数值为保守起点值·待推演）=====
+    mine:{name:'矿井',type:'production',needBoss:5,produces:{copper:2},desc:'被动产出铜',
+      build:{wood:300,stone:500,food:200,time:8},upBase:{wood:2000,stone:3000,food:1500},upCostLv:1.15},
+    smelter:{name:'冶炼厂',type:'production',needBoss:10,consumes:{copper:3},produces:{iron:1},desc:'消耗铜冶炼铁（原料不足停产）',
+      build:{wood:500,stone:600,food:300,time:10},upBase:{wood:3000,stone:4000,food:2500},upCostLv:1.15},
+    mint:{name:'铸币厂',type:'production',needBoss:15,consumes:{food:5},produces:{coin:2},desc:'消耗食物铸造金币（原料不足停产）',
+      build:{wood:600,stone:400,food:500,time:12},upBase:{wood:3500,stone:3000,food:3000},upCostLv:1.15},
+    market:{name:'市场',type:'utility',needBoss:10,desc:'金币兑换基础资源（交易所雏形；每日限制与多汇率由 IE-006 补齐）',
+      build:{wood:400,stone:400,food:300,time:10},upBase:{wood:3000,stone:3000,food:2500},upCostLv:1.2}
   },
 
   // 建筑升级上限倍率（基于城镇等级，修改这里即可调整所有建筑的升级限制）
@@ -285,7 +297,9 @@ const CFG = {
     barracks: 1,
     warehouse: 5,
     training: 5,
-    resource: 1
+    resource: 1,
+    production: 1,
+    utility: 1
   },
 
   // 建筑升级时间（秒），不受 upCostLv 倍率影响，线性增长
@@ -297,5 +311,17 @@ const CFG = {
     cap1PerLv: 10,
     otherBase: 10,
     otherPerLv: 1
+  },
+
+  // ==================== 市场（IE-007 交易所雏形）====================
+  // 汇率：from 1 单位 → to rate 单位（向下取整）。往返乘积必须 <1（防套利，测试有断言）。
+  // 每日次数/多汇率/刷新等机制由 IE-006 补齐，本字段为保守起点值·待推演。
+  market: {
+    rates: [
+      {from:'coin',to:'wood',rate:8},
+      {from:'coin',to:'stone',rate:6},
+      {from:'wood',to:'coin',rate:0.1},
+      {from:'stone',to:'coin',rate:0.14}
+    ]
   }
 };

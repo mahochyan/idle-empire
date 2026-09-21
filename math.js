@@ -6,7 +6,7 @@
 // upgradedUnits: 科技树已研究解锁的兵种变体
 // essence: Boss 掉落的精魄库存，用于 T2/T3 兵种研究
 let S = {
-  res:{wood:300,stone:300,food:300,tech:0},
+  res:{wood:300,stone:300,food:300,tech:0,copper:0,iron:0,coin:0},
   buildings:{},
   pool:{infantry:0,archer:0},
   formation:{front:[],mid:[],back:[]},
@@ -345,7 +345,7 @@ function isAttackMiss(attacker,defender){
 // key 布局：rts_save 主档 | rts_save_backup_1/_2 最近有效备份（轮转） | rts_save_premigration 覆盖前原始副本（仅迁移/导入/恢复时写）
 // 写回单点 writeRawKey；自动保存入口 save() 在保护模式下无条件跳过（坏档/未来版本不会被静默覆盖成新档）。
 // 单位约定：ts=毫秒时间戳，tick=秒。兼容策略：v 缺失的旧档按 legacy 迁移到 v=1；v>SAVE_VERSION 拒绝读写回。
-const SAVE_KEY='rts_save',SAVE_VERSION=1,BACKUP_KEYS=['rts_save_backup_1','rts_save_backup_2'],PRE_MIGRATION_KEY='rts_save_premigration';
+const SAVE_KEY='rts_save',SAVE_VERSION=2,BACKUP_KEYS=['rts_save_backup_1','rts_save_backup_2'],PRE_MIGRATION_KEY='rts_save_premigration';
 let _saveProtected=false,_saveProtectReason='',_lastSaveWarn=0;
 function saveProtected(){return _saveProtected}
 function saveProtectReason(){return _saveProtectReason}
@@ -353,7 +353,7 @@ function _isNum(x){return typeof x==='number'&&Number.isFinite(x)}
 function _isInt(x){return _isNum(x)&&Math.floor(x)===x}
 function _isObj(o){return o!==null&&typeof o==='object'&&!Array.isArray(o)}
 // legacy（无 v）旧档缺字段补齐：数值逐项复刻原 load() 的 || 缺省行为（含 popAlloc {5,3,2} 的旧口径，如实保留不修正）
-function _legacyDefaults(){return{res:{wood:300,stone:300,food:300,tech:0},buildings:{},pool:{},queue:{},formation:{front:[],mid:[],back:[]},townLv:1,popAlloc:{wood:5,stone:3,food:2},defeated:[],merit:0,garrisonLog:[],garrison:null,tick:0,garrisonForm:{front:[],mid:[],back:[]},townUpgrade:null,upgradedUnits:{},essence:{}}}
+function _legacyDefaults(){return{res:{wood:300,stone:300,food:300,tech:0,copper:0,iron:0,coin:0},buildings:{},pool:{},queue:{},formation:{front:[],mid:[],back:[]},townLv:1,popAlloc:{wood:5,stone:3,food:2},defeated:[],merit:0,garrisonLog:[],garrison:null,tick:0,garrisonForm:{front:[],mid:[],back:[]},townUpgrade:null,upgradedUnits:{},essence:{}}}
 function serializeSave(){
   return {v:SAVE_VERSION,ts:Date.now(),res:S.res,buildings:S.buildings,pool:S.pool,queue:S.queue,formation:S.formation,townLv:S.townLv,popAlloc:S.popAlloc,defeated:S.defeated,merit:S.merit,garrisonLog:S.garrisonLog,garrison:S.garrison,tick:S.tick,garrisonForm:S._garrisonForm,townUpgrade:S.townUpgrade,upgradedUnits:S.upgradedUnits,essence:S.essence};
 }
@@ -387,15 +387,23 @@ function validateSave(d){
   if('garrison' in d&&d.garrison!=null){if(!_isObj(d.garrison))errors.push('garrison 不是对象');else{const g=d.garrison;if('phase' in g&&typeof g.phase!=='string')errors.push('garrison.phase 非法');for(const k of['phaseStarted','phaseUntil','cooldownUntil','nextCheckTick','seed'])if(k in g&&!_isNum(g[k]))errors.push('garrison.'+k+' 非法');}}
   // v=1 档必须字段齐全（由 serializeSave 保证）；legacy（无 v）允许缺字段，由迁移补齐
   if(hasV){for(const k of Object.keys(_legacyDefaults()))if(!(k in d))errors.push('缺少必需字段 '+k)}
+  // v=2 起新增被动/货币资源键（IE-007）；v1 档缺键由迁移补齐
+  if(hasV&&d.v>=2){for(const k of['copper','iron','coin'])if(!_isObj(d.res)||!(k in d.res))errors.push('res 缺少 v2 必需字段 '+k)}
   return{ok:errors.length===0,future:false,errors};
 }
-// 迁移：当前只有 legacy(无v)→v1；可重复执行（v1 输入原样返回），不增删资源/兵力/进度
+// 迁移：legacy(无v)→v2 与 v1→v2 同路径；可重复执行（v2 输入原样返回），不增删资源/兵力/进度
 function migrateSave(d){
   const filled=[];
   if(!('v' in d)){
     const def=_legacyDefaults();
     for(const k of Object.keys(def))if(!(k in d)){d[k]=def[k];filled.push(k)}
-    d.v=1;d.ts=Date.now();
+  }
+  if((d.v||1)<2){
+    const nr=d.res||{};
+    for(const k of['copper','iron','coin']){if(!(k in nr)){nr[k]=0;filled.push('res.'+k)}}
+    d.res=nr;
+    d.v=2;
+    if(!('ts' in d))d.ts=Date.now();
     return{d,migrated:true,filled};
   }
   return{d,migrated:false,filled};
@@ -502,6 +510,47 @@ function resetAllSaves(){
 }
 
 // ==================== 计时 ====================
+// ==================== IE-007 被动资源与市场 ====================
+// 被动/货币资源上限：基准 max + maxPerLv × 生产建筑等级（建筑 idle 且 lv≥1 才计入）；basic 资源仍走仓库容量
+function producerKey(rk){for(const k of Object.keys(CFG.buildings)){const b=CFG.buildings[k];if(b.produces&&rk in b.produces)return k}return null}
+function resCap(rk){
+  const r=CFG.res[rk];
+  if(r&&r.type!=='basic'&&r.max!=null){
+    const pk=producerKey(rk);
+    const st=pk?bldSt(pk):null;
+    return r.max+(r.maxPerLv||0)*(st&&st.state==='idle'?st.lv:0);
+  }
+  return storageCapacity();
+}
+// 被动产出：遍历建筑 produces/consumes；原料不足当次停产（不扣负、不产出）
+function passiveProduction(){
+  for(const k of Object.keys(CFG.buildings)){
+    const cfg=CFG.buildings[k],st=bldSt(k);
+    if(!cfg.produces||st.state!=='idle'||st.lv<1)continue;
+    let stopped=false;
+    if(cfg.consumes){for(const c of Object.keys(cfg.consumes)){if((S.res[c]||0)<cfg.consumes[c]*st.lv){stopped=true;break}}}
+    if(stopped)continue;
+    if(cfg.consumes){for(const c of Object.keys(cfg.consumes)){S.res[c]=(S.res[c]||0)-cfg.consumes[c]*st.lv}}
+    for(const r of Object.keys(cfg.produces)){
+      S.res[r]=Math.min((S.res[r]||0)+cfg.produces[r]*st.lv,resCap(r));
+    }
+  }
+}
+// 市场兑换（交易所雏形；每日限制/多汇率等机制由 IE-006 补齐）。汇率往返乘积必须 <1（防套利，测试断言）
+function exchangeResource(from,to,qty){
+  qty=Math.max(1,Math.floor(qty||0));
+  const rates=CFG.market&&CFG.market.rates||[];
+  const r=rates.find(x=>x.from===from&&x.to===to);
+  if(!r){if(typeof toast==='function')toast('暂无该兑换项');return{ok:false}}
+  if((S.res[from]||0)<qty){if(typeof toast==='function')toast((CFG.res[from]?.name||from)+'不足');return{ok:false}}
+  const get=Math.floor(qty*r.rate);
+  if(get<=0){if(typeof toast==='function')toast('兑换数量过小');return{ok:false}}
+  S.res[from]-=qty;
+  S.res[to]=Math.min((S.res[to]||0)+get,resCap(to));
+  save();updateUI();
+  return{ok:true,get};
+}
+
 function tick(){
   S.tick++;if(S.battleActive)return;
   let ch=false;
@@ -540,6 +589,7 @@ function tick(){
       S.res[rk]=Math.min(S.res[rk]+prodRate(rk), cap);
     }
   }
+  passiveProduction();
   if(typeof garrisonTick==='function')garrisonTick();
   if(S.tick%60===0)save();
   updateUI();

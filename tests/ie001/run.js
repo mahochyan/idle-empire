@@ -31,7 +31,7 @@ function makeEnv(initial = {}, faults = {}) {
 
 function fullLegacy() {
   return {
-    res: { wood: 12345.5, stone: 6000, food: 777, tech: 88 },
+    res: { wood: 12345.5, stone: 6000, food: 777, tech: 88, copper: 11, iron: 5, coin: 7 },
     buildings: { barracks: { lv: 3, state: 'idle', timer: 0, timerEnd: 0, tier: 1 }, warehouse: { lv: 5, state: 'upgrading', timer: 12, timerEnd: 12 }, lumber_mill: { lv: 2, state: 'idle', timer: 0, timerEnd: 0, tier: 0 } },
     pool: { infantry: 12, archer: 5, cavalry_t1: 3 },
     queue: { infantry: { count: 8, timer: 0, reason: '' } },
@@ -44,7 +44,7 @@ function fullLegacy() {
   };
 }
 function zerosLegacy() {
-  return { res: { wood: 0, stone: 0, food: 0, tech: 0 }, buildings: {}, pool: { infantry: 0, archer: 0 }, queue: {}, formation: { front: [], mid: [], back: [] }, townLv: 1, popAlloc: { wood: 0, stone: 0, food: 0 }, defeated: [], merit: 0, garrisonLog: [], garrison: null, tick: 0, garrisonForm: { front: [], mid: [], back: [] }, townUpgrade: null, upgradedUnits: {}, essence: {} };
+  return { res: { wood: 0, stone: 0, food: 0, tech: 0, copper: 0, iron: 0, coin: 0 }, buildings: {}, pool: { infantry: 0, archer: 0 }, queue: {}, formation: { front: [], mid: [], back: [] }, townLv: 1, popAlloc: { wood: 0, stone: 0, food: 0 }, defeated: [], merit: 0, garrisonLog: [], garrison: null, tick: 0, garrisonForm: { front: [], mid: [], back: [] }, townUpgrade: null, upgradedUnits: {}, essence: {} };
 }
 
 let pass = 0, fail = 0; const rows = [];
@@ -53,20 +53,20 @@ function assert(c, m) { if (!c) throw new Error(m || '断言失败'); }
 const eq = (a, b, m) => assert(JSON.stringify(a) === JSON.stringify(b), (m || '') + ' 期望=' + JSON.stringify(b) + ' 实际=' + JSON.stringify(a));
 const keys = (e) => [...e.store.keys()].sort();
 
-test('S01', '新开局：无档→默认S且零写入；save 写出 v1+ts；重载一致', () => {
+test('S01', '新开局：无档→默认S且零写入；save 写出 v2+ts；重载一致', () => {
   const e = makeEnv();
   assert(e.run('loadSaveAndApply().status') === 'fresh', '应为 fresh');
   assert(e.store.size === 0, 'fresh 不应写任何 key');
   e.run('S.res.wood=555;S.merit=7;save()');
   const d = JSON.parse(e.store.get('rts_save'));
-  assert(d.v === 1 && typeof d.ts === 'number' && d.ts > 0, 'v/ts 缺失');
+  assert(d.v === 2 && typeof d.ts === 'number' && d.ts > 0, 'v/ts 缺失');
   assert(d.res.wood === 555 && d.merit === 7, '内容不符');
   const e2 = makeEnv({ 'rts_save': e.store.get('rts_save') });
   assert(e2.run('loadSaveAndApply().status') === 'ok', '重载应 ok');
   assert(e2.run('S.res.wood') === 555 && e2.run('S.merit') === 7, '往返不符');
 });
 
-test('S02', 'legacy 全字段：全部保留、PRE=原始文本、主档升 v1 不增不减', () => {
+test('S02', 'legacy 全字段：全部保留、PRE=原始文本、主档升 v2 不增不减', () => {
   const fx = JSON.stringify(fullLegacy());
   const e = makeEnv({ 'rts_save': fx });
   assert(e.run('loadSaveAndApply().status') === 'migrated', '应 migrated');
@@ -78,7 +78,7 @@ test('S02', 'legacy 全字段：全部保留、PRE=原始文本、主档升 v1 �
   assert(e.run('S.upgradedUnits.infantry_t1') === true, '研究记录丢失');
   assert(e.run('S.queue.infantry.count') === 8, '训练队列丢失');
   const m = JSON.parse(e.store.get('rts_save'));
-  assert(m.v === 1 && typeof m.ts === 'number' && m.res.wood === 12345.5 && m.tick === 3456, '主档升级后内容漂移');
+  assert(m.v === 2 && typeof m.ts === 'number' && m.res.wood === 12345.5 && m.tick === 3456, '主档升级后内容漂移');
 });
 
 test('S03', 'legacy 缺可选字段：独立默认补齐；两次加载互不串写', () => {
@@ -194,7 +194,7 @@ test('S09', '导出→游玩改动→导入确认→备份先行→重载进度�
   delete after.ts; delete exp.ts;
   eq(after, exp, '导入后主档应等于导出内容');
   const bak = JSON.parse(e.store.get('rts_save_backup_1'));
-  assert(bak.v === 1 && bak.res.wood === 12345.5, '备份应为导入前有效主档');
+  assert(bak.v === 2 && bak.res.wood === 12345.5, '备份应为导入前有效主档');
   assert(e.run('S.townLv') === 7, '运行中 S 不应被替换（等待重载）');
   const e2 = makeEnv({ 'rts_save': e.store.get('rts_save') });
   e2.run('loadSaveAndApply()');
@@ -342,6 +342,82 @@ test('R02', '重置部分删除失败：ok=false + failed 清单（UI 据此不�
   e.setFault('removeItem', 'rts_save_backup_2');
   const r = JSON.parse(e.run('JSON.stringify(resetAllSaves())'));
   assert(r.ok === false && r.failed.includes('rts_save_backup_2'), JSON.stringify(r));
+});
+
+// ============ IE-007 资源体系用例 ============
+test('V01', 'v2 新开局：copper/iron/coin 入档+重载往返', () => {
+  const e = makeEnv();
+  assert(e.run('loadSaveAndApply().status') === 'fresh', '应为 fresh');
+  e.run('S.res.copper=30;S.res.iron=9;S.res.coin=50;save()');
+  const d = JSON.parse(e.store.get('rts_save'));
+  assert(d.v === 2 && d.res.copper === 30 && d.res.iron === 9 && d.res.coin === 50, 'v2 新键未入档');
+  const e2 = makeEnv({ 'rts_save': e.store.get('rts_save') });
+  assert(e2.run('loadSaveAndApply().status') === 'ok' && e2.run('S.res.coin') === 50 && e2.run('S.res.copper') === 30, '新键往返失败');
+});
+
+test('V02', 'legacy→v2 迁移：缺键补 0、PRE=原文、幂等', () => {
+  const fx = JSON.stringify({ res: { wood: 900, stone: 1, food: 1, tech: 0 }, townLv: 2, defeated: [1, 10], merit: 3 });
+  const e = makeEnv({ 'rts_save': fx });
+  assert(e.run('loadSaveAndApply().status') === 'migrated', '应 migrated');
+  assert(e.run('S.res.copper') === 0 && e.run('S.res.iron') === 0 && e.run('S.res.coin') === 0, '新键未补默认 0');
+  assert(e.store.get('rts_save_premigration') === fx, 'PRE 应等于 legacy 原文');
+  const m = JSON.parse(e.store.get('rts_save'));
+  assert(m.v === 2 && m.res.copper === 0 && m.res.wood === 900, '迁移后主档错误');
+  const e2 = makeEnv({ 'rts_save': e.store.get('rts_save') });
+  assert(e2.run('loadSaveAndApply().status') === 'ok', '二次加载应 ok');
+  e2.run('save()');
+  assert(JSON.parse(e2.store.get('rts_save')).res.copper === 0, '二次迁移改动数据（幂等失败）');
+});
+
+test('V03', 'v2 坏新键（res.copper 非数值）→ 保护且原文保留', () => {
+  const bad = JSON.stringify(Object.assign({}, fullLegacy(), { v: 2, ts: 1, res: Object.assign({}, fullLegacy().res, { copper: 'x' }) }));
+  const e = makeEnv({ 'rts_save': bad });
+  const st = e.run('loadSaveAndApply().status');
+  assert(['corrupt', 'invalid'].includes(st), 'status=' + st);
+  assert(e.run('saveProtected()') === true, '应进保护');
+  e.run('save();save();tick()');
+  assert(e.store.get('rts_save') === bad, '坏新键主档被覆盖！');
+});
+
+test('V04', '被动产出：矿井/冶炼/铸币按级产出、上限钳制、缺料停产不扣负', () => {
+  const e = makeEnv({ 'rts_save': JSON.stringify(fullLegacy()) });
+  e.run('loadSaveAndApply()');
+  e.run('S.res.copper=100;S.res.food=1000;S.res.wood=1000;S.res.stone=1000');
+  e.run("S.buildings.mine={lv:2,state:'idle',timer:0,timerEnd:0,tier:0};S.buildings.smelter={lv:1,state:'idle',timer:0,timerEnd:0,tier:0};S.buildings.mint={lv:1,state:'idle',timer:0,timerEnd:0,tier:0}");
+  e.run('tick();tick();tick()');
+  assert(e.run('S.res.copper') === 103, '铜净增错误(期望 100+3×1) actual=' + e.run('S.res.copper'));
+  assert(e.run('S.res.iron') === 8, '铁产出错误（fixture 基线 5+3×1）actual=' + e.run('S.res.iron'));
+  assert(e.run('S.res.coin') === 13, '金币错误（fixture 基线 7+3×2）actual=' + e.run('S.res.coin'));
+  assert(e.run('S.res.food') < 1000, '食物应被铸币(5/s)+口粮+军粮消耗（含经济联动，不断言精确值）');
+  // 上限钳制：铜贴近上限时矿先加到 cap 再被冶炼消耗
+  e.run('S.res.copper=2996');
+  e.run('tick()');
+  assert(e.run('S.res.copper') === 2997 && e.run('S.res.copper') <= e.run('resCap("copper")'), '上限钳制错误');
+  // 缺料停产：冶炼厂 lv2 需 6 铜 > 矿井 lv1 产 2 铜 → 停产且不扣负
+  e.run("S.buildings.mine={lv:1,state:'idle',timer:0,timerEnd:0,tier:0};S.buildings.smelter={lv:2,state:'idle',timer:0,timerEnd:0,tier:0};S.res.copper=1;S.res.iron=0");
+  e.run('tick()');
+  assert(e.run('S.res.copper') === 3, '缺料时错误扣负（期望 1+矿2，冶炼停产）');
+  assert(e.run('S.res.iron') === 0, '缺料时仍产出铁');
+});
+
+test('V05', '市场兑换：汇率取整/未知项拒绝/失败不改态/无套利环', () => {
+  const e = makeEnv({ 'rts_save': JSON.stringify(fullLegacy()) });
+  e.run('loadSaveAndApply();S.res.coin=100;S.res.wood=0;S.res.stone=0;S.res.iron=5');
+  let r = JSON.parse(e.run('JSON.stringify(exchangeResource("coin","wood",5))'));
+  assert(r.ok && r.get === 40 && e.run('S.res.coin') === 95 && e.run('S.res.wood') === 40, '正向兑换错误');
+  r = JSON.parse(e.run('JSON.stringify(exchangeResource("wood","coin",10))'));
+  assert(r.ok && r.get === 1 && e.run('S.res.coin') === 96, '反向兑换错误');
+  r = JSON.parse(e.run('JSON.stringify(exchangeResource("iron","coin",5))'));
+  assert(r.ok === false && e.run('S.res.iron') === 5, '未知汇率应拒绝且不改态');
+  const ar = JSON.parse(e.run('JSON.stringify(CFG.market.rates)'));
+  for (const a of ar) for (const b of ar) if (a.to === b.from && b.to === a.from) assert(a.rate * b.rate < 1, a.from + '↔' + a.to + ' 存在套利环:' + (a.rate * b.rate));
+});
+
+test('V06', '未知资源键仍拒绝（回归 S12 语义）', () => {
+  const e = makeEnv({});
+  const j = JSON.stringify(Object.assign({}, fullLegacy(), { v: 2, ts: 1, res: Object.assign({}, fullLegacy().res, { cheese: 1 }) }));
+  const v = JSON.parse(e.run('JSON.stringify(validateSave(' + j + '))'));
+  assert(v.ok === false && v.errors.some(x => /未知资源 cheese/.test(x)), '未知键未拒绝: ' + JSON.stringify(v.errors));
 });
 
 // —— 汇总输出 ——

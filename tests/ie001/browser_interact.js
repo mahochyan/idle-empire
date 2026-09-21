@@ -122,7 +122,7 @@ async function shot(name) {
   const gotCommit = await clickBySelector("[...document.querySelectorAll('#import-preview button')].find(x=>x.textContent.includes('确认覆盖导入'))", '确认覆盖导入');
   test('T8 确认按钮在 360 宽下可见可点', gotCommit);
   await sleep(2500);
-  test('T8 导入确认后主档写入 v1（真实重载生效）', await evalJs("(()=>{try{return JSON.parse(localStorage.getItem('rts_save')).v===1}catch(e){return false}})()") && (await evalJs('S.defeated.length')) === 3);
+  test('T8 导入确认后主档写入 v2（真实重载生效）', await evalJs("(()=>{try{return JSON.parse(localStorage.getItem('rts_save')).v===2}catch(e){return false}})()") && (await evalJs('S.defeated.length')) === 3);
   // T9 恢复确认双路径：accept→重载回滚进度；dismiss→保持现状
   await evalJs("S.merit=123;save();'ok'"); await sleep(300); // 轮转备份：backup_1=导入档(merit5)
   await evalJs("S.merit=456;save();'ok'"); await sleep(300);
