@@ -3,17 +3,22 @@
 // 运行：node tests/ie001/browser_interact.js ；截图输出到 docs/codex/reports/assets/
 // 重要声明：视口模拟 ≠ 实体手机/Android WebView；本套件不宣称真机验证。不设置 textarea.value 来替代输入交互。
 const { spawn } = require('child_process'), fs = require('fs'), os = require('os'), path = require('path');
+const reaper = require('./edge-reaper');            // 清理机制：预扫 + 退出钩子 + 同步全树击杀（防实例泄漏）
+reaper.installExitHooks();
+if (!reaper.acquireLock()) { console.log('另一个浏览器套件正在运行，已中止（避免互相清扫）'); process.exit(3); }
+reaper.sweepHeadless();
 const EDGE = ['C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe', 'C:\\Program Files\\Microsoft\\Edge\\Application\\msedge.exe'].find(p => fs.existsSync(p));
 if (!EDGE) { console.log('NO_BROWSER'); process.exit(2); }
 const PORT = 9300 + Math.floor(Math.random() * 900), udd = path.join(os.tmpdir(), 'ie001-i-' + Date.now());
 const ASSETS = path.join(__dirname, '..', '..', 'docs', 'codex', 'reports', 'assets');
-function killEdgeTree(pid){ // 进程树清理：防 headless 子进程变僵尸堆积拖垮环境
-  try { require('child_process').spawn('taskkill', ['/PID', String(pid), '/T', '/F'], { stdio: 'ignore' }); } catch (e) { }
-  try { process.kill(pid, 'SIGKILL'); } catch (e) { }
+function killEdgeTree(pid){ // 同步全树击杀 + 二次清扫 + 回收 profile
+  try { reaper.killTreeSync(pid); } catch (e) { }
+  try { reaper.sweepHeadless(true); } catch (e) { }
+  try { fs.rmSync(udd, { recursive: true, force: true }); } catch (e) { }
 }
 fs.mkdirSync(ASSETS, { recursive: true });
 const URL = 'file:///E:/AIprogram/idlgame/index.html';
-const edge = spawn(EDGE, ['--headless=new', '--disable-gpu', '--no-first-run', '--remote-debugging-port=' + PORT, '--user-data-dir=' + udd, URL], { stdio: 'ignore' });
+const edge = spawn(EDGE, ['--headless=new', '--disable-gpu', '--no-first-run', '--disable-extensions', '--no-sandbox', '--disable-dev-shm-usage', '--disable-background-networking', '--disable-component-update', '--disable-sync', '--remote-debugging-port=' + PORT, '--user-data-dir=' + udd, URL], { stdio: 'ignore' });
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 let msgId = 0; const pending = new Map(); const exceptions = []; let ws; let dialogMode = 'accept'; let lastDialog = null;
 function send(method, params = {}) { return new Promise((res, rej) => { const id = ++msgId; pending.set(id, { res, rej }); ws.send(JSON.stringify({ id, method, params })); }); }
@@ -126,7 +131,7 @@ async function shot(name) {
   const gotCommit = await clickBySelector("[...document.querySelectorAll('#import-preview button')].find(x=>x.textContent.includes('确认覆盖导入'))", '确认覆盖导入');
   test('T8 确认按钮在 360 宽下可见可点', gotCommit);
   await sleep(2500);
-  test('T8 导入确认后主档写入 v2（真实重载生效）', await evalJs("(()=>{try{return JSON.parse(localStorage.getItem('rts_save')).v===2}catch(e){return false}})()") && (await evalJs('S.defeated.length')) === 3);
+  test('T8 导入确认后主档写入 v3（真实重载生效）', await evalJs("(()=>{try{return JSON.parse(localStorage.getItem('rts_save')).v===3}catch(e){return false}})()") && (await evalJs('S.defeated.length')) === 3);
   // T9 恢复确认双路径：accept→重载回滚进度；dismiss→保持现状
   await evalJs("S.merit=123;save();'ok'"); await sleep(300); // 轮转备份：backup_1=导入档(merit5)
   await evalJs("S.merit=456;save();'ok'"); await sleep(300);
@@ -159,7 +164,9 @@ async function shot(name) {
   console.log('node ' + process.version + ' + Edge(headless=new) CDP | 通过 ' + pass + ' / 失败 ' + fail);
   try { ws.close(); } catch (e) { }
   killEdgeTree(edge.pid);
-  await sleep(800);
+  await sleep(300);
+  const res = reaper.sweepHeadless(true);
+  console.log(`清理核对：headless 残留 ${res.found} → 已清 ${res.removed}｜剩余 ${res.remaining}｜涉及内存约 ${res.freedMB} MB`);
   try { fs.rmSync(udd, { recursive: true, force: true }); } catch (e) { console.log('（临时 profile 未清理：' + udd + '）'); }
   process.exit(fail ? 1 : 0);
 })().catch(e => { console.log('驱动失败: ' + e.message); for (const r of rows) console.log(r); try { killEdgeTree(edge && edge.pid); } catch (_) { } process.exit(2); });

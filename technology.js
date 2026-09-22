@@ -130,6 +130,7 @@ function unlockedVariants(baseUk){
   return result;
 }
 function upgradeUnit(fromKey,toKey){
+  if(typeof idemRepeat==='function'&&idemRepeat('unit',fromKey+'>'+toKey)){toast('已提交，请稍候');return}   // 切片10：窗口内重复 → 不重复扣费
   if(S.upgradedUnits[toKey]){toast('已解锁');return;}
   const tree=CFG.unitUpgrades[baseUnitType(fromKey)]?.tree;
   if(!tree)return;
@@ -174,6 +175,7 @@ function upgradeUnit(fromKey,toKey){
     if(bKey&&typeof refundUnitsByLine==='function')refundUnitsByLine(bKey, oldTier);
   }
   addLog('解锁'+(CFG.units[toKey]?CFG.units[toKey].name:toKey)+'兵种升级');
+  if(typeof idemMark==='function')idemMark(idemKey('unit',fromKey+'>'+toKey));   // 切片10：成功后打点
   save();updateUI();
 }
 function unlockUnitRoot(unitKey){
@@ -240,14 +242,15 @@ function rTech(){
   // 资源科技（IE-008 · 对齐放置时代发展科技 45xxxx：纯科技门）
   h+=`<div class="card"><h3>${pix('academy','card-pix')}资源科技</h3>`;
   h+=`<div style="font-size:10px;color:#888;margin-bottom:6px">研究消耗科技点+战功（学院产出科技点），研究后解锁对应经济建筑</div>`;
-  for(const[id,sc] of Object.entries(CFG.sciences||{})){
+  for(const[id,sc] of Object.entries((typeof activeSciences==='function')?activeSciences():(CFG.sciences||{}))){
     const done=S.sciences.includes(id);
     const pre=sc.need&&sc.need.some(p=>!S.sciences.includes(p));
-    const can=(S.res.tech||0)>=sc.cost.tech&&(S.merit||0)>=sc.cost.merit&&!pre;
+    const meritEff=(CFG.tech&&CFG.tech.sciencesNoMerit)?0:(sc.cost.merit||0);
+    const can=(S.res.tech||0)>=sc.cost.tech&&((typeof S.merit!=='undefined'?S.merit:0))>=meritEff&&!pre;
     h+=`<div style="display:flex;align-items:center;gap:6px;padding:5px 0;border-bottom:1px dashed #232839">
       <div style="flex:1;min-width:0"><strong>${sc.name}</strong>
         <span style="font-size:10px;color:#888;margin-left:6px">${sc.desc||''}</span>
-        <div style="font-size:10px;color:#c0a060">科技点 ${sc.cost.tech} · 战功 ${sc.cost.merit}${sc.need?` · 前置「${CFG.sciences[sc.need[0]]?.name||sc.need[0]}」`:''}</div></div>
+        <div style="font-size:10px;color:#c0a060">科技点 ${sc.cost.tech} · 战功 ${meritEff}${sc.need?` · 前置「${(typeof sciName==='function')?sciName(sc.need[0]):sc.need[0]}」`:''}</div></div>
       ${done?`<span style="color:#40bf80;font-size:11px">✔ 已研究</span>`:`<button class="btn btn-go btn-xs" ${can?'':'disabled'} onclick="researchScience('${id}')">研究</button>`}
     </div>`;
   }

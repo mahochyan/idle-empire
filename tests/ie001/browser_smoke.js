@@ -3,11 +3,15 @@
 // 覆盖：页面加载无 JS 异常、updateUI 渲染值、tick 推进、save() 写出 v1、坏档进保护且原文不被覆盖、恢复后正常。
 // 不覆盖：窄屏交互/手动输入（S14）与全链路游玩（建造/训练/战斗点击），见报告"未运行"。
 const { spawn } = require('child_process'), fs = require('fs'), os = require('os'), path = require('path');
+const reaper = require('./edge-reaper');            // 清理机制：预扫 + 退出钩子 + 同步全树击杀（防实例泄漏）
+reaper.installExitHooks();
+if (!reaper.acquireLock()) { console.log('另一个浏览器套件正在运行，已中止（避免互相清扫）'); process.exit(3); }
+reaper.sweepHeadless();                             // 预扫：清掉上次残留（含被中断的孤儿实例）
 const EDGE = ['C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe', 'C:\\Program Files\\Microsoft\\Edge\\Application\\msedge.exe'].find(p => fs.existsSync(p));
 if (!EDGE) { console.log('NO_BROWSER'); process.exit(2); }
 const PORT = 9300 + Math.floor(Math.random() * 900), udd = path.join(os.tmpdir(), 'ie001-cdp-' + Date.now()); // 每次运行独立端口+profile，避免陈旧实例干扰
 try { fs.rmSync(udd, { recursive: true, force: true }); } catch (e) { }
-const edge = spawn(EDGE, ['--headless=new', '--disable-gpu', '--no-first-run', '--remote-debugging-port=' + PORT, '--user-data-dir=' + udd, 'file:///E:/AIprogram/idlgame/index.html'], { stdio: 'ignore' });
+const edge = spawn(EDGE, ['--headless=new', '--disable-gpu', '--no-first-run', '--disable-extensions', '--no-sandbox', '--disable-dev-shm-usage', '--disable-background-networking', '--disable-component-update', '--disable-sync', '--remote-debugging-port=' + PORT, '--user-data-dir=' + udd, 'file:///E:/AIprogram/idlgame/index.html'], { stdio: 'ignore' });
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 let msgId = 0; const pending = new Map(); const exceptions = []; let ws;
 function send(method, params = {}) { return new Promise((res, rej) => { const id = ++msgId; pending.set(id, { res, rej }); ws.send(JSON.stringify({ id, method, params })); }); }
@@ -17,9 +21,10 @@ async function evalJs(expr) {
   return r.result.value;
 }
 const ASSETS = require('path').join(__dirname, '..', '..', 'docs', 'codex', 'reports', 'assets');
-function killEdgeTree(pid){ // 进程树清理：防 headless 子进程变僵尸堆积拖垮环境
-  try { require('child_process').spawn('taskkill', ['/PID', String(pid), '/T', '/F'], { stdio: 'ignore' }); } catch (e) { }
-  try { process.kill(pid, 'SIGKILL'); } catch (e) { }
+function killEdgeTree(pid){ // 同步全树击杀 + 二次清扫（旧实现 async spawn 后立刻 SIGKILL → taskkill 未走完即中断，产生孤儿）
+  try { reaper.killTreeSync(pid); } catch (e) { }
+  try { reaper.sweepHeadless(true); } catch (e) { }
+  try { fs.rmSync(udd, { recursive: true, force: true }); } catch (e) { }
 }
 async function shot(name) {
   const s = await send('Page.captureScreenshot', { format: 'png' });
@@ -33,9 +38,9 @@ function test(name, ok, extra) { if (ok) { pass++; rows.push('[PASS] ' + name); 
   // 等 CDP 就绪
   let targets = null;
   for (let i = 0; i < 40 && !targets; i++) { await sleep(500); try { const r = await fetch('http://127.0.0.1:' + PORT + '/json'); targets = await r.json(); } catch (e) { } }
-  if (!targets) { console.log('CDP 未就绪'); edge.kill(); process.exit(2); }
+  if (!targets) { console.log('CDP 未就绪'); killEdgeTree(edge.pid); process.exit(2); }
   const page = targets.find(t => t.type === 'page' && /idle-empire\/index\.html/.test(t.url)) || targets.find(t => t.type === 'page');
-  if (!page || !page.webSocketDebuggerUrl) { console.log('无 page target'); edge.kill(); process.exit(2); }
+  if (!page || !page.webSocketDebuggerUrl) { console.log('无 page target'); killEdgeTree(edge.pid); process.exit(2); }
   ws = new WebSocket(page.webSocketDebuggerUrl);
   await new Promise((res, rej) => { ws.onopen = res; ws.onerror = e => rej(e); });
   ws.onmessage = (m) => {
@@ -47,11 +52,13 @@ function test(name, ok, extra) { if (ok) { pass++; rows.push('[PASS] ' + name); 
   await send('Runtime.enable'); await send('Page.enable');
   await sleep(4000); // 首屏 + tick 若干秒
   test('页面加载零未捕获异常', exceptions.length === 0, exceptions.slice(0, 2).join(' | '));
+  test('切片16 L2：版本锚点与脚本加载顺序可自检（APP_VERSION/APP_SCRIPTS）', await evalJs("/^\\d+$/.test(window.APP_VERSION)&&Array.isArray(window.APP_SCRIPTS)&&window.APP_SCRIPTS.join(',')==='config.js,levels.js,sprites.js,math.js,garrison.js,technology.js,ui.js'"), await evalJs('JSON.stringify({v:window.APP_VERSION,s:window.APP_SCRIPTS})'));
   test('真实DOM渲染初始资源(wood≥300 且格式为数字)', await evalJs("(()=>{const v=document.getElementById('res-wood').textContent;return /^\\d+$/.test(v)&&+v>=300})()"));
   test('tick 时钟推进(≥2秒)', (await evalJs('S.tick')) >= 2, 'S.tick=' + await evalJs('S.tick'));
   test('存档子系统已就位(saveProtected=false)', (await evalJs('saveProtected()')) === false);
   await evalJs('save()');
-  test('save() 在真实 localStorage 写出 v2+ts', await evalJs("(()=>{const d=JSON.parse(localStorage.getItem('rts_save'));return d&&d.v===2&&d.ts>0})()"));
+  test('save() 在真实 localStorage 写出 v3+ts+v3骨架字段（切片9）', await evalJs("(()=>{const d=JSON.parse(localStorage.getItem('rts_save'));return d&&d.v===3&&d.ts>0&&Array.isArray(d.ops)&&d.offline&&typeof d.offline==='object'&&d.daily&&typeof d.daily==='object'})()"));
+  test('切片2/4/6/9/10/11 L2：未启用开关仍关闭、已启用开关生效、诊断不入档', await evalJs("CFG.passive.needPop===false&&CFG.offline.enabled===true&&CFG.idem.enabled===true&&CFG.tech.sciencesNoMerit===true&&CFG.caps.expanded===true&&CFG.upkeep.freeBand===true&&CFG.tech.longLadder===true&&CFG.save.v3===true&&typeof logDiag==='function'&&(localStorage.getItem('rts_save')||'').indexOf('diag')===-1"));
   // 注入坏档 → 重载 → 保护模式且不覆盖
   await evalJs("localStorage.setItem('rts_save','BROKEN{{');'ok'");
   await send('Page.reload'); await sleep(3000);
@@ -69,7 +76,7 @@ function test(name, ok, extra) { if (ok) { pass++; rows.push('[PASS] ' + name); 
   await evalJs("openSettings();'ok'"); await sleep(200);
   test('设置弹窗含存档管理卡片', (await evalJs("document.getElementById('settings-content').innerHTML.includes('存档管理')")) === true);
   await evalJs("settingsShowExport(false);'ok'"); await sleep(100);
-  test('导出UI在真实DOM回显可解析的v2存档', await evalJs("(()=>{try{const d=JSON.parse(document.getElementById('save-out').value);return d.v===2&&d.res.wood>=300}catch(e){return false}})()"));
+  test('导出UI在真实DOM回显可解析的v3存档', await evalJs("(()=>{try{const d=JSON.parse(document.getElementById('save-out').value);return d.v===3&&d.res.wood>=300}catch(e){return false}})()"));
   await evalJs("settingsShowImport();document.getElementById('save-in').value=JSON.stringify({res:{wood:77,stone:1,food:1,tech:0},townLv:2,defeated:[1,10],merit:3});settingsImportCheck();'ok'"); await sleep(200);
   test('导入校验预览显示摘要(未确认前不写档)', await evalJs("document.getElementById('import-preview').innerHTML.includes('校验通过')"));
   const beforeMaster = await evalJs("localStorage.getItem('rts_save')||''");
@@ -115,14 +122,30 @@ function test(name, ok, extra) { if (ok) { pass++; rows.push('[PASS] ' + name); 
   await send('Page.reload'); await sleep(2500);
   test('真实浏览器 legacy 迁移成功（tick推进后为活体值，主档快照见下项）', (await evalJs('S.res.wood')) >= 1234 && (await evalJs('S.tick')) >= 66 && (await evalJs('saveProtected()')) === false);
   test('迁移前原始副本已建立', await evalJs("(()=>{const p=JSON.parse(localStorage.getItem('rts_save_premigration'));return p&&p.v===undefined&&p.tick===66})()"));
-  test('主档升级 v2 且进度不增不减', await evalJs("(()=>{const m=JSON.parse(localStorage.getItem('rts_save'));return m.v===2&&m.res.wood===1234&&m.merit===5})()"));
+  test('主档升级 v3 且进度不增不减', await evalJs("(()=>{const m=JSON.parse(localStorage.getItem('rts_save'));return m.v===3&&m.res.wood===1234&&m.merit===5})()"));
+  // 切片11 端到端：注入"1 小时前"的存档 → 重载 → 启动即结算离线收益 → 报告卡可见 → 落库 → 清空后不再出现
+  await evalJs("(()=>{const d=JSON.parse(localStorage.getItem('rts_save'));d.ts=Date.now()-3600*1000;d.res.wood=1000;d.res.food=1000;localStorage.setItem('rts_save',JSON.stringify(d));return 'ok'})()");
+  await send('Page.reload'); await sleep(2500);
+  const offW = await evalJs("JSON.stringify({rep:S.offline&&S.offline.pendingReport?{d:S.offline.pendingReport.durationSec,g:S.offline.pendingReport.gains}:null,wood:S.res.wood})");
+  const offObj = JSON.parse(offW);
+  test('切片11 L2：启动加载 → 离线结算（报告卡出现且时长=3600s）', offObj.rep !== null && offObj.rep.d === 3600, offW);
+  test('切片11 L2：离线增益已入账并落库', offObj.rep !== null && (offObj.rep.g.wood || 0) > 0 && offObj.wood > 1000, offW);
+  test('切片11 L2：报告卡在真实 DOM 可见', await evalJs("document.getElementById('main').innerHTML.includes('离线结算')"));
+  await shot('slice11-offline-report-360');
+  test('切片11 L2：主档已落库（pendingReport 持久化）', await evalJs("(()=>{const m=JSON.parse(localStorage.getItem('rts_save'));return m.v===3&&m.offline&&m.offline.pendingReport&&m.offline.pendingReport.durationSec===3600})()"));
+  await evalJs('dismissOfflineReport()'); await sleep(100);
+  test('切片11 L2：清空后主档 pendingReport=null', await evalJs("(()=>{const m=JSON.parse(localStorage.getItem('rts_save'));return m.offline&&m.offline.pendingReport===null})()"));
+  await send('Page.reload'); await sleep(2500);
+  test('切片11 L2：重载后不再重复结算（无报告卡）', await evalJs("(!S.offline||!S.offline.pendingReport)&&!document.getElementById('main').innerHTML.includes('离线结算')"));
   test('全程零未捕获异常(含两次重载)', exceptions.length === 0, exceptions.slice(0, 2).join(' | '));
   for (const r of rows) console.log(r);
   console.log('\n浏览器异常列表：' + (exceptions.length ? exceptions.join('\n') : '（空）'));
   console.log('node ' + process.version + ' + Edge(headless=new) CDP | 通过 ' + pass + ' / 失败 ' + fail);
   try { ws.close(); } catch (e) { }
   killEdgeTree(edge.pid);
-  await sleep(800);
+  await sleep(300);
+  const res = reaper.sweepHeadless(true);
+  console.log(`清理核对：headless 残留 ${res.found} → 已清 ${res.removed}｜剩余 ${res.remaining}｜涉及内存约 ${res.freedMB} MB`);
   try { fs.rmSync(udd, { recursive: true, force: true }); } catch (e) { console.log('（临时 profile 目录清理失败，可手动删除：' + udd + '）'); }
   process.exit(fail ? 1 : 0);
 })().catch(e => { console.log('驱动失败: ' + e.message); try { killEdgeTree(edge && edge.pid); } catch (_) { } process.exit(2); });

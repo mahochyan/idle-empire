@@ -1,2 +1,13 @@
 # Claude Code 配置（不上传）
 .claude/
+
+# 仅本地的大体积/中间产物（不入库；竞品解包与分析工具，非站点运行所需）
+210(1).APK
+210(1)_unpacked/
+210(unpacked_tmp).js
+_analysis_tools/
+css-analysis/
+IE-001-review.zip
+
+# 测试运行时日志（本地证据；截图 assets 仍入库）
+docs/codex/reports/logs/

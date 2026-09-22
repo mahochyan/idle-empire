@@ -25,7 +25,7 @@ function updateUI(){
   // IE-007：增减气泡/闪色（对比上一帧；首帧仅建基线）
   if(_prevResUI){for(const rk of Object.keys(CFG.res)){const el=document.getElementById('res-'+rk);if(!el)continue;const d=(S.res[rk]||0)-(_prevResUI[rk]||0);if(d!==0)flashRes(el,rk,d);}}
   _prevResUI={};for(const rk of Object.keys(CFG.res))_prevResUI[rk]=S.res[rk]||0;
-  document.getElementById('res-pop').textContent=popAllocTotal()+'/'+maxPop();
+  document.getElementById('res-pop').textContent=popAllocTotal()+'/'+(typeof popCurrent==='function'?popCurrent():maxPop());
   document.getElementById('cap-wood').textContent='/'+cap;
   document.getElementById('cap-stone').textContent='/'+cap;
   const netFood=prodRate('food')-totalUpkeep()-popAllocTotal()*(CFG.popFoodCost||0.1);
@@ -60,6 +60,15 @@ function rHome(){
   const bossName=bossId?((CFG.enemies.find(e=>e.id===bossId)||{}).name||'?'):'';
   let h=`<div style="padding:4px 0">`;
   if(saveProtected())h+=`<div class="card" style="border-color:#7a3040"><div style="font-size:11px;color:#e06060">⚠ 存档保护模式：${esc(saveProtectReason())}</div><button class="btn btn-ghost btn-xs" style="margin-top:4px" onclick="openSettings()">前往设置处理</button></div>`;
+  // 切片11：离线结算报告卡（展示后由玩家清空；只展示一次、不二次发奖）
+  if(S.offline&&S.offline.pendingReport){
+    const r=S.offline.pendingReport, m=Math.floor((r.durationSec||0)/60), s=(r.durationSec||0)%60;
+    const gainStr=Object.keys(r.gains||{}).map(k=>`${pix(CFG.res[k]?.icon||k,'mini')}${CFG.res[k]?.name||k} +${Math.round(r.gains[k])}`).join(' ')||'（无净收益）';
+    h+=`<div class="card" style="border-color:#3a6a4a"><div style="font-size:12px;color:#78d0a0">离线结算：${m}分${s}秒${r.truncated?'（已截断）':''}</div>
+      <div style="font-size:11px;color:#c8c8c8;margin-top:4px">${gainStr}</div>
+      ${r.reason?`<div style="font-size:10px;color:#888;margin-top:3px">${esc(r.reason)}</div>`:''}
+      <button class="btn btn-ghost btn-xs" style="margin-top:4px" onclick="dismissOfflineReport()">知道了</button></div>`;
+  }
 
   // 城镇 + 村民分配 合并卡片
   h+=`<div class="card">`;
@@ -71,11 +80,13 @@ function rHome(){
   } else if(canUp){
     h+=`<span style="font-size:10px;color:#40bf80">可升级 → ${(CFG.town.find(t=>t.lv===S.townLv+1)||{}).name||"?"} (${(CFG.town.find(t=>t.lv===S.townLv+1)||{}).maxPop||"?"}人)</span>`;
   } else {
-    h+=`<span style="font-size:10px;color:#666">需击败第${bossId}关Boss「${bossName}」</span>`;
+    const gate=(typeof townGateCost==='function')?townGateCost(S.townLv+1):null;
+    if(gate)h+=`<span style="font-size:10px;color:#e0b060">需地契 ${gate.deed} · 科技点 ${gate.tech}${(typeof townGateShortfall==='function'&&townGateShortfall(S.townLv+1))?`（还差 ${townGateShortfall(S.townLv+1)}）`:''}</span>`;
+    else h+=`<span style="font-size:10px;color:#666">需击败第${bossId}关Boss「${bossName}」</span>`;
   }
   h+=`</h3>`;
   h+=`<div style="display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#999;margin-bottom:4px">`;
-  h+=`<span>村民 ${popAllocTotal()}/${maxPop()} | 空闲 ${popFree()} | 仓库 ${storageCapacity()}</span>`;
+  h+=`<span>村民 ${popAllocTotal()}/${(typeof popCurrent==='function'?popCurrent():maxPop())}（上限 ${maxPop()}） | 空闲 ${popFree()} | 仓库 ${storageCapacity()}</span>`;
   if(canUp&&!tu)h+=`<button class="btn btn-go btn-sm" onclick="upgradeTown()">${pix("upgrade","mini")}升级城镇</button>`;
   h+=`</div>`;
   if(tu){
@@ -283,11 +294,11 @@ function rBuildCard(key, cfg){
   const prodLabel=cfg.produces&&st.state==='idle'&&st.lv>0?(()=>{
     let t='';
     for(const[rk,v] of Object.entries(cfg.produces))t+=`${pix(CFG.res[rk]?.icon||rk,'sm')} ${CFG.res[rk]?.name||rk} +${v*st.lv}/s `;
-    if(cfg.consumes)for(const[rk,v] of Object.entries(cfg.consumes))t+=`<span style="color:#d09090">消耗${CFG.res[rk]?.name||rk} ${v*st.lv}/s</span> `;
+    if(cfg.consumes)for(const[rk,v] of Object.entries(cfg.consumes))t+=`<span style="color:#d09090">消耗${CFG.res[rk]?.name||rk} ${(typeof effConsume==='function'?effConsume(key,rk):v)*st.lv}/s</span> `;
     return `<span style="font-size:11px;color:#78b8e8">${t}</span>`;
   })():'';
   const lockLabel=locked?(cfg.needScience&&!S.sciences.includes(cfg.needScience)
-    ?`<span style="font-size:11px;color:#e06060">${pix('lock','mini')}需先研究「${CFG.sciences?.[cfg.needScience]?.name||cfg.needScience}」</span>`
+    ?`<span style="font-size:11px;color:#e06060">${pix('lock','mini')}需先研究「${(typeof sciName==='function')?sciName(cfg.needScience):(CFG.sciences?.[cfg.needScience]?.name||cfg.needScience)}」</span>`
     :`<span style="font-size:11px;color:#e06060">${pix('lock','mini')}需击败第${cfg.needBoss}个Boss</span>`):'';
   const rightLabel=lockLabel||buffLabel||prodLabel;
   let h=`<div class="card" style="${locked?'opacity:.7':''}"><h3 style="display:flex;justify-content:space-between;align-items:center">`;
@@ -379,7 +390,7 @@ function marketPanel(){
       <input id="mk-qty" type="text" inputmode="numeric" pattern="[0-9]*" value="10" style="width:64px">
       <button class="btn btn-go btn-xs" onclick="marketExchange()">兑换</button>
     </div>
-    <div style="font-size:10px;color:#888;margin-top:4px">汇率即官方调控把手；每日限制与多汇率由 IE-006 补齐</div></div>`;
+    <div style="font-size:10px;color:#888;margin-top:4px">汇率即官方调控把手${(typeof marketDailyLimit==='function'&&marketDailyLimit()>0)?`；每日上限 ${marketDailyLimit()} 次（本地 0 点重置，今日剩余 ${Math.max(0,marketDailyLimit()-dailyCount('market'))} 次）`:'；每日限制与多汇率由 IE-006 补齐'}</div></div>`;
 }
 function marketExchange(){
   const sel=document.getElementById('mk-rate');if(!sel)return;
@@ -971,6 +982,8 @@ document.querySelectorAll('.nav-btn').forEach(b=>{
 // ==================== init ====================
 injectPixelIcons();
 load();
+settleOffline();   // 切片11：启动加载成功后结算一次离线收益（幂等：同 ts 只结一次）
+document.addEventListener('visibilitychange',()=>{ if(!document.hidden) settleOffline(); });  // 回前台再结算一次
 if(S.defeated.length<CFG.enemies.length&&S.selEnemy===null)S.selEnemy=S.defeated.length;
 if(S.selEnemy===null)S.selEnemy=CFG.enemies.length-1;
 updateUI();

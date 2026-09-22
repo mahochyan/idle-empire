@@ -6,7 +6,7 @@
 // upgradedUnits: 科技树已研究解锁的兵种变体
 // essence: Boss 掉落的精魄库存，用于 T2/T3 兵种研究
 let S = {
-  res:{wood:300,stone:300,food:300,tech:0,copper:0,iron:0,coin:0},
+  res:{wood:300,stone:300,food:300,tech:0,copper:0,iron:0,coin:0,deed:0},
   buildings:{},
   pool:{infantry:0,archer:0},
   formation:{front:[],mid:[],back:[]},
@@ -34,14 +34,20 @@ let S = {
   townUpgrade:null,
   upgradedUnits:{},
   essence:{},
-  sciences:[]
+  sciences:[],
+  // 切片9（存档 v3 骨架）：幂等记录 / 离线结算凭证 / 每日计数（仅在 CFG.save.v3 开启时入档）
+  ops:[], offline:{pendingReport:null}, daily:{day:null,counts:{}}
 };
 
 // ==================== 辅助 ====================
 function bldSt(k){return S.buildings[k]||{lv:0,state:'idle',timer:0,timerEnd:0,tier:0}}
+// 切片4b（R5-①②）：食物经济对齐的运行时取值——原始数值保留在 CFG.res/CFG.buildings，展示与实现同源
+function alignedResBase(rk){const f=CFG.food;if(f&&f.aligned&&f.res&&f.res[rk]&&typeof f.res[rk].basePerPop==='number')return f.res[rk].basePerPop;return null}
+function effConsume(key,res){const f=CFG.food;if(f&&f.aligned&&f.consumes&&f.consumes[key]&&typeof f.consumes[key][res]==='number')return f.consumes[key][res];const c=CFG.buildings[key]&&CFG.buildings[key].consumes;return c?c[res]:undefined}
 function prodRate(rk){
   const alloc=S.popAlloc[rk]||0;
-  const base=CFG.res[rk].basePerPop||0.5;
+  const ab=alignedResBase(rk);
+  const base=ab!=null?ab:(CFG.res[rk].basePerPop||0.5);
   return alloc*base*(1+buildingBuff(rk));
 }
 function buildingBuff(rk){
@@ -53,8 +59,19 @@ function buildingBuff(rk){
 }
 function townCfg(){return CFG.town.find(t=>t.lv===S.townLv)||CFG.town[0]}
 function maxPop(){return townCfg().maxPop}
+// 切片7（S5 人口结构对齐）：派生式人口 —— 由已持久化的 S.tick 推导（不新增存档字段）
+// 竞品口径：基础人口 4（表 160001）；增长 2+5×城镇 / 10s（getPeopleSpeed@1310081 + 0x2710 定时器）
+// 兼容纪律：不回收既有分配（历史数据超上限不静默裁剪）；仅限制"新增分配"
+function popGrowthPer10s(){const p=CFG.pop||{};return (p.per10sBase||2)+(p.per10sPerTown||5)*S.townLv}
+function popCurrent(){
+  const p=CFG.pop||{};
+  if(!p.growth) return maxPop();                      // 关闭开关＝原样（人口即城镇上限）
+  const base=p.base||4;
+  const grown=base+Math.floor(popGrowthPer10s()*Math.floor(S.tick/10));
+  return Math.max(0,Math.min(maxPop(),grown));
+}
 function popAllocTotal(){return Object.values(S.popAlloc).reduce((a,b)=>a+b,0)}
-function popFree(){return Math.max(0,maxPop()-popAllocTotal())}
+function popFree(){return Math.max(0,popCurrent()-popAllocTotal())}
 function townUpgradeNeedBossId(){
   const next=CFG.town.find(t=>t.lv===S.townLv+1);
   return next?next.needBossId:999;
@@ -62,24 +79,70 @@ function townUpgradeNeedBossId(){
 function townCanUpgrade(){
   if(S.townUpgrade)return false;
   if(S.townLv>=CFG.town.length)return false;
+  if(CFG.townGate&&CFG.townGate.useDeed){                 // S8c（D2）：地契+科技门
+    const c=townGateCost(S.townLv+1);
+    if(!c)return false;
+    return (S.res.deed||0)>=c.deed&&(S.res.tech||0)>=c.tech;
+  }
   const needId=townUpgradeNeedBossId();
   if(needId===0)return true;
   return S.defeated.includes(needId);
 }
+// S8c（D2）：下一级城镇的「地契+科技点」需求（开启开关时生效；关闭时返回 null）
+function townGateCost(toLv){
+  const g=CFG.townGate;
+  if(!g||!g.useDeed)return null;
+  return (g.cost||[]).find(c=>c.toLv===toLv)||null;
+}
+function townGateShortfall(toLv){
+  const c=townGateCost(toLv);if(!c)return '';
+  const lack=[];
+  if((S.res.deed||0)<c.deed)lack.push(`地契 ${c.deed-(S.res.deed||0)}`);
+  if((S.res.tech||0)<c.tech)lack.push(`科技点 ${c.tech-(S.res.tech||0)}`);
+  return lack.join(' · ');
+}
 function bossDefeatedCount(){
   return CFG.enemies.filter(e=>e.boss&&S.defeated.includes(e.id)).length;
 }
+// 切片4（S3 上限扩容）：开关决定是否使用 CFG.caps.expand 的扩容值；关闭时全部走原始数值
+function capsExpanded(){return !!(CFG.caps&&CFG.caps.expanded&&CFG.caps.expand)}
+function expandedResCap(rk){return (capsExpanded()&&CFG.caps.expand.res&&CFG.caps.expand.res[rk])||null}
 function storageCapacity(){
   const whLv=(S.buildings.warehouse||{lv:0}).lv;
   const cfg=CFG.buildings.warehouse;
-  return (cfg.storageBase??2000) + whLv * (cfg.storagePerLv??500);
+  const perLv=capsExpanded()?CFG.caps.expand.warehousePerLv:(cfg.storagePerLv??500);
+  return (cfg.storageBase??2000) + whLv * perLv;
+}
+// 切片8b（R2=A）：建筑等级上限改"自身 LvMax"（对齐竞品：仓库 1000、工坊/学院类 50），解开"城镇等级×k"绑定
+function ownMaxFor(key){
+  const o=CFG.ownMax; if(!o||!o.enabled) return null;
+  const cfg=CFG.buildings[key]; if(!cfg) return null;
+  if(cfg.storagePerLv) return o.warehouse;
+  if(cfg.trains) return o.training;
+  if(cfg.produces&&cfg.produces.tech) return o.science;
+  if(cfg.produces&&!cfg.produces.tech) return o.production;
+  if(cfg.buffRes) return o.resource;
+  if(cfg.type==='utility') return o.utility;
+  return o.barracks;
 }
 function upgradeLockReason(key){
   const cfg=CFG.buildings[key],st=bldSt(key),cap=CFG.buildingCaps;
+  const ex=capsExpanded()?CFG.caps.expand:null;
+  // 切片8b：自身 LvMax 模式（启用时短路，不再回落"城镇×k"）
+  const om=ownMaxFor(key);
+  if(om!=null){ if(st.lv>=om) return `已达等级上限 Lv.${om}`; return ''; }
   // 兵营建筑（步兵/弓兵/骑兵/矛兵/法师）：上限 = 城镇等级 × buildingCaps.training
   if(cfg.trains && st.lv>=S.townLv*cap.training) return `需升级城镇到Lv.${Math.floor(st.lv/cap.training)+1}`;
-  // 仓库：上限 = 城镇等级 × buildingCaps.warehouse
-  if(cfg.storagePerLv && st.lv>=S.townLv*cap.warehouse) return `需升级城镇到Lv.${Math.floor(st.lv/cap.warehouse)+1}`;
+  // 仓库：上限 = 城镇等级 × buildingCaps.warehouse（扩容后 × expand.warehouseCapPerTown）
+  if(cfg.storagePerLv){const wc=ex?ex.warehouseCapPerTown:cap.warehouse;if(st.lv>=S.townLv*wc)return `需升级城镇到Lv.${Math.floor(st.lv/wc)+1}`;if(ex)return '';}
+  // 科技建筑（学院）：扩容后单独上限（命中分支后短路，避免落到 barracks 回退被误锁）
+  if(ex&&cfg.produces&&cfg.produces.tech){if(st.lv>=S.townLv*ex.scienceCapPerTown)return `需升级城镇到Lv.${Math.floor(st.lv/ex.scienceCapPerTown)+1}`;return '';}
+  // 生产建筑（矿井/冶炼/铸币）：扩容后单独上限
+  if(ex&&cfg.produces&&!cfg.produces.tech){if(st.lv>=S.townLv*ex.productionCapPerTown)return `需升级城镇到Lv.${Math.floor(st.lv/ex.productionCapPerTown)+1}`;return '';}
+  // 功能建筑（市场）：扩容后单独上限
+  if(ex&&cfg.type==='utility'){if(st.lv>=S.townLv*ex.utilityCapPerTown)return `需升级城镇到Lv.${Math.floor(st.lv/ex.utilityCapPerTown)+1}`;return '';}
+  // 采集 buff 建筑（伐木场/采石场/农田）：扩容后单独上限
+  if(ex&&cfg.buffRes){if(st.lv>=S.townLv*ex.resourceCapPerTown)return `需升级城镇到Lv.${Math.floor(st.lv/ex.resourceCapPerTown)+1}`;return '';}
   // 营帐：上限 = 城镇等级 × buildingCaps.barracks
   if(!cfg.trains&&!cfg.storagePerLv&&!cfg.buffRes && st.lv>=S.townLv*cap.barracks) return `需升级城镇到Lv.${Math.floor(st.lv/cap.barracks)+1}`;
   // 资源建筑（伐木场/采石场/农田）：上限 = 城镇等级 × buildingCaps.resource
@@ -123,6 +186,11 @@ function unitCap(uk){
   if(unitTier>bldTier)return 0;
   const cap=CFG.unitCaps?.[bu];
   if(!cap)return 0;
+  // 切片8a（O8 用户批准）：运行时上调单位上限（原始 CFG.unitCaps 不动；回滚＝开关 false）
+  const b=CFG.unitCapBoost;
+  if(b&&b.enabled&&b.base&&b.perLv&&typeof b.base[bu]==='number'&&typeof b.perLv[bu]==='number'){
+    return b.base[bu] + st.lv * b.perLv[bu];
+  }
   return cap.base + st.lv * cap.perLv;
 }
 function garrisonCount(uk){
@@ -302,6 +370,39 @@ function rowSlots(row){
   return s;
 }
 function formSlots(){ return rowSlots('front')+rowSlots('mid')+rowSlots('back'); }
+// 切片6（S4 免维护带）：军粮 = 逐兵 upkeep 之和 × 分段倍率。
+// 竞品原文（@1315400 区，逐字）：≤200 免维护；200<n≤300 →1×(n−200)；300<n≤500 →100+2×(n−300)；500<n≤1000 →500+4×(n−500)；n>1000 →2500+8×(n−500)
+// 我方按尺度缩放：免维护带 = freeBase + freePerBarracksLv×营帐等级；超出后按 segWidths/segSlopes 边际计费（斜率作用于"基准逐兵 upkeep"）
+function armyCount(){
+  let n=0;
+  for(const k of Object.keys(CFG.units)){ n+=(S.pool[k]||0); }
+  for(const row of['front','mid','back']){
+    for(const u of S.formation[row]){ n+=(u.count||0); }
+    for(const u of S._garrisonForm[row]){ n+=(u.count||0); }
+  }
+  return n;
+}
+function freeBandSize(){
+  const u=CFG.upkeep||{};
+  return (u.freeBase||0)+(u.freePerBarracksLv||0)*((S.buildings.barracks||{lv:0}).lv||0);
+}
+function upkeepBandFactor(n){
+  const u=CFG.upkeep||{};
+  if(!u.freeBand) return 1;              // 关闭开关＝完全原样（零行为）
+  if(n<=0) return 0;
+  const free=freeBandSize();
+  if(n<=free) return 0;                  // 免维护带内：军粮为 0
+  const w=u.segWidths||[20,80,200], s=u.segSlopes||[1,2,4,8];
+  let marginal=0, rem=n-free;
+  for(let i=0;i<s.length;i++){
+    const wi=(i<w.length?w[i]:Infinity);
+    const take=Math.min(rem,wi);
+    marginal+=take*s[i]; rem-=take;
+    if(rem<=0) break;
+  }
+  if(rem>0) marginal+=rem*s[s.length-1];
+  return marginal/n;                     // 平均倍率（使 total = 逐兵 upkeep 之和 × 本值）
+}
 function totalUpkeep(){
   let up=0;
   for(const[k,c] of Object.entries(CFG.units)){
@@ -311,7 +412,8 @@ function totalUpkeep(){
       for(const u of S._garrisonForm[row]){ if(u.type===k) up+=u.count*(c.upkeep||0); }
     }
   }
-  return up;
+  if(!(CFG.upkeep&&CFG.upkeep.freeBand)) return up;
+  return up*upkeepBandFactor(armyCount());
 }
 function mm(atk,def){
   const atkBase=baseUnitType(atk), defBase=baseUnitType(def);
@@ -347,6 +449,11 @@ function isAttackMiss(attacker,defender){
 // 写回单点 writeRawKey；自动保存入口 save() 在保护模式下无条件跳过（坏档/未来版本不会被静默覆盖成新档）。
 // 单位约定：ts=毫秒时间戳，tick=秒。兼容策略：v 缺失的旧档按 legacy 迁移到 v=1；v>SAVE_VERSION 拒绝读写回。
 const SAVE_KEY='rts_save',SAVE_VERSION=2,BACKUP_KEYS=['rts_save_backup_1','rts_save_backup_2'],PRE_MIGRATION_KEY='rts_save_premigration';
+// 切片9（存档 v3 骨架）：目标版本由开关决定 —— 关闭时行为与 v2 完全一致（对拍可证），开启时写/校验/迁移 v3
+const SAVE_V3_KEYS=['ops','offline','daily'];
+let _loadedTs=null;   // 切片11：本次加载的存档 ts（离线结算基准；新档为 null → 不结算）
+let _offlineSettledFor=null;   // 切片11：已结算过的离线窗口 ts（幂等）
+function targetSaveVersion(){return (CFG.save&&CFG.save.v3)?3:SAVE_VERSION}
 let _saveProtected=false,_saveProtectReason='',_lastSaveWarn=0;
 function saveProtected(){return _saveProtected}
 function saveProtectReason(){return _saveProtectReason}
@@ -356,7 +463,12 @@ function _isObj(o){return o!==null&&typeof o==='object'&&!Array.isArray(o)}
 // legacy（无 v）旧档缺字段补齐：数值逐项复刻原 load() 的 || 缺省行为（含 popAlloc {5,3,2} 的旧口径，如实保留不修正）
 function _legacyDefaults(){return{res:{wood:300,stone:300,food:300,tech:0,copper:0,iron:0,coin:0},buildings:{},pool:{},queue:{},formation:{front:[],mid:[],back:[]},townLv:1,popAlloc:{wood:5,stone:3,food:2},defeated:[],merit:0,garrisonLog:[],garrison:null,tick:0,garrisonForm:{front:[],mid:[],back:[]},townUpgrade:null,upgradedUnits:{},essence:{},sciences:[]}}
 function serializeSave(){
-  return {v:SAVE_VERSION,ts:Date.now(),res:S.res,buildings:S.buildings,pool:S.pool,queue:S.queue,formation:S.formation,townLv:S.townLv,popAlloc:S.popAlloc,defeated:S.defeated,merit:S.merit,garrisonLog:S.garrisonLog,garrison:S.garrison,tick:S.tick,garrisonForm:S._garrisonForm,townUpgrade:S.townUpgrade,upgradedUnits:S.upgradedUnits,essence:S.essence,sciences:S.sciences};
+  // S8c（D2）：地契随开关启用；关闭开关时存档与原 v2/v3 逐字节一致（等价性守护）
+  let res=S.res;
+  if(!(CFG.townGate&&CFG.townGate.useDeed)&&res&&('deed' in res)){res=Object.assign({},res);delete res.deed}
+  const base={v:targetSaveVersion(),ts:Date.now(),res:res,buildings:S.buildings,pool:S.pool,queue:S.queue,formation:S.formation,townLv:S.townLv,popAlloc:S.popAlloc,defeated:S.defeated,merit:S.merit,garrisonLog:S.garrisonLog,garrison:S.garrison,tick:S.tick,garrisonForm:S._garrisonForm,townUpgrade:S.townUpgrade,upgradedUnits:S.upgradedUnits,essence:S.essence,sciences:S.sciences};
+  if(targetSaveVersion()>=3){base.ops=S.ops||[];base.offline=S.offline||{pendingReport:null};base.daily=S.daily||{day:null,counts:{}};}
+  return base;
 }
 // 校验策略：结构/枚举/引用严格（未知兵种/建筑/关卡/资源 → 保护，不静默裁剪）；数值宽松（有限数且≥0 即可，超限不裁剪只报告）
 function validateSave(d){
@@ -365,7 +477,7 @@ function validateSave(d){
   const hasV='v' in d;
   if(hasV){
     if(!_isInt(d.v)||d.v<1)errors.push('v 版本字段非法');
-    else if(d.v>SAVE_VERSION)return{ok:false,future:true,errors:['存档版本 v='+d.v+' 高于当前支持的 v='+SAVE_VERSION]};
+    else if(d.v>targetSaveVersion())return{ok:false,future:true,errors:['存档版本 v='+d.v+' 高于当前支持的 v='+targetSaveVersion()]};
   }
   if('ts' in d&&!_isNum(d.ts))errors.push('ts 非法');
   if('res' in d){if(!_isObj(d.res))errors.push('res 不是对象');else for(const k of Object.keys(d.res)){if(!(k in CFG.res))errors.push('res: 未知资源 '+k);else if(!_isNum(d.res[k])||d.res[k]<0)errors.push('res.'+k+' 非法（负数或非有限数）')}}
@@ -387,11 +499,18 @@ function validateSave(d){
   if('townUpgrade' in d&&d.townUpgrade!=null){if(!_isObj(d.townUpgrade))errors.push('townUpgrade 非法');else if(!_isNum(d.townUpgrade.timer))errors.push('townUpgrade.timer 非法')}
   if('garrison' in d&&d.garrison!=null){if(!_isObj(d.garrison))errors.push('garrison 不是对象');else{const g=d.garrison;if('phase' in g&&typeof g.phase!=='string')errors.push('garrison.phase 非法');for(const k of['phaseStarted','phaseUntil','cooldownUntil','nextCheckTick','seed'])if(k in g&&!_isNum(g[k]))errors.push('garrison.'+k+' 非法');}}
   // v=1 档必须字段齐全（由 serializeSave 保证）；legacy（无 v）允许缺字段，由迁移补齐；sciences 为上线后追加字段，不强制、由迁移补齐
-  if(hasV){for(const k of Object.keys(_legacyDefaults()))if(k!=='sciences'&&!(k in d))errors.push('缺少必需字段 '+k)}
+  if(hasV){for(const k of Object.keys(_legacyDefaults()))if(k!=='sciences'&&!SAVE_V3_KEYS.includes(k)&&!(k in d))errors.push('缺少必需字段 '+k)}
   // v=2 起新增被动/货币资源键（IE-007）；v1 档缺键由迁移补齐
   if(hasV&&d.v>=2){for(const k of['copper','iron','coin'])if(!_isObj(d.res)||!(k in d.res))errors.push('res 缺少 v2 必需字段 '+k)}
+  // v=3 起新增骨架字段（切片9：幂等记录/离线凭证/每日计数）；v2 档缺键由迁移补齐，缺失才算坏档
+  if(hasV&&d.v>=3){
+    for(const k of SAVE_V3_KEYS)if(!(k in d))errors.push('缺少 v3 必需字段 '+k);
+    if('ops' in d){if(!Array.isArray(d.ops))errors.push('ops 不是数组');else{let n=0;for(const o of d.ops){n++;if(!_isObj(o)){errors.push('ops 项不是对象');break}if(typeof o.key!=='string'){errors.push('ops.key 非法');break}if(!_isNum(o.t)){errors.push('ops.t 非法');break}}if(n>200)errors.push('ops 条数超上限（200）')}}
+    if('offline' in d){if(!_isObj(d.offline))errors.push('offline 不是对象');else if('pendingReport' in d.offline&&d.offline.pendingReport!=null&&!_isObj(d.offline.pendingReport))errors.push('offline.pendingReport 非法')}
+    if('daily' in d){if(!_isObj(d.daily))errors.push('daily 不是对象');else{if('day' in d.daily&&d.daily.day!=null&&typeof d.daily.day!=='string')errors.push('daily.day 非法');if('counts' in d.daily){if(!_isObj(d.daily.counts))errors.push('daily.counts 不是对象');else for(const k of Object.keys(d.daily.counts)){if(!_isNum(d.daily.counts[k])||d.daily.counts[k]<0)errors.push('daily.counts.'+k+' 非法')}}}}
+  }
   // sciences（IE-008 资源科技，上线后追加字段）：存在才校验，缺键由迁移补齐（兼容已在线的 v2 旧档）
-  if('sciences' in d){if(!Array.isArray(d.sciences))errors.push('sciences 不是数组');else for(const s of d.sciences){if(!(s in CFG.sciences))errors.push('sciences: 未知科技 '+s)}}
+  if('sciences' in d){if(!Array.isArray(d.sciences))errors.push('sciences 不是数组');else for(const s of d.sciences){if(!sciIdKnown(s))errors.push('sciences: 未知科技 '+s)}}
   return{ok:errors.length===0,future:false,errors};
 }
 // 迁移：legacy(无v)→v2 与 v1→v2 同路径；上线后追加字段（sciences）对所有缺键版本补齐；可重复执行，不增删资源/兵力/进度
@@ -409,11 +528,21 @@ function migrateSave(d){
     if(!('ts' in d))d.ts=Date.now();
   }
   if(!('sciences' in d)){d.sciences=[];filled.push('sciences')}
+  // S8c（D2）：地契资源补齐（仅当开关开启）；缺失补 0，不裁剪既有进度
+  if(CFG.townGate&&CFG.townGate.useDeed&&_isObj(d.res)&&!('deed' in d.res)){d.res.deed=0;filled.push('res.deed')}
+  // 切片9：v3 骨架字段补齐（仅当目标版本为 v3）；可重复执行、不增删资源/兵力/进度
+  if(targetSaveVersion()>=3&&(d.v||1)<3){
+    if(!('ops' in d)){d.ops=[];filled.push('ops')}
+    if(!('offline' in d)){d.offline={pendingReport:null};filled.push('offline')}
+    if(!('daily' in d)){d.daily={day:null,counts:{}};filled.push('daily')}
+    d.v=3;
+  }
   return{d,migrated:filled.length>0,filled};
 }
 // 应用到 S：显式逐字段，不再使用 || 吞合法 0；默认对象全部独立新建
 function applySaveToS(d){
   S.res=d.res;S.buildings=d.buildings;S.pool=d.pool;S.queue=d.queue;S.formation=d.formation;S.townLv=d.townLv;S.popAlloc=d.popAlloc;S.defeated=d.defeated;S.merit=d.merit;S.garrisonLog=d.garrisonLog;if(d.garrison)S.garrison=d.garrison;S.tick=d.tick;S._garrisonForm=d.garrisonForm;S.townUpgrade=d.townUpgrade;S.upgradedUnits=d.upgradedUnits;S.essence=d.essence;S.sciences=d.sciences||[];
+  S.ops=Array.isArray(d.ops)?d.ops:[];S.offline=(d.offline&&typeof d.offline==='object')?d.offline:{pendingReport:null};S.daily=(d.daily&&typeof d.daily==='object')?d.daily:{day:null,counts:{}};
   if(typeof ensureGarrisonState==='function')ensureGarrisonState();
 }
 function readRawKey(key){try{const t=localStorage.getItem(key);return{ok:true,text:t}}catch(e){return{ok:false,err:'存储读取失败'}}}
@@ -428,7 +557,46 @@ function backUpMaster(){
   const w=writeRawKey(BACKUP_KEYS[0],cur.text);if(!w.ok)return{ok:false,stage:'backup',reason:w.err};
   return{ok:true};
 }
-function _warnUnsaved(reason){const now=Date.now();if(now-_lastSaveWarn>30000){_lastSaveWarn=now;if(typeof toast==='function')toast('保存失败：'+reason+'，原存档未被改动')}}
+// ==================== 诊断环形日志（切片2 基建 · 仅内存 / 不入档 / 零上报）====================
+// 用途：离线结算、幂等、迁移等关键路径的失败与异常可观测；容量受 CFG.diag.max 限制。
+const _DIAG_MAX=(typeof CFG!=='undefined'&&CFG.diag&&CFG.diag.max)||50;
+let _diagRing=[];
+function logDiag(tag,msg){
+  try{
+    if(typeof CFG!=='undefined'&&CFG.diag&&CFG.diag.enabled===false)return _diagRing.length;
+    _diagRing.push({t:Date.now(),tag:String(tag==null?'':tag),msg:String(msg==null?'':msg)});
+    if(_diagRing.length>_DIAG_MAX)_diagRing.splice(0,_diagRing.length-_DIAG_MAX);
+  }catch(e){}
+  return _diagRing.length;
+}
+function diagSnapshot(){try{return _diagRing.slice()}catch(e){return []}}
+function diagClear(){_diagRing=[];return 0}
+
+// ==================== 幂等层（切片10 · S4）====================
+// 语义：同一 opKey 在窗口（默认 5s）内重复提交 → 返回既有结果，不重复扣费/发奖；记录入 S.ops（v3，环形 ≤ max）
+// 口径：优先复用既有互斥屏障（如建筑 state!=='idle'），本层只覆盖"无天然屏障"的操作（研究/兵种解锁/导入/恢复）
+function idemActive(){return !!(CFG.idem&&CFG.idem.enabled)}
+function idemKey(type,target){return type+':'+String(target)}
+function strHash(s){let h=5381;const t=String(s==null?'':s);for(let i=0;i<t.length;i++)h=((h<<5)+h+t.charCodeAt(i))|0;return (h>>>0).toString(36)}
+function idemSeen(key){try{const w=(CFG.idem&&CFG.idem.windowMs)||5000,now=Date.now();return (Array.isArray(S.ops)?S.ops:[]).some(o=>o&&o.key===key&&(now-(o.t||0))<w)}catch(e){return false}}
+function idemMark(key){
+  if(!idemActive())return;
+  try{
+    const now=Date.now(),w=(CFG.idem&&CFG.idem.windowMs)||5000,max=(CFG.idem&&CFG.idem.max)||200;
+    S.ops=Array.isArray(S.ops)?S.ops:[];
+    S.ops=S.ops.filter(o=>o&&typeof o.t==='number'&&(now-o.t)<Math.max(w,60000)); // 窗口外清理（留 60s 观察期）
+    S.ops.push({key,t:now});
+    if(S.ops.length>max)S.ops.splice(0,S.ops.length-max);
+  }catch(e){}
+}
+function idemRepeat(type,target){   // 命中返回 true（调用方应直接返回既有结果）
+  if(!idemActive())return false;
+  const k=idemKey(type,target);
+  if(idemSeen(k)){if(typeof logDiag==='function')logDiag('idem-repeat',k);return true}
+  return false;
+}
+
+function _warnUnsaved(reason){const now=Date.now();if(now-_lastSaveWarn>30000){_lastSaveWarn=now;logDiag('save-fail',reason);if(typeof toast==='function')toast('保存失败：'+reason+'，原存档未被改动')}}
 function writeSave(text){
   if(_saveProtected)return{ok:false,stage:'protected'};
   const b=backUpMaster();if(!b.ok){_warnUnsaved(b.reason||'备份无法写入');return{ok:false,stage:'backup'}}
@@ -451,6 +619,7 @@ function loadSaveAndApply(){
     if(!pre.ok){applySaveToS(m.d);enterProtection('无法写入迁移前原始副本，已终止格式升级（本会话只读）');return{status:'migrated_readonly'}}
   }
   applySaveToS(m.d);
+  _loadedTs=(typeof m.d.ts==='number'&&Number.isFinite(m.d.ts))?m.d.ts:null;   // 切片11：记录本次加载的存档时间戳（离线结算基准）
   if(m.migrated){
     const w=writeSave(JSON.stringify(serializeSave())); // 提交 v/ts；失败→主档保持 legacy 原文且本会话只读
     if(!w.ok){enterProtection('迁移后主档写入失败（'+(w.stage==='backup'?'备份失败':'存储写入失败')+'），主档保持原样（本会话只读）');return{status:'migrated_readonly'}}
@@ -458,6 +627,151 @@ function loadSaveAndApply(){
   return{status:m.migrated?'migrated':'ok',filled:m.filled};
 }
 function load(){loadSaveAndApply()}
+
+// ==================== 离线结算（切片11 · 规格 S2 / C1 裁决 0.6-24h-120s）====================
+// 触发：启动加载完成后 1 次 + 回前台 1 次（ui.js 调用）；幂等：同 (ts, 结算时刻口径) 只结一次
+// 规则：delta=clamp(now−ts,0,capSec)，delta<minSec 不结；资源 = 净速率 × delta × ratio；食物为负时按"可支付秒数"截断；
+//       不结算：战功/精魄/关卡进度/人口增长/战斗；结果写入 S.offline.pendingReport（展示后由 UI 清空）
+function offlineNetRates(){
+  const rates={};
+  for(const rk of Object.keys(CFG.res)){
+    const hasProducer=(typeof producerKey==='function')&&!!producerKey(rk);
+    if(rk==='food'){
+      const drain=(typeof passiveFoodDrainOf==='function')?passiveFoodDrainOf():passiveFoodDrainCalc();
+      rates.food=prodRate('food')-totalUpkeep()-popAllocTotal()*(CFG.popFoodCost||0.1)-drain;
+    }else if(hasProducer){
+      rates[rk]=passiveResNet(rk);          // 被动/技术资源：建筑产出 − 建筑消耗
+    }else{
+      rates[rk]=prodRate(rk);               // 采集资源（木/石）：村民分配产出
+    }
+  }
+  return rates;
+}
+function passiveFoodDrainCalc(){
+  let d=0;
+  for(const k of Object.keys(CFG.buildings)){const b=CFG.buildings[k],st=bldSt(k);if(!b.consumes||!('food' in b.consumes))continue;if(st.state==='idle'&&st.lv>0)d+=(typeof effConsume==='function'?effConsume(k,'food'):b.consumes.food)*st.lv}
+  return d;
+}
+function passiveResNet(rk){
+  let net=0;
+  for(const k of Object.keys(CFG.buildings)){
+    const b=CFG.buildings[k],st=bldSt(k);
+    if(st.state!=='idle'||st.lv<1)continue;
+    if(b.produces&&rk in b.produces)net+=b.produces[rk]*st.lv;
+    if(b.consumes&&rk in b.consumes)net-=(typeof effConsume==='function'?effConsume(k,rk):b.consumes[rk])*st.lv;
+  }
+  return net;
+}
+function offlineDeltaSec(now,lastTs){
+  const o=CFG.offline||{};
+  const raw=Math.floor(((now||Date.now())-(lastTs||0))/1000);
+  if(!Number.isFinite(raw)||raw<=0)return{delta:0,raw:raw||0,reason:'时钟回拨或时间戳缺失'};
+  const cap=o.capSec||86400;
+  const delta=Math.min(raw,cap);
+  return{delta,raw,truncated:raw>cap,reason:raw>cap?'超过封顶时长已截断':''};
+}
+function settleOffline(){
+  const o=CFG.offline||{};
+  if(!o.enabled)return{ok:false,reason:'offline-disabled'};
+  if(_loadedTs==null)return{ok:false,reason:'no-save-ts'};           // 新档/未加载档：不结算
+  if(_offlineSettledFor!=null&&_offlineSettledFor===_loadedTs)return{ok:true,repeat:true};  // 同一段离线只结一次
+  const now=Date.now();
+  const {delta,raw,truncated,reason}=offlineDeltaSec(now,_loadedTs);
+  if(raw<=0)return{ok:false,reason:reason,delta:0};                  // 时钟回拨/缺时间戳：明确原因
+  if(delta<(o.minSec||120))return{ok:false,reason:'below-min',delta};
+  const key='offline:'+String(_loadedTs);
+  if(typeof idemRepeat==='function'&&idemRepeat('offline',String(_loadedTs)))return{ok:true,repeat:true};
+  const rates=offlineNetRates();
+  const ratio=(typeof o.ratio==='number')?o.ratio:0.6;
+  // 食物为负：按"库存 ÷ |负速率|"截断可支付秒数（U-S2a）
+  let secs=delta, foodClamped=false;
+  if(rates.food<0){
+    const stock=Math.max(0,S.res.food||0);
+    const payable=Math.floor(stock/Math.abs(rates.food));
+    if(payable<secs){secs=payable;foodClamped=true}
+  }
+  const gains={};
+  for(const rk of Object.keys(rates)){
+    const g=rates[rk]*secs*ratio;
+    if(!Number.isFinite(g)||g===0)continue;
+    const before=S.res[rk]||0;
+    const after=Math.max(0,Math.min(before+g,resCap(rk)));
+    const d=after-before;
+    S.res[rk]=after;
+    if(d!==0)gains[rk]=d;
+  }
+  S.tick=Math.max(0,(S.tick||0)+secs);        // 时钟连续：避免同一段离线被重复计入
+  const adv=offlineAdvanceSec(secs);           // 切片12：离线推进（建筑/城镇/队列闭式；驻军冻结）
+  S.offline=S.offline||{pendingReport:null};
+  S.offline.pendingReport={at:now,durationSec:secs,rawSec:raw,truncated:!!truncated||foodClamped,reason:reason||(foodClamped?'食物不足已按可支付秒数截断':''),gains,advance:adv};
+  if(typeof idemMark==='function')idemMark(idemKey('offline',String(_loadedTs)));
+  _offlineSettledFor=_loadedTs;               // 记录"已结算的离线窗口"（窗口 ts 本身不变；时钟连续由 S.tick += secs 保证）
+  if(typeof logDiag==='function')logDiag('offline',`Δ${secs}s ratio${ratio} gains=${Object.keys(gains).length}`);
+  if(typeof save==='function')save();
+  return{ok:true,durationSec:secs,gains,truncated:!!truncated||foodClamped};
+}
+function dismissOfflineReport(){if(S.offline)S.offline.pendingReport=null;if(typeof save==='function')save();if(typeof updateUI==='function')updateUI();}
+
+// 切片12（S5 离线推进）：闭式推进"计时类"进度（建筑/城镇升级/训练队列），**不逐 tick 模拟**
+// - 建筑/城镇：直接按 secs 扣减计时（同一完成代码路径，见 advanceBuildingsBy）
+// - 队列：复用真实 processQueue（每次产出 perTick 个），按"需要的次数"循环，次数有上限防爆
+// - 驻军：**冻结**（不调用 garrisonTick；离线不发起战斗，U-S5b 裁决）
+function offlineAdvanceSec(secs){
+  const o=CFG.offline||{};
+  if(!o.enabled||!o.advance||!(secs>0))return{advanced:false,reason:'disabled-or-zero'};
+  const events=[];let budget=120;                       // U-S5a：完成事件上限 N=120
+  // 1) 建筑/城镇计时：闭式扣减（记录本应完成的建筑，用于事件计数与上限保护）
+  const due=[];
+  for(const k of Object.keys(CFG.buildings)){
+    const st=bldSt(k);
+    if((st.state==='building'||st.state==='upgrading'||st.state==='tier_upgrading')&&st.timerEnd>0&&st.timer>0){
+      if(secs>=st.timer)due.push(k);
+    }
+  }
+  if(S.townUpgrade&&S.townUpgrade.timer>0&&secs>=S.townUpgrade.timer)due.push('__town__');
+  if(due.length>budget){events.push(`完成事件超上限（${due.length}>${budget}），本次只推进前 ${budget} 项`);due.length=budget}
+  if(due.length){
+    // 用同一完成路径：到期项计时压到 1（完成通道会再 −1 → 归零并走真实完成逻辑）；
+    // 非到期项扣 secs−1（同样补偿完成通道的那 1 秒），保证净扣减恰为 secs
+    for(const k of due){
+      if(k==='__town__'){S.townUpgrade.timer=1;continue}
+      bldSt(k).timer=1;
+    }
+    for(const k of Object.keys(CFG.buildings)){
+      const st=bldSt(k);
+      if((st.state==='building'||st.state==='upgrading'||st.state==='tier_upgrading')&&st.timerEnd>0&&st.timer>1&&st.timer>secs-1){
+        st.timer=Math.max(2,st.timer-(secs-1));
+      }
+    }
+    if(S.townUpgrade&&S.townUpgrade.timer>1&&S.townUpgrade.timer>secs-1)S.townUpgrade.timer=Math.max(2,S.townUpgrade.timer-(secs-1));
+    advanceBuildingsBy(1);
+    events.push(`建筑/城镇完成 ${due.filter(k=>k!=='__town__').length} 项`);
+  }else{
+    for(const k of Object.keys(CFG.buildings)){
+      const st=bldSt(k);
+      if((st.state==='building'||st.state==='upgrading'||st.state==='tier_upgrading')&&st.timerEnd>0&&st.timer>0)st.timer=Math.max(0,st.timer-secs);
+    }
+    if(S.townUpgrade&&S.townUpgrade.timer>0)S.townUpgrade.timer=Math.max(0,S.townUpgrade.timer-secs);
+  }
+  // 2) 训练队列：闭式（复用 processQueue），按需循环且总次数受 budget 限制
+  const tt=CFG.unitTrainTime||1, perTick=tt<1?Math.round(1/tt):1;
+  let produced=0,calls=0;
+  while(calls<budget){
+    const before=JSON.stringify(S.queue);
+    const poolBefore=Object.keys(S.queue).reduce((a,uk)=>a+(S.pool[uk]||0),0);
+    processQueue();
+    calls++;
+    const poolAfter=Object.keys(S.queue).reduce((a,uk)=>a+(S.pool[uk]||0),0);
+    const grew=poolAfter>poolBefore;
+    if(!grew&&JSON.stringify(S.queue)===before)break;      // 无进展（资源不足/上限满/队列空）→ 退出
+    produced+=Math.max(0,poolAfter-poolBefore);
+    const rest=Object.values(S.queue).reduce((a,q)=>a+((q&&q.count)||0),0);
+    if(rest<=0)break;
+    if(perTick>0&&produced>=perTick*secs)break;            // 时间预算用尽
+  }
+  if(produced)events.push(`队列产出 ${produced} 兵`);
+  return{advanced:true,events,produced,due:due.length};
+}
 // ============ 存档管理（导出/导入/恢复/重置）：逻辑在此，UI 只做接线，供测试直接调用真实实现 ============
 // 异步回写闸口：远征/训练（battleTimer setTimeout 链 + S.battleActive）、驻军状态机活跃相位
 function saveOpsBlocked(){
@@ -481,11 +795,14 @@ function inspectSaveText(text){
 }
 // 覆盖前保护：①当前主档（若存在）写覆盖前副本 ②轮转有效备份 ③才写主档；任一步失败=原档原样
 function commitSaveData(text){
+  const _ik=idemKey('import',strHash(text));                 // 切片10：同一文本窗口内重复导入 → 幂等（不二次覆盖/PRE 不重写）
+  if(idemRepeat('import',strHash(text)))return{ok:true,repeat:true};
   const blocked=saveOpsBlocked();if(blocked)return{ok:false,reason:blocked};
   const cur=readRawKey(SAVE_KEY);if(!cur.ok)return{ok:false,reason:(cur.err||'存储读取失败')+'，未做任何改动'};
   if(cur.text!=null){const pre=writeRawKey(PRE_MIGRATION_KEY,cur.text);if(!pre.ok)return{ok:false,reason:'无法写入覆盖前原始副本，已中止本次覆盖'}}
   const b=backUpMaster();if(!b.ok)return{ok:false,reason:'备份写入失败，已中止本次覆盖，原主档未动'};
   const w=writeRawKey(SAVE_KEY,text);if(!w.ok)return{ok:false,reason:'主档写入失败（存储异常），原主档保留'};
+  idemMark(_ik);                                             // 切片10：成功后打点
   return{ok:true};
 }
 function backupSlotSummaries(){
@@ -500,8 +817,12 @@ function backupSlotSummaries(){
 }
 // 恢复：备份文本必须先过同一校验管线（含战斗闸口），再走与导入相同的覆盖前保护
 function restoreBackupByText(text){
+  const _rh=strHash(text);                                   // 切片10：同一备份文本窗口内重复恢复 → 幂等
+  if(idemRepeat('restore',_rh))return{ok:true,repeat:true};
   const r=inspectSaveText(text);if(!r.ok)return{ok:false,reason:'备份校验未通过：'+r.reason};
-  return commitSaveData(r.text);
+  const c=commitSaveData(r.text);
+  if(c&&c.ok)idemMark(idemKey('restore',_rh));
+  return c;
 }
 // 定向删除本游戏全部存档 key（替代 localStorage.clear()：不波及同 origin 其它站点数据）
 // 返回 removed/failed 清单：删除失败必须显式上报，不得虚报全部完成（IE-001-R1 §4.4）
@@ -519,9 +840,11 @@ function producerKey(rk){for(const k of Object.keys(CFG.buildings)){const b=CFG.
 function resCap(rk){
   const r=CFG.res[rk];
   if(r&&r.type!=='basic'&&r.max!=null){
+    const x=expandedResCap(rk);
+    const baseMax=x?x.max:r.max, perLv=x?x.maxPerLv:(r.maxPerLv||0);
     const pk=producerKey(rk);
     const st=pk?bldSt(pk):null;
-    return r.max+(r.maxPerLv||0)*(st&&st.state==='idle'?st.lv:0);
+    return baseMax+perLv*(st&&st.state==='idle'?st.lv:0);
   }
   return storageCapacity();
 }
@@ -531,52 +854,78 @@ function passiveProduction(){
     const cfg=CFG.buildings[k],st=bldSt(k);
     if(!cfg.produces||st.state!=='idle'||st.lv<1)continue;
     let stopped=false;
-    if(cfg.consumes){for(const c of Object.keys(cfg.consumes)){if((S.res[c]||0)<cfg.consumes[c]*st.lv){stopped=true;break}}}
+    if(cfg.consumes){for(const c of Object.keys(cfg.consumes)){if((S.res[c]||0)<effConsume(k,c)*st.lv){stopped=true;break}}}
     if(stopped)continue;
-    if(cfg.consumes){for(const c of Object.keys(cfg.consumes)){S.res[c]=(S.res[c]||0)-cfg.consumes[c]*st.lv}}
+    if(cfg.consumes){for(const c of Object.keys(cfg.consumes)){S.res[c]=(S.res[c]||0)-effConsume(k,c)*st.lv}}
     for(const r of Object.keys(cfg.produces)){
       S.res[r]=Math.min((S.res[r]||0)+cfg.produces[r]*st.lv,resCap(r));
     }
   }
 }
 // 市场兑换（交易所雏形；每日限制/多汇率等机制由 IE-006 补齐）。汇率往返乘积必须 <1（防套利，测试断言）
+// 切片13（C3/C4 裁决）：每日计数（日界=本地 0 点，YYYY-MM-DD）；跨日自动重置
+function localDay(ts){const d=new Date(typeof ts==='number'?ts:Date.now());const p=n=>String(n).padStart(2,'0');return d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate())}
+function dailyResetIfNeeded(){
+  S.daily=(S.daily&&typeof S.daily==='object')?S.daily:{day:null,counts:{}};
+  if(!S.daily.counts||typeof S.daily.counts!=='object')S.daily.counts={};
+  const today=localDay();
+  if(S.daily.day!==today){S.daily.day=today;S.daily.counts={};return true}
+  return false;
+}
+function dailyCount(k){dailyResetIfNeeded();return S.daily.counts[k]||0}
+function bumpDaily(k){dailyResetIfNeeded();S.daily.counts[k]=(S.daily.counts[k]||0)+1;return S.daily.counts[k]}
+function marketDailyLimit(){return (CFG.market&&CFG.market.multiRate)?(CFG.market.dailyLimit||5):0}
 function exchangeResource(from,to,qty){
   qty=Math.max(1,Math.floor(qty||0));
   const rates=CFG.market&&CFG.market.rates||[];
   const r=rates.find(x=>x.from===from&&x.to===to);
   if(!r){if(typeof toast==='function')toast('暂无该兑换项');return{ok:false}}
+  const lim=marketDailyLimit();
+  if(lim>0&&dailyCount('market')>=lim){if(typeof toast==='function')toast('今日兑换次数已用完（'+lim+'次）');return{ok:false,reason:'daily-limit'}}
   if((S.res[from]||0)<qty){if(typeof toast==='function')toast((CFG.res[from]?.name||from)+'不足');return{ok:false}}
   const get=Math.floor(qty*r.rate);
   if(get<=0){if(typeof toast==='function')toast('兑换数量过小');return{ok:false}}
   S.res[from]-=qty;
   S.res[to]=Math.min((S.res[to]||0)+get,resCap(to));
+  if(lim>0)bumpDaily('market');
   save();updateUI();
-  return{ok:true,get};
+  return{ok:true,get,remaining:(lim>0?Math.max(0,lim-dailyCount('market')):null)};
 }
 
 // IE-008 资源科技（对齐放置时代发展科技 45xxxx：纯科技门=科技点+战功，无击杀前置）
 function scienceUnlocked(id){return S.sciences.includes(id)}
+// 切片5（S2 长阶梯）：生效的科技表 —— 开关开启用 sciencesLong（6 节点递进），否则用原始 CFG.sciences（3 节点）
+function activeSciences(){return (CFG.tech&&CFG.tech.longLadder&&CFG.sciencesLong)?CFG.sciencesLong:(CFG.sciences||{})}
+function sciName(id){const a=activeSciences()[id]||(CFG.sciences||{})[id]||(CFG.sciencesLong||{})[id];return a?a.name:id}
+function sciIdKnown(id){return !!(activeSciences()[id]||(CFG.sciences||{})[id]||(CFG.sciencesLong||{})[id])}
 function researchScience(id){
-  const sc=CFG.sciences&&CFG.sciences[id];
+  if(idemRepeat('science',id)){return{ok:true,repeat:true}}   // 切片10：窗口内重复研究 → 既有结果、不重复扣费
+  const sc=activeSciences()[id];
   if(!sc){if(typeof toast==='function')toast('未知科技');return{ok:false}}
   if(S.sciences.includes(id)){if(typeof toast==='function')toast('已研究');return{ok:false}}
-  if(sc.need){for(const p of sc.need){if(!S.sciences.includes(p)){if(typeof toast==='function')toast('需先研究「'+(CFG.sciences[p]?.name||p)+'」');return{ok:false}}}}
+  if(sc.need){for(const p of sc.need){if(!S.sciences.includes(p)){if(typeof toast==='function')toast('需先研究「'+sciName(p)+'」');return{ok:false}}}}
   if((S.res.tech||0)<sc.cost.tech){if(typeof toast==='function')toast('科技点不足');return{ok:false}}
-  if((S.merit||0)<sc.cost.merit){if(typeof toast==='function')toast('战功不足');return{ok:false}}
-  S.res.tech-=sc.cost.tech;S.merit-=sc.cost.merit;
+  // 切片3（S1 解死锁）：开关启用时，资源科技不消耗战功——对齐竞品"科技仅耗知识"（450005-450025 Need=知识/粮/木）
+  // 原始配置数值保持不变（皮/数值不动），仅运行时按开关豁免；关闭开关即回到改造前行为
+  const _noMerit=!!(CFG.tech&&CFG.tech.sciencesNoMerit);
+  const meritNeed=_noMerit?0:(sc.cost.merit||0);
+  if((S.merit||0)<meritNeed){if(typeof toast==='function')toast('战功不足');return{ok:false}}
+  S.res.tech-=sc.cost.tech;S.merit-=meritNeed;
   S.sciences.push(id);
+  idemMark(idemKey('science',id));   // 切片10：成功后打点
+  if(typeof logDiag==='function')logDiag('science',id);
   if(typeof addLog==='function')addLog('研究完成：「'+sc.name+'」');
   if(typeof save==='function')save();
   if(typeof updateUI==='function')updateUI();
   return{ok:true};
 }
 
-function tick(){
-  S.tick++;if(S.battleActive)return;
+// 切片12：推进"计时类"进度（城镇升级 + 建筑建造/升级/tier）——tick 传 1（逐秒），离线传 secs（闭式）
+// 说明：本函数由原 tick() 内联块等价抽出（equiv 用"全开关关闭 ⇒ 与 HEAD 逐字节相同"守护该等价性）
+function advanceBuildingsBy(secs){
   let ch=false;
-  // 城镇升级计时
   if(S.townUpgrade){
-    S.townUpgrade.timer--;
+    S.townUpgrade.timer-=secs;
     if(S.townUpgrade.timer<=0){
       S.townLv++;
       addLog(`城镇升级为${townCfg().name}，村民上限${maxPop()}`);
@@ -586,7 +935,7 @@ function tick(){
   for(const k of Object.keys(CFG.buildings)){
     const st=bldSt(k);
     if((st.state==='building'||st.state==='upgrading'||st.state==='tier_upgrading')&&st.timerEnd>0){
-      st.timer--;if(st.timer<=0){
+      st.timer-=secs;if(st.timer<=0){
         if(st.state==='building'){st.lv=1;addLog(`${CFG.buildings[k].name}建成`)}
         else if(st.state==='tier_upgrading'){
           refundUnitsByLine(k);  // 先退旧时代兵再升tier
@@ -598,6 +947,11 @@ function tick(){
       }
     }
   }
+  return ch;
+}
+function tick(){
+  S.tick++;if(S.battleActive)return;
+  let ch=advanceBuildingsBy(1);
   if(ch)save();processQueue();
   const cap=storageCapacity();
   for(const rk of Object.keys(CFG.res)){
@@ -618,7 +972,7 @@ function tick(){
 // ==================== 操作 ====================
 function buildAct(key){
   const cfg=CFG.buildings[key],st=bldSt(key);
-  if(cfg.needScience&&!S.sciences.includes(cfg.needScience)){toast('需先研究「'+(CFG.sciences?.[cfg.needScience]?.name||cfg.needScience)+'」');return}
+  if(cfg.needScience&&!S.sciences.includes(cfg.needScience)){toast('需先研究「'+sciName(cfg.needScience)+'」');return}
   if(cfg.needBoss && bossDefeatedCount()<cfg.needBoss){toast(`击败${cfg.needBoss}个Boss后解锁`);return}
   if(st.state!=='idle'){toast(st.state==='building'?'建造中':'升级中');return}
   const upLock=st.lv>0?upgradeLockReason(key):'';
@@ -735,8 +1089,13 @@ function refundUnitsByLine(buildingKey, maxTier){
   }
 }
 function upgradeTown(){
-  if(!townCanUpgrade()){const bid=townUpgradeNeedBossId();const be=CFG.enemies.find(e=>e.id===bid);toast(`需击败第${bid}关Boss「${be?.name||'?'}」才能升级城镇`);return}
+  const gate=townGateCost(S.townLv+1);
+  if(!townCanUpgrade()){
+    if(gate&&CFG.townGate&&CFG.townGate.useDeed){toast('城镇升级需要：'+townGateShortfall(S.townLv+1)+'（地契可由市场兑换金币获得）');return}
+    const bid=townUpgradeNeedBossId();const be=CFG.enemies.find(e=>e.id===bid);toast(`需击败第${bid}关Boss「${be?.name||'?'}」才能升级城镇`);return
+  }
   if(popAllocTotal()>CFG.town.find(t=>t.lv===S.townLv+1).maxPop){toast('请先减少村民分配');return}
+  if(gate){S.res.deed=(S.res.deed||0)-gate.deed;S.res.tech=(S.res.tech||0)-gate.tech;addLog(`城镇升级消耗：地契${gate.deed}·科技点${gate.tech}`)}   // S8c：扣费一次
   const bt=CFG.buildingTimes;
   const rawTime=bt.cap1Base+(S.townLv-1)*bt.cap1PerLv;
   const time=buildTime(Math.min(rawTime, CFG.maxUpgradeTime||120));

@@ -19,7 +19,9 @@ const CFG = {
     // IE-007 新增：放置类型体系（basic=村民产出/passive=建筑被动产出/currency=软通货/material=材料/science=科技点）
     copper:{name:'铜',icon:'copper',type:'passive',max:2000,maxPerLv:500,desc:'矿井产出，冶炼厂原料'},
     iron:{name:'铁',icon:'iron',type:'passive',max:1500,maxPerLv:400,desc:'冶炼厂炼铜所得，高等级消耗'},
-    coin:{name:'金币',icon:'coin',type:'currency',max:5000,maxPerLv:1000,desc:'铸币厂铸造，市场兑换'}
+    coin:{name:'金币',icon:'coin',type:'currency',max:5000,maxPerLv:1000,desc:'铸币厂铸造，市场兑换'},
+    // S8c（用户裁决 D2「加入地契」）：新增地契资源 —— 城镇升级凭据；来源＝市场兑换（金币→地契）
+    deed:{name:'地契',icon:'deed',type:'currency',max:999999,maxPerLv:0,desc:'城镇升级凭据（市场兑换所得）'}
   },
 
   // 精魄道具（Boss掉落，用于T2/T3兵种解锁）
@@ -47,6 +49,22 @@ const CFG = {
     {lv:9, name:'大城',   maxPop:95, needBossId:80},
     {lv:10,name:'王都',   maxPop:110,needBossId:90}
   ],
+  // S8c（D2 地契）：城镇升级的「地契 + 科技点」门（候选值·待推演）；仅当 CFG.townGate.useDeed 开启时生效
+  // 竞品对照：村庄/小镇/城市 需 地契 5/15/30 + 科技 城镇化(450010)/城市化(450012)；我方按 10 档递进
+  townGate: {
+    useDeed: true,
+    cost: [
+      {toLv:2,  deed:5,   tech:0},
+      {toLv:3,  deed:15,  tech:100},
+      {toLv:4,  deed:30,  tech:300},
+      {toLv:5,  deed:60,  tech:800},
+      {toLv:6,  deed:100, tech:1800},
+      {toLv:7,  deed:160, tech:3000},
+      {toLv:8,  deed:240, tech:5000},
+      {toLv:9,  deed:360, tech:8000},
+      {toLv:10, deed:520, tech:12000}
+    ]
+  },
 
   // 兵种训练上限（公式：base + 建筑等级 × perLv）
   unitCaps: {
@@ -324,15 +342,78 @@ const CFG = {
     sci_coin:{name:'货币铸造',desc:'解锁铸币厂与市场',cost:{tech:200,merit:30},need:['sci_iron'],unlocks:['mint','market']}
   },
 
+  // ==================== 资源科技·长阶梯（切片5 S2 · 用户"骨架拟合"指令）====================
+  // 形态对齐：竞品 developScienceList 40+ 节点、跨度 200→1e13（11 个数量级）；我方节点 3→6、跨度 100→12000（≈2.1 个数量级）
+  // 说明：跨度继续扩大依赖"时代内容"（皮），本轮只对齐"多步递进"的节奏形态；原始 CFG.sciences（3 节点）保留不动
+  // 成本为【候选·待推演】，由 curve-sim 验证可达节奏；回滚＝CFG.tech.longLadder=false
+  sciencesLong: {
+    sci_prospect:{name:'探矿术',desc:'资源科技第一阶（勘矿）',cost:{tech:100,merit:0},unlocks:[]},
+    sci_copper:{name:'冶铜术',desc:'解锁矿井（铜矿开采）',cost:{tech:300,merit:0},need:['sci_prospect'],unlocks:['mine']},
+    sci_metal:{name:'冶金术',desc:'冶炼工艺基础',cost:{tech:800,merit:0},need:['sci_copper'],unlocks:[]},
+    sci_iron:{name:'冶铁术',desc:'解锁冶炼厂（铁冶炼）',cost:{tech:1800,merit:0},need:['sci_metal'],unlocks:['smelter']},
+    sci_mint:{name:'铸币术',desc:'铸造工艺基础',cost:{tech:5000,merit:0},need:['sci_iron'],unlocks:[]},
+    sci_coin:{name:'货币铸造',desc:'解锁铸币厂与市场',cost:{tech:12000,merit:0},need:['sci_mint'],unlocks:['mint','market']}
+  },
+
   // ==================== 市场（IE-007 交易所雏形）====================
   // 汇率：from 1 单位 → to rate 单位（向下取整）。往返乘积必须 <1（防套利，测试有断言）。
   // 每日次数/多汇率/刷新等机制由 IE-006 补齐，本字段为保守起点值·待推演。
   market: {
+    multiRate: true,    // 切片13 已启用（C3 裁决）：多汇率 + 每日上限 + 转换损失（损失体现为买卖价差，往返乘积<1）
+    dailyLimit: 5,      // 每日兑换次数上限（日界=本地 0 点，C4 裁决）
     rates: [
       {from:'coin',to:'wood',rate:8},
       {from:'coin',to:'stone',rate:6},
       {from:'wood',to:'coin',rate:0.1},
-      {from:'stone',to:'coin',rate:0.14}
+      {from:'stone',to:'coin',rate:0.14},
+      // 切片13 新增（跨资源对；与既有价差共同构成"转换损失"，任一往返乘积 <1 → 无套利）
+      {from:'coin',to:'food',rate:4},
+      {from:'food',to:'coin',rate:0.08},
+      {from:'wood',to:'stone',rate:0.6},
+      {from:'stone',to:'wood',rate:0.5},
+      {from:'wood',to:'food',rate:0.4},
+      {from:'food',to:'wood',rate:0.2},
+      // S8c（D2 地契）：金币→地契 100:1（往返 0.8 <1，无套利）
+      {from:'coin',to:'deed',rate:0.01},
+      {from:'deed',to:'coin',rate:80}
     ]
-  }
+  },
+
+  // ==================== 改造开关（切片2 基建 · 全部默认关闭 = 零行为变化）====================
+  // 约定：每个后续切片用独立开关承载回滚；关闭时行为与改造前逐字段一致；参数级可运行时调整。
+  offline: { enabled:true, ratio:0.6, capSec:86400, minSec:120, advance:true },   // 切片11 已启用：离线结算（0.6×/24h 封顶/<120s 不结）；advance 由切片12 使用；回滚＝false
+  idem:    { enabled:true, windowMs:5000, max:200 },                                // 切片10 已启用：幂等层（同键 5s 内重复 → 返回既有结果、不重复扣费）；回滚＝false
+  caps:    { expanded:true,   // 切片4 已启用：上限空间扩容（对齐竞品"分级线性长堆叠"）；回滚＝false
+             expand: {
+               warehousePerLv: 50000,      // 仓库每级容量（原始 10000，见 CFG.buildings.warehouse）
+               warehouseCapPerTown: 20,    // 仓库等级上限 = 城镇等级×此值（原始 buildingCaps.warehouse=5）
+               scienceCapPerTown: 20,      // 科技建筑（学院）等级上限（原始走 barracks=1）
+               productionCapPerTown: 10,   // 生产建筑（矿井/冶炼/铸币）等级上限（原始走 barracks=1）
+               resourceCapPerTown: 10,     // 采集 buff 建筑（伐木场/采石场/农田≈竞品工坊）等级上限（原始 buildingCaps.resource=1，文档注释原意 MAX10）
+               utilityCapPerTown: 10,      // 功能建筑（市场）等级上限（原始走 barracks=1）
+               res: {                      // 被动/科技资源上限（原始见 CFG.res）
+                 tech:   { max: 3000,  maxPerLv: 2000 },
+                 copper: { max: 8000,  maxPerLv: 2000 },
+                 iron:   { max: 6000,  maxPerLv: 1600 },
+                 coin:   { max: 20000, maxPerLv: 4000 }
+               }
+             } },
+  upkeep:  { freeBand:true,   // 切片6 已启用：军粮免维护带 + 分段斜率（对齐竞品 ≤200 免维护 + 1/2/4/8 四段）；回滚＝false
+             freeBase:10, freePerBarracksLv:2,        // 免维护带（我方尺度）= 10 + 2×营帐等级（竞品固定 200）
+             segWidths:[20,80,200], segSlopes:[1,2,4,8] },// 超出免维护带后的三档段宽与斜率（竞品段宽 100/200/500、斜率 1/2/4/8）
+  tech:    { occupyPop:false, sciencesNoMerit:true, longLadder:true },               // 切片3/5/14：科技去战功（切片3 启用）、长阶梯（切片5 启用）、科技占人口
+  passive: { needPop:false },                                                       // 切片15：被动建筑人口约束
+  food:    { aligned:true,   // 切片4b（用户裁决 R5-①②，2026-09-22）：食物经济对齐 —— 铸币耗粮 5→1、食物产出 0.75→2.25；回滚＝false
+             res: { food: { basePerPop: 2.25 } },
+             consumes: { mint: { food: 1 } } },
+  pop:     { growth:true,   // 切片7 已启用（S5 人口结构对齐）：派生式人口增长；回滚＝false（回到"人口=城镇上限"）
+             base:4, per10sBase:2, per10sPerTown:5 },  // 竞品：基础人口 4（表160001）、getPeopleSpeed=2+5×城镇 / 10s（@1310081+0x2710）
+  unitCapBoost: { enabled:true,   // 切片8a 已启用（O8 用户批准）：上调单位上限；原始 CFG.unitCaps 保留；回滚＝false
+             base:  { infantry:30, archer:30, cavalry:15, mage:5 },
+             perLv: { infantry:10, archer:6,  cavalry:4,  mage:2 } },
+  ownMax:  { enabled:true,   // 切片8b 已启用（R2=A 用户裁决）：建筑等级上限改"自身 LvMax"，解开"城镇等级×k"绑定；回滚＝false
+             warehouse:1000, training:50, science:50, production:50, resource:50, utility:50, barracks:10 },
+             // 取值对齐竞品实测：仓库 LvMax=1000（@1088772+）、工坊/学院/剧场类 LvMax=50（@1086878+）
+  diag:    { enabled:true, max:50 },                                                // 切片2：诊断环形日志（仅内存）
+  save:    { v3:true }                                                              // 切片9 已启用：存档 v3 骨架（ops/offline/daily）；回滚＝false（回到 v2，字段不入档）
 };
