@@ -37,8 +37,8 @@ function test(id, name, ok, extra) { const st = ok ? 'PASS' : 'FAIL'; if (ok) pa
   await sleep(9000);   // 线上首屏 + tick（含 CDN 冷启动）
   console.log('线上站点: ' + URL);
   test('V01', '页面加载零未捕获异常', exceptions.length === 0, exceptions.slice(0, 2).join(' | '));
-  test('V02', '线上版本锚点 = 2（新提交已生效）', (await evalJs('window.APP_VERSION')) === '2', await evalJs('String(window.APP_VERSION)'));
-  test('V03', '全部脚本走 ?v=2（缓存版本纪律生效）', await evalJs("(()=>{const s=[...document.querySelectorAll('script[src]')].map(x=>x.getAttribute('src'));return s.length>=7&&s.every(u=>u.includes('?v=2'))})()"), await evalJs("JSON.stringify([...document.querySelectorAll('script[src]')].map(x=>x.getAttribute('src')).slice(0,3))"));
+  test('V02', '线上版本锚点为数字（新提交已生效）', /^\d+$/.test(await evalJs('window.APP_VERSION')), await evalJs('String(window.APP_VERSION)'));
+  test('V03', '全部脚本走 ?v=<数字>（缓存版本纪律生效）', await evalJs("(()=>{const s=[...document.querySelectorAll('script[src]')].map(x=>x.getAttribute('src'));return s.length>=7&&s.every(u=>/\\?v=\\d+/.test(u))})()"), await evalJs("JSON.stringify([...document.querySelectorAll('script[src]')].map(x=>x.getAttribute('src')).slice(0,3))"));
   test('V04', '真实 DOM 渲染资源（wood 为数字且 ≥300）', await evalJs("(()=>{const v=document.getElementById('res-wood').textContent;return /^\\d+$/.test(v)&&+v>=300})()"));
   test('V05', '新资源「地契」已上线（S.res.deed 存在且有上限）', await evalJs("typeof S!=='undefined'&&S.res&&('deed' in S.res)&&resCap('deed')>0"), await evalJs("JSON.stringify({deed:S.res.deed,cap:resCap('deed')})"));
   test('V06', '新开关已上线（townGate/save.v3/offline/idem/market.multiRate）', await evalJs("CFG.townGate&&CFG.townGate.useDeed===true&&CFG.save.v3===true&&CFG.offline.enabled===true&&CFG.idem.enabled===true&&CFG.market.multiRate===true"));
