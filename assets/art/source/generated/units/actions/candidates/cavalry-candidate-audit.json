@@ -1,0 +1,532 @@
+{
+  "runtimeEnabled": false,
+  "candidateOnly": true,
+  "units": {
+    "cavalry_t1": {
+      "attack": {
+        "path": "cavalry_t1-attack-candidate.png",
+        "source": "cavalry_t1-attack-master.png",
+        "sourceSize": [
+          2167,
+          725
+        ],
+        "seamsX": [
+          657,
+          1454
+        ],
+        "seamGapWidths": [
+          76,
+          205
+        ],
+        "nominalEqualCellBoundaryCrossPx": [
+          0,
+          0,
+          0
+        ],
+        "nominalEqualCellLeftCrossPx": [
+          0,
+          27,
+          0
+        ],
+        "strictEqualCellsPass": false,
+        "frameAudit": [
+          {
+            "bounds": [
+              68,
+              4,
+              432,
+              506
+            ],
+            "baselineY": 506,
+            "pixelIdenticalToIdle": true
+          },
+          {
+            "bounds": [
+              28,
+              6,
+              417,
+              506
+            ],
+            "sourceBounds": [
+              85,
+              10,
+              619,
+              697
+            ],
+            "scale": 0.7278,
+            "baselineY": 506
+          },
+          {
+            "bounds": [
+              18,
+              17,
+              504,
+              506
+            ],
+            "sourceBounds": [
+              38,
+              34,
+              695,
+              695
+            ],
+            "scale": 0.74,
+            "baselineY": 506
+          },
+          {
+            "bounds": [
+              12,
+              6,
+              407,
+              506
+            ],
+            "sourceBounds": [
+              103,
+              10,
+              646,
+              697
+            ],
+            "scale": 0.7278,
+            "baselineY": 506
+          }
+        ]
+      },
+      "hit": {
+        "path": "cavalry_t1-hit-candidate.png",
+        "source": "cavalry_t1-hit-master.png",
+        "sourceSize": [
+          2172,
+          724
+        ],
+        "seamsX": [
+          716,
+          1480
+        ],
+        "seamGapWidths": [
+          202,
+          187
+        ],
+        "nominalEqualCellBoundaryCrossPx": [
+          0,
+          0,
+          0
+        ],
+        "nominalEqualCellLeftCrossPx": [
+          0,
+          0,
+          0
+        ],
+        "strictEqualCellsPass": true,
+        "frameAudit": [
+          {
+            "bounds": [
+              68,
+              4,
+              432,
+              506
+            ],
+            "baselineY": 506,
+            "pixelIdenticalToIdle": true
+          },
+          {
+            "bounds": [
+              66,
+              21,
+              443,
+              506
+            ],
+            "sourceBounds": [
+              106,
+              32,
+              615,
+              687
+            ],
+            "scale": 0.74,
+            "baselineY": 506
+          },
+          {
+            "bounds": [
+              8,
+              15,
+              430,
+              506
+            ],
+            "sourceBounds": [
+              101,
+              22,
+              671,
+              685
+            ],
+            "scale": 0.74,
+            "baselineY": 506
+          },
+          {
+            "bounds": [
+              74,
+              29,
+              443,
+              506
+            ],
+            "sourceBounds": [
+              94,
+              44,
+              592,
+              688
+            ],
+            "scale": 0.74,
+            "baselineY": 506
+          }
+        ]
+      },
+      "death": {
+        "path": "cavalry_t1-death-candidate.png",
+        "source": "cavalry_t1-death-master.png",
+        "sourceSize": [
+          2172,
+          724
+        ],
+        "seamsX": [
+          779,
+          1479
+        ],
+        "seamGapWidths": [
+          81,
+          67
+        ],
+        "nominalEqualCellBoundaryCrossPx": [
+          15,
+          0,
+          0
+        ],
+        "nominalEqualCellLeftCrossPx": [
+          0,
+          0,
+          0
+        ],
+        "strictEqualCellsPass": false,
+        "frameAudit": [
+          {
+            "bounds": [
+              68,
+              4,
+              432,
+              506
+            ],
+            "baselineY": 506,
+            "pixelIdenticalToIdle": true
+          },
+          {
+            "bounds": [
+              8,
+              35,
+              504,
+              506
+            ],
+            "sourceBounds": [
+              54,
+              18,
+              739,
+              668
+            ],
+            "scale": 0.72409,
+            "baselineY": 506
+          },
+          {
+            "bounds": [
+              27,
+              95,
+              490,
+              506
+            ],
+            "sourceBounds": [
+              41,
+              112,
+              667,
+              667
+            ],
+            "scale": 0.74,
+            "baselineY": 506
+          },
+          {
+            "bounds": [
+              32,
+              220,
+              484,
+              506
+            ],
+            "sourceBounds": [
+              34,
+              302,
+              645,
+              689
+            ],
+            "scale": 0.74,
+            "baselineY": 506
+          }
+        ]
+      }
+    },
+    "gold_cavalry": {
+      "attack": {
+        "path": "gold_cavalry-attack-candidate.png",
+        "source": "gold_cavalry-attack-master.png",
+        "sourceSize": [
+          2172,
+          724
+        ],
+        "seamsX": [
+          696,
+          1495
+        ],
+        "seamGapWidths": [
+          180,
+          99
+        ],
+        "nominalEqualCellBoundaryCrossPx": [
+          0,
+          0,
+          0
+        ],
+        "nominalEqualCellLeftCrossPx": [
+          0,
+          0,
+          0
+        ],
+        "strictEqualCellsPass": true,
+        "frameAudit": [
+          {
+            "bounds": [
+              28,
+              2,
+              506,
+              507
+            ],
+            "baselineY": 507,
+            "pixelIdenticalToIdle": true
+          },
+          {
+            "bounds": [
+              26,
+              9,
+              415,
+              507
+            ],
+            "sourceBounds": [
+              66,
+              5,
+              606,
+              697
+            ],
+            "scale": 0.72,
+            "baselineY": 507
+          },
+          {
+            "bounds": [
+              29,
+              32,
+              504,
+              507
+            ],
+            "sourceBounds": [
+              90,
+              36,
+              750,
+              696
+            ],
+            "scale": 0.72,
+            "baselineY": 507
+          },
+          {
+            "bounds": [
+              60,
+              30,
+              483,
+              507
+            ],
+            "sourceBounds": [
+              50,
+              34,
+              638,
+              697
+            ],
+            "scale": 0.72,
+            "baselineY": 507
+          }
+        ]
+      },
+      "hit": {
+        "path": "gold_cavalry-hit-candidate.png",
+        "source": "gold_cavalry-hit-master.png",
+        "sourceSize": [
+          2172,
+          724
+        ],
+        "seamsX": [
+          707,
+          1449
+        ],
+        "seamGapWidths": [
+          148,
+          133
+        ],
+        "nominalEqualCellBoundaryCrossPx": [
+          0,
+          0,
+          0
+        ],
+        "nominalEqualCellLeftCrossPx": [
+          0,
+          0,
+          0
+        ],
+        "strictEqualCellsPass": true,
+        "frameAudit": [
+          {
+            "bounds": [
+              28,
+              2,
+              506,
+              507
+            ],
+            "baselineY": 507,
+            "pixelIdenticalToIdle": true
+          },
+          {
+            "bounds": [
+              28,
+              12,
+              435,
+              507
+            ],
+            "sourceBounds": [
+              68,
+              11,
+              633,
+              698
+            ],
+            "scale": 0.72,
+            "baselineY": 507
+          },
+          {
+            "bounds": [
+              71,
+              14,
+              504,
+              507
+            ],
+            "sourceBounds": [
+              74,
+              10,
+              676,
+              696
+            ],
+            "scale": 0.72,
+            "baselineY": 507
+          },
+          {
+            "bounds": [
+              29,
+              12,
+              435,
+              507
+            ],
+            "sourceBounds": [
+              67,
+              11,
+              632,
+              698
+            ],
+            "scale": 0.72,
+            "baselineY": 507
+          }
+        ]
+      },
+      "death": {
+        "path": "gold_cavalry-death-candidate.png",
+        "source": "gold_cavalry-death-master.png",
+        "sourceSize": [
+          2172,
+          724
+        ],
+        "seamsX": [
+          713,
+          1416
+        ],
+        "seamGapWidths": [
+          110,
+          82
+        ],
+        "nominalEqualCellBoundaryCrossPx": [
+          0,
+          0,
+          0
+        ],
+        "nominalEqualCellLeftCrossPx": [
+          0,
+          0,
+          0
+        ],
+        "strictEqualCellsPass": true,
+        "frameAudit": [
+          {
+            "bounds": [
+              28,
+              2,
+              506,
+              507
+            ],
+            "baselineY": 507,
+            "pixelIdenticalToIdle": true
+          },
+          {
+            "bounds": [
+              32,
+              26,
+              476,
+              507
+            ],
+            "sourceBounds": [
+              42,
+              3,
+              658,
+              671
+            ],
+            "scale": 0.72,
+            "baselineY": 507
+          },
+          {
+            "bounds": [
+              55,
+              91,
+              492,
+              507
+            ],
+            "sourceBounds": [
+              55,
+              64,
+              662,
+              642
+            ],
+            "scale": 0.72,
+            "baselineY": 507
+          },
+          {
+            "bounds": [
+              8,
+              99,
+              495,
+              507
+            ],
+            "sourceBounds": [
+              41,
+              101,
+              718,
+              668
+            ],
+            "scale": 0.72,
+            "baselineY": 507
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,61 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.mahochyan.idleempire'
+    compileSdk 36
+
+    defaultConfig {
+        applicationId 'com.mahochyan.idleempire'
+        minSdk 24
+        targetSdk 35
+        versionCode 1
+        versionName '0.1.0'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    // The Sync task generates this directory before mergeDebugAssets/mergeReleaseAssets.
+    sourceSets.main.assets.srcDir(layout.buildDirectory.dir('generated/game-assets'))
+}
+
+dependencies {
+    implementation 'androidx.webkit:webkit:1.17.1'
+}
+
+def gameRoot = rootProject.projectDir.parentFile
+def requiredGameFiles = [
+    'index.html', 'config.js', 'levels.js', 'sprites.js',
+    'math.js', 'garrison.js', 'technology.js', 'ui.js'
+]
+
+tasks.register('syncGameAssets', Sync) {
+    description = 'Copy only the local web game runtime into APK assets.'
+    group = 'build'
+
+    from(gameRoot) {
+        include 'index.html', '*.js', '*.css'
+        include 'assets/**', 'image/**', 'vendor/**', 'renderer/**'
+        exclude '210(unpacked_tmp).js'
+        // Editable art and unapproved 3D candidates are not WebView runtime assets.
+        exclude 'assets/art/source/**', 'assets/art/models/source/**', 'assets/art/models/candidates/**', 'assets/art/scene/candidates/**'
+        exclude 'assets/art/preview.html', 'assets/art/README.md'
+    }
+    into(layout.buildDirectory.dir('generated/game-assets'))
+
+    doFirst {
+        requiredGameFiles.each { name ->
+            if (!new File(gameRoot, name).isFile()) {
+                throw new GradleException("Missing game runtime file: ${name}")
+            }
+        }
+    }
+}
+
+tasks.matching { it.name ==~ /merge[A-Z].*Assets/ }.configureEach {
+    dependsOn tasks.named('syncGameAssets')
+}

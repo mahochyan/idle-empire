@@ -1,0 +1,1574 @@
+{
+  "status": "integrated: batches 2, 3 and 4 have per-ID runtime PNGs and editable SVGs",
+  "method": "Pillow RGBA/SHA-256, candidate/runtime equality, previous PNG backups and 64px light/dark visual review",
+  "visualReview": {
+    "infantry_t1": "Rank-2 steel slash is broader than base infantry but keeps a physical blade silhouette.",
+    "archer_t1": "Rank-2 green arrow volley reads as arrows rather than an orb on both backgrounds.",
+    "spearman": "Rank-1 plain spear is intentionally narrow, but its shaft and iron point remain identifiable at 64px.",
+    "cavalry_wind": "Rank-3 turquoise wind quarrel reads apart from the ranger volley.",
+    "alloy_special": "Rank-4 segmented alloy dart has a distinct engineered nose and fins.",
+    "armored_trooper": "Rank-4 brass piston shell and square steam read as a heavier industrial attack.",
+    "infantry_sword": "Rank-3 broad greatsword flash has more weight than the trained infantry cut.",
+    "infantry_fortress": "Rank-4 gold-blue shield and teal collision edge form a distinct bash silhouette.",
+    "archer_silverbow": "Rank-3 silver shot remains slim; a thin dark-blue SVG centerline makes its arrow point readable on light sand.",
+    "archer_longbow": "Rank-4 long dark shaft and blue wake span a larger horizontal silhouette than the silver shot.",
+    "cavalry_iron": "Rank-3 plated iron wedge reads as a heavy cavalry impact.",
+    "cavalry_dragon": "Rank-4 orange flame S and lance tip read as mounted fire rather than a mage orb."
+  },
+  "batches": {
+    "2": {
+      "infantry_shield": {
+        "integrationStatus": "integrated",
+        "profileArt": "./assets/art/vfx/units/infantry_shield.png",
+        "rank": 3,
+        "master": {
+          "path": "assets/art/source/generated/vfx/units/infantry_shield-master.png",
+          "sha256": "1f1fe4b582fbee2ca2d3eb69333b014bee47770274f40080e7969538bd86ee32",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            0,
+            0,
+            1192,
+            1254
+          ],
+          "visibleFraction": 0.3757,
+          "borderClear": false
+        },
+        "candidate": {
+          "path": "hd2d-previews/vfx-batch2-candidates/infantry_shield.png",
+          "sha256": "0c69b67060dd94864c4f680fb1b2c211ec5718c41d6979a6f83f4d61b8691fad",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            17,
+            13,
+            229,
+            237
+          ],
+          "visibleFraction": 0.3082,
+          "borderClear": true
+        },
+        "runtime": {
+          "path": "assets/art/vfx/units/infantry_shield.png",
+          "sha256": "0c69b67060dd94864c4f680fb1b2c211ec5718c41d6979a6f83f4d61b8691fad",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            17,
+            13,
+            229,
+            237
+          ],
+          "visibleFraction": 0.3082,
+          "borderClear": true
+        },
+        "previousRuntime": {
+          "path": "assets/art/source/generated/vfx/units/previous-runtime-batch2/infantry_shield.png",
+          "sha256": "eeb3f3f67713e09ee2ab2ed55b6a7b841e3c315904c6ea5632185c1905c1e1c6",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            17,
+            19,
+            244,
+            240
+          ],
+          "visibleFraction": 0.2997,
+          "borderClear": true
+        },
+        "editableSource": "assets/art/source/vfx/units/infantry_shield.svg"
+      },
+      "infantry_spear": {
+        "integrationStatus": "integrated",
+        "profileArt": "./assets/art/vfx/units/infantry_spear.png",
+        "rank": 3,
+        "master": {
+          "path": "assets/art/source/generated/vfx/units/infantry_spear-master.png",
+          "sha256": "f829672944d3eefad549dca85ce2cd476ceab978a03ceb11b61b4f696bb15184",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            0,
+            17,
+            1240,
+            1239
+          ],
+          "visibleFraction": 0.2556,
+          "borderClear": false
+        },
+        "candidate": {
+          "path": "hd2d-previews/vfx-batch2-candidates/infantry_spear.png",
+          "sha256": "9a55c3a46e46c17c4d8c1e909cbbb9f598276007494060d15c353a6bc51baf2a",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            15,
+            16,
+            241,
+            240
+          ],
+          "visibleFraction": 0.2189,
+          "borderClear": true
+        },
+        "runtime": {
+          "path": "assets/art/vfx/units/infantry_spear.png",
+          "sha256": "9a55c3a46e46c17c4d8c1e909cbbb9f598276007494060d15c353a6bc51baf2a",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            15,
+            16,
+            241,
+            240
+          ],
+          "visibleFraction": 0.2189,
+          "borderClear": true
+        },
+        "previousRuntime": {
+          "path": "assets/art/source/generated/vfx/units/previous-runtime-batch2/infantry_spear.png",
+          "sha256": "c71e854a68cdb14610ba42f2b18c7a6273eed3246fec2c20601fb2ba5e81fcc7",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            20,
+            62,
+            237,
+            230
+          ],
+          "visibleFraction": 0.09,
+          "borderClear": true
+        },
+        "editableSource": "assets/art/source/vfx/units/infantry_spear.svg"
+      },
+      "archer_crossbow": {
+        "integrationStatus": "integrated",
+        "profileArt": "./assets/art/vfx/units/archer_crossbow.png",
+        "rank": 3,
+        "master": {
+          "path": "assets/art/source/generated/vfx/units/archer_crossbow-master.png",
+          "sha256": "eff646d24c6047461903fc1a89d6c3336b71bf88498e5ff84122cdbad8b9f6f3",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            0,
+            21,
+            1230,
+            1223
+          ],
+          "visibleFraction": 0.1439,
+          "borderClear": false
+        },
+        "candidate": {
+          "path": "hd2d-previews/vfx-batch2-candidates/archer_crossbow.png",
+          "sha256": "3aa2efe78028e01ab82980deb850983b17d73b1e7846d0d7bec813d39353ffce",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            21,
+            33,
+            237,
+            233
+          ],
+          "visibleFraction": 0.1304,
+          "borderClear": true
+        },
+        "runtime": {
+          "path": "assets/art/vfx/units/archer_crossbow.png",
+          "sha256": "3aa2efe78028e01ab82980deb850983b17d73b1e7846d0d7bec813d39353ffce",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            21,
+            33,
+            237,
+            233
+          ],
+          "visibleFraction": 0.1304,
+          "borderClear": true
+        },
+        "previousRuntime": {
+          "path": "assets/art/source/generated/vfx/units/previous-runtime-batch2/archer_crossbow.png",
+          "sha256": "ee2d35301de8f49a92aeac9be88129da36f21baaf93fbd1a3f78aa514b7c0ecb",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            0,
+            33,
+            230,
+            222
+          ],
+          "visibleFraction": 0.1069,
+          "borderClear": false
+        },
+        "editableSource": "assets/art/source/vfx/units/archer_crossbow.svg"
+      },
+      "cavalry_t1": {
+        "integrationStatus": "integrated",
+        "profileArt": "./assets/art/vfx/units/cavalry_t1.png",
+        "rank": 2,
+        "master": {
+          "path": "assets/art/source/generated/vfx/units/cavalry_t1-master.png",
+          "sha256": "c0cb55b4e8056b7eff6b2b277250b04264e405aa72785c080008b6ab118f4100",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            0,
+            21,
+            1253,
+            1254
+          ],
+          "visibleFraction": 0.2718,
+          "borderClear": false
+        },
+        "candidate": {
+          "path": "hd2d-previews/vfx-batch2-candidates/cavalry_t1.png",
+          "sha256": "8da1c8f0b97d1b116c8ba9d62fad157ae662fe7413d419f02e822eaded03b30b",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            17,
+            28,
+            234,
+            227
+          ],
+          "visibleFraction": 0.2085,
+          "borderClear": true
+        },
+        "runtime": {
+          "path": "assets/art/vfx/units/cavalry_t1.png",
+          "sha256": "8da1c8f0b97d1b116c8ba9d62fad157ae662fe7413d419f02e822eaded03b30b",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            17,
+            28,
+            234,
+            227
+          ],
+          "visibleFraction": 0.2085,
+          "borderClear": true
+        },
+        "previousRuntime": {
+          "path": "assets/art/source/generated/vfx/units/previous-runtime-batch2/cavalry_t1.png",
+          "sha256": "a4ab59304ed7f7e0325cd064fa46c25ef3251a9f06ea3ecf358dc71ebe71148d",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            17,
+            25,
+            234,
+            234
+          ],
+          "visibleFraction": 0.2031,
+          "borderClear": true
+        },
+        "editableSource": "assets/art/source/vfx/units/cavalry_t1.svg"
+      },
+      "iron_spearman": {
+        "integrationStatus": "integrated",
+        "profileArt": "./assets/art/vfx/units/iron_spearman.png",
+        "rank": 2,
+        "master": {
+          "path": "assets/art/source/generated/vfx/units/iron_spearman-master.png",
+          "sha256": "3f2e63b0baf6cbd31f09601e5d7b58b7a6b58a70a16240d2e6f78a5e1bc39f65",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            27,
+            229,
+            1229,
+            1198
+          ],
+          "visibleFraction": 0.0484,
+          "borderClear": true
+        },
+        "candidate": {
+          "path": "hd2d-previews/vfx-batch2-candidates/iron_spearman.png",
+          "sha256": "721557907cb3f47f0bc9dbeefc78cbc719ebea3e90618950806e424c44202ff0",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            23,
+            45,
+            232,
+            220
+          ],
+          "visibleFraction": 0.0532,
+          "borderClear": true
+        },
+        "runtime": {
+          "path": "assets/art/vfx/units/iron_spearman.png",
+          "sha256": "721557907cb3f47f0bc9dbeefc78cbc719ebea3e90618950806e424c44202ff0",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            23,
+            45,
+            232,
+            220
+          ],
+          "visibleFraction": 0.0532,
+          "borderClear": true
+        },
+        "previousRuntime": {
+          "path": "assets/art/source/generated/vfx/units/previous-runtime-batch2/iron_spearman.png",
+          "sha256": "3d37ec3d079d475e11900d4ba24f0ecb7b2522723d288e5123116f10baf30b5c",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            1,
+            45,
+            231,
+            226
+          ],
+          "visibleFraction": 0.0908,
+          "borderClear": true
+        },
+        "editableSource": "assets/art/source/vfx/units/iron_spearman.svg"
+      },
+      "gold_cavalry": {
+        "integrationStatus": "integrated",
+        "profileArt": "./assets/art/vfx/units/gold_cavalry.png",
+        "rank": 3,
+        "master": {
+          "path": "assets/art/source/generated/vfx/units/gold_cavalry-master.png",
+          "sha256": "d7482d41833fd60cea6fb40f6cd93977fbde798b076f78680da314382d6eddf2",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            0,
+            17,
+            1241,
+            1254
+          ],
+          "visibleFraction": 0.4633,
+          "borderClear": false
+        },
+        "candidate": {
+          "path": "hd2d-previews/vfx-batch2-candidates/gold_cavalry.png",
+          "sha256": "d4b56898514c4418d7f931b99caa23751478cf6403a8b5fe3f885cd1d2ed3482",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            14,
+            22,
+            241,
+            233
+          ],
+          "visibleFraction": 0.3844,
+          "borderClear": true
+        },
+        "runtime": {
+          "path": "assets/art/vfx/units/gold_cavalry.png",
+          "sha256": "d4b56898514c4418d7f931b99caa23751478cf6403a8b5fe3f885cd1d2ed3482",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            14,
+            22,
+            241,
+            233
+          ],
+          "visibleFraction": 0.3844,
+          "borderClear": true
+        },
+        "previousRuntime": {
+          "path": "assets/art/source/generated/vfx/units/previous-runtime-batch2/gold_cavalry.png",
+          "sha256": "7b1292d0cdb5a098c194e490d9f84e5231517703c22d2f755cf7b44327500456",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            4,
+            26,
+            240,
+            240
+          ],
+          "visibleFraction": 0.291,
+          "borderClear": true
+        },
+        "editableSource": "assets/art/source/vfx/units/gold_cavalry.svg"
+      }
+    },
+    "3": {
+      "infantry_t1": {
+        "integrationStatus": "integrated",
+        "profileArt": "./assets/art/vfx/units/infantry_t1.png",
+        "rank": 2,
+        "master": {
+          "path": "assets/art/source/generated/vfx/units/infantry_t1-master.png",
+          "sha256": "1d1f010c3de21ce3313fb0f01866b92c9291077b5d4000497bc5e9e95f2d8169",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            31,
+            53,
+            1222,
+            1206
+          ],
+          "visibleFraction": 0.1686,
+          "borderClear": true
+        },
+        "candidate": {
+          "path": "hd2d-previews/vfx-batch3-4-candidates/infantry_t1.png",
+          "sha256": "5ece90ff8e9bbae5dc62cf1a680937468e575d6c657a60119377394b0a9ece58",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            30,
+            32,
+            228,
+            225
+          ],
+          "visibleFraction": 0.1364,
+          "borderClear": true
+        },
+        "runtime": {
+          "path": "assets/art/vfx/units/infantry_t1.png",
+          "sha256": "5ece90ff8e9bbae5dc62cf1a680937468e575d6c657a60119377394b0a9ece58",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            30,
+            32,
+            228,
+            225
+          ],
+          "visibleFraction": 0.1364,
+          "borderClear": true
+        },
+        "previousRuntime": {
+          "path": "assets/art/source/generated/vfx/units/previous-runtime-batch3/infantry_t1.png",
+          "sha256": "c8b08e19414d3153a18a5294fbc37f21815c115d8c06998a4c14e0492cd6e388",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            23,
+            24,
+            237,
+            234
+          ],
+          "visibleFraction": 0.2065,
+          "borderClear": true
+        },
+        "editableSource": "assets/art/source/vfx/units/infantry_t1.svg"
+      },
+      "archer_t1": {
+        "integrationStatus": "integrated",
+        "profileArt": "./assets/art/vfx/units/archer_t1.png",
+        "rank": 2,
+        "master": {
+          "path": "assets/art/source/generated/vfx/units/archer_t1-master.png",
+          "sha256": "31b96f73a676f6421a4b826aefd72c84868f09fe29d8c82ba2289e0cbfb0f1cb",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            0,
+            21,
+            1236,
+            1200
+          ],
+          "visibleFraction": 0.1333,
+          "borderClear": false
+        },
+        "candidate": {
+          "path": "hd2d-previews/vfx-batch3-4-candidates/archer_t1.png",
+          "sha256": "15a503f131a51337479f46733b037ed617d7a54ec51b859f1701f1e70ce65f4a",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            22,
+            28,
+            234,
+            224
+          ],
+          "visibleFraction": 0.1096,
+          "borderClear": true
+        },
+        "runtime": {
+          "path": "assets/art/vfx/units/archer_t1.png",
+          "sha256": "15a503f131a51337479f46733b037ed617d7a54ec51b859f1701f1e70ce65f4a",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            22,
+            28,
+            234,
+            224
+          ],
+          "visibleFraction": 0.1096,
+          "borderClear": true
+        },
+        "previousRuntime": {
+          "path": "assets/art/source/generated/vfx/units/previous-runtime-batch3/archer_t1.png",
+          "sha256": "c1fd2aea85abe45f688315afdd04bc32be20e79049d240bf26617edeb80ad5f0",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            28,
+            44,
+            224,
+            226
+          ],
+          "visibleFraction": 0.1267,
+          "borderClear": true
+        },
+        "editableSource": "assets/art/source/vfx/units/archer_t1.svg"
+      },
+      "spearman": {
+        "integrationStatus": "integrated",
+        "profileArt": "./assets/art/vfx/units/spearman.png",
+        "rank": 1,
+        "master": {
+          "path": "assets/art/source/generated/vfx/units/spearman-master.png",
+          "sha256": "ba2d9bbabc9fbf9e5e8c23a09519f5c5f7eccf785b5b23b3cfe78c156aa89259",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            57,
+            54,
+            1161,
+            1166
+          ],
+          "visibleFraction": 0.0376,
+          "borderClear": true
+        },
+        "candidate": {
+          "path": "hd2d-previews/vfx-batch3-4-candidates/spearman.png",
+          "sha256": "92e413ef78ab21ad7e7b13e40755ea0a7b8b961d31292bcb1c46137a1427432f",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            22,
+            82,
+            215,
+            221
+          ],
+          "visibleFraction": 0.0377,
+          "borderClear": true
+        },
+        "runtime": {
+          "path": "assets/art/vfx/units/spearman.png",
+          "sha256": "92e413ef78ab21ad7e7b13e40755ea0a7b8b961d31292bcb1c46137a1427432f",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            22,
+            82,
+            215,
+            221
+          ],
+          "visibleFraction": 0.0377,
+          "borderClear": true
+        },
+        "previousRuntime": {
+          "path": "assets/art/source/generated/vfx/units/previous-runtime-batch3/spearman.png",
+          "sha256": "f3bda79854873ee66c2956b49ee1d095cc1bd19810e30c8938f581f18ab732a2",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            22,
+            78,
+            225,
+            221
+          ],
+          "visibleFraction": 0.0599,
+          "borderClear": true
+        },
+        "editableSource": "assets/art/source/vfx/units/spearman.svg"
+      },
+      "cavalry_wind": {
+        "integrationStatus": "integrated",
+        "profileArt": "./assets/art/vfx/units/cavalry_wind.png",
+        "rank": 3,
+        "master": {
+          "path": "assets/art/source/generated/vfx/units/cavalry_wind-master.png",
+          "sha256": "b279fa91d9e11693afdf0ded2389020e43f1a9ea5d68723bb9e895720b69d41d",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            0,
+            21,
+            1240,
+            1222
+          ],
+          "visibleFraction": 0.1715,
+          "borderClear": false
+        },
+        "candidate": {
+          "path": "hd2d-previews/vfx-batch3-4-candidates/cavalry_wind.png",
+          "sha256": "00556ba2521fa3909b3e6e341eda8a984e86798158622528c5c5ece6ceb4a228",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            18,
+            34,
+            235,
+            227
+          ],
+          "visibleFraction": 0.1522,
+          "borderClear": true
+        },
+        "runtime": {
+          "path": "assets/art/vfx/units/cavalry_wind.png",
+          "sha256": "00556ba2521fa3909b3e6e341eda8a984e86798158622528c5c5ece6ceb4a228",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            18,
+            34,
+            235,
+            227
+          ],
+          "visibleFraction": 0.1522,
+          "borderClear": true
+        },
+        "previousRuntime": {
+          "path": "assets/art/source/generated/vfx/units/previous-runtime-batch3/cavalry_wind.png",
+          "sha256": "1f39743afb5f6ac97d015a9d9d54f8eecbe200a5d8e3c0f1f331a71060cec7ae",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            22,
+            34,
+            230,
+            227
+          ],
+          "visibleFraction": 0.1406,
+          "borderClear": true
+        },
+        "editableSource": "assets/art/source/vfx/units/cavalry_wind.svg"
+      },
+      "alloy_special": {
+        "integrationStatus": "integrated",
+        "profileArt": "./assets/art/vfx/units/alloy_special.png",
+        "rank": 4,
+        "master": {
+          "path": "assets/art/source/generated/vfx/units/alloy_special-master.png",
+          "sha256": "b51136f6c9acccc57d50f7f44da72813a0cf494c53e212976083faa861526192",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            41,
+            21,
+            1208,
+            1198
+          ],
+          "visibleFraction": 0.0849,
+          "borderClear": true
+        },
+        "candidate": {
+          "path": "hd2d-previews/vfx-batch3-4-candidates/alloy_special.png",
+          "sha256": "48a20c823c365dd780315fa71f72cbcf8893042bb2857e7e4100534f5f34a792",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            14,
+            48,
+            241,
+            236
+          ],
+          "visibleFraction": 0.1028,
+          "borderClear": true
+        },
+        "runtime": {
+          "path": "assets/art/vfx/units/alloy_special.png",
+          "sha256": "48a20c823c365dd780315fa71f72cbcf8893042bb2857e7e4100534f5f34a792",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            14,
+            48,
+            241,
+            236
+          ],
+          "visibleFraction": 0.1028,
+          "borderClear": true
+        },
+        "previousRuntime": {
+          "path": "assets/art/source/generated/vfx/units/previous-runtime-batch3/alloy_special.png",
+          "sha256": "b7bad14db53a56a8a247e71faafb1ca0b870e04445fad389987cfe45df22f6c3",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            11,
+            48,
+            235,
+            219
+          ],
+          "visibleFraction": 0.176,
+          "borderClear": true
+        },
+        "editableSource": "assets/art/source/vfx/units/alloy_special.svg"
+      },
+      "armored_trooper": {
+        "integrationStatus": "integrated",
+        "profileArt": "./assets/art/vfx/units/armored_trooper.png",
+        "rank": 4,
+        "master": {
+          "path": "assets/art/source/generated/vfx/units/armored_trooper-master.png",
+          "sha256": "1dc541a0634229645ada7e9c300d8548bf2d65aefa4a85bafa920f536213921a",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            37,
+            21,
+            1230,
+            1223
+          ],
+          "visibleFraction": 0.2096,
+          "borderClear": true
+        },
+        "candidate": {
+          "path": "hd2d-previews/vfx-batch3-4-candidates/armored_trooper.png",
+          "sha256": "95f96749c5b560d370f929ee4b9b9f64d42b9a1d6c120b288f05ab7bf41896f1",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            14,
+            33,
+            245,
+            239
+          ],
+          "visibleFraction": 0.205,
+          "borderClear": true
+        },
+        "runtime": {
+          "path": "assets/art/vfx/units/armored_trooper.png",
+          "sha256": "95f96749c5b560d370f929ee4b9b9f64d42b9a1d6c120b288f05ab7bf41896f1",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            14,
+            33,
+            245,
+            239
+          ],
+          "visibleFraction": 0.205,
+          "borderClear": true
+        },
+        "previousRuntime": {
+          "path": "assets/art/source/generated/vfx/units/previous-runtime-batch3/armored_trooper.png",
+          "sha256": "a126970970f3f515c340ea024d3bd2babb978e9e93192f22e681a8b5ca74c919",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            11,
+            33,
+            235,
+            212
+          ],
+          "visibleFraction": 0.1698,
+          "borderClear": true
+        },
+        "editableSource": "assets/art/source/vfx/units/armored_trooper.svg"
+      }
+    },
+    "4": {
+      "infantry_sword": {
+        "integrationStatus": "integrated",
+        "profileArt": "./assets/art/vfx/units/infantry_sword.png",
+        "rank": 3,
+        "master": {
+          "path": "assets/art/source/generated/vfx/units/infantry_sword-master.png",
+          "sha256": "754ea07d5a552e3250a5592ea31161b2ec6a1ac66ff7c1b1e66fc861299753aa",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            0,
+            19,
+            1239,
+            1254
+          ],
+          "visibleFraction": 0.3091,
+          "borderClear": false
+        },
+        "candidate": {
+          "path": "hd2d-previews/vfx-batch3-4-candidates/infantry_sword.png",
+          "sha256": "692c1b490b3f5a71e1e1d3df49268b25a04e86e658b8315a9ad6f00f1a5037e7",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            17,
+            18,
+            240,
+            238
+          ],
+          "visibleFraction": 0.2763,
+          "borderClear": true
+        },
+        "runtime": {
+          "path": "assets/art/vfx/units/infantry_sword.png",
+          "sha256": "692c1b490b3f5a71e1e1d3df49268b25a04e86e658b8315a9ad6f00f1a5037e7",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            17,
+            18,
+            240,
+            238
+          ],
+          "visibleFraction": 0.2763,
+          "borderClear": true
+        },
+        "previousRuntime": {
+          "path": "assets/art/source/generated/vfx/units/previous-runtime-batch4/infantry_sword.png",
+          "sha256": "b47aa83993b2b5c04b4730ab0d9e28d07c798f7f3adb196b7dd6069d4530b017",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            17,
+            19,
+            244,
+            240
+          ],
+          "visibleFraction": 0.2816,
+          "borderClear": true
+        },
+        "editableSource": "assets/art/source/vfx/units/infantry_sword.svg"
+      },
+      "infantry_fortress": {
+        "integrationStatus": "integrated",
+        "profileArt": "./assets/art/vfx/units/infantry_fortress.png",
+        "rank": 4,
+        "master": {
+          "path": "assets/art/source/generated/vfx/units/infantry_fortress-master.png",
+          "sha256": "14cb34a13da5f052ba2bfdf7a1039d144b7cbfa6b5867503484a1f4e9344a54d",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            0,
+            7,
+            1236,
+            1254
+          ],
+          "visibleFraction": 0.539,
+          "borderClear": false
+        },
+        "candidate": {
+          "path": "hd2d-previews/vfx-batch3-4-candidates/infantry_fortress.png",
+          "sha256": "61b8d53ef60d35d41f9866f914053191c9675d0af68334e80e3e458a75d73f9d",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            12,
+            8,
+            246,
+            239
+          ],
+          "visibleFraction": 0.4883,
+          "borderClear": true
+        },
+        "runtime": {
+          "path": "assets/art/vfx/units/infantry_fortress.png",
+          "sha256": "61b8d53ef60d35d41f9866f914053191c9675d0af68334e80e3e458a75d73f9d",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            12,
+            8,
+            246,
+            239
+          ],
+          "visibleFraction": 0.4883,
+          "borderClear": true
+        },
+        "previousRuntime": {
+          "path": "assets/art/source/generated/vfx/units/previous-runtime-batch4/infantry_fortress.png",
+          "sha256": "1f4f360bb1fb0ce71d12fe8d76f3db0b7165962ec22b3be8c787ece9734b2cb5",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            10,
+            13,
+            250,
+            247
+          ],
+          "visibleFraction": 0.3326,
+          "borderClear": true
+        },
+        "editableSource": "assets/art/source/vfx/units/infantry_fortress.svg"
+      },
+      "archer_silverbow": {
+        "integrationStatus": "integrated",
+        "profileArt": "./assets/art/vfx/units/archer_silverbow.png",
+        "rank": 3,
+        "master": {
+          "path": "assets/art/source/generated/vfx/units/archer_silverbow-master.png",
+          "sha256": "48d763ae277f2bcec61ae9a8262a42d5f80a15eb04421db63351b2560c9c1ebf",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            47,
+            53,
+            1248,
+            1196
+          ],
+          "visibleFraction": 0.0557,
+          "borderClear": true
+        },
+        "candidate": {
+          "path": "hd2d-previews/vfx-batch3-4-candidates/archer_silverbow.png",
+          "sha256": "5ae2fc02766cbdcc0b226b6978d372fd41662e5462f2b5879bce44350028e3b6",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            28,
+            64,
+            235,
+            233
+          ],
+          "visibleFraction": 0.0743,
+          "borderClear": true
+        },
+        "runtime": {
+          "path": "assets/art/vfx/units/archer_silverbow.png",
+          "sha256": "5ae2fc02766cbdcc0b226b6978d372fd41662e5462f2b5879bce44350028e3b6",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            28,
+            64,
+            235,
+            233
+          ],
+          "visibleFraction": 0.0743,
+          "borderClear": true
+        },
+        "previousRuntime": {
+          "path": "assets/art/source/generated/vfx/units/previous-runtime-batch4/archer_silverbow.png",
+          "sha256": "99711e66197e2f0364388a6a2c9330461b3c4d7eda5d4ddebdb6b8781dcec86a",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            13,
+            64,
+            230,
+            221
+          ],
+          "visibleFraction": 0.113,
+          "borderClear": true
+        },
+        "editableSource": "assets/art/source/vfx/units/archer_silverbow.svg"
+      },
+      "archer_longbow": {
+        "integrationStatus": "integrated",
+        "profileArt": "./assets/art/vfx/units/archer_longbow.png",
+        "rank": 4,
+        "master": {
+          "path": "assets/art/source/generated/vfx/units/archer_longbow-master.png",
+          "sha256": "a0477bb7f7193a2335e96b58316b44543c3aa892f3ec5acb67e8c7f6894ce4b3",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            21,
+            21,
+            1240,
+            1198
+          ],
+          "visibleFraction": 0.0819,
+          "borderClear": true
+        },
+        "candidate": {
+          "path": "hd2d-previews/vfx-batch3-4-candidates/archer_longbow.png",
+          "sha256": "d0eade575e0af9729b83bf36271371f9a8367170f1a304552d8e67dce40fa5c3",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            11,
+            39,
+            247,
+            199
+          ],
+          "visibleFraction": 0.102,
+          "borderClear": true
+        },
+        "runtime": {
+          "path": "assets/art/vfx/units/archer_longbow.png",
+          "sha256": "d0eade575e0af9729b83bf36271371f9a8367170f1a304552d8e67dce40fa5c3",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            11,
+            39,
+            247,
+            199
+          ],
+          "visibleFraction": 0.102,
+          "borderClear": true
+        },
+        "previousRuntime": {
+          "path": "assets/art/source/generated/vfx/units/previous-runtime-batch4/archer_longbow.png",
+          "sha256": "5d6c1c1d47dc89567723289b113a517fa537104dc8a4e5e60777e2c7886da91b",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            6,
+            39,
+            235,
+            208
+          ],
+          "visibleFraction": 0.1322,
+          "borderClear": true
+        },
+        "editableSource": "assets/art/source/vfx/units/archer_longbow.svg"
+      },
+      "cavalry_iron": {
+        "integrationStatus": "integrated",
+        "profileArt": "./assets/art/vfx/units/cavalry_iron.png",
+        "rank": 3,
+        "master": {
+          "path": "assets/art/source/generated/vfx/units/cavalry_iron-master.png",
+          "sha256": "399cf6b655a01444bcad2f6304329ca041e303c81b89fc1cb7d82380dfbe7dec",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            0,
+            19,
+            1239,
+            1238
+          ],
+          "visibleFraction": 0.3724,
+          "borderClear": false
+        },
+        "candidate": {
+          "path": "hd2d-previews/vfx-batch3-4-candidates/cavalry_iron.png",
+          "sha256": "68e21f7151efc49f77c2abe68f8c35bfb3983238c08dc02c9b1e654da6298236",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            13,
+            25,
+            240,
+            240
+          ],
+          "visibleFraction": 0.3104,
+          "borderClear": true
+        },
+        "runtime": {
+          "path": "assets/art/vfx/units/cavalry_iron.png",
+          "sha256": "68e21f7151efc49f77c2abe68f8c35bfb3983238c08dc02c9b1e654da6298236",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            13,
+            25,
+            240,
+            240
+          ],
+          "visibleFraction": 0.3104,
+          "borderClear": true
+        },
+        "previousRuntime": {
+          "path": "assets/art/source/generated/vfx/units/previous-runtime-batch4/cavalry_iron.png",
+          "sha256": "747198bb22eaa521a78cb4ec818ab3a0070f266d4e704ace530a5e2f92481e95",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            17,
+            26,
+            240,
+            240
+          ],
+          "visibleFraction": 0.2389,
+          "borderClear": true
+        },
+        "editableSource": "assets/art/source/vfx/units/cavalry_iron.svg"
+      },
+      "cavalry_dragon": {
+        "integrationStatus": "integrated",
+        "profileArt": "./assets/art/vfx/units/cavalry_dragon.png",
+        "rank": 4,
+        "master": {
+          "path": "assets/art/source/generated/vfx/units/cavalry_dragon-master.png",
+          "sha256": "1646afc332150946876429f9a6fc3f725fcec63e4e1078e8e3ccdefd8793f5bb",
+          "dimensions": [
+            1254,
+            1254
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            29,
+            23,
+            1239,
+            1236
+          ],
+          "visibleFraction": 0.3149,
+          "borderClear": true
+        },
+        "candidate": {
+          "path": "hd2d-previews/vfx-batch3-4-candidates/cavalry_dragon.png",
+          "sha256": "a6315152234976bca83c243e73e94814ae203d5fe58e1a70f695fd5971a9621f",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            12,
+            14,
+            247,
+            243
+          ],
+          "visibleFraction": 0.3068,
+          "borderClear": true
+        },
+        "runtime": {
+          "path": "assets/art/vfx/units/cavalry_dragon.png",
+          "sha256": "a6315152234976bca83c243e73e94814ae203d5fe58e1a70f695fd5971a9621f",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            12,
+            14,
+            247,
+            243
+          ],
+          "visibleFraction": 0.3068,
+          "borderClear": true
+        },
+        "previousRuntime": {
+          "path": "assets/art/source/generated/vfx/units/previous-runtime-batch4/cavalry_dragon.png",
+          "sha256": "0e2897172c3f3d9a4baa71796879e0d0492cf37f705de6bb9858a96f12066f89",
+          "dimensions": [
+            256,
+            256
+          ],
+          "alphaRange": [
+            0,
+            255
+          ],
+          "alphaBBox": [
+            13,
+            37,
+            244,
+            236
+          ],
+          "visibleFraction": 0.187,
+          "borderClear": true
+        },
+        "editableSource": "assets/art/source/vfx/units/cavalry_dragon.svg"
+      }
+    }
+  }
+}

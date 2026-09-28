@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="256" height="256" viewBox="0 0 256 256">
+<!-- gold_cavalry: per-ID painted core + double_arc trail + crush mark + rank 3 -->
+<g shape-rendering="crispEdges"><circle cx="128" cy="128" r="54" fill="none" stroke="#F1D17D" stroke-width="3" stroke-dasharray="14 12 7 17" opacity="0.3"/></g>
+<g opacity="0.57"><g shape-rendering="crispEdges"><path d="M26 188 Q96 137 187 62 M43 207 Q127 171 210 82" fill="none" stroke="#F1D17D" stroke-width="3" opacity=".78"/><path d="M29 201 Q112 148 187 76" fill="none" stroke="#FFF3C8" stroke-width="2" opacity=".75"/></g></g>
+<g data-unit="gold_cavalry" data-art-source="per-id" transform="translate(12.80 12.80) scale(0.90)"><image href="../../generated/vfx/units/gold_cavalry-master.png" xlink:href="../../generated/vfx/units/gold_cavalry-master.png" x="0" y="0" width="256" height="256" preserveAspectRatio="xMidYMid meet"/></g>
+
+<g shape-rendering="crispEdges" opacity=".83"><rect x="181" y="118" width="18" height="18" fill="none" stroke="#F1D17D" stroke-width="3"/><rect x="186" y="123" width="8" height="8" fill="#FFF3C8"/></g>
+<g shape-rendering="crispEdges"><rect x="47" y="72" width="5" height="5" fill="#FFF3C8" opacity="0.86"/><rect x="213" y="74" width="3" height="3" fill="#F1D17D" opacity="0.68"/><rect x="187" y="100" width="3" height="3" fill="#F1D17D" opacity="0.86"/><rect x="116" y="102" width="3" height="3" fill="#FFF3C8" opacity="0.68"/><rect x="203" y="216" width="5" height="5" fill="#F1D17D" opacity="0.86"/><rect x="130" y="134" width="3" height="3" fill="#F1D17D" opacity="0.68"/><rect x="145" y="52" width="3" height="3" fill="#FFF3C8" opacity="0.86"/><rect x="121" y="70" width="3" height="3" fill="#F1D17D" opacity="0.68"/><rect x="118" y="36" width="5" height="5" fill="#F1D17D" opacity="0.86"/></g>
+</svg>

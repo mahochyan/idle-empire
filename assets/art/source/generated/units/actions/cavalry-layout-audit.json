@@ -1,0 +1,440 @@
+{
+  "version": 1,
+  "method": "whole-pose transparent re-layout",
+  "cellWidth": 724,
+  "cellMarginPx": 35,
+  "files": {
+    "cavalry_t1-attack-master-layout.png": {
+      "original": "cavalry_t1-attack-master.png",
+      "originalSize": [
+        2167,
+        725
+      ],
+      "sourceAlphaZeroSeams": [
+        [
+          624,
+          693
+        ],
+        [
+          1417,
+          1446
+        ]
+      ],
+      "layoutSize": [
+        2172,
+        724
+      ],
+      "cellMarginPx": 35,
+      "poses": [
+        {
+          "sourceCellRange": [
+            0,
+            658
+          ],
+          "sourceSignificantBoundsWithinCell": [
+            85,
+            10,
+            619,
+            697
+          ],
+          "sourceBoundsWithinCell": [
+            83,
+            8,
+            621,
+            699
+          ],
+          "maxExcludedAlpha": 1,
+          "layoutBoundsWithinCell": [
+            107,
+            35,
+            616,
+            689
+          ],
+          "layoutScale": 0.946454,
+          "facing": "right",
+          "allAlphaOver8Retained": true
+        },
+        {
+          "sourceCellRange": [
+            658,
+            1431
+          ],
+          "sourceSignificantBoundsWithinCell": [
+            37,
+            34,
+            694,
+            695
+          ],
+          "sourceBoundsWithinCell": [
+            35,
+            32,
+            696,
+            697
+          ],
+          "maxExcludedAlpha": 1,
+          "layoutBoundsWithinCell": [
+            37,
+            35,
+            687,
+            689
+          ],
+          "layoutScale": 0.983459,
+          "facing": "right",
+          "allAlphaOver8Retained": true
+        },
+        {
+          "sourceCellRange": [
+            1431,
+            2167
+          ],
+          "sourceSignificantBoundsWithinCell": [
+            126,
+            10,
+            669,
+            697
+          ],
+          "sourceBoundsWithinCell": [
+            124,
+            8,
+            671,
+            699
+          ],
+          "maxExcludedAlpha": 1,
+          "layoutBoundsWithinCell": [
+            103,
+            35,
+            621,
+            689
+          ],
+          "layoutScale": 0.946454,
+          "facing": "right",
+          "allAlphaOver8Retained": true
+        }
+      ]
+    },
+    "cavalry_t1-death-master-layout.png": {
+      "original": "cavalry_t1-death-master.png",
+      "originalSize": [
+        2172,
+        724
+      ],
+      "sourceAlphaZeroSeams": [
+        [
+          741,
+          789
+        ],
+        [
+          1448,
+          1489
+        ]
+      ],
+      "layoutSize": [
+        2172,
+        724
+      ],
+      "cellMarginPx": 35,
+      "poses": [
+        {
+          "sourceCellRange": [
+            0,
+            765
+          ],
+          "sourceSignificantBoundsWithinCell": [
+            54,
+            18,
+            739,
+            668
+          ],
+          "sourceBoundsWithinCell": [
+            52,
+            16,
+            741,
+            670
+          ],
+          "maxExcludedAlpha": 3,
+          "layoutBoundsWithinCell": [
+            35,
+            68,
+            689,
+            689
+          ],
+          "layoutScale": 0.949202,
+          "facing": "right",
+          "allAlphaOver8Retained": true
+        },
+        {
+          "sourceCellRange": [
+            765,
+            1468
+          ],
+          "sourceSignificantBoundsWithinCell": [
+            55,
+            112,
+            681,
+            667
+          ],
+          "sourceBoundsWithinCell": [
+            53,
+            110,
+            683,
+            669
+          ],
+          "maxExcludedAlpha": 3,
+          "layoutBoundsWithinCell": [
+            47,
+            130,
+            677,
+            689
+          ],
+          "layoutScale": 1.0,
+          "facing": "right",
+          "allAlphaOver8Retained": true
+        },
+        {
+          "sourceCellRange": [
+            1468,
+            2172
+          ],
+          "sourceSignificantBoundsWithinCell": [
+            45,
+            302,
+            656,
+            689
+          ],
+          "sourceBoundsWithinCell": [
+            43,
+            300,
+            658,
+            691
+          ],
+          "maxExcludedAlpha": 2,
+          "layoutBoundsWithinCell": [
+            54,
+            298,
+            669,
+            689
+          ],
+          "layoutScale": 1.0,
+          "facing": "right",
+          "allAlphaOver8Retained": true
+        }
+      ]
+    },
+    "gold_cavalry-attack-master-layout.png": {
+      "original": "gold_cavalry-attack-master.png",
+      "originalSize": [
+        2172,
+        724
+      ],
+      "sourceAlphaZeroSeams": [
+        [
+          610,
+          780
+        ],
+        [
+          1448,
+          1542
+        ]
+      ],
+      "layoutSize": [
+        2172,
+        724
+      ],
+      "cellMarginPx": 35,
+      "poses": [
+        {
+          "sourceCellRange": [
+            0,
+            695
+          ],
+          "sourceSignificantBoundsWithinCell": [
+            66,
+            5,
+            606,
+            697
+          ],
+          "sourceBoundsWithinCell": [
+            64,
+            3,
+            608,
+            699
+          ],
+          "maxExcludedAlpha": 2,
+          "layoutBoundsWithinCell": [
+            106,
+            35,
+            617,
+            689
+          ],
+          "layoutScale": 0.939655,
+          "facing": "right",
+          "allAlphaOver8Retained": true
+        },
+        {
+          "sourceCellRange": [
+            695,
+            1495
+          ],
+          "sourceSignificantBoundsWithinCell": [
+            91,
+            36,
+            751,
+            696
+          ],
+          "sourceBoundsWithinCell": [
+            89,
+            34,
+            753,
+            698
+          ],
+          "maxExcludedAlpha": 3,
+          "layoutBoundsWithinCell": [
+            35,
+            35,
+            689,
+            689
+          ],
+          "layoutScale": 0.98494,
+          "facing": "right",
+          "allAlphaOver8Retained": true
+        },
+        {
+          "sourceCellRange": [
+            1495,
+            2172
+          ],
+          "sourceSignificantBoundsWithinCell": [
+            50,
+            34,
+            638,
+            697
+          ],
+          "sourceBoundsWithinCell": [
+            48,
+            32,
+            640,
+            699
+          ],
+          "maxExcludedAlpha": 2,
+          "layoutBoundsWithinCell": [
+            72,
+            35,
+            652,
+            689
+          ],
+          "layoutScale": 0.98051,
+          "facing": "right",
+          "allAlphaOver8Retained": true
+        }
+      ]
+    },
+    "gold_cavalry-death-master-layout.png": {
+      "original": "gold_cavalry-death-master.png",
+      "originalSize": [
+        2172,
+        724
+      ],
+      "sourceAlphaZeroSeams": [
+        [
+          694,
+          723
+        ],
+        [
+          1384,
+          1447
+        ]
+      ],
+      "layoutSize": [
+        2172,
+        724
+      ],
+      "cellMarginPx": 35,
+      "poses": [
+        {
+          "sourceCellRange": [
+            0,
+            708
+          ],
+          "sourceSignificantBoundsWithinCell": [
+            42,
+            3,
+            658,
+            671
+          ],
+          "sourceBoundsWithinCell": [
+            40,
+            1,
+            660,
+            673
+          ],
+          "maxExcludedAlpha": 6,
+          "layoutBoundsWithinCell": [
+            60,
+            35,
+            663,
+            689
+          ],
+          "layoutScale": 0.973214,
+          "facing": "right",
+          "allAlphaOver8Retained": true
+        },
+        {
+          "sourceCellRange": [
+            708,
+            1415
+          ],
+          "sourceSignificantBoundsWithinCell": [
+            60,
+            64,
+            667,
+            642
+          ],
+          "sourceBoundsWithinCell": [
+            58,
+            62,
+            669,
+            644
+          ],
+          "maxExcludedAlpha": 2,
+          "layoutBoundsWithinCell": [
+            56,
+            107,
+            667,
+            689
+          ],
+          "layoutScale": 1.0,
+          "facing": "right",
+          "allAlphaOver8Retained": true
+        },
+        {
+          "sourceCellRange": [
+            1415,
+            2172
+          ],
+          "sourceSignificantBoundsWithinCell": [
+            42,
+            101,
+            719,
+            668
+          ],
+          "sourceBoundsWithinCell": [
+            40,
+            99,
+            721,
+            670
+          ],
+          "maxExcludedAlpha": 5,
+          "layoutBoundsWithinCell": [
+            35,
+            141,
+            689,
+            689
+          ],
+          "layoutScale": 0.960352,
+          "facing": "right",
+          "allAlphaOver8Retained": true
+        }
+      ]
+    }
+  }
+}

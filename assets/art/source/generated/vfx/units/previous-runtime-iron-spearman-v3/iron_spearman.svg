@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="256" height="256" viewBox="0 0 256 256">
+<!-- iron_spearman: per-ID painted core + piercing trail + pierce mark + rank 2 -->
+
+<g opacity="0.38"><g shape-rendering="crispEdges"><polyline points="25,148 99,148 99,143 166,143 197,135" fill="none" stroke="#A7C0C8" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter" opacity="0.84"/><polyline points="35,158 122,158 122,153 180,153" fill="none" stroke="#E7F6F9" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter" opacity="0.75"/></g></g>
+<g data-unit="iron_spearman" data-art-source="per-id" transform="translate(19.20 19.20) scale(0.85)"><image href="../../generated/vfx/units/iron_spearman-master.png" xlink:href="../../generated/vfx/units/iron_spearman-master.png" x="0" y="0" width="256" height="256" preserveAspectRatio="xMidYMid meet"/></g>
+
+<g shape-rendering="crispEdges" opacity=".83"><path d="M179 119 L205 127 L179 135 L186 127 Z" fill="#A7C0C8" stroke="#E7F6F9" stroke-width="2"/></g>
+<g shape-rendering="crispEdges"><rect x="98" y="45" width="5" height="5" fill="#E7F6F9" opacity="0.86"/><rect x="100" y="199" width="3" height="3" fill="#A7C0C8" opacity="0.68"/><rect x="171" y="157" width="3" height="3" fill="#A7C0C8" opacity="0.86"/><rect x="192" y="103" width="3" height="3" fill="#E7F6F9" opacity="0.68"/><rect x="174" y="97" width="5" height="5" fill="#A7C0C8" opacity="0.86"/><rect x="85" y="207" width="3" height="3" fill="#A7C0C8" opacity="0.68"/><rect x="128" y="217" width="3" height="3" fill="#E7F6F9" opacity="0.86"/></g>
+</svg>

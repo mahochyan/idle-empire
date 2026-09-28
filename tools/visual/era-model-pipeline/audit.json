@@ -1,0 +1,875 @@
+{
+  "baselineSha": "406bce4dc86a7d12f442ceebe5143ec9fa6f6e6d",
+  "eraCount": 9,
+  "originalPlates": 9,
+  "cleanCenterComposites": 9,
+  "candidateModels": 2,
+  "completeSevenSiteModels": 0,
+  "runtimeReady": 0,
+  "eras": [
+    {
+      "id": "base",
+      "label": "初始",
+      "source": {
+        "id": "base",
+        "label": "初始",
+        "plate": "assets/art/scene/town-base.png",
+        "clean": "assets/art/scene/candidates/town-base-clean-roi-candidate.png",
+        "cleanMaster": "assets/art/source/generated/town-base-clean-candidate/town-base-clean-master.png",
+        "cleanMask": "assets/art/scene/candidates/town-base-clean-center-mask.png",
+        "cleanRoi": "assets/art/scene/candidates/town-base-clean-roi-candidate.png",
+        "legacyFullCleanCandidate": "assets/art/scene/candidates/town-base-clean-candidate.png",
+        "model": "assets/art/models/candidates/town_hall_base_village.glb",
+        "editable": "assets/art/source/models/town_hall_base_village/town_hall_base_village.blend",
+        "modelPreview": "hd2d-previews/qa-town-base-village-glb-reimport.png",
+        "silhouette": "Oak hall, straw roof, ring of stone and timber palisade",
+        "distinctProps": [
+          "timber fence",
+          "woodcutting tools",
+          "small watch post"
+        ]
+      },
+      "plate": {
+        "path": "assets/art/scene/town-base.png",
+        "exists": true,
+        "size": [
+          1024,
+          525
+        ],
+        "mode": "RGBA",
+        "bytes": 1789502
+      },
+      "clean": {
+        "path": "assets/art/scene/candidates/town-base-clean-roi-candidate.png",
+        "exists": true,
+        "size": [
+          1024,
+          525
+        ],
+        "mode": "RGBA",
+        "bytes": 1492437
+      },
+      "cleanMaster": {
+        "path": "assets/art/source/generated/town-base-clean-candidate/town-base-clean-master.png",
+        "exists": true,
+        "size": [
+          1672,
+          941
+        ],
+        "mode": "RGB",
+        "bytes": 3405455
+      },
+      "cleanMask": {
+        "path": "assets/art/scene/candidates/town-base-clean-center-mask.png",
+        "exists": true,
+        "size": [
+          1024,
+          525
+        ],
+        "mode": "L",
+        "bytes": 10664
+      },
+      "cleanRoi": {
+        "path": "assets/art/scene/candidates/town-base-clean-roi-candidate.png",
+        "exists": true,
+        "size": [
+          1024,
+          525
+        ],
+        "mode": "RGBA",
+        "bytes": 1492437
+      },
+      "cleanBoundary": {
+        "originalPixelsExactOutsideMask": true,
+        "maskBoundingBox": [
+          329,
+          56,
+          697,
+          370
+        ],
+        "maskNonzeroPixelFraction": 0.1745
+      },
+      "model": {
+        "path": "assets/art/models/candidates/town_hall_base_village.glb",
+        "exists": true,
+        "bytes": 7106844,
+        "sha256": "01e4c43d7cca4fb0e5579b0cbd6c1597d89b81416e7209ab15cbaebd9b37b9a2",
+        "triangles": 33474,
+        "meshes": 48,
+        "materials": 37,
+        "images": 10,
+        "externalUris": [],
+        "pickNodes": [],
+        "missingPickNodes": [
+          "PICK_army",
+          "PICK_defense",
+          "PICK_food",
+          "PICK_stone",
+          "PICK_tech",
+          "PICK_town",
+          "PICK_wood"
+        ]
+      },
+      "editableSourcePresent": true,
+      "modelPreview": {
+        "path": "hd2d-previews/qa-town-base-village-glb-reimport.png",
+        "exists": true,
+        "size": [
+          720,
+          400
+        ],
+        "mode": "RGB",
+        "bytes": 669976
+      },
+      "readyForRuntime": false,
+      "runtimeBlockers": [
+        "seven named picking nodes missing",
+        "phone-size visual acceptance unrecorded",
+        "physical Android ten-minute acceptance unavailable"
+      ]
+    },
+    {
+      "id": "sci_bronze_age",
+      "label": "青铜",
+      "source": {
+        "id": "sci_bronze_age",
+        "label": "青铜",
+        "plate": "assets/art/scene/town-sci_bronze_age.png",
+        "clean": "assets/art/scene/candidates/town-sci_bronze_age-clean-candidate.png",
+        "cleanMaster": "assets/art/source/generated/town-sci_bronze_age-clean-candidate/town-sci_bronze_age-clean-master.png",
+        "cleanMask": "assets/art/scene/candidates/town-sci_bronze_age-clean-center-mask.png",
+        "cleanRoi": "assets/art/scene/candidates/town-sci_bronze_age-clean-candidate.png",
+        "model": "assets/art/models/candidates/era_town_bronze.glb",
+        "editable": "assets/art/source/models/era_town_bronze/era_town_bronze.blend",
+        "modelPreview": "hd2d-previews/qa-era-town-bronze-glb-reimport.png",
+        "silhouette": "Limestone portico, terracotta and patina roof, bronze crest",
+        "distinctProps": [
+          "foundry",
+          "bronze shield lookout",
+          "columned front"
+        ]
+      },
+      "plate": {
+        "path": "assets/art/scene/town-sci_bronze_age.png",
+        "exists": true,
+        "size": [
+          1024,
+          525
+        ],
+        "mode": "RGBA",
+        "bytes": 1794810
+      },
+      "clean": {
+        "path": "assets/art/scene/candidates/town-sci_bronze_age-clean-candidate.png",
+        "exists": true,
+        "size": [
+          1024,
+          525
+        ],
+        "mode": "RGBA",
+        "bytes": 1477033
+      },
+      "cleanMaster": {
+        "path": "assets/art/source/generated/town-sci_bronze_age-clean-candidate/town-sci_bronze_age-clean-master.png",
+        "exists": true,
+        "size": [
+          1672,
+          941
+        ],
+        "mode": "RGB",
+        "bytes": 3370564
+      },
+      "cleanMask": {
+        "path": "assets/art/scene/candidates/town-sci_bronze_age-clean-center-mask.png",
+        "exists": true,
+        "size": [
+          1024,
+          525
+        ],
+        "mode": "L",
+        "bytes": 12489
+      },
+      "cleanRoi": {
+        "path": "assets/art/scene/candidates/town-sci_bronze_age-clean-candidate.png",
+        "exists": true,
+        "size": [
+          1024,
+          525
+        ],
+        "mode": "RGBA",
+        "bytes": 1477033
+      },
+      "cleanBoundary": {
+        "originalPixelsExactOutsideMask": true,
+        "maskBoundingBox": [
+          347,
+          54,
+          703,
+          349
+        ],
+        "maskNonzeroPixelFraction": 0.1607
+      },
+      "model": {
+        "path": "assets/art/models/candidates/era_town_bronze.glb",
+        "exists": true,
+        "bytes": 3750612,
+        "sha256": "a9ad510538e6d6cd34ba5be60270f6a5fa1c957f02c454be5840111d4f3b2edc",
+        "triangles": 8126,
+        "meshes": 15,
+        "materials": 15,
+        "images": 5,
+        "externalUris": [],
+        "pickNodes": [],
+        "missingPickNodes": [
+          "PICK_army",
+          "PICK_defense",
+          "PICK_food",
+          "PICK_stone",
+          "PICK_tech",
+          "PICK_town",
+          "PICK_wood"
+        ]
+      },
+      "editableSourcePresent": true,
+      "modelPreview": {
+        "path": "hd2d-previews/qa-era-town-bronze-glb-reimport.png",
+        "exists": true,
+        "size": [
+          720,
+          400
+        ],
+        "mode": "RGB",
+        "bytes": 674271
+      },
+      "readyForRuntime": false,
+      "runtimeBlockers": [
+        "seven named picking nodes missing",
+        "phone-size visual acceptance unrecorded",
+        "physical Android ten-minute acceptance unavailable"
+      ]
+    },
+    {
+      "id": "sci_iron_age",
+      "label": "铁器",
+      "source": {
+        "id": "sci_iron_age",
+        "label": "铁器",
+        "plate": "assets/art/scene/town-sci_iron_age.png",
+        "clean": "assets/art/scene/candidates/town-sci_iron_age-clean-candidate.png",
+        "cleanMaster": "assets/art/source/generated/town-era-clean-candidates/town-sci_iron_age-clean-master.png",
+        "cleanMask": "assets/art/scene/candidates/town-sci_iron_age-clean-center-mask.png",
+        "cleanRoi": "assets/art/scene/candidates/town-sci_iron_age-clean-roi-prototype.png",
+        "silhouette": "Higher ashlar stone walls, blue iron-tile pitched wings and central tower",
+        "distinctProps": [
+          "charcoal forge",
+          "iron bound gate",
+          "battlement parapet"
+        ]
+      },
+      "plate": {
+        "path": "assets/art/scene/town-sci_iron_age.png",
+        "exists": true,
+        "size": [
+          1024,
+          525
+        ],
+        "mode": "RGBA",
+        "bytes": 1794197
+      },
+      "clean": {
+        "path": "assets/art/scene/candidates/town-sci_iron_age-clean-candidate.png",
+        "exists": true,
+        "size": [
+          1024,
+          525
+        ],
+        "mode": "RGB",
+        "bytes": 1256120
+      },
+      "cleanMaster": {
+        "path": "assets/art/source/generated/town-era-clean-candidates/town-sci_iron_age-clean-master.png",
+        "exists": true,
+        "size": [
+          1672,
+          941
+        ],
+        "mode": "RGB",
+        "bytes": 3384561
+      },
+      "cleanMask": {
+        "path": "assets/art/scene/candidates/town-sci_iron_age-clean-center-mask.png",
+        "exists": true,
+        "size": [
+          1024,
+          525
+        ],
+        "mode": "L",
+        "bytes": 10859
+      },
+      "cleanRoi": {
+        "path": "assets/art/scene/candidates/town-sci_iron_age-clean-roi-prototype.png",
+        "exists": true,
+        "size": [
+          1024,
+          525
+        ],
+        "mode": "RGB",
+        "bytes": 1296720
+      },
+      "cleanBoundary": {
+        "originalPixelsExactOutsideMask": true,
+        "maskBoundingBox": [
+          305,
+          44,
+          708,
+          373
+        ],
+        "maskNonzeroPixelFraction": 0.2129
+      },
+      "model": null,
+      "editableSourcePresent": false,
+      "modelPreview": null,
+      "readyForRuntime": false,
+      "runtimeBlockers": [
+        "GLB missing",
+        "seven named picking nodes missing",
+        "phone-size visual acceptance unrecorded",
+        "physical Android ten-minute acceptance unavailable"
+      ]
+    },
+    {
+      "id": "sci_silver_age",
+      "label": "白银",
+      "source": {
+        "id": "sci_silver_age",
+        "label": "白银",
+        "plate": "assets/art/scene/town-sci_silver_age.png",
+        "clean": "assets/art/scene/candidates/town-sci_silver_age-clean-candidate.png",
+        "cleanMaster": "assets/art/source/generated/town-era-clean-candidates/town-sci_silver_age-clean-master.png",
+        "cleanMask": "assets/art/scene/candidates/town-sci_silver_age-clean-center-mask.png",
+        "cleanRoi": "assets/art/scene/candidates/town-sci_silver_age-clean-roi-prototype.png",
+        "silhouette": "Light stone council hall, silver ridge and repeated arches",
+        "distinctProps": [
+          "silversmith",
+          "paved plaza",
+          "white pennants"
+        ]
+      },
+      "plate": {
+        "path": "assets/art/scene/town-sci_silver_age.png",
+        "exists": true,
+        "size": [
+          1024,
+          525
+        ],
+        "mode": "RGBA",
+        "bytes": 1793270
+      },
+      "clean": {
+        "path": "assets/art/scene/candidates/town-sci_silver_age-clean-candidate.png",
+        "exists": true,
+        "size": [
+          1024,
+          525
+        ],
+        "mode": "RGB",
+        "bytes": 1263921
+      },
+      "cleanMaster": {
+        "path": "assets/art/source/generated/town-era-clean-candidates/town-sci_silver_age-clean-master.png",
+        "exists": true,
+        "size": [
+          1672,
+          941
+        ],
+        "mode": "RGB",
+        "bytes": 3379521
+      },
+      "cleanMask": {
+        "path": "assets/art/scene/candidates/town-sci_silver_age-clean-center-mask.png",
+        "exists": true,
+        "size": [
+          1024,
+          525
+        ],
+        "mode": "L",
+        "bytes": 9916
+      },
+      "cleanRoi": {
+        "path": "assets/art/scene/candidates/town-sci_silver_age-clean-roi-prototype.png",
+        "exists": true,
+        "size": [
+          1024,
+          525
+        ],
+        "mode": "RGB",
+        "bytes": 1302791
+      },
+      "cleanBoundary": {
+        "originalPixelsExactOutsideMask": true,
+        "maskBoundingBox": [
+          318,
+          4,
+          708,
+          355
+        ],
+        "maskNonzeroPixelFraction": 0.2178
+      },
+      "model": null,
+      "editableSourcePresent": false,
+      "modelPreview": null,
+      "readyForRuntime": false,
+      "runtimeBlockers": [
+        "GLB missing",
+        "seven named picking nodes missing",
+        "phone-size visual acceptance unrecorded",
+        "physical Android ten-minute acceptance unavailable"
+      ]
+    },
+    {
+      "id": "sci_gold_age",
+      "label": "黄金",
+      "source": {
+        "id": "sci_gold_age",
+        "label": "黄金",
+        "plate": "assets/art/scene/town-sci_gold_age.png",
+        "clean": "assets/art/scene/candidates/town-sci_gold_age-clean-candidate.png",
+        "cleanMaster": "assets/art/source/generated/town-era-clean-candidates/town-sci_gold_age-clean-master.png",
+        "cleanMask": "assets/art/scene/candidates/town-sci_gold_age-clean-center-mask.png",
+        "cleanRoi": "assets/art/scene/candidates/town-sci_gold_age-clean-roi-prototype.png",
+        "silhouette": "Two storey sandstone civic hall, restrained gold dome and colonnade",
+        "distinctProps": [
+          "artisan market",
+          "clock",
+          "fountain"
+        ]
+      },
+      "plate": {
+        "path": "assets/art/scene/town-sci_gold_age.png",
+        "exists": true,
+        "size": [
+          1024,
+          525
+        ],
+        "mode": "RGBA",
+        "bytes": 1799419
+      },
+      "clean": {
+        "path": "assets/art/scene/candidates/town-sci_gold_age-clean-candidate.png",
+        "exists": true,
+        "size": [
+          1024,
+          525
+        ],
+        "mode": "RGB",
+        "bytes": 1284189
+      },
+      "cleanMaster": {
+        "path": "assets/art/source/generated/town-era-clean-candidates/town-sci_gold_age-clean-master.png",
+        "exists": true,
+        "size": [
+          1672,
+          941
+        ],
+        "mode": "RGB",
+        "bytes": 3431046
+      },
+      "cleanMask": {
+        "path": "assets/art/scene/candidates/town-sci_gold_age-clean-center-mask.png",
+        "exists": true,
+        "size": [
+          1024,
+          525
+        ],
+        "mode": "L",
+        "bytes": 11066
+      },
+      "cleanRoi": {
+        "path": "assets/art/scene/candidates/town-sci_gold_age-clean-roi-prototype.png",
+        "exists": true,
+        "size": [
+          1024,
+          525
+        ],
+        "mode": "RGB",
+        "bytes": 1328459
+      },
+      "cleanBoundary": {
+        "originalPixelsExactOutsideMask": true,
+        "maskBoundingBox": [
+          330,
+          2,
+          711,
+          330
+        ],
+        "maskNonzeroPixelFraction": 0.1942
+      },
+      "model": null,
+      "editableSourcePresent": false,
+      "modelPreview": null,
+      "readyForRuntime": false,
+      "runtimeBlockers": [
+        "GLB missing",
+        "seven named picking nodes missing",
+        "phone-size visual acceptance unrecorded",
+        "physical Android ten-minute acceptance unavailable"
+      ]
+    },
+    {
+      "id": "sci_alloy_age",
+      "label": "合金",
+      "source": {
+        "id": "sci_alloy_age",
+        "label": "合金",
+        "plate": "assets/art/scene/town-sci_alloy_age.png",
+        "clean": "assets/art/scene/candidates/town-sci_alloy_age-clean-candidate.png",
+        "cleanMaster": "assets/art/source/generated/town-era-clean-candidates/town-sci_alloy_age-clean-master.png",
+        "cleanMask": "assets/art/scene/candidates/town-sci_alloy_age-clean-center-mask.png",
+        "cleanRoi": "assets/art/scene/candidates/town-sci_alloy_age-clean-roi-prototype.png",
+        "silhouette": "Composite metal roof with visible truss and copper-silver frame",
+        "distinctProps": [
+          "alloy forge",
+          "green transmission gear",
+          "reinforced bridge"
+        ]
+      },
+      "plate": {
+        "path": "assets/art/scene/town-sci_alloy_age.png",
+        "exists": true,
+        "size": [
+          1024,
+          525
+        ],
+        "mode": "RGBA",
+        "bytes": 1795778
+      },
+      "clean": {
+        "path": "assets/art/scene/candidates/town-sci_alloy_age-clean-candidate.png",
+        "exists": true,
+        "size": [
+          1024,
+          525
+        ],
+        "mode": "RGB",
+        "bytes": 1276450
+      },
+      "cleanMaster": {
+        "path": "assets/art/source/generated/town-era-clean-candidates/town-sci_alloy_age-clean-master.png",
+        "exists": true,
+        "size": [
+          1672,
+          941
+        ],
+        "mode": "RGB",
+        "bytes": 3448365
+      },
+      "cleanMask": {
+        "path": "assets/art/scene/candidates/town-sci_alloy_age-clean-center-mask.png",
+        "exists": true,
+        "size": [
+          1024,
+          525
+        ],
+        "mode": "L",
+        "bytes": 11221
+      },
+      "cleanRoi": {
+        "path": "assets/art/scene/candidates/town-sci_alloy_age-clean-roi-prototype.png",
+        "exists": true,
+        "size": [
+          1024,
+          525
+        ],
+        "mode": "RGB",
+        "bytes": 1319246
+      },
+      "cleanBoundary": {
+        "originalPixelsExactOutsideMask": true,
+        "maskBoundingBox": [
+          312,
+          7,
+          714,
+          355
+        ],
+        "maskNonzeroPixelFraction": 0.2218
+      },
+      "model": null,
+      "editableSourcePresent": false,
+      "modelPreview": null,
+      "readyForRuntime": false,
+      "runtimeBlockers": [
+        "GLB missing",
+        "seven named picking nodes missing",
+        "phone-size visual acceptance unrecorded",
+        "physical Android ten-minute acceptance unavailable"
+      ]
+    },
+    {
+      "id": "sci_steam_age",
+      "label": "蒸汽",
+      "source": {
+        "id": "sci_steam_age",
+        "label": "蒸汽",
+        "plate": "assets/art/scene/town-sci_steam_age.png",
+        "clean": "assets/art/scene/candidates/town-sci_steam_age-clean-candidate.png",
+        "cleanMaster": "assets/art/source/generated/town-era-clean-candidates/town-sci_steam_age-clean-master.png",
+        "cleanMask": "assets/art/scene/candidates/town-sci_steam_age-clean-center-mask.png",
+        "cleanRoi": "assets/art/scene/candidates/town-sci_steam_age-clean-roi-prototype.png",
+        "silhouette": "Brick and stone clock tower, copper piping, short clean chimney",
+        "distinctProps": [
+          "boiler room",
+          "gear workshop",
+          "thin white steam"
+        ]
+      },
+      "plate": {
+        "path": "assets/art/scene/town-sci_steam_age.png",
+        "exists": true,
+        "size": [
+          1024,
+          525
+        ],
+        "mode": "RGBA",
+        "bytes": 1794782
+      },
+      "clean": {
+        "path": "assets/art/scene/candidates/town-sci_steam_age-clean-candidate.png",
+        "exists": true,
+        "size": [
+          1024,
+          525
+        ],
+        "mode": "RGB",
+        "bytes": 1271110
+      },
+      "cleanMaster": {
+        "path": "assets/art/source/generated/town-era-clean-candidates/town-sci_steam_age-clean-master.png",
+        "exists": true,
+        "size": [
+          1672,
+          941
+        ],
+        "mode": "RGB",
+        "bytes": 3404545
+      },
+      "cleanMask": {
+        "path": "assets/art/scene/candidates/town-sci_steam_age-clean-center-mask.png",
+        "exists": true,
+        "size": [
+          1024,
+          525
+        ],
+        "mode": "L",
+        "bytes": 11040
+      },
+      "cleanRoi": {
+        "path": "assets/art/scene/candidates/town-sci_steam_age-clean-roi-prototype.png",
+        "exists": true,
+        "size": [
+          1024,
+          525
+        ],
+        "mode": "RGB",
+        "bytes": 1310239
+      },
+      "cleanBoundary": {
+        "originalPixelsExactOutsideMask": true,
+        "maskBoundingBox": [
+          317,
+          0,
+          705,
+          354
+        ],
+        "maskNonzeroPixelFraction": 0.2212
+      },
+      "model": null,
+      "editableSourcePresent": false,
+      "modelPreview": null,
+      "readyForRuntime": false,
+      "runtimeBlockers": [
+        "GLB missing",
+        "seven named picking nodes missing",
+        "phone-size visual acceptance unrecorded",
+        "physical Android ten-minute acceptance unavailable"
+      ]
+    },
+    {
+      "id": "sci_electric_age",
+      "label": "电气",
+      "source": {
+        "id": "sci_electric_age",
+        "label": "电气",
+        "plate": "assets/art/scene/town-sci_electric_age.png",
+        "clean": "assets/art/scene/candidates/town-sci_electric_age-clean-candidate.png",
+        "cleanMaster": "assets/art/source/generated/town-era-clean-candidates/town-sci_electric_age-clean-master.png",
+        "cleanMask": "assets/art/scene/candidates/town-sci_electric_age-clean-center-mask.png",
+        "cleanRoi": "assets/art/scene/candidates/town-sci_electric_age-clean-roi-prototype.png",
+        "silhouette": "Ivory and cobalt civic hall, blue coils and wire gantries",
+        "distinctProps": [
+          "generator house",
+          "insulator towers",
+          "street lamps"
+        ]
+      },
+      "plate": {
+        "path": "assets/art/scene/town-sci_electric_age.png",
+        "exists": true,
+        "size": [
+          1024,
+          525
+        ],
+        "mode": "RGBA",
+        "bytes": 1799824
+      },
+      "clean": {
+        "path": "assets/art/scene/candidates/town-sci_electric_age-clean-candidate.png",
+        "exists": true,
+        "size": [
+          1024,
+          525
+        ],
+        "mode": "RGB",
+        "bytes": 1274001
+      },
+      "cleanMaster": {
+        "path": "assets/art/source/generated/town-era-clean-candidates/town-sci_electric_age-clean-master.png",
+        "exists": true,
+        "size": [
+          1672,
+          941
+        ],
+        "mode": "RGB",
+        "bytes": 3437560
+      },
+      "cleanMask": {
+        "path": "assets/art/scene/candidates/town-sci_electric_age-clean-center-mask.png",
+        "exists": true,
+        "size": [
+          1024,
+          525
+        ],
+        "mode": "L",
+        "bytes": 10792
+      },
+      "cleanRoi": {
+        "path": "assets/art/scene/candidates/town-sci_electric_age-clean-roi-prototype.png",
+        "exists": true,
+        "size": [
+          1024,
+          525
+        ],
+        "mode": "RGB",
+        "bytes": 1312721
+      },
+      "cleanBoundary": {
+        "originalPixelsExactOutsideMask": true,
+        "maskBoundingBox": [
+          321,
+          8,
+          722,
+          378
+        ],
+        "maskNonzeroPixelFraction": 0.2366
+      },
+      "model": null,
+      "editableSourcePresent": false,
+      "modelPreview": null,
+      "readyForRuntime": false,
+      "runtimeBlockers": [
+        "GLB missing",
+        "seven named picking nodes missing",
+        "phone-size visual acceptance unrecorded",
+        "physical Android ten-minute acceptance unavailable"
+      ]
+    },
+    {
+      "id": "sci_nuclear_age",
+      "label": "核能",
+      "source": {
+        "id": "sci_nuclear_age",
+        "label": "核能",
+        "plate": "assets/art/scene/town-sci_nuclear_age.png",
+        "clean": "assets/art/scene/candidates/town-sci_nuclear_age-clean-candidate.png",
+        "cleanMaster": "assets/art/source/generated/town-era-clean-candidates/town-sci_nuclear_age-clean-master.png",
+        "cleanMask": "assets/art/scene/candidates/town-sci_nuclear_age-clean-center-mask.png",
+        "cleanRoi": "assets/art/scene/candidates/town-sci_nuclear_age-clean-roi-prototype.png",
+        "silhouette": "Ivory future arches on surviving stone base with restrained cyan core",
+        "distinctProps": [
+          "clean energy tower",
+          "glass arcade",
+          "river and farm continuity"
+        ]
+      },
+      "plate": {
+        "path": "assets/art/scene/town-sci_nuclear_age.png",
+        "exists": true,
+        "size": [
+          1024,
+          525
+        ],
+        "mode": "RGBA",
+        "bytes": 1781249
+      },
+      "clean": {
+        "path": "assets/art/scene/candidates/town-sci_nuclear_age-clean-candidate.png",
+        "exists": true,
+        "size": [
+          1024,
+          525
+        ],
+        "mode": "RGB",
+        "bytes": 1253004
+      },
+      "cleanMaster": {
+        "path": "assets/art/source/generated/town-era-clean-candidates/town-sci_nuclear_age-clean-master.png",
+        "exists": true,
+        "size": [
+          1672,
+          941
+        ],
+        "mode": "RGB",
+        "bytes": 3345231
+      },
+      "cleanMask": {
+        "path": "assets/art/scene/candidates/town-sci_nuclear_age-clean-center-mask.png",
+        "exists": true,
+        "size": [
+          1024,
+          525
+        ],
+        "mode": "L",
+        "bytes": 10947
+      },
+      "cleanRoi": {
+        "path": "assets/art/scene/candidates/town-sci_nuclear_age-clean-roi-prototype.png",
+        "exists": true,
+        "size": [
+          1024,
+          525
+        ],
+        "mode": "RGB",
+        "bytes": 1291497
+      },
+      "cleanBoundary": {
+        "originalPixelsExactOutsideMask": true,
+        "maskBoundingBox": [
+          328,
+          0,
+          707,
+          379
+        ],
+        "maskNonzeroPixelFraction": 0.2291
+      },
+      "model": null,
+      "editableSourcePresent": false,
+      "modelPreview": null,
+      "readyForRuntime": false,
+      "runtimeBlockers": [
+        "GLB missing",
+        "seven named picking nodes missing",
+        "phone-size visual acceptance unrecorded",
+        "physical Android ten-minute acceptance unavailable"
+      ]
+    }
+  ]
+}

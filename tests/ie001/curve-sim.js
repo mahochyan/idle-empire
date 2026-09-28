@@ -148,7 +148,7 @@ function simulate(policyKey) {
     }
     e.run('tick()');
     // 事件：食物净速率转负（排除开局 t<10 的假报：此时尚未按策略分配村民）；库存见底另记
-    const foodRate = e.run(`(prodRate('food')-totalUpkeep()-popAllocTotal()*(CFG.popFoodCost||0.1)-(${FOOD_DRAIN}))`);
+    const foodRate = e.run(`(Math.max(0,productionSecond(1,false).food)-S.res.food-(${FOOD_DRAIN}))`);
     if (foodRate < 0 && firstNeg < 0 && t >= 10) { firstNeg = t; events.push({ t, ev: `食物净速率转负 (${foodRate.toFixed(2)}/s)` }); }
     if (e.run('S.res.food') <= 1 && !events.some(x => /食物见底/.test(x.ev))) events.push({ t, ev: '食物库存见底（≤1）' });
     // 采样
@@ -157,8 +157,8 @@ function simulate(policyKey) {
       const snap = JSON.parse(e.run(`JSON.stringify({res:S.res,pop:S.popAlloc,cap:storageCapacity(),
         bld:Object.fromEntries(Object.keys(CFG.buildings).map(k=>[k,bldSt(k).lv+(bldSt(k).state==='idle'?'':'*')])),
         sci:S.sciences.slice(),tick:S.tick,popMax:maxPop(),merit:S.merit,army:armyCount(),upkeep:totalUpkeep(),
-        foodRate:(prodRate('food')-totalUpkeep()-popAllocTotal()*(CFG.popFoodCost||0.1)-(${FOOD_DRAIN})),
-        foodRateBasic:(prodRate('food')-totalUpkeep()-popAllocTotal()*(CFG.popFoodCost||0.1)),techCap:resCap('tech')})`));
+        foodRate:(Math.max(0,productionSecond(1,false).food)-S.res.food-(${FOOD_DRAIN})),
+        foodRateBasic:(Math.max(0,productionSecond(1,false).food)-S.res.food),techCap:resCap('tech')})`));
       samples.push({ t: s, ...snap });
     }
   }

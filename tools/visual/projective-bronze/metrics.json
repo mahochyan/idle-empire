@@ -1,0 +1,70 @@
+{
+  "variant": "bronze-projective",
+  "checks": {
+    "allAnglesLoaded": true,
+    "actualDepth": true,
+    "differentRoofNormals": true,
+    "batchedForMobile": true,
+    "generatedTexturesMapped": true,
+    "originalOutsidePreserved": true,
+    "movingLightChangesPixels": true,
+    "visualDefaultMeasured": true
+  },
+  "roofDot": 0.6758242260624283,
+  "results": [
+    {
+      "yaw": -8,
+      "triangles": 480,
+      "closedShells": 37,
+      "generatedFaces": 29,
+      "meshBatches": 5,
+      "drawCalls": 6,
+      "depthRange": [
+        7,
+        97
+      ],
+      "pixelDifference": {
+        "all": 3.111875620039678,
+        "roi": 18.799251428097076,
+        "outside": 0.026946152213818148
+      },
+      "lightDifference": 0.4883978901138694
+    },
+    {
+      "yaw": 0,
+      "triangles": 480,
+      "closedShells": 37,
+      "generatedFaces": 29,
+      "meshBatches": 5,
+      "drawCalls": 6,
+      "depthRange": [
+        7,
+        97
+      ],
+      "pixelDifference": {
+        "all": 0.7335577876984163,
+        "roi": 4.365657000128299,
+        "outside": 0.019303853350962557
+      },
+      "lightDifference": 0.4482866607807159
+    },
+    {
+      "yaw": 8,
+      "triangles": 480,
+      "closedShells": 37,
+      "generatedFaces": 29,
+      "meshBatches": 5,
+      "drawCalls": 6,
+      "depthRange": [
+        7,
+        97
+      ],
+      "pixelDifference": {
+        "all": 3.128643973214337,
+        "roi": 18.901289626393456,
+        "outside": 0.026946152213818148
+      },
+      "lightDifference": 0.48160263811227444
+    }
+  ]
+}

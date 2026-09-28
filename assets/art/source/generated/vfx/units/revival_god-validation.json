@@ -1,0 +1,29 @@
+{
+  "id": "revival_god",
+  "status": "pass",
+  "masterSize": [
+    1254,
+    1254
+  ],
+  "masterAlphaBoxGt8": [
+    47,
+    210,
+    1211,
+    1034
+  ],
+  "runtimeSize": [
+    256,
+    256
+  ],
+  "runtimeAlphaBoxGt8": [
+    10,
+    17,
+    247,
+    239
+  ],
+  "runtimeSha256": "2cff72cd2868c57d596cb1f0569a36558254d9c620f7b8c6e24fb75a88c1b367",
+  "uniqueAgainstOtherRuntimeVfx": true,
+  "editableSvgPerIdMaster": true,
+  "rank": 5,
+  "preview": "hd2d-previews/qa-vfx-revival-god-64.png"
+}

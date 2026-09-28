@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="256" height="256" viewBox="0 0 256 256">
+<!-- infantry_spear: per-ID painted core + straight trail + pierce mark + rank 3 -->
+<g shape-rendering="crispEdges"><circle cx="128" cy="128" r="54" fill="none" stroke="#FFD4A3" stroke-width="3" stroke-dasharray="14 12 7 17" opacity="0.3"/></g>
+<g opacity="0.57"><g shape-rendering="crispEdges"><polyline points="24,171 56,167 85,153 125,147 174,135" fill="none" stroke="#FFD4A3" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter" opacity="0.84"/><polyline points="40,182 81,170 117,156 159,150" fill="none" stroke="#FFF3D9" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter" opacity="0.68"/></g></g>
+<g data-unit="infantry_spear" data-art-source="per-id" transform="translate(12.80 12.80) scale(0.90)"><image href="../../generated/vfx/units/infantry_spear-master.png" xlink:href="../../generated/vfx/units/infantry_spear-master.png" x="0" y="0" width="256" height="256" preserveAspectRatio="xMidYMid meet"/></g>
+
+<g shape-rendering="crispEdges" opacity=".83"><path d="M179 119 L205 127 L179 135 L186 127 Z" fill="#FFD4A3" stroke="#FFF3D9" stroke-width="2"/></g>
+<g shape-rendering="crispEdges"><rect x="119" y="184" width="5" height="5" fill="#FFF3D9" opacity="0.86"/><rect x="187" y="158" width="3" height="3" fill="#FFD4A3" opacity="0.68"/><rect x="203" y="144" width="3" height="3" fill="#FFD4A3" opacity="0.86"/><rect x="45" y="86" width="3" height="3" fill="#FFF3D9" opacity="0.68"/><rect x="209" y="208" width="5" height="5" fill="#FFD4A3" opacity="0.86"/><rect x="143" y="62" width="3" height="3" fill="#FFD4A3" opacity="0.68"/><rect x="42" y="168" width="3" height="3" fill="#FFF3D9" opacity="0.86"/><rect x="82" y="126" width="3" height="3" fill="#FFD4A3" opacity="0.68"/><rect x="169" y="204" width="5" height="5" fill="#FFD4A3" opacity="0.86"/></g>
+</svg>

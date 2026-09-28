@@ -1,0 +1,74 @@
+{
+  "variant": "alloy-projective",
+  "checks": {
+    "allAnglesLoaded": true,
+    "actualDepth": true,
+    "differentRoofNormals": true,
+    "batchedForMobile": true,
+    "generatedTexturesMapped": true,
+    "originalOutsidePreserved": true,
+    "movingLightChangesPixels": true,
+    "visualDefaultMeasured": true
+  },
+  "roofDot": 0.8807085182877337,
+  "artReview": "candidate-only: 8-degree silhouette and roof seams need repaint",
+  "results": [
+    {
+      "yaw": -8,
+      "triangles": 888,
+      "closedShells": 73,
+      "generatedFaces": 367,
+      "meshBatches": 5,
+      "drawCalls": 6,
+      "depthRange": [
+        8,
+        119
+      ],
+      "pixelDifference": {
+        "all": 3.768218005952397,
+        "roi": 39.50309120033912,
+        "outside": 0.07490596732903432
+      },
+      "lightDifference": 0.8940717793928791,
+      "domeLightDifference": 2.2718489240228354
+    },
+    {
+      "yaw": 0,
+      "triangles": 888,
+      "closedShells": 73,
+      "generatedFaces": 367,
+      "meshBatches": 5,
+      "drawCalls": 6,
+      "depthRange": [
+        8,
+        119
+      ],
+      "pixelDifference": {
+        "all": 0.6708302331349294,
+        "roi": 6.984537379032847,
+        "outside": 0.01828865327701638
+      },
+      "lightDifference": 0.15678409256390888,
+      "domeLightDifference": 1.492973210364513
+    },
+    {
+      "yaw": 8,
+      "triangles": 888,
+      "closedShells": 73,
+      "generatedFaces": 367,
+      "meshBatches": 5,
+      "drawCalls": 6,
+      "depthRange": [
+        8,
+        119
+      ],
+      "pixelDifference": {
+        "all": 3.7842974950396946,
+        "roi": 39.67474879860205,
+        "outside": 0.07490596732903432
+      },
+      "lightDifference": 0.84232892489773,
+      "domeLightDifference": 1.2989679402722862
+    }
+  ]
+}

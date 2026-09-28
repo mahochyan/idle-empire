@@ -1,0 +1,15 @@
+{
+  "tool": "built-in image_gen",
+  "status": "Integrated: six per-ID masters have matching runtime PNGs and editable SVGs; prior runtime PNGs are preserved in previous-runtime-batch4.",
+  "sourceReferences": "Each prompt used the matching original project portrait at assets/art/units/hires/<id>.png as equipment and era reference only.",
+  "provenance": "New game-effect images generated for 放置帝国 from project portraits; no third-party game image was supplied as reference. Keep these prompts with the transparent PNG masters for future edits.",
+  "commonPrompt": "Create one isolated transparent RGBA HD-2D pixel-art attack effect for a bright portrait mobile game. Match the supplied original unit portrait's equipment and technological rank, but draw no character, face, scenery, floor, backdrop, text, watermark, border, or UI. Center one directional cutout with transparent margins, crisp stepped pixel clusters and a silhouette readable at 64 px. Avoid smooth blur and soft airbrush.",
+  "subjects": {
+    "infantry_sword": "Rank 3 heavy greatsword: broad polished silver-white diagonal sword plane from upper-left to lower-right, two short blue speed wedges, warm metal sparks and a decisive weighty edge; clear upgrade from ordinary infantry slash, no flames or oversized magic.",
+    "infantry_fortress": "Rank 4 fortress infantry: massive teal-steel shield-bash pressure front with battlement-toothed silhouette, layered plate facets, mint-white collision edge and restrained gold flecks; one defensive impact rather than a sword slash or generic circular burst.",
+    "archer_silverbow": "Rank 3 precise silver-bow shot: moon-white arrowhead and tiny silver crescent signature, narrow pale-blue/mint speed ribbon and sparse diamond glints; delicate exact trajectory, not an arrow storm or magic explosion.",
+    "archer_longbow": "Rank 4 long-range shot: exceptionally long dark yew-and-steel arrow, warm ivory point, stretched sky-blue wind wake, two thin staggered speed echoes and restrained golden release accent; strong horizontal direction, distinct from the silver crescent arrow.",
+    "cavalry_iron": "Rank 3 heavy iron cavalry impact: diagonal charcoal-steel lance wedge, four interlocking rectangular armor-plate echoes, compressed horseshoe-like kinetic crescent and ochre stone chips; mass and force without ornate magic.",
+    "cavalry_dragon": "Rank 4 dragon cavalry attack: angular gold lance-tip streak leading an S-shaped orange-red dragonfire plume, bright ivory core, few cyan edge sparks and diamond embers; mounted thrust silhouette, no dragon body or generic mage bolt."
+  }
+}

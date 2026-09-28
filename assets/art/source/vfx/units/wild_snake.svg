@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="256" height="256" viewBox="0 0 256 256">
+<!-- wild_snake: per-ID painted core + zigzag trail + venom mark + rank 2 -->
+
+<g opacity="0.38"><g shape-rendering="crispEdges"><polyline points="31,179 68,145 61,134 112,139 122,119 182,112" fill="none" stroke="#A9D194" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter" opacity="0.84"/><polyline points="46,195 83,164 92,171 128,151 160,158" fill="none" stroke="#E7F6D8" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter" opacity="0.75"/></g></g>
+<g data-unit="wild_snake" data-art-source="per-id" transform="translate(19.20 19.20) scale(0.85)"><image href="../../generated/vfx/units/wild_snake-master.png" xlink:href="../../generated/vfx/units/wild_snake-master.png" x="0" y="0" width="256" height="256"/></g>
+
+<g shape-rendering="crispEdges" opacity=".85"><path d="M183 115 L188 125 L178 125 Z M196 120 L202 133 L190 133 Z" fill="#A9D194" stroke="#E7F6D8" stroke-width="2"/></g>
+<g shape-rendering="crispEdges"><rect x="174" y="128" width="5" height="5" fill="#E7F6D8" opacity="0.86"/><rect x="145" y="170" width="3" height="3" fill="#A9D194" opacity="0.68"/><rect x="110" y="124" width="3" height="3" fill="#A9D194" opacity="0.86"/><rect x="187" y="218" width="3" height="3" fill="#E7F6D8" opacity="0.68"/><rect x="42" y="96" width="5" height="5" fill="#A9D194" opacity="0.86"/><rect x="62" y="50" width="3" height="3" fill="#A9D194" opacity="0.68"/><rect x="141" y="52" width="3" height="3" fill="#E7F6D8" opacity="0.86"/></g>
+</svg>

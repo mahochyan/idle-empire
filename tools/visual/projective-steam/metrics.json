@@ -1,0 +1,77 @@
+{
+  "variant": "steam-projective",
+  "checks": {
+    "allAnglesLoaded": true,
+    "actualDepth": true,
+    "differentRoofNormals": true,
+    "batchedForMobile": true,
+    "brickAndSlateSideUVs": true,
+    "clockChimneyAndPipes": true,
+    "originalOutsidePreserved": true,
+    "movingLightChangesPixels": true,
+    "referenceViewMeasured": true
+  },
+  "minRoofDot": 0.0011940146086031889,
+  "results": [
+    {
+      "yaw": -8,
+      "triangles": 784,
+      "closedShells": 63,
+      "paintedFaces": 42,
+      "sideFaces": 172,
+      "meshBatches": 7,
+      "drawCalls": 8,
+      "depthRange": [
+        4,
+        116
+      ],
+      "pixelDifference": {
+        "all": 3.9414986359126964,
+        "roi": 29.77888092173804,
+        "outside": 0.028645392698826773
+      },
+      "lightDifference": 0.10082924368638625,
+      "clockLightDifference": 0.10600640882331029
+    },
+    {
+      "yaw": 0,
+      "triangles": 784,
+      "closedShells": 63,
+      "paintedFaces": 42,
+      "sideFaces": 172,
+      "meshBatches": 7,
+      "drawCalls": 8,
+      "depthRange": [
+        4,
+        116
+      ],
+      "pixelDifference": {
+        "all": 0.2626705109126997,
+        "roi": 1.8748120176691738,
+        "outside": 0.018525300943328202
+      },
+      "lightDifference": 0.014567157424300262,
+      "clockLightDifference": 0.0329011103658991
+    },
+    {
+      "yaw": 8,
+      "triangles": 784,
+      "closedShells": 63,
+      "paintedFaces": 42,
+      "sideFaces": 172,
+      "meshBatches": 7,
+      "drawCalls": 8,
+      "depthRange": [
+        4,
+        116
+      ],
+      "pixelDifference": {
+        "all": 3.9221279761904726,
+        "roi": 29.631601774458975,
+        "outside": 0.028645392698826773
+      },
+      "lightDifference": 0.10810339381767962,
+      "clockLightDifference": 0.1640956852224457
+    }
+  ]
+}

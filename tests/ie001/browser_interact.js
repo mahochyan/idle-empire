@@ -10,7 +10,7 @@ reaper.sweepHeadless();
 const EDGE = ['C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe', 'C:\\Program Files\\Microsoft\\Edge\\Application\\msedge.exe'].find(p => fs.existsSync(p));
 if (!EDGE) { console.log('NO_BROWSER'); process.exit(2); }
 const PORT = 9300 + Math.floor(Math.random() * 900), udd = path.join(os.tmpdir(), 'ie001-i-' + Date.now());
-const ASSETS = path.join(__dirname, '..', '..', 'docs', 'codex', 'reports', 'assets');
+const ASSETS = process.env.IE001_SCREENSHOT_DIR || path.join(__dirname, '..', '..', 'docs', 'codex', 'reports', 'assets');
 function killEdgeTree(pid){ // 同步全树击杀 + 二次清扫 + 回收 profile
   try { reaper.killTreeSync(pid); } catch (e) { }
   try { reaper.sweepHeadless(true); } catch (e) { }
@@ -42,6 +42,12 @@ async function clickBySelector(findExpr, tag) {
   await sleep(200);
   return true;
 }
+async function clickSettingsViaMenu(tag) {
+  const opened=await clickBySelector("document.getElementById('utility-toggle')", '更多'+tag);
+  const menuVisible=opened&&await evalJs("!document.getElementById('utility-menu').hidden&&document.getElementById('utility-toggle').getAttribute('aria-expanded')==='true'");
+  const clicked=menuVisible&&await clickBySelector("document.getElementById('utility-settings')", '设置'+tag);
+  return {opened,menuVisible,clicked};
+}
 async function shot(name) {
   const s = await send('Page.captureScreenshot', { format: 'png' });
   fs.writeFileSync(path.join(ASSETS, name + '.png'), Buffer.from(s.data, 'base64'));
@@ -68,10 +74,10 @@ async function shot(name) {
   test('T1 窄屏视口 360×800 生效', vw === 360 && vh === 800, `${vw}x${vh}`);
   test('T1 窄屏无横向溢出(documentElement.scrollWidth<=innerWidth)', await evalJs('document.documentElement.scrollWidth<=window.innerWidth'));
   await shot('S14-01-home-360');
-  // T2 设置入口真实点击（主页底部按钮，滚动后真实坐标点击）
-  const BTN_SETTINGS = "[...document.querySelectorAll('button')].find(x=>x.textContent.includes('设置'))";
-  const clicked = await clickBySelector(BTN_SETTINGS, '设置');
-  test('T2 设置按钮在 360 宽下滚动后可见可点', clicked);
+  // T2 顶部次级入口真实点击：更多 → 设置与存档。
+  const settingsPath=await clickSettingsViaMenu('');
+  test('T2 更多菜单与设置按钮在 360 宽下可见可点',
+    settingsPath.opened&&settingsPath.menuVisible&&settingsPath.clicked,JSON.stringify(settingsPath));
   test('T2 真实坐标点击打开设置弹窗', await evalJs("document.getElementById('settings-modal').classList.contains('active')"));
   test('T2 弹窗含存档管理卡片', await evalJs("document.getElementById('settings-content').innerHTML.includes('存档管理')"));
   await shot('S14-02-settings-360');
@@ -107,7 +113,10 @@ async function shot(name) {
   // T6 保护模式下导出原文（真实点击入口）
   await evalJs("localStorage.setItem('rts_save','BROKEN{{');'ok'");
   await send('Page.reload'); await sleep(2500);
-  await clickBySelector(BTN_SETTINGS, '设置(保护模式)');
+  const protectedSettingsPath=await clickSettingsViaMenu('(保护模式)');
+  test('T6 保护模式仍可经更多菜单进入设置',
+    protectedSettingsPath.opened&&protectedSettingsPath.menuVisible&&protectedSettingsPath.clicked,
+    JSON.stringify(protectedSettingsPath));
   test('T6 保护模式下设置弹窗横幅可见', await evalJs("document.getElementById('settings-content').textContent.includes('存档保护模式')"));
   const gotRaw = await clickBySelector("[...document.querySelectorAll('#settings-content button')].find(x=>x.textContent.includes('导出主档原文'))", '导出主档原文');
   test('T6 保护模式提供并点得动“导出主档原文”按钮', gotRaw);
@@ -131,7 +140,7 @@ async function shot(name) {
   const gotCommit = await clickBySelector("[...document.querySelectorAll('#import-preview button')].find(x=>x.textContent.includes('确认覆盖导入'))", '确认覆盖导入');
   test('T8 确认按钮在 360 宽下可见可点', gotCommit);
   await sleep(2500);
-  test('T8 导入确认后主档写入 v3（真实重载生效）', await evalJs("(()=>{try{return JSON.parse(localStorage.getItem('rts_save')).v===3}catch(e){return false}})()") && (await evalJs('S.defeated.length')) === 3);
+  test('T8 导入确认后主档写入 v32（真实重载生效）', await evalJs("(()=>{try{return JSON.parse(localStorage.getItem('rts_save')).v===32}catch(e){return false}})()") && (await evalJs('S.defeated.length')) === 3);
   // T9 恢复确认双路径：accept→重载回滚进度；dismiss→保持现状
   await evalJs("S.merit=123;save();'ok'"); await sleep(300); // 轮转备份：backup_1=导入档(merit5)
   await evalJs("S.merit=456;save();'ok'"); await sleep(300);
@@ -158,7 +167,7 @@ async function shot(name) {
   await shot('S14-06-final-360');
   const vp = { vw, vh };
   console.log('视口：' + vp.vw + 'x' + vp.vh + '（Edge 视口模拟，非实体手机）');
-  console.log('截图输出目录：docs/codex/reports/assets/');
+  console.log('截图输出目录：' + ASSETS);
   for (const r of rows) console.log(r);
   console.log('\n浏览器异常列表：' + (exceptions.length ? exceptions.join('\n') : '（空）'));
   console.log('node ' + process.version + ' + Edge(headless=new) CDP | 通过 ' + pass + ' / 失败 ' + fail);

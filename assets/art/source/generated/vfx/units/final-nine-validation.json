@@ -1,0 +1,832 @@
+{
+  "status": "integrated: all nine final per-ID ImageGen masters have runtime PNGs and editable SVGs",
+  "method": "Pillow PNG/RGBA, SHA-256 equality/difference, alpha margins, 64px light/dark visual review",
+  "visualReview": {
+    "archer_shadowblade": "Two broad steel crescents and blue-green shards read apart from rank-3 assassin's compact X.",
+    "mage_time": "A single brass clock ring with a cyan bolt reads as rank-3 time magic.",
+    "mage_space": "A fractured violet portal and forward lance read apart from the time clock.",
+    "mage_chrono": "Double brass-cyan clock wheels, hourglass and three lances are visibly grander than mage_time; edited to restore clear margins.",
+    "mage_merlin": "Gold five-point star and faceted sapphire spear read apart from both spatial portal and clockwork.",
+    "god_crystal_guard": "Rank-4 turquoise diamond and octagonal shield counterpulse read on both grounds.",
+    "phantom_god": "Rank-5 violet prism lance and staggered afterimages make a separate optical silhouette; tiny shards merge at 64px.",
+    "guardian_god": "Rank-5 rectangular bastion shield and two thick square pressure waves read heavier than the octagonal crystal guard; right-side gold is delicate on the light ground.",
+    "slaughter_god": "Rank-5 crimson triple cut converges at a clear impact star and differs from shields and lances."
+  },
+  "units": {
+    "archer_shadowblade": {
+      "rank": 4,
+      "master": {
+        "path": "assets/art/source/generated/vfx/units/archer_shadowblade-master.png",
+        "sha256": "cd8fa1949984d49057c521ec4880391b86b37aec85f7ead25b63e219f2d71009",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          57,
+          52,
+          1224,
+          1196
+        ],
+        "visibleFraction": 0.1345,
+        "borderClear": true,
+        "meaningfulAlphaBBox": [
+          199,
+          194,
+          1170,
+          1094
+        ]
+      },
+      "candidate": {
+        "path": "hd2d-previews/vfx-final-nine-candidates/archer_shadowblade.png",
+        "sha256": "f6c24977e394c85737d8c7537185cc73cfc295789b80fc7f5467dda8a12866c8",
+        "dimensions": [
+          256,
+          256
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          17,
+          43,
+          235,
+          236
+        ],
+        "visibleFraction": 0.1461,
+        "borderClear": true
+      },
+      "runtime": {
+        "path": "assets/art/vfx/units/archer_shadowblade.png",
+        "sha256": "f6c24977e394c85737d8c7537185cc73cfc295789b80fc7f5467dda8a12866c8",
+        "dimensions": [
+          256,
+          256
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          17,
+          43,
+          235,
+          236
+        ],
+        "visibleFraction": 0.1461,
+        "borderClear": true
+      },
+      "previousRuntime": {
+        "path": "assets/art/source/generated/vfx/units/previous-runtime-final9/archer_shadowblade.png",
+        "sha256": "210fc5729f1e8b42a831263e4f1936bb2c4fd507718f65b55357379009700471",
+        "dimensions": [
+          256,
+          256
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          1,
+          13,
+          250,
+          247
+        ],
+        "visibleFraction": 0.3574,
+        "borderClear": true
+      },
+      "editableSource": "assets/art/source/vfx/units/archer_shadowblade.svg"
+    },
+    "mage_time": {
+      "rank": 3,
+      "master": {
+        "path": "assets/art/source/generated/vfx/units/mage_time-master.png",
+        "sha256": "36e8913bf7411ebefa2483f00b5a08a97918a5ed0a074a801b5954c55858aee5",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          0,
+          21,
+          1233,
+          1200
+        ],
+        "visibleFraction": 0.1667,
+        "borderClear": false,
+        "meaningfulAlphaBBox": [
+          55,
+          333,
+          1221,
+          885
+        ]
+      },
+      "candidate": {
+        "path": "hd2d-previews/vfx-final-nine-candidates/mage_time.png",
+        "sha256": "a67d622386fc469824bc4dcd57c249798a31cce5afc2f677f23f329de038775e",
+        "dimensions": [
+          256,
+          256
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          20,
+          22,
+          239,
+          233
+        ],
+        "visibleFraction": 0.151,
+        "borderClear": true
+      },
+      "runtime": {
+        "path": "assets/art/vfx/units/mage_time.png",
+        "sha256": "a67d622386fc469824bc4dcd57c249798a31cce5afc2f677f23f329de038775e",
+        "dimensions": [
+          256,
+          256
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          20,
+          22,
+          239,
+          233
+        ],
+        "visibleFraction": 0.151,
+        "borderClear": true
+      },
+      "previousRuntime": {
+        "path": "assets/art/source/generated/vfx/units/previous-runtime-final9/mage_time.png",
+        "sha256": "89ecb615537d6222c1119ff6ef5b804e96334e2e4f9c4e83f90678396d5f4ad7",
+        "dimensions": [
+          256,
+          256
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          19,
+          33,
+          238,
+          221
+        ],
+        "visibleFraction": 0.1841,
+        "borderClear": true
+      },
+      "editableSource": "assets/art/source/vfx/units/mage_time.svg"
+    },
+    "mage_space": {
+      "rank": 3,
+      "master": {
+        "path": "assets/art/source/generated/vfx/units/mage_space-master.png",
+        "sha256": "7fc6e916304df4097c28a50d5682c4b1f265272a495ace6ea7cf34d027cf42f6",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          0,
+          21,
+          1236,
+          1200
+        ],
+        "visibleFraction": 0.2119,
+        "borderClear": false,
+        "meaningfulAlphaBBox": [
+          62,
+          267,
+          1216,
+          1022
+        ]
+      },
+      "candidate": {
+        "path": "hd2d-previews/vfx-final-nine-candidates/mage_space.png",
+        "sha256": "7d22c3b3be0a74cfbf0c38b2f6f1d50438c79ef7ca7e34c6126deea4bfd6ea5f",
+        "dimensions": [
+          256,
+          256
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          24,
+          38,
+          238,
+          233
+        ],
+        "visibleFraction": 0.1848,
+        "borderClear": true
+      },
+      "runtime": {
+        "path": "assets/art/vfx/units/mage_space.png",
+        "sha256": "7d22c3b3be0a74cfbf0c38b2f6f1d50438c79ef7ca7e34c6126deea4bfd6ea5f",
+        "dimensions": [
+          256,
+          256
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          24,
+          38,
+          238,
+          233
+        ],
+        "visibleFraction": 0.1848,
+        "borderClear": true
+      },
+      "previousRuntime": {
+        "path": "assets/art/source/generated/vfx/units/previous-runtime-final9/mage_space.png",
+        "sha256": "92b83d64137fa92aaf6fe9ef5a498763e775fc76eeb267d44ede9650f4a560cb",
+        "dimensions": [
+          256,
+          256
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          5,
+          31,
+          238,
+          224
+        ],
+        "visibleFraction": 0.2228,
+        "borderClear": true
+      },
+      "editableSource": "assets/art/source/vfx/units/mage_space.svg"
+    },
+    "mage_chrono": {
+      "rank": 4,
+      "master": {
+        "path": "assets/art/source/generated/vfx/units/mage_chrono-master.png",
+        "sha256": "de53490ef70b4a12e125941f7be1a63e9400d41c81fd5d26470bbb71cc946479",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          0,
+          21,
+          1232,
+          1254
+        ],
+        "visibleFraction": 0.2941,
+        "borderClear": false,
+        "meaningfulAlphaBBox": [
+          110,
+          254,
+          1164,
+          1004
+        ]
+      },
+      "candidate": {
+        "path": "hd2d-previews/vfx-final-nine-candidates/mage_chrono.png",
+        "sha256": "73ffec8221a050f6b2cb79b29b21bda70ccc650d0f5f1be2034ef11537e0a544",
+        "dimensions": [
+          256,
+          256
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          25,
+          16,
+          238,
+          239
+        ],
+        "visibleFraction": 0.2729,
+        "borderClear": true
+      },
+      "runtime": {
+        "path": "assets/art/vfx/units/mage_chrono.png",
+        "sha256": "73ffec8221a050f6b2cb79b29b21bda70ccc650d0f5f1be2034ef11537e0a544",
+        "dimensions": [
+          256,
+          256
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          25,
+          16,
+          238,
+          239
+        ],
+        "visibleFraction": 0.2729,
+        "borderClear": true
+      },
+      "previousRuntime": {
+        "path": "assets/art/source/generated/vfx/units/previous-runtime-final9/mage_chrono.png",
+        "sha256": "e8e37821965ab9a9ae5a8a5cd2d2b80a26e523577556a02513af7b112867d063",
+        "dimensions": [
+          256,
+          256
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          13,
+          35,
+          244,
+          236
+        ],
+        "visibleFraction": 0.2598,
+        "borderClear": true
+      },
+      "editableSource": "assets/art/source/vfx/units/mage_chrono.svg"
+    },
+    "mage_merlin": {
+      "rank": 4,
+      "master": {
+        "path": "assets/art/source/generated/vfx/units/mage_merlin-master.png",
+        "sha256": "dfd77a6df0fe74316061538d65e0884d65f8394d2cacbfdd955877722fd2881e",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          0,
+          21,
+          1238,
+          1199
+        ],
+        "visibleFraction": 0.1965,
+        "borderClear": false,
+        "meaningfulAlphaBBox": [
+          30,
+          258,
+          1235,
+          949
+        ]
+      },
+      "candidate": {
+        "path": "hd2d-previews/vfx-final-nine-candidates/mage_merlin.png",
+        "sha256": "f34c05756167c6ad00b4a9af6c62941369799e381e475688defd630cd85b0f94",
+        "dimensions": [
+          256,
+          256
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          11,
+          25,
+          246,
+          239
+        ],
+        "visibleFraction": 0.1958,
+        "borderClear": true
+      },
+      "runtime": {
+        "path": "assets/art/vfx/units/mage_merlin.png",
+        "sha256": "f34c05756167c6ad00b4a9af6c62941369799e381e475688defd630cd85b0f94",
+        "dimensions": [
+          256,
+          256
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          11,
+          25,
+          246,
+          239
+        ],
+        "visibleFraction": 0.1958,
+        "borderClear": true
+      },
+      "previousRuntime": {
+        "path": "assets/art/source/generated/vfx/units/previous-runtime-final9/mage_merlin.png",
+        "sha256": "b982ee9fe9214100afa8bd28fa5ed718ac12caf01fcc2416ae2eabda20106e31",
+        "dimensions": [
+          256,
+          256
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          13,
+          19,
+          244,
+          236
+        ],
+        "visibleFraction": 0.2517,
+        "borderClear": true
+      },
+      "editableSource": "assets/art/source/vfx/units/mage_merlin.svg"
+    },
+    "god_crystal_guard": {
+      "rank": 4,
+      "master": {
+        "path": "assets/art/source/generated/vfx/units/god_crystal_guard-master.png",
+        "sha256": "9e4b8da864795c4639323a2f02e0a3c544bbe5b9f420be3fc720135c6ee2cfab",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          0,
+          0,
+          1206,
+          1216
+        ],
+        "visibleFraction": 0.366,
+        "borderClear": false,
+        "meaningfulAlphaBBox": [
+          99,
+          140,
+          1168,
+          1112
+        ]
+      },
+      "candidate": {
+        "path": "hd2d-previews/vfx-final-nine-candidates/god_crystal_guard.png",
+        "sha256": "c4663154b024c7fcf45f258d47a5c19decd50d8e5d567bc7e1aead680c9c490e",
+        "dimensions": [
+          256,
+          256
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          25,
+          16,
+          238,
+          233
+        ],
+        "visibleFraction": 0.3406,
+        "borderClear": true
+      },
+      "runtime": {
+        "path": "assets/art/vfx/units/god_crystal_guard.png",
+        "sha256": "c4663154b024c7fcf45f258d47a5c19decd50d8e5d567bc7e1aead680c9c490e",
+        "dimensions": [
+          256,
+          256
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          25,
+          16,
+          238,
+          233
+        ],
+        "visibleFraction": 0.3406,
+        "borderClear": true
+      },
+      "previousRuntime": {
+        "path": "assets/art/source/generated/vfx/units/previous-runtime-final9/god_crystal_guard.png",
+        "sha256": "8793602662053355bcc79277865962ef0783e9c993234e4c5340d8ac0abd32ef",
+        "dimensions": [
+          256,
+          256
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          13,
+          33,
+          244,
+          236
+        ],
+        "visibleFraction": 0.2207,
+        "borderClear": true
+      },
+      "editableSource": "assets/art/source/vfx/units/god_crystal_guard.svg"
+    },
+    "phantom_god": {
+      "rank": 5,
+      "master": {
+        "path": "assets/art/source/generated/vfx/units/phantom_god-master.png",
+        "sha256": "82b852d537996f9fda96872fff3b6df7ae46e1b7c10e4d07a7193a0025766560",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          0,
+          52,
+          1236,
+          1186
+        ],
+        "visibleFraction": 0.1311,
+        "borderClear": false,
+        "meaningfulAlphaBBox": [
+          103,
+          387,
+          1140,
+          904
+        ]
+      },
+      "candidate": {
+        "path": "hd2d-previews/vfx-final-nine-candidates/phantom_god.png",
+        "sha256": "a39deb706c3c938b1bae4cb6697b0897be22b1b6c4369f00bec54cb76e8159f5",
+        "dimensions": [
+          256,
+          256
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          17,
+          17,
+          251,
+          239
+        ],
+        "visibleFraction": 0.1806,
+        "borderClear": true
+      },
+      "runtime": {
+        "path": "assets/art/vfx/units/phantom_god.png",
+        "sha256": "a39deb706c3c938b1bae4cb6697b0897be22b1b6c4369f00bec54cb76e8159f5",
+        "dimensions": [
+          256,
+          256
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          17,
+          17,
+          251,
+          239
+        ],
+        "visibleFraction": 0.1806,
+        "borderClear": true
+      },
+      "previousRuntime": {
+        "path": "assets/art/source/generated/vfx/units/previous-runtime-final9/phantom_god.png",
+        "sha256": "3aa12beef57e4f39bba5f370130ffbfb46d272aec0db79acbd767392f20f69d7",
+        "dimensions": [
+          256,
+          256
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          0,
+          17,
+          250,
+          239
+        ],
+        "visibleFraction": 0.25,
+        "borderClear": false
+      },
+      "editableSource": "assets/art/source/vfx/units/phantom_god.svg"
+    },
+    "guardian_god": {
+      "rank": 5,
+      "master": {
+        "path": "assets/art/source/generated/vfx/units/guardian_god-master.png",
+        "sha256": "f68086253d597593aa5c5fe13c680d3c5bdd19dd96acf7ddf90be21d6fb2b404",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          0,
+          21,
+          1234,
+          1254
+        ],
+        "visibleFraction": 0.364,
+        "borderClear": false,
+        "meaningfulAlphaBBox": [
+          80,
+          219,
+          1204,
+          1024
+        ]
+      },
+      "candidate": {
+        "path": "hd2d-previews/vfx-final-nine-candidates/guardian_god.png",
+        "sha256": "af6aab904f31b5f49ea36227c0a2fda45dd7b8f3d1754cfbbc4fa114a01528f0",
+        "dimensions": [
+          256,
+          256
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          16,
+          16,
+          246,
+          251
+        ],
+        "visibleFraction": 0.3814,
+        "borderClear": true
+      },
+      "runtime": {
+        "path": "assets/art/vfx/units/guardian_god.png",
+        "sha256": "af6aab904f31b5f49ea36227c0a2fda45dd7b8f3d1754cfbbc4fa114a01528f0",
+        "dimensions": [
+          256,
+          256
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          16,
+          16,
+          246,
+          251
+        ],
+        "visibleFraction": 0.3814,
+        "borderClear": true
+      },
+      "previousRuntime": {
+        "path": "assets/art/source/generated/vfx/units/previous-runtime-final9/guardian_god.png",
+        "sha256": "eb24f99c381088520c027ddd51f7f0d8e5a4174e869d165b52e9adcefb17c5cc",
+        "dimensions": [
+          256,
+          256
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          8,
+          17,
+          249,
+          241
+        ],
+        "visibleFraction": 0.2262,
+        "borderClear": true
+      },
+      "editableSource": "assets/art/source/vfx/units/guardian_god.svg"
+    },
+    "slaughter_god": {
+      "rank": 5,
+      "master": {
+        "path": "assets/art/source/generated/vfx/units/slaughter_god-master.png",
+        "sha256": "712a6987969bce77379e4ca9f98a5c4c91f13a53f183f66eec559436c5d7dc34",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          97,
+          21,
+          1218,
+          1202
+        ],
+        "visibleFraction": 0.1837,
+        "borderClear": true,
+        "meaningfulAlphaBBox": [
+          153,
+          198,
+          1118,
+          1081
+        ]
+      },
+      "candidate": {
+        "path": "hd2d-previews/vfx-final-nine-candidates/slaughter_god.png",
+        "sha256": "736c600ed24292f4fe6c9a746876b3d5d50416a0ab6addb763f00b49c46f2563",
+        "dimensions": [
+          256,
+          256
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          17,
+          17,
+          239,
+          240
+        ],
+        "visibleFraction": 0.2287,
+        "borderClear": true
+      },
+      "runtime": {
+        "path": "assets/art/vfx/units/slaughter_god.png",
+        "sha256": "736c600ed24292f4fe6c9a746876b3d5d50416a0ab6addb763f00b49c46f2563",
+        "dimensions": [
+          256,
+          256
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          17,
+          17,
+          239,
+          240
+        ],
+        "visibleFraction": 0.2287,
+        "borderClear": true
+      },
+      "previousRuntime": {
+        "path": "assets/art/source/generated/vfx/units/previous-runtime-final9/slaughter_god.png",
+        "sha256": "16fbbe70fcad7f09b371474aed636ad6a7f904deb1bc30e32f7c930808aa3f68",
+        "dimensions": [
+          256,
+          256
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          3,
+          6,
+          256,
+          252
+        ],
+        "visibleFraction": 0.3098,
+        "borderClear": false
+      },
+      "editableSource": "assets/art/source/vfx/units/slaughter_god.svg"
+    }
+  },
+  "allConfiguredUnits": {
+    "count": 45,
+    "uniqueRuntimePngHashes": 45,
+    "uniqueMasterPngHashes": 45
+  }
+}

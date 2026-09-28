@@ -1,0 +1,15 @@
+{
+  "tool": "built-in image_gen",
+  "status": "Integrated: six per-ID masters have matching runtime PNGs and editable SVGs; prior runtime PNGs are preserved in previous-runtime-batch5.",
+  "sourceReferences": "Each prompt used the matching original project unit portrait at assets/art/units/hires/<id>.png as equipment, era and palette reference only; no character was requested in the effect.",
+  "provenance": "Original transparent game-effect images generated for 放置帝国 from this project's own unit portraits. No third-party game image was supplied as a reference. Preserve these prompts with the source PNG masters for future edits.",
+  "commonPrompt": "Create one isolated bright-daylight HD-2D pixel-art attack VFX master on a genuine transparent RGBA square canvas with safe margins. Keep a single weapon or spell identity, crisp hard-edged pixel clusters and a silhouette intended to read at 64px. Do not depict a character, face, scenery, floor, background, text, watermark, UI, frame, blur or soft airbrush.",
+  "subjects": {
+    "infantry_ironrose": "Rank 4 elite counter-thrust: up-right long polished iron spearhead with layered iron-rose petal guard, dark steel shaft, ivory edge, rose-red accents and a split piercing pressure trail. A second imagegen edit broadened the spearhead and four metal petal wings, thickened the ivory-crimson compression wedge and added square rose-red chips so its 64px rank-4 silhouette exceeds the rank-3 gold-winged squire spear without becoming a sword arc.",
+    "infantry_bloodrose": "Rank 4 shield-breaking sword attack: two opposing broad silver blade flashes crossing as rose-petal arcs, burgundy central cut, angular shattered-shield chips on the right, ivory-hot sword edges and warm rose-red slash ribbons. A sword cut rather than a spear thrust or magic orb.",
+    "archer_assassin": "Rank 3 twin-blade assassin: two compact polished dagger-cut crescents crossing into an asymmetric X, one teal and one lavender, with open space and a tiny ivory impact spark. No bow or arrow; smaller and faster than the elite bloodrose double slash.",
+    "archer_genoese": "Rank 4 Genoese heavy crossbow shot: left-to-right thick short wood-and-steel quarrel with square iron collar segments, massive four-sided steel bodkin, ivory nose pressure cone, bronze bowstring echoes and masonry/armor chips. More mechanical and heavier than the rank-3 basic crossbow shot.",
+    "cavalry_teutonic": "Rank 4 Teutonic armored cavalry cut: lower-left to upper-right ivory-steel broad martial slash, segmented steel pressure plates, a small black heraldic cross on a pale shield-shaped impact fragment, brass rivets and restrained tan hoof dust. Heavy yet daylight-bright; no rider or horse.",
+    "mage_t1": "Rank 2 novice spellbolt: focused ivory-cyan star bead moving right with pale-blue tail, simple incomplete four-notch amber rune ring and two tiny square sparks. A second imagegen edit enlarged the compact first draft to about two-thirds canvas width so its blue-outlined star and amber notches remain legible at 64px, while keeping the spell structurally simpler than later mages."
+  }
+}

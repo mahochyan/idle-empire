@@ -1,0 +1,52 @@
+'use strict';
+// Reproduce the first current-rule win from the already paid P329 save and preserve its exact settlement.
+const assert=require('node:assert/strict');
+const crypto=require('node:crypto');
+const fs=require('node:fs');
+const path=require('node:path');
+const {environment}=require('../../tests/progression/harness');
+const root=path.resolve(__dirname,'../..'),sha=s=>crypto.createHash('sha256').update(s).digest('hex');
+const data='docs/codex/reports/data/';
+const sourceFile=data+'p329-soul-refreshed-save.json',sourceText=fs.readFileSync(path.join(root,sourceFile),'utf8');
+assert.equal(sha(sourceText),'9c0e33ebca8ebd4874fbbe5aa4c64d87972040e61a6abbed629e999b056a9ebd');
+const prior=JSON.parse(fs.readFileSync(path.join(root,data+'p329-soul-post-star-paid.json'),'utf8'));
+assert.equal(prior.rngEnd,3431887083);
+const origin=JSON.parse(sourceText),env=environment({rts_save:sourceText}),run=env.run;
+assert.equal(run('loadSaveAndApply().status'),'ok');
+run(`globalThis.__RealDate=Date;globalThis.Date=class extends __RealDate {static now(){return ${origin.ts}+(S.tick-${origin.tick})*1000}};
+  globalThis.__timers=new Map();globalThis.__nextTimer=1;
+  setTimeout=fn=>{const id=__nextTimer++;__timers.set(id,fn);return id};
+  clearTimeout=id=>__timers.delete(id);
+  globalThis.__step=()=>{const first=__timers.entries().next().value;if(!first)return false;__timers.delete(first[0]);first[1]();return true};
+  globalThis.__nodes=new Map();document.getElementById=id=>{if(id.startsWith('ou-')||id.startsWith('eu-'))return null;
+    if(!__nodes.has(id))__nodes.set(id,{style:{},innerHTML:'',textContent:'',className:'',scrollHeight:0,scrollTop:0,
+      classList:{add(){},remove(){},toggle(){},contains(){return false}},setAttribute(){},appendChild(){},remove(){}});
+    return __nodes.get(id)};
+  addLog=m=>S.log.push(String(m));
+  globalThis.__rng=${prior.rngEnd};Math.random=()=>{let x=__rng;x^=x<<13;x^=x>>>17;x^=x<<5;__rng=x>>>0;return __rng/4294967296};`);
+const slot=origin.soulRealmTeam.slots.indexOf(540399);assert.equal(slot,2);
+const before=run('({army:armyCount(),deployed:formSoldierCount(),stone:S.items.soulStone,alert:S.killValues.soulRealm,rng:__rng})');
+assert.equal(before.army,672);assert.equal(before.deployed,626);assert.equal(before.stone,39);assert.equal(before.alert,6050);
+assert.equal(run(`openSoulRealmSlot(${slot}).ok`),true);
+const enemy=run('({hp:B.enemyUnits[0].hp,atk:B.enemyUnits[0].atk,def:B.enemyUnits[0].def,mass:B.enemyUnits[0].attackMass})');
+assert.equal(enemy.mass,6);
+let callbacks=0;while(run('S.battleActive')&&callbacks++<3000)assert.equal(run('__step()'),true);
+assert.ok(callbacks<3000);
+assert.equal(run("document.getElementById('battle-result').className"),'win');
+const after=run('({army:armyCount(),deployed:formSoldierCount(),stone:S.items.soulStone,alert:S.killValues.soulRealm,rng:__rng})');
+assert.equal(after.army,637);assert.equal(after.deployed,591);assert.equal(after.stone,47);assert.equal(after.alert,6250);
+assert.equal(after.rng,2142749435);assert.equal(run(`S.soulRealmTeam.slots[${slot}]`),null);
+run('exitBattle()');
+const savedText=env.store.get('rts_save'),saved=JSON.parse(savedText);
+assert.equal(saved.items.soulStone,47);assert.equal(saved.killValues.soulRealm,6250);
+const reload=environment({rts_save:savedText});assert.equal(reload.run('loadSaveAndApply().status'),'ok');
+assert.equal(reload.run('armyCount()'),637);assert.equal(reload.run('formSoldierCount()'),591);
+const saveFile=data+'p333-soul-six-queue-first-win-save.json';
+fs.writeFileSync(path.join(root,saveFile),savedText,'utf8');
+const reportFile=data+'p333-soul-six-queue-first-win.json';
+const report={batch:'P333',sourceFile,sourceSha256:sha(sourceText),priorReport:data+'p329-soul-post-star-paid.json',
+  kind:'exact current six-queue first win, same paid roster and uninterrupted RNG',slot,before,enemy,after,callbacks,
+  saveFile,saveSha256:sha(savedText),limits:['This starts from a selected historical paid P329 roster; it does not replay the earlier purchase chain.']};
+fs.writeFileSync(path.join(root,reportFile),JSON.stringify(report,null,2)+'\n','utf8');
+assert.equal(sha(fs.readFileSync(path.join(root,sourceFile),'utf8')),sha(sourceText));
+console.log(JSON.stringify(report,null,2));

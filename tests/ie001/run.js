@@ -52,40 +52,57 @@ function test(id, name, fn) { try { fn(); pass++; rows.push(['PASS', id, name]);
 function assert(c, m) { if (!c) throw new Error(m || '断言失败'); }
 const eq = (a, b, m) => assert(JSON.stringify(a) === JSON.stringify(b), (m || '') + ' 期望=' + JSON.stringify(b) + ' 实际=' + JSON.stringify(a));
 const keys = (e) => [...e.store.keys()].sort();
+function readyMarket(e, advanced = false) {
+  e.run('loadSaveAndApply();S.buildings.academy={lv:5,state:"idle",timer:0,timerEnd:0,tier:0}');
+  const ids = ['sci_prospect', 'sci_coal', 'sci_copper', ...(advanced ? ['sci_urbanization', 'sci_iron', 'sci_mint', 'sci_coin'] : [])];
+  for (const id of ids) {
+    e.run(`S.res.tech=activeSciences()['${id}'].cost.tech`);
+    const r = JSON.parse(e.run(`JSON.stringify(researchScience('${id}'))`));
+    assert(r.ok, `市场夹具未能研究 ${id}: ${JSON.stringify(r)}`);
+  }
+  e.run('S.buildings.market={lv:1,state:"idle",timer:0,timerEnd:0,tier:0}');
+  assert(e.run('scienceUnlocked(CFG.buildings.market.needScience)') && e.run("bldSt('market').lv") === 1, '市场夹具缺必要科技或已建市场');
+}
 
-test('S01', '新开局：无档→默认S且零写入；save 写出 v2+ts；重载一致', () => {
+test('S01', '新开局：无档零写入；save 写出 v32 人口、聚落、煤链、仓容、政策位、铸币模式与银金链；重载一致', () => {
   const e = makeEnv();
   assert(e.run('loadSaveAndApply().status') === 'fresh', '应为 fresh');
   assert(e.store.size === 0, 'fresh 不应写任何 key');
   e.run('S.res.wood=555;S.merit=7;save()');
   const d = JSON.parse(e.store.get('rts_save'));
-  assert(d.v === 3 && typeof d.ts === 'number' && d.ts > 0, 'v/ts 缺失（切片9 起目标版本为 v3）');
+  assert(d.v === 32 && d.killValues.godRevival === 0 && d.storageMode === 'aligned' && d.currencyRecipeMode === 'copper' && d.res.silver === 0 && d.res.gold === 0 && d.res.silverCoin === 0 && d.res.goldCoin === 0 && d.popAlloc.silver === 0 && d.popAlloc.gold === 0 && d.popAlloc.silverCoin === 0 && d.popAlloc.goldCoin === 0 && Array.isArray(d.townPolicies?.smallTown) && d.townPolicies.smallTown.length === 0 && typeof d.ts === 'number' && d.ts > 0, 'v32/ts/仓容、铸币模式、银金链、神域杀戮值或政策位缺失');
+  eq(d.population, { current: 0, growthClock: 0, legacyBonus: 0 }, '新档人口不符');
+  eq(d.settlements, { village: 0, smallTown: 0, city: 1 }, '新档聚落不符');
+  assert(d.res.deed === 30 && Object.values(d.popAlloc).reduce((n, x) => n + x, 0) === 0, '新档地契/岗位初值不符');
+  assert(d.res.coal === 0 && d.popAlloc.coal === 0 && d.metalRecipeMode === 'coal', '新档煤链字段不符');
   assert(d.res.wood === 555 && d.merit === 7, '内容不符');
   const e2 = makeEnv({ 'rts_save': e.store.get('rts_save') });
   assert(e2.run('loadSaveAndApply().status') === 'ok', '重载应 ok');
-  assert(e2.run('S.res.wood') === 555 && e2.run('S.merit') === 7, '往返不符');
+  assert(e2.run('S.res.wood') === 555 && e2.run('S.merit') === 7 && e2.run('popCurrent()') === 0 && e2.run('S.metalRecipeMode') === 'coal', '往返不符');
 });
 
-test('S02', 'legacy 全字段：全部保留、PRE=原始文本、主档升 v2 不增不减', () => {
+test('S02', 'legacy 全字段：全部保留、PRE=原始文本、主档升 v32 并保留旧金属、铸币配方与仓容', () => {
   const fx = JSON.stringify(fullLegacy());
   const e = makeEnv({ 'rts_save': fx });
   assert(e.run('loadSaveAndApply().status') === 'migrated', '应 migrated');
   assert(e.store.get('rts_save_premigration') === fx, 'PRE 应等于原始 legacy 文本');
-  eq(e.run('S.res'), Object.assign({}, fullLegacy().res, { deed: 0 }), '资源被改动（S8c 起新增资源应只补 deed=0，既有键不得改动）');
+  eq(e.run('S.res'), Object.assign({}, fullLegacy().res, { deed: 0, coal: 0, silver: 0, silverCoin: 0, gold: 0, steel: 0, medal: 0, bone: 0, goldCoin: 0, hide: 0 }), '旧资源被改动或新资源默认值不为0');
+  assert(e.run('S.metalRecipeMode') === 'legacy' && e.run('S.popAlloc.coal') === 0, '旧档已有铜铁进度，应保留旧配方并补煤岗位0');
   assert(e.run('S.townLv') === 4 && e.run('S.merit') === 37 && e.run('S.tick') === 3456, '进度字段丢失');
   eq(e.run('S.essence'), { shield_essence: 2, wind_essence: 1 }, '精魄丢失');
   assert(e.run('S._garrisonForm.front.length') === 1 && e.run('S._garrisonForm.back.length') === 1, '驻军阵容丢失');
   assert(e.run('S.upgradedUnits.infantry_t1') === true, '研究记录丢失');
   assert(e.run('S.queue.infantry.count') === 8, '训练队列丢失');
   const m = JSON.parse(e.store.get('rts_save'));
-  assert(m.v === 3 && typeof m.ts === 'number' && m.res.wood === 12345.5 && m.tick === 3456, '主档升级后内容漂移');
+  assert(m.v === 32 && m.killValues.godRevival === 0 && m.storageMode === 'legacy' && m.currencyRecipeMode === 'legacy' && m.res.silver === 0 && m.res.gold === 0 && m.res.silverCoin === 0 && Array.isArray(m.townPolicies?.smallTown) && m.townPolicies.smallTown.length === 0 && typeof m.ts === 'number' && m.res.wood === 12345.5 && m.tick === 3456 && m.metalRecipeMode === 'legacy', '主档升级后内容漂移');
+  assert(m.population.current >= 40 && m.population.legacyBonus >= 36 && m.settlements.city === 1, '旧城镇容量/劳力没有保留');
 });
 
 test('S03', 'legacy 缺可选字段：独立默认补齐；两次加载互不串写', () => {
   const fx = JSON.stringify({ res: { wood: 900, stone: 1, food: 1, tech: 0 }, townLv: 2, defeated: [1, 10] });
   const e = makeEnv({ 'rts_save': fx });
   assert(e.run('loadSaveAndApply().status') === 'migrated', '应 migrated');
-  eq(e.run('S.popAlloc'), { wood: 5, stone: 3, food: 2 }, 'popAlloc 旧口径缺省');
+  eq(e.run('S.popAlloc'), { wood: 5, stone: 3, food: 2, coal: 0, silver: 0, silverCoin: 0, gold: 0, steel: 0, goldCoin: 0 }, 'popAlloc 旧口径缺省与新岗位补0');
   assert(e.run('S.merit') === 0 && e.run('S.tick') === 0, '缺省数值不符');
   e.run('S.popAlloc.wood=99;S.defeated.push(99);S.res.wood=1');
   const e2 = makeEnv({ 'rts_save': fx });
@@ -155,7 +172,7 @@ test('S08b', '迁移前副本写失败：终止格式升级，主档保持 legac
   e.setFault('setItem', 'rts_save_premigration');
   assert(e.run('loadSaveAndApply().status') === 'migrated_readonly', '应 migrated_readonly');
   assert(e.store.get('rts_save') === fx, '主档应保持 legacy 原文');
-  assert(e.run('saveProtected()') === true && e.run('S.townLv') === 4, '内存可玩但应只读');
+  assert(e.run('saveProtected()') === true && e.run('S.townLv') === 1 && e.run('popCurrent()') === 0, '候选未落盘前不得污染运行中的 S');
   e.run('save()');
   assert(e.store.get('rts_save') === fx, '只读会话仍写主档！');
 });
@@ -194,7 +211,7 @@ test('S09', '导出→游玩改动→导入确认→备份先行→重载进度�
   delete after.ts; delete exp.ts;
   eq(after, exp, '导入后主档应等于导出内容');
   const bak = JSON.parse(e.store.get('rts_save_backup_1'));
-  assert(bak.v === 3 && bak.res.wood === 12345.5, '备份应为导入前有效主档');
+  assert(bak.v === 32 && bak.res.wood === 12345.5 && bak.metalRecipeMode === 'legacy' && bak.storageMode === 'legacy' && bak.currencyRecipeMode === 'legacy', '备份应为导入前有效主档');
   assert(e.run('S.townLv') === 7, '运行中 S 不应被替换（等待重载）');
   const e2 = makeEnv({ 'rts_save': e.store.get('rts_save') });
   e2.run('loadSaveAndApply()');
@@ -345,24 +362,26 @@ test('R02', '重置部分删除失败：ok=false + failed 清单（UI 据此不�
 });
 
 // ============ IE-007 资源体系用例 ============
-test('V01', 'v2 新开局：copper/iron/coin 入档+重载往返', () => {
+test('V01', 'v32 新开局：煤铜铁银金、钱币与地契入档+重载往返', () => {
   const e = makeEnv();
   assert(e.run('loadSaveAndApply().status') === 'fresh', '应为 fresh');
-  e.run('S.res.copper=30;S.res.iron=9;S.res.coin=50;save()');
+  e.run('S.res.coal=7;S.res.copper=30;S.res.iron=9;S.res.coin=50;save()');
   const d = JSON.parse(e.store.get('rts_save'));
-  assert(d.v === 3 && d.res.copper === 30 && d.res.iron === 9 && d.res.coin === 50, 'v2 新键未入档（v3 目标）');
+  assert(d.v === 32 && d.res.coal === 7 && d.res.copper === 30 && d.res.iron === 9 && d.res.silver === 0 && d.res.gold === 0 && d.res.coin === 50 && d.res.silverCoin === 0 && d.res.deed === 30 && d.metalRecipeMode === 'coal' && d.storageMode === 'aligned' && d.currencyRecipeMode === 'copper', '资源或配方模式未进入 v32 存档');
   const e2 = makeEnv({ 'rts_save': e.store.get('rts_save') });
-  assert(e2.run('loadSaveAndApply().status') === 'ok' && e2.run('S.res.coin') === 50 && e2.run('S.res.copper') === 30, '新键往返失败');
+  assert(e2.run('loadSaveAndApply().status') === 'ok' && e2.run('S.res.coin') === 50 && e2.run('S.res.copper') === 30 && e2.run('S.res.coal') === 7 && e2.run('S.metalRecipeMode') === 'coal', '新键往返失败');
 });
 
-test('V02', 'legacy→v2 迁移：缺键补 0、PRE=原文、幂等', () => {
+test('V02', 'legacy→v32 迁移：缺资源键补 0、无金属进度走煤链、PRE=原文、幂等', () => {
   const fx = JSON.stringify({ res: { wood: 900, stone: 1, food: 1, tech: 0 }, townLv: 2, defeated: [1, 10], merit: 3 });
   const e = makeEnv({ 'rts_save': fx });
   assert(e.run('loadSaveAndApply().status') === 'migrated', '应 migrated');
-  assert(e.run('S.res.copper') === 0 && e.run('S.res.iron') === 0 && e.run('S.res.coin') === 0, '新键未补默认 0');
+  assert(e.run('S.res.copper') === 0 && e.run('S.res.iron') === 0 && e.run('S.res.coin') === 0 && e.run('S.res.coal') === 0 && e.run('S.popAlloc.coal') === 0, '新键未补默认 0');
+  assert(e.run('S.metalRecipeMode') === 'coal', '没有金属进度的旧档应迁入煤链');
   assert(e.store.get('rts_save_premigration') === fx, 'PRE 应等于 legacy 原文');
   const m = JSON.parse(e.store.get('rts_save'));
-  assert(m.v === 3 && m.res.copper === 0 && m.res.wood === 900, '迁移后主档错误');
+  assert(m.v === 32 && m.res.copper === 0 && m.res.coal === 0 && m.res.silver === 0 && m.res.gold === 0 && m.res.silverCoin === 0 && m.res.wood === 900 && m.res.deed === 0 && m.metalRecipeMode === 'coal' && m.storageMode === 'legacy' && m.currencyRecipeMode === 'legacy', '迁移后主档错误');
+  assert(m.population.current >= 20 && m.settlements.city === 1, '旧人口容量未承接');
   const e2 = makeEnv({ 'rts_save': e.store.get('rts_save') });
   assert(e2.run('loadSaveAndApply().status') === 'ok', '二次加载应 ok');
   e2.run('save()');
@@ -379,34 +398,42 @@ test('V03', 'v2 坏新键（res.copper 非数值）→ 保护且原文保留', (
   assert(e.store.get('rts_save') === bad, '坏新键主档被覆盖！');
 });
 
-test('V04', '被动产出：矿井/冶炼/铸币按级产出、上限钳制、缺料停产不扣负', () => {
+test('V04', '岗位产出：矿井/冶炼/铸币由工人驱动，满仓停产、缺料不扣负', () => {
   const e = makeEnv({ 'rts_save': JSON.stringify(fullLegacy()) });
   e.run('loadSaveAndApply()');
   e.run('S.res.copper=100;S.res.food=1000;S.res.wood=1000;S.res.stone=1000');
   e.run("S.buildings.mine={lv:2,state:'idle',timer:0,timerEnd:0,tier:0};S.buildings.smelter={lv:1,state:'idle',timer:0,timerEnd:0,tier:0};S.buildings.mint={lv:1,state:'idle',timer:0,timerEnd:0,tier:0}");
+  e.run("setPopAlloc('wood',0);setPopAlloc('stone',0);setPopAlloc('food',2)");
+  for (const [rk,n] of [['copper',2],['iron',1],['coin',1]])
+    assert(JSON.parse(e.run(`JSON.stringify(setPopAlloc('${rk}',${n}))`)).ok, `${rk} 岗位应可分配`);
+  const copperRate = e.run("prodRate('copper')"), ironRate = e.run("prodRate('iron')"), coinRate = e.run("prodRate('coin')");
+  assert(copperRate > 0 && ironRate > 0 && coinRate > 0, '三个工种应有非零产率');
   e.run('tick();tick();tick()');
-  assert(e.run('S.res.copper') === 103, '铜净增错误(期望 100+3×1) actual=' + e.run('S.res.copper'));
-  assert(e.run('S.res.iron') === 8, '铁产出错误（fixture 基线 5+3×1）actual=' + e.run('S.res.iron'));
-  assert(e.run('S.res.coin') === 13, '金币错误（fixture 基线 7+3×2）actual=' + e.run('S.res.coin'));
+  assert(Math.abs(e.run('S.res.copper') - (100 + 3 * copperRate - 9)) < 1e-8, '铜应先由矿工产出、再按铁工每秒耗3铜');
+  assert(Math.abs(e.run('S.res.iron') - (5 + 3 * ironRate)) < 1e-8, '铁应由分配的铁工产出');
+  assert(Math.abs(e.run('S.res.coin') - (7 + 3 * coinRate)) < 1e-8, '金币应由分配的铸币工产出');
   assert(e.run('S.res.food') !== 1000, '食物应因铸币/口粮/军粮与产出联动而变化（不断言方向与精确值）');
-  // 上限钳制：铜贴近上限时矿先加到 cap 再被冶炼消耗
-  e.run('S.res.copper=2996');
+  // 满仓停产且不吃原料：禁用铁工隔离矿工容量；旧档超额库存仍不裁剪。
+  e.run("setPopAlloc('iron',0);S.res.copper=resCap('copper')-0.5");
   e.run('tick()');
-  assert(e.run('S.res.copper') === 2997 && e.run('S.res.copper') <= e.run('resCap("copper")'), '上限钳制错误');
-  // 缺料停产：冶炼厂 lv2 需 6 铜 > 矿井 lv1 产 2 铜 → 停产且不扣负
-  e.run("S.buildings.mine={lv:1,state:'idle',timer:0,timerEnd:0,tier:0};S.buildings.smelter={lv:2,state:'idle',timer:0,timerEnd:0,tier:0};S.res.copper=1;S.res.iron=0");
+  assert(e.run('S.res.copper') === e.run('resCap("copper")'), '铜应在当前上限停产');
+  e.run("S.res.copper=resCap('copper')+7;tick()");
+  assert(e.run('S.res.copper') === e.run('resCap("copper")+7'), '历史超上限库存不得静默裁剪');
+  // 缺料停产：无铜工时，铁工不可无料产铁，也不可扣成负铜。
+  e.run("setPopAlloc('copper',0);setPopAlloc('iron',1);S.res.copper=1;S.res.iron=0");
   e.run('tick()');
-  assert(e.run('S.res.copper') === 3, '缺料时错误扣负（期望 1+矿2，冶炼停产）');
+  assert(e.run('S.res.copper') === 1, '缺料时不得扣铜至负数');
   assert(e.run('S.res.iron') === 0, '缺料时仍产出铁');
 });
 
 test('V05', '市场兑换：汇率取整/未知项拒绝/失败不改态/无套利环', () => {
-  const e = makeEnv({ 'rts_save': JSON.stringify(fullLegacy()) });
-  e.run('loadSaveAndApply();S.res.coin=100;S.res.wood=0;S.res.stone=0;S.res.iron=5');
+  const e = makeEnv();readyMarket(e, true);
+  e.run('S.res.coin=100;S.res.wood=0;S.res.stone=0;S.res.iron=5');
   let r = JSON.parse(e.run('JSON.stringify(exchangeResource("coin","wood",5))'));
   assert(r.ok && r.get === 40 && e.run('S.res.coin') === 95 && e.run('S.res.wood') === 40, '正向兑换错误');
   r = JSON.parse(e.run('JSON.stringify(exchangeResource("wood","coin",10))'));
   assert(r.ok && r.get === 1 && e.run('S.res.coin') === 96, '反向兑换错误');
+  assert(e.run("dailyCount('market')") === 1, '基础出售不应消耗高级兑换的日次数');
   r = JSON.parse(e.run('JSON.stringify(exchangeResource("iron","coin",5))'));
   assert(r.ok === false && e.run('S.res.iron') === 5, '未知汇率应拒绝且不改态');
   const ar = JSON.parse(e.run('JSON.stringify(CFG.market.rates)'));
@@ -421,15 +448,22 @@ test('V06', '未知资源键仍拒绝（回归 S12 语义）', () => {
 });
 
 // ============ IE-008 资源科技（对齐放置时代发展科技门）用例 ============
-test('V07', '学院被动产出科技点并按上限钳制（原始上限口径：显式关闭扩容开关）', () => {
+test('V07', '学者岗位产出科技点并按上限钳制（原始上限口径）', () => {
   const e = makeEnv({ 'rts_save': JSON.stringify(fullLegacy()) });
   e.run('loadSaveAndApply();CFG.caps.expanded=false'); // 本用例验证原始上限式（扩容路径见 Y01/Y02）
   e.run('S.res.tech=10;S.buildings.academy={lv:1,state:"idle",timer:0,timerEnd:0,tier:0}');
+  e.run("setPopAlloc('wood',0);setPopAlloc('stone',0);setPopAlloc('food',0)");
+  assert(JSON.parse(e.run('JSON.stringify(setPopAlloc("tech",5))')).ok, '学院完成后应能安排5名学者');
+  const rate = e.run("prodRate('tech')");
+  assert(rate > 0, '已分配学者应产出科技点');
   e.run('tick();tick();tick()');
-  assert(e.run('S.res.tech') === 25, '学院产出错误(期望 5/s/级) actual=' + e.run('S.res.tech'));
+  assert(Math.abs(e.run('S.res.tech') - (10 + 3 * rate)) < 1e-8, '科技点应按真实学者岗位产率逐秒增长');
   assert(e.run('resCap("tech")') === 700, 'resCap(tech)=500+200×1 错误 actual=' + e.run('resCap("tech")'));
   e.run('S.res.tech=699');e.run('tick()');
   assert(e.run('S.res.tech') === 700, '科技点上限钳制错误 actual=' + e.run('S.res.tech'));
+  e.run("setPopAlloc('tech',0)");
+  const after = e.run('S.res.tech');e.run('tick()');
+  assert(e.run('S.res.tech') === after, '撤掉学者后学院不得被动产出');
 });
 
 test('V08', '资源科技链：研究解锁建筑、未研究拒绝、前置门控、重复拒绝（原始 3 节点口径）', () => {
@@ -460,7 +494,7 @@ test('V08', '资源科技链：研究解锁建筑、未研究拒绝、前置门�
   assert(e.run('S.buildings.market') && e.run('S.buildings.market.state') === 'building', '已研究后应可建市场');
 });
 
-test('V09', 'sciences 存档：v2 往返、legacy 补空、未知科技保护', () => {
+test('V09', 'sciences 存档：v32 往返、legacy 补空、v2 未知科技保护', () => {
   const e = makeEnv({ 'rts_save': JSON.stringify(fullLegacy()) });
   e.run('loadSaveAndApply();S.sciences.push("sci_copper");save()');
   const d = JSON.parse(e.store.get('rts_save'));
@@ -501,11 +535,14 @@ test('W02', '诊断环形日志：上限 50、FIFO、结构正确、可清空', 
 
 test('W03', '诊断日志不入档：存档文本无 diag 且字段集不变', () => {
   const e = makeEnv({ 'rts_save': JSON.stringify(fullLegacy()) });
-  e.run('loadSaveAndApply();logDiag("x","y");save()');
+  e.run('loadSaveAndApply()');
+  const beforeKeys = Object.keys(JSON.parse(e.run('exportCurrentSaveText()'))).sort();
+  e.run('logDiag("x","y");save()');
   const raw = e.store.get('rts_save');
   assert(raw.indexOf('diag') === -1, '存档文本出现 diag（不应入档）');
-  const keys = Object.keys(JSON.parse(raw)).sort().join(',');
-  assert(keys === 'buildings,daily,defeated,essence,formation,garrison,garrisonForm,garrisonLog,merit,offline,ops,pool,popAlloc,queue,res,sciences,tick,townLv,townUpgrade,ts,upgradedUnits,v', '存档字段集被改变: ' + keys);
+  const afterKeys = Object.keys(JSON.parse(raw)).sort();
+  eq(afterKeys, beforeKeys, '记录诊断不应改变存档字段集');
+  assert(afterKeys.includes('population') && afterKeys.includes('settlements') && afterKeys.includes('metalRecipeMode'), 'v5 人口/聚落/配方模式字段不得缺失');
 });
 
 test('W04', 'logDiag 容错：异常入参不抛错、接口齐备', () => {
@@ -518,7 +555,7 @@ test('W04', 'logDiag 容错：异常入参不抛错、接口齐备', () => {
 // ============ 切片3 用例（S1 解死锁：资源科技去战功 + 可达性）============
 test('X01', '切片3：战功=0 可研完资源科技链（原始 3 节点口径；长阶梯见 A02）', () => {
   const e = makeEnv();
-  e.run('loadSaveAndApply();CFG.tech.longLadder=false;S.res.tech=1000;S.merit=0');
+  e.run('loadSaveAndApply();S.metalRecipeMode="legacy";CFG.tech.longLadder=false;S.res.tech=1000;S.merit=0');
   const r = ['sci_copper', 'sci_iron', 'sci_coin'].map(id => JSON.parse(e.run(`JSON.stringify(researchScience("${id}"))`)));
   assert(r.every(x => x.ok), '战功=0 应可研完全链：' + JSON.stringify(r));
   assert(e.run('S.merit') === 0, '战功不应被扣除（豁免）actual=' + e.run('S.merit'));
@@ -528,7 +565,7 @@ test('X01', '切片3：战功=0 可研完资源科技链（原始 3 节点口径
 
 test('X02', '切片3：开关关闭时恢复旧行为（战功不足拦截 + 照常扣战功；原始 3 节点口径）', () => {
   const e = makeEnv();
-  e.run('loadSaveAndApply();CFG.tech.longLadder=false;S.res.tech=1000;S.merit=0;CFG.tech.sciencesNoMerit=false');
+  e.run('loadSaveAndApply();S.metalRecipeMode="legacy";CFG.tech.longLadder=false;S.res.tech=1000;S.merit=0;CFG.tech.sciencesNoMerit=false');
   const r1 = JSON.parse(e.run('JSON.stringify(researchScience("sci_copper"))'));
   const r2 = JSON.parse(e.run('JSON.stringify(researchScience("sci_iron"))'));
   assert(r1.ok === true, 'sci_copper 本就 0 战功，应通过');
@@ -536,32 +573,48 @@ test('X02', '切片3：开关关闭时恢复旧行为（战功不足拦截 + 照
   assert(e.calls.toast.some(t => /战功不足/.test(t)), '应出现"战功不足"提示');
   // 旧行为下战功确实被扣（对照）
   const e2 = makeEnv();
-  e2.run('loadSaveAndApply();CFG.tech.longLadder=false;S.res.tech=1000;S.merit=100;CFG.tech.sciencesNoMerit=false;researchScience("sci_copper")');
+  e2.run('loadSaveAndApply();S.metalRecipeMode="legacy";CFG.tech.longLadder=false;S.res.tech=1000;S.merit=100;CFG.tech.sciencesNoMerit=false;researchScience("sci_copper")');
   e2.run('researchScience("sci_iron")');
   assert(e2.run('S.merit') === 90, '开关关闭时应扣 10 战功 actual=' + e2.run('S.merit'));
 });
 
-test('X03', '切片3/5：可达性——前置图完整无环，且每个解锁建筑研究后可建（墙后有门）', () => {
+test('X03', '发展研究前置图完整无环，解锁的建筑、聚落与兵种均有入口', () => {
   const e = makeEnv();
-  e.run('loadSaveAndApply();S.res.tech=99999;S.res.wood=99999;S.res.stone=99999;S.res.food=99999');
+  // 条件夹具覆盖星核／量子两笔大额研究；不代表自然路线已可达。
+  e.run('loadSaveAndApply();S.res.tech=3500000000;S.res.medal=5000000;S.res.wood=1000000;S.res.stone=1000000;S.res.food=1000000;S.res.iron=1000000;S.res.silver=1000000;S.res.gold=1000000;S.res.steel=2000000;S.res.deed=1000000');
   const sci = JSON.parse(e.run('JSON.stringify(activeSciences())'));
   for (const [id, sc] of Object.entries(sci)) {
     if (sc.need) for (const p of sc.need) { assert(sci[p], `${id} 的前置 ${p} 不存在`); assert(p !== id, `${id} 前置自环`); }
   }
-  for (const id of Object.keys(sci)) {   // 表序即拓扑序（prospect→copper→metal→iron→mint→coin）
+  assert(sci.sci_metal?.legacyOnly === true, '历史冶金术必须保留已知 ID 并退出新档主线');
+  const currentIds = Object.keys(sci).filter(id => !sci[id].legacyOnly);
+  for (const id of currentIds) {   // 非历史节点按表序形成当前发展的拓扑序
     const r = JSON.parse(e.run(`JSON.stringify(researchScience("${id}"))`));
     assert(r.ok, `研究 ${id} 失败`);
     for (const b of (sci[id].unlocks || [])) {
-      e.run(`buildAct('${b}')`);
-      assert(e.run(`!!S.buildings['${b}']`) === true, `${id} 解锁的 ${b} 不可建（墙后无门）`);
+      if (e.run(`Object.prototype.hasOwnProperty.call(CFG.buildings,'${b}')`)) {
+        const build = JSON.parse(e.run(`JSON.stringify(buildAct('${b}'))`));
+        assert(build.ok === true && e.run(`!!S.buildings['${b}']`) === true,
+          `${id} 解锁的建筑 ${b} 不可建：${JSON.stringify(build)}`);
+      } else if (e.run(`Object.prototype.hasOwnProperty.call(CFG.settlements,'${b}')`)) {
+        assert(e.run(`settlementLockReason('${b}')`) === '', `${id} 解锁的聚落 ${b} 仍被锁定`);
+        const level = e.run(`S.settlements['${b}']`);
+        const result = JSON.parse(e.run(`JSON.stringify(upgradeSettlement('${b}',${level}))`));
+        assert(result.ok && e.run(`S.settlements['${b}']`) === level + 1, `${id} 解锁的聚落 ${b} 不可扩建`);
+      } else if (e.run(`Object.prototype.hasOwnProperty.call(CFG.units,'${b}')`)) {
+        assert(e.run(`!!trainBuildingKey('${b}')`) === true, `${id} 解锁的兵种 ${b} 没有训练建筑`);
+      } else throw new Error(`${id} 的 unlocks 含未知目标 ${b}`);
     }
   }
+  const legacy = JSON.parse(e.run('JSON.stringify(researchScience("sci_metal"))'));
+  assert(legacy.ok === false && e.run('S.sciences.includes("sci_metal")') === false,
+    '新档不得再研究历史冶金术');
 });
 
 // ============ 切片4 用例（S3 上限空间扩容）============
 test('Y01', '切片4：开关关闭时上限与改造前逐值一致（零行为；须同时关 ownMax 以隔离切片8b）', () => {
   const e = makeEnv();
-  e.run('loadSaveAndApply();CFG.caps.expanded=false;CFG.ownMax.enabled=false');
+  e.run('loadSaveAndApply();S.metalRecipeMode="legacy";S.storageMode="legacy";CFG.caps.expanded=false;CFG.ownMax.enabled=false');
   e.run("S.buildings.warehouse={lv:5,state:'idle',timer:0,timerEnd:0,tier:0};S.buildings.academy={lv:10,state:'idle',timer:0,timerEnd:0,tier:0};S.buildings.mine={lv:1,state:'idle',timer:0,timerEnd:0,tier:0}");
   assert(e.run('storageCapacity()') === 10000 + 5 * 10000, '仓库容量应为原式 actual=' + e.run('storageCapacity()'));
   assert(e.run('resCap("tech")') === 500 + 200 * 10, '科技上限应为原式 actual=' + e.run('resCap("tech")'));
@@ -572,7 +625,7 @@ test('Y01', '切片4：开关关闭时上限与改造前逐值一致（零行为
 
 test('Y02', '切片4：开关开启后上限空间扩容（仓库/科技/被动/建筑等级；须关 ownMax 以隔离切片8b）', () => {
   const e = makeEnv();
-  e.run('loadSaveAndApply();CFG.ownMax.enabled=false');
+  e.run('loadSaveAndApply();S.metalRecipeMode="legacy";S.storageMode="legacy";CFG.ownMax.enabled=false');
   e.run("S.buildings.warehouse={lv:20,state:'idle',timer:0,timerEnd:0,tier:0};S.buildings.academy={lv:20,state:'idle',timer:0,timerEnd:0,tier:0};S.buildings.mine={lv:10,state:'idle',timer:0,timerEnd:0,tier:0};S.buildings.smelter={lv:10,state:'idle',timer:0,timerEnd:0,tier:0};S.buildings.market={lv:10,state:'idle',timer:0,timerEnd:0,tier:0}");
   assert(e.run('storageCapacity()') === 10000 + 20 * 50000, '扩容后仓库容量 actual=' + e.run('storageCapacity()'));
   assert(e.run('resCap("tech")') === 3000 + 2000 * 20, '扩容后科技上限 actual=' + e.run('resCap("tech")'));
@@ -594,7 +647,7 @@ test('Y02', '切片4：开关开启后上限空间扩容（仓库/科技/被动/
 
 test('Y03', '切片4：开→关可逆、无残留（回滚安全）', () => {
   const e = makeEnv();
-  e.run('loadSaveAndApply();S.buildings.warehouse={lv:6,state:"idle",timer:0,timerEnd:0,tier:0}');
+  e.run('loadSaveAndApply();S.storageMode="legacy";S.buildings.warehouse={lv:6,state:"idle",timer:0,timerEnd:0,tier:0}');
   const on1 = e.run('storageCapacity()');
   e.run('CFG.caps.expanded=false'); const off1 = e.run('storageCapacity()');
   e.run('CFG.caps.expanded=true'); const on2 = e.run('storageCapacity()');
@@ -604,62 +657,79 @@ test('Y03', '切片4：开→关可逆、无残留（回滚安全）', () => {
 });
 
 // ============ 切片4b 用例（R5-①② 食物经济对齐，用户裁决）============
-test('Z01', '切片4b：对齐启用时食物产出 2.25/村民/秒、铸币耗粮 1/s/级', () => {
+test('Z01', '对齐启用时粮工产率2.25、每名铸币工耗粮1/秒', () => {
   const e = makeEnv({ 'rts_save': JSON.stringify(fullLegacy()) });
   e.run('loadSaveAndApply()');
-  e.run("S.popAlloc={wood:0,stone:0,food:10};S.buildings.farm={lv:0,state:'idle',timer:0,timerEnd:0,tier:0}");
+  e.run("S.buildings.mint={lv:2,state:'idle',timer:0,timerEnd:0,tier:0};setPopAlloc('wood',0);setPopAlloc('stone',0);setPopAlloc('food',10)");
+  assert(JSON.parse(e.run('JSON.stringify(setPopAlloc("coin",2))')).ok, '建成铸币厂后应能分配2名工人');
   assert(Math.abs(e.run("prodRate('food')") - 10 * 2.25) < 1e-9, '食物产出应为 10×2.25，actual=' + e.run("prodRate('food')"));
-  e.run("S.buildings.mint={lv:2,state:'idle',timer:0,timerEnd:0,tier:0};S.res.food=1000");
+  e.run('S.res.food=1000');
   assert(e.run("effConsume('mint','food')") === 1, '铸币耗粮应为 1，actual=' + e.run("effConsume('mint','food')"));
-  // 隔离验证"对齐后的耗粮"：同状态下 mint lv0 与 lv2 的单 tick 食物差应 = 1×2
+  // 同样两名工人：有可用铸币岗位时耗粮，未建厂时岗位停工。
   const foodWithMint = (() => { e.run('tick()'); return e.run('S.res.food') })();
   e.run("S.buildings.mint={lv:0,state:'idle',timer:0,timerEnd:0,tier:0};S.res.food=1000");
   e.run('tick()');
   const foodNoMint = e.run('S.res.food');
-  assert(Math.abs((foodNoMint - foodWithMint) - 2) < 1e-6, '铸币 lv2 应比 lv0 多耗 2/s，实际差=' + (foodNoMint - foodWithMint));
+  assert(Math.abs((foodNoMint - foodWithMint) - 2) < 1e-6, '2名铸币工应多耗粮2/s，实际差=' + (foodNoMint - foodWithMint));
 });
 
-test('Z02', '切片4b：开关关闭时回到原始数值（0.75 / 5）', () => {
+test('Z02', '关闭食物对齐开关后使用原始配置：粮工5、铸币耗粮5', () => {
   const e = makeEnv({ 'rts_save': JSON.stringify(fullLegacy()) });
   e.run('loadSaveAndApply();CFG.food.aligned=false');
-  e.run("S.popAlloc={wood:0,stone:0,food:10};S.buildings.farm={lv:0,state:'idle',timer:0,timerEnd:0,tier:0}");
-  assert(Math.abs(e.run("prodRate('food')") - 10 * 0.75) < 1e-9, '原始食物产出应为 10×0.75，actual=' + e.run("prodRate('food')"));
-  assert(e.run("effConsume('mint','food')") === 5, '原始铸币耗粮应为 5，actual=' + e.run("effConsume('mint','food')"));
+  e.run("S.buildings.mint={lv:1,state:'idle',timer:0,timerEnd:0,tier:0};setPopAlloc('wood',0);setPopAlloc('stone',0);setPopAlloc('food',10);setPopAlloc('coin',2)");
+  assert(Math.abs(e.run("prodRate('food')") - 10 * e.run('CFG.res.food.basePerPop')) < 1e-9, '关闭开关应读基础粮工配置');
+  assert(e.run('CFG.res.food.basePerPop') === 5 && e.run('CFG.res.coin.consumes.food') === 5, '当前原始产率/耗料配置不符');
+  e.run('S.res.food=1000;tick()');const withMint = e.run('S.res.food');
+  e.run("S.buildings.mint={lv:0,state:'idle',timer:0,timerEnd:0,tier:0};S.res.food=1000;tick()");
+  assert(Math.abs((e.run('S.res.food') - withMint) - 10) < 1e-6, '两名铸币工按原始配置应每秒多耗10粮');
 });
 
 test('Z03', '切片4b：开→关→开可逆无残留，且原始配置未被改写', () => {
   const e = makeEnv({ 'rts_save': JSON.stringify(fullLegacy()) });
   e.run('loadSaveAndApply()');
-  e.run("S.popAlloc={wood:0,stone:0,food:10};S.buildings.farm={lv:0,state:'idle',timer:0,timerEnd:0,tier:0}");
-  const on1 = e.run("prodRate('food')"), cons1 = e.run("effConsume('mint','food')");
+  e.run("S.buildings.mint={lv:1,state:'idle',timer:0,timerEnd:0,tier:0};setPopAlloc('wood',0);setPopAlloc('stone',0);setPopAlloc('food',10);setPopAlloc('coin',2)");
+  const on1 = e.run("prodRate('food')"), cons1 = e.run("effConsume('mint','food')??CFG.res.coin.consumes.food");
   e.run('CFG.food.aligned=false');
-  const off1 = e.run("prodRate('food')"), consOff = e.run("effConsume('mint','food')");
+  const off1 = e.run("prodRate('food')"), consOff = e.run("effConsume('mint','food')??CFG.res.coin.consumes.food");
   e.run('CFG.food.aligned=true');
-  const on2 = e.run("prodRate('food')"), cons2 = e.run("effConsume('mint','food')");
-  assert(on1 === on2 && cons1 === cons2 && off1 !== on1, '可逆性失败: on1=' + on1 + ' on2=' + on2 + ' off=' + off1);
-  assert(e.run('CFG.res.food.basePerPop') === 0.75 && e.run("CFG.buildings.mint.consumes.food") === 5, '原始配置被改写（不应发生）');
+  const on2 = e.run("prodRate('food')"), cons2 = e.run("effConsume('mint','food')??CFG.res.coin.consumes.food");
+  assert(on1 === on2 && cons1 === cons2 && off1 !== on1 && consOff !== cons1, '可逆性失败: on1=' + on1 + ' on2=' + on2 + ' off=' + off1);
+  assert(e.run('CFG.res.food.basePerPop') === 5 && e.run('CFG.res.coin.consumes.food') === 5, '原始配置被改写（不应发生）');
 });
 
 // ============ 切片5 用例（S2 成本阶梯扩节点）============
-test('A01', '切片5：开关关闭时用原始 3 节点表（10/80/200，链式前置）', () => {
+test('A01', '短表保留原始资源科技费用，新增煤及两档独立军备研究', () => {
   const e = makeEnv();
-  e.run('loadSaveAndApply();CFG.tech.longLadder=false;S.res.tech=1000;S.res.wood=9999;S.res.stone=9999;S.res.food=9999');
+  e.run('loadSaveAndApply();S.metalRecipeMode="legacy";CFG.tech.longLadder=false;S.res.tech=1000;S.res.wood=9999;S.res.stone=9999;S.res.food=9999');
   const ids = JSON.parse(e.run('JSON.stringify(Object.keys(activeSciences()))'));
-  assert(ids.length === 3, '原始表应为 3 节点 actual=' + ids.length);
+  eq(ids, ['sci_wood_store', 'sci_library', 'sci_workshop', 'sci_coal', 'sci_copper', 'sci_currency', 'sci_bronze_age', 'sci_copper_furnace', 'sci_stone_store', 'sci_institute', 'sci_iron', 'sci_iron_age', 'sci_city', 'sci_silver', 'sci_silver_store', 'sci_silver_refinery', 'sci_silver_age', 'sci_gold', 'sci_gold_store', 'sci_gold_refinery', 'sci_gold_age', 'sci_steel', 'sci_steel_store', 'sci_steel_refinery', 'sci_alloy_age', 'sci_god_domain', 'sci_steam_age', 'sci_electric_age', 'sci_arcane_mage', 'sci_astral_lord', 'sci_soul_realm', 'sci_nuclear_age', 'sci_quantum_age', 'sci_coin'], '短表应保留旧资源节点并接通遗迹、电力、英魂、星核与量子支线');
   assert(e.run("activeSciences()['sci_copper'].cost.tech") === 10 && e.run("activeSciences()['sci_iron'].cost.tech") === 80 && e.run("activeSciences()['sci_coin'].cost.tech") === 200, '原始成本不符');
+  assert(e.run("activeSciences()['sci_bronze_age'].cost.tech") === 1200 && e.run("activeSciences()['sci_iron_age'].cost.tech") === 2500, '两档军备研究成本不符');
   assert(JSON.parse(e.run('JSON.stringify(researchScience("sci_iron"))')).ok === false, '原始表下未研究前置应被拒');
+  const fresh = makeEnv();
+  fresh.run('loadSaveAndApply();CFG.tech.longLadder=false;S.res.tech=1000');
+  assert(JSON.parse(fresh.run('JSON.stringify(researchScience("sci_copper"))')).reason === 'science-prerequisite', '新档短表铜研究必须先研究煤');
+  assert(JSON.parse(fresh.run('JSON.stringify(researchScience("sci_coal"))')).ok, '新档短表煤研究应可达');
+  assert(JSON.parse(fresh.run('JSON.stringify(researchScience("sci_copper"))')).ok, '新档短表煤后应可研究铜');
 });
 
-test('A02', '切片5：开关开启时用 6 节点长阶梯，且链式前置被强制', () => {
+test('A02', '长阶梯含煤、城镇化/城市化/冶银及独立军备，前置与知识成本均生效', () => {
   const e = makeEnv();
-  e.run('loadSaveAndApply();S.res.tech=99999;S.res.wood=9999;S.res.stone=9999;S.res.food=9999');
+  // 研究表拓扑校验的条件夹具；另由实付快照检验自然仓容边界。
+  e.run('loadSaveAndApply();S.res.tech=4000000000;S.res.medal=5000000;S.res.steel=2000000;S.res.wood=9999;S.res.stone=9999;S.res.food=9999');
   const ids = JSON.parse(e.run('JSON.stringify(Object.keys(activeSciences()))'));
-  assert(ids.length === 6, '长阶梯应为 6 节点 actual=' + ids.length + ':' + ids.join(','));
+  assert(ids.length === 41, '长阶梯应为 41 节点（含1项历史记录） actual=' + ids.length + ':' + ids.join(','));
   const costs = ids.map(id => e.run(`activeSciences()['${id}'].cost.tech`));
-  assert(JSON.stringify(costs) === JSON.stringify([100, 300, 800, 1800, 5000, 12000]), '阶梯成本不符 actual=' + JSON.stringify(costs));
+  assert(JSON.stringify(costs) === JSON.stringify([100, 200, 400, 400, 200, 300, 1200, 800, 1200, 1000, 800, 1000, 800, 1400, 1000, 1800, 1000, 2500, 2200, 3200, 2000, 3000, 4000, 6000, 3000, 5000, 7000, 9000, 4000, 8000, 10000, 50000, 100000, 5000000, 8000000, 10000000, 20000000, 100000000, 3000000000, 5000, 12000]), '阶梯成本不符 actual=' + JSON.stringify(costs));
+  assert(e.run('activeSciences().sci_metal.legacyOnly') === true, '旧冶金术须留在已知科技表但退出新研究主线');
   assert(JSON.parse(e.run('JSON.stringify(researchScience("sci_copper"))')).ok === false, '未研究探矿术时应拒绝冶铜术');
-  for (const id of ids) assert(JSON.parse(e.run(`JSON.stringify(researchScience("${id}"))`)).ok, `按序研究 ${id} 应成功`);
-  assert(e.run('S.sciences.length') === 6, '应研完 6 项 actual=' + e.run('S.sciences.length'));
+  assert(JSON.parse(e.run('JSON.stringify(researchScience("sci_coal"))')).ok === false, '未研究探矿术时应拒绝煤研究');
+  assert(JSON.parse(e.run('JSON.stringify(researchScience("sci_city"))')).ok === false, '前置未研究时应拒绝城市化');
+  const currentIds = ids.filter(id => id !== 'sci_metal');
+  for (const id of currentIds) assert(JSON.parse(e.run(`JSON.stringify(researchScience("${id}"))`)).ok, `按序研究 ${id} 应成功`);
+  assert(e.run('S.sciences.length') === currentIds.length, '应研完当前40项且不赠历史节点 actual=' + e.run('S.sciences.length'));
+  assert(JSON.parse(e.run('JSON.stringify(researchScience("sci_metal"))')).ok === false && !e.run('S.sciences.includes("sci_metal")'),
+    '历史冶金术虽已知，但新档不得研究');
   // 解锁未被削弱
   assert(e.run("S.sciences.includes('sci_copper')") && e.run("S.sciences.includes('sci_iron')") && e.run("S.sciences.includes('sci_coin')"), '解锁节点 id 应保持稳定（兼容旧档）');
 });
@@ -672,6 +742,11 @@ test('A03', '切片5：开→关可逆；旧档 sciences id 在两种表下都�
   e.run('CFG.tech.longLadder=true');
   assert(e.run('sciIdKnown("sci_metal")') === true && e.run('sciIdKnown("sci_prospect")') === true, '长阶梯 id 应已知');
   assert(e.run('sciName("sci_metal")') === '冶金术' && e.run('sciName("sci_copper")') === '冶铜术', '节点名不符');
+  const old = makeEnv({ 'rts_save': JSON.stringify(fullLegacy()) });
+  old.run('loadSaveAndApply();S.res.tech=1000');
+  assert(old.run('S.metalRecipeMode') === 'legacy', '旧铜铁档应保持旧配方');
+  assert(JSON.parse(old.run('JSON.stringify(researchScience("sci_prospect"))')).ok, '旧档探矿研究应成功');
+  assert(JSON.parse(old.run('JSON.stringify(researchScience("sci_copper"))')).ok, '旧档长表仍可沿探矿→冶铜路径，不追缴煤研究');
 });
 
 // ============ 切片6 用例（S4 免维护带 + 分段斜率）============
@@ -718,45 +793,49 @@ test('B03', '切片6：语义=小编制免费、超编分段递增罚息；开�
   assert(e.run('CFG.units.mage_chrono.upkeep') === 0.32, '万古之瞳 upkeep 原始值应为 0.32');
 });
 
-// ============ 切片7 用例（S5 人口结构对齐：派生式增长）============
-test('C01', '切片7：人口由 S.tick 派生（基础 4；2+5×城镇 /10s；不超城镇上限）', () => {
+// ============ v4 人口：独立状态、仅在线增长、聚落容量 ============
+test('C01', '新档人口0/容量4；在线每十秒加2，S.tick 改动不追溯生人', () => {
   const e = makeEnv();
-  e.run('loadSaveAndApply();S.townLv=1;S.tick=0');
-  assert(e.run('popGrowthPer10s()') === 7, '城镇1 增长应为 2+5=7，actual=' + e.run('popGrowthPer10s()'));
-  assert(e.run('popCurrent()') === 4, 'tick0 人口应为基础 4，actual=' + e.run('popCurrent()'));
-  e.run('S.tick=9'); assert(e.run('popCurrent()') === 4, 'tick9 应仍为 4');
-  e.run('S.tick=10'); assert(e.run('popCurrent()') === 10, 'tick10 应为 min(上限10, 4+7)=10，actual=' + e.run('popCurrent()'));
-  e.run('S.tick=1000'); assert(e.run('popCurrent()') === 10, '应被城镇上限 10 封顶，actual=' + e.run('popCurrent()'));
+  e.run('loadSaveAndApply()');
+  assert(e.run('popGrowthPer10s()') === 2 && e.run('popCurrent()') === 0 && e.run('maxPop()') === 4, '新档人口基础值不符');
+  e.run('S.tick=1000');
+  assert(e.run('popCurrent()') === 0, '改累计 tick 不得追溯生人');
+  e.run('for(let i=0;i<9;i++)tick()');
+  assert(e.run('popCurrent()') === 0 && e.run('S.population.growthClock') === 9, '第九秒不应增长');
+  e.run('tick()');
+  assert(e.run('popCurrent()') === 2 && e.run('S.population.growthClock') === 0, '第十秒应加2人');
+  e.run('for(let i=0;i<10;i++)tick()');
+  assert(e.run('popCurrent()') === 4, '第20秒应到容量4');
+  e.run('for(let i=0;i<100;i++)tick()');
+  assert(e.run('popCurrent()') === 4, '人口不得越容量');
 });
 
-test('C02', '切片7：城镇4（上限40）时增长与封顶；新增分配不得超当前人口', () => {
+test('C02', '村庄扩容只加容量不追溯补人；新增岗位受实际人口约束', () => {
   const e = makeEnv();
-  e.run('loadSaveAndApply();S.townLv=4;S.tick=10');
-  assert(e.run('popGrowthPer10s()') === 22, '城镇4 增长应为 2+20=22，actual=' + e.run('popGrowthPer10s()'));
-  assert(e.run('popCurrent()') === 26, 'tick10 应为 4+22=26，actual=' + e.run('popCurrent()'));
-  e.run('S.tick=20'); assert(e.run('popCurrent()') === 40, 'tick20 应被上限 40 封顶（4+44→40），actual=' + e.run('popCurrent()'));
-  // 超当前人口的新增分配应被拒（tick10：当前 26）
-  e.run('S.tick=10;S.popAlloc={wood:20,stone:4,food:2}');
-  assert(e.run('popAllocTotal()') === 26 && e.run('popFree()') === 0, '分配总数应为 26、空闲 0');
-  e.run("setPopAlloc('wood',21)");
-  assert(e.run("S.popAlloc.wood") === 20, '超当前人口的新增分配应被拒 actual=' + e.run('S.popAlloc.wood'));
+  e.run('loadSaveAndApply();for(let i=0;i<20;i++)tick()');
+  assert(e.run('popCurrent()') === 4 && e.run('maxPop()') === 4, '准备条件：已满4人');
+  const up = JSON.parse(e.run('JSON.stringify(upgradeSettlement("village",0))'));
+  assert(up.ok && e.run('maxPop()') === 5 && e.run('popCurrent()') === 4, '扩容不得立即生人');
+  e.run("setPopAlloc('wood',4);setPopAlloc('stone',1)");
+  assert(e.run('S.popAlloc.wood') === 4 && e.run('S.popAlloc.stone') === 0, '人口未增长前不得分配第五人');
+  e.run('for(let i=0;i<10;i++)tick()');
+  assert(e.run('popCurrent()') === 5, '再过10秒应回填到5');
+  e.run("setPopAlloc('stone',1)");
+  assert(e.run('S.popAlloc.stone') === 1 && e.run('popFree()') === 0, '第五人此时可分配');
 });
 
-test('C03', '切片7：关闭开关＝原样；既有超额分配不被回收（不静默裁剪）；可逆', () => {
-  const e = makeEnv({ 'rts_save': JSON.stringify(fullLegacy()) });   // legacy 分配 5/4/6=15
-  e.run('loadSaveAndApply();CFG.pop.growth=false');
-  assert(e.run('popCurrent()') === e.run('maxPop()'), '关闭时人口应等于城镇上限');
-  assert(e.run('popAllocTotal()') === 15, '关闭时既有分配应原样 (15)，actual=' + e.run('popAllocTotal()'));
-  e.run('CFG.pop.growth=true');
-  assert(e.run('popAllocTotal()') === 15, '开启后既有分配不得被回收（不静默裁剪），actual=' + e.run('popAllocTotal()'));
-  assert(e.run('popFree()') >= 0, '空闲不得为负，actual=' + e.run('popFree()'));
-  // 可逆性：用 tick=0（人口=基础 4）与关闭态（人口=城镇上限）对比，避免被上限封顶掩盖
-  e.run('S.tick=0');
-  const on1 = e.run('popCurrent()');
-  e.run('CFG.pop.growth=false'); const off = e.run('popCurrent()');
-  e.run('CFG.pop.growth=true'); const on2 = e.run('popCurrent()');
-  assert(on1 === on2 && off !== on1, '可逆性失败: on1=' + on1 + ' off=' + off + ' on2=' + on2);
-  assert(on1 === 4 && off === e.run('maxPop()'), 'tick0 应为 4、关闭态应为城镇上限 actual=' + on1 + '/' + off);
+test('C03', '旧档超额岗位与人口不裁剪；关闭旧开关仍可往返', () => {
+  const old = fullLegacy(); old.popAlloc = { wood: 45, stone: 0, food: 0 };
+  const e = makeEnv({ 'rts_save': JSON.stringify(old) });
+  assert(e.run('loadSaveAndApply().status') === 'migrated', '旧档应迁移');
+  assert(e.run('popAllocTotal()') === 45 && e.run('popCurrent()') >= 45 && e.run('maxPop()') >= 45, '超额旧岗位和人口不得丢失');
+  e.run("setPopAlloc('wood',46)");
+  assert(e.run('S.popAlloc.wood') === 45, '现有空闲为0时不能新增岗位');
+  e.run('CFG.save.v3=false;CFG.townGate.useDeed=false;save()');
+  const d = JSON.parse(e.store.get('rts_save'));
+  assert(d.v === 32 && d.popAlloc.wood === 45 && d.popAlloc.coal === 0 && d.popAlloc.silver === 0 && d.popAlloc.gold === 0 && d.popAlloc.silverCoin === 0 && d.population.current >= 45 && d.metalRecipeMode === 'legacy' && d.storageMode === 'legacy' && d.currencyRecipeMode === 'legacy', '关闭旧开关不得删人口/分配/旧配方');
+  const reloaded = makeEnv({ 'rts_save': e.store.get('rts_save') });
+  assert(reloaded.run('loadSaveAndApply().status') === 'ok' && reloaded.run('S.popAlloc.wood') === 45, '刷新后岗位需保留');
 });
 
 // ============ 切片8a 用例（O8 上调单位上限）============
@@ -833,15 +912,16 @@ test('E03', '切片8b：资源/科技/击杀门仍然生效；开→关可逆', 
 });
 
 // ============ 切片9 用例（存档 v3 骨架：ops / offline / daily）============
-test('F01', '切片9：v2→v3 迁移补齐三字段、版本升为 3、其余字段不动', () => {
+test('F01', 'legacy→v32 迁移补齐历史字段，既有资源不变', () => {
   const e = makeEnv({ 'rts_save': JSON.stringify(fullLegacy()) });
   const r = JSON.parse(e.run('JSON.stringify(loadSaveAndApply())'));
-  assert(['ok', 'migrated'].includes(r.status), 'v2 档应可加载 actual=' + r.status);
+  assert(['ok', 'migrated'].includes(r.status), 'legacy 档应可加载 actual=' + r.status);
   assert(e.run('S.ops.length') === 0 && e.run('S.offline.pendingReport') === null && e.run('S.daily.day') === null, 'v3 字段默认值不符');
   const d = JSON.parse(e.run('JSON.stringify(serializeSave())'));
   const isObj = x => x !== null && typeof x === 'object' && !Array.isArray(x);
-  assert(d.v === 3 && Array.isArray(d.ops) && isObj(d.offline) && isObj(d.daily), 'v3 序列化字段不符: v=' + d.v);
-  assert(d.res.wood === fullLegacy().res.wood, '进度字段被改动（不应发生）');
+  assert(d.v === 32 && Array.isArray(d.ops) && isObj(d.offline) && isObj(d.daily) && Array.isArray(d.townPolicies?.smallTown) && d.currencyRecipeMode === 'legacy' && d.res.silver === 0 && d.res.silverCoin === 0 && d.res.gold === 0, 'v32 序列化字段不符: v=' + d.v);
+  assert(isObj(d.population) && isObj(d.settlements) && d.population.current >= 40, '人口/聚落迁移未完成');
+  assert(d.res.wood === fullLegacy().res.wood && d.res.coal === 0 && d.popAlloc.coal === 0 && d.metalRecipeMode === 'legacy', '既有进度或煤链迁移字段不符');
 });
 
 test('F02', '切片9：迁移幂等（二次迁移不再补齐）', () => {
@@ -861,30 +941,35 @@ test('F03', '切片9：坏 v3 字段 → 保护模式（ops 非数组 / daily.co
   assert(['corrupt', 'invalid'].includes(bad3.run('loadSaveAndApply().status')), '缺 daily 应保护（v3 必需字段）');
 });
 
-test('F04', '切片9：v3 往返（ops/offline/daily 内容保留）', () => {
+test('F04', '切片9：v32 往返（ops/offline/daily 内容保留）', () => {
   const e = makeEnv();
   e.run('loadSaveAndApply();S.ops=[{key:"research:sci_iron",t:12345}];S.offline={pendingReport:{duration:3600,gains:{wood:100}}};S.daily={day:"2026-09-22",counts:{market:3}};save()');
   const text = e.store.get('rts_save');
   const e2 = makeEnv({ 'rts_save': text });
   const r = JSON.parse(e2.run('JSON.stringify(loadSaveAndApply())'));
-  assert(['ok', 'migrated'].includes(r.status), 'v3 档应可加载 actual=' + r.status);
+  assert(['ok', 'migrated'].includes(r.status), 'v32 档应可加载 actual=' + r.status);
   assert(e2.run('S.ops[0].key') === 'research:sci_iron' && e2.run('S.ops[0].t') === 12345, 'ops 未保留');
   assert(e2.run('S.offline.pendingReport.duration') === 3600, 'offline.pendingReport 未保留');
   assert(e2.run('S.daily.day') === '2026-09-22' && e2.run('S.daily.counts.market') === 3, 'daily 未保留');
 });
 
-test('F05', '切片9：关闭开关＝v2 原样（无新字段、老档不受影响）', () => {
+test('F05', '关闭旧 v3 玩法开关后仍使用 v32，人口、配方与幂等记录不丢失', () => {
   const e = makeEnv({ 'rts_save': JSON.stringify(fullLegacy()) });
   e.run('loadSaveAndApply();CFG.save.v3=false;save()');
   const d = JSON.parse(e.store.get('rts_save'));
-  assert(d.v === 2, '关闭时版本应为 2 actual=' + d.v);
-  assert(!('ops' in d) && !('offline' in d) && !('daily' in d), '关闭时不应写入 v3 字段');
+  assert(d.v === 32, '存档格式不应随旧玩法开关降级 actual=' + d.v);
+  assert(Array.isArray(d.ops) && d.offline && d.daily && d.population && d.settlements && d.metalRecipeMode === 'legacy', '关闭开关不得删已存字段');
+  const e2 = makeEnv({ 'rts_save': e.store.get('rts_save') });
+  assert(e2.run('loadSaveAndApply().status') === 'ok' && e2.run('popCurrent()') >= 40, 'v32 重载后人口应保留');
 });
 
-test('F06', '切片9：未来版本拒绝（v=4）', () => {
-  const e = makeEnv({ 'rts_save': JSON.stringify(Object.assign({}, fullLegacy(), { v: 4, ts: 1 })) });
+test('F06', '未来版本拒绝（v=33）且不能自动覆盖', () => {
+  const future = JSON.stringify(Object.assign({}, fullLegacy(), { v: 33, ts: 1 }));
+  const e = makeEnv({ 'rts_save': future });
   const r = JSON.parse(e.run('JSON.stringify(loadSaveAndApply())'));
-  assert(r.status === 'future' || r.future === true, 'v=4 应作为未来版本拒绝 actual=' + JSON.stringify(r));
+  assert(r.status === 'future' && e.run('saveProtected()') === true, 'v=33 应作为未来版本拒绝 actual=' + JSON.stringify(r));
+  e.run('tick();save()');
+  assert(e.store.get('rts_save') === future, '未来档不能被自动覆盖');
 });
 
 // ============ 切片10 用例（幂等层：研究/兵种解锁/导入/恢复）============
@@ -995,14 +1080,24 @@ test('H04', '切片11：时钟回拨（ts 在未来）→ 不结算、不产生�
 
 test('H05', '切片11：断粮截断（食物净速率为负）→ 按可支付秒数结算，食物不为负', () => {
   const e = makeEnv({ 'rts_save': JSON.stringify(Object.assign({}, fullLegacy(), { ts: Date.now() - 7200 * 1000 })) });
-  e.run('loadSaveAndApply();S.buildings.mint={lv:40,state:"idle",timer:0,timerEnd:0,tier:0};S.res.food=100');
+  e.run('loadSaveAndApply();S.buildings.mint={lv:1,state:"idle",timer:0,timerEnd:0,tier:0}');
+  e.run("setPopAlloc('wood',0);setPopAlloc('stone',0);setPopAlloc('food',0)");
+  assert(JSON.parse(e.run('JSON.stringify(setPopAlloc("coin",10))')).ok, '铸币厂完工后应可派10人');
+  e.run('S.pool={};S.queue={};S.formation={front:[],mid:[],back:[]};S._garrisonForm={front:[],mid:[],back:[]};S.res.food=100;save();_loadedTs=Date.now()-7200000');
   const net = JSON.parse(e.run('JSON.stringify(offlineNetRates())')).food;
   assert(net < 0, '构造失败：食物净速率应为负 actual=' + net);
+  assert(e.run('popCurrent()') === 40, 'v2 城镇 4 的历史人口应完整迁移为 40');
+  const beforePopulation = e.run('JSON.stringify(S.population)');
+  const beforeTick = e.run('S.tick');
+  const beforeCoin = e.run('S.res.coin'), coinRate = e.run("prodRate('coin')");
   const r = JSON.parse(e.run('JSON.stringify(settleOffline())'));
   assert(r.ok === true && r.truncated === true, '应标记截断 actual=' + JSON.stringify(r));
   assert(e.run('S.res.food') >= 0, '食物不得为负 actual=' + e.run('S.res.food'));
-  const payable = Math.floor(100 / Math.abs(net));
-  assert(r.durationSec === payable, '应按可支付秒数结算 actual=' + r.durationSec + ' expect=' + payable);
+  // 40 人口每秒耗粮 4，0.6 倍离线为 2.4；前 11 秒另有 10 名铸币工耗粮 6，第 12—14 秒只够人口口粮。
+  assert(r.durationSec === 14, '需逐秒重算缺料后的生产，不能用初始净速率乘时长 actual=' + r.durationSec);
+  assert(Math.abs(e.run('S.res.coin') - (beforeCoin + 11 * coinRate * e.run('CFG.offline.ratio'))) < 1e-6, '第12秒起无粮铸币不得产币');
+  assert(e.run('S.tick') === beforeTick + r.durationSec, '只推进可支付秒数');
+  assert(e.run('JSON.stringify(S.population)') === beforePopulation, '离线断粮结算不得生人');
 });
 
 test('H06', '切片11：幂等（同一次离线只结一次；重复调用返回 repeat）', () => {
@@ -1091,15 +1186,15 @@ test('K01', '切片13：多汇率表存在、无套利（所有互兑往返乘�
   const e = makeEnv();
   e.run('loadSaveAndApply()');
   const rates = JSON.parse(e.run('JSON.stringify(CFG.market.rates)'));
-  assert(rates.length === 12, '多汇率应含 12 条（切片13 十条 + S8c 地契两条）actual=' + rates.length);
+  assert(rates.length === 14 && rates.some(r=>r.from==='silverCoin'&&r.to==='deed'&&r.rate===0.005) && rates.some(r=>r.from==='silverCoin'&&r.to==='medal'&&r.rate===0.05&&r.needScience==='sci_electric_age'), '汇率应保留银两购契并加入电力后银两换勋章 actual=' + rates.length);
   for (const a of rates) for (const b of rates) if (a.from === b.to && a.to === b.from) assert(a.rate * b.rate < 1, a.from + '↔' + a.to + ' 存在套利: ' + (a.rate * b.rate).toFixed(3));
   e.run('CFG.market.multiRate=false');
   assert(e.run('marketDailyLimit()') === 0, '关闭开关时不应有日限');
 });
 
 test('K02', '切片13：每日上限（5 次后第 6 次被拒），失败不改资源', () => {
-  const e = makeEnv();
-  e.run('loadSaveAndApply();S.res.coin=9999;S.res.wood=0');
+  const e = makeEnv();readyMarket(e, true);
+  e.run('S.res.coin=9999;S.res.wood=0');
   let last = null;
   for (let i = 0; i < 5; i++) last = JSON.parse(e.run('JSON.stringify(exchangeResource("coin","wood",1))'));
   assert(last.ok === true && last.remaining === 0, '第 5 次应成功且剩余 0 actual=' + JSON.stringify(last));
@@ -1110,8 +1205,8 @@ test('K02', '切片13：每日上限（5 次后第 6 次被拒），失败不改
 });
 
 test('K03', '切片13：跨日重置（把 day 改为昨天 → 计数归零、可再兑换）', () => {
-  const e = makeEnv();
-  e.run('loadSaveAndApply();S.res.coin=9999;S.res.wood=0');
+  const e = makeEnv();readyMarket(e, true);
+  e.run('S.res.coin=9999;S.res.wood=0');
   for (let i = 0; i < 5; i++) e.run('exchangeResource("coin","wood",1)');
   assert(JSON.parse(e.run('JSON.stringify(exchangeResource("coin","wood",1))')).reason === 'daily-limit', '应先达到日限');
   e.run("S.daily.day='2000-01-01'");
@@ -1121,16 +1216,16 @@ test('K03', '切片13：跨日重置（把 day 改为昨天 → 计数归零、�
 });
 
 test('K04', '切片13：关闭开关 → 无日限（可连续兑换 8 次）', () => {
-  const e = makeEnv();
-  e.run('loadSaveAndApply();CFG.market.multiRate=false;S.res.coin=9999;S.res.wood=0');
+  const e = makeEnv();readyMarket(e, true);
+  e.run('CFG.market.multiRate=false;S.res.coin=9999;S.res.wood=0');
   let ok = 0;
   for (let i = 0; i < 8; i++) if (JSON.parse(e.run('JSON.stringify(exchangeResource("coin","wood",1))')).ok) ok++;
   assert(ok === 8, '关闭开关时应无日限 actual=' + ok);
 });
 
 test('K05', '切片13：未知汇率拒绝且不改资源；跨资源兑换按 0.6 取整生效', () => {
-  const e = makeEnv();
-  e.run('loadSaveAndApply();S.res.wood=1000;S.res.stone=0');
+  const e = makeEnv();readyMarket(e, true);
+  e.run('S.res.wood=1000;S.res.stone=0');
   const r1 = JSON.parse(e.run('JSON.stringify(exchangeResource("wood","iron",5))'));
   assert(r1.ok === false && e.run('S.res.wood') === 1000, '未知汇率应拒绝且不改资源');
   const r2 = JSON.parse(e.run('JSON.stringify(exchangeResource("wood","stone",10))'));
@@ -1161,58 +1256,62 @@ test('L01', 'S8c：地契资源存在、上限生效、旧档迁移补 0（不�
   assert(e.run("CFG.res.deed.icon") === 'deed', '地契图标键应为 deed');
 });
 
-test('L02', 'S8c：金币→地契 兑换生效；往返无套利（0.01×80=0.8）', () => {
-  const e = makeEnv();
-  e.run('loadSaveAndApply();S.res.coin=10000;S.res.deed=0');
+test('L02', '初级市场金币→地契可续供且不占日限；往返无套利', () => {
+  const e = makeEnv();readyMarket(e);
+  e.run('S.res.coin=10000;S.res.deed=0');
   const r = JSON.parse(e.run('JSON.stringify(exchangeResource("coin","deed",1000))'));
   assert(r.ok === true && r.get === 10 && e.run('S.res.deed') === 10, '1000 金币应换 10 地契 actual=' + JSON.stringify(r));
+  assert(e.run("scienceUnlocked('sci_coin')") === false && e.run("dailyCount('market')") === 0, '早期地契不能要求末端货币研究或消耗日限');
   const rates = JSON.parse(e.run('JSON.stringify(CFG.market.rates)'));
   const a = rates.find(x => x.from === 'coin' && x.to === 'deed'), b = rates.find(x => x.from === 'deed' && x.to === 'coin');
   assert(a && b && a.rate * b.rate < 1, '地契往返应无套利');
 });
 
-test('L03', 'S8c：城镇升级门＝地契+科技（不足则拒绝且不扣费）', () => {
+test('L03', '聚落扩容缺地契/科技时拒绝，击败 Boss 不能绕过动作门', () => {
   const e = makeEnv();
-  e.run('loadSaveAndApply();S.townLv=1;S.res.deed=0;S.res.tech=0;S.defeated=[1,2,3,4,5,6,7,8,9,10]');
-  assert(e.run('townCanUpgrade()') === false, '地契/科技不足时不应可升级（即使 Boss 已击杀）');
-  const short2 = e.run("townGateShortfall(2)");
-  assert(/地契/.test(short2), 'Lv2 应给出地契缺口 actual=' + short2);
-  e.run('S.res.tech=0');
-  const short3 = e.run("townGateShortfall(3)");
-  assert(/地契/.test(short3) && /科技点/.test(short3), 'Lv3 应同时给出地契与科技点缺口 actual=' + short3);
-  e.run('upgradeTown()');
-  assert(e.run('S.townUpgrade') === null || e.run('S.townUpgrade') === undefined, '不足时不得开始升级');
-  assert(e.run('S.res.deed') === 0 && e.run('S.res.tech') === 0, '不足时不得扣费');
+  e.run('loadSaveAndApply();S.res.deed=0;S.res.tech=0;S.defeated=[1,2,3,4,5,6,7,8,9,10]');
+  assert(e.run('townCanUpgrade()') === false, '旧固定城镇升级入口应停用');
+  assert(/地契/.test(e.run("settlementLockReason('village')")), '村庄应提示地契不足');
+  assert(/城镇化/.test(e.run("settlementLockReason('smallTown')")), '小镇应提示研究门');
+  assert(/城市化/.test(e.run("settlementLockReason('city')")), '城市应提示研究门');
+  const result = JSON.parse(e.run('JSON.stringify(upgradeSettlement("village",0))'));
+  assert(!result.ok && e.run('S.settlements.village') === 0, '地契不足不得扩建');
+  assert(e.run('S.res.deed') === 0 && e.run('S.res.tech') === 0, '失败不得扣费');
 });
 
-test('L04', 'S8c：满足需求后升级成功且只扣一次（地契 5 + 科技 0）', () => {
+test('L04', '村庄满足需求即扩容；旧按钮重复触发不二次扣契', () => {
   const e = makeEnv();
-  e.run('loadSaveAndApply();S.townLv=1;S.res.deed=20;S.res.tech=500;S.popAlloc={wood:1,stone:1,food:1}');
-  assert(e.run('townCanUpgrade()') === true, '满足需求应可升级');
-  e.run('upgradeTown()');
-  assert(e.run('S.res.deed') === 15 && e.run('S.res.tech') === 500, '应只扣地契 5（Lv2 科技门槛为 0）actual=' + e.run('S.res.deed') + '/' + e.run('S.res.tech'));
-  assert(e.run('S.townUpgrade') !== null, '应进入升级计时');
-  e.run('advanceBuildingsBy(9999)');
-  assert(e.run('S.townLv') === 2, '计时结束后应升到 Lv2 actual=' + e.run('S.townLv'));
+  e.run('loadSaveAndApply();S.res.deed=20;S.res.tech=500');
+  const first = JSON.parse(e.run('JSON.stringify(upgradeSettlement("village",0))'));
+  const stale = JSON.parse(e.run('JSON.stringify(upgradeSettlement("village",0))'));
+  assert(first.ok && !stale.ok, '首次应成功、同一展示等级重复提交应拒绝');
+  assert(e.run('S.res.deed') === 15 && e.run('S.res.tech') === 500, '只应扣地契5，科技点不扣');
+  assert(e.run('S.settlements.village') === 1 && e.run('maxPop()') === 5 && e.run('popCurrent()') === 0, '扩容只提高容量，不追溯生人');
+  assert(e.run('S.townUpgrade') === null && e.run('S.townLv') === 1, '不得启动旧城镇计时');
+  const reloaded = makeEnv({ 'rts_save': e.store.get('rts_save') });
+  assert(reloaded.run('loadSaveAndApply().status') === 'ok' && reloaded.run('S.settlements.village') === 1, '保存后聚落等级要可重载');
 });
 
-test('L05', 'S8c：关闭开关 → 回到 Boss 门（原行为）；存档不含地契键', () => {
+test('L05', '关闭旧地契城镇开关仍走聚落扩容；已有地契不丢', () => {
   const e = makeEnv({ 'rts_save': JSON.stringify(fullLegacy()) });
   e.run('loadSaveAndApply();CFG.townGate.useDeed=false');
   e.run('S.townLv=1;S.defeated=[]');
-  assert(e.run('townCanUpgrade()') === false, '关闭开关时应回到 Boss 门');
-  assert(e.run('townGateCost(2)') === null, '关闭开关时不应有地契需求');
-  e.run('S.res.deed=99;save()');
+  assert(e.run('townCanUpgrade()') === false && !JSON.parse(e.run('JSON.stringify(upgradeTown())')).ok, '旧城镇动作不得重新开放');
+  e.run('S.res.deed=99');
+  assert(JSON.parse(e.run('JSON.stringify(upgradeSettlement("village",0))')).ok, '聚落仍应可用');
   const d = JSON.parse(e.store.get('rts_save'));
-  assert(!('deed' in d.res), '关闭开关时存档不应含地契键（等价性守护）');
+  assert(d.v === 32 && d.res.deed === 94 && d.settlements.village === 1 && d.metalRecipeMode === 'legacy' && d.storageMode === 'legacy' && d.currencyRecipeMode === 'legacy', '关闭旧开关不得删除新数据');
 });
 
-test('L06', 'S8c：连续升级按表扣费（Lv2→Lv3 需 地契15+科技100）', () => {
+test('L06', '连续村庄扩容按当前等级付 5、6、7 地契，不重复扣科技', () => {
   const e = makeEnv();
-  e.run('loadSaveAndApply();S.townLv=2;S.res.deed=100;S.res.tech=1000;S.popAlloc={wood:1,stone:1,food:1}');
-  assert(e.run('townCanUpgrade()') === true, 'Lv2→Lv3 应可升级');
-  e.run('upgradeTown();advanceBuildingsBy(9999)');
-  assert(e.run('S.townLv') === 3 && e.run('S.res.deed') === 85 && e.run('S.res.tech') === 900, '扣费不符 actual=' + e.run('S.res.deed') + '/' + e.run('S.res.tech'));
+  e.run('loadSaveAndApply();S.res.deed=100;S.res.tech=1000');
+  for (let lv = 0; lv < 3; lv++) {
+    assert(e.run('settlementCost("village")') === 5 + lv, '当前费用不符，Lv.' + lv);
+    assert(JSON.parse(e.run(`JSON.stringify(upgradeSettlement("village",${lv}))`)).ok, 'Lv.' + lv + ' 扩容应成功');
+  }
+  assert(e.run('S.settlements.village') === 3 && e.run('maxPop()') === 7, '容量应加3');
+  assert(e.run('S.res.deed') === 82 && e.run('S.res.tech') === 1000, '地契累计应扣18，科技点不扣');
 });
 
 // —— 汇总输出 ——

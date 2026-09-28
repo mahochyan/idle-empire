@@ -1,0 +1,18 @@
+{
+  "tool": "built-in image_gen",
+  "useCase": "stylized-concept",
+  "provenance": "Original transparent attack VFX for 放置帝国. The two input images were this project's existing guardian_god and phantom_god VFX, used only to match the hard pixel clusters and high-rank detail. No third-party game art was used.",
+  "id": "revival_god",
+  "name": "复苏圣像",
+  "rank": 5,
+  "references": [
+    "assets/art/vfx/units/guardian_god.png",
+    "assets/art/vfx/units/phantom_god.png"
+  ],
+  "prompt": "Use case: stylized-concept. Asset type: ORIGINAL transparent attack VFX master for a mobile HD-2D pixel-art battle, revival_god (复苏圣像), rank 5. The input images are existing effects from this project's own art and are references for hard clustered pixel edges, strong small-screen silhouette, and controlled high-rank richness ONLY. Make a distinctly different effect: a luminous emerald-and-ivory seed lance surges LEFT TO RIGHT into a bright central life sigil, with three broad curved leaf-blade arcs curling back around the seed like a restorative return pulse, sparse gold square sparks, and a narrow dark pine-green contour to read against both light sand and dark night backgrounds. A clear sweeping directional silhouette; one cohesive effect, powerful and ornate at rank 5 yet legible at 64px. Use vivid green, pale mint, warm gold and ivory; no blue crystal shield, no violet prism, no robot, person, statue, body part, scenery, floor, background color, black backing, checkerboard, text, UI, frame, bloom haze, blur, gradient fog, or watermark. Keep the entire effect centered within the central ~78% of a square canvas with genuine fully transparent RGBA margin on every side, uncropped.",
+  "generatedOutput": "C:/Users/lapyin/.codex/generated_images/01a0e1e1-ec10-7c01-8e4e-782e6854b953/exec-3de25d79-83cb-403b-b9da-225bd72f4bfb.png",
+  "selectedMaster": "revival_god-master.png",
+  "runtimePng": "assets/art/vfx/units/revival_god.png",
+  "editableSvg": "assets/art/source/vfx/units/revival_god.svg",
+  "notes": "The source prompt requested central 78% coverage. The selected image has approximately 3.7% transparent left and 3.4% right margins at alpha >8; no significant alpha touches the edge. Runtime readability and crop were reviewed at 64px."
+}

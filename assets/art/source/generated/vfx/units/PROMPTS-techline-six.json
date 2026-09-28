@@ -1,0 +1,14 @@
+{
+  "tool": "built-in image_gen",
+  "workflow": "One generation call per ID, using that ID's transparent 512px portrait as style and equipment reference. Keep the generated RGBA master intact; the per-ID VFX generator fits it without stretching and adds the shared trail, impact mark, and rank details.",
+  "commonPrompt": "Use case: stylized-concept. Asset type: isolated transparent HD-2D pixel-art battle attack VFX master for a mobile portrait game. The referenced portrait supplies only style and equipment; draw no character. Make one coherent centered effect with safe transparent margins and a crisp silhouette readable at 64 pixels. Use visible stepped pixel clusters and a bright daylight palette. Output genuine transparent RGBA, with no face, person, scenery, floor, backdrop, text, watermark, border, or UI.",
+  "referencePortraitDirectory": "assets/art/units/hires",
+  "subjects": {
+    "infantry": "A restrained ordinary soldier sword stroke rising lower-left to upper-right: narrow crisp silver steel edge, cool blue reflected light, short ochre speed lines and only a few warm sparks. Physical low-rank attack, more modest than late-era magic; no large orange fire crescent.",
+    "archer": "One low-rank hunting arrow travelling left to right: brown wooden shaft, small silver arrowhead and muted green feather fletching. A short elegant leaf-green wind ribbon and a few pale golden speed flecks. No blue plasma bolt or fire.",
+    "bronze_guard": "A grounded bronze-age round-shield bash moving right: hammered copper sunburst shield is the dominant silhouette, short bronze spearhead thrust to the right, a few warm ivory impact chips and a small royal-blue accent. Moderate rank-2 complexity, unlike a simple orange sword crescent.",
+    "silver_heavy": "A disciplined silver heavy guard mace-and-shield impact: broad faceted silver-white compression burst, central angular mace impact star, polished steel fragments and deep royal-blue shield-shaped pressure wave with restrained gold edging. Heavier and more refined than bronze; no orange sword crescent.",
+    "electro_trooper": "An electric-era spear discharge travelling left to right: three jagged branching electric cyan bolts converge into a long sharp spearhead, with a compact blue induction coil at the origin and small pixel sparks. Angular rank-5 lightning forks rather than a rounded generic plasma fireball.",
+    "star_trooper": "A precise star-era rifle shot travelling left to right: white-gold six-point starlight lance and diamond projectile, tightly focused pale turquoise beam, two thin offset orbital arcs and tiny gold constellation glints. Clean rank-5 geometry, visually separate from jagged electro lightning and from a generic blue fireball."
+  }
+}

@@ -129,7 +129,19 @@ function unlockedVariants(baseUk){
   }
   return result;
 }
+function snapshotUnitResearch(){
+  const copy=o=>JSON.parse(JSON.stringify(o));
+  return{res:{...S.res},merit:S.merit,essence:{...S.essence},upgradedUnits:{...S.upgradedUnits},
+    pool:{...S.pool},formation:copy(S.formation),garrisonForm:copy(S._garrisonForm),queue:copy(S.queue),
+    ops:copy(S.ops),log:Array.isArray(S.log)?S.log.slice():[]};
+}
+function restoreUnitResearch(before){
+  S.res=before.res;S.merit=before.merit;S.essence=before.essence;S.upgradedUnits=before.upgradedUnits;
+  S.pool=before.pool;S.formation=before.formation;S._garrisonForm=before.garrisonForm;S.queue=before.queue;
+  S.ops=before.ops;S.log=before.log;
+}
 function upgradeUnit(fromKey,toKey){
+  if(typeof saveProtected==='function'&&saveProtected()){toast('存档保护中，无法研究兵种');return{ok:false,reason:'protected'}}
   if(typeof idemRepeat==='function'&&idemRepeat('unit',fromKey+'>'+toKey)){toast('已提交，请稍候');return}   // 切片10：窗口内重复 → 不重复扣费
   if(S.upgradedUnits[toKey]){toast('已解锁');return;}
   const tree=CFG.unitUpgrades[baseUnitType(fromKey)]?.tree;
@@ -138,6 +150,8 @@ function upgradeUnit(fromKey,toKey){
   if(!node)return;
   const branch=node.branches.find(b=>b.to===toKey);
   if(!branch)return;
+  const freeRoot=fromKey===baseUnitType(fromKey)&&node.tier===0&&!node.unlock;
+  if(!freeRoot&&!S.upgradedUnits[fromKey]){toast('需先解锁前置兵种「'+(CFG.units[fromKey]?.name||fromKey)+'」');return{ok:false,reason:'unit-prerequisite'}}
   const targetTier=CFG.units[toKey]?.tier??0;
   const levelLock=checkTierLevel(targetTier);
   if(levelLock){toast(levelLock);return;}
@@ -162,6 +176,7 @@ function upgradeUnit(fromKey,toKey){
   }
   const cost=branch.cost;
   if(S.res.wood<cost.wood||S.res.stone<cost.stone||S.res.food<cost.food){toast('资源不足');return;}
+  const before=snapshotUnitResearch();
   S.res.wood-=cost.wood;S.res.stone-=cost.stone;S.res.food-=cost.food;
   S.res.tech-=needTech;
   S.merit-=needMerit;
@@ -174,11 +189,17 @@ function upgradeUnit(fromKey,toKey){
     const bKey=Object.keys(CFG.buildings).find(k=>CFG.buildings[k].trains===baseUnitType(fromKey));
     if(bKey&&typeof refundUnitsByLine==='function')refundUnitsByLine(bKey, oldTier);
   }
-  addLog('解锁'+(CFG.units[toKey]?CFG.units[toKey].name:toKey)+'兵种升级');
   if(typeof idemMark==='function')idemMark(idemKey('unit',fromKey+'>'+toKey));   // 切片10：成功后打点
-  save();updateUI();
+  if(!save().ok){
+    restoreUnitResearch(before);
+    toast('保存失败，兵种研究未生效');updateUI();
+    return{ok:false,reason:'save-failed'};
+  }
+  addLog('解锁'+(CFG.units[toKey]?CFG.units[toKey].name:toKey)+'兵种升级');
+  updateUI();return{ok:true};
 }
 function unlockUnitRoot(unitKey){
+  if(typeof saveProtected==='function'&&saveProtected()){toast('存档保护中，无法研究兵种');return{ok:false,reason:'protected'}}
   if(S.upgradedUnits[unitKey]){toast('已解锁');return;}
   const tree=CFG.unitUpgrades[baseUnitType(unitKey)]?.tree;
   if(!tree)return;
@@ -209,13 +230,19 @@ function unlockUnitRoot(unitKey){
   }
   const cost=ul.cost;
   if(S.res.wood<cost.wood||S.res.stone<cost.stone||S.res.food<cost.food){toast('资源不足');return;}
+  const before=snapshotUnitResearch();
   S.res.wood-=cost.wood;S.res.stone-=cost.stone;S.res.food-=cost.food;
   S.res.tech-=needTech;
   S.merit-=needMerit;
   if(needEssence){S.essence[needEssence.type]-=needEssence.count;}
   S.upgradedUnits[unitKey]=true;
+  if(!save().ok){
+    restoreUnitResearch(before);
+    toast('保存失败，兵种研究未生效');updateUI();
+    return{ok:false,reason:'save-failed'};
+  }
   addLog('解锁'+(CFG.units[unitKey]?CFG.units[unitKey].name:unitKey)+'兵种');
-  save();updateUI();
+  updateUI();return{ok:true};
 }
 
 // ==================== 科技界面渲染 ====================

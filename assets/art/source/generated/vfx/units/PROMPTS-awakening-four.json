@@ -1,0 +1,33 @@
+{
+  "tool": "built-in image_gen",
+  "useCase": "stylized-concept",
+  "provenance": "Four separate original transparent VFX masters for 放置帝国. Existing project VFX were used only as pixel-edge and contrast references. The portraits were being produced independently; no third-party art was used.",
+  "status": "Selected masters integrated as per-ID 256px PNGs and editable SVGs",
+  "prompts": {
+    "silence_god": {
+      "references": ["assets/art/vfx/units/phantom_god.png", "assets/art/vfx/units/guardian_god.png"],
+      "prompt": "Use case: stylized-concept. Asset type: ORIGINAL transparent 1254-square attack VFX master for the mobile HD-2D pixel-art battle unit silence_god, 缄默之神, rank 5. Input images are this project's existing effects, references ONLY for crisp clustered pixel craftsmanship and high-rank detail; do not copy their prism spear or shield. Create one isolated LEFT-TO-RIGHT divine SILENCE SEAL WAVE: a compact dark indigo circular mute sigil with a bold ivory vertical central bar, two BROKEN concentric pale-violet sound rings collapsing inward, and a short directional indigo/ivory wave pushing right. Muted antique gold fracture marks and a few angular violet particles, strong light ivory outline so it reads on dark night as well as pale sand. The shape must read as sealing/removing sound, distinct from all shields, leaf spirals, sword cuts, and crystal lances. Elaborate rank-five effect but one coherent silhouette readable at 64px. Fully transparent RGBA on all sides, keep visible art inside central 75-80% square. No character, idol body, face, text, UI, scenery, floor, color backing, checkerboard, blur, haze, bloom fog, crop or watermark.",
+      "generatedOutput": "C:/Users/lapyin/.codex/generated_images/01a0e1e1-ec10-7c01-8e4e-782e6854b953/exec-7885bdd8-57fe-4356-bd36-9c30121a02ae.png",
+      "selectedMaster": "silence_god-master.png"
+    },
+    "trial_guard_easy": {
+      "references": ["assets/art/vfx/units/god_crystal_guard.png"],
+      "prompt": "Use case: stylized-concept. Asset type: ORIGINAL transparent attack VFX master for mobile HD-2D pixel-art trial_guard_easy, 圣域守卫, rank 2 low-difficulty. Input image is this project's existing high-rank effect, a reference ONLY for crisp hard pixel clusters and small-screen contrast; this new effect must be MUCH SIMPLER and DISTINCT, not a crystal shield. A short LEFT-TO-RIGHT warm bronze/ivory short-spear THRUST, one narrow tapered triangular tip, one small turquoise circular SUN SEAL near the shaft, and just two or three tiny dust/spark pixels. Compact restrained silhouette, modest luminosity, sturdy sanctuary style, pale ivory edge and dark bronze outline so it reads at 64px on light sand and dark night. NO large shockwave, no full shield, no ornate ring, no multiple blades, no magic orb. Isolated art in the central 65-70% square with substantial fully transparent RGBA margin all around. No character, hands, body, background, checkerboard, text, UI, frame, haze, blur, or watermark.",
+      "generatedOutput": "C:/Users/lapyin/.codex/generated_images/01a0e1e1-ec10-7c01-8e4e-782e6854b953/exec-0c8960ae-4ac9-4abb-948f-bfdf3f9842ac.png",
+      "selectedMaster": "trial_guard_easy-master.png"
+    },
+    "trial_guard_perfect": {
+      "references": ["assets/art/vfx/units/phantom_god.png", "assets/art/vfx/units/mage_space.png"],
+      "prompt": "Use case: stylized-concept. Asset type: ORIGINAL transparent attack VFX master for mobile HD-2D pixel-art trial_guard_perfect, 幻影守卫, rank 4 medium-high trial. Input images are this project's own effects, STYLE reference only; do not reproduce their horizontal prism lance, broken corner brackets, or spell orb. Make a slender LEFT-TO-RIGHT MIRROR CRESCENT CUT: one long elegant SILVER-WHITE curved crescent blade, with one clearly OFFSET cyan reflection above and a smaller violet reflection below, converging to a bright narrow point on the right. Three crisp separate reflection streaks, a few diamond mirror splinters, restrained cool shimmer. Distinct from a spear, circular shield, mute seal and heavy red twin strike. More visually layered than the trial_guard_easy short bronze spear but less crowded than rank-5 god effects. Hard hand-painted pixel clusters, dark blue-violet edge so it reads at 64px on pale sand and dark night. Center within about 76% of square, genuine fully transparent RGBA margins; no character, body, robot, scenery, floor, background, checkerboard, words, UI, frame, soft blur, cloud, fog, or watermark.",
+      "generatedOutput": "C:/Users/lapyin/.codex/generated_images/01a0e1e1-ec10-7c01-8e4e-782e6854b953/exec-3b204acf-bc7a-4dc6-a685-129addac0229.png",
+      "selectedMaster": "trial_guard_perfect-master.png"
+    },
+    "trial_guard_extreme": {
+      "references": ["assets/art/vfx/units/slaughter_god.png", "assets/art/vfx/cavslash.png"],
+      "prompt": "Use case: stylized-concept. Asset type: ORIGINAL transparent attack VFX master for mobile HD-2D pixel-art trial_guard_extreme, 修罗守卫, rank 5 extreme trial. Input images are this project's existing effects and are references ONLY for hard pixel clusters and rank-five contrast. Do NOT copy slaughter_god's three straight red tactical slash planes or any mechanical gun. Draw a violent but clear LEFT-TO-RIGHT ASURA TWIN-CRESCENT CUT: two broad opposing CURVED blackened-bronze blades sweep inward, crossing at one bright amber-red core toward the right; their two arcs form an unmistakable X-like claw silhouette with jagged crimson trailing embers and sparse angular gold chips. Use dark wine red/black bronze contour and ivory-hot center for legibility against both pale sand and dark night. Richest and widest of three trial guard effects, but one cohesive visible attack, discernible at 64px. Keep art inside central ~80% of square with genuine fully transparent RGBA margin, no crop. No character, face, hand, body, scenery, floor, color backing, checkerboard, text, UI, frame, soft haze, cloud, blur or watermark.",
+      "generatedOutput": "C:/Users/lapyin/.codex/generated_images/01a0e1e1-ec10-7c01-8e4e-782e6854b953/exec-5e647c15-e2a3-45c9-afbb-28c919fa3056.png",
+      "selectedMaster": "trial_guard_extreme-master.png",
+      "note": "First call used a nonexistent style-reference path under vfx/units and returned an error without creating art. The successful retry used the existing assets/art/vfx/cavslash.png."
+    }
+  }
+}

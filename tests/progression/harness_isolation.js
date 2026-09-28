@@ -1,0 +1,14 @@
+'use strict';
+const assert=require('node:assert/strict');
+const {environment}=require('./harness');
+const hostRandom=Math.random;
+const first=environment(),second=environment();
+first.run('Math.random=()=>0.1');
+assert.equal(first.run('Math.random()'),0.1);
+second.run('Math.random=()=>0.2');
+assert.equal(first.run('Math.random()'),0.1,'a sibling VM must not replace this battle stream');
+assert.equal(second.run('Math.random()'),0.2);
+assert.equal(Math.random,hostRandom,'a VM must not replace the host RNG');
+assert.equal(first.run('Math.floor(1.9)'),1,'standard Math functions remain available');
+assert.equal(second.run('Math.max(2,3)'),3);
+console.log('1 passed');

@@ -1,0 +1,2929 @@
+{
+  "version": 2,
+  "license": "Original project art",
+  "logicalSize": [
+    32,
+    32
+  ],
+  "animationFrames": 4,
+  "animations": {
+    "idle": {
+      "frames": 4,
+      "frameDurationMs": 300,
+      "loop": true
+    },
+    "attack": {
+      "frames": 4,
+      "frameDurationMs": 90,
+      "loop": false
+    },
+    "hit": {
+      "frames": 4,
+      "frameDurationMs": 100,
+      "loop": false
+    },
+    "death": {
+      "frames": 4,
+      "frameDurationMs": 150,
+      "loop": false
+    }
+  },
+  "sprites": {
+    "quantum_trooper": {
+      "png": "units/quantum_trooper.png",
+      "idleSheet": "units/quantum_trooper-idle.png",
+      "attackSheet": "units/quantum_trooper-attack.png",
+      "hitSheet": "units/quantum_trooper-hit.png",
+      "deathSheet": "units/quantum_trooper-death.png",
+      "source": "source/units/quantum_trooper.svg",
+      "category": "humanoid"
+    },
+    "arcane_mage": {
+      "png": "units/arcane_mage.png",
+      "idleSheet": "units/arcane_mage-idle.png",
+      "attackSheet": "units/arcane_mage-attack.png",
+      "hitSheet": "units/arcane_mage-hit.png",
+      "deathSheet": "units/arcane_mage-death.png",
+      "source": "source/units/arcane_mage.svg",
+      "category": "mage"
+    },
+    "soul_wraith": {
+      "png": "units/soul_wraith.png",
+      "idleSheet": "units/soul_wraith-idle.png",
+      "attackSheet": "units/soul_wraith-attack.png",
+      "hitSheet": "units/soul_wraith-hit.png",
+      "deathSheet": "units/soul_wraith-death.png",
+      "source": "source/units/soul_wraith.svg",
+      "category": "divine"
+    },
+    "boss": {
+      "png": "units/boss.png",
+      "idleSheet": "units/boss-idle.png",
+      "attackSheet": "units/boss-attack.png",
+      "hitSheet": "units/boss-hit.png",
+      "deathSheet": "units/boss-death.png",
+      "source": "source/units/boss.svg",
+      "category": "humanoid"
+    },
+    "enemy": {
+      "png": "units/enemy.png",
+      "idleSheet": "units/enemy-idle.png",
+      "attackSheet": "units/enemy-attack.png",
+      "hitSheet": "units/enemy-hit.png",
+      "deathSheet": "units/enemy-death.png",
+      "source": "source/units/enemy.svg",
+      "category": "humanoid"
+    },
+    "infantry": {
+      "png": "units/infantry.png",
+      "idleSheet": "units/infantry-idle.png",
+      "attackSheet": "units/infantry-attack.png",
+      "hitSheet": "units/infantry-hit.png",
+      "deathSheet": "units/infantry-death.png",
+      "source": "source/units/infantry.svg",
+      "category": "humanoid"
+    },
+    "infantry_t0": {
+      "png": "units/infantry_t0.png",
+      "idleSheet": "units/infantry_t0-idle.png",
+      "attackSheet": "units/infantry_t0-attack.png",
+      "hitSheet": "units/infantry_t0-hit.png",
+      "deathSheet": "units/infantry_t0-death.png",
+      "source": "source/units/infantry_t0.svg",
+      "category": "humanoid"
+    },
+    "infantry_t1": {
+      "png": "units/infantry_t1.png",
+      "idleSheet": "units/infantry_t1-idle.png",
+      "attackSheet": "units/infantry_t1-attack.png",
+      "hitSheet": "units/infantry_t1-hit.png",
+      "deathSheet": "units/infantry_t1-death.png",
+      "source": "source/units/infantry_t1.svg",
+      "category": "humanoid"
+    },
+    "infantry_shield": {
+      "png": "units/infantry_shield.png",
+      "idleSheet": "units/infantry_shield-idle.png",
+      "attackSheet": "units/infantry_shield-attack.png",
+      "hitSheet": "units/infantry_shield-hit.png",
+      "deathSheet": "units/infantry_shield-death.png",
+      "source": "source/units/infantry_shield.svg",
+      "category": "humanoid"
+    },
+    "infantry_spear": {
+      "png": "units/infantry_spear.png",
+      "idleSheet": "units/infantry_spear-idle.png",
+      "attackSheet": "units/infantry_spear-attack.png",
+      "hitSheet": "units/infantry_spear-hit.png",
+      "deathSheet": "units/infantry_spear-death.png",
+      "source": "source/units/infantry_spear.svg",
+      "category": "humanoid"
+    },
+    "infantry_sword": {
+      "png": "units/infantry_sword.png",
+      "idleSheet": "units/infantry_sword-idle.png",
+      "attackSheet": "units/infantry_sword-attack.png",
+      "hitSheet": "units/infantry_sword-hit.png",
+      "deathSheet": "units/infantry_sword-death.png",
+      "source": "source/units/infantry_sword.svg",
+      "category": "humanoid"
+    },
+    "infantry_fortress": {
+      "png": "units/infantry_fortress.png",
+      "idleSheet": "units/infantry_fortress-idle.png",
+      "attackSheet": "units/infantry_fortress-attack.png",
+      "hitSheet": "units/infantry_fortress-hit.png",
+      "deathSheet": "units/infantry_fortress-death.png",
+      "source": "source/units/infantry_fortress.svg",
+      "category": "humanoid"
+    },
+    "infantry_ironrose": {
+      "png": "units/infantry_ironrose.png",
+      "idleSheet": "units/infantry_ironrose-idle.png",
+      "attackSheet": "units/infantry_ironrose-attack.png",
+      "hitSheet": "units/infantry_ironrose-hit.png",
+      "deathSheet": "units/infantry_ironrose-death.png",
+      "source": "source/units/infantry_ironrose.svg",
+      "category": "humanoid"
+    },
+    "infantry_bloodrose": {
+      "png": "units/infantry_bloodrose.png",
+      "idleSheet": "units/infantry_bloodrose-idle.png",
+      "attackSheet": "units/infantry_bloodrose-attack.png",
+      "hitSheet": "units/infantry_bloodrose-hit.png",
+      "deathSheet": "units/infantry_bloodrose-death.png",
+      "source": "source/units/infantry_bloodrose.svg",
+      "category": "humanoid"
+    },
+    "spearman": {
+      "png": "units/spearman.png",
+      "idleSheet": "units/spearman-idle.png",
+      "attackSheet": "units/spearman-attack.png",
+      "hitSheet": "units/spearman-hit.png",
+      "deathSheet": "units/spearman-death.png",
+      "source": "source/units/spearman.svg",
+      "category": "humanoid"
+    },
+    "bronze_guard": {
+      "png": "units/bronze_guard.png",
+      "idleSheet": "units/bronze_guard-idle.png",
+      "attackSheet": "units/bronze_guard-attack.png",
+      "hitSheet": "units/bronze_guard-hit.png",
+      "deathSheet": "units/bronze_guard-death.png",
+      "source": "source/units/bronze_guard.svg",
+      "category": "humanoid"
+    },
+    "iron_spearman": {
+      "png": "units/iron_spearman.png",
+      "idleSheet": "units/iron_spearman-idle.png",
+      "attackSheet": "units/iron_spearman-attack.png",
+      "hitSheet": "units/iron_spearman-hit.png",
+      "deathSheet": "units/iron_spearman-death.png",
+      "source": "source/units/iron_spearman.svg",
+      "category": "humanoid"
+    },
+    "silver_heavy": {
+      "png": "units/silver_heavy.png",
+      "idleSheet": "units/silver_heavy-idle.png",
+      "attackSheet": "units/silver_heavy-attack.png",
+      "hitSheet": "units/silver_heavy-hit.png",
+      "deathSheet": "units/silver_heavy-death.png",
+      "source": "source/units/silver_heavy.svg",
+      "category": "humanoid"
+    },
+    "alloy_special": {
+      "png": "units/alloy_special.png",
+      "idleSheet": "units/alloy_special-idle.png",
+      "attackSheet": "units/alloy_special-attack.png",
+      "hitSheet": "units/alloy_special-hit.png",
+      "deathSheet": "units/alloy_special-death.png",
+      "source": "source/units/alloy_special.svg",
+      "category": "humanoid"
+    },
+    "armored_trooper": {
+      "png": "units/armored_trooper.png",
+      "idleSheet": "units/armored_trooper-idle.png",
+      "attackSheet": "units/armored_trooper-attack.png",
+      "hitSheet": "units/armored_trooper-hit.png",
+      "deathSheet": "units/armored_trooper-death.png",
+      "source": "source/units/armored_trooper.svg",
+      "category": "humanoid"
+    },
+    "electro_trooper": {
+      "png": "units/electro_trooper.png",
+      "idleSheet": "units/electro_trooper-idle.png",
+      "attackSheet": "units/electro_trooper-attack.png",
+      "hitSheet": "units/electro_trooper-hit.png",
+      "deathSheet": "units/electro_trooper-death.png",
+      "source": "source/units/electro_trooper.svg",
+      "category": "humanoid"
+    },
+    "star_trooper": {
+      "png": "units/star_trooper.png",
+      "idleSheet": "units/star_trooper-idle.png",
+      "attackSheet": "units/star_trooper-attack.png",
+      "hitSheet": "units/star_trooper-hit.png",
+      "deathSheet": "units/star_trooper-death.png",
+      "source": "source/units/star_trooper.svg",
+      "category": "humanoid"
+    },
+    "archer": {
+      "png": "units/archer.png",
+      "idleSheet": "units/archer-idle.png",
+      "attackSheet": "units/archer-attack.png",
+      "hitSheet": "units/archer-hit.png",
+      "deathSheet": "units/archer-death.png",
+      "source": "source/units/archer.svg",
+      "category": "humanoid"
+    },
+    "archer_t0": {
+      "png": "units/archer_t0.png",
+      "idleSheet": "units/archer_t0-idle.png",
+      "attackSheet": "units/archer_t0-attack.png",
+      "hitSheet": "units/archer_t0-hit.png",
+      "deathSheet": "units/archer_t0-death.png",
+      "source": "source/units/archer_t0.svg",
+      "category": "humanoid"
+    },
+    "archer_t1": {
+      "png": "units/archer_t1.png",
+      "idleSheet": "units/archer_t1-idle.png",
+      "attackSheet": "units/archer_t1-attack.png",
+      "hitSheet": "units/archer_t1-hit.png",
+      "deathSheet": "units/archer_t1-death.png",
+      "source": "source/units/archer_t1.svg",
+      "category": "humanoid"
+    },
+    "archer_silverbow": {
+      "png": "units/archer_silverbow.png",
+      "idleSheet": "units/archer_silverbow-idle.png",
+      "attackSheet": "units/archer_silverbow-attack.png",
+      "hitSheet": "units/archer_silverbow-hit.png",
+      "deathSheet": "units/archer_silverbow-death.png",
+      "source": "source/units/archer_silverbow.svg",
+      "category": "humanoid"
+    },
+    "archer_crossbow": {
+      "png": "units/archer_crossbow.png",
+      "idleSheet": "units/archer_crossbow-idle.png",
+      "attackSheet": "units/archer_crossbow-attack.png",
+      "hitSheet": "units/archer_crossbow-hit.png",
+      "deathSheet": "units/archer_crossbow-death.png",
+      "source": "source/units/archer_crossbow.svg",
+      "category": "humanoid"
+    },
+    "archer_assassin": {
+      "png": "units/archer_assassin.png",
+      "idleSheet": "units/archer_assassin-idle.png",
+      "attackSheet": "units/archer_assassin-attack.png",
+      "hitSheet": "units/archer_assassin-hit.png",
+      "deathSheet": "units/archer_assassin-death.png",
+      "source": "source/units/archer_assassin.svg",
+      "category": "humanoid"
+    },
+    "archer_longbow": {
+      "png": "units/archer_longbow.png",
+      "idleSheet": "units/archer_longbow-idle.png",
+      "attackSheet": "units/archer_longbow-attack.png",
+      "hitSheet": "units/archer_longbow-hit.png",
+      "deathSheet": "units/archer_longbow-death.png",
+      "source": "source/units/archer_longbow.svg",
+      "category": "humanoid"
+    },
+    "archer_genoese": {
+      "png": "units/archer_genoese.png",
+      "idleSheet": "units/archer_genoese-idle.png",
+      "attackSheet": "units/archer_genoese-attack.png",
+      "hitSheet": "units/archer_genoese-hit.png",
+      "deathSheet": "units/archer_genoese-death.png",
+      "source": "source/units/archer_genoese.svg",
+      "category": "humanoid"
+    },
+    "archer_shadowblade": {
+      "png": "units/archer_shadowblade.png",
+      "idleSheet": "units/archer_shadowblade-idle.png",
+      "attackSheet": "units/archer_shadowblade-attack.png",
+      "hitSheet": "units/archer_shadowblade-hit.png",
+      "deathSheet": "units/archer_shadowblade-death.png",
+      "source": "source/units/archer_shadowblade.svg",
+      "category": "humanoid"
+    },
+    "cavalry": {
+      "png": "units/cavalry.png",
+      "idleSheet": "units/cavalry-idle.png",
+      "attackSheet": "units/cavalry-attack.png",
+      "hitSheet": "units/cavalry-hit.png",
+      "deathSheet": "units/cavalry-death.png",
+      "source": "source/units/cavalry.svg",
+      "category": "rider"
+    },
+    "cavalry_t1": {
+      "png": "units/cavalry_t1.png",
+      "idleSheet": "units/cavalry_t1-idle.png",
+      "attackSheet": "units/cavalry_t1-attack.png",
+      "hitSheet": "units/cavalry_t1-hit.png",
+      "deathSheet": "units/cavalry_t1-death.png",
+      "source": "source/units/cavalry_t1.svg",
+      "category": "rider"
+    },
+    "cavalry_wind": {
+      "png": "units/cavalry_wind.png",
+      "idleSheet": "units/cavalry_wind-idle.png",
+      "attackSheet": "units/cavalry_wind-attack.png",
+      "hitSheet": "units/cavalry_wind-hit.png",
+      "deathSheet": "units/cavalry_wind-death.png",
+      "source": "source/units/cavalry_wind.svg",
+      "category": "rider"
+    },
+    "cavalry_iron": {
+      "png": "units/cavalry_iron.png",
+      "idleSheet": "units/cavalry_iron-idle.png",
+      "attackSheet": "units/cavalry_iron-attack.png",
+      "hitSheet": "units/cavalry_iron-hit.png",
+      "deathSheet": "units/cavalry_iron-death.png",
+      "source": "source/units/cavalry_iron.svg",
+      "category": "rider"
+    },
+    "cavalry_dragon": {
+      "png": "units/cavalry_dragon.png",
+      "idleSheet": "units/cavalry_dragon-idle.png",
+      "attackSheet": "units/cavalry_dragon-attack.png",
+      "hitSheet": "units/cavalry_dragon-hit.png",
+      "deathSheet": "units/cavalry_dragon-death.png",
+      "source": "source/units/cavalry_dragon.svg",
+      "category": "rider"
+    },
+    "cavalry_teutonic": {
+      "png": "units/cavalry_teutonic.png",
+      "idleSheet": "units/cavalry_teutonic-idle.png",
+      "attackSheet": "units/cavalry_teutonic-attack.png",
+      "hitSheet": "units/cavalry_teutonic-hit.png",
+      "deathSheet": "units/cavalry_teutonic-death.png",
+      "source": "source/units/cavalry_teutonic.svg",
+      "category": "rider"
+    },
+    "gold_cavalry": {
+      "png": "units/gold_cavalry.png",
+      "idleSheet": "units/gold_cavalry-idle.png",
+      "attackSheet": "units/gold_cavalry-attack.png",
+      "hitSheet": "units/gold_cavalry-hit.png",
+      "deathSheet": "units/gold_cavalry-death.png",
+      "source": "source/units/gold_cavalry.svg",
+      "category": "rider"
+    },
+    "mage": {
+      "png": "units/mage.png",
+      "idleSheet": "units/mage-idle.png",
+      "attackSheet": "units/mage-attack.png",
+      "hitSheet": "units/mage-hit.png",
+      "deathSheet": "units/mage-death.png",
+      "source": "source/units/mage.svg",
+      "category": "mage"
+    },
+    "mage_t1": {
+      "png": "units/mage_t1.png",
+      "idleSheet": "units/mage_t1-idle.png",
+      "attackSheet": "units/mage_t1-attack.png",
+      "hitSheet": "units/mage_t1-hit.png",
+      "deathSheet": "units/mage_t1-death.png",
+      "source": "source/units/mage_t1.svg",
+      "category": "mage"
+    },
+    "mage_time": {
+      "png": "units/mage_time.png",
+      "idleSheet": "units/mage_time-idle.png",
+      "attackSheet": "units/mage_time-attack.png",
+      "hitSheet": "units/mage_time-hit.png",
+      "deathSheet": "units/mage_time-death.png",
+      "source": "source/units/mage_time.svg",
+      "category": "mage"
+    },
+    "mage_space": {
+      "png": "units/mage_space.png",
+      "idleSheet": "units/mage_space-idle.png",
+      "attackSheet": "units/mage_space-attack.png",
+      "hitSheet": "units/mage_space-hit.png",
+      "deathSheet": "units/mage_space-death.png",
+      "source": "source/units/mage_space.svg",
+      "category": "mage"
+    },
+    "mage_chrono": {
+      "png": "units/mage_chrono.png",
+      "idleSheet": "units/mage_chrono-idle.png",
+      "attackSheet": "units/mage_chrono-attack.png",
+      "hitSheet": "units/mage_chrono-hit.png",
+      "deathSheet": "units/mage_chrono-death.png",
+      "source": "source/units/mage_chrono.svg",
+      "category": "mage"
+    },
+    "mage_merlin": {
+      "png": "units/mage_merlin.png",
+      "idleSheet": "units/mage_merlin-idle.png",
+      "attackSheet": "units/mage_merlin-attack.png",
+      "hitSheet": "units/mage_merlin-hit.png",
+      "deathSheet": "units/mage_merlin-death.png",
+      "source": "source/units/mage_merlin.svg",
+      "category": "mage"
+    },
+    "dummy": {
+      "png": "units/dummy.png",
+      "idleSheet": "units/dummy-idle.png",
+      "attackSheet": "units/dummy-attack.png",
+      "hitSheet": "units/dummy-hit.png",
+      "deathSheet": "units/dummy-death.png",
+      "source": "source/units/dummy.svg",
+      "category": "dummy"
+    },
+    "god_crystal_guard": {
+      "png": "units/god_crystal_guard.png",
+      "idleSheet": "units/god_crystal_guard-idle.png",
+      "attackSheet": "units/god_crystal_guard-attack.png",
+      "hitSheet": "units/god_crystal_guard-hit.png",
+      "deathSheet": "units/god_crystal_guard-death.png",
+      "source": "source/units/god_crystal_guard.svg",
+      "category": "mech"
+    },
+    "phantom_god": {
+      "png": "units/phantom_god.png",
+      "idleSheet": "units/phantom_god-idle.png",
+      "attackSheet": "units/phantom_god-attack.png",
+      "hitSheet": "units/phantom_god-hit.png",
+      "deathSheet": "units/phantom_god-death.png",
+      "source": "source/units/phantom_god.svg",
+      "category": "mech"
+    },
+    "guardian_god": {
+      "png": "units/guardian_god.png",
+      "idleSheet": "units/guardian_god-idle.png",
+      "attackSheet": "units/guardian_god-attack.png",
+      "hitSheet": "units/guardian_god-hit.png",
+      "deathSheet": "units/guardian_god-death.png",
+      "source": "source/units/guardian_god.svg",
+      "category": "mech"
+    },
+    "revival_god": {
+      "png": "units/revival_god.png",
+      "idleSheet": "units/revival_god-idle.png",
+      "attackSheet": "units/revival_god-attack.png",
+      "hitSheet": "units/revival_god-hit.png",
+      "deathSheet": "units/revival_god-death.png",
+      "source": "source/units/revival_god.svg",
+      "category": "mech"
+    },
+    "silence_god": {
+      "png": "units/silence_god.png",
+      "idleSheet": "units/silence_god-idle.png",
+      "attackSheet": "units/silence_god-attack.png",
+      "hitSheet": "units/silence_god-hit.png",
+      "deathSheet": "units/silence_god-death.png",
+      "source": "source/units/silence_god.svg",
+      "category": "mech"
+    },
+    "slaughter_god": {
+      "png": "units/slaughter_god.png",
+      "idleSheet": "units/slaughter_god-idle.png",
+      "attackSheet": "units/slaughter_god-attack.png",
+      "hitSheet": "units/slaughter_god-hit.png",
+      "deathSheet": "units/slaughter_god-death.png",
+      "source": "source/units/slaughter_god.svg",
+      "category": "mech"
+    },
+    "trial_guard_easy": {
+      "png": "units/trial_guard_easy.png",
+      "idleSheet": "units/trial_guard_easy-idle.png",
+      "attackSheet": "units/trial_guard_easy-attack.png",
+      "hitSheet": "units/trial_guard_easy-hit.png",
+      "deathSheet": "units/trial_guard_easy-death.png",
+      "source": "source/units/trial_guard_easy.svg",
+      "category": "mech"
+    },
+    "trial_guard_perfect": {
+      "png": "units/trial_guard_perfect.png",
+      "idleSheet": "units/trial_guard_perfect-idle.png",
+      "attackSheet": "units/trial_guard_perfect-attack.png",
+      "hitSheet": "units/trial_guard_perfect-hit.png",
+      "deathSheet": "units/trial_guard_perfect-death.png",
+      "source": "source/units/trial_guard_perfect.svg",
+      "category": "mech"
+    },
+    "trial_guard_extreme": {
+      "png": "units/trial_guard_extreme.png",
+      "idleSheet": "units/trial_guard_extreme-idle.png",
+      "attackSheet": "units/trial_guard_extreme-attack.png",
+      "hitSheet": "units/trial_guard_extreme-hit.png",
+      "deathSheet": "units/trial_guard_extreme-death.png",
+      "source": "source/units/trial_guard_extreme.svg",
+      "category": "mech"
+    },
+    "wild_boar": {
+      "png": "units/wild_boar.png",
+      "idleSheet": "units/wild_boar-idle.png",
+      "attackSheet": "units/wild_boar-attack.png",
+      "hitSheet": "units/wild_boar-hit.png",
+      "deathSheet": "units/wild_boar-death.png",
+      "source": "source/units/wild_boar.svg",
+      "category": "beast"
+    },
+    "wild_bull": {
+      "png": "units/wild_bull.png",
+      "idleSheet": "units/wild_bull-idle.png",
+      "attackSheet": "units/wild_bull-attack.png",
+      "hitSheet": "units/wild_bull-hit.png",
+      "deathSheet": "units/wild_bull-death.png",
+      "source": "source/units/wild_bull.svg",
+      "category": "beast"
+    },
+    "wild_snake": {
+      "png": "units/wild_snake.png",
+      "idleSheet": "units/wild_snake-idle.png",
+      "attackSheet": "units/wild_snake-attack.png",
+      "hitSheet": "units/wild_snake-hit.png",
+      "deathSheet": "units/wild_snake-death.png",
+      "source": "source/units/wild_snake.svg",
+      "category": "beast"
+    },
+    "wild_tiger": {
+      "png": "units/wild_tiger.png",
+      "idleSheet": "units/wild_tiger-idle.png",
+      "attackSheet": "units/wild_tiger-attack.png",
+      "hitSheet": "units/wild_tiger-hit.png",
+      "deathSheet": "units/wild_tiger-death.png",
+      "source": "source/units/wild_tiger.svg",
+      "category": "beast"
+    },
+    "wild_turtle": {
+      "png": "units/wild_turtle.png",
+      "idleSheet": "units/wild_turtle-idle.png",
+      "attackSheet": "units/wild_turtle-attack.png",
+      "hitSheet": "units/wild_turtle-hit.png",
+      "deathSheet": "units/wild_turtle-death.png",
+      "source": "source/units/wild_turtle.svg",
+      "category": "beast"
+    },
+    "wild_wyrm": {
+      "png": "units/wild_wyrm.png",
+      "idleSheet": "units/wild_wyrm-idle.png",
+      "attackSheet": "units/wild_wyrm-attack.png",
+      "hitSheet": "units/wild_wyrm-hit.png",
+      "deathSheet": "units/wild_wyrm-death.png",
+      "source": "source/units/wild_wyrm.svg",
+      "category": "beast"
+    }
+  },
+  "buildings": {
+    "town_hall": {
+      "png": "buildings/town_hall.png",
+      "source": "source/buildings/town_hall.svg",
+      "category": "hall",
+      "mapPng": "map/town_hall.png"
+    },
+    "lumber_mill": {
+      "png": "buildings/lumber_mill.png",
+      "source": "source/buildings/lumber_mill.svg",
+      "category": "workshop"
+    },
+    "lumber_yard": {
+      "png": "buildings/lumber_yard.png",
+      "source": "source/buildings/lumber_yard.svg",
+      "category": "workshop",
+      "mapPng": "map/lumber_yard.png"
+    },
+    "quarry": {
+      "png": "buildings/quarry.png",
+      "source": "source/buildings/quarry.svg",
+      "category": "mine"
+    },
+    "quarry_yard": {
+      "png": "buildings/quarry_yard.png",
+      "source": "source/buildings/quarry_yard.svg",
+      "category": "mine",
+      "mapPng": "map/quarry_yard.png"
+    },
+    "farm": {
+      "png": "buildings/farm.png",
+      "source": "source/buildings/farm.svg",
+      "category": "farm"
+    },
+    "farm_yard": {
+      "png": "buildings/farm_yard.png",
+      "source": "source/buildings/farm_yard.svg",
+      "category": "farm",
+      "mapPng": "map/farm_yard.png"
+    },
+    "barracks": {
+      "png": "buildings/barracks.png",
+      "source": "source/buildings/barracks.svg",
+      "category": "camp",
+      "mapPng": "map/barracks.png"
+    },
+    "watch_tower": {
+      "png": "buildings/watch_tower.png",
+      "source": "source/buildings/watch_tower.svg",
+      "category": "tower",
+      "mapPng": "map/watch_tower.png"
+    },
+    "arrow_tower": {
+      "png": "buildings/arrow_tower.png",
+      "source": "source/buildings/arrow_tower.svg",
+      "category": "tower",
+      "mapPng": "map/arrow_tower.png"
+    },
+    "infantry_camp": {
+      "png": "buildings/infantry_camp.png",
+      "source": "source/buildings/infantry_camp.svg",
+      "category": "camp"
+    },
+    "archer_range": {
+      "png": "buildings/archer_range.png",
+      "source": "source/buildings/archer_range.svg",
+      "category": "camp"
+    },
+    "stable": {
+      "png": "buildings/stable.png",
+      "source": "source/buildings/stable.svg",
+      "category": "stable"
+    },
+    "mage_tower": {
+      "png": "buildings/mage_tower.png",
+      "source": "source/buildings/mage_tower.svg",
+      "category": "tower"
+    },
+    "academy": {
+      "png": "buildings/academy.png",
+      "source": "source/buildings/academy.svg",
+      "category": "hall",
+      "mapPng": "map/academy.png"
+    },
+    "library": {
+      "png": "buildings/library.png",
+      "source": "source/buildings/library.svg",
+      "category": "hall"
+    },
+    "institute": {
+      "png": "buildings/institute.png",
+      "source": "source/buildings/institute.svg",
+      "category": "hall"
+    },
+    "warehouse": {
+      "png": "buildings/warehouse.png",
+      "source": "source/buildings/warehouse.svg",
+      "category": "store"
+    },
+    "stone_store": {
+      "png": "buildings/stone_store.png",
+      "source": "source/buildings/stone_store.svg",
+      "category": "store"
+    },
+    "large_granary": {
+      "png": "buildings/large_granary.png",
+      "source": "source/buildings/large_granary.svg",
+      "category": "silo"
+    },
+    "coal_mine": {
+      "png": "buildings/coal_mine.png",
+      "source": "source/buildings/coal_mine.svg",
+      "category": "mine"
+    },
+    "mine": {
+      "png": "buildings/mine.png",
+      "source": "source/buildings/mine.svg",
+      "category": "mine",
+      "mapPng": "map/mine.png"
+    },
+    "copper_furnace": {
+      "png": "buildings/copper_furnace.png",
+      "source": "source/buildings/copper_furnace.svg",
+      "category": "furnace"
+    },
+    "smelter": {
+      "png": "buildings/smelter.png",
+      "source": "source/buildings/smelter.svg",
+      "category": "furnace",
+      "mapPng": "map/smelter.png"
+    },
+    "coal_store": {
+      "png": "buildings/coal_store.png",
+      "source": "source/buildings/coal_store.svg",
+      "category": "store"
+    },
+    "copper_store": {
+      "png": "buildings/copper_store.png",
+      "source": "source/buildings/copper_store.svg",
+      "category": "store"
+    },
+    "iron_store": {
+      "png": "buildings/iron_store.png",
+      "source": "source/buildings/iron_store.svg",
+      "category": "store"
+    },
+    "silver_store": {
+      "png": "buildings/silver_store.png",
+      "source": "source/buildings/silver_store.svg",
+      "category": "store"
+    },
+    "gold_store": {
+      "png": "buildings/gold_store.png",
+      "source": "source/buildings/gold_store.svg",
+      "category": "store"
+    },
+    "steel_store": {
+      "png": "buildings/steel_store.png",
+      "source": "source/buildings/steel_store.svg",
+      "category": "store"
+    },
+    "silver_refinery": {
+      "png": "buildings/silver_refinery.png",
+      "source": "source/buildings/silver_refinery.svg",
+      "category": "furnace"
+    },
+    "gold_refinery": {
+      "png": "buildings/gold_refinery.png",
+      "source": "source/buildings/gold_refinery.svg",
+      "category": "furnace"
+    },
+    "steel_refinery": {
+      "png": "buildings/steel_refinery.png",
+      "source": "source/buildings/steel_refinery.svg",
+      "category": "furnace"
+    },
+    "mint": {
+      "png": "buildings/mint.png",
+      "source": "source/buildings/mint.svg",
+      "category": "mint",
+      "mapPng": "map/mint.png"
+    },
+    "market": {
+      "png": "buildings/market.png",
+      "source": "source/buildings/market.svg",
+      "category": "market",
+      "mapPng": "map/market.png"
+    },
+    "bronze_workshop": {
+      "png": "buildings/bronze_workshop.png",
+      "source": "source/buildings/bronze_workshop.svg",
+      "category": "workshop"
+    },
+    "iron_forge": {
+      "png": "buildings/iron_forge.png",
+      "source": "source/buildings/iron_forge.svg",
+      "category": "workshop"
+    },
+    "silver_armory": {
+      "png": "buildings/silver_armory.png",
+      "source": "source/buildings/silver_armory.svg",
+      "category": "armory"
+    },
+    "gold_armory": {
+      "png": "buildings/gold_armory.png",
+      "source": "source/buildings/gold_armory.svg",
+      "category": "armory"
+    },
+    "alloy_armory": {
+      "png": "buildings/alloy_armory.png",
+      "source": "source/buildings/alloy_armory.svg",
+      "category": "armory"
+    },
+    "steam_armory": {
+      "png": "buildings/steam_armory.png",
+      "source": "source/buildings/steam_armory.svg",
+      "category": "armory"
+    },
+    "electric_armory": {
+      "png": "buildings/electric_armory.png",
+      "source": "source/buildings/electric_armory.svg",
+      "category": "armory"
+    }
+  },
+  "vfx": {
+    "swordqi": {
+      "png": "vfx/swordqi.png",
+      "source": "source/vfx/swordqi.svg"
+    },
+    "arrow": {
+      "png": "vfx/arrow.png",
+      "source": "source/vfx/arrow.svg"
+    },
+    "thrust": {
+      "png": "vfx/thrust.png",
+      "source": "source/vfx/thrust.svg"
+    },
+    "cavslash": {
+      "png": "vfx/cavslash.png",
+      "source": "source/vfx/cavslash.svg"
+    },
+    "magebolt": {
+      "png": "vfx/magebolt.png",
+      "source": "source/vfx/magebolt.svg"
+    }
+  },
+  "highResVfx": {
+    "ids": ["swordqi", "arrow", "thrust", "cavslash", "magebolt", "beastbite", "impact-spark", "impact-magic", "dust"],
+    "pngDirectory": "vfx/hires",
+    "masterDirectory": "source/generated/vfx",
+    "pngSize": [512, 512],
+    "masterSize": [1254, 1254],
+    "optimizer": "vfx/hires/optimize.ps1",
+    "promptNotes": "source/generated/vfx/PROMPTS.json"
+  },
+  "unitVfx": {
+    "profiles": "vfx/unit-vfx-profiles.json",
+    "pngDirectory": "vfx/units",
+    "sourceDirectory": "source/vfx/units",
+    "generator": "source/vfx/generate-unit-vfx.mjs",
+    "currentMasterOverrides": {
+      "iron_spearman": {
+        "master": "source/generated/vfx/units/iron_spearman-master-v3.png",
+        "masterSize": [1774, 887],
+        "promptNotes": "source/generated/vfx/units/PROMPT-iron-spear-v3.json",
+        "previousRuntimeDirectory": "source/generated/vfx/units/previous-runtime-iron-spearman-v3"
+      }
+    },
+    "perIdMasters": {
+      "ids": ["wild_boar", "wild_bull", "wild_snake", "wild_tiger", "wild_turtle", "wild_wyrm"],
+      "directory": "source/generated/vfx/units",
+      "size": [1254, 1254],
+      "promptNotes": "source/generated/vfx/units/PROMPTS.json"
+    },
+    "techLineMasters": {
+      "ids": ["infantry", "archer", "bronze_guard", "silver_heavy", "electro_trooper", "star_trooper"],
+      "directory": "source/generated/vfx/units",
+      "size": [1254, 1254],
+      "sizes": {"star_trooper": [1774, 887]},
+      "promptNotes": "source/generated/vfx/units/PROMPTS-techline-six.json",
+      "previousRuntimeDirectory": "source/generated/vfx/units/previous-runtime",
+      "validation": "source/generated/vfx/units/techline-six-validation.json"
+    },
+    "techLineBatch2": {
+      "integratedIds": ["infantry_shield", "infantry_spear", "archer_crossbow", "cavalry_t1", "iron_spearman", "gold_cavalry"],
+      "sourceOnlyIds": [],
+      "directory": "source/generated/vfx/units",
+      "size": [1254, 1254],
+      "promptNotes": "source/generated/vfx/units/PROMPTS-techline-batch2.json",
+      "previousRuntimeDirectory": "source/generated/vfx/units/previous-runtime-batch2",
+      "previousMasterDirectory": "source/generated/vfx/units/previous-masters-batch2",
+      "validation": "source/generated/vfx/units/techline-batches-2-4-validation.json"
+    },
+    "techLineBatch3": {
+      "integratedIds": ["infantry_t1", "archer_t1", "spearman", "cavalry_wind", "alloy_special", "armored_trooper"],
+      "directory": "source/generated/vfx/units",
+      "size": [1254, 1254],
+      "promptNotes": "source/generated/vfx/units/PROMPTS-techline-batch3.json",
+      "previousRuntimeDirectory": "source/generated/vfx/units/previous-runtime-batch3",
+      "validation": "source/generated/vfx/units/techline-batches-2-4-validation.json"
+    },
+    "techLineBatch4": {
+      "integratedIds": ["infantry_sword", "infantry_fortress", "archer_silverbow", "archer_longbow", "cavalry_iron", "cavalry_dragon"],
+      "directory": "source/generated/vfx/units",
+      "size": [1254, 1254],
+      "promptNotes": "source/generated/vfx/units/PROMPTS-techline-batch4.json",
+      "previousRuntimeDirectory": "source/generated/vfx/units/previous-runtime-batch4",
+      "validation": "source/generated/vfx/units/techline-batches-2-4-validation.json"
+    },
+    "techLineBatch5": {
+      "integratedIds": ["infantry_ironrose", "infantry_bloodrose", "archer_assassin", "archer_genoese", "cavalry_teutonic", "mage_t1"],
+      "directory": "source/generated/vfx/units",
+      "size": [1254, 1254],
+      "promptNotes": "source/generated/vfx/units/PROMPTS-techline-batch5.json",
+      "previousRuntimeDirectory": "source/generated/vfx/units/previous-runtime-batch5",
+      "validation": "source/generated/vfx/units/techline-batch5-validation.json",
+      "review": "source/vfx/review-techline-batch5.py"
+    },
+    "finalNineMasters": {
+      "integratedIds": ["archer_shadowblade", "mage_time", "mage_space", "mage_chrono", "mage_merlin", "god_crystal_guard", "phantom_god", "guardian_god", "slaughter_god"],
+      "directory": "source/generated/vfx/units",
+      "size": [1254, 1254],
+      "promptNotes": ["source/generated/vfx/units/PROMPTS-final-nine-mages-shadow.json", "source/generated/vfx/units/PROMPTS-divine-four.json"],
+      "previousRuntimeDirectory": "source/generated/vfx/units/previous-runtime-final9",
+      "previousMasterDirectory": "source/generated/vfx/units/previous-masters-final9",
+      "validation": "source/generated/vfx/units/final-nine-validation.json",
+      "review": "source/vfx/review-final-nine.py"
+    },
+    "revivalGodMaster": {
+      "integratedIds": ["revival_god"],
+      "directory": "source/generated/vfx/units",
+      "size": [1254, 1254],
+      "promptNotes": "source/generated/vfx/units/PROMPTS-revival-god.json",
+      "validation": "source/generated/vfx/units/revival_god-validation.json",
+      "review": "source/vfx/review-revival-god.py"
+    },
+    "awakeningFourMasters": {
+      "integratedIds": ["silence_god", "trial_guard_easy", "trial_guard_perfect", "trial_guard_extreme"],
+      "directory": "source/generated/vfx/units",
+      "size": [1254, 1254],
+      "promptNotes": "source/generated/vfx/units/PROMPTS-awakening-four.json",
+      "validation": "source/generated/vfx/units/awakening-four-validation.json",
+      "review": "source/vfx/review-awakening-four.py"
+    },
+    "size": [256, 256]
+  },
+  "terrain": {
+    "png": "map/terrain.png",
+    "size": [
+      64,
+      64
+    ]
+  },
+  "battleBackdrop": {
+    "png": "map/battle-backdrop.png",
+    "size": [
+      256,
+      96
+    ],
+    "style": "sunlit desert frontier"
+  },
+  "modelManifest": "models/manifest.json",
+  "primaryUiAtlas": {
+    "png": "ui/primary-atlas.png",
+    "size": [
+      1774,
+      887
+    ],
+    "grid": [
+      4,
+      2
+    ],
+    "order": [
+      "home",
+      "build",
+      "tech",
+      "army",
+      "battle",
+      "wood",
+      "stone",
+      "food"
+    ],
+    "sourceNotes": "source/generated/PROMPTS.md",
+    "runtimeStyle": "../../visual.css"
+  },
+  "sceneTextures": {
+    "town": {
+      "png": "scene/town-daylight.png",
+      "size": [
+        1024,
+        525
+      ],
+      "master": "source/generated/town-daylight-master.png",
+      "masterSize": [
+        1751,
+        898
+      ]
+    },
+    "battle": {
+      "png": "scene/battle-daylight.png",
+      "size": [
+        768,
+        1152
+      ],
+      "master": "source/generated/battle-daylight-master.png",
+      "masterSize": [
+        1024,
+        1536
+      ]
+    },
+    "battleNight": {
+      "png": "scene/battle-night.png",
+      "size": [
+        768,
+        1152
+      ],
+      "master": "source/generated/battle-night-master.png",
+      "masterSize": [
+        1024,
+        1536
+      ]
+    }
+  },
+  "eraTownScenes": {
+    "base": {
+      "png": "scene/town-base.png",
+      "size": [
+        1024,
+        525
+      ],
+      "master": "source/generated/town-base-master.png",
+      "masterSize": [
+        1672,
+        941
+      ]
+    },
+    "sci_bronze_age": {
+      "png": "scene/town-sci_bronze_age.png",
+      "size": [
+        1024,
+        525
+      ],
+      "master": "source/generated/town-sci_bronze_age-master.png",
+      "masterSize": [
+        1672,
+        941
+      ]
+    },
+    "sci_iron_age": {
+      "png": "scene/town-sci_iron_age.png",
+      "size": [
+        1024,
+        525
+      ],
+      "master": "source/generated/town-sci_iron_age-master.png",
+      "masterSize": [
+        1672,
+        941
+      ]
+    },
+    "sci_silver_age": {
+      "png": "scene/town-sci_silver_age.png",
+      "size": [
+        1024,
+        525
+      ],
+      "master": "source/generated/town-sci_silver_age-master.png",
+      "masterSize": [
+        1672,
+        941
+      ]
+    },
+    "sci_gold_age": {
+      "png": "scene/town-sci_gold_age.png",
+      "size": [
+        1024,
+        525
+      ],
+      "master": "source/generated/town-sci_gold_age-master.png",
+      "masterSize": [
+        1672,
+        941
+      ]
+    },
+    "sci_alloy_age": {
+      "png": "scene/town-sci_alloy_age.png",
+      "size": [
+        1024,
+        525
+      ],
+      "master": "source/generated/town-sci_alloy_age-master.png",
+      "masterSize": [
+        1672,
+        941
+      ]
+    },
+    "sci_steam_age": {
+      "png": "scene/town-sci_steam_age.png",
+      "size": [
+        1024,
+        525
+      ],
+      "master": "source/generated/town-sci_steam_age-master.png",
+      "masterSize": [
+        1672,
+        941
+      ]
+    },
+    "sci_electric_age": {
+      "png": "scene/town-sci_electric_age.png",
+      "size": [
+        1024,
+        525
+      ],
+      "master": "source/generated/town-sci_electric_age-master.png",
+      "masterSize": [
+        1672,
+        941
+      ]
+    },
+    "sci_nuclear_age": {
+      "png": "scene/town-sci_nuclear_age.png",
+      "size": [
+        1024,
+        525
+      ],
+      "master": "source/generated/town-sci_nuclear_age-master.png",
+      "masterSize": [
+        1672,
+        941
+      ]
+    }
+  },
+  "sceneOptimizer": "scene/optimize.py",
+  "highResUnitStills": {
+    "quantum_trooper": {"png":"units/hires/quantum_trooper.png","size":[512,512],"master":"source/generated/units/quantum_trooper-master.png","masterSize":[1254,1254]},
+    "arcane_mage": {"png":"units/hires/arcane_mage.png","size":[512,512],"master":"source/generated/units/arcane_mage-master.png","masterSize":[1254,1254]},
+    "soul_wraith": {"png":"units/hires/soul_wraith.png","size":[512,512],"master":"source/generated/units/soul_wraith-master.png","masterSize":[1254,1254]},
+    "infantry": {
+      "png": "units/hires/infantry.png",
+      "size": [
+        512,
+        512
+      ],
+      "master": "source/generated/units/infantry-master.png",
+      "masterSize": [
+        1254,
+        1254
+      ]
+    },
+    "archer": {
+      "png": "units/hires/archer.png",
+      "size": [
+        512,
+        512
+      ],
+      "master": "source/generated/units/archer-master.png",
+      "masterSize": [
+        1254,
+        1254
+      ]
+    },
+    "cavalry": {
+      "png": "units/hires/cavalry.png",
+      "size": [
+        512,
+        512
+      ],
+      "master": "source/generated/units/cavalry-master.png",
+      "masterSize": [
+        1254,
+        1254
+      ]
+    },
+    "spearman": {
+      "png": "units/hires/spearman.png",
+      "size": [
+        512,
+        512
+      ],
+      "master": "source/generated/units/spearman-master.png",
+      "masterSize": [
+        1254,
+        1254
+      ]
+    },
+    "mage": {
+      "png": "units/hires/mage.png",
+      "size": [
+        512,
+        512
+      ],
+      "master": "source/generated/units/mage-master.png",
+      "masterSize": [
+        1254,
+        1254
+      ]
+    },
+    "enemy": {
+      "png": "units/hires/enemy.png",
+      "size": [
+        512,
+        512
+      ],
+      "master": "source/generated/units/enemy-master.png",
+      "masterSize": [
+        1254,
+        1254
+      ]
+    },
+    "infantry_t1": {
+      "png": "units/hires/infantry_t1.png",
+      "size": [
+        512,
+        512
+      ],
+      "master": "source/generated/units/infantry_t1-master.png",
+      "masterSize": [
+        1254,
+        1254
+      ]
+    },
+    "infantry_shield": {
+      "png": "units/hires/infantry_shield.png",
+      "size": [
+        512,
+        512
+      ],
+      "master": "source/generated/units/infantry_shield-master.png",
+      "masterSize": [
+        1254,
+        1254
+      ]
+    },
+    "infantry_spear": {
+      "png": "units/hires/infantry_spear.png",
+      "size": [
+        512,
+        512
+      ],
+      "master": "source/generated/units/infantry_spear-master.png",
+      "masterSize": [
+        1254,
+        1254
+      ]
+    },
+    "infantry_sword": {
+      "png": "units/hires/infantry_sword.png",
+      "size": [
+        512,
+        512
+      ],
+      "master": "source/generated/units/infantry_sword-master.png",
+      "masterSize": [
+        1254,
+        1254
+      ]
+    },
+    "infantry_fortress": {
+      "png": "units/hires/infantry_fortress.png",
+      "size": [
+        512,
+        512
+      ],
+      "master": "source/generated/units/infantry_fortress-master.png",
+      "masterSize": [
+        1254,
+        1254
+      ]
+    },
+    "infantry_ironrose": {
+      "png": "units/hires/infantry_ironrose.png",
+      "size": [
+        512,
+        512
+      ],
+      "master": "source/generated/units/infantry_ironrose-master.png",
+      "masterSize": [
+        1254,
+        1254
+      ]
+    },
+    "infantry_bloodrose": {
+      "png": "units/hires/infantry_bloodrose.png",
+      "size": [
+        512,
+        512
+      ],
+      "master": "source/generated/units/infantry_bloodrose-master.png",
+      "masterSize": [
+        1254,
+        1254
+      ]
+    },
+    "archer_t1": {
+      "png": "units/hires/archer_t1.png",
+      "size": [
+        512,
+        512
+      ],
+      "master": "source/generated/units/archer_t1-master.png",
+      "masterSize": [
+        1254,
+        1254
+      ]
+    },
+    "archer_silverbow": {
+      "png": "units/hires/archer_silverbow.png",
+      "size": [
+        512,
+        512
+      ],
+      "master": "source/generated/units/archer_silverbow-master.png",
+      "masterSize": [
+        1254,
+        1254
+      ]
+    },
+    "archer_crossbow": {
+      "png": "units/hires/archer_crossbow.png",
+      "size": [
+        512,
+        512
+      ],
+      "master": "source/generated/units/archer_crossbow-master.png",
+      "masterSize": [
+        1254,
+        1254
+      ]
+    },
+    "archer_assassin": {
+      "png": "units/hires/archer_assassin.png",
+      "size": [
+        512,
+        512
+      ],
+      "master": "source/generated/units/archer_assassin-master.png",
+      "masterSize": [
+        1254,
+        1254
+      ]
+    },
+    "archer_longbow": {
+      "png": "units/hires/archer_longbow.png",
+      "size": [
+        512,
+        512
+      ],
+      "master": "source/generated/units/archer_longbow-master.png",
+      "masterSize": [
+        1254,
+        1254
+      ]
+    },
+    "archer_genoese": {
+      "png": "units/hires/archer_genoese.png",
+      "size": [
+        512,
+        512
+      ],
+      "master": "source/generated/units/archer_genoese-master.png",
+      "masterSize": [
+        1254,
+        1254
+      ]
+    },
+    "archer_shadowblade": {
+      "png": "units/hires/archer_shadowblade.png",
+      "size": [
+        512,
+        512
+      ],
+      "master": "source/generated/units/archer_shadowblade-master.png",
+      "masterSize": [
+        1254,
+        1254
+      ]
+    },
+    "cavalry_t1": {
+      "png": "units/hires/cavalry_t1.png",
+      "size": [
+        512,
+        512
+      ],
+      "master": "source/generated/units/cavalry_t1-master.png",
+      "masterSize": [
+        1254,
+        1254
+      ]
+    },
+    "cavalry_wind": {
+      "png": "units/hires/cavalry_wind.png",
+      "size": [
+        512,
+        512
+      ],
+      "master": "source/generated/units/cavalry_wind-master.png",
+      "masterSize": [
+        1254,
+        1254
+      ]
+    },
+    "cavalry_iron": {
+      "png": "units/hires/cavalry_iron.png",
+      "size": [
+        512,
+        512
+      ],
+      "master": "source/generated/units/cavalry_iron-master.png",
+      "masterSize": [
+        1254,
+        1254
+      ]
+    },
+    "cavalry_dragon": {
+      "png": "units/hires/cavalry_dragon.png",
+      "size": [
+        512,
+        512
+      ],
+      "master": "source/generated/units/cavalry_dragon-master.png",
+      "masterSize": [
+        1254,
+        1254
+      ]
+    },
+    "cavalry_teutonic": {
+      "png": "units/hires/cavalry_teutonic.png",
+      "size": [
+        512,
+        512
+      ],
+      "master": "source/generated/units/cavalry_teutonic-master.png",
+      "masterSize": [
+        1254,
+        1254
+      ]
+    },
+    "mage_t1": {
+      "png": "units/hires/mage_t1.png",
+      "size": [
+        512,
+        512
+      ],
+      "master": "source/generated/units/mage_t1-master.png",
+      "masterSize": [
+        1254,
+        1254
+      ]
+    },
+    "mage_time": {
+      "png": "units/hires/mage_time.png",
+      "size": [
+        512,
+        512
+      ],
+      "master": "source/generated/units/mage_time-master.png",
+      "masterSize": [
+        1254,
+        1254
+      ]
+    },
+    "mage_space": {
+      "png": "units/hires/mage_space.png",
+      "size": [
+        512,
+        512
+      ],
+      "master": "source/generated/units/mage_space-master.png",
+      "masterSize": [
+        1254,
+        1254
+      ]
+    },
+    "mage_chrono": {
+      "png": "units/hires/mage_chrono.png",
+      "size": [
+        512,
+        512
+      ],
+      "master": "source/generated/units/mage_chrono-master.png",
+      "masterSize": [
+        1254,
+        1254
+      ]
+    },
+    "mage_merlin": {
+      "png": "units/hires/mage_merlin.png",
+      "size": [
+        512,
+        512
+      ],
+      "master": "source/generated/units/mage_merlin-master.png",
+      "masterSize": [
+        1254,
+        1254
+      ]
+    },
+    "bronze_guard": {
+      "png": "units/hires/bronze_guard.png",
+      "size": [
+        512,
+        512
+      ],
+      "master": "source/generated/units/bronze_guard-master.png",
+      "masterSize": [
+        1254,
+        1254
+      ]
+    },
+    "iron_spearman": {
+      "png": "units/hires/iron_spearman.png",
+      "size": [
+        512,
+        512
+      ],
+      "master": "source/generated/units/iron_spearman-master.png",
+      "masterSize": [
+        1254,
+        1254
+      ]
+    },
+    "silver_heavy": {
+      "png": "units/hires/silver_heavy.png",
+      "size": [
+        512,
+        512
+      ],
+      "master": "source/generated/units/silver_heavy-master.png",
+      "masterSize": [
+        1254,
+        1254
+      ]
+    },
+    "gold_cavalry": {
+      "png": "units/hires/gold_cavalry.png",
+      "size": [
+        512,
+        512
+      ],
+      "master": "source/generated/units/gold_cavalry-master.png",
+      "masterSize": [
+        1254,
+        1254
+      ]
+    },
+    "alloy_special": {
+      "png": "units/hires/alloy_special.png",
+      "size": [
+        512,
+        512
+      ],
+      "master": "source/generated/units/alloy_special-master.png",
+      "masterSize": [
+        1254,
+        1254
+      ]
+    },
+    "armored_trooper": {
+      "png": "units/hires/armored_trooper.png",
+      "size": [
+        512,
+        512
+      ],
+      "master": "source/generated/units/armored_trooper-master.png",
+      "masterSize": [
+        1254,
+        1254
+      ]
+    },
+    "electro_trooper": {
+      "png": "units/hires/electro_trooper.png",
+      "size": [
+        512,
+        512
+      ],
+      "master": "source/generated/units/electro_trooper-master.png",
+      "masterSize": [
+        1254,
+        1254
+      ]
+    },
+    "star_trooper": {
+      "png": "units/hires/star_trooper.png",
+      "size": [
+        512,
+        512
+      ],
+      "master": "source/generated/units/star_trooper-master.png",
+      "masterSize": [
+        1254,
+        1254
+      ]
+    },
+    "god_crystal_guard": {
+      "png": "units/hires/god_crystal_guard.png",
+      "size": [512, 512],
+      "master": "source/generated/units/god_crystal_guard-master.png",
+      "masterSize": [1254, 1254]
+    },
+    "phantom_god": {
+      "png": "units/hires/phantom_god.png",
+      "size": [512, 512],
+      "master": "source/generated/units/phantom_god-master.png",
+      "masterSize": [1254, 1254]
+    },
+    "guardian_god": {
+      "png": "units/hires/guardian_god.png",
+      "size": [512, 512],
+      "master": "source/generated/units/guardian_god-master.png",
+      "masterSize": [1254, 1254]
+    },
+    "revival_god": {
+      "png": "units/hires/revival_god.png",
+      "size": [512, 512],
+      "master": "source/generated/units/revival_god-master.png",
+      "masterSize": [1254, 1254]
+    },
+    "silence_god": {
+      "png": "units/hires/silence_god.png",
+      "size": [512, 512],
+      "master": "source/generated/units/silence_god-master.png",
+      "masterSize": [1254, 1254]
+    },
+    "slaughter_god": {
+      "png": "units/hires/slaughter_god.png",
+      "size": [512, 512],
+      "master": "source/generated/units/slaughter_god-master.png",
+      "masterSize": [1254, 1254]
+    },
+    "trial_guard_easy": {
+      "png": "units/hires/trial_guard_easy.png",
+      "size": [512, 512],
+      "master": "source/generated/units/trial_guard_easy-master.png",
+      "masterSize": [1254, 1254]
+    },
+    "trial_guard_perfect": {
+      "png": "units/hires/trial_guard_perfect.png",
+      "size": [512, 512],
+      "master": "source/generated/units/trial_guard_perfect-master.png",
+      "masterSize": [1254, 1254]
+    },
+    "trial_guard_extreme": {
+      "png": "units/hires/trial_guard_extreme.png",
+      "size": [512, 512],
+      "master": "source/generated/units/trial_guard_extreme-master.png",
+      "masterSize": [1254, 1254]
+    },
+    "wild_boar": {
+      "png": "units/hires/wild_boar.png",
+      "size": [512, 512],
+      "master": "source/generated/units/wild_boar-master.png",
+      "masterSize": [1254, 1254]
+    },
+    "wild_bull": {
+      "png": "units/hires/wild_bull.png",
+      "size": [512, 512],
+      "master": "source/generated/units/wild_bull-master.png",
+      "masterSize": [1254, 1254]
+    },
+    "wild_snake": {
+      "png": "units/hires/wild_snake.png",
+      "size": [512, 512],
+      "master": "source/generated/units/wild_snake-master.png",
+      "masterSize": [1254, 1254]
+    },
+    "wild_tiger": {
+      "png": "units/hires/wild_tiger.png",
+      "size": [512, 512],
+      "master": "source/generated/units/wild_tiger-master.png",
+      "masterSize": [1254, 1254]
+    },
+    "wild_turtle": {
+      "png": "units/hires/wild_turtle.png",
+      "size": [512, 512],
+      "master": "source/generated/units/wild_turtle-master.png",
+      "masterSize": [1254, 1254]
+    },
+    "wild_wyrm": {
+      "png": "units/hires/wild_wyrm.png",
+      "size": [512, 512],
+      "master": "source/generated/units/wild_wyrm-master.png",
+      "masterSize": [1254, 1254]
+    }
+  },
+  "highResOptimizer": "units/hires/optimize.ps1",
+  "highResPromptNotes": "source/generated/units/PROMPTS.md",
+  "highResEnemyPromptNotes": "source/generated/units/enemy-portrait-prompts.json",
+  "highResTrialPromptNotes": "source/generated/units/PROMPTS-divine-trials.md",
+  "atlas": {
+    "png": "atlas.png",
+    "tileSize": [
+      32,
+      32
+    ],
+    "size": [
+      512,
+      448
+    ],
+    "entries": {
+      "building:academy": [
+        0,
+        0,
+        32,
+        32
+      ],
+      "building:alloy_armory": [
+        32,
+        0,
+        32,
+        32
+      ],
+      "building:archer_range": [
+        64,
+        0,
+        32,
+        32
+      ],
+      "building:arrow_tower": [
+        96,
+        0,
+        32,
+        32
+      ],
+      "building:barracks": [
+        128,
+        0,
+        32,
+        32
+      ],
+      "building:bronze_workshop": [
+        160,
+        0,
+        32,
+        32
+      ],
+      "building:coal_mine": [
+        192,
+        0,
+        32,
+        32
+      ],
+      "building:coal_store": [
+        224,
+        0,
+        32,
+        32
+      ],
+      "building:copper_furnace": [
+        256,
+        0,
+        32,
+        32
+      ],
+      "building:copper_store": [
+        288,
+        0,
+        32,
+        32
+      ],
+      "building:electric_armory": [
+        320,
+        0,
+        32,
+        32
+      ],
+      "building:farm": [
+        352,
+        0,
+        32,
+        32
+      ],
+      "building:farm_yard": [
+        384,
+        0,
+        32,
+        32
+      ],
+      "building:gold_armory": [
+        416,
+        0,
+        32,
+        32
+      ],
+      "building:gold_refinery": [
+        448,
+        0,
+        32,
+        32
+      ],
+      "building:gold_store": [
+        480,
+        0,
+        32,
+        32
+      ],
+      "building:infantry_camp": [
+        0,
+        32,
+        32,
+        32
+      ],
+      "building:institute": [
+        32,
+        32,
+        32,
+        32
+      ],
+      "building:iron_forge": [
+        64,
+        32,
+        32,
+        32
+      ],
+      "building:iron_store": [
+        96,
+        32,
+        32,
+        32
+      ],
+      "building:large_granary": [
+        128,
+        32,
+        32,
+        32
+      ],
+      "building:library": [
+        160,
+        32,
+        32,
+        32
+      ],
+      "building:lumber_mill": [
+        192,
+        32,
+        32,
+        32
+      ],
+      "building:lumber_yard": [
+        224,
+        32,
+        32,
+        32
+      ],
+      "building:mage_tower": [
+        256,
+        32,
+        32,
+        32
+      ],
+      "building:market": [
+        288,
+        32,
+        32,
+        32
+      ],
+      "building:mine": [
+        320,
+        32,
+        32,
+        32
+      ],
+      "building:mint": [
+        352,
+        32,
+        32,
+        32
+      ],
+      "building:quarry": [
+        384,
+        32,
+        32,
+        32
+      ],
+      "building:quarry_yard": [
+        416,
+        32,
+        32,
+        32
+      ],
+      "building:silver_armory": [
+        448,
+        32,
+        32,
+        32
+      ],
+      "building:silver_refinery": [
+        480,
+        32,
+        32,
+        32
+      ],
+      "building:silver_store": [
+        0,
+        64,
+        32,
+        32
+      ],
+      "building:smelter": [
+        32,
+        64,
+        32,
+        32
+      ],
+      "building:stable": [
+        64,
+        64,
+        32,
+        32
+      ],
+      "building:steam_armory": [
+        96,
+        64,
+        32,
+        32
+      ],
+      "building:steel_refinery": [
+        128,
+        64,
+        32,
+        32
+      ],
+      "building:steel_store": [
+        160,
+        64,
+        32,
+        32
+      ],
+      "building:stone_store": [
+        192,
+        64,
+        32,
+        32
+      ],
+      "building:town_hall": [
+        224,
+        64,
+        32,
+        32
+      ],
+      "building:warehouse": [
+        256,
+        64,
+        32,
+        32
+      ],
+      "building:watch_tower": [
+        288,
+        64,
+        32,
+        32
+      ],
+      "ui:academy": [
+        320,
+        64,
+        32,
+        32
+      ],
+      "ui:alloy_armory": [
+        352,
+        64,
+        32,
+        32
+      ],
+      "ui:archer": [
+        384,
+        64,
+        32,
+        32
+      ],
+      "ui:archer_assassin": [
+        416,
+        64,
+        32,
+        32
+      ],
+      "ui:archer_crossbow": [
+        448,
+        64,
+        32,
+        32
+      ],
+      "ui:archer_genoese": [
+        480,
+        64,
+        32,
+        32
+      ],
+      "ui:archer_longbow": [
+        0,
+        96,
+        32,
+        32
+      ],
+      "ui:archer_range": [
+        32,
+        96,
+        32,
+        32
+      ],
+      "ui:archer_shadowblade": [
+        64,
+        96,
+        32,
+        32
+      ],
+      "ui:archer_silverbow": [
+        96,
+        96,
+        32,
+        32
+      ],
+      "ui:archer_t1": [
+        128,
+        96,
+        32,
+        32
+      ],
+      "ui:army": [
+        160,
+        96,
+        32,
+        32
+      ],
+      "ui:arrow_tower": [
+        192,
+        96,
+        32,
+        32
+      ],
+      "ui:barracks": [
+        224,
+        96,
+        32,
+        32
+      ],
+      "ui:battle": [
+        256,
+        96,
+        32,
+        32
+      ],
+      "ui:blade_essence": [
+        288,
+        96,
+        32,
+        32
+      ],
+      "ui:bone": [
+        320,
+        96,
+        32,
+        32
+      ],
+      "ui:boss": [
+        352,
+        96,
+        32,
+        32
+      ],
+      "ui:bow_essence": [
+        384,
+        96,
+        32,
+        32
+      ],
+      "ui:bronze_workshop": [
+        416,
+        96,
+        32,
+        32
+      ],
+      "ui:build": [
+        448,
+        96,
+        32,
+        32
+      ],
+      "ui:cavalry": [
+        480,
+        96,
+        32,
+        32
+      ],
+      "ui:check": [
+        0,
+        128,
+        32,
+        32
+      ],
+      "ui:close": [
+        32,
+        128,
+        32,
+        32
+      ],
+      "ui:coal": [
+        64,
+        128,
+        32,
+        32
+      ],
+      "ui:coal_mine": [
+        96,
+        128,
+        32,
+        32
+      ],
+      "ui:coal_store": [
+        128,
+        128,
+        32,
+        32
+      ],
+      "ui:coin": [
+        160,
+        128,
+        32,
+        32
+      ],
+      "ui:copper": [
+        192,
+        128,
+        32,
+        32
+      ],
+      "ui:copper_furnace": [
+        224,
+        128,
+        32,
+        32
+      ],
+      "ui:copper_store": [
+        256,
+        128,
+        32,
+        32
+      ],
+      "ui:crossbow_essence": [
+        288,
+        128,
+        32,
+        32
+      ],
+      "ui:deed": [
+        320,
+        128,
+        32,
+        32
+      ],
+      "ui:dummy": [
+        352,
+        128,
+        32,
+        32
+      ],
+      "ui:electric_armory": [
+        384,
+        128,
+        32,
+        32
+      ],
+      "ui:electro_trooper": [
+        416,
+        128,
+        32,
+        32
+      ],
+      "ui:enemy": [
+        448,
+        128,
+        32,
+        32
+      ],
+      "ui:exit": [
+        480,
+        128,
+        32,
+        32
+      ],
+      "ui:farm": [
+        0,
+        160,
+        32,
+        32
+      ],
+      "ui:food": [
+        32,
+        160,
+        32,
+        32
+      ],
+      "ui:gold": [
+        64,
+        160,
+        32,
+        32
+      ],
+      "ui:gold_armory": [
+        96,
+        160,
+        32,
+        32
+      ],
+      "ui:gold_refinery": [
+        128,
+        160,
+        32,
+        32
+      ],
+      "ui:gold_store": [
+        160,
+        160,
+        32,
+        32
+      ],
+      "ui:guardian_god": [
+        192,
+        160,
+        32,
+        32
+      ],
+      "ui:home": [
+        224,
+        160,
+        32,
+        32
+      ],
+      "ui:infantry": [
+        256,
+        160,
+        32,
+        32
+      ],
+      "ui:infantry_bloodrose": [
+        288,
+        160,
+        32,
+        32
+      ],
+      "ui:infantry_camp": [
+        320,
+        160,
+        32,
+        32
+      ],
+      "ui:infantry_fortress": [
+        352,
+        160,
+        32,
+        32
+      ],
+      "ui:infantry_ironrose": [
+        384,
+        160,
+        32,
+        32
+      ],
+      "ui:infantry_shield": [
+        416,
+        160,
+        32,
+        32
+      ],
+      "ui:infantry_spear": [
+        448,
+        160,
+        32,
+        32
+      ],
+      "ui:infantry_sword": [
+        480,
+        160,
+        32,
+        32
+      ],
+      "ui:infantry_t1": [
+        0,
+        192,
+        32,
+        32
+      ],
+      "ui:institute": [
+        32,
+        192,
+        32,
+        32
+      ],
+      "ui:iron": [
+        64,
+        192,
+        32,
+        32
+      ],
+      "ui:iron_essence": [
+        96,
+        192,
+        32,
+        32
+      ],
+      "ui:iron_forge": [
+        128,
+        192,
+        32,
+        32
+      ],
+      "ui:iron_store": [
+        160,
+        192,
+        32,
+        32
+      ],
+      "ui:large_granary": [
+        192,
+        192,
+        32,
+        32
+      ],
+      "ui:library": [
+        224,
+        192,
+        32,
+        32
+      ],
+      "ui:lock": [
+        256,
+        192,
+        32,
+        32
+      ],
+      "ui:log": [
+        288,
+        192,
+        32,
+        32
+      ],
+      "ui:lose": [
+        320,
+        192,
+        32,
+        32
+      ],
+      "ui:lumber_mill": [
+        352,
+        192,
+        32,
+        32
+      ],
+      "ui:mage": [
+        384,
+        192,
+        32,
+        32
+      ],
+      "ui:mage_chrono": [
+        416,
+        192,
+        32,
+        32
+      ],
+      "ui:mage_merlin": [
+        448,
+        192,
+        32,
+        32
+      ],
+      "ui:mage_space": [
+        480,
+        192,
+        32,
+        32
+      ],
+      "ui:mage_t1": [
+        0,
+        224,
+        32,
+        32
+      ],
+      "ui:mage_time": [
+        32,
+        224,
+        32,
+        32
+      ],
+      "ui:mage_tower": [
+        64,
+        224,
+        32,
+        32
+      ],
+      "ui:medal": [
+        96,
+        224,
+        32,
+        32
+      ],
+      "ui:next": [
+        128,
+        224,
+        32,
+        32
+      ],
+      "ui:phantom_god": [
+        160,
+        224,
+        32,
+        32
+      ],
+      "ui:pop": [
+        192,
+        224,
+        32,
+        32
+      ],
+      "ui:quarry": [
+        224,
+        224,
+        32,
+        32
+      ],
+      "ui:reset": [
+        256,
+        224,
+        32,
+        32
+      ],
+      "ui:shield_essence": [
+        288,
+        224,
+        32,
+        32
+      ],
+      "ui:silver": [
+        320,
+        224,
+        32,
+        32
+      ],
+      "ui:silverCoin": [
+        352,
+        224,
+        32,
+        32
+      ],
+      "ui:silver_armory": [
+        384,
+        224,
+        32,
+        32
+      ],
+      "ui:silver_refinery": [
+        416,
+        224,
+        32,
+        32
+      ],
+      "ui:silver_store": [
+        448,
+        224,
+        32,
+        32
+      ],
+      "ui:slaughter_god": [
+        480,
+        224,
+        32,
+        32
+      ],
+      "ui:spear_essence": [
+        0,
+        256,
+        32,
+        32
+      ],
+      "ui:spearman": [
+        32,
+        256,
+        32,
+        32
+      ],
+      "ui:stable": [
+        64,
+        256,
+        32,
+        32
+      ],
+      "ui:star_trooper": [
+        96,
+        256,
+        32,
+        32
+      ],
+      "ui:steam_armory": [
+        128,
+        256,
+        32,
+        32
+      ],
+      "ui:steel": [
+        160,
+        256,
+        32,
+        32
+      ],
+      "ui:steel_refinery": [
+        192,
+        256,
+        32,
+        32
+      ],
+      "ui:steel_store": [
+        224,
+        256,
+        32,
+        32
+      ],
+      "ui:stone": [
+        256,
+        256,
+        32,
+        32
+      ],
+      "ui:stone_store": [
+        288,
+        256,
+        32,
+        32
+      ],
+      "ui:sword_essence": [
+        320,
+        256,
+        32,
+        32
+      ],
+      "ui:tech": [
+        352,
+        256,
+        32,
+        32
+      ],
+      "ui:timer": [
+        384,
+        256,
+        32,
+        32
+      ],
+      "ui:upgrade": [
+        416,
+        256,
+        32,
+        32
+      ],
+      "ui:warehouse": [
+        448,
+        256,
+        32,
+        32
+      ],
+      "ui:wild_boar": [
+        480,
+        256,
+        32,
+        32
+      ],
+      "ui:wild_bull": [
+        0,
+        288,
+        32,
+        32
+      ],
+      "ui:wild_snake": [
+        32,
+        288,
+        32,
+        32
+      ],
+      "ui:wild_tiger": [
+        64,
+        288,
+        32,
+        32
+      ],
+      "ui:wild_turtle": [
+        96,
+        288,
+        32,
+        32
+      ],
+      "ui:wild_wyrm": [
+        128,
+        288,
+        32,
+        32
+      ],
+      "ui:win": [
+        160,
+        288,
+        32,
+        32
+      ],
+      "ui:wind_essence": [
+        192,
+        288,
+        32,
+        32
+      ],
+      "ui:wood": [
+        224,
+        288,
+        32,
+        32
+      ],
+      "unit:alloy_special": [
+        256,
+        288,
+        32,
+        32
+      ],
+      "unit:archer": [
+        288,
+        288,
+        32,
+        32
+      ],
+      "unit:archer_assassin": [
+        320,
+        288,
+        32,
+        32
+      ],
+      "unit:archer_crossbow": [
+        352,
+        288,
+        32,
+        32
+      ],
+      "unit:archer_genoese": [
+        384,
+        288,
+        32,
+        32
+      ],
+      "unit:archer_longbow": [
+        416,
+        288,
+        32,
+        32
+      ],
+      "unit:archer_shadowblade": [
+        448,
+        288,
+        32,
+        32
+      ],
+      "unit:archer_silverbow": [
+        480,
+        288,
+        32,
+        32
+      ],
+      "unit:archer_t0": [
+        0,
+        320,
+        32,
+        32
+      ],
+      "unit:archer_t1": [
+        32,
+        320,
+        32,
+        32
+      ],
+      "unit:armored_trooper": [
+        64,
+        320,
+        32,
+        32
+      ],
+      "unit:boss": [
+        96,
+        320,
+        32,
+        32
+      ],
+      "unit:bronze_guard": [
+        128,
+        320,
+        32,
+        32
+      ],
+      "unit:cavalry": [
+        160,
+        320,
+        32,
+        32
+      ],
+      "unit:cavalry_dragon": [
+        192,
+        320,
+        32,
+        32
+      ],
+      "unit:cavalry_iron": [
+        224,
+        320,
+        32,
+        32
+      ],
+      "unit:cavalry_t1": [
+        256,
+        320,
+        32,
+        32
+      ],
+      "unit:cavalry_teutonic": [
+        288,
+        320,
+        32,
+        32
+      ],
+      "unit:cavalry_wind": [
+        320,
+        320,
+        32,
+        32
+      ],
+      "unit:dummy": [
+        352,
+        320,
+        32,
+        32
+      ],
+      "unit:electro_trooper": [
+        384,
+        320,
+        32,
+        32
+      ],
+      "unit:enemy": [
+        416,
+        320,
+        32,
+        32
+      ],
+      "unit:god_crystal_guard": [
+        448,
+        320,
+        32,
+        32
+      ],
+      "unit:gold_cavalry": [
+        480,
+        320,
+        32,
+        32
+      ],
+      "unit:guardian_god": [
+        0,
+        352,
+        32,
+        32
+      ],
+      "unit:infantry": [
+        32,
+        352,
+        32,
+        32
+      ],
+      "unit:infantry_bloodrose": [
+        64,
+        352,
+        32,
+        32
+      ],
+      "unit:infantry_fortress": [
+        96,
+        352,
+        32,
+        32
+      ],
+      "unit:infantry_ironrose": [
+        128,
+        352,
+        32,
+        32
+      ],
+      "unit:infantry_shield": [
+        160,
+        352,
+        32,
+        32
+      ],
+      "unit:infantry_spear": [
+        192,
+        352,
+        32,
+        32
+      ],
+      "unit:infantry_sword": [
+        224,
+        352,
+        32,
+        32
+      ],
+      "unit:infantry_t0": [
+        256,
+        352,
+        32,
+        32
+      ],
+      "unit:infantry_t1": [
+        288,
+        352,
+        32,
+        32
+      ],
+      "unit:iron_spearman": [
+        320,
+        352,
+        32,
+        32
+      ],
+      "unit:mage": [
+        352,
+        352,
+        32,
+        32
+      ],
+      "unit:mage_chrono": [
+        384,
+        352,
+        32,
+        32
+      ],
+      "unit:mage_merlin": [
+        416,
+        352,
+        32,
+        32
+      ],
+      "unit:mage_space": [
+        448,
+        352,
+        32,
+        32
+      ],
+      "unit:mage_t1": [
+        480,
+        352,
+        32,
+        32
+      ],
+      "unit:mage_time": [
+        0,
+        384,
+        32,
+        32
+      ],
+      "unit:phantom_god": [
+        32,
+        384,
+        32,
+        32
+      ],
+      "unit:silver_heavy": [
+        64,
+        384,
+        32,
+        32
+      ],
+      "unit:slaughter_god": [
+        96,
+        384,
+        32,
+        32
+      ],
+      "unit:spearman": [
+        128,
+        384,
+        32,
+        32
+      ],
+      "unit:star_trooper": [
+        160,
+        384,
+        32,
+        32
+      ],
+      "unit:wild_boar": [
+        192,
+        384,
+        32,
+        32
+      ],
+      "unit:wild_bull": [
+        224,
+        384,
+        32,
+        32
+      ],
+      "unit:wild_snake": [
+        256,
+        384,
+        32,
+        32
+      ],
+      "unit:wild_tiger": [
+        288,
+        384,
+        32,
+        32
+      ],
+      "unit:wild_turtle": [
+        320,
+        384,
+        32,
+        32
+      ],
+      "unit:wild_wyrm": [
+        352,
+        384,
+        32,
+        32
+      ],
+      "unit:revival_god": [
+        384,
+        384,
+        32,
+        32
+      ],
+      "unit:silence_god": [
+        416,
+        384,
+        32,
+        32
+      ],
+      "unit:trial_guard_easy": [
+        448,
+        384,
+        32,
+        32
+      ],
+      "unit:trial_guard_perfect": [
+        480,
+        384,
+        32,
+        32
+      ],
+      "unit:trial_guard_extreme": [
+        0,
+        416,
+        32,
+        32
+      ]
+    }
+  }
+}

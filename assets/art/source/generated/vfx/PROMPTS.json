@@ -1,0 +1,15 @@
+{
+  "tool": "built-in image_gen",
+  "commonPrompt": "Use case: stylized-concept. Asset type: isolated transparent battle VFX sprite for a bright HD-2D mobile fantasy game. Hand-crafted crisp colorful pixel art with intentional visible pixel clusters and high-contrast silhouette, legible at 48–96 CSS pixels. Square composition. Genuine transparent alpha background. No character, scenery, ground, text, border, black background, photographic blur, or dark mood.",
+  "subjects": {
+    "swordqi": "One curved ivory-white sword-light crescent sweeping diagonally upward from lower left to upper right, with warm golden edge, coral-red and pale amber pixel sparks. No physical sword.",
+    "arrow": "One left-to-right silver-tipped ochre arrow with a short shaft, feathering, tapered pale cyan and warm-white speed trail, and discrete pixel sparks. Distinct from a spear or spell.",
+    "thrust": "A straight narrow ivory-steel spear-thrust energy streak moving left to right; pointed bright tip with layered pale-blue and gold motion lines and small square sparks. No physical spear shaft.",
+    "cavslash": "Two broad intersecting ivory-white and amber cavalry-charge sweeps, one low horizontal rush and one steep rising blade trace, with ochre dust flecks and bright coral sparks. No horse or rider.",
+    "magebolt": "One focused turquoise-and-cobalt magic bolt with a compact radiant core, faceted cyan shards and thin lavender rune fragments trailing left to right. No mage or staff.",
+    "beastbite": "A savage animal bite and claw trace: three curved ochre-white claw strokes converging on a bright point with a compact red-orange bite crescent and warm square sparks. No visible beast or paw model.",
+    "impact-spark": "An instantaneous physical hit burst: compact brilliant ivory center, six short irregular golden and pale-coral rays, tiny square shards, crisp dark-amber edges. No attack trail.",
+    "impact-magic": "A spell-hit ring: turquoise-white core, two broken concentric cyan and soft-violet pixel rune circles, three crystalline star fragments; clearly different from physical impact spark.",
+    "dust": "Small warm sand dust kicked up by a cavalry charge or beast: three separate ochre and cream pixel puffs, angular tan fragments, short horizontal streak, ample transparent space. No ground plane."
+  }
+}

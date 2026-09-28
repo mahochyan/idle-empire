@@ -1,0 +1,15 @@
+{
+  "tool": "built-in image_gen",
+  "status": "All six per-ID masters are integrated into runtime PNG and editable SVG, with previous runtime PNGs backed up by ID.",
+  "sourceReferences": "Each prompt used the matching original project portrait at assets/art/units/hires/<id>.png as equipment and visual-style reference only.",
+  "provenance": "New game-effect images generated for 放置帝国 from project portraits; no third-party game image was supplied as reference. Keep this prompt file with the original transparent PNG masters for review and future edits.",
+  "commonPrompt": "Use case: stylized-concept. Create one isolated transparent RGBA HD-2D pixel-art attack effect for a portrait mobile game. Match the supplied unit portrait's equipment and era, but draw no character or face. Center one coherent directional attack cutout with safe transparent margins, crisp stepped pixel clusters, bright daylight colors and a silhouette readable at 64 px. No scenery, floor, backdrop, text, watermark, border, UI, or smooth blur.",
+  "subjects": {
+    "infantry_shield": "Heavy Shield infantry: upright blue-silver shield bash moving right, pale mint-white pressure wave, two angular armor chips, one small warm spark. The shield is the dominant silhouette; rank 3, grounded physical attack, not a magic spell or orange sword crescent.",
+    "infantry_spear": "Redesigned rank-3 Long Spear Squire: broad ivory-steel winged spearhead rising lower-left to upper-right, swept gold crossguard wings, short crimson-gold pennant, ash-wood shaft, angular amber-white split pressure trail and a few square sparks. The diagonal broad warm silhouette must be distinct at 64px from a narrow rank-2 iron pike.",
+    "archer_crossbow": "Heavy crossbow: one short thick iron quarrel travelling right, broad square cutting head, reinforced collars, brown wood shaft, blunt white feather tail, two curved snapped bowstring vibration trails and ochre iron sparks. Rank 3, distinct from a green hunting arrow or magic beam.",
+    "cavalry_t1": "Early mounted knight: stout iron lance tip, warm ochre wedge of hoof-kicked dust, two shaped steel horseshoe shock marks, short ivory leading slash and square dirt chips. Rank 2, modest grounded cavalry impact, no rider or horse body.",
+    "iron_spearman": "Redesigned rank-2 Iron-age pikeman: an almost horizontal charcoal iron shaft with straight segments and compact narrow cold-steel triangular point, small rectangular riveted ferrule and restrained slate-blue speed rails. Imagegen edits added a continuous pale-blue silver inner highlight, thin warm-ivory lower rim and crisp dark navy outer contour so the slim pike reads at 64px on both sand and dark blue-gray, without adding wings, banner or gold.",
+    "gold_cavalry": "Gold-era heavy cavalry: gilded lance tip, bright ivory impact point, broad segmented sun-crest pressure ring, two small horseshoe sigils in the dust and tiny golden chips. Rank 3, richer and weightier than early cavalry, still a physical charge rather than a fireball."
+  }
+}

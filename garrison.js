@@ -160,6 +160,20 @@ function startGarrisonInvasion(inv){
   addGarrisonLog(`预警：${inv.name}正在靠近城镇。`,true);
 }
 
+function snapshotGarrisonEvent(){
+  return{
+    garrison:JSON.parse(JSON.stringify(S.garrison)),
+    garrisonForm:JSON.parse(JSON.stringify(S._garrisonForm)),
+    res:{...S.res},merit:S.merit,
+    garrisonLog:S.garrisonLog.slice(),log:Array.isArray(S.log)?S.log.slice():[]
+  };
+}
+function restoreGarrisonEvent(before){
+  S.garrison=before.garrison;S._garrisonForm=before.garrisonForm;
+  S.res=before.res;S.merit=before.merit;
+  S.garrisonLog=before.garrisonLog;S.log=before.log;
+}
+
 function triggerGarrisonInvasion(templateId){
   const g=ensureGarrisonState();
   if(g.phase!=='idle'){
@@ -171,14 +185,21 @@ function triggerGarrisonInvasion(templateId){
     if(typeof toast==='function')toast('暂无可触发的入侵模板');
     return false;
   }
+  const before=snapshotGarrisonEvent();
   startGarrisonInvasion(inv);
-  save();
+  if(!save().ok){
+    restoreGarrisonEvent(before);
+    if(typeof toast==='function')toast('保存失败，驻军事件未触发');
+    return false;
+  }
   if(typeof updateUI==='function')updateUI();
   return true;
 }
 
 function garrisonTick(){
   const g=ensureGarrisonState();
+  const due=(g.phase!=='idle'&&S.tick>=g.phaseUntil)||(g.phase==='idle'&&S.tick>=g.nextCheckTick);
+  const before=due?snapshotGarrisonEvent():null;
   let changed=false;
 
   while(g.phase!=='idle'&&S.tick>=g.phaseUntil){
@@ -199,7 +220,10 @@ function garrisonTick(){
     }
   }
 
-  if(changed)save();
+  if(changed&&!save().ok){
+    restoreGarrisonEvent(before);
+    enterProtection('驻军结算保存失败；原档未被覆盖，可手动导出');
+  }
 }
 
 function advanceGarrisonPhase(){
@@ -267,10 +291,12 @@ function cloneResMap(src){
 function applyDefeatLoss(){
   const pct=0.03+Math.random()*0.02; // 3%~5%
   const loss={wood:0,stone:0,food:0};
-  for(const k of Object.keys(CFG.res)){
-    if(!S.res[k])continue;
-    loss[k]=Math.max(1,Math.floor((S.res[k]||0)*pct));
-    S.res[k]=Math.max(0,(S.res[k]||0)-loss[k]);
+  // 巡防掠夺仅作用于基础物资；科技、地契、金属与金币不属于可掠夺库存。
+  for(const k of ['wood','stone','food']){
+    const stock=Math.max(0,S.res[k]||0);
+    if(!stock)continue;
+    loss[k]=Math.min(stock,Math.max(1,Math.floor(stock*pct)));
+    S.res[k]=stock-loss[k];
   }
   return loss;
 }
@@ -279,7 +305,7 @@ function formatGarrisonRes(res){
   const labels={wood:'木',stone:'石',food:'粮'};
   return Object.entries(res||{})
     .filter(([,v])=>v>0)
-    .map(([k,v])=>`${labels[k]||k}${Math.floor(v)}`)
+    .map(([k,v])=>`${labels[k]||CFG.res[k]?.name||k}${Math.floor(v)}`)
     .join('、')||'无';
 }
 
@@ -295,7 +321,8 @@ function buildGarrisonUnitsFromForm(){
   const gf=S._garrisonForm||{front:[],mid:[],back:[]};
   let id=0;
   for(const row of ['front','mid','back']){
-    for(const u of gf[row]||[]){
+    for(let originIndex=0;originIndex<(gf[row]||[]).length;originIndex++){
+      const u=gf[row][originIndex];
       if(!u||!u.type||u.count<=0)continue;
       const cfg=CFG.units[u.type];
       if(!cfg)continue;
@@ -305,13 +332,16 @@ function buildGarrisonUnitsFromForm(){
         type:u.type,
         row,
         originRow:row,
-        hp:u.count,
-        maxHp:u.count,
+        originIndex,
+        ...battleVitals(u.type,u.count,true),
         icon:cfg.icon,
         name:cfg.name,
         spd:cfg.spd,
-        atk:cfg.atk,
-        def:cfg.def,
+        atk:weaponAttack(u.type),
+        entryAtk:weaponAttack(u.type),
+        def:weaponDefense(u.type),
+        entryDef:weaponDefense(u.type),
+        weaponSkills:equippedWeaponSkills(u.type),
         tag:cfg.tag||null,
         alive:true
       });
@@ -332,13 +362,14 @@ function buildGarrisonEnemyUnits(inv){
         type,
         row:cfg.row,
         originRow:cfg.row,
-        hp:count,
-        maxHp:count,
+        ...battleVitals(type,count),
         icon:cfg.icon,
         name:cfg.name,
         spd:cfg.spd,
         atk:cfg.atk,
+        entryAtk:cfg.atk,
         def:cfg.def,
+        entryDef:cfg.def,
         tag:cfg.tag||null,
         alive:true
       });
@@ -384,9 +415,10 @@ function calcGarrisonDmg(attacker,defender){
   const defenseFactor=100/(100+defender.def*8);
   const counterFactor=cm(attacker.type,defender.type);
   const mageFactor=mm(attacker.type,defender.type);
-  const passiveFactor=baseUnitType(attacker.type)==='infantry'?1.1:1.0;
+  const passiveFactor=combatBaseUnitType(attacker.type)==='infantry'?1.1:1.0;
   const randomFactor=0.9+Math.random()*0.2;
-  const isCrit=(attacker.tag==='spear')&&Math.random()<0.1;
+  const baseCritChance=combatBaseCritChance(attacker);
+  const isCrit=baseCritChance>0&&Math.random()<baseCritChance;
   let specialFactor=1.0;
   const AS=CFG.archerSpecials||{};
   // 弩攻击盾兵：穿透80%伤害
@@ -399,10 +431,8 @@ function calcGarrisonDmg(attacker,defender){
   if(attacker.tag==='bow'&&defender.tag==='shield'&&Math.random()<(AS.bow?.attack?.vsShield?.block||0.8)){
     specialFactor=0;
   }
-  const raw=attacker.hp*attacker.atk*DAMAGE_COEF*defenseFactor*counterFactor*mageFactor*passiveFactor*randomFactor*specialFactor;
-  const baseDmg=Math.max(specialFactor>0?1:0,Math.floor(isCrit?raw*2:raw));
-  const dmgVar=Math.floor(Math.random()*7)-3;
-  return Math.max(specialFactor>0?1:0, baseDmg+dmgVar);
+  const raw=combatAttackMass(attacker)*attacker.atk*DAMAGE_COEF*defenseFactor*counterFactor*mageFactor*passiveFactor*randomFactor*specialFactor;
+  return finalizeCombatDamage(attacker,raw,isCrit);
 }
 
 function garrisonArrowTowerAttack(enemyUnits,round){
@@ -428,9 +458,8 @@ function garrisonArrowTowerAttack(enemyUnits,round){
   let bleed=false;
   if(lv>=5&&Math.random()<0.3){bleed=true;dmg=Math.floor(dmg*1.5);}
   dmg=Math.max(1,Math.floor(dmg));
-  target.hp-=dmg;
-  if(target.hp<=0){target.hp=0;target.alive=false;}
-  return {targetType:target.type,targetName:target.name,dmg,bleed,lv};
+  const hit=applyCombatDamage(target,dmg);
+  return {targetType:target.type,targetName:target.name,dmg:hit.shieldLost+hit.hpLost,bleed,lv};
 }
 
 function resolveGarrisonBattle(inv){
@@ -451,12 +480,14 @@ function resolveGarrisonBattle(inv){
     if(!ourAlive.length)break;
     if(!enemyAlive.length)break;
 
-    ourAlive.sort((a,b)=>b.spd-a.spd||(Math.random()<0.5?1:-1));
-    enemyAlive.sort((a,b)=>b.spd-a.spd||(Math.random()<0.5?1:-1));
+    sortCombatUnitsBySpeed(ourAlive,u=>u.spd);
+    sortCombatUnitsBySpeed(enemyAlive,u=>u.spd);
 
     const actions=[];
     const maxCnt=Math.max(ourAlive.length,enemyAlive.length);
-    const ourFirst=ourAlive[0].spd>enemyAlive[0].spd?true:enemyAlive[0].spd>ourAlive[0].spd?false:Math.random()<0.5;
+    const ourFast=combatSpeedValue(ourAlive[0].spd);
+    const enemyFast=combatSpeedValue(enemyAlive[0].spd);
+    const ourFirst=ourFast>enemyFast?true:enemyFast>ourFast?false:Math.random()<0.5;
     for(let i=0;i<maxCnt;i++){
       if(ourFirst){
         actions.push({unit:ourAlive[i%ourAlive.length],side:'our'});
@@ -474,31 +505,48 @@ function resolveGarrisonBattle(inv){
       const target=getGarrisonTarget(actor,foes);
       if(!target)continue;
 
+      if(action.side==='our')applyArmorOpeningSkills(actor);
+      if(action.side==='our'){
+        applyAwakeningOpeningSkills(actor,target,foes);
+        applyTrialGuardDefensePassives(target,actor,enemyUnits,ourUnits);
+      }
+      else applyEasyTrialGuardAttackSkill(actor,target);
+      if(target.alive===false||target.hp<=0)continue;
+      const firstSniperAttack=action.side==='our'&&actor.weaponSkills?.snipe&&!actor.sniperUsed;
+      if(firstSniperAttack)actor.sniperUsed=true;
+      const firstMortarAttack=action.side==='our'&&actor.weaponSkills?.bombard&&!actor.mortarUsed;
+      if(firstMortarAttack)actor.mortarUsed=true;
+      const firstStarAttack=action.side==='our'&&(actor.weaponSkills?.starFighter||actor.weaponSkills?.starMissile)&&!actor.starWeaponUsed;
+      if(firstStarAttack)actor.starWeaponUsed=true;
+      const sweeping=action.side==='our'&&steamSweepActive(actor,foes);
       const archerMiss=isAttackMiss(actor,target);
-      const cavDodge=!archerMiss&&baseUnitType(target.type)==='cavalry'&&!isRanged(actor.type)&&Math.random()<0.1;
+      const cavDodge=!archerMiss&&combatBaseUnitType(target.type)==='cavalry'&&!isRanged(actor.type)&&Math.random()<0.1;
       if(archerMiss||cavDodge)continue;
 
-      const dmg=Math.min(calcGarrisonDmg(actor,target),target.hp);
-      target.hp-=dmg;
-      if(target.hp<=0){
-        target.hp=0;
-        target.alive=false;
-      }
+      const baseDamage=calcGarrisonDmg(actor,target);
+      if(action.side==='our')applySteamWeaponSkillHits(actor,foes,target,baseDamage,sweeping,firstMortarAttack);
+      const starSkill=action.side==='our'?applyStarWeaponSkillHits(actor,target,baseDamage,firstStarAttack):null;
+      if(!sweeping&&!starSkill?.replacesNormal)applyCombatDamage(target,baseDamage,actor);
+      if(action.side==='our')applyElectroWeaponSkillHits(actor,target,baseDamage,firstSniperAttack);
     }
   }
 
-  const ourLeft=ourUnits.filter(u=>u.alive!==false&&u.hp>0).reduce((s,u)=>s+u.hp,0);
-  const enemyLeft=enemyUnits.filter(u=>u.alive!==false&&u.hp>0).reduce((s,u)=>s+u.hp,0);
+  const ourLeft=ourUnits.filter(u=>u.alive!==false&&u.hp>0).reduce((s,u)=>s+combatSurvivors(u),0);
+  const enemyLeft=enemyUnits.filter(u=>u.alive!==false&&u.hp>0).reduce((s,u)=>s+combatSurvivors(u),0);
   const outcome=enemyLeft<=0&&ourLeft>0?'win':ourLeft<=0?'lose':'timeout';
   return {outcome,rounds:rounds+1,ourUnits,enemyUnits,ourLeft,enemyLeft,towerShots,towerDmg};
 }
 
 function rebuildGarrisonFormationAfterBattle(result){
   const newForm={front:[],mid:[],back:[]};
+  const oldForm=S._garrisonForm||{front:[],mid:[],back:[]};
   for(const u of result.ourUnits||[]){
     if(u.alive===false||u.hp<=0)continue;
     const row=u.originRow||u.row||'front';
-    newForm[row].push({type:u.type,count:u.hp,id:u.fid||Date.now()+Math.random()});
+    const source=oldForm[row]?.[u.originIndex];
+    const original=source?.id===u.fid&&source.type===u.type?source:null;
+    const startingCount=original?.count??u.initialCount??u.hp;
+    newForm[row].push({type:u.type,count:Math.min(startingCount,u.initialCount??startingCount,combatSurvivors(u)),id:original?.id??u.fid??nextFormationId()});
   }
   S._garrisonForm=newForm;
 }
@@ -507,13 +555,13 @@ function applyGarrisonResult(inv,result){
   rebuildGarrisonFormationAfterBattle(result);
 
   const win=result.outcome==='win';
-  const cap=storageCapacity();
   let reward={wood:0,stone:0,food:0},loss={wood:0,stone:0,food:0};
 
   if(win){
-    reward=cloneResMap(inv.reward);
-    for(const k of Object.keys(CFG.res)){
-      S.res[k]=Math.min(cap,(S.res[k]||0)+(reward[k]||0));
+    const offered=cloneResMap(inv.reward);
+    for(const[k,amount]of Object.entries(offered)){
+      const gained=creditResourceReward(k,amount);
+      if(gained>0)reward[k]=gained; // 日志与结算面板只报告真正入库的数量
     }
     const meritGain=inv.merit||2;
     S.merit=(S.merit||0)+meritGain;

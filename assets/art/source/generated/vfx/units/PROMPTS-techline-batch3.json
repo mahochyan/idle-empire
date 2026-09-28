@@ -1,0 +1,15 @@
+{
+  "tool": "built-in image_gen",
+  "status": "Integrated: six per-ID masters have matching runtime PNGs and editable SVGs; prior runtime PNGs are preserved in previous-runtime-batch3.",
+  "sourceReferences": "Each prompt used the matching original project portrait at assets/art/units/hires/<id>.png as equipment and visual-style reference only.",
+  "provenance": "New game-effect images generated for 放置帝国 from project portraits; no third-party game image was supplied as reference. Keep this prompt file with the original transparent PNG masters for review and future edits.",
+  "commonPrompt": "Use case: stylized-concept. Create one isolated transparent RGBA HD-2D pixel-art attack effect for a portrait mobile game. Match the supplied unit portrait's equipment and era, but draw no character or face. Center one coherent directional attack cutout with safe transparent margins, crisp stepped pixel clusters, bright daylight colors and a silhouette readable at 64 px. No scenery, floor, backdrop, text, watermark, border, UI, or smooth blur.",
+  "subjects": {
+    "infantry_t1": "Trained militia: broad clean iron sword flash rising lower-left to upper-right, small bronze-edged follow-through, few warm sparks and one short blue cloth-colored ribbon. Rank 2, stronger than the plain rank-1 infantry stroke but still human physical steel, not magic flame.",
+    "archer_t1": "Trained ranger: one leading wooden arrow with polished steel point and green fletching, two staggered ghost trajectories, paired leaf-green wind ribbon and a few sunny glints. Rank 2, more confident than a single hunter arrow, no explosive magic.",
+    "spearman": "Base foot spearman: one simple ash-wood pole, narrow plain iron triangular tip, short ochre motion line and only two tiny ivory glints. Rank 1 practical quick jab, weaker than the decorated squire spear and iron-age pike.",
+    "cavalry_wind": "Wind crossbow cavalry: one compact iron quarrel with needle tip moving right inside two asymmetric pale-turquoise wind ribbons and a swift forward spiral; short green-blue slivers suggest a galloping release. Rank 3, distinguish from ranger volley and magic orb.",
+    "alloy_special": "Alloy special-forces shot: streamlined matte titanium dart, sharp white point and two asymmetric tail fins inside a narrow segmented hexagonal muzzle-pressure sheath; three pale-cyan targeting slits and tiny warm alloy shavings. Rank 4 engineered precision, unlike medieval arrows or magic bolts.",
+    "armored_trooper": "Steam armored cannon: heavy riveted brass-and-iron piston shell moving right, blunt armored nose, two copper compression rings, compact white squared steam cloud behind and short ivory leading impact star. Rank 4 industrial weight, unlike the sleek alloy dart or a spell."
+  }
+}

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="256" height="256" viewBox="0 0 256 256">
+<!-- archer_t1: per-ID painted core + fan trail + pierce mark + rank 2 -->
+
+<g opacity="0.38"><g shape-rendering="crispEdges"><polyline points="34,173 98,139 176,120" fill="none" stroke="#B8D99D" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter" opacity="0.84"/><polyline points="37,185 106,161 178,149" fill="none" stroke="#B8D99D" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter" opacity="0.84"/><polyline points="42,197 109,184 174,177" fill="none" stroke="#E8F7D7" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter" opacity="0.84"/></g></g>
+<g data-unit="archer_t1" data-art-source="per-id" transform="translate(19.20 19.20) scale(0.85)"><image href="../../generated/vfx/units/archer_t1-master.png" xlink:href="../../generated/vfx/units/archer_t1-master.png" x="0" y="0" width="256" height="256" preserveAspectRatio="xMidYMid meet"/></g>
+
+<g shape-rendering="crispEdges" opacity=".83"><path d="M179 119 L205 127 L179 135 L186 127 Z" fill="#B8D99D" stroke="#E8F7D7" stroke-width="2"/></g>
+<g shape-rendering="crispEdges"><rect x="215" y="170" width="5" height="5" fill="#E8F7D7" opacity="0.86"/><rect x="128" y="80" width="3" height="3" fill="#B8D99D" opacity="0.68"/><rect x="169" y="158" width="3" height="3" fill="#B8D99D" opacity="0.86"/><rect x="199" y="188" width="3" height="3" fill="#E8F7D7" opacity="0.68"/><rect x="37" y="174" width="5" height="5" fill="#B8D99D" opacity="0.86"/><rect x="140" y="44" width="3" height="3" fill="#B8D99D" opacity="0.68"/><rect x="126" y="178" width="3" height="3" fill="#E8F7D7" opacity="0.86"/></g>
+</svg>

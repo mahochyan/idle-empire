@@ -1,0 +1,524 @@
+{
+  "status": "integrated: six per-ID masters rendered to runtime PNGs and editable SVGs",
+  "method": "Pillow RGBA, SHA-256, candidate/runtime equality, backup difference, 64px light/dark gallery and manual silhouette/rank comparison",
+  "visualReview": {
+    "infantry_ironrose": "Pass after edit: broad steel thrust and iron-rose petal guard read at 64px on both grounds; red pressure layers add rank-4 weight beyond the rank-3 gold spear.",
+    "infantry_bloodrose": "Pass: crimson paired sword arcs and shield chips remain distinct from the spear and are fuller than the rank-3 sword cut.",
+    "archer_assassin": "Pass: compact teal/violet crossed short blades read as a twin-blade strike; less expansive than the rank-4 shadowblade arcs.",
+    "archer_genoese": "Pass: reinforced heavy quarrel, thick bodkin and mechanical bowstring echoes read heavier than the rank-3 crossbow shot.",
+    "cavalry_teutonic": "Pass: broad ivory steel charge with plated fragments and heraldic cross reads as heavy cavalry; rank-4 complexity comes from armor rather than brighter saturation than gold cavalry.",
+    "mage_t1": "Pass after edit: enlarged blue-outlined star and amber rune notches are legible at 64px on light and dark grounds; simpler than the rank-3 time spell."
+  },
+  "units": {
+    "infantry_ironrose": {
+      "profileStyle": "thrust",
+      "rank": 4,
+      "master": {
+        "path": "assets/art/source/generated/vfx/units/infantry_ironrose-master.png",
+        "sha256": "b7947022b327555c4e94dc26d5af3695915ca30670b275c5e4aca8acabe28637",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          33,
+          0,
+          1254,
+          1254
+        ],
+        "visibleFraction": 0.2411,
+        "borderClear": false
+      },
+      "candidate": {
+        "path": "hd2d-previews/vfx-batch5-candidates/infantry_ironrose.png",
+        "sha256": "56f59e185b84c619e7b008c0574a54369a96f2ea58302db76306b38574b15918",
+        "dimensions": [
+          256,
+          256
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          14,
+          6,
+          250,
+          245
+        ],
+        "visibleFraction": 0.2398,
+        "borderClear": true
+      },
+      "runtime": {
+        "path": "assets/art/vfx/units/infantry_ironrose.png",
+        "sha256": "56f59e185b84c619e7b008c0574a54369a96f2ea58302db76306b38574b15918",
+        "dimensions": [
+          256,
+          256
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          14,
+          6,
+          250,
+          245
+        ],
+        "visibleFraction": 0.2398,
+        "borderClear": true
+      },
+      "previousRuntime": {
+        "path": "assets/art/source/generated/vfx/units/previous-runtime-batch5/infantry_ironrose.png",
+        "sha256": "fd695284ba74be63a60b46c8effe89c84693d8e35a59263f2e45d206e6558446",
+        "dimensions": [
+          256,
+          256
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          0,
+          40,
+          243,
+          235
+        ],
+        "visibleFraction": 0.1447,
+        "borderClear": false
+      },
+      "editableSource": "assets/art/source/vfx/units/infantry_ironrose.svg"
+    },
+    "infantry_bloodrose": {
+      "profileStyle": "swordqi",
+      "rank": 4,
+      "master": {
+        "path": "assets/art/source/generated/vfx/units/infantry_bloodrose-master.png",
+        "sha256": "5b380a240e8d53dbd13bed867af913238abe141f3ee10cda1eee03a8c985f605",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          0,
+          19,
+          1224,
+          1254
+        ],
+        "visibleFraction": 0.3645,
+        "borderClear": false
+      },
+      "candidate": {
+        "path": "hd2d-previews/vfx-batch5-candidates/infantry_bloodrose.png",
+        "sha256": "f7118337766529a50b2930124f052210cd3afea85e2b922e86994e18aa99ed74",
+        "dimensions": [
+          256,
+          256
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          13,
+          16,
+          244,
+          245
+        ],
+        "visibleFraction": 0.3514,
+        "borderClear": true
+      },
+      "runtime": {
+        "path": "assets/art/vfx/units/infantry_bloodrose.png",
+        "sha256": "f7118337766529a50b2930124f052210cd3afea85e2b922e86994e18aa99ed74",
+        "dimensions": [
+          256,
+          256
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          13,
+          16,
+          244,
+          245
+        ],
+        "visibleFraction": 0.3514,
+        "borderClear": true
+      },
+      "previousRuntime": {
+        "path": "assets/art/source/generated/vfx/units/previous-runtime-batch5/infantry_bloodrose.png",
+        "sha256": "c2e0366d53b6d9c11834c37f507fe8dae883720c8628bfca14255bfde4981ccf",
+        "dimensions": [
+          256,
+          256
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          10,
+          13,
+          250,
+          247
+        ],
+        "visibleFraction": 0.3256,
+        "borderClear": true
+      },
+      "editableSource": "assets/art/source/vfx/units/infantry_bloodrose.svg"
+    },
+    "archer_assassin": {
+      "profileStyle": "swordqi",
+      "rank": 3,
+      "master": {
+        "path": "assets/art/source/generated/vfx/units/archer_assassin-master.png",
+        "sha256": "37cdd63ee0cd5b6d36453e5183d40b87d23a2a8cecf7eeacbf06d433e6bd5b77",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          29,
+          39,
+          1240,
+          1254
+        ],
+        "visibleFraction": 0.1978,
+        "borderClear": false
+      },
+      "candidate": {
+        "path": "hd2d-previews/vfx-batch5-candidates/archer_assassin.png",
+        "sha256": "c41f5d9f9cfe7632d41b09a3c15f4716ea78dfec26c9c3f0ad854d517ed6364a",
+        "dimensions": [
+          256,
+          256
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          20,
+          34,
+          234,
+          238
+        ],
+        "visibleFraction": 0.18,
+        "borderClear": true
+      },
+      "runtime": {
+        "path": "assets/art/vfx/units/archer_assassin.png",
+        "sha256": "c41f5d9f9cfe7632d41b09a3c15f4716ea78dfec26c9c3f0ad854d517ed6364a",
+        "dimensions": [
+          256,
+          256
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          20,
+          34,
+          234,
+          238
+        ],
+        "visibleFraction": 0.18,
+        "borderClear": true
+      },
+      "previousRuntime": {
+        "path": "assets/art/source/generated/vfx/units/previous-runtime-batch5/archer_assassin.png",
+        "sha256": "755bc03de9a76f027c8cbaedb0ae212ecceb6cb7e3aef775591f0edf5ff1cd2c",
+        "dimensions": [
+          256,
+          256
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          8,
+          19,
+          244,
+          240
+        ],
+        "visibleFraction": 0.3179,
+        "borderClear": true
+      },
+      "editableSource": "assets/art/source/vfx/units/archer_assassin.svg"
+    },
+    "archer_genoese": {
+      "profileStyle": "arrow",
+      "rank": 4,
+      "master": {
+        "path": "assets/art/source/generated/vfx/units/archer_genoese-master.png",
+        "sha256": "3fbd5184d3023171bc81fdd24f693cd3f22e2b1ac52c7bd12e60fc1f6b01a175",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          35,
+          21,
+          1218,
+          1198
+        ],
+        "visibleFraction": 0.153,
+        "borderClear": true
+      },
+      "candidate": {
+        "path": "hd2d-previews/vfx-batch5-candidates/archer_genoese.png",
+        "sha256": "31bb190568eeeda9d2b8f17b1b45b413c5bcefc3f66d2c038e8e388955c86b6c",
+        "dimensions": [
+          256,
+          256
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          13,
+          16,
+          242,
+          234
+        ],
+        "visibleFraction": 0.1552,
+        "borderClear": true
+      },
+      "runtime": {
+        "path": "assets/art/vfx/units/archer_genoese.png",
+        "sha256": "31bb190568eeeda9d2b8f17b1b45b413c5bcefc3f66d2c038e8e388955c86b6c",
+        "dimensions": [
+          256,
+          256
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          13,
+          16,
+          242,
+          234
+        ],
+        "visibleFraction": 0.1552,
+        "borderClear": true
+      },
+      "previousRuntime": {
+        "path": "assets/art/source/generated/vfx/units/previous-runtime-batch5/archer_genoese.png",
+        "sha256": "b7d90993c02847ca334e82beff41e292bf0b74f9103508486aa23496c66d3822",
+        "dimensions": [
+          256,
+          256
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          0,
+          53,
+          235,
+          201
+        ],
+        "visibleFraction": 0.1244,
+        "borderClear": false
+      },
+      "editableSource": "assets/art/source/vfx/units/archer_genoese.svg"
+    },
+    "cavalry_teutonic": {
+      "profileStyle": "cavslash",
+      "rank": 4,
+      "master": {
+        "path": "assets/art/source/generated/vfx/units/cavalry_teutonic-master.png",
+        "sha256": "b8cdcc1da98dd1c104a0723907cd91132b4562dd99075390d8f6b958eaf9b8a1",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          37,
+          0,
+          1234,
+          1254
+        ],
+        "visibleFraction": 0.4211,
+        "borderClear": false
+      },
+      "candidate": {
+        "path": "hd2d-previews/vfx-batch5-candidates/cavalry_teutonic.png",
+        "sha256": "89c71e88e494ee07e9c13ae659a0e8c0caa4b2adea2cb389ec0192806bbeabe2",
+        "dimensions": [
+          256,
+          256
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          14,
+          7,
+          246,
+          248
+        ],
+        "visibleFraction": 0.3928,
+        "borderClear": true
+      },
+      "runtime": {
+        "path": "assets/art/vfx/units/cavalry_teutonic.png",
+        "sha256": "89c71e88e494ee07e9c13ae659a0e8c0caa4b2adea2cb389ec0192806bbeabe2",
+        "dimensions": [
+          256,
+          256
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          14,
+          7,
+          246,
+          248
+        ],
+        "visibleFraction": 0.3928,
+        "borderClear": true
+      },
+      "previousRuntime": {
+        "path": "assets/art/source/generated/vfx/units/previous-runtime-batch5/cavalry_teutonic.png",
+        "sha256": "77db21ea5110064c0da94632dc436069f05cae28796cb2035de81578b1e159e2",
+        "dimensions": [
+          256,
+          256
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          0,
+          13,
+          246,
+          246
+        ],
+        "visibleFraction": 0.317,
+        "borderClear": false
+      },
+      "editableSource": "assets/art/source/vfx/units/cavalry_teutonic.svg"
+    },
+    "mage_t1": {
+      "profileStyle": "magebolt",
+      "rank": 2,
+      "master": {
+        "path": "assets/art/source/generated/vfx/units/mage_t1-master.png",
+        "sha256": "1ac965b97923b4384d4a09a2977be4076a3b561e83ce8add2bb418c4edc57236",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          41,
+          53,
+          1222,
+          1222
+        ],
+        "visibleFraction": 0.1511,
+        "borderClear": true
+      },
+      "candidate": {
+        "path": "hd2d-previews/vfx-batch5-candidates/mage_t1.png",
+        "sha256": "3dac4ca87a274b44015d23d7b56852cdaf1df5f3a8fcf942ca0c493853c8cc50",
+        "dimensions": [
+          256,
+          256
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          22,
+          28,
+          225,
+          224
+        ],
+        "visibleFraction": 0.119,
+        "borderClear": true
+      },
+      "runtime": {
+        "path": "assets/art/vfx/units/mage_t1.png",
+        "sha256": "3dac4ca87a274b44015d23d7b56852cdaf1df5f3a8fcf942ca0c493853c8cc50",
+        "dimensions": [
+          256,
+          256
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          22,
+          28,
+          225,
+          224
+        ],
+        "visibleFraction": 0.119,
+        "borderClear": true
+      },
+      "previousRuntime": {
+        "path": "assets/art/source/generated/vfx/units/previous-runtime-batch5/mage_t1.png",
+        "sha256": "cb6c2f375e082ad6e1d26696f84e676a595acc1d132dc1c15091dcfd180c8af3",
+        "dimensions": [
+          256,
+          256
+        ],
+        "alphaRange": [
+          0,
+          255
+        ],
+        "alphaBBox": [
+          22,
+          33,
+          232,
+          226
+        ],
+        "visibleFraction": 0.1108,
+        "borderClear": true
+      },
+      "editableSource": "assets/art/source/vfx/units/mage_t1.svg"
+    }
+  }
+}

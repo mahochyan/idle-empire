@@ -1,0 +1,129 @@
+{
+  "original": "assets/art/scene/town-sci_bronze_age.png",
+  "master": "assets/art/source/generated/town-sci_bronze_age-clean-candidate/town-sci_bronze_age-clean-master.png",
+  "roi": "assets/art/scene/candidates/town-sci_bronze_age-clean-candidate.png",
+  "mask": "assets/art/scene/candidates/town-sci_bronze_age-clean-center-mask.png",
+  "preview": "hd2d-previews/qa-town-sci_bronze_age-clean-360x200.png",
+  "size": [
+    1024,
+    525
+  ],
+  "sourceCrop": [
+    0,
+    42,
+    1672,
+    899
+  ],
+  "corePolygon": [
+    [
+      469,
+      94
+    ],
+    [
+      523,
+      90
+    ],
+    [
+      580,
+      98
+    ],
+    [
+      615,
+      130
+    ],
+    [
+      638,
+      159
+    ],
+    [
+      653,
+      202
+    ],
+    [
+      666,
+      226
+    ],
+    [
+      666,
+      268
+    ],
+    [
+      642,
+      293
+    ],
+    [
+      610,
+      307
+    ],
+    [
+      591,
+      311
+    ],
+    [
+      581,
+      293
+    ],
+    [
+      563,
+      282
+    ],
+    [
+      551,
+      289
+    ],
+    [
+      480,
+      289
+    ],
+    [
+      469,
+      305
+    ],
+    [
+      448,
+      312
+    ],
+    [
+      423,
+      300
+    ],
+    [
+      393,
+      272
+    ],
+    [
+      383,
+      225
+    ],
+    [
+      395,
+      180
+    ],
+    [
+      423,
+      137
+    ]
+  ],
+  "dilatePx": 18,
+  "featherPx": 7,
+  "fountainKeepEllipse": [
+    491,
+    282,
+    558,
+    333
+  ],
+  "maskBounds": [
+    347,
+    54,
+    703,
+    349
+  ],
+  "maskNonzeroFraction": 0.1607,
+  "outsideExactRgba": true,
+  "outsideFullEditMeanRgbDelta255": 11.959,
+  "insideOpaqueMeanRgbDelta255": 49.745,
+  "originalSha256": "78c7d761f72bf7df5f53cfc52d21d40e29fb323aea151bf4b454625101de14fd",
+  "masterSha256": "409a4a595b369e6109effae347ba2bc7a847118aac9df6211876f8c6fd3d0f5f",
+  "roiSha256": "f4a7d5adb885dcc8ad23312b4ecffee5dd9c792785820ba607848db82cb0c675",
+  "maskSha256": "8e98964f631896e47a0db94e45f962c7812f14dc02bc7d5d4b3b803e359be43f"
+}

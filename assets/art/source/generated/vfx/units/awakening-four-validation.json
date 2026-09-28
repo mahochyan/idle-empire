@@ -1,0 +1,84 @@
+{
+  "status": "pass",
+  "ids": {
+    "silence_god": {
+      "rank": 5,
+      "style": "magebolt",
+      "masterAlphaBoxGt8": [
+        39,
+        204,
+        1217,
+        1036
+      ],
+      "runtimeAlphaBoxGt8": [
+        8,
+        17,
+        249,
+        239
+      ],
+      "runtimeStrongAlphaPixelsGt32": 23460,
+      "runtimeSha256": "e6be33eea557f2bf6c2ddef2517a8994f1208242a67ecde3334875798d8efa6d",
+      "editableSvgPerIdMaster": true
+    },
+    "trial_guard_easy": {
+      "rank": 2,
+      "style": "thrust",
+      "masterAlphaBoxGt8": [
+        276,
+        513,
+        1020,
+        785
+      ],
+      "runtimeAlphaBoxGt8": [
+        22,
+        32,
+        207,
+        213
+      ],
+      "runtimeStrongAlphaPixelsGt32": 3680,
+      "runtimeSha256": "b6ad2165eab5c62f0f1fe573494afba571b4eb9cc4b346568ef691a96b888a21",
+      "editableSvgPerIdMaster": true
+    },
+    "trial_guard_perfect": {
+      "rank": 4,
+      "style": "magebolt",
+      "masterAlphaBoxGt8": [
+        104,
+        293,
+        1187,
+        904
+      ],
+      "runtimeAlphaBoxGt8": [
+        25,
+        49,
+        236,
+        208
+      ],
+      "runtimeStrongAlphaPixelsGt32": 10750,
+      "runtimeSha256": "94b62d06a3236ad054e0661abb5e75bfb8118e5c829e49304b4db0afda837334",
+      "editableSvgPerIdMaster": true
+    },
+    "trial_guard_extreme": {
+      "rank": 5,
+      "style": "swordqi",
+      "masterAlphaBoxGt8": [
+        116,
+        112,
+        1232,
+        1143
+      ],
+      "runtimeAlphaBoxGt8": [
+        17,
+        17,
+        252,
+        239
+      ],
+      "runtimeStrongAlphaPixelsGt32": 20685,
+      "runtimeSha256": "ee07deb6a7e7799aadb03c91d12fce48eaf120902e33a27ae511ad29dc13cbff",
+      "editableSvgPerIdMaster": true
+    }
+  },
+  "distinctRuntimeHashes": true,
+  "trialIntensityPixelsIncreasing": true,
+  "preview": "hd2d-previews/qa-vfx-awakening-four-64.png"
+}

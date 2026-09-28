@@ -1,0 +1,130 @@
+{
+  "version": 1,
+  "coordinateSystem": "Blender Z up; glTF export Y up",
+  "plateSize": [1024, 525],
+  "previewCssSize": [360, 200],
+  "cameraProposal": {
+    "positionBlender": [6.5, -10.0, 9.6],
+    "targetBlender": [0, -0.12, 1.56],
+    "orthographicScale": 11.6,
+    "note": "Bronze prototype camera only; all eras need one final shared camera aligned against the original full panorama."
+  },
+  "hotspots": {
+    "town": [0.5, 0.4],
+    "wood": [0.17, 0.42],
+    "stone": [0.82, 0.42],
+    "food": [0.2, 0.7],
+    "army": [0.65, 0.28],
+    "tech": [0.26, 0.15],
+    "defense": [0.82, 0.12]
+  },
+  "pickNodeNames": ["PICK_town", "PICK_wood", "PICK_stone", "PICK_food", "PICK_army", "PICK_tech", "PICK_defense"],
+  "eras": [
+    {
+      "id": "base",
+      "label": "初始",
+      "plate": "assets/art/scene/town-base.png",
+      "clean": "assets/art/scene/candidates/town-base-clean-roi-candidate.png",
+      "cleanMaster": "assets/art/source/generated/town-base-clean-candidate/town-base-clean-master.png",
+      "cleanMask": "assets/art/scene/candidates/town-base-clean-center-mask.png",
+      "cleanRoi": "assets/art/scene/candidates/town-base-clean-roi-candidate.png",
+      "legacyFullCleanCandidate": "assets/art/scene/candidates/town-base-clean-candidate.png",
+      "model": "assets/art/models/candidates/town_hall_base_village.glb",
+      "editable": "assets/art/source/models/town_hall_base_village/town_hall_base_village.blend",
+      "modelPreview": "hd2d-previews/qa-town-base-village-glb-reimport.png",
+      "silhouette": "Oak hall, straw roof, ring of stone and timber palisade",
+      "distinctProps": ["timber fence", "woodcutting tools", "small watch post"]
+    },
+    {
+      "id": "sci_bronze_age",
+      "label": "青铜",
+      "plate": "assets/art/scene/town-sci_bronze_age.png",
+      "clean": "assets/art/scene/candidates/town-sci_bronze_age-clean-candidate.png",
+      "cleanMaster": "assets/art/source/generated/town-sci_bronze_age-clean-candidate/town-sci_bronze_age-clean-master.png",
+      "cleanMask": "assets/art/scene/candidates/town-sci_bronze_age-clean-center-mask.png",
+      "cleanRoi": "assets/art/scene/candidates/town-sci_bronze_age-clean-candidate.png",
+      "model": "assets/art/models/candidates/era_town_bronze.glb",
+      "editable": "assets/art/source/models/era_town_bronze/era_town_bronze.blend",
+      "modelPreview": "hd2d-previews/qa-era-town-bronze-glb-reimport.png",
+      "silhouette": "Limestone portico, terracotta and patina roof, bronze crest",
+      "distinctProps": ["foundry", "bronze shield lookout", "columned front"]
+    },
+    {
+      "id": "sci_iron_age",
+      "label": "铁器",
+      "plate": "assets/art/scene/town-sci_iron_age.png",
+      "clean": "assets/art/scene/candidates/town-sci_iron_age-clean-candidate.png",
+      "cleanMaster": "assets/art/source/generated/town-era-clean-candidates/town-sci_iron_age-clean-master.png",
+      "cleanMask": "assets/art/scene/candidates/town-sci_iron_age-clean-center-mask.png",
+      "cleanRoi": "assets/art/scene/candidates/town-sci_iron_age-clean-roi-prototype.png",
+      "silhouette": "Higher ashlar stone walls, blue iron-tile pitched wings and central tower",
+      "distinctProps": ["charcoal forge", "iron bound gate", "battlement parapet"]
+    },
+    {
+      "id": "sci_silver_age",
+      "label": "白银",
+      "plate": "assets/art/scene/town-sci_silver_age.png",
+      "clean": "assets/art/scene/candidates/town-sci_silver_age-clean-candidate.png",
+      "cleanMaster": "assets/art/source/generated/town-era-clean-candidates/town-sci_silver_age-clean-master.png",
+      "cleanMask": "assets/art/scene/candidates/town-sci_silver_age-clean-center-mask.png",
+      "cleanRoi": "assets/art/scene/candidates/town-sci_silver_age-clean-roi-prototype.png",
+      "silhouette": "Light stone council hall, silver ridge and repeated arches",
+      "distinctProps": ["silversmith", "paved plaza", "white pennants"]
+    },
+    {
+      "id": "sci_gold_age",
+      "label": "黄金",
+      "plate": "assets/art/scene/town-sci_gold_age.png",
+      "clean": "assets/art/scene/candidates/town-sci_gold_age-clean-candidate.png",
+      "cleanMaster": "assets/art/source/generated/town-era-clean-candidates/town-sci_gold_age-clean-master.png",
+      "cleanMask": "assets/art/scene/candidates/town-sci_gold_age-clean-center-mask.png",
+      "cleanRoi": "assets/art/scene/candidates/town-sci_gold_age-clean-roi-prototype.png",
+      "silhouette": "Two storey sandstone civic hall, restrained gold dome and colonnade",
+      "distinctProps": ["artisan market", "clock", "fountain"]
+    },
+    {
+      "id": "sci_alloy_age",
+      "label": "合金",
+      "plate": "assets/art/scene/town-sci_alloy_age.png",
+      "clean": "assets/art/scene/candidates/town-sci_alloy_age-clean-candidate.png",
+      "cleanMaster": "assets/art/source/generated/town-era-clean-candidates/town-sci_alloy_age-clean-master.png",
+      "cleanMask": "assets/art/scene/candidates/town-sci_alloy_age-clean-center-mask.png",
+      "cleanRoi": "assets/art/scene/candidates/town-sci_alloy_age-clean-roi-prototype.png",
+      "silhouette": "Composite metal roof with visible truss and copper-silver frame",
+      "distinctProps": ["alloy forge", "green transmission gear", "reinforced bridge"]
+    },
+    {
+      "id": "sci_steam_age",
+      "label": "蒸汽",
+      "plate": "assets/art/scene/town-sci_steam_age.png",
+      "clean": "assets/art/scene/candidates/town-sci_steam_age-clean-candidate.png",
+      "cleanMaster": "assets/art/source/generated/town-era-clean-candidates/town-sci_steam_age-clean-master.png",
+      "cleanMask": "assets/art/scene/candidates/town-sci_steam_age-clean-center-mask.png",
+      "cleanRoi": "assets/art/scene/candidates/town-sci_steam_age-clean-roi-prototype.png",
+      "silhouette": "Brick and stone clock tower, copper piping, short clean chimney",
+      "distinctProps": ["boiler room", "gear workshop", "thin white steam"]
+    },
+    {
+      "id": "sci_electric_age",
+      "label": "电气",
+      "plate": "assets/art/scene/town-sci_electric_age.png",
+      "clean": "assets/art/scene/candidates/town-sci_electric_age-clean-candidate.png",
+      "cleanMaster": "assets/art/source/generated/town-era-clean-candidates/town-sci_electric_age-clean-master.png",
+      "cleanMask": "assets/art/scene/candidates/town-sci_electric_age-clean-center-mask.png",
+      "cleanRoi": "assets/art/scene/candidates/town-sci_electric_age-clean-roi-prototype.png",
+      "silhouette": "Ivory and cobalt civic hall, blue coils and wire gantries",
+      "distinctProps": ["generator house", "insulator towers", "street lamps"]
+    },
+    {
+      "id": "sci_nuclear_age",
+      "label": "核能",
+      "plate": "assets/art/scene/town-sci_nuclear_age.png",
+      "clean": "assets/art/scene/candidates/town-sci_nuclear_age-clean-candidate.png",
+      "cleanMaster": "assets/art/source/generated/town-era-clean-candidates/town-sci_nuclear_age-clean-master.png",
+      "cleanMask": "assets/art/scene/candidates/town-sci_nuclear_age-clean-center-mask.png",
+      "cleanRoi": "assets/art/scene/candidates/town-sci_nuclear_age-clean-roi-prototype.png",
+      "silhouette": "Ivory future arches on surviving stone base with restrained cyan core",
+      "distinctProps": ["clean energy tower", "glass arcade", "river and farm continuity"]
+    }
+  ]
+}

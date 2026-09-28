@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>电气时代市政大厅 · 独立三维样板</title>
+  <style>
+    *{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#b8d8d2}
+    #stage{position:absolute;left:50%;top:50%;width:1024px;height:525px;transform-origin:center}
+    #stage>img,#stage>canvas{position:absolute;inset:0;width:1024px;height:525px}
+    #status{position:absolute;left:4px;bottom:3px;padding:2px 4px;border-radius:3px;color:#fff;background:#000a;font:10px/1.2 system-ui,sans-serif}
+  </style>
+</head>
+<body>
+  <div id="stage"></div><div id="status">加载中</div>
+  <script src="../../../assets/hd2d/three.min.js"></script>
+  <script src="model.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="256" height="256" viewBox="0 0 256 256">
+<!-- wild_turtle: per-ID painted core + pulse trail + crush mark + rank 3 -->
+<g shape-rendering="crispEdges"><circle cx="128" cy="128" r="54" fill="none" stroke="#A4C9AE" stroke-width="3" stroke-dasharray="14 12 7 17" opacity="0.3"/></g>
+<g opacity="0.57"><g shape-rendering="crispEdges"><circle cx="150" cy="124" r="67" fill="none" stroke="#A4C9AE" stroke-width="3" stroke-dasharray="27 12 14 19" opacity=".70"/><circle cx="150" cy="124" r="53" fill="none" stroke="#E6F5E8" stroke-width="2" stroke-dasharray="14 10 23 12" opacity=".75"/></g></g>
+<g data-unit="wild_turtle" data-art-source="per-id" transform="translate(12.80 12.80) scale(0.90)"><image href="../../generated/vfx/units/wild_turtle-master.png" xlink:href="../../generated/vfx/units/wild_turtle-master.png" x="0" y="0" width="256" height="256"/></g>
+
+<g shape-rendering="crispEdges" opacity=".83"><rect x="181" y="118" width="18" height="18" fill="none" stroke="#A4C9AE" stroke-width="3"/><rect x="186" y="123" width="8" height="8" fill="#E6F5E8"/></g>
+<g shape-rendering="crispEdges"><rect x="138" y="38" width="5" height="5" fill="#E6F5E8" opacity="0.86"/><rect x="139" y="188" width="3" height="3" fill="#A4C9AE" opacity="0.68"/><rect x="76" y="150" width="3" height="3" fill="#A4C9AE" opacity="0.86"/><rect x="132" y="156" width="3" height="3" fill="#E6F5E8" opacity="0.68"/><rect x="100" y="118" width="5" height="5" fill="#A4C9AE" opacity="0.86"/><rect x="119" y="104" width="3" height="3" fill="#A4C9AE" opacity="0.68"/><rect x="195" y="174" width="3" height="3" fill="#E6F5E8" opacity="0.86"/><rect x="115" y="36" width="3" height="3" fill="#A4C9AE" opacity="0.68"/><rect x="218" y="118" width="5" height="5" fill="#A4C9AE" opacity="0.86"/></g>
+</svg>

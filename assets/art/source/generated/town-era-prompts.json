@@ -1,0 +1,21 @@
+{
+  "prefix": "Create ONE original 16:9 isometric fantasy strategy-game TOWN MAP BACKGROUND for a portrait mobile game, in bright clear DAYLIGHT and polished hand-crafted HD-2D pixel-art illustration. The town should look like the SAME geographic place across its historical evolution. Composition is mandatory: main town hall exactly at center, academy/scholar building at upper left, barracks or guard tower upper right, lumber yard on far left, quarry on far right, farm plots lower left, small river and bridge along the bottom edge. Wide clear paths between landmarks, readable at phone scale, no characters larger than tiny ambient dots. Terrain gentle green hills, trees and bright sky reflected in river. Era architecture: ",
+  "subjects": {
+    "base": "early frontier village before bronze technology, timber palisade hall, small timber huts, woven roofs, wooden watch platform, no advanced metalwork",
+    "sci_bronze_age": "Bronze Age town, sunlit mudbrick and timber hall with copper roof details, bronze foundry with small orange forge, primitive round shield motifs, tidy workshops",
+    "sci_iron_age": "Iron Age town, stronger stone-and-timber hall, charcoal iron forge, practical iron roofs and fortified gate, modest masonry foundations",
+    "sci_silver_age": "Silver Age town, bright pale stone civic hall, silver-accented roofs and white banners, elegant silver smithy, ordered paved paths",
+    "sci_gold_age": "Gold Age town, warm sandstone grand hall with restrained gold-trimmed domes, sunlit artisan market, gilded standard, prosperous but believable",
+    "sci_alloy_age": "Alloy Age town, ingenious composite metal roofs in silver and bronze, clean forging yards, reinforced civic hall, light teal mechanical details but still green and medieval-fantasy",
+    "sci_steam_age": "Steam Age town, tasteful copper pipework, small clean steam chimneys, brass clock tower and mechanical workshops, bright blue sky and greenery, no smog",
+    "sci_electric_age": "Electric Age town, elegant white stone and cobalt civic center, visible copper electrical lines and small glowing blue coils, early modern workshops, green landscape",
+    "sci_nuclear_age": "Star-Core Age town, bright ivory and azure fusion-age arcology blended with historic stone foundations, compact clean energy towers, subtle cyan light, preserved river and farms, optimistic daylight"
+  },
+  "suffix": ". Keep colors luminous, natural and cheerful: ivory, sunlit gold, soft greens, azure roofs and warm terracotta where appropriate. No dark atmosphere, no purple night light, no screen vignette, no lettering, labels, UI, borders or watermark. Full-bleed environment art.",
+  "sourcePattern": "town-{era}-master.png",
+  "runtimePattern": "../../scene/town-{era}.png",
+  "runtimeSize": [
+    1024,
+    525
+  ]
+}

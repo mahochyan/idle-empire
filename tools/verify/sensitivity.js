@@ -52,11 +52,11 @@ function runScenario(sc) {
     }
     e.run('tick()');
     if (foodNegAt < 0) {
-      const fr = e.run(`(prodRate('food')-totalUpkeep()-popAllocTotal()*(CFG.popFoodCost||0.1)-(${FOOD_DRAIN}))`);
+      const fr = e.run(`(Math.max(0,productionSecond(1,false).food)-S.res.food-(${FOOD_DRAIN}))`);
       if (fr < 0) foodNegAt = t;
     }
   }
-  const snap = JSON.parse(e.run(`JSON.stringify({res:S.res,foodRate:(prodRate('food')-totalUpkeep()-popAllocTotal()*(CFG.popFoodCost||0.1)-(${FOOD_DRAIN})),
+  const snap = JSON.parse(e.run(`JSON.stringify({res:S.res,foodRate:(Math.max(0,productionSecond(1,false).food)-S.res.food-(${FOOD_DRAIN})),
     bld:Object.fromEntries(Object.keys(CFG.buildings).map(k=>[k,bldSt(k).lv])),sci:S.sciences.slice()})`));
   return { sc, foodNegAt, upgrades, builds, attempts, snap };
 }

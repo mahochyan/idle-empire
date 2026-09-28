@@ -1,0 +1,60 @@
+'use strict';
+// Continue one paid P271 save through the first nuclear knowledge upgrade and revival-leaf fight.
+const assert=require('node:assert/strict');
+const fs=require('node:fs');
+const path=require('node:path');
+const crypto=require('node:crypto');
+const {environment}=require('../../tests/progression/harness');
+const root=path.resolve(__dirname,'../..');
+const sourceFile='docs/codex/reports/data/p271-stage99-fulltech-seed1-save.json';
+const raw=fs.readFileSync(path.join(root,sourceFile),'utf8');
+const sha=s=>crypto.createHash('sha256').update(s).digest('hex');
+const e=environment({rts_save:raw}),run=e.run;
+assert.equal(run('loadSaveAndApply().status'),'migrated');
+assert.equal(e.store.get('rts_save_premigration'),raw);
+const initial=run("({tick:S.tick,pop:popCurrent(),army:armyCount(),deployed:Object.values(S.formation).flat().reduce((n,u)=>n+u.count,0),tech:S.res.tech,techCap:resCap('tech'),food:S.res.food,leaf:S.items.revivalLeaf,kill:S.killValues.godRebirth,science:scienceUnlocked('sci_nuclear_age')})");
+assert.equal(initial.pop,1002);assert.equal(initial.army,517);assert.equal(initial.deployed,516);assert.equal(initial.science,true);
+run(`globalThis.__RealDate=Date;globalThis.Date=class extends __RealDate {static now(){return ${JSON.parse(raw).ts}+(S.tick-${initial.tick})*1000}}`);
+const cost=run("eraStorageCost('nuclearKnowledge')");assert.equal(cost.tech,20000000);
+assert.ok(initial.techCap>=cost.tech);
+for(const [rk,n] of Object.entries(run('({...S.popAlloc})')))if(n>0)assert.equal(run(`setPopAlloc('${rk}',0)`)?.ok,true);
+assert.equal(run("setPopAlloc('food',90)")?.ok,true);
+assert.equal(run("setPopAlloc('tech',912)")?.ok,true);
+assert.ok(run("prodRate('food')-totalUpkeep()-popCurrent()*CFG.popFoodCost")>0);
+const produced=run(`(()=>{let seconds=0,minFood=S.res.food;while(S.res.tech<${cost.tech}&&seconds<10000){tick();seconds++;minFood=Math.min(minFood,S.res.food)}return{seconds,minFood,tech:S.res.tech,done:S.res.tech>=${cost.tech}}})()`);
+assert.equal(produced.done,true);assert.ok(produced.minFood>0);
+const pre=run("({tick:S.tick,tech:S.res.tech,cap:resCap('tech'),leaf:S.items.revivalLeaf})");
+assert.equal(run("upgradeEraStorage('nuclearKnowledge').ok"),true);
+const postUpgrade=run("({tick:S.tick,tech:S.res.tech,cap:resCap('tech'),level:S.eraStorage.nuclearKnowledge,leaf:S.items.revivalLeaf})");
+assert.equal(pre.tech-postUpgrade.tech,cost.tech);
+assert.equal(postUpgrade.level,1);assert.equal(postUpgrade.cap,Math.floor(pre.cap*1.1));
+run(`globalThis.__timers=new Map();globalThis.__nextTimer=1;
+  globalThis.setTimeout=fn=>{const id=__nextTimer++;__timers.set(id,fn);return id};
+  globalThis.clearTimeout=id=>__timers.delete(id);
+  globalThis.__step=()=>{const first=__timers.entries().next().value;if(!first)return false;__timers.delete(first[0]);first[1]();return true};
+  globalThis.__nodes=new Map();document.getElementById=id=>{
+    if(id.startsWith('ou-')||id.startsWith('eu-'))return null;
+    if(!__nodes.has(id))__nodes.set(id,{style:{},innerHTML:'',textContent:'',scrollHeight:0,scrollTop:0,
+      classList:{add(){},remove(){},toggle(){},contains(){return false}},setAttribute(){},appendChild(){},remove(){}});
+    return __nodes.get(id)};
+  globalThis.addLog=m=>S.log.push(String(m));
+  globalThis.__rng=1;Math.random=()=>{let x=__rng;x^=x<<13;x^=x>>>17;x^=x<<5;__rng=x>>>0;return __rng/4294967296};`);
+run("openMaterialDomain('revivalLeaf')");assert.equal(run('S.battleActive'),true);
+const enemy=run("({groups:B.enemyUnits.length,hp:B.enemyUnits.reduce((n,u)=>n+u.hp,0),attackMass:B.enemyUnits.reduce((n,u)=>n+u.atk*combatAttackMass(u),0)})");
+let callbacks=0;while(run('S.battleActive')&&callbacks<2000){assert.equal(run('__step()'),true);callbacks++}
+assert.equal(run('S.battleActive'),false);assert.ok(callbacks<2000);
+assert.equal(run("document.getElementById('battle-result').className"),'win');
+const final=run("({tick:S.tick,army:armyCount(),deployed:Object.values(S.formation).flat().reduce((n,u)=>n+u.count,0),food:S.res.food,tech:S.res.tech,techCap:resCap('tech'),level:S.eraStorage.nuclearKnowledge,leaf:S.items.revivalLeaf,kill:S.killValues.godRebirth,defeated:S.defeated.length})");
+assert.equal(final.leaf,initial.leaf+2);assert.equal(final.kill,initial.kill+100);assert.equal(final.defeated,99);
+assert.equal(run('save().ok'),true);
+const finalRaw=e.store.get('rts_save'),reload=environment({rts_save:finalRaw});
+assert.equal(reload.run('loadSaveAndApply().status'),'ok');
+assert.equal(reload.run('S.eraStorage.nuclearKnowledge'),1);
+assert.equal(reload.run('S.items.revivalLeaf'),final.leaf);
+assert.equal(sha(fs.readFileSync(path.join(root,sourceFile),'utf8')),sha(raw));
+const saveFile='docs/codex/reports/data/p272-nuclear-first-knowledge-leaf-save.json';
+fs.writeFileSync(path.join(root,saveFile),finalRaw,'utf8');
+const report={batch:'P272',sourceFile,sourceSha256:sha(raw),unit:'simulated online seconds, resource units, soldiers',initial,cost,produced,pre,postUpgrade,enemy,callbacks,
+  actualTroopLoss:initial.deployed-final.deployed,final,saveFile,saveSha256:sha(finalRaw)};
+fs.writeFileSync(path.join(root,'docs/codex/reports/data/p272-nuclear-first-knowledge-leaf.json'),JSON.stringify(report,null,2),'utf8');
+console.log(JSON.stringify({sourceSha256:report.sourceSha256,produced,postUpgrade,enemy,callbacks,actualTroopLoss:report.actualTroopLoss,final,saveFile,saveSha256:report.saveSha256}));

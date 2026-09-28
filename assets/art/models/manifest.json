@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "source": "source/generate-models.mjs",
+  "coordinateSystem": "Y up, front +Z, ground y=0",
+  "models": {
+    "town_hall": {
+      "path": "town_hall.glb",
+      "parts": 24,
+      "footprint": [
+        2.8,
+        2.1
+      ]
+    },
+    "lumber_yard": {
+      "path": "lumber_yard.glb",
+      "parts": 21,
+      "footprint": [
+        2.8,
+        2.1
+      ]
+    },
+    "quarry_yard": {
+      "path": "quarry_yard.glb",
+      "parts": 17,
+      "footprint": [
+        2.8,
+        2.1
+      ]
+    },
+    "farm_yard": {
+      "path": "farm_yard.glb",
+      "parts": 40,
+      "footprint": [
+        2.8,
+        2.1
+      ]
+    },
+    "academy": {
+      "path": "academy.glb",
+      "parts": 19,
+      "footprint": [
+        2.8,
+        2.1
+      ]
+    },
+    "barracks": {
+      "path": "barracks.glb",
+      "parts": 29,
+      "footprint": [
+        2.8,
+        2.1
+      ]
+    },
+    "watch_tower": {
+      "path": "watch_tower.glb",
+      "parts": 18,
+      "footprint": [
+        2.8,
+        2.1
+      ]
+    },
+    "battle_props": {
+      "path": "battle_props.glb",
+      "parts": 29,
+      "footprint": [
+        8,
+        5
+      ]
+    }
+  }
+}

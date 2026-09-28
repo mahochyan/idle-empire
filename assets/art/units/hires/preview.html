@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>基础兵种立绘 · 手机预览</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#e8dcc2;color:#29434d;font:14px/1.5 system-ui,sans-serif}
+main{width:min(390px,100%);min-height:100dvh;margin:auto;padding:16px;background:#f5edda}
+h1{font-size:18px;margin:0 0 4px}
+p{font-size:12px;color:#58736b;margin:0 0 12px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+figure{margin:0;background:linear-gradient(#e7e3c8,#d7c79f);border:1px solid #b6a27e;border-radius:10px;text-align:center;min-width:0;padding:5px 2px}
+img{width:100px;max-width:100%;height:112px;object-fit:contain;image-rendering:pixelated}
+figcaption{font-size:12px;font-weight:700}
+.note{margin:14px 0 0}
+</style>
+<main>
+  <h1>基础兵种立绘</h1>
+  <p>390px 手机宽度预览 · WebGL 战场待机图 · 六类单位</p>
+  <div class="grid">
+    <figure><img src="infantry.png" alt=""><figcaption>步兵</figcaption></figure>
+    <figure><img src="archer.png" alt=""><figcaption>弓手</figcaption></figure>
+    <figure><img src="cavalry.png" alt=""><figcaption>骑兵</figcaption></figure>
+    <figure><img src="spearman.png" alt=""><figcaption>枪兵</figcaption></figure>
+    <figure><img src="mage.png" alt=""><figcaption>法师</figcaption></figure>
+    <figure><img src="enemy.png" alt=""><figcaption>敌方掠夺者</figcaption></figure>
+  </div>
+  <p class="note">独立透明单帧；攻击、受击、倒地继续使用四帧动作图。</p>
+</main>
+</html>

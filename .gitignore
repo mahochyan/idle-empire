@@ -11,3 +11,14 @@ IE-001-review.zip
 
 # 测试运行时日志（本地证据；截图 assets 仍入库）
 docs/codex/reports/logs/
+
+# Python art packing cache
+__pycache__/
+*.pyc
+
+# 本地构建包、设备采样与浏览器预览缓存
+android/app/build/
+android/validation/**/*.apk
+hd2d-previews/temp-*/
+.codex-temp-*/
+tools/visual/**/.edge-temp/

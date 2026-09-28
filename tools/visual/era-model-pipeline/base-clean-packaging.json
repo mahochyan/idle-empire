@@ -1,0 +1,86 @@
+{
+  "original": "assets/art/scene/town-base.png",
+  "master": "assets/art/source/generated/town-base-clean-candidate/town-base-clean-master.png",
+  "existingFullCleanUnchanged": "assets/art/scene/candidates/town-base-clean-candidate.png",
+  "existingFullCleanSha256": "9443f6f0f83e988895a671bcd855a986dacd84f8fe4d2516a0af016d1b667dc9",
+  "roi": "assets/art/scene/candidates/town-base-clean-roi-candidate.png",
+  "mask": "assets/art/scene/candidates/town-base-clean-center-mask.png",
+  "preview": "hd2d-previews/qa-town-base-clean-roi-360x200.png",
+  "phonePreview": "hd2d-previews/qa-town-base-clean-roi-phone-widths.png",
+  "size": [
+    1024,
+    525
+  ],
+  "sourceCrop": [
+    0,
+    42,
+    1672,
+    899
+  ],
+  "corePolygon": [
+    [
+      490,
+      92
+    ],
+    [
+      545,
+      94
+    ],
+    [
+      610,
+      135
+    ],
+    [
+      653,
+      190
+    ],
+    [
+      660,
+      255
+    ],
+    [
+      616,
+      296
+    ],
+    [
+      572,
+      333
+    ],
+    [
+      454,
+      333
+    ],
+    [
+      408,
+      300
+    ],
+    [
+      365,
+      257
+    ],
+    [
+      370,
+      189
+    ],
+    [
+      422,
+      132
+    ]
+  ],
+  "dilatePx": 16,
+  "featherPx": 8,
+  "maskBounds": [
+    329,
+    56,
+    697,
+    370
+  ],
+  "maskNonzeroFraction": 0.1745,
+  "outsideExactRgba": true,
+  "outsideFullEditMeanRgbDelta255": 13.305,
+  "insideOpaqueMeanRgbDelta255": 50.236,
+  "originalSha256": "61ba61d3e68db85725c858f324d0d3d9668beb676a0e6ab587c4c03a5915da6f",
+  "masterSha256": "18f09cf3b67e426f16cf68de21e0326cebbbb439bdae0a9f19ec935497705637",
+  "roiSha256": "51eb3ad91ba6b0a8d54185922b52a54496869228ab1de50fbc6905a537233848",
+  "maskSha256": "1a33424f640279d8194c697710939ea7677b0c4026f37efb28cdace715db2a01"
+}

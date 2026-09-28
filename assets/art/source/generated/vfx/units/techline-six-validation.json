@@ -1,0 +1,160 @@
+{
+  "source": "built-in imagegen and generate-unit-vfx.mjs --ids",
+  "selected": [
+    "infantry",
+    "archer",
+    "bronze_guard",
+    "silver_heavy",
+    "electro_trooper",
+    "star_trooper"
+  ],
+  "changed": [
+    "archer",
+    "bronze_guard",
+    "electro_trooper",
+    "infantry",
+    "silver_heavy",
+    "star_trooper"
+  ],
+  "unchangedCount": 39,
+  "assets": [
+    {
+      "id": "infantry",
+      "master": "1254x1254",
+      "runtime": "256x256",
+      "partialAlphaPixels": 6436,
+      "alphaCorners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "bounds": [
+        31,
+        34,
+        224,
+        219
+      ],
+      "sha256": "5372CF7CA18AA396345257F46300517D99D17D0E80D0A73E486A9C2E8CCC4754",
+      "changedFromBefore": true,
+      "visiblePixels": 6452,
+      "priorRuntime": "assets/art/source/generated/vfx/units/previous-runtime/infantry.png",
+      "priorSha256": "52ACD3B23A560FEC86878F6922E3EB6FE183672126E36358F424D104361338CD"
+    },
+    {
+      "id": "archer",
+      "master": "1254x1254",
+      "runtime": "256x256",
+      "partialAlphaPixels": 3786,
+      "alphaCorners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "bounds": [
+        22,
+        52,
+        214,
+        218
+      ],
+      "sha256": "CDAB47BF92D4697746430A1763E3F626504962DFAD55CF612E34E21D7B33AB2C",
+      "changedFromBefore": true,
+      "visiblePixels": 3874,
+      "priorRuntime": "assets/art/source/generated/vfx/units/previous-runtime/archer.png",
+      "priorSha256": "125DB817425C59E93BA9DABEAB6D345077918B51F16A63CC57E6897C67DBAC47"
+    },
+    {
+      "id": "bronze_guard",
+      "master": "1254x1254",
+      "runtime": "256x256",
+      "partialAlphaPixels": 19504,
+      "alphaCorners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "bounds": [
+        31,
+        23,
+        232,
+        231
+      ],
+      "sha256": "A1B4503BA42C597E0B951F83EC56DB0B1AEE15229345BB666C004A3756BE22AA",
+      "changedFromBefore": true,
+      "visiblePixels": 19610,
+      "priorRuntime": "assets/art/source/generated/vfx/units/previous-runtime/bronze_guard.png",
+      "priorSha256": "14CA2078E73BCD61CD33828CA79CDE8C0850BDD184438B5833F6416EC4078C5A"
+    },
+    {
+      "id": "silver_heavy",
+      "master": "1254x1254",
+      "runtime": "256x256",
+      "partialAlphaPixels": 23592,
+      "alphaCorners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "bounds": [
+        17,
+        18,
+        239,
+        236
+      ],
+      "sha256": "5D131A55A94D67DECCE1E0711973ECD1DEC6BA81ECEF0AD6AB6697073D6A1A40",
+      "changedFromBefore": true,
+      "visiblePixels": 23755,
+      "priorRuntime": "assets/art/source/generated/vfx/units/previous-runtime/silver_heavy.png",
+      "priorSha256": "61D16F482074AD301B8AE4C1E0EB94F9609DB063756BDC484DFF429B18FBEE21"
+    },
+    {
+      "id": "electro_trooper",
+      "master": "1254x1254",
+      "runtime": "256x256",
+      "partialAlphaPixels": 16163,
+      "alphaCorners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "bounds": [
+        6,
+        17,
+        251,
+        244
+      ],
+      "sha256": "2292E1FDB7B71E1FBA270C8726582DC4A50DF1DE0B6DBB92ECBBFC3DE5D5DBF5",
+      "changedFromBefore": true,
+      "visiblePixels": 16319,
+      "priorRuntime": "assets/art/source/generated/vfx/units/previous-runtime/electro_trooper.png",
+      "priorSha256": "386BAF49C5C210E71577E63B7AB6F62FE12E3EB5EAC8A80D9B38E572D06694CF"
+    },
+    {
+      "id": "star_trooper",
+      "master": "1774x887",
+      "runtime": "256x256",
+      "partialAlphaPixels": 8596,
+      "alphaCorners": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "bounds": [
+        13,
+        17,
+        244,
+        238
+      ],
+      "sha256": "CF1C470CA8E272A27B2ADE5779706517EA9694B02DCA99E88801E64A84ABBB7F",
+      "changedFromBefore": true,
+      "visiblePixels": 8963,
+      "priorRuntime": "assets/art/source/generated/vfx/units/previous-runtime/star_trooper.png",
+      "priorSha256": "7A6ECEFFEEBBDDCAEE4F8DC7EAFF78A0DB1A1A30C321F6E20228D8348775C797"
+    }
+  ]
+}
