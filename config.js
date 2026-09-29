@@ -773,6 +773,10 @@ const CFG = {
     turtleShell:{name:'铁甲龟壳',max:1000000,source:'郊野猎场·铁甲龟群战斗胜利'},
     wyrmSinew:{name:'铁脊蜥龙筋',max:1000000,source:'郊野猎场·铁脊蜥龙群战斗胜利'},
     storageScroll:{name:'机巧拓仓图纸Ⅰ',max:1000,source:'边贸行30级六类郊野材料兑换'},
+    storageScroll2:{name:'星图密卷Ⅱ',max:1000,source:'边贸行30级消耗机巧拓仓图纸Ⅰ兑换'},
+    storageScroll3:{name:'圣界密卷Ⅲ',max:1000,source:'边贸行40级消耗机巧拓仓图纸Ⅰ兑换'},
+    storageScroll4:{name:'遗神密卷Ⅳ',max:1000,source:'边贸行50级消耗机巧拓仓图纸Ⅰ兑换'},
+    storageScroll5:{name:'渊海密卷Ⅴ',max:1000,source:'边贸行60级消耗机巧拓仓图纸Ⅰ兑换'},
     sacredBlood:{name:'圣兽血剂',max:300000,source:'神域材料战胜利或市场金铸币购买；母本麒麟凝血丹180001的主题名'},
     domainCleanser:{name:'镇域净化剂',max:20000,source:'市场以3份圣兽血剂兑换；消耗后降低指定神域警戒值100'},
     emberElixir:{name:'炽翼战剂',max:5000,source:'神域胜利稀有掉落或市场以20份圣兽血剂兑换；母本朱雀造化丹180002的主题名'},
@@ -880,6 +884,13 @@ const CFG = {
       290021:{weight:1,cost:10,get:'stone',amount:400},290022:{weight:1,cost:20,get:'stone',amount:880},290023:{weight:1,cost:50,get:'stone',amount:2400},
       290041:{weight:1,cost:10,get:'coal',amount:400},290042:{weight:1,cost:20,get:'coal',amount:880},290043:{weight:1,cost:50,get:'coal',amount:2400}},
     scrollLevel:30,heartPerScroll:200,scrollCapacityPerUse:0.01,scrollUseLimit:500,
+    // 母本290080–083：按当轮货位品质折价消耗Ⅰ阶图纸，不叠交易所等级加价。
+    highScrollTrades:{
+      2:{level:30,weight:20,firstScrollCost:3,capacityPerUse:0.015,useLimit:500},
+      3:{level:40,weight:10,firstScrollCost:4,capacityPerUse:0.02,useLimit:500},
+      4:{level:50,weight:10,firstScrollCost:5,capacityPerUse:0.025,useLimit:500},
+      5:{level:60,weight:10,firstScrollCost:6,capacityPerUse:0.03,useLimit:500}
+    },
     // 母本290017：60级货位，兽骨300换勋章1200，权重20；既有常驻兽骨兑换保持兼容。
     medalOfferTrade:{sourceId:290017,level:60,weight:20,boneCost:300,medalGain:1200},
     // 母本交易所290098/290099：60级解锁，丹药10份换英魂石4/12枚，各占30权重。

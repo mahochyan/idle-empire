@@ -1,0 +1,420 @@
+{
+  "batch": "P401",
+  "test": "Edge high-tier scroll UI and v34 migration",
+  "baselineSave": "E:\\AIprogram\\idlgame\\docs\\codex\\reports\\data\\p400-four-strategy-economic-l40-frontier-save.json",
+  "baselineVersion": 34,
+  "fixtureSha256": "88cad5c233c4dec2081989ba7dc4e67e627cef356177dab39d8381416f7cfb75",
+  "runtimeSaveVersion": 35,
+  "viewports": [
+    320,
+    390
+  ],
+  "sourceSha256": {
+    "config.js": "fbf68bf8e6177c1535fc2e975c18641ca2817f8b3c11c3819c7563eacbf5f14d",
+    "levels.js": "cec80c26fa91f941994c253a2fe73be0dfe3f108237620b662fdab9f5449fd1d",
+    "math.js": "575e0135ba53853f9751a07a1b3a608b6ba625689bfbc775a1049ccc6fb47fde",
+    "garrison.js": "4d233f0529d256cd1ace2de782603fcfcbbff110032ca4cf29c5e36af30f10ff",
+    "technology.js": "3d3485f57e1e3ef73d11077cec06d467f674959aa6f0dfb27c3eb4d4abf94536",
+    "ui.js": "4338e7a640e5925586e9c298ed5d59cee7269d4fb7b75837d08ed100127f0ab2",
+    "index.html": "607f5a2f1b08ddee105aff6504f2086d6b38c263a3f79a728e38a35dc3949b95"
+  },
+  "checks": [
+    {
+      "name": "真实页面加载高阶密卷动作",
+      "actual": true
+    },
+    {
+      "name": "v34 档真实页面迁移到 v35",
+      "actual": true
+    },
+    {
+      "name": "迁移前原文独立保留",
+      "actual": true
+    },
+    {
+      "name": "迁移前常规备份保留原文",
+      "actual": true
+    },
+    {
+      "name": "新增密卷字段安全默认值",
+      "actual": {
+        "items": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "used": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "offers": [
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "name": "320px 边贸行无横向溢出",
+      "actual": {
+        "width": 320,
+        "documentOverflow": false,
+        "cardOverflow": false,
+        "cardPresent": true
+      }
+    },
+    {
+      "name": "低等级隐藏全部高阶密卷入口",
+      "actual": {
+        "2": {
+          "input": false,
+          "trade": false,
+          "use": false,
+          "tradeDisabled": null,
+          "useDisabled": null
+        },
+        "3": {
+          "input": false,
+          "trade": false,
+          "use": false,
+          "tradeDisabled": null,
+          "useDisabled": null
+        },
+        "4": {
+          "input": false,
+          "trade": false,
+          "use": false,
+          "tradeDisabled": null,
+          "useDisabled": null
+        },
+        "5": {
+          "input": false,
+          "trade": false,
+          "use": false,
+          "tradeDisabled": null,
+          "useDisabled": null
+        }
+      }
+    },
+    {
+      "name": "设置隔离夹具边贸行 Lv29",
+      "actual": {
+        "ok": true,
+        "level": 29
+      }
+    },
+    {
+      "name": "29级仍隐藏二阶密卷",
+      "actual": {
+        "2": {
+          "input": false,
+          "trade": false,
+          "use": false,
+          "tradeDisabled": null,
+          "useDisabled": null
+        },
+        "3": {
+          "input": false,
+          "trade": false,
+          "use": false,
+          "tradeDisabled": null,
+          "useDisabled": null
+        },
+        "4": {
+          "input": false,
+          "trade": false,
+          "use": false,
+          "tradeDisabled": null,
+          "useDisabled": null
+        },
+        "5": {
+          "input": false,
+          "trade": false,
+          "use": false,
+          "tradeDisabled": null,
+          "useDisabled": null
+        }
+      }
+    },
+    {
+      "name": "设置隔离夹具边贸行 Lv30",
+      "actual": {
+        "ok": true,
+        "level": 30
+      }
+    },
+    {
+      "name": "30级按阶显示密卷",
+      "actual": {
+        "2": {
+          "input": true,
+          "trade": true,
+          "use": true
+        },
+        "3": {
+          "input": false,
+          "trade": false,
+          "use": false
+        },
+        "4": {
+          "input": false,
+          "trade": false,
+          "use": false
+        },
+        "5": {
+          "input": false,
+          "trade": false,
+          "use": false
+        }
+      }
+    },
+    {
+      "name": "设置隔离夹具边贸行 Lv40",
+      "actual": {
+        "ok": true,
+        "level": 40
+      }
+    },
+    {
+      "name": "40级按阶显示密卷",
+      "actual": {
+        "2": {
+          "input": true,
+          "trade": true,
+          "use": true
+        },
+        "3": {
+          "input": true,
+          "trade": true,
+          "use": true
+        },
+        "4": {
+          "input": false,
+          "trade": false,
+          "use": false
+        },
+        "5": {
+          "input": false,
+          "trade": false,
+          "use": false
+        }
+      }
+    },
+    {
+      "name": "设置隔离夹具边贸行 Lv50",
+      "actual": {
+        "ok": true,
+        "level": 50
+      }
+    },
+    {
+      "name": "50级按阶显示密卷",
+      "actual": {
+        "2": {
+          "input": true,
+          "trade": true,
+          "use": true
+        },
+        "3": {
+          "input": true,
+          "trade": true,
+          "use": true
+        },
+        "4": {
+          "input": true,
+          "trade": true,
+          "use": true
+        },
+        "5": {
+          "input": false,
+          "trade": false,
+          "use": false
+        }
+      }
+    },
+    {
+      "name": "设置隔离夹具边贸行 Lv60",
+      "actual": {
+        "ok": true,
+        "level": 60
+      }
+    },
+    {
+      "name": "60级按阶显示密卷",
+      "actual": {
+        "2": {
+          "input": true,
+          "trade": true,
+          "use": true
+        },
+        "3": {
+          "input": true,
+          "trade": true,
+          "use": true
+        },
+        "4": {
+          "input": true,
+          "trade": true,
+          "use": true
+        },
+        "5": {
+          "input": true,
+          "trade": true,
+          "use": true
+        }
+      }
+    },
+    {
+      "name": "390px 边贸行无横向溢出",
+      "actual": {
+        "width": 390,
+        "documentOverflow": false,
+        "cardOverflow": false,
+        "cardPresent": true
+      }
+    },
+    {
+      "name": "设置隔离夹具边贸行 Lv30",
+      "actual": {
+        "ok": true,
+        "level": 30
+      }
+    },
+    {
+      "name": "30级二阶未上架时禁用交易",
+      "actual": true
+    },
+    {
+      "name": "隔离夹具准备三张一阶图纸",
+      "actual": {
+        "ok": true,
+        "stock": 3
+      }
+    },
+    {
+      "name": "点击刷新货品入口",
+      "actual": {
+        "found": true,
+        "beforeDisabled": false
+      }
+    },
+    {
+      "name": "刷新真实生成二阶货位并写档",
+      "actual": {
+        "count": 11,
+        "savedCount": 11,
+        "quality": 80,
+        "cost": 3,
+        "charges": 4
+      }
+    },
+    {
+      "name": "320px 边贸行无横向溢出",
+      "actual": {
+        "width": 320,
+        "documentOverflow": false,
+        "cardOverflow": false,
+        "cardPresent": true
+      }
+    },
+    {
+      "name": "上架后二阶交易按钮可点击",
+      "actual": false
+    },
+    {
+      "name": "点击交易密卷入口",
+      "actual": {
+        "found": true,
+        "beforeDisabled": false
+      }
+    },
+    {
+      "name": "交易实际扣三张图纸并写档",
+      "actual": {
+        "first": 0,
+        "tier": 1,
+        "offer": 10,
+        "progress": 1,
+        "savedFirst": 0,
+        "savedTier": 1
+      }
+    },
+    {
+      "name": "交易后使用密卷按钮可点击",
+      "actual": false
+    },
+    {
+      "name": "使用前木仓基数",
+      "actual": 2400
+    },
+    {
+      "name": "点击使用密卷入口",
+      "actual": {
+        "found": true,
+        "beforeDisabled": false
+      }
+    },
+    {
+      "name": "使用后库存与仓容持久增加",
+      "actual": {
+        "stock": 0,
+        "used": 1,
+        "savedStock": 0,
+        "savedUsed": 1,
+        "woodCap": 2436
+      }
+    },
+    {
+      "name": "刷新重载保留二阶使用及货位",
+      "actual": true
+    },
+    {
+      "name": "390px 边贸行无横向溢出",
+      "actual": {
+        "width": 390,
+        "documentOverflow": false,
+        "cardOverflow": false,
+        "cardPresent": true
+      }
+    },
+    {
+      "name": "重载后已用二阶密卷仍可见",
+      "actual": true
+    },
+    {
+      "name": "重载后准确保持木仓 2436",
+      "actual": 2436
+    },
+    {
+      "name": "页面无未捕获异常",
+      "actual": []
+    },
+    {
+      "name": "运行页面源文件执行期间未变化",
+      "actual": {
+        "config.js": "fbf68bf8e6177c1535fc2e975c18641ca2817f8b3c11c3819c7563eacbf5f14d",
+        "levels.js": "cec80c26fa91f941994c253a2fe73be0dfe3f108237620b662fdab9f5449fd1d",
+        "math.js": "575e0135ba53853f9751a07a1b3a608b6ba625689bfbc775a1049ccc6fb47fde",
+        "garrison.js": "4d233f0529d256cd1ace2de782603fcfcbbff110032ca4cf29c5e36af30f10ff",
+        "technology.js": "3d3485f57e1e3ef73d11077cec06d467f674959aa6f0dfb27c3eb4d4abf94536",
+        "ui.js": "4338e7a640e5925586e9c298ed5d59cee7269d4fb7b75837d08ed100127f0ab2",
+        "index.html": "607f5a2f1b08ddee105aff6504f2086d6b38c263a3f79a728e38a35dc3949b95"
+      }
+    }
+  ],
+  "passed": 37,
+  "exceptions": [],
+  "final": {
+    "v": 35,
+    "level": 30,
+    "first": 0,
+    "tier2": 0,
+    "used2": 1,
+    "offer2": 10,
+    "woodCap": 2436
+  }
+}

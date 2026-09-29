@@ -140,9 +140,9 @@ check('v30实付电磁进度先备份再补七兵种，v32坏字段与未来版�
   const reload=environment({rts_save:saved});
   assert.equal(reload.run('loadSaveAndApply().status'),'ok');
   assert.equal(reload.run('S.armsUp.electro_trooper.atk.progress'),1);
-  for(const mutate of [d=>delete d.armsUp.bronze_guard,d=>d.armsUp.iron_spearman.hp.progress=1000,d=>d.armsUp.star_trooper.def.stars=-1,d=>d.v=35]){
+  for(const mutate of [d=>delete d.armsUp.bronze_guard,d=>d.armsUp.iron_spearman.hp.progress=1000,d=>d.armsUp.star_trooper.def.stars=-1,d=>d.v=36]){
     const data=structuredClone(JSON.parse(saved));mutate(data);const text=JSON.stringify(data),bad=environment({rts_save:text});
-    assert.equal(bad.run('loadSaveAndApply().status'),data.v===35?'future':'invalid');
+    assert.equal(bad.run('loadSaveAndApply().status'),data.v===36?'future':'invalid');
     bad.run('tick();save()');assert.equal(bad.store.get('rts_save'),text);
   }
 });

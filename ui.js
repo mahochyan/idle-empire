@@ -849,6 +849,18 @@ function beastExchangeActionFromUI(action,materialKey='boarHeart'){
   };
   if(typeof toast==='function')toast(result.ok?(action==='upgrade'?`边贸行升至 ${result.level} 级`:action==='refresh'?`边贸行刷新：上架商品 ${result.offers} 份`:action==='trade'?`机巧拓仓图纸Ⅰ +${result.scrollGain}`:`仓容永久提升，图纸已用 ${result.used} 次`):(messages[result.reason]||'操作失败'));
 }
+function tierScrollActionFromUI(action,tier){
+  const count=Number(document.getElementById(`tier-scroll-count-${tier}`)?.value);
+  const result=action==='trade'?exchangeTierScroll(tier,count):useTierStorageScroll(tier,count);
+  const name=CFG.eraMaterials[`storageScroll${tier}`]?.name||'密卷';
+  const messages={
+    'invalid-tier':'未知密卷','invalid-quantity':'请输入正整数份数','level':'边贸行等级不足',
+    'not-offered':'密卷货位未上架或库存不足','insufficient-scroll':'一阶图纸不足',
+    'capacity':'密卷库存已满','use-limit':'密卷使用次数已达上限',
+    'save-failed':'保存失败，操作未生效','save-protected':'存档保护中，无法操作'
+  };
+  if(typeof toast==='function')toast(result.ok?(action==='trade'?`${name} +${count}`:`${name} 已使用 ${count} 张，仓容永久提升`):(messages[result.reason]||'操作失败'));
+}
 function exchangeSoulElixirFromUI(materialKey){
   const count=Number(document.getElementById('soul-trade-count')?.value);
   const result=exchangeSoulElixirForStones(materialKey,count);
@@ -1267,6 +1279,14 @@ function rFight(){
     for(const materialKey of bxc.scrollMaterials){
       const item=CFG.eraMaterials[materialKey],stock=beastScrollOfferCount(materialKey),cost=beastScrollTradeCost(materialKey),click=materialKey==='boarHeart'?"beastExchangeActionFromUI('trade')":`beastExchangeActionFromUI('trade','${materialKey}')`;
       h+=`<div style="display:flex;align-items:center;justify-content:space-between;gap:4px;margin-top:4px;font-size:10px;color:#aaa"><span>${esc(item.name)} ${S.items[materialKey]} · 上架 ${stock} · 每份 ${cost}</span><button class="btn btn-go btn-xs" onclick="${click}" ${bx.level>=bxc.scrollLevel&&stock>0&&S.items[materialKey]>=cost?'':'disabled'}>兑图纸</button></div>`;
+    }
+    for(const [tierKey,trade] of Object.entries(bxc.highScrollTrades||{})){
+      const tier=Number(tierKey),itemKey=`storageScroll${tier}`,stock=S.items[itemKey]||0,used=bx.scrollUsedTiers?.[tier]||0;
+      if(bx.level<trade.level&&stock===0&&used===0)continue;
+      const offer=bx.tierOffers?.[tier],offerCount=offer?.count||0,cost=beastTierScrollTradeCost(tier),name=CFG.eraMaterials[itemKey].name;
+      h+=`<div style="border-top:1px dashed #34394b;margin-top:7px;padding-top:6px;font-size:10px;color:#aaa">${esc(name)} · 库存 ${stock} · 已用 ${used}/${trade.useLimit} · 每张仓容 +${(trade.capacityPerUse*100).toFixed(1).replace(/\.0$/,'')}%</div>`;
+      h+=`<div style="font-size:10px;color:#888">上架 ${offerCount} · ${cost} 张${esc(CFG.eraMaterials.storageScroll.name)}换 1 张${esc(name)}</div>`;
+      h+=`<div style="display:flex;gap:5px;margin-top:4px"><input id="tier-scroll-count-${tier}" type="text" inputmode="numeric" pattern="[0-9]*" value="1" aria-label="${esc(name)}兑换或使用份数" style="width:66px"><button class="btn btn-go btn-xs" onclick="tierScrollActionFromUI('trade',${tier})" ${bx.level>=trade.level&&offerCount>0&&S.items.storageScroll>=cost&&stock<CFG.eraMaterials[itemKey].max?'':'disabled'}>兑换密卷</button><button class="btn btn-go btn-xs" onclick="tierScrollActionFromUI('use',${tier})" ${stock>0&&used<trade.useLimit?'':'disabled'}>使用密卷</button></div>`;
     }
     if(bx.level>=bxc.medalOfferTrade.level){
       const trade=bxc.medalOfferTrade;

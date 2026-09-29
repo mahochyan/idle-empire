@@ -11,7 +11,7 @@ function check(name,fn){
 }
 const paidV33=fs.readFileSync(path.join(__dirname,'../../docs/codex/reports/data/p397-quantum-stage100-paid-save.json'),'utf8');
 
-check('已付 v33 旧档候选迁移到 v34，先保存原文且不改兵力、库存、科技',()=>{
+check('已付 v33 旧档候选迁移到 v35，先保存原文且不改兵力、库存、科技',()=>{
   const before=JSON.parse(paidV33),e=environment({rts_save:paidV33});
   assert.equal(before.v,33);
   const migration=e.run('loadSaveAndApply()');
@@ -19,9 +19,11 @@ check('已付 v33 旧档候选迁移到 v34，先保存原文且不改兵力、�
   assert.ok(migration.filled.includes('quantumArmament'));
   assert.equal(e.store.get('rts_save_premigration'),paidV33);
   const after=JSON.parse(e.store.get('rts_save'));
-  assert.equal(after.v,34);
-  for(const field of ['res','pool','formation','sciences','defeated','items','armsUp','weaponForge','starArray','development'])
+  assert.equal(after.v,35);
+  for(const field of ['res','pool','formation','sciences','defeated','armsUp','weaponForge','starArray','development'])
     assert.deepEqual(after[field],before[field],field);
+  for(const [key,value] of Object.entries(before.items))assert.equal(after.items[key],value,'items.'+key);
+  for(const tier of [2,3,4,5])assert.equal(after.items['storageScroll'+tier],0,'new storageScroll'+tier);
   assert.equal(JSON.stringify(Object.keys(after.quantumArmament).sort()),JSON.stringify(e.run('CFG.quantumArmament.units.slice().sort()')));
   assert.ok(Object.values(after.quantumArmament).every(x=>x.atk===0&&x.hp===0));
   const reload=environment({rts_save:e.store.get('rts_save')});
@@ -35,7 +37,7 @@ check('损坏、未来与不完整 v34 圣痕状态受保护，原文不被自�
   assert.equal(e.run('saveProtected()'),true);
   assert.equal(e.run('save().ok'),false);
   assert.equal(e.store.get('rts_save'),corrupt);
-  const future=JSON.stringify({...JSON.parse(paidV33),v:35});
+  const future=JSON.stringify({...JSON.parse(paidV33),v:36});
   const f=environment({rts_save:future});
   assert.equal(f.run('loadSaveAndApply().status'),'future');
   assert.equal(f.store.get('rts_save'),future);

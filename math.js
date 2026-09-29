@@ -51,12 +51,12 @@ let S = {
   soulRanks:defaultSoulRanks(),
   soulRealmTeam:null,
   eraStorage:{steamBasic:0,steamMetal:0,steamKnowledge:0,electricBasic:0,electricMetal:0,electricKnowledge:0,electricProduction:0,nuclearBasic:0,nuclearMetal:0,nuclearKnowledge:0,nuclearProduction:0,quantumBasic:0,quantumMetal:0,quantumKnowledge:0,quantumProduction:0},
-  items:{godCrystal:0,guardianStone:0,revivalLeaf:0,trialFruit:0,phantomFlower:0,godCore:0,boarHeart:0,bullHorn:0,snakeGall:0,tigerPelt:0,turtleShell:0,wyrmSinew:0,storageScroll:0,sacredBlood:0,domainCleanser:0,emberElixir:0,aegisElixir:0,soulStone:0,starOriginStone:0,illusionStone:0,sacredRingCore:0},
+  items:{godCrystal:0,guardianStone:0,revivalLeaf:0,trialFruit:0,phantomFlower:0,godCore:0,boarHeart:0,bullHorn:0,snakeGall:0,tigerPelt:0,turtleShell:0,wyrmSinew:0,storageScroll:0,storageScroll2:0,storageScroll3:0,storageScroll4:0,storageScroll5:0,sacredBlood:0,domainCleanser:0,emberElixir:0,aegisElixir:0,soulStone:0,starOriginStone:0,illusionStone:0,sacredRingCore:0},
   bloodline:{},
   attackInfusions:{},
   aegisInfusions:{},
   marketSpecial:defaultMarketSpecialState(),
-  beastExchange:{level:1,progress:0,scrollUsed:0,heartOffers:0,heartQuality:100,refreshClock:1200,refreshCharges:5,wildOffers:defaultWildOffers(),soulOffers:defaultSoulOffers(),medalOffers:0,hideOffers:defaultHideOffers()},
+  beastExchange:{level:1,progress:0,scrollUsed:0,scrollUsedTiers:defaultScrollUsedTiers(),heartOffers:0,heartQuality:100,refreshClock:1200,refreshCharges:5,wildOffers:defaultWildOffers(),tierOffers:defaultTierOffers(),soulOffers:defaultSoulOffers(),medalOffers:0,hideOffers:defaultHideOffers()},
   killValues:{godRevival:0,godPhantom:0,godGuardian:0,godRebirth:0,godSilence:0,godSlaughter:0,soulRealm:0,starBeast:0,wildBoar:0,wildBull:0,wildSnake:0,wildTiger:0,wildTurtle:0,wildWyrm:0},
   development:defaultDevelopmentState(),
   settlements:{village:0,smallTown:0,city:1},
@@ -888,7 +888,7 @@ function isAttackMiss(attacker,defender){
 // key 布局：rts_save 主档 | rts_save_backup_1/_2 最近有效备份（轮转） | rts_save_premigration 覆盖前原始副本（仅迁移/导入/恢复时写）
 // 写回单点 writeRawKey；自动保存入口 save() 在保护模式下无条件跳过（坏档/未来版本不会被静默覆盖成新档）。
 // 单位约定：ts=毫秒时间戳，tick=秒，population.growthClock=0..9 个在线秒。
-const SAVE_KEY='rts_save',SAVE_VERSION=34,BACKUP_KEYS=['rts_save_backup_1','rts_save_backup_2'],PRE_MIGRATION_KEY='rts_save_premigration';
+const SAVE_KEY='rts_save',SAVE_VERSION=35,BACKUP_KEYS=['rts_save_backup_1','rts_save_backup_2'],PRE_MIGRATION_KEY='rts_save_premigration';
 const SAVE_V3_KEYS=['ops','offline','daily'];
 let _loadedTs=null;   // 切片11：本次加载的存档 ts（离线结算基准；新档为 null → 不结算）
 let _offlineSettledFor=null;   // 切片11：已结算过的离线窗口 ts（幂等）
@@ -1117,7 +1117,16 @@ function validateSave(d){
     if(!_isObj(d.items))errors.push('items 非法或缺失');
     else{
       for(const key of Object.keys(d.items))if(!Object.prototype.hasOwnProperty.call(CFG.eraMaterials,key))errors.push('items: 未知道具 '+key);
-      for(const [key,cfg] of Object.entries(CFG.eraMaterials))if((['starOriginStone','illusionStone','sacredRingCore'].includes(key)?d.v>=33||key in d.items:['revivalLeaf','trialFruit','sacredBlood','domainCleanser','emberElixir','aegisElixir'].includes(key)?key in d.items:key==='soulStone'?d.v>=33||key in d.items:CFG.beastExchange.scrollMaterials.slice(1).includes(key)?d.v>=29:key==='boarHeart'||key==='storageScroll'?d.v>=27:key==='godCore'?d.v>=23:d.v>=15||key==='godCrystal')&&!_isCount(d.items[key]))errors.push('items.'+key+' 非法或缺失');
+      for(const [key,cfg] of Object.entries(CFG.eraMaterials)){
+        const highScroll=Object.prototype.hasOwnProperty.call(CFG.beastExchange.highScrollTrades,key.slice('storageScroll'.length))&&key.startsWith('storageScroll');
+        const required=highScroll?d.v>=35||key in d.items:
+          ['starOriginStone','illusionStone','sacredRingCore'].includes(key)?d.v>=33||key in d.items:
+          ['revivalLeaf','trialFruit','sacredBlood','domainCleanser','emberElixir','aegisElixir'].includes(key)?key in d.items:
+          key==='soulStone'?d.v>=33||key in d.items:
+          CFG.beastExchange.scrollMaterials.slice(1).includes(key)?d.v>=29:
+          key==='boarHeart'||key==='storageScroll'?d.v>=27:key==='godCore'?d.v>=23:d.v>=15||key==='godCrystal';
+        if(required&&(!_isCount(d.items[key])||(highScroll&&d.items[key]>cfg.max)))errors.push('items.'+key+' 非法或缺失');
+      }
     }
   }
   if('marketSpecial' in d){
@@ -1152,7 +1161,7 @@ function validateSave(d){
   }
   if(hasV&&d.v>=27){
     const x=d.beastExchange,cfg=CFG.beastExchange;
-    if(!_isObj(x)||Object.keys(x).some(key=>!['level','progress','scrollUsed','heartOffers','heartQuality','refreshClock','refreshCharges','wildOffers','soulOffers','medalOffers','hideOffers'].includes(key))||
+    if(!_isObj(x)||Object.keys(x).some(key=>!['level','progress','scrollUsed','scrollUsedTiers','heartOffers','heartQuality','refreshClock','refreshCharges','wildOffers','tierOffers','soulOffers','medalOffers','hideOffers'].includes(key))||
       !_isCount(x?.level)||x.level<1||x.level>cfg.maxLevel||
       !_isCount(x?.progress)||x.progress>beastExchangeProgressNeed(x.level)||
       !_isCount(x?.scrollUsed)||x.scrollUsed>cfg.scrollUseLimit)
@@ -1169,6 +1178,26 @@ function validateSave(d){
         if(!_isObj(offer)||Object.keys(offer).some(field=>!['count','quality'].includes(field))||
           !_isCount(offer?.count)||offer.count>cfg.maxOfferSlots||x.level<cfg.scrollLevel&&offer.count!==0||
           ![10,50,80,100].includes(offer?.quality))errors.push('beastExchange.wildOffers.'+key+' 非法或缺失');
+      }
+    }
+    if(_isObj(x)&&(d.v>=35||'scrollUsedTiers' in x)){
+      const used=x.scrollUsedTiers,trades=cfg.highScrollTrades;
+      if(!_isObj(used)||Object.keys(used).some(tier=>!Object.prototype.hasOwnProperty.call(trades,tier)))errors.push('beastExchange.scrollUsedTiers 非法或缺失');
+      else for(const [tier,trade] of Object.entries(trades))
+        if(!_isCount(used[tier])||used[tier]>trade.useLimit)errors.push('beastExchange.scrollUsedTiers.'+tier+' 非法或缺失');
+    }
+    if(_isObj(x)&&(d.v>=35||'tierOffers' in x)){
+      const offers=x.tierOffers,trades=cfg.highScrollTrades;
+      if(!_isObj(offers)||Object.keys(offers).some(tier=>!Object.prototype.hasOwnProperty.call(trades,tier)))errors.push('beastExchange.tierOffers 非法或缺失');
+      else{
+        for(const [tier,trade] of Object.entries(trades)){
+          const offer=offers[tier];
+          if(!_isObj(offer)||Object.keys(offer).some(field=>!['count','quality'].includes(field))||
+            !_isCount(offer.count)||offer.count>cfg.maxOfferSlots||x.level<trade.level&&offer.count!==0||
+            ![10,50,80,100].includes(offer.quality))errors.push('beastExchange.tierOffers.'+tier+' 非法或缺失');
+        }
+        if(Object.values(offers).reduce((sum,offer)=>sum+(_isCount(offer?.count)?offer.count:0),0)>beastOfferSlots(x.level))
+          errors.push('beastExchange.tierOffers 总货位超限');
       }
     }
     if(_isObj(x)&&'soulOffers' in x){
@@ -1188,6 +1217,14 @@ function validateSave(d){
             !_isCount(offer.count)||offer.count>cfg.maxOfferSlots||![10,50,80,100].includes(offer.quality)
         })||Object.values(x.hideOffers).reduce((sum,offer)=>sum+(offer?.count||0),0)>beastOfferSlots(x.level))
         errors.push('beastExchange.hideOffers 非法');
+    }
+    if(d.v>=35&&_isObj(x)&&_isCount(x.level)&&x.level>=1&&x.level<=cfg.maxLevel){
+      const offerCount=value=>_isCount(value)?value:0;
+      const sumOffers=(obj,select)=>_isObj(obj)?Object.values(obj).reduce((sum,entry)=>sum+offerCount(select(entry)),0):0;
+      const total=offerCount(x.heartOffers)+sumOffers(x.wildOffers,entry=>entry?.count)+
+        sumOffers(x.tierOffers,entry=>entry?.count)+sumOffers(x.soulOffers,entry=>entry)+
+        offerCount(x.medalOffers)+sumOffers(x.hideOffers,entry=>entry?.count);
+      if(total>beastOfferSlots(x.level))errors.push('beastExchange 总货位超限');
     }
   }
   if('killValues' in d||hasV&&d.v>=14){
@@ -1447,6 +1484,19 @@ function migrateSave(d){
   if(sourceVersion<34){
     if(!('quantumArmament' in d)){d.quantumArmament=defaultQuantumArmamentState();filled.push('quantumArmament')}
     d.v=34;filled.push('v34');
+  }
+  if(sourceVersion<35){
+    for(const tier of Object.keys(CFG.beastExchange.highScrollTrades)){
+      const key='storageScroll'+tier;
+      if(!(key in d.items)){d.items[key]=0;filled.push('items.'+key)}
+    }
+    if(!('scrollUsedTiers' in d.beastExchange)){
+      d.beastExchange.scrollUsedTiers=defaultScrollUsedTiers();filled.push('beastExchange.scrollUsedTiers');
+    }
+    if(!('tierOffers' in d.beastExchange)){
+      d.beastExchange.tierOffers=defaultTierOffers();filled.push('beastExchange.tierOffers');
+    }
+    d.v=35;filled.push('v35');
   }
   // v33 同版追加字段：旧主档缺键时仅在独立候选上补零，并保留迁移前原文。
   if(!('steamMilitaryStars' in d)){d.steamMilitaryStars=0;filled.push('steamMilitaryStars')}
@@ -1903,8 +1953,14 @@ function masteredCapacity(rk,base){
   }
   // 星阵知识上限与时代仓储相乘，再由拓仓图纸放大；历史超仓库存不在这里裁剪。
   if(rk==='tech')cap=Math.floor(cap*(1+starArrayKnowledgePercent()/100));
-  const used=S.beastExchange?.scrollUsed||0;
-  return Math.floor(cap*(1+used*CFG.beastExchange.scrollCapacityPerUse));
+  // 图纸百分比先合成整数基点，再一次取整；浮点 1.015 会把 2400 的 +1.5% 错算为 2435。
+  let scrollBasisPoints=10000+(S.beastExchange?.scrollUsed||0)*Math.round(CFG.beastExchange.scrollCapacityPerUse*10000);
+  for(const [tier,cfg] of Object.entries(CFG.beastExchange.highScrollTrades))
+    scrollBasisPoints+=(S.beastExchange?.scrollUsedTiers?.[tier]||0)*Math.round(cfg.capacityPerUse*10000);
+  // 高阶满级时中间乘积可能超过 Number 安全整数；BigInt 只用于最终图纸乘区。
+  if(!Number.isSafeInteger(cap)||!Number.isSafeInteger(scrollBasisPoints))return Number.MAX_SAFE_INTEGER;
+  const precise=BigInt(cap)*BigInt(scrollBasisPoints)/10000n;
+  return precise>BigInt(Number.MAX_SAFE_INTEGER)?Number.MAX_SAFE_INTEGER:Number(precise);
 }
 function resCap(rk){
   if(rk==='silver')return masteredCapacity(rk,CFG.res.silver.max+(CFG.buildings.silver_store.storagePerLv||0)*bldSt('silver_store').lv);
@@ -2216,6 +2272,8 @@ function beastExchangeProgressNeed(level){return CFG.beastExchange.firstProgress
 function beastBoneTradeCost(){return Math.ceil(CFG.beastExchange.bonePerTrade*(5+S.beastExchange.level-1)/5)}
 function beastBoneTradeReward(){return Math.floor(CFG.beastExchange.medalPerTrade*(5+S.beastExchange.level-1)/5)}
 function defaultWildOffers(){return Object.fromEntries(CFG.beastExchange.scrollMaterials.slice(1).map(key=>[key,{count:0,quality:100}]))}
+function defaultTierOffers(){return Object.fromEntries(Object.keys(CFG.beastExchange.highScrollTrades).map(tier=>[tier,{count:0,quality:100}]))}
+function defaultScrollUsedTiers(){return Object.fromEntries(Object.keys(CFG.beastExchange.highScrollTrades).map(tier=>[tier,0]))}
 function defaultSoulOffers(){return Object.fromEntries(Object.keys(CFG.beastExchange.soulTrades).map(key=>[key,0]))}
 function defaultHideOffers(){return Object.fromEntries(Object.keys(CFG.beastExchange.hideTrades).map(key=>[key,{count:0,quality:100}]))}
 function beastScrollOfferCount(materialKey){return materialKey==='boarHeart'?S.beastExchange.heartOffers:S.beastExchange.wildOffers[materialKey]?.count||0}
@@ -2237,10 +2295,10 @@ function rollBeastOfferQuality(level){
   if(Math.random()*1000<Math.min(Math.floor(level/10)+1,6))quality=10;
   return quality;
 }
-// 投影母本六种图纸、60级铭石／勋章及十二种兽皮货位；其余商品保留在总权重中。
+// 投影母本六种Ⅰ阶图纸、四阶密卷、60级铭石／勋章及十二种兽皮货位；其余商品保留在总权重中。
 function rollBeastHeartOffers(){
   const cfg=CFG.beastExchange,x=S.beastExchange;
-  x.heartOffers=0;x.heartQuality=100;x.wildOffers=defaultWildOffers();x.soulOffers=defaultSoulOffers();x.medalOffers=0;x.hideOffers=defaultHideOffers();
+  x.heartOffers=0;x.heartQuality=100;x.wildOffers=defaultWildOffers();x.tierOffers=defaultTierOffers();x.soulOffers=defaultSoulOffers();x.medalOffers=0;x.hideOffers=defaultHideOffers();
   const total=beastOfferTotalWeight(x.level),slots=beastOfferSlots(x.level);
   for(let i=0;i<slots;i++){
     const hit=Math.floor(Math.random()*total),scrollWeight=x.level>=cfg.scrollLevel?cfg.scrollMaterials.length*cfg.heartOfferWeight:0;
@@ -2256,7 +2314,13 @@ function rollBeastHeartOffers(){
       }
       if(!offered&&offset>=0)for(const [key,trade] of Object.entries(cfg.hideTrades)){
         offset-=trade.weight;
-        if(offset<0){const offer=x.hideOffers[key];offer.count++;offer.quality=rollBeastOfferQuality(x.level);break}
+        if(offset<0){const offer=x.hideOffers[key];offer.count++;offer.quality=rollBeastOfferQuality(x.level);offered=true;break}
+      }
+      // 从原本未实现的权重池投影高阶密卷，不挤占既有Ⅰ阶／铭石／勋章／兽皮货位。
+      if(!offered&&offset>=0)for(const [tier,trade] of Object.entries(cfg.highScrollTrades)){
+        if(x.level<trade.level)continue;
+        offset-=trade.weight;
+        if(offset<0){const offer=x.tierOffers[tier];offer.count++;offer.quality=rollBeastOfferQuality(x.level);break}
       }
       continue;
     }
@@ -2276,7 +2340,7 @@ function refreshBeastExchange(){
   x.refreshCharges--;rollBeastHeartOffers();
   if(!save().ok){Object.assign(x,old);return{ok:false,reason:'save-failed'}}
   if(typeof updateUI==='function')updateUI();
-  return{ok:true,offers:x.heartOffers+Object.values(x.wildOffers).reduce((sum,offer)=>sum+offer.count,0)+Object.values(x.soulOffers).reduce((sum,count)=>sum+count,0)+x.medalOffers+Object.values(x.hideOffers).reduce((sum,offer)=>sum+offer.count,0),charges:x.refreshCharges};
+  return{ok:true,offers:x.heartOffers+Object.values(x.wildOffers).reduce((sum,offer)=>sum+offer.count,0)+Object.values(x.tierOffers).reduce((sum,offer)=>sum+offer.count,0)+Object.values(x.soulOffers).reduce((sum,count)=>sum+count,0)+x.medalOffers+Object.values(x.hideOffers).reduce((sum,offer)=>sum+offer.count,0),charges:x.refreshCharges};
 }
 function advanceBeastExchangeSecond(){
   const x=S.beastExchange,cfg=CFG.beastExchange;
@@ -2394,6 +2458,44 @@ function exchangeWildMaterialForScrolls(materialKey,trades){
   if(!save().ok){S.items[materialKey]+=cost;S.items.storageScroll-=trades;if(offer)offer.count+=trades;else x.heartOffers+=trades;x.progress=oldProgress;return{ok:false,reason:'save-failed'}}
   if(typeof updateUI==='function')updateUI();
   return{ok:true,cost,scrollGain:trades,materialKey};
+}
+function beastTierScrollTradeCost(tier){
+  if(!Number.isSafeInteger(tier)||!Object.prototype.hasOwnProperty.call(CFG.beastExchange.highScrollTrades,tier))return NaN;
+  const trade=CFG.beastExchange.highScrollTrades[tier],offer=S.beastExchange.tierOffers?.[tier];
+  if(!offer||![10,50,80,100].includes(offer.quality))return NaN;
+  return Math.ceil(trade.firstScrollCost*offer.quality/100);
+}
+function exchangeTierScroll(tier,count){
+  if(_saveProtected)return{ok:false,reason:'save-protected'};
+  if(!Number.isSafeInteger(tier)||!Object.prototype.hasOwnProperty.call(CFG.beastExchange.highScrollTrades,tier))return{ok:false,reason:'invalid-tier'};
+  if(!Number.isSafeInteger(count)||count<=0)return{ok:false,reason:'invalid-quantity'};
+  const x=S.beastExchange,trade=CFG.beastExchange.highScrollTrades[tier],offer=x.tierOffers?.[tier];
+  if(x.level<trade.level)return{ok:false,reason:'level'};
+  if(!offer||!_isCount(offer.count)||offer.count<count)return{ok:false,reason:'not-offered'};
+  const unitCost=beastTierScrollTradeCost(tier),cost=unitCost*count,itemKey='storageScroll'+tier;
+  if(!_isCount(cost)||cost<=0)return{ok:false,reason:'invalid-quantity'};
+  const firstStock=S.items.storageScroll,tierStock=S.items[itemKey];
+  if(!_isCount(firstStock)||firstStock<cost)return{ok:false,reason:'insufficient-scroll'};
+  if(!_isCount(tierStock)||tierStock+count>CFG.eraMaterials[itemKey].max)return{ok:false,reason:'capacity'};
+  const oldProgress=x.progress,oldOffer=offer.count;
+  S.items.storageScroll=firstStock-cost;S.items[itemKey]=tierStock+count;offer.count=oldOffer-count;
+  if(x.level<CFG.beastExchange.maxLevel)x.progress=Math.min(beastExchangeProgressNeed(x.level),oldProgress+count);
+  if(!save().ok){S.items.storageScroll=firstStock;S.items[itemKey]=tierStock;offer.count=oldOffer;x.progress=oldProgress;return{ok:false,reason:'save-failed'}}
+  if(typeof updateUI==='function')updateUI();
+  return{ok:true,tier,cost,unitCost,scrollGain:count};
+}
+function useTierStorageScroll(tier,count){
+  if(_saveProtected)return{ok:false,reason:'save-protected'};
+  if(!Number.isSafeInteger(tier)||!Object.prototype.hasOwnProperty.call(CFG.beastExchange.highScrollTrades,tier))return{ok:false,reason:'invalid-tier'};
+  if(!Number.isSafeInteger(count)||count<=0)return{ok:false,reason:'invalid-quantity'};
+  const x=S.beastExchange,trade=CFG.beastExchange.highScrollTrades[tier],itemKey='storageScroll'+tier;
+  const stock=S.items[itemKey],used=x.scrollUsedTiers?.[tier];
+  if(!_isCount(stock)||stock<count)return{ok:false,reason:'insufficient-scroll'};
+  if(!_isCount(used)||used+count>trade.useLimit)return{ok:false,reason:'use-limit'};
+  S.items[itemKey]=stock-count;x.scrollUsedTiers[tier]=used+count;
+  if(!save().ok){S.items[itemKey]=stock;x.scrollUsedTiers[tier]=used;return{ok:false,reason:'save-failed'}}
+  if(typeof updateUI==='function')updateUI();
+  return{ok:true,tier,used:x.scrollUsedTiers[tier]};
 }
 function exchangeSoulElixirForStones(materialKey,trades){
   if(_saveProtected)return{ok:false,reason:'save-protected'};

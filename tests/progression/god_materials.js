@@ -129,7 +129,7 @@ check('v15迁移保留材料、人口和超仓；缺新警戒值或未来v33保�
   assert.equal(e.run('S.killValues.godGuardian'),0);
   assert.equal(e.run('S.killValues.godPhantom'),0);
   1332;
-  for(const mutate of [d=>delete d.killValues.godGuardian,d=>{d.killValues.godPhantom=-1},d=>{d.v=35}]){
+  for(const mutate of [d=>delete d.killValues.godGuardian,d=>{d.killValues.godPhantom=-1},d=>{d.v=36}]){
     const invalid=JSON.parse(e.store.get('rts_save'));mutate(invalid);
     const text=JSON.stringify(invalid),x=environment({rts_save:text});
     assert.notEqual(x.run('loadSaveAndApply().status'),'ok');

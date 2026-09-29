@@ -116,7 +116,7 @@ check('v32 缺仓容模式或非法模式拒载并阻止 tick 自动写回；v33
     const d=JSON.parse(seed.run('JSON.stringify(serializeSave())'));
     if(variant==='missing')delete d.storageMode;
     else if(variant==='invalid')d.storageMode='wrong';
-    else d.v=35;
+    else d.v=36;
     const raw=JSON.stringify(d),e=environment({rts_save:raw});
     const status=e.run('loadSaveAndApply().status');
     assert.equal(status,variant==='future'?'future':'invalid');

@@ -14,7 +14,7 @@ const e=environment({rts_save:source});
 e.run(`globalThis.__fixedNow=${now};globalThis.Date=class extends Date{static now(){return __fixedNow}}`);
 assert.equal(e.run('loadSaveAndApply().status'),'migrated');
 assert.equal(e.store.get('rts_save_premigration'),source);
-assert.equal(JSON.parse(e.store.get('rts_save')).v,34);
+assert.equal(JSON.parse(e.store.get('rts_save')).v,35);
 assert.equal(e.run('S.items.sacredBlood'),3);
 assert.equal(e.run('S.items.domainCleanser'),0);
 assert.equal(e.run('S.killValues.godRevival'),5000);

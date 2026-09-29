@@ -122,7 +122,7 @@ check('兑换非法数量、缺兽骨、勋章满仓与写档失败均不扣费'
   assert.equal(e.store.get('rts_save'),raw);
 });
 
-check('v19独立迁移保留超仓和合法0，v34损坏字段、未来版与备份失败只读',()=>{
+check('v19独立迁移保留超仓和合法0，v35损坏字段、未来版与备份失败只读',()=>{
   const seed=environment();
   const raw=seed.run("(()=>{S.res.steel=999999;S.population.current=7;S.pool.infantry=4;const d=serializeSave();d.v=19;delete d.res.bone;delete d.killValues.wildBoar;return JSON.stringify(d)})()");
   const e=environment({rts_save:raw});
@@ -134,11 +134,11 @@ check('v19独立迁移保留超仓和合法0，v34损坏字段、未来版与备
   assert.equal(e.run('S.population.current'),7);
   assert.equal(e.run('S.pool.infantry'),4);
   const valid=JSON.parse(e.store.get('rts_save'));
-  assert.equal(valid.v,34);
-  for(const mutate of [d=>delete d.res.bone,d=>d.res.bone=-1,d=>delete d.killValues.wildBoar,d=>d.killValues.wildBoar=Infinity,d=>d.v=35]){
+  assert.equal(valid.v,35);
+  for(const mutate of [d=>delete d.res.bone,d=>d.res.bone=-1,d=>delete d.killValues.wildBoar,d=>d.killValues.wildBoar=Infinity,d=>d.v=36]){
     const d=structuredClone(valid);mutate(d);
     const text=JSON.stringify(d),bad=environment({rts_save:text});
-    assert.equal(bad.run('loadSaveAndApply().status'),d.v===35?'future':'invalid');
+    assert.equal(bad.run('loadSaveAndApply().status'),d.v===36?'future':'invalid');
     bad.run('tick();save()');assert.equal(bad.store.get('rts_save'),text);
   }
   const blocked=environment({rts_save:raw});

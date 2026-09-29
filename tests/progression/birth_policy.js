@@ -105,7 +105,7 @@ check('v32 缺失、未知、越界政策与未来 v33 均保护主档且不自�
     d=>{d.townPolicies={smallTown:['wrong']};d.settlements.smallTown=1},
     d=>{d.townPolicies={smallTown:['birth']};d.settlements.smallTown=0},
     d=>{d.townPolicies={smallTown:['birth']};d.settlements.smallTown=1},
-    d=>{d.v=35}
+    d=>{d.v=36}
   ];
   variants.forEach((mutate,i)=>{
     const d=structuredClone(base);mutate(d);

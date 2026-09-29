@@ -1,0 +1,165 @@
+{
+  "baseline": "7cb00487d186c5eb049dac3d582fc5cc5ea12d0c",
+  "sourceName": "p400-armament-natural-invested-save.json",
+  "sourceHash": "e466af613d8048e4d68fb7993956a02491271c50c429a28775e0dad9222b2a9d",
+  "referenceHash": "f67b86147f0c2f1ebf09eddd49dad1e1806c0441c347c14647d8d0d8ef706c2e",
+  "reference450924": {
+    "__lists": [
+      "developScience"
+    ],
+    "developScience:Name": "次元引擎",
+    "developScience:Need": [
+      [
+        160003,
+        100000000000
+      ],
+      [
+        160010,
+        30000000
+      ]
+    ],
+    "developScience:LimitID": 450224,
+    "developScience:Unlocked": [
+      450924
+    ]
+  },
+  "runtimeHash": {
+    "config.js": "fbf68bf8e6177c1535fc2e975c18641ca2817f8b3c11c3819c7563eacbf5f14d",
+    "levels.js": "cec80c26fa91f941994c253a2fe73be0dfe3f108237620b662fdab9f5449fd1d",
+    "math.js": "575e0135ba53853f9751a07a1b3a608b6ba625689bfbc775a1049ccc6fb47fde",
+    "garrison.js": "4d233f0529d256cd1ace2de782603fcfcbbff110032ca4cf29c5e36af30f10ff",
+    "technology.js": "3d3485f57e1e3ef73d11077cec06d467f674959aa6f0dfb27c3eb4d4abf94536",
+    "tests/progression/harness.js": "4770d17fa72cc8c87f4c8ef79678f19d63a41da895b8dd58776e5a39ce2ede2b"
+  },
+  "loadStatus": "migrated",
+  "premigrationSourcePreserved": true,
+  "target": {
+    "tech": 100000000000,
+    "medal": 30000000
+  },
+  "start": {
+    "tech": 83263.24032306671,
+    "techCap": 5129430221,
+    "medal": 4094694,
+    "medalCap": 100000000000,
+    "bone": 22582137,
+    "boneCap": 256300000000,
+    "revivalLeaf": 138,
+    "storageScroll": 0,
+    "scrollUsed": 133,
+    "quantumKnowledge": 7,
+    "armament": true,
+    "stage100": true,
+    "exchangeLevel": 79
+  },
+  "scienceConfigured": false,
+  "channels": {
+    "onlineTechPerSecond": 24354,
+    "offlineRatio": 0.6,
+    "foodNetPerSecond": 1757.4462109955423,
+    "nextRevivalLeafReward": 106,
+    "revivalDomainUnlocked": true,
+    "beastExchangeLevel": 79
+  },
+  "medalExchange": {
+    "perTrade": {
+      "bone": 166,
+      "medal": 332
+    },
+    "trades": 78029,
+    "result": {
+      "ok": true,
+      "boneCost": 12952814,
+      "medalGain": 25905628
+    },
+    "after": {
+      "tech": 83263.24032306671,
+      "techCap": 5129430221,
+      "medal": 30000322,
+      "medalCap": 100000000000,
+      "bone": 9629323,
+      "boneCap": 256300000000,
+      "revivalLeaf": 138,
+      "storageScroll": 0,
+      "scrollUsed": 133,
+      "quantumKnowledge": 7,
+      "armament": true,
+      "stage100": true,
+      "exchangeLevel": 79
+    }
+  },
+  "nextStorage": {
+    "cost": {
+      "tech": 4000000000,
+      "revivalLeaf": 4800
+    },
+    "refusal": {
+      "ok": false,
+      "reason": "insufficient-resources",
+      "cost": {
+        "tech": 4000000000,
+        "revivalLeaf": 4800
+      }
+    },
+    "knowledgeShortfall": 3999916736.759677,
+    "leafShortfall": 4662,
+    "currentCapacityEnoughForCost": true
+  },
+  "capacityProjection": {
+    "inputs": {
+      "base": 703000,
+      "mastery": 100,
+      "masteryPerLevel": 0.1,
+      "levels": {
+        "steam": 64,
+        "electric": 63,
+        "nuclear": 21,
+        "quantum": 7
+      },
+      "perLevel": {
+        "steam": 0.1,
+        "electric": 0.1,
+        "nuclear": 0.1,
+        "quantum": 0.1
+      },
+      "maxLevel": {
+        "steam": 100,
+        "electric": 100,
+        "nuclear": 100,
+        "quantum": 100
+      },
+      "scrollUsed": 133,
+      "scrollMax": 500,
+      "scrollPerUse": 0.01,
+      "starArrayPercent": 0
+    },
+    "current": 5129430221,
+    "sourceTechCost": 100000000000,
+    "shortfallAtCurrentCap": 94870569779,
+    "quantumOnlyMax": 33190430846,
+    "scrollOnlyMax": 13208833188,
+    "allKnowledgeResearchMax": 263799927490,
+    "allKnowledgeResearchAndScrollMax": 679313118000,
+    "quantumTrackFirstCapWall": {
+      "atLevel": 13,
+      "nextLevel": 14,
+      "cap": 6939817357,
+      "cost": 7000000000,
+      "shortfall": 60182643
+    },
+    "caution": "Hypothetical capacity arithmetic only. No storage level, scroll or star-array action was granted or paid."
+  },
+  "final": {
+    "name": "p401-postquantum-medal-ready-save.json",
+    "hash": "0ca201453bc7eb32eba619e86b2cac80e9d97ec7fc25bc31e9a6ccc3e187944d",
+    "reload": {
+      "tech": 83263.24032306671,
+      "techCap": 5129430221,
+      "medal": 30000322,
+      "bone": 9629323,
+      "quantumKnowledge": 7,
+      "revivalLeaf": 138,
+      "armament": true
+    }
+  }
+}

@@ -1,0 +1,236 @@
+{
+  "checks": [
+    {
+      "name": "real index and scripts load",
+      "ok": true
+    },
+    {
+      "name": "script order and fresh border state",
+      "ok": true
+    },
+    {
+      "name": "fight page exposes both development routes and rare preview without overflow",
+      "ok": true
+    },
+    {
+      "name": "fresh stable and cavalry root stay hidden or locked in real UI",
+      "ok": true
+    },
+    {
+      "name": "copper research gate works in browser",
+      "ok": true
+    },
+    {
+      "name": "real border card button opens and renders battle",
+      "ok": true
+    },
+    {
+      "name": "real asynchronous battle settles within 20 seconds",
+      "ok": true
+    },
+    {
+      "name": "true victory grants point and coin in one save",
+      "ok": true
+    },
+    {
+      "name": "border victory earns 2 merit without mainline progress",
+      "ok": true
+    },
+    {
+      "name": "earned copper first win releases stable in real building UI",
+      "ok": true
+    },
+    {
+      "name": "earned copper route shows payable cavalry root in real technology UI",
+      "ok": true
+    },
+    {
+      "name": "reload completes with real scripts",
+      "ok": true
+    },
+    {
+      "name": "reload keeps point and coin without mainline clear",
+      "ok": true
+    },
+    {
+      "name": "captured border point can be selected and stopped from card",
+      "ok": true
+    },
+    {
+      "name": "real outer village card button opens separate battle",
+      "ok": true
+    },
+    {
+      "name": "real outer asynchronous battle settles within 20 seconds",
+      "ok": true
+    },
+    {
+      "name": "true outer victory grants deeds and medals in one save",
+      "ok": true
+    },
+    {
+      "name": "outer victory leaves mainline progress unchanged",
+      "ok": true
+    },
+    {
+      "name": "outer reload completes with real scripts",
+      "ok": true
+    },
+    {
+      "name": "reload keeps outer reward and progress",
+      "ok": true
+    },
+    {
+      "name": "iron research gate works in browser",
+      "ok": true
+    },
+    {
+      "name": "real iron-point battle opens with separate progress",
+      "ok": true
+    },
+    {
+      "name": "real iron asynchronous battle settles within 20 seconds",
+      "ok": true
+    },
+    {
+      "name": "true iron victory grants point and gold coin in one save",
+      "ok": true
+    },
+    {
+      "name": "iron victory leaves mainline progress unchanged",
+      "ok": true
+    },
+    {
+      "name": "iron reload completes with real scripts",
+      "ok": true
+    },
+    {
+      "name": "reload keeps iron point and gold coin without mainline clear",
+      "ok": true
+    },
+    {
+      "name": "gold coin worker row renders in the real browser",
+      "ok": true
+    },
+    {
+      "name": "iron-era town gate works in browser",
+      "ok": true
+    },
+    {
+      "name": "real outer town battle opens with separate progress",
+      "ok": true
+    },
+    {
+      "name": "real town asynchronous battle settles within 20 seconds",
+      "ok": true
+    },
+    {
+      "name": "true town victory grants deeds and medals in one save",
+      "ok": true
+    },
+    {
+      "name": "town victory leaves mainline progress unchanged",
+      "ok": true
+    },
+    {
+      "name": "earned town first win releases mage tower in real building UI",
+      "ok": true
+    },
+    {
+      "name": "earned town route shows payable mage root in real technology UI",
+      "ok": true
+    },
+    {
+      "name": "town reload completes with real scripts",
+      "ok": true
+    },
+    {
+      "name": "reload keeps town reward and separate progress",
+      "ok": true
+    },
+    {
+      "name": "silver-era city gate works in browser",
+      "ok": true
+    },
+    {
+      "name": "real outer city battle opens with separate progress",
+      "ok": true
+    },
+    {
+      "name": "real city asynchronous battle settles within 20 seconds",
+      "ok": true
+    },
+    {
+      "name": "true city victory grants deeds and medals in one save",
+      "ok": true
+    },
+    {
+      "name": "city victory leaves mainline progress unchanged",
+      "ok": true
+    },
+    {
+      "name": "city reload completes with real scripts",
+      "ok": true
+    },
+    {
+      "name": "reload keeps city reward and separate progress",
+      "ok": true
+    },
+    {
+      "name": "gold-era capital gate works in browser",
+      "ok": true
+    },
+    {
+      "name": "real outer capital battle opens with separate progress",
+      "ok": true
+    },
+    {
+      "name": "real capital asynchronous battle settles within 20 seconds",
+      "ok": true
+    },
+    {
+      "name": "true capital victory grants deeds and medals in one save",
+      "ok": true
+    },
+    {
+      "name": "capital victory leaves mainline progress unchanged",
+      "ok": true
+    },
+    {
+      "name": "capital reload completes with real scripts",
+      "ok": true
+    },
+    {
+      "name": "reload keeps capital reward and separate progress",
+      "ok": true
+    },
+    {
+      "name": "real regional wins unlock T1–T4 and save exact 42 merit plus three essence drops without mainline clears",
+      "ok": true
+    },
+    {
+      "name": "real browser offline point credit and persisted clock",
+      "ok": true
+    },
+    {
+      "name": "offline point reload completes with real scripts",
+      "ok": true
+    },
+    {
+      "name": "real browser reload does not duplicate offline point reward",
+      "ok": true
+    },
+    {
+      "name": "real browser active battle pauses offline point clock",
+      "ok": true
+    },
+    {
+      "name": "zero uncaught browser exceptions",
+      "ok": true
+    }
+  ],
+  "exceptions": [],
+  "passed": 57,
+  "failed": 0,
+  "note": "Research and army were injected to test browser settlement, not natural reachability."
+}

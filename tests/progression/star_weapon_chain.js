@@ -108,9 +108,9 @@ check('缺失旧兵装字段时独立候选迁移并保护原文；坏键、缺�
   assert.equal(e.run('S.weaponForge.starFighter.level'),0);
   assert.equal(e.run('S.weaponForge.starMissile.progress'),0);
   const valid=JSON.parse(e.store.get('rts_save'));
-  for(const mutate of [d=>d.weaponForge.starFighter.level=21,d=>d.weaponForge.starMissile.researched=true,d=>d.v=35]){
+  for(const mutate of [d=>d.weaponForge.starFighter.level=21,d=>d.weaponForge.starMissile.researched=true,d=>d.v=36]){
     const d=structuredClone(valid);mutate(d);const text=JSON.stringify(d),bad=environment({rts_save:text});
-    assert.equal(bad.run('loadSaveAndApply().status'),d.v===35?'future':'invalid');
+    assert.equal(bad.run('loadSaveAndApply().status'),d.v===36?'future':'invalid');
     bad.run('tick();save()');assert.equal(bad.store.get('rts_save'),text);
   }
 });

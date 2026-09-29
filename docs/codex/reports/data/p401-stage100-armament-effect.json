@@ -1,0 +1,8619 @@
+{
+  "batch": "P401",
+  "baseline": "7cb00487d186c5eb049dac3d582fc5cc5ea12d0c",
+  "kind": "real stage-100 replay on paid v34 saves, with isolated enemy count sensitivity",
+  "inputs": {
+    "uninvested": {
+      "name": "p400-armament-natural-route-save.json",
+      "sha256": "368dfa4d10f89469ae71cd2679183333526a7ed92b794fbb6e838dd375035f60"
+    },
+    "invested": {
+      "name": "p400-armament-natural-invested-save.json",
+      "sha256": "e466af613d8048e4d68fb7993956a02491271c50c429a28775e0dad9222b2a9d"
+    }
+  },
+  "runtimeSha256": {
+    "config.js": "3730abb54cf3fc311c9a9e607da5e8233796c47d63d3070d59e3bfb3ea54918c",
+    "levels.js": "cec80c26fa91f941994c253a2fe73be0dfe3f108237620b662fdab9f5449fd1d",
+    "math.js": "4e121994991540d91b52d63b64b21506ff42f84f7e3e558917cebfdec65366bb",
+    "garrison.js": "4d233f0529d256cd1ace2de782603fcfcbbff110032ca4cf29c5e36af30f10ff",
+    "technology.js": "3d3485f57e1e3ef73d11077cec06d467f674959aa6f0dfb27c3eb4d4abf94536",
+    "tests/progression/harness.js": "4770d17fa72cc8c87f4c8ef79678f19d63a41da895b8dd58776e5a39ce2ede2b"
+  },
+  "scales": [
+    100,
+    120,
+    180,
+    240,
+    260
+  ],
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+  ],
+  "summary": [
+    {
+      "scale": 100,
+      "totalEnemy": 1100,
+      "by": {
+        "uninvested": {
+          "wins": 16,
+          "of": 16,
+          "meanWinLoss": 274,
+          "maxWinLoss": 381,
+          "fullLosses": 0
+        },
+        "invested": {
+          "wins": 16,
+          "of": 16,
+          "meanWinLoss": 257.3125,
+          "maxWinLoss": 358,
+          "fullLosses": 0
+        }
+      },
+      "winChanges": [],
+      "lossDelta": [
+        2,
+        78,
+        4,
+        -74,
+        8,
+        -45,
+        3,
+        4,
+        3,
+        103,
+        -37,
+        71,
+        2,
+        62,
+        81,
+        2
+      ],
+      "pairs": [
+        {
+          "seed": 1,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 331,
+          "lossAfter": 329,
+          "lossDelta": 2
+        },
+        {
+          "seed": 2,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 360,
+          "lossAfter": 282,
+          "lossDelta": 78
+        },
+        {
+          "seed": 3,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 362,
+          "lossAfter": 358,
+          "lossDelta": 4
+        },
+        {
+          "seed": 4,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 223,
+          "lossAfter": 297,
+          "lossDelta": -74
+        },
+        {
+          "seed": 5,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 351,
+          "lossAfter": 343,
+          "lossDelta": 8
+        },
+        {
+          "seed": 6,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 286,
+          "lossAfter": 331,
+          "lossDelta": -45
+        },
+        {
+          "seed": 7,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 202,
+          "lossAfter": 199,
+          "lossDelta": 3
+        },
+        {
+          "seed": 8,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 233,
+          "lossAfter": 229,
+          "lossDelta": 4
+        },
+        {
+          "seed": 9,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 217,
+          "lossAfter": 214,
+          "lossDelta": 3
+        },
+        {
+          "seed": 10,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 280,
+          "lossAfter": 177,
+          "lossDelta": 103
+        },
+        {
+          "seed": 11,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 186,
+          "lossAfter": 223,
+          "lossDelta": -37
+        },
+        {
+          "seed": 12,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 295,
+          "lossAfter": 224,
+          "lossDelta": 71
+        },
+        {
+          "seed": 13,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 176,
+          "lossAfter": 174,
+          "lossDelta": 2
+        },
+        {
+          "seed": 14,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 300,
+          "lossAfter": 238,
+          "lossDelta": 62
+        },
+        {
+          "seed": 15,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 381,
+          "lossAfter": 300,
+          "lossDelta": 81
+        },
+        {
+          "seed": 16,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 201,
+          "lossAfter": 199,
+          "lossDelta": 2
+        }
+      ]
+    },
+    {
+      "scale": 120,
+      "totalEnemy": 1320,
+      "by": {
+        "uninvested": {
+          "wins": 16,
+          "of": 16,
+          "meanWinLoss": 350.3125,
+          "maxWinLoss": 452,
+          "fullLosses": 0
+        },
+        "invested": {
+          "wins": 16,
+          "of": 16,
+          "meanWinLoss": 354.3125,
+          "maxWinLoss": 441,
+          "fullLosses": 0
+        }
+      },
+      "winChanges": [],
+      "lossDelta": [
+        -84,
+        -15,
+        -3,
+        16,
+        6,
+        -16,
+        8,
+        1,
+        -8,
+        36,
+        5,
+        -52,
+        5,
+        39,
+        -5,
+        3
+      ],
+      "pairs": [
+        {
+          "seed": 1,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 357,
+          "lossAfter": 441,
+          "lossDelta": -84
+        },
+        {
+          "seed": 2,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 399,
+          "lossAfter": 414,
+          "lossDelta": -15
+        },
+        {
+          "seed": 3,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 371,
+          "lossAfter": 374,
+          "lossDelta": -3
+        },
+        {
+          "seed": 4,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 355,
+          "lossAfter": 339,
+          "lossDelta": 16
+        },
+        {
+          "seed": 5,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 414,
+          "lossAfter": 408,
+          "lossDelta": 6
+        },
+        {
+          "seed": 6,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 360,
+          "lossAfter": 376,
+          "lossDelta": -16
+        },
+        {
+          "seed": 7,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 244,
+          "lossAfter": 236,
+          "lossDelta": 8
+        },
+        {
+          "seed": 8,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 370,
+          "lossAfter": 369,
+          "lossDelta": 1
+        },
+        {
+          "seed": 9,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 303,
+          "lossAfter": 311,
+          "lossDelta": -8
+        },
+        {
+          "seed": 10,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 346,
+          "lossAfter": 310,
+          "lossDelta": 36
+        },
+        {
+          "seed": 11,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 239,
+          "lossAfter": 234,
+          "lossDelta": 5
+        },
+        {
+          "seed": 12,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 283,
+          "lossAfter": 335,
+          "lossDelta": -52
+        },
+        {
+          "seed": 13,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 438,
+          "lossAfter": 433,
+          "lossDelta": 5
+        },
+        {
+          "seed": 14,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 452,
+          "lossAfter": 413,
+          "lossDelta": 39
+        },
+        {
+          "seed": 15,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 391,
+          "lossAfter": 396,
+          "lossDelta": -5
+        },
+        {
+          "seed": 16,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 283,
+          "lossAfter": 280,
+          "lossDelta": 3
+        }
+      ]
+    },
+    {
+      "scale": 180,
+      "totalEnemy": 1980,
+      "by": {
+        "uninvested": {
+          "wins": 16,
+          "of": 16,
+          "meanWinLoss": 477.5625,
+          "maxWinLoss": 544,
+          "fullLosses": 0
+        },
+        "invested": {
+          "wins": 16,
+          "of": 16,
+          "meanWinLoss": 434.9375,
+          "maxWinLoss": 508,
+          "fullLosses": 0
+        }
+      },
+      "winChanges": [],
+      "lossDelta": [
+        -25,
+        127,
+        40,
+        121,
+        98,
+        72,
+        1,
+        -12,
+        90,
+        -40,
+        54,
+        101,
+        -14,
+        1,
+        2,
+        66
+      ],
+      "pairs": [
+        {
+          "seed": 1,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 483,
+          "lossAfter": 508,
+          "lossDelta": -25
+        },
+        {
+          "seed": 2,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 518,
+          "lossAfter": 391,
+          "lossDelta": 127
+        },
+        {
+          "seed": 3,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 544,
+          "lossAfter": 504,
+          "lossDelta": 40
+        },
+        {
+          "seed": 4,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 514,
+          "lossAfter": 393,
+          "lossDelta": 121
+        },
+        {
+          "seed": 5,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 506,
+          "lossAfter": 408,
+          "lossDelta": 98
+        },
+        {
+          "seed": 6,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 528,
+          "lossAfter": 456,
+          "lossDelta": 72
+        },
+        {
+          "seed": 7,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 423,
+          "lossAfter": 422,
+          "lossDelta": 1
+        },
+        {
+          "seed": 8,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 420,
+          "lossAfter": 432,
+          "lossDelta": -12
+        },
+        {
+          "seed": 9,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 510,
+          "lossAfter": 420,
+          "lossDelta": 90
+        },
+        {
+          "seed": 10,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 426,
+          "lossAfter": 466,
+          "lossDelta": -40
+        },
+        {
+          "seed": 11,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 520,
+          "lossAfter": 466,
+          "lossDelta": 54
+        },
+        {
+          "seed": 12,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 372,
+          "lossAfter": 271,
+          "lossDelta": 101
+        },
+        {
+          "seed": 13,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 469,
+          "lossAfter": 483,
+          "lossDelta": -14
+        },
+        {
+          "seed": 14,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 454,
+          "lossAfter": 453,
+          "lossDelta": 1
+        },
+        {
+          "seed": 15,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 497,
+          "lossAfter": 495,
+          "lossDelta": 2
+        },
+        {
+          "seed": 16,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 457,
+          "lossAfter": 391,
+          "lossDelta": 66
+        }
+      ]
+    },
+    {
+      "scale": 240,
+      "totalEnemy": 2640,
+      "by": {
+        "uninvested": {
+          "wins": 16,
+          "of": 16,
+          "meanWinLoss": 528.0625,
+          "maxWinLoss": 590,
+          "fullLosses": 0
+        },
+        "invested": {
+          "wins": 14,
+          "of": 16,
+          "meanWinLoss": 529.6428571428571,
+          "maxWinLoss": 605,
+          "fullLosses": 2
+        }
+      },
+      "winChanges": [
+        {
+          "seed": 1,
+          "beforeWin": true,
+          "afterWin": false,
+          "lossBefore": 450,
+          "lossAfter": 626,
+          "lossDelta": -176
+        },
+        {
+          "seed": 7,
+          "beforeWin": true,
+          "afterWin": false,
+          "lossBefore": 492,
+          "lossAfter": 626,
+          "lossDelta": -134
+        }
+      ],
+      "lossDelta": [
+        -176,
+        -8,
+        20,
+        -12,
+        0,
+        15,
+        -134,
+        -43,
+        -9,
+        -13,
+        -37,
+        8,
+        85,
+        17,
+        65,
+        4
+      ],
+      "pairs": [
+        {
+          "seed": 1,
+          "beforeWin": true,
+          "afterWin": false,
+          "lossBefore": 450,
+          "lossAfter": 626,
+          "lossDelta": -176
+        },
+        {
+          "seed": 2,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 505,
+          "lossAfter": 513,
+          "lossDelta": -8
+        },
+        {
+          "seed": 3,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 577,
+          "lossAfter": 557,
+          "lossDelta": 20
+        },
+        {
+          "seed": 4,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 555,
+          "lossAfter": 567,
+          "lossDelta": -12
+        },
+        {
+          "seed": 5,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 555,
+          "lossAfter": 555,
+          "lossDelta": 0
+        },
+        {
+          "seed": 6,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 590,
+          "lossAfter": 575,
+          "lossDelta": 15
+        },
+        {
+          "seed": 7,
+          "beforeWin": true,
+          "afterWin": false,
+          "lossBefore": 492,
+          "lossAfter": 626,
+          "lossDelta": -134
+        },
+        {
+          "seed": 8,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 414,
+          "lossAfter": 457,
+          "lossDelta": -43
+        },
+        {
+          "seed": 9,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 541,
+          "lossAfter": 550,
+          "lossDelta": -9
+        },
+        {
+          "seed": 10,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 589,
+          "lossAfter": 602,
+          "lossDelta": -13
+        },
+        {
+          "seed": 11,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 568,
+          "lossAfter": 605,
+          "lossDelta": -37
+        },
+        {
+          "seed": 12,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 558,
+          "lossAfter": 550,
+          "lossDelta": 8
+        },
+        {
+          "seed": 13,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 461,
+          "lossAfter": 376,
+          "lossDelta": 85
+        },
+        {
+          "seed": 14,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 564,
+          "lossAfter": 547,
+          "lossDelta": 17
+        },
+        {
+          "seed": 15,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 578,
+          "lossAfter": 513,
+          "lossDelta": 65
+        },
+        {
+          "seed": 16,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 452,
+          "lossAfter": 448,
+          "lossDelta": 4
+        }
+      ]
+    },
+    {
+      "scale": 260,
+      "totalEnemy": 2860,
+      "by": {
+        "uninvested": {
+          "wins": 14,
+          "of": 16,
+          "meanWinLoss": 543,
+          "maxWinLoss": 592,
+          "fullLosses": 2
+        },
+        "invested": {
+          "wins": 15,
+          "of": 16,
+          "meanWinLoss": 552.2666666666667,
+          "maxWinLoss": 611,
+          "fullLosses": 1
+        }
+      },
+      "winChanges": [
+        {
+          "seed": 1,
+          "beforeWin": false,
+          "afterWin": true,
+          "lossBefore": 626,
+          "lossAfter": 583,
+          "lossDelta": 43
+        },
+        {
+          "seed": 6,
+          "beforeWin": true,
+          "afterWin": false,
+          "lossBefore": 540,
+          "lossAfter": 626,
+          "lossDelta": -86
+        },
+        {
+          "seed": 10,
+          "beforeWin": false,
+          "afterWin": true,
+          "lossBefore": 626,
+          "lossAfter": 611,
+          "lossDelta": 15
+        }
+      ],
+      "lossDelta": [
+        43,
+        -41,
+        4,
+        -16,
+        41,
+        -86,
+        -13,
+        -32,
+        0,
+        15,
+        44,
+        132,
+        -110,
+        10,
+        -47,
+        0
+      ],
+      "pairs": [
+        {
+          "seed": 1,
+          "beforeWin": false,
+          "afterWin": true,
+          "lossBefore": 626,
+          "lossAfter": 583,
+          "lossDelta": 43
+        },
+        {
+          "seed": 2,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 569,
+          "lossAfter": 610,
+          "lossDelta": -41
+        },
+        {
+          "seed": 3,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 592,
+          "lossAfter": 588,
+          "lossDelta": 4
+        },
+        {
+          "seed": 4,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 566,
+          "lossAfter": 582,
+          "lossDelta": -16
+        },
+        {
+          "seed": 5,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 543,
+          "lossAfter": 502,
+          "lossDelta": 41
+        },
+        {
+          "seed": 6,
+          "beforeWin": true,
+          "afterWin": false,
+          "lossBefore": 540,
+          "lossAfter": 626,
+          "lossDelta": -86
+        },
+        {
+          "seed": 7,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 585,
+          "lossAfter": 598,
+          "lossDelta": -13
+        },
+        {
+          "seed": 8,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 556,
+          "lossAfter": 588,
+          "lossDelta": -32
+        },
+        {
+          "seed": 9,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 570,
+          "lossAfter": 570,
+          "lossDelta": 0
+        },
+        {
+          "seed": 10,
+          "beforeWin": false,
+          "afterWin": true,
+          "lossBefore": 626,
+          "lossAfter": 611,
+          "lossDelta": 15
+        },
+        {
+          "seed": 11,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 566,
+          "lossAfter": 522,
+          "lossDelta": 44
+        },
+        {
+          "seed": 12,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 577,
+          "lossAfter": 445,
+          "lossDelta": 132
+        },
+        {
+          "seed": 13,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 398,
+          "lossAfter": 508,
+          "lossDelta": -110
+        },
+        {
+          "seed": 14,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 532,
+          "lossAfter": 522,
+          "lossDelta": 10
+        },
+        {
+          "seed": 15,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 546,
+          "lossAfter": 593,
+          "lossDelta": -47
+        },
+        {
+          "seed": 16,
+          "beforeWin": true,
+          "afterWin": true,
+          "lossBefore": 462,
+          "lossAfter": 462,
+          "lossDelta": 0
+        }
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "profile": "uninvested",
+      "scale": 100,
+      "seed": 1,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 295,
+        "army": 342,
+        "round": 4,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 331,
+      "callbacks": 57,
+      "saveSha256": "55d8ef97fe81c40686691db46ae4131d44bab165b805dbbed8177ad5b1c0b6b6"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 100,
+      "seed": 2,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 266,
+        "army": 313,
+        "round": 6,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 360,
+      "callbacks": 76,
+      "saveSha256": "d82970ec85b0333daf22f29e311d724ce5a4a856ed967a650cfe9b16e7b99804"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 100,
+      "seed": 3,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 264,
+        "army": 311,
+        "round": 4,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 362,
+      "callbacks": 60,
+      "saveSha256": "af0e433ca0fcb4bdc3719241bc82a723ef260f21e94f71f315f14d1ddffe16f6"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 100,
+      "seed": 4,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 403,
+        "army": 450,
+        "round": 4,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 223,
+      "callbacks": 54,
+      "saveSha256": "4b9397a50306afc666cf5a143c152a1f589e03f0a215bafad7826d0cdea13922"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 100,
+      "seed": 5,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 275,
+        "army": 322,
+        "round": 4,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 351,
+      "callbacks": 62,
+      "saveSha256": "84793d4516c68f0aaca406096a1a965b33c49d46cfba7ce2d00210026a43183f"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 100,
+      "seed": 6,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 340,
+        "army": 387,
+        "round": 4,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 286,
+      "callbacks": 53,
+      "saveSha256": "e04c990fdb2ae5278baec062db18d27bb697563ddfc2d4d85910677ce910cc2a"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 100,
+      "seed": 7,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 424,
+        "army": 471,
+        "round": 4,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 202,
+      "callbacks": 57,
+      "saveSha256": "e9fc06d14d4fdbf4cd25c8416d35bfff5d8a1d38715fdc2f44f77b414d22c078"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 100,
+      "seed": 8,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 393,
+        "army": 440,
+        "round": 4,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 233,
+      "callbacks": 66,
+      "saveSha256": "79b471646738e4f75af7fcf8dd8aa8dc40bdc5a2c5e441b0d6017977a85ac251"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 100,
+      "seed": 9,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 409,
+        "army": 456,
+        "round": 3,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 217,
+      "callbacks": 53,
+      "saveSha256": "304ffdec1976ea7bd1b14e76f24d244e7c983ee2d98e7fbc0fe4e26491545b60"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 100,
+      "seed": 10,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 346,
+        "army": 393,
+        "round": 4,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 280,
+      "callbacks": 61,
+      "saveSha256": "a4c12fa33d2bb9dc3f9ce6d008711ec269a2c7dffccf42da6c5a6f6b4a236c5a"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 100,
+      "seed": 11,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 440,
+        "army": 487,
+        "round": 3,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 186,
+      "callbacks": 50,
+      "saveSha256": "ed782ba6d9a691211aed8026737b11401fa4af2f023ad35b4a5f6fb9ef373909"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 100,
+      "seed": 12,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 331,
+        "army": 378,
+        "round": 4,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 295,
+      "callbacks": 57,
+      "saveSha256": "b27a8bb5fb786abf6d24f6b3a3910dd84f330b3ec70829c534b31196876a8359"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 100,
+      "seed": 13,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 450,
+        "army": 497,
+        "round": 3,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 176,
+      "callbacks": 45,
+      "saveSha256": "68cd73239b2322fc83571d2acea023be0608d90f3020ced31c1293480c28109d"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 100,
+      "seed": 14,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 326,
+        "army": 373,
+        "round": 4,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 300,
+      "callbacks": 53,
+      "saveSha256": "10a2a19b570454a0bc0d1a8403d0ff9b181ec4c591d57713c563ff6addfb9063"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 100,
+      "seed": 15,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 245,
+        "army": 292,
+        "round": 5,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 381,
+      "callbacks": 70,
+      "saveSha256": "e212470e0b168bd56b7ccfd82321d40f202e724b07380dd4b3afcfd798008ece"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 100,
+      "seed": 16,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 425,
+        "army": 472,
+        "round": 3,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 201,
+      "callbacks": 46,
+      "saveSha256": "3704c394278d82663394c92808ecfdab1a200e1f204bf98c356da21bf1f43bb3"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 120,
+      "seed": 1,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 269,
+        "army": 316,
+        "round": 4,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 357,
+      "callbacks": 61,
+      "saveSha256": "70ff5c554558ea55f7f9ffd983340299b569835922481a6fad047ec774ebd760"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 120,
+      "seed": 2,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 227,
+        "army": 274,
+        "round": 5,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 399,
+      "callbacks": 69,
+      "saveSha256": "0af699cbc7c848dfba263f45866178853f6c2f1f5d2ad6d32ac107bf3e278611"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 120,
+      "seed": 3,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 255,
+        "army": 302,
+        "round": 5,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 371,
+      "callbacks": 63,
+      "saveSha256": "af492b6b2c6110e2a0138a1ea4befb861d7b1e67305fd7c4c2a487e8f2199208"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 120,
+      "seed": 4,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 271,
+        "army": 318,
+        "round": 4,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 355,
+      "callbacks": 64,
+      "saveSha256": "c4927d37fac6301f8035e8644d37df2ae5757d26d6a9c2f79bad83418e6d3bd6"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 120,
+      "seed": 5,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 212,
+        "army": 259,
+        "round": 5,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 414,
+      "callbacks": 70,
+      "saveSha256": "399cd8bb3743c313865951db9b45f548891514bc70f1f793ede1a9566bbc8b1e"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 120,
+      "seed": 6,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 266,
+        "army": 313,
+        "round": 5,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 360,
+      "callbacks": 68,
+      "saveSha256": "61ef28508cf7ed48953ce4c7e6b6a434441af7eab5ee422beee2ad38f2f558a4"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 120,
+      "seed": 7,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 382,
+        "army": 429,
+        "round": 4,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 244,
+      "callbacks": 64,
+      "saveSha256": "6c5701b8206b59a92272c883fc8af05ab266eb00d9095cb8014b8c06ee3fc515"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 120,
+      "seed": 8,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 256,
+        "army": 303,
+        "round": 5,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 370,
+      "callbacks": 82,
+      "saveSha256": "c9e36641aa7929fa54bfc3f7478ccc039fd0f21a9dd77e41df7ff0d21d60020b"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 120,
+      "seed": 9,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 323,
+        "army": 370,
+        "round": 4,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 303,
+      "callbacks": 68,
+      "saveSha256": "ee74e78ee0e79f19a0116b5ef391b9715d8fa2eb95a5ad8f13a168e74e7390a8"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 120,
+      "seed": 10,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 280,
+        "army": 327,
+        "round": 5,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 346,
+      "callbacks": 73,
+      "saveSha256": "da1ba0647990f7d10a1bf25c7ea5297ebba07bfe47108544637efdeb7f07fe44"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 120,
+      "seed": 11,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 387,
+        "army": 434,
+        "round": 3,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 239,
+      "callbacks": 55,
+      "saveSha256": "c0f3a223c1df35cd6f6e79eab6e2e35dc8fff587d1a2408bcfb76f2c16b04104"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 120,
+      "seed": 12,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 343,
+        "army": 390,
+        "round": 4,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 283,
+      "callbacks": 53,
+      "saveSha256": "e1718d69adea01a0815c5eb6db4361a7645339a1c039e54ef785576d53a45318"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 120,
+      "seed": 13,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 188,
+        "army": 235,
+        "round": 5,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 438,
+      "callbacks": 58,
+      "saveSha256": "11ef4252ac00af0cf2536fc5a6d12fdc7da56e1280b0d4cd5a6dc5d5f1b1bce5"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 120,
+      "seed": 14,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 174,
+        "army": 221,
+        "round": 5,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 452,
+      "callbacks": 66,
+      "saveSha256": "13ebafb2f1345d2d8100c439225257119aa5bc47bd6ce0d94848ff67dd937a76"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 120,
+      "seed": 15,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 235,
+        "army": 282,
+        "round": 4,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 391,
+      "callbacks": 66,
+      "saveSha256": "d260d77419e70db3fb3fff5893b994a94685f75ced0015c78498f8d0e8cdefb7"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 120,
+      "seed": 16,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 343,
+        "army": 390,
+        "round": 4,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 283,
+      "callbacks": 53,
+      "saveSha256": "e125a9c81a434cacc1b41a25972579628c16c24ddb594d1b6770325255aff5fe"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 180,
+      "seed": 1,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 143,
+        "army": 190,
+        "round": 5,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 483,
+      "callbacks": 62,
+      "saveSha256": "b36fc4642340e1c60a7433b4346bf56ef8c679deb89c7d234a13e171b6c53597"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 180,
+      "seed": 2,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 108,
+        "army": 155,
+        "round": 5,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 518,
+      "callbacks": 61,
+      "saveSha256": "1b83f9125b2cdca8f2b57e1d31a4a3bc9ddf37de557bc228000a0db5a7d36ef9"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 180,
+      "seed": 3,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 82,
+        "army": 129,
+        "round": 6,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 544,
+      "callbacks": 72,
+      "saveSha256": "aef0130639bad93d35b53402c7d28a99dd7516cd44e2cb0c4e0360e3091b0466"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 180,
+      "seed": 4,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 112,
+        "army": 159,
+        "round": 4,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 514,
+      "callbacks": 53,
+      "saveSha256": "a6a5f62d9ceadee1b7bac7cadbd309f6d090a25ff69b469b3a26900352b4291e"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 180,
+      "seed": 5,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 120,
+        "army": 167,
+        "round": 6,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 506,
+      "callbacks": 78,
+      "saveSha256": "1a67afdb01b90ce73546d37d67d11c4dac42551a19c3ff0807e941e863917855"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 180,
+      "seed": 6,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 98,
+        "army": 145,
+        "round": 5,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 528,
+      "callbacks": 61,
+      "saveSha256": "aec547c6b2f17a4d3121b9217b3b79f66560d68f21f870754a208d2172f45df3"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 180,
+      "seed": 7,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 203,
+        "army": 250,
+        "round": 4,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 423,
+      "callbacks": 62,
+      "saveSha256": "aafcc621d24088fa29e15a953d6139bdb8051204d2dd22ce205a07692a8cfed5"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 180,
+      "seed": 8,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 206,
+        "army": 253,
+        "round": 5,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 420,
+      "callbacks": 72,
+      "saveSha256": "161495b051bfcaf8537829702564aa92483b09877fe6d465529bf5522c256006"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 180,
+      "seed": 9,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 116,
+        "army": 163,
+        "round": 5,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 510,
+      "callbacks": 65,
+      "saveSha256": "acf9b8f1da26b3373e78503da00d20adde3537ac5cc2bf47dcb8d7ef2f459f3d"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 180,
+      "seed": 10,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 200,
+        "army": 247,
+        "round": 5,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 426,
+      "callbacks": 70,
+      "saveSha256": "3b362fa10283164bfbe4e2db81e331e061927993ef99000a9e605eaed57139d3"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 180,
+      "seed": 11,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 106,
+        "army": 153,
+        "round": 6,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 520,
+      "callbacks": 74,
+      "saveSha256": "6014721ab7159b114381ada5273d858192441669192d1e53acf542d86c22d759"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 180,
+      "seed": 12,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 254,
+        "army": 301,
+        "round": 5,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 372,
+      "callbacks": 68,
+      "saveSha256": "9464a62ee363c098f9982bfde294d95add031a2d378516702995c8030040f72f"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 180,
+      "seed": 13,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 157,
+        "army": 204,
+        "round": 5,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 469,
+      "callbacks": 72,
+      "saveSha256": "bcfaea38dd520de51cdb5497d757cc4534483611fb2f0f1374804ba8213c0ff4"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 180,
+      "seed": 14,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 172,
+        "army": 219,
+        "round": 5,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 454,
+      "callbacks": 63,
+      "saveSha256": "e75a566a9fcac95d37c2bd0b20a1d060ef77b787876b729bafe56ccbcc7153ae"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 180,
+      "seed": 15,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 129,
+        "army": 176,
+        "round": 5,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 497,
+      "callbacks": 69,
+      "saveSha256": "fce8923065d891d465f5ac99520be27055c33dea6903a926515cd2e067d70623"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 180,
+      "seed": 16,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 169,
+        "army": 216,
+        "round": 5,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 457,
+      "callbacks": 61,
+      "saveSha256": "653d84145d958e1eafe88cedde6f6baa08b74a016eedbb8ec28aa799410ea12e"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 240,
+      "seed": 1,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2640,
+        "hp": 2640
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 176,
+        "army": 223,
+        "round": 7,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 450,
+      "callbacks": 86,
+      "saveSha256": "9e2cb60aa1cef624d60fa6cad35e5bd930cf73c6292420dfaf09f705e5bfe0bf"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 240,
+      "seed": 2,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2640,
+        "hp": 2640
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 121,
+        "army": 168,
+        "round": 6,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 505,
+      "callbacks": 69,
+      "saveSha256": "0020369a2b96f61781a981ae7fb57027c4b6c213b76fbc0c11fb33b190021bd2"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 240,
+      "seed": 3,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2640,
+        "hp": 2640
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 49,
+        "army": 96,
+        "round": 6,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 577,
+      "callbacks": 69,
+      "saveSha256": "9bc6018d31e467befa8336cfc05a9a8f504dcbd685a9c2a9a96bd3d4745e5acd"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 240,
+      "seed": 4,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2640,
+        "hp": 2640
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 71,
+        "army": 118,
+        "round": 6,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 555,
+      "callbacks": 71,
+      "saveSha256": "c2e024b3fb7b8c78bda534e49af7bfe0327ab8681790af42de6d16f6266cf6e0"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 240,
+      "seed": 5,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2640,
+        "hp": 2640
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 71,
+        "army": 118,
+        "round": 6,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 555,
+      "callbacks": 65,
+      "saveSha256": "78cb5c05db4213dbf95898bd51f5f00ef84fe355573eecda4197dd3342328ded"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 240,
+      "seed": 6,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2640,
+        "hp": 2640
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 36,
+        "army": 83,
+        "round": 7,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 590,
+      "callbacks": 71,
+      "saveSha256": "63895a955d88e1f8feff496b636bfb84c51fed3dca747aa6b9ceec524e080ee7"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 240,
+      "seed": 7,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2640,
+        "hp": 2640
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 134,
+        "army": 181,
+        "round": 7,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 492,
+      "callbacks": 86,
+      "saveSha256": "d88988046fb0ab76d4ec479d8bedbeacbc1d7facaba6cd05733534fda2ff093d"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 240,
+      "seed": 8,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2640,
+        "hp": 2640
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 212,
+        "army": 259,
+        "round": 5,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 414,
+      "callbacks": 67,
+      "saveSha256": "f0b8532a4b6f0407535ffba2167f5a91d0c3f7a127bbfb0ddc1c241c96d95cc9"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 240,
+      "seed": 9,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2640,
+        "hp": 2640
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 85,
+        "army": 132,
+        "round": 7,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 541,
+      "callbacks": 77,
+      "saveSha256": "67c33606d50644ade6be19b2c06a8cf57f211c31b4697aebcbf3ba39104600ca"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 240,
+      "seed": 10,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2640,
+        "hp": 2640
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 37,
+        "army": 84,
+        "round": 8,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 589,
+      "callbacks": 86,
+      "saveSha256": "9dbf574af4d05059ad617d861e335c8ed88da0136d1ee1aa0fc11fb82a1dd07e"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 240,
+      "seed": 11,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2640,
+        "hp": 2640
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 58,
+        "army": 105,
+        "round": 6,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 568,
+      "callbacks": 76,
+      "saveSha256": "1733cbb1a3661d9d9bee18589cb5117f043b78df56e9694dc797ef2cb482bcb2"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 240,
+      "seed": 12,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2640,
+        "hp": 2640
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 68,
+        "army": 115,
+        "round": 6,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 558,
+      "callbacks": 68,
+      "saveSha256": "d3565c574fcde4ae85b1a62ed3657c20ef81f1ce433d2012fdabd2f3e0a040f5"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 240,
+      "seed": 13,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2640,
+        "hp": 2640
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 165,
+        "army": 212,
+        "round": 6,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 461,
+      "callbacks": 68,
+      "saveSha256": "b853517dcd8143b3255a96d293d3bb0871c3ae02145d3b9b7219e6b9face661e"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 240,
+      "seed": 14,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2640,
+        "hp": 2640
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 62,
+        "army": 109,
+        "round": 6,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 564,
+      "callbacks": 65,
+      "saveSha256": "3802363d917e91fc3e5ab0c55344527c6a8b21b3fa34af0b84a2daa5034e1a40"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 240,
+      "seed": 15,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2640,
+        "hp": 2640
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 48,
+        "army": 95,
+        "round": 6,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 578,
+      "callbacks": 74,
+      "saveSha256": "fa8cafab5e53696815d5c41c128c146c86969a74392eaa6b23fe508f24c9e478"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 240,
+      "seed": 16,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2640,
+        "hp": 2640
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 174,
+        "army": 221,
+        "round": 6,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 452,
+      "callbacks": 72,
+      "saveSha256": "a4461a30e5c5835c3b0fd39ea4b434df0268c0c4213264eb295c6ba31231ba14"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 260,
+      "seed": 1,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2860,
+        "hp": 2860
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": false,
+      "after": {
+        "deployed": 0,
+        "army": 47,
+        "round": 6,
+        "stage100": true,
+        "enemyHp": 620
+      },
+      "loss": 626,
+      "callbacks": 83,
+      "saveSha256": "65df4b696c93df9d30e0e96e593305ff98f244f7b3fe862932cc339eb1f947a2"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 260,
+      "seed": 2,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2860,
+        "hp": 2860
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 57,
+        "army": 104,
+        "round": 7,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 569,
+      "callbacks": 75,
+      "saveSha256": "bbc08c7229ab28e59081dee4f22a56442b1013cc69088836df0b615b168337cf"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 260,
+      "seed": 3,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2860,
+        "hp": 2860
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 34,
+        "army": 81,
+        "round": 7,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 592,
+      "callbacks": 75,
+      "saveSha256": "6419bc351e53708213f432813982865986a4ef8dc40763182904fb400176f34d"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 260,
+      "seed": 4,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2860,
+        "hp": 2860
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 60,
+        "army": 107,
+        "round": 5,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 566,
+      "callbacks": 58,
+      "saveSha256": "c0b726726778993dd499d06aaa8c560233fc95fc58dbaaef8f95e1ea29d39f66"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 260,
+      "seed": 5,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2860,
+        "hp": 2860
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 83,
+        "army": 130,
+        "round": 5,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 543,
+      "callbacks": 63,
+      "saveSha256": "82146220e517ae382860cfc8d11d7a33878e2c455ac06be80c66b17c84b1c155"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 260,
+      "seed": 6,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2860,
+        "hp": 2860
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 86,
+        "army": 133,
+        "round": 6,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 540,
+      "callbacks": 64,
+      "saveSha256": "fe264dccc4698b0026c94b77bc6d5fb218ca1b00ba22322fb4f2b61645d5f226"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 260,
+      "seed": 7,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2860,
+        "hp": 2860
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 41,
+        "army": 88,
+        "round": 6,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 585,
+      "callbacks": 68,
+      "saveSha256": "d6b14251a2a8b751f1e6b99789382b0ba839f21ff29a08e3324061dab908cd4b"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 260,
+      "seed": 8,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2860,
+        "hp": 2860
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 70,
+        "army": 117,
+        "round": 6,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 556,
+      "callbacks": 68,
+      "saveSha256": "78b2dd5a647c71f61090660b451436ddc833bc8232d603888d6ec903015b87d1"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 260,
+      "seed": 9,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2860,
+        "hp": 2860
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 56,
+        "army": 103,
+        "round": 8,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 570,
+      "callbacks": 87,
+      "saveSha256": "23c02a2b33ccf35a9a798f384c54868074c465beb74a7420817e184ac4d62823"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 260,
+      "seed": 10,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2860,
+        "hp": 2860
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": false,
+      "after": {
+        "deployed": 0,
+        "army": 47,
+        "round": 7,
+        "stage100": true,
+        "enemyHp": 269
+      },
+      "loss": 626,
+      "callbacks": 80,
+      "saveSha256": "0d7580f73c8c6bbcd55fd067f4df113bc10e236a1030f03c6f5aced1d51752e8"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 260,
+      "seed": 11,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2860,
+        "hp": 2860
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 60,
+        "army": 107,
+        "round": 6,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 566,
+      "callbacks": 75,
+      "saveSha256": "4077ed0cc7699dadfb462b0cc3f346738ec0556819b726b436075e0f591bfebb"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 260,
+      "seed": 12,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2860,
+        "hp": 2860
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 49,
+        "army": 96,
+        "round": 7,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 577,
+      "callbacks": 80,
+      "saveSha256": "1677b57c71429dae72f52a3261ad2ef27ab83a5e30347bc6d411716f5335e060"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 260,
+      "seed": 13,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2860,
+        "hp": 2860
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 228,
+        "army": 275,
+        "round": 5,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 398,
+      "callbacks": 75,
+      "saveSha256": "1cf35a1e555d00911696032cfcf7eae9b1ddea592f4b20ff3c8f9ccc1507e4f3"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 260,
+      "seed": 14,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2860,
+        "hp": 2860
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 94,
+        "army": 141,
+        "round": 6,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 532,
+      "callbacks": 68,
+      "saveSha256": "815f8ed7a96e51cb496a149009d20417d9b96eb97bf0dc2460a2654872f68213"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 260,
+      "seed": 15,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2860,
+        "hp": 2860
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 80,
+        "army": 127,
+        "round": 5,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 546,
+      "callbacks": 64,
+      "saveSha256": "1a7332f4d005dc33c5a8a8e965770d13b9fae3dbf70409795a99fd3f8bffafa9"
+    },
+    {
+      "profile": "uninvested",
+      "scale": 260,
+      "seed": 16,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 0,
+        "hpLevel": 0,
+        "starAttack": 513.12,
+        "starHp": 62.38400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2860,
+        "hp": 2860
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 513.12,
+          "hp": 490.16
+        },
+        {
+          "people": 54,
+          "attack": 513.12,
+          "hp": 481.24800000000005
+        },
+        {
+          "people": 46,
+          "attack": 513.12,
+          "hp": 409.95200000000006
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 164,
+        "army": 211,
+        "round": 6,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 462,
+      "callbacks": 77,
+      "saveSha256": "24f555a9a88d5aecc0751c13b8c7532e253719774a6b880236f9e3bfa519f27d"
+    },
+    {
+      "profile": "invested",
+      "scale": 100,
+      "seed": 1,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 297,
+        "army": 344,
+        "round": 4,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 329,
+      "callbacks": 57,
+      "saveSha256": "9266dc886ec9c7936a1932487087674dd7ab227f2fc58157b4ba5fbf2eb99874"
+    },
+    {
+      "profile": "invested",
+      "scale": 100,
+      "seed": 2,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 344,
+        "army": 391,
+        "round": 5,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 282,
+      "callbacks": 67,
+      "saveSha256": "3234437e38dac7c39197ff3fbdbabfdf8816b47ac4c8c07ba01c6c8c2627a9c4"
+    },
+    {
+      "profile": "invested",
+      "scale": 100,
+      "seed": 3,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 268,
+        "army": 315,
+        "round": 4,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 358,
+      "callbacks": 60,
+      "saveSha256": "0c1f63cae2d53626e9f43942c92ef67ba125de57d022fe56fb35f897346b12a9"
+    },
+    {
+      "profile": "invested",
+      "scale": 100,
+      "seed": 4,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 329,
+        "army": 376,
+        "round": 4,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 297,
+      "callbacks": 62,
+      "saveSha256": "f139a5671f6cc6b3e5670bea8b6e3a322814f39a281ecfa68cc2acf36046f25d"
+    },
+    {
+      "profile": "invested",
+      "scale": 100,
+      "seed": 5,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 283,
+        "army": 330,
+        "round": 4,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 343,
+      "callbacks": 55,
+      "saveSha256": "24cba0aee44ce4c308944998690bd7113eba5ed8e118fea87352a9f5f0415def"
+    },
+    {
+      "profile": "invested",
+      "scale": 100,
+      "seed": 6,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 295,
+        "army": 342,
+        "round": 4,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 331,
+      "callbacks": 54,
+      "saveSha256": "0521e1e60fcd27a715f0a61e230536feba78c946debe11f48cba4059f5f54128"
+    },
+    {
+      "profile": "invested",
+      "scale": 100,
+      "seed": 7,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 427,
+        "army": 474,
+        "round": 4,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 199,
+      "callbacks": 57,
+      "saveSha256": "d179320812c44d7f0dbbedea8e97a396c8d0603ba8b1989bbc9784d6fdbd9acd"
+    },
+    {
+      "profile": "invested",
+      "scale": 100,
+      "seed": 8,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 397,
+        "army": 444,
+        "round": 4,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 229,
+      "callbacks": 66,
+      "saveSha256": "2b4fd90f6c4c8490280e6bcfb7acf08321d068ed81582a09674545899ccf9189"
+    },
+    {
+      "profile": "invested",
+      "scale": 100,
+      "seed": 9,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 412,
+        "army": 459,
+        "round": 3,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 214,
+      "callbacks": 53,
+      "saveSha256": "b250af34d5452c0d1641f5f9d2cf0e7c2a2bd53cf63f0d0aa8f8b4de53b4c94c"
+    },
+    {
+      "profile": "invested",
+      "scale": 100,
+      "seed": 10,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 449,
+        "army": 496,
+        "round": 3,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 177,
+      "callbacks": 47,
+      "saveSha256": "ed04dae4d7a00dbf8040ee211dcb159d585bcd7301d58cc882a64d022399e007"
+    },
+    {
+      "profile": "invested",
+      "scale": 100,
+      "seed": 11,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 403,
+        "army": 450,
+        "round": 3,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 223,
+      "callbacks": 56,
+      "saveSha256": "468905b7bc7dbe28618ba19843e722f1d82a6f1c7e86732eac015498e1f9a49c"
+    },
+    {
+      "profile": "invested",
+      "scale": 100,
+      "seed": 12,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 402,
+        "army": 449,
+        "round": 4,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 224,
+      "callbacks": 55,
+      "saveSha256": "76feaeda86db59eb9360f490d6df14f9d9a810d0b98181958ced8804bf7132c7"
+    },
+    {
+      "profile": "invested",
+      "scale": 100,
+      "seed": 13,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 452,
+        "army": 499,
+        "round": 3,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 174,
+      "callbacks": 45,
+      "saveSha256": "953816ce3805190f2deb8cf8ae5412f844cb7aae64d4da5a55b145a29f6b920b"
+    },
+    {
+      "profile": "invested",
+      "scale": 100,
+      "seed": 14,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 388,
+        "army": 435,
+        "round": 3,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 238,
+      "callbacks": 49,
+      "saveSha256": "5cebb5044694a2ddbb18dbeefd4ff73ac50cadd0d9889e3da02b95eb191a4b06"
+    },
+    {
+      "profile": "invested",
+      "scale": 100,
+      "seed": 15,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 326,
+        "army": 373,
+        "round": 4,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 300,
+      "callbacks": 66,
+      "saveSha256": "ab51b30811cfcad2bd720a2118ea07361b3b1ad3f89d3877a117635299ce24f0"
+    },
+    {
+      "profile": "invested",
+      "scale": 100,
+      "seed": 16,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 427,
+        "army": 474,
+        "round": 3,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 199,
+      "callbacks": 46,
+      "saveSha256": "0109aff6cea2eb9cfb1ea456f1bc0f581da883e73dab1f89b335b5aafae6c509"
+    },
+    {
+      "profile": "invested",
+      "scale": 120,
+      "seed": 1,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 185,
+        "army": 232,
+        "round": 4,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 441,
+      "callbacks": 60,
+      "saveSha256": "b52fb3b012188697b79214672852bcda7ce7f01ca5d11a9b6598a694396b80c1"
+    },
+    {
+      "profile": "invested",
+      "scale": 120,
+      "seed": 2,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 212,
+        "army": 259,
+        "round": 5,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 414,
+      "callbacks": 67,
+      "saveSha256": "d14f67ef5fe5ee55c4334330231a18e2af79694bede7bee557f2c9861d37c460"
+    },
+    {
+      "profile": "invested",
+      "scale": 120,
+      "seed": 3,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 252,
+        "army": 299,
+        "round": 5,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 374,
+      "callbacks": 68,
+      "saveSha256": "5972cb673b2dc79ce8f925ebe4d28776274c65ee587853bf45dcabe5910d5583"
+    },
+    {
+      "profile": "invested",
+      "scale": 120,
+      "seed": 4,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 287,
+        "army": 334,
+        "round": 4,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 339,
+      "callbacks": 64,
+      "saveSha256": "7d43b08ae0fe8f2c84abcf294c7bbc9d8529ba8a9321ea2c955668e239274224"
+    },
+    {
+      "profile": "invested",
+      "scale": 120,
+      "seed": 5,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 218,
+        "army": 265,
+        "round": 5,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 408,
+      "callbacks": 69,
+      "saveSha256": "6ed65843abb55139c897013c1d444911508fa841287aa435956a2b71be239970"
+    },
+    {
+      "profile": "invested",
+      "scale": 120,
+      "seed": 6,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 250,
+        "army": 297,
+        "round": 5,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 376,
+      "callbacks": 64,
+      "saveSha256": "e97e0e8cad91c1d8291b6dcf714baa03efb5bf1674734da5314243bbbe297e2c"
+    },
+    {
+      "profile": "invested",
+      "scale": 120,
+      "seed": 7,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 390,
+        "army": 437,
+        "round": 4,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 236,
+      "callbacks": 65,
+      "saveSha256": "5408b698aba12ba7f52f4091e05ec0b9faa9b32b2370707cc56c59942bed7967"
+    },
+    {
+      "profile": "invested",
+      "scale": 120,
+      "seed": 8,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 257,
+        "army": 304,
+        "round": 5,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 369,
+      "callbacks": 82,
+      "saveSha256": "792c76a1ae913e4727677c688d2efd6adb6899c3739b400a9087a7de16445937"
+    },
+    {
+      "profile": "invested",
+      "scale": 120,
+      "seed": 9,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 315,
+        "army": 362,
+        "round": 4,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 311,
+      "callbacks": 62,
+      "saveSha256": "fd4fccc02223731a08b68a7a87092185100a64aa30feee2aa99b7dc4fa807894"
+    },
+    {
+      "profile": "invested",
+      "scale": 120,
+      "seed": 10,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 316,
+        "army": 363,
+        "round": 4,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 310,
+      "callbacks": 61,
+      "saveSha256": "efd57682797095694f9c0ed3f3ce4231f548a1cf5638ac70f33df320cce54e38"
+    },
+    {
+      "profile": "invested",
+      "scale": 120,
+      "seed": 11,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 392,
+        "army": 439,
+        "round": 3,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 234,
+      "callbacks": 55,
+      "saveSha256": "7979461513f97165319ce574d255da9f699d252b4aac496ce0d7397617b9e44c"
+    },
+    {
+      "profile": "invested",
+      "scale": 120,
+      "seed": 12,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 291,
+        "army": 338,
+        "round": 3,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 335,
+      "callbacks": 49,
+      "saveSha256": "2ed46e8bd28588c814dfbcfc5b128ec92075271c26f66dc93ce22af8f43724e1"
+    },
+    {
+      "profile": "invested",
+      "scale": 120,
+      "seed": 13,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 193,
+        "army": 240,
+        "round": 5,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 433,
+      "callbacks": 58,
+      "saveSha256": "fd8016b0358b842ffb1d02f693471b4682c04c0b668978d866b21749353ea1f9"
+    },
+    {
+      "profile": "invested",
+      "scale": 120,
+      "seed": 14,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 213,
+        "army": 260,
+        "round": 5,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 413,
+      "callbacks": 57,
+      "saveSha256": "4051f8f5709df07d6f340e6234205df0971d9a8c4bdbca0279662bb4b4f12375"
+    },
+    {
+      "profile": "invested",
+      "scale": 120,
+      "seed": 15,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 230,
+        "army": 277,
+        "round": 5,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 396,
+      "callbacks": 78,
+      "saveSha256": "1622ffa5df1f70890b87d60fe3c2b3c930956cd81ffd79ea1ba11b9014a3f482"
+    },
+    {
+      "profile": "invested",
+      "scale": 120,
+      "seed": 16,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 346,
+        "army": 393,
+        "round": 4,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 280,
+      "callbacks": 53,
+      "saveSha256": "78f7cbf2a89280c0ae17278d26ad39c799ab4e4f854cc5c95a744583397572c3"
+    },
+    {
+      "profile": "invested",
+      "scale": 180,
+      "seed": 1,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 118,
+        "army": 165,
+        "round": 5,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 508,
+      "callbacks": 63,
+      "saveSha256": "ffbe066e021a312615a589fff81acf334e6d35fa80815f35576ae4f11ab7f15d"
+    },
+    {
+      "profile": "invested",
+      "scale": 180,
+      "seed": 2,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 235,
+        "army": 282,
+        "round": 4,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 391,
+      "callbacks": 66,
+      "saveSha256": "e0b50f6cc072c2b43c385d2cd0ff0b73d0ee5decff184170ba2ee89c8a2789cf"
+    },
+    {
+      "profile": "invested",
+      "scale": 180,
+      "seed": 3,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 122,
+        "army": 169,
+        "round": 5,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 504,
+      "callbacks": 69,
+      "saveSha256": "5898eba3127de46d4d336c4651fa5bf322cd6473dc003173ceacac54ceaf8b15"
+    },
+    {
+      "profile": "invested",
+      "scale": 180,
+      "seed": 4,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 233,
+        "army": 280,
+        "round": 6,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 393,
+      "callbacks": 85,
+      "saveSha256": "f07593cadec5f14dec2d921ab85f394c4167e1f871e1929acf8e34eea9872ed2"
+    },
+    {
+      "profile": "invested",
+      "scale": 180,
+      "seed": 5,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 218,
+        "army": 265,
+        "round": 4,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 408,
+      "callbacks": 61,
+      "saveSha256": "c4c303cd512f190b8e86fc95f7f5232cccd88ef1e6647a34781ded690fc2fd79"
+    },
+    {
+      "profile": "invested",
+      "scale": 180,
+      "seed": 6,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 170,
+        "army": 217,
+        "round": 5,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 456,
+      "callbacks": 58,
+      "saveSha256": "4d3a545572c0dc2b11cc9aeef48554a81662339d7b4975ef970aee73ff1913fc"
+    },
+    {
+      "profile": "invested",
+      "scale": 180,
+      "seed": 7,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 204,
+        "army": 251,
+        "round": 4,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 422,
+      "callbacks": 62,
+      "saveSha256": "df0f399724f2de446f8a2f15e1fd447fde142bfad2e597033e88709cb1375fb9"
+    },
+    {
+      "profile": "invested",
+      "scale": 180,
+      "seed": 8,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 194,
+        "army": 241,
+        "round": 5,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 432,
+      "callbacks": 72,
+      "saveSha256": "fe3a4b9488506e907b9df092c5c190aea6d4562f7bea0491e75b74cc0d437cd7"
+    },
+    {
+      "profile": "invested",
+      "scale": 180,
+      "seed": 9,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 206,
+        "army": 253,
+        "round": 5,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 420,
+      "callbacks": 76,
+      "saveSha256": "b260f027b3e9a23508e8721626190febe17688e1fc4161e491f061672d8bc231"
+    },
+    {
+      "profile": "invested",
+      "scale": 180,
+      "seed": 10,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 160,
+        "army": 207,
+        "round": 5,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 466,
+      "callbacks": 74,
+      "saveSha256": "e4e1eacb34eb5565ca30cdf16fd2646f9f9231cd30f40733e04b2c3ce402a182"
+    },
+    {
+      "profile": "invested",
+      "scale": 180,
+      "seed": 11,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 160,
+        "army": 207,
+        "round": 5,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 466,
+      "callbacks": 67,
+      "saveSha256": "ef4ba6280af10901ec539041b23c532628e30ce93bc65fe671f8b3434db6eb7d"
+    },
+    {
+      "profile": "invested",
+      "scale": 180,
+      "seed": 12,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 355,
+        "army": 402,
+        "round": 3,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 271,
+      "callbacks": 47,
+      "saveSha256": "40ce51bd8e6b4907b971c836be34e3782535026abca6c27df07f54852fbe63ab"
+    },
+    {
+      "profile": "invested",
+      "scale": 180,
+      "seed": 13,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 143,
+        "army": 190,
+        "round": 6,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 483,
+      "callbacks": 75,
+      "saveSha256": "be061756edd247e1ce3b0d8131642cfd95eaab6d8f59d7eab7c3ae6f853ecfd5"
+    },
+    {
+      "profile": "invested",
+      "scale": 180,
+      "seed": 14,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 173,
+        "army": 220,
+        "round": 5,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 453,
+      "callbacks": 63,
+      "saveSha256": "9c1e57371f7d7fdf6eb8f8d3884a262fd272c518f642790dd3244009d2ff2202"
+    },
+    {
+      "profile": "invested",
+      "scale": 180,
+      "seed": 15,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 131,
+        "army": 178,
+        "round": 5,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 495,
+      "callbacks": 69,
+      "saveSha256": "e8f24b6f8386fafb9d0a7aa8d70f6e405a5511348785176121616b40cd7618e3"
+    },
+    {
+      "profile": "invested",
+      "scale": 180,
+      "seed": 16,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 235,
+        "army": 282,
+        "round": 5,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 391,
+      "callbacks": 60,
+      "saveSha256": "443ed2bd31f97954c07caf5e3aa737f648835a4e3439e39c453b6d707569c92b"
+    },
+    {
+      "profile": "invested",
+      "scale": 240,
+      "seed": 1,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2640,
+        "hp": 2640
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": false,
+      "after": {
+        "deployed": 0,
+        "army": 47,
+        "round": 7,
+        "stage100": true,
+        "enemyHp": 397
+      },
+      "loss": 626,
+      "callbacks": 83,
+      "saveSha256": "0bb98b8601313b3bfae70835b927879935c831a7421293c88a8d10eafb758e29"
+    },
+    {
+      "profile": "invested",
+      "scale": 240,
+      "seed": 2,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2640,
+        "hp": 2640
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 113,
+        "army": 160,
+        "round": 6,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 513,
+      "callbacks": 69,
+      "saveSha256": "0d664f7e2ff57aad7a9245f8831c7838a8babefce41106007aed3d703cb52496"
+    },
+    {
+      "profile": "invested",
+      "scale": 240,
+      "seed": 3,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2640,
+        "hp": 2640
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 69,
+        "army": 116,
+        "round": 5,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 557,
+      "callbacks": 66,
+      "saveSha256": "c337449021599a52341ddc3c2b42c49770b0ab862ee66beba20d3d916004cebf"
+    },
+    {
+      "profile": "invested",
+      "scale": 240,
+      "seed": 4,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2640,
+        "hp": 2640
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 59,
+        "army": 106,
+        "round": 6,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 567,
+      "callbacks": 74,
+      "saveSha256": "baf7f2483510e23fc36f8c22b05820eeb574e311bbef643b0469801373141e81"
+    },
+    {
+      "profile": "invested",
+      "scale": 240,
+      "seed": 5,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2640,
+        "hp": 2640
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 71,
+        "army": 118,
+        "round": 6,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 555,
+      "callbacks": 65,
+      "saveSha256": "e2a975621a89aad6c6a54aabbf7ce20be89945593483e5fe2b14ea71798754fe"
+    },
+    {
+      "profile": "invested",
+      "scale": 240,
+      "seed": 6,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2640,
+        "hp": 2640
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 51,
+        "army": 98,
+        "round": 7,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 575,
+      "callbacks": 69,
+      "saveSha256": "c103eff7d5fde6b6a001087bd9555d57b0f1dc0d8cdebdd468cb044317e4d332"
+    },
+    {
+      "profile": "invested",
+      "scale": 240,
+      "seed": 7,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2640,
+        "hp": 2640
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": false,
+      "after": {
+        "deployed": 0,
+        "army": 47,
+        "round": 8,
+        "stage100": true,
+        "enemyHp": 494
+      },
+      "loss": 626,
+      "callbacks": 90,
+      "saveSha256": "47734ad3cf45f59c3dbc2deb9603a149cea49e7d4f2c9287c99053ddf551c69e"
+    },
+    {
+      "profile": "invested",
+      "scale": 240,
+      "seed": 8,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2640,
+        "hp": 2640
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 169,
+        "army": 216,
+        "round": 5,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 457,
+      "callbacks": 67,
+      "saveSha256": "c684bf535c89634bc0035e3a315ca82295d2da2dddbbed59dd0fdeeb7e4d0907"
+    },
+    {
+      "profile": "invested",
+      "scale": 240,
+      "seed": 9,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2640,
+        "hp": 2640
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 76,
+        "army": 123,
+        "round": 8,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 550,
+      "callbacks": 90,
+      "saveSha256": "74b4e8498b9fd796b14dd370a46c50a05ac0d5e7b24657b7a6e71dae6d8e1480"
+    },
+    {
+      "profile": "invested",
+      "scale": 240,
+      "seed": 10,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2640,
+        "hp": 2640
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 24,
+        "army": 71,
+        "round": 8,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 602,
+      "callbacks": 83,
+      "saveSha256": "ca306c7eabafe6e2a9b35bf6ccae0f83ccc5e023bccf3f50bc4a4d5347e5cdab"
+    },
+    {
+      "profile": "invested",
+      "scale": 240,
+      "seed": 11,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2640,
+        "hp": 2640
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 21,
+        "army": 68,
+        "round": 8,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 605,
+      "callbacks": 85,
+      "saveSha256": "66ed47af30a7c0006615b2cf8651be0567d1765a43b5105443612ea24854d455"
+    },
+    {
+      "profile": "invested",
+      "scale": 240,
+      "seed": 12,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2640,
+        "hp": 2640
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 76,
+        "army": 123,
+        "round": 6,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 550,
+      "callbacks": 73,
+      "saveSha256": "66828b6ca8075c92e3937e53e3d4bae8e9f5a0fcd87d5ef4c1bd95cca474c974"
+    },
+    {
+      "profile": "invested",
+      "scale": 240,
+      "seed": 13,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2640,
+        "hp": 2640
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 250,
+        "army": 297,
+        "round": 5,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 376,
+      "callbacks": 65,
+      "saveSha256": "5a67a9f0867164d862803f94c990e4172555a90e639fa055cc7b6188f1d24d45"
+    },
+    {
+      "profile": "invested",
+      "scale": 240,
+      "seed": 14,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2640,
+        "hp": 2640
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 79,
+        "army": 126,
+        "round": 7,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 547,
+      "callbacks": 82,
+      "saveSha256": "34c90b66695197dae894e3e5ae43c1f883adf6d5efadc7145d64d5224b4e3808"
+    },
+    {
+      "profile": "invested",
+      "scale": 240,
+      "seed": 15,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2640,
+        "hp": 2640
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 113,
+        "army": 160,
+        "round": 7,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 513,
+      "callbacks": 74,
+      "saveSha256": "13c7519610f09275d6ef8b0584275dafe7980963ece1509126147f0d9780dd2a"
+    },
+    {
+      "profile": "invested",
+      "scale": 240,
+      "seed": 16,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2640,
+        "hp": 2640
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 178,
+        "army": 225,
+        "round": 6,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 448,
+      "callbacks": 72,
+      "saveSha256": "530ef29fae63926f8ec8d9565b11f533263cd43b4a62382d34cc090ed7695df2"
+    },
+    {
+      "profile": "invested",
+      "scale": 260,
+      "seed": 1,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2860,
+        "hp": 2860
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 43,
+        "army": 90,
+        "round": 9,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 583,
+      "callbacks": 92,
+      "saveSha256": "ee9155bb3aa828c738e22033448017a1921de0f19f7d3ad4e37d28a504de7513"
+    },
+    {
+      "profile": "invested",
+      "scale": 260,
+      "seed": 2,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2860,
+        "hp": 2860
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 16,
+        "army": 63,
+        "round": 7,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 610,
+      "callbacks": 74,
+      "saveSha256": "d4fc844b57376ea63c3fe1688b1e79437623010e664f82812c7e62ae470c66eb"
+    },
+    {
+      "profile": "invested",
+      "scale": 260,
+      "seed": 3,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2860,
+        "hp": 2860
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 38,
+        "army": 85,
+        "round": 7,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 588,
+      "callbacks": 80,
+      "saveSha256": "174878cb558054cef996c464796d2b992d83974855f1db6161fd04186e47a07e"
+    },
+    {
+      "profile": "invested",
+      "scale": 260,
+      "seed": 4,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2860,
+        "hp": 2860
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 44,
+        "army": 91,
+        "round": 7,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 582,
+      "callbacks": 79,
+      "saveSha256": "0864d12caf52fc0faf8145472ee7b1d358db9ce5f1886eec53451fa402e6b478"
+    },
+    {
+      "profile": "invested",
+      "scale": 260,
+      "seed": 5,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2860,
+        "hp": 2860
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 124,
+        "army": 171,
+        "round": 6,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 502,
+      "callbacks": 72,
+      "saveSha256": "e2d544806ab4861f404f237b5fff9560c783fdb5e31b783aa707fdee12cf5236"
+    },
+    {
+      "profile": "invested",
+      "scale": 260,
+      "seed": 6,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2860,
+        "hp": 2860
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": false,
+      "after": {
+        "deployed": 0,
+        "army": 47,
+        "round": 6,
+        "stage100": true,
+        "enemyHp": 1300
+      },
+      "loss": 626,
+      "callbacks": 71,
+      "saveSha256": "7359d20dd917a2bbbabf2809cbf7c74fb8a6299b06e9995f34d42a611343c049"
+    },
+    {
+      "profile": "invested",
+      "scale": 260,
+      "seed": 7,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2860,
+        "hp": 2860
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 28,
+        "army": 75,
+        "round": 8,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 598,
+      "callbacks": 80,
+      "saveSha256": "8d228dc29ed370961eb13388ad23aa86046b4de7a888d3d5158b20f5eecebdd1"
+    },
+    {
+      "profile": "invested",
+      "scale": 260,
+      "seed": 8,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2860,
+        "hp": 2860
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 38,
+        "army": 85,
+        "round": 8,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 588,
+      "callbacks": 80,
+      "saveSha256": "45029475fbdbdd67a4655145c38f365a255853b65f53028f81c79836bf42557a"
+    },
+    {
+      "profile": "invested",
+      "scale": 260,
+      "seed": 9,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2860,
+        "hp": 2860
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 56,
+        "army": 103,
+        "round": 8,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 570,
+      "callbacks": 87,
+      "saveSha256": "9cac07af53d8da3edb3d43bebe8a8e22363617072c75f0560bfd0c63d840250c"
+    },
+    {
+      "profile": "invested",
+      "scale": 260,
+      "seed": 10,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2860,
+        "hp": 2860
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 15,
+        "army": 62,
+        "round": 9,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 611,
+      "callbacks": 84,
+      "saveSha256": "2ea2085fe4deb8aae805cb939c888a6c3d64a33bdac4750e7ce11929a88b035f"
+    },
+    {
+      "profile": "invested",
+      "scale": 260,
+      "seed": 11,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2860,
+        "hp": 2860
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 104,
+        "army": 151,
+        "round": 7,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 522,
+      "callbacks": 82,
+      "saveSha256": "4e0d793847810eae23efcf9ab0d81d23944e7a2a3680a0c7213b8565b4940f9b"
+    },
+    {
+      "profile": "invested",
+      "scale": 260,
+      "seed": 12,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2860,
+        "hp": 2860
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 181,
+        "army": 228,
+        "round": 5,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 445,
+      "callbacks": 68,
+      "saveSha256": "7324839120dbfbcc7d55b4cdef6bc2f93b737f2a3739ba4319d06a3e5fedda74"
+    },
+    {
+      "profile": "invested",
+      "scale": 260,
+      "seed": 13,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2860,
+        "hp": 2860
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 118,
+        "army": 165,
+        "round": 6,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 508,
+      "callbacks": 71,
+      "saveSha256": "34ba5e3f2f495fb2af5dedd94f7f82b19a7984e71bf9125015cc1f25fcc272e3"
+    },
+    {
+      "profile": "invested",
+      "scale": 260,
+      "seed": 14,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2860,
+        "hp": 2860
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 104,
+        "army": 151,
+        "round": 6,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 522,
+      "callbacks": 68,
+      "saveSha256": "3b4e8987e1daf34f0b168174ad9af6f5f444f6ae03d1e6b952538ddb9cb3ebf9"
+    },
+    {
+      "profile": "invested",
+      "scale": 260,
+      "seed": 15,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2860,
+        "hp": 2860
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 33,
+        "army": 80,
+        "round": 7,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 593,
+      "callbacks": 72,
+      "saveSha256": "c3b13c8b874340560eb2271f64f5e936c2e4c44fbcf3ba9b4ec0bec240da05a2"
+    },
+    {
+      "profile": "invested",
+      "scale": 260,
+      "seed": 16,
+      "before": {
+        "deployed": 626,
+        "army": 673,
+        "science": true,
+        "stage100": true,
+        "atkLevel": 1,
+        "hpLevel": 1,
+        "starAttack": 517.12,
+        "starHp": 65.18400000000001
+      },
+      "enemy": {
+        "groups": 11,
+        "people": 2860,
+        "hp": 2860
+      },
+      "starEntry": [
+        {
+          "people": 55,
+          "attack": 517.12,
+          "hp": 512.1600000000001
+        },
+        {
+          "people": 54,
+          "attack": 517.12,
+          "hp": 502.84800000000007
+        },
+        {
+          "people": 46,
+          "attack": 517.12,
+          "hp": 428.35200000000003
+        }
+      ],
+      "won": true,
+      "after": {
+        "deployed": 164,
+        "army": 211,
+        "round": 6,
+        "stage100": true,
+        "enemyHp": 0
+      },
+      "loss": 462,
+      "callbacks": 77,
+      "saveSha256": "abc4046a3adc3a65036178c61449d24f16827df60337402f4bdf52d9f1c5b238"
+    }
+  ]
+}

@@ -88,11 +88,11 @@ check('旧v32候选迁移保原文和合法0，损坏与未来存档拒载保护
     d=>d.beastExchange.soulOffers.aegisElixir=15,
     d=>d.beastExchange.soulOffers.other=1,
     d=>d.beastExchange.level=59,
-    d=>d.v=35]){
+    d=>d.v=36]){
     const d=JSON.parse(e.store.get('rts_save'));mutate(d);
     if(d.beastExchange.level===59)d.beastExchange.soulOffers.aegisElixir=1;
     const text=JSON.stringify(d),bad=environment({rts_save:text});
-    assert.equal(bad.run('loadSaveAndApply().status'),d.v===35?'future':'invalid');
+    assert.equal(bad.run('loadSaveAndApply().status'),d.v===36?'future':'invalid');
     bad.run('tick();save()');assert.equal(bad.store.get('rts_save'),text);
   }
 });
