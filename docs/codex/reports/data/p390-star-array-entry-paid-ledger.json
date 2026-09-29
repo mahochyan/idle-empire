@@ -1,0 +1,293 @@
+{
+  "batch": "P390",
+  "source": {
+    "file": "docs\\codex\\reports\\data\\p386-300m-paid-save.json",
+    "sha256": "7f27ca4a53ba412e187ec72aeaaf6349f1bba00185ae422ac959dac8e557f5cf"
+  },
+  "fixedClockUtc": "2026-09-30T12:00:00.000Z",
+  "migration": {
+    "from": 32,
+    "to": 33,
+    "preMigrationRawProtected": true
+  },
+  "runtimeFiles": {
+    "config.js": "d52f6323d46d6a924cad3edabcd0491cb5f75630afd2e0bafe1082fbf5cb6ad2",
+    "levels.js": "dec14783bbeb41111ae116598dff48c9a6930b2dbf7879e2265f8887d4cc9f54",
+    "math.js": "b128ed8cc90d05f15c0a325ea815f5317d2bba34ef8f209580f38818c209f778",
+    "garrison.js": "762da86c67c0bfb1ef0c5a519a7fad57a8f8e4f7ad6c5045f4736c2b650739a9",
+    "technology.js": "c51fb05821593d9e76396ff18b0a38d78dee1db9cdc55631b78a7f223ad0a006"
+  },
+  "checkpoints": [
+    {
+      "name": "p386_migrated",
+      "state": {
+        "v": 33,
+        "tick": 12287046,
+        "tech": 300022549,
+        "techCap": 307340352,
+        "techRate": 24354,
+        "food": 480699,
+        "medal": 4042870,
+        "beastScience": false,
+        "arrayScience": false,
+        "quantumScience": false,
+        "awakening": {
+          "level": 6,
+          "stars": 7
+        },
+        "knowledgePercent": 0,
+        "starItems": {
+          "starOriginStone": 0,
+          "illusionStone": 0,
+          "sacredRingCore": 0
+        },
+        "beastAlert": 0,
+        "dailyBeast1": 0,
+        "army": 672,
+        "deployed": 626,
+        "steamKnowledge": 30,
+        "scrolls": 130
+      },
+      "sha256": "15b06c79bb68dfe82a1c92c7bdb835552c3a63d08178bf20c58515e66646c696"
+    },
+    {
+      "name": "beast_science_paid",
+      "cost": {
+        "tech": 200000000,
+        "medal": 1000000,
+        "merit": 0
+      },
+      "state": {
+        "v": 33,
+        "tick": 12287046,
+        "tech": 100022549,
+        "techCap": 307340352,
+        "techRate": 24354,
+        "food": 480699,
+        "medal": 3042870,
+        "beastScience": true,
+        "arrayScience": false,
+        "quantumScience": false,
+        "awakening": {
+          "level": 6,
+          "stars": 7
+        },
+        "knowledgePercent": 0,
+        "starItems": {
+          "starOriginStone": 0,
+          "illusionStone": 0,
+          "sacredRingCore": 0
+        },
+        "beastAlert": 0,
+        "dailyBeast1": 0,
+        "army": 672,
+        "deployed": 626,
+        "steamKnowledge": 30,
+        "scrolls": 130
+      },
+      "sha256": "c5126045428786d8e6e25bee58c2e8929491da63e561de1f9d60dd1832e6a68c"
+    },
+    {
+      "name": "array_science_funded",
+      "state": {
+        "v": 33,
+        "tick": 12295258,
+        "tech": 300017597,
+        "techCap": 307340352,
+        "techRate": 24354,
+        "food": 480699,
+        "medal": 3042870,
+        "beastScience": true,
+        "arrayScience": false,
+        "quantumScience": false,
+        "awakening": {
+          "level": 6,
+          "stars": 7
+        },
+        "knowledgePercent": 0,
+        "starItems": {
+          "starOriginStone": 0,
+          "illusionStone": 0,
+          "sacredRingCore": 0
+        },
+        "beastAlert": 0,
+        "dailyBeast1": 0,
+        "army": 672,
+        "deployed": 626,
+        "steamKnowledge": 30,
+        "scrolls": 130
+      },
+      "sha256": "7d2c4133c4dd5883650a652240d43ad862b0f6b3e52fbf870a1aa9c064f1dfd1"
+    },
+    {
+      "name": "array_science_paid",
+      "cost": {
+        "tech": 300000000,
+        "medal": 2000000,
+        "merit": 0
+      },
+      "state": {
+        "v": 33,
+        "tick": 12295258,
+        "tech": 17597,
+        "techCap": 307340352,
+        "techRate": 24354,
+        "food": 480699,
+        "medal": 1042870,
+        "beastScience": true,
+        "arrayScience": true,
+        "quantumScience": false,
+        "awakening": {
+          "level": 6,
+          "stars": 7
+        },
+        "knowledgePercent": 0,
+        "starItems": {
+          "starOriginStone": 0,
+          "illusionStone": 0,
+          "sacredRingCore": 0
+        },
+        "beastAlert": 0,
+        "dailyBeast1": 0,
+        "army": 672,
+        "deployed": 626,
+        "steamKnowledge": 30,
+        "scrolls": 130
+      },
+      "sha256": "a09d408d18fae0437a53fca6a2250fc8ff7de3750c408f133f4f7c3c04be2bba"
+    },
+    {
+      "name": "first_beast_paid_win",
+      "state": {
+        "v": 33,
+        "tick": 12295258,
+        "tech": 17597,
+        "techCap": 307340352,
+        "techRate": 24354,
+        "food": 480699,
+        "medal": 1042870,
+        "beastScience": true,
+        "arrayScience": true,
+        "quantumScience": false,
+        "awakening": {
+          "level": 6,
+          "stars": 7
+        },
+        "knowledgePercent": 0,
+        "starItems": {
+          "starOriginStone": 10,
+          "illusionStone": 10,
+          "sacredRingCore": 10
+        },
+        "beastAlert": 100,
+        "dailyBeast1": 1,
+        "army": 646,
+        "deployed": 600,
+        "steamKnowledge": 30,
+        "scrolls": 130
+      },
+      "battle": {
+        "result": "win",
+        "callbacks": 287
+      },
+      "firstOpenCost": {
+        "item": "sacredRingCore",
+        "amount": 1000
+      },
+      "firstOpenAttempt": {
+        "ok": false,
+        "reason": "insufficient-items"
+      },
+      "sha256": "aa54851f4e4a12848f56cb4b98ccd0eb52e2c62a4fdc066325f037a0ba37c25a"
+    }
+  ],
+  "fill": {
+    "seconds": 8212,
+    "techRateAtStart": 24354,
+    "techBefore": 100022549,
+    "techAfter": 300017597,
+    "foodBefore": 480699,
+    "foodAfter": 480699
+  },
+  "quantumAttempt": {
+    "ok": false,
+    "reason": "insufficient-tech",
+    "cost": {
+      "tech": 3000000000,
+      "medal": 3000000,
+      "merit": 0
+    },
+    "medalDeficit": 1957130
+  },
+  "starRequirement": {
+    "scope": "Conditional with P390 paid warehouse, technologies and 130 scrolls frozen. Separately assume future paid awakening 20/50; levels/materials are optimized in arithmetic only and are not in the paid save.",
+    "baseBeforeScroll": 133626240,
+    "scrollMult": 2.3,
+    "requiredPercent": 877,
+    "requiredRaw": 1462,
+    "minSlots": 17,
+    "maximumAt16Slots": {
+      "raw": 1340,
+      "percent": 804,
+      "capacity": 2778356780
+    },
+    "optimized17Slots": {
+      "raw": 1462,
+      "levels": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        9,
+        10,
+        10,
+        9,
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "percent": 877,
+      "capacity": 3002715237,
+      "runtimeConditionalCap": 3002715237,
+      "materialCosts": {
+        "sacredRingCore": 153000,
+        "illusionStone": 15300,
+        "starOriginStone": 133920
+      }
+    },
+    "materialSources": {
+      "baseRewardPerDay": 860,
+      "maxAlertGainPerDay": 2700,
+      "zeroAlertAllNineDays": 178,
+      "strictOptimisticDayLowerBound": 24,
+      "optimisticCorePreviousDay": 146197,
+      "optimisticCoreAtBoundDay": 158065,
+      "lowerBoundMethod": "All 9 tiers somehow win daily; each receives the maximum possible end-of-day alert multiplier, with no calming or combat failure. Real reachable time can only be later."
+    },
+    "awakening": {
+      "currentLevel": 6,
+      "currentStars": 7,
+      "nextTrialAttempt": {
+        "ok": false,
+        "reason": "insufficient-items",
+        "cost": 109
+      },
+      "simpleTrialRemainingRanks": 14,
+      "simpleTrialFutureStars": 43,
+      "fruitMinimumIfFirstGroupOne": 1764,
+      "fruitIfCurrentFirstGroup55": 2520,
+      "currentFruit": 25
+    }
+  },
+  "finalSave": {
+    "file": "docs\\codex\\reports\\data\\p390-star-array-entry-paid-save.json",
+    "sha256": "aa54851f4e4a12848f56cb4b98ccd0eb52e2c62a4fdc066325f037a0ba37c25a"
+  },
+  "scope": "Same paid P386 source, actual researchScience/tick/openMaterialDomain/endBattle and reloads. Seed 1 chosen from prior published fixed sweep; existence evidence only, not win rate. No inventory, science, awakening, capacity or battle config injection."
+}
