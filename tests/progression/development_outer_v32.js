@@ -61,7 +61,7 @@ check('外域入口要求青铜研究、非空编队，未知区域不能借道�
 
 check('实付L10无L19战前档真实胜村寨，地契勋章警戒同场保存并重载',()=>{
   const e=battleEnvironment();
-  const before=JSON.parse(e.run('JSON.stringify({deed:S.res.deed,medal:S.res.medal,merit:S.merit,defeated:S.defeated})'));
+  const before=JSON.parse(e.run('JSON.stringify({deed:S.res.deed,medal:S.res.medal,merit:S.merit,shield:S.essence.shield_essence||0,defeated:S.defeated})'));
   assert.deepEqual(before.defeated,Array.from({length:10},(_,i)=>i+1));
   e.run("openDevelopmentOuter('village')");
   assert.equal(e.run('S.battleEncounter'),'outerVillage');
@@ -73,13 +73,16 @@ check('实付L10无L19战前档真实胜村寨，地契勋章警戒同场保存�
   assert.equal(e.run('S.development.outer.village.alert'),20);
   assert.equal(e.run('S.res.deed'),before.deed+12);
   assert.equal(e.run('S.res.medal'),before.medal+5);
-  assert.equal(e.run('S.merit'),before.merit);
+  assert.equal(e.run('S.merit'),before.merit+5);
+  assert.equal(e.run('S.essence.shield_essence'),before.shield+1);
   assert.deepEqual(JSON.parse(e.run('JSON.stringify(S.defeated)')),before.defeated);
   const saved=e.store.get('rts_save'),data=JSON.parse(saved);
   assert.equal(data.development.outer.village.wins,1);
   assert.equal(data.development.outer.village.alert,20);
   assert.equal(data.res.deed,before.deed+12);
   assert.equal(data.res.medal,before.medal+5);
+  assert.equal(data.merit,before.merit+5);
+  assert.equal(data.essence.shield_essence,before.shield+1);
   assert.match(e.run("document.getElementById('battle-result').innerHTML"),/地契[^<]*\+12/);
   assert.match(e.run("document.getElementById('battle-result').innerHTML"),/战备勋章[^<]*\+5/);
   e.run("endBattle('win');exitBattle()");
@@ -89,6 +92,8 @@ check('实付L10无L19战前档真实胜村寨，地契勋章警戒同场保存�
   assert.equal(reload.run('S.development.outer.village.wins'),1);
   assert.equal(reload.run('S.res.deed'),before.deed+12);
   assert.equal(reload.run('S.res.medal'),before.medal+5);
+  assert.equal(reload.run('S.merit'),before.merit+5);
+  assert.equal(reload.run('S.essence.shield_essence'),before.shield+1);
 });
 
 check('外域警戒由本区字段增长，保留历史超出新试价上限的记录',()=>{
@@ -135,13 +140,13 @@ check('主档写入失败时战损、奖励、区域胜次和日志同场回滚'
   const e=battleEnvironment();
   e.run('save()');const raw=e.store.get('rts_save');
   e.run("openDevelopmentOuter('village')");
-  const before=e.run('JSON.stringify({formation:S.formation,development:S.development,log:S.log,res:S.res})');
+  const before=e.run('JSON.stringify({formation:S.formation,development:S.development,log:S.log,res:S.res,merit:S.merit,essence:S.essence})');
   e.run(`B.ourUnits[0].hp=1;B.ourUnits[0].alive=true;
     B.enemyUnits.forEach(u=>u.alive=false);
     const oldSet=localStorage.setItem;
     localStorage.setItem=(k,v)=>{if(k==='rts_save')throw Error('quota');oldSet(k,v)};
     endBattle('win');`);
-  assert.equal(e.run('JSON.stringify({formation:S.formation,development:S.development,log:S.log,res:S.res})'),before);
+  assert.equal(e.run('JSON.stringify({formation:S.formation,development:S.development,log:S.log,res:S.res,merit:S.merit,essence:S.essence})'),before);
   assert.equal(e.store.get('rts_save'),raw);
   assert.match(e.run("document.getElementById('battle-result').innerHTML"),/保存失败/);
 });
@@ -187,7 +192,8 @@ check('工造军镇需真实铁器研究；零村寨胜场可付铁仓、练铁�
   const live=battleEnvironment(paid);
   assert.equal(live.run('S.development.outer.village.wins'),0);
   assert.equal(live.run('S.defeated.length'),10);
-  const deeds=live.run('S.res.deed'),medals=live.run('S.res.medal');
+  const deeds=live.run('S.res.deed'),medals=live.run('S.res.medal'),merit=live.run('S.merit');
+  const bow=live.run('S.essence.bow_essence||0'),wind=live.run('S.essence.wind_essence||0');
   live.run("openDevelopmentOuter('town')");
   assert.equal(live.run('S.battleEncounter'),'outerTown');
   assert.equal(live.run('B.enemyCfg.name'),'外域工造军镇');
@@ -198,6 +204,9 @@ check('工造军镇需真实铁器研究；零村寨胜场可付铁仓、练铁�
   assert.equal(live.run('S.development.outer.village.wins'),0);
   assert.equal(live.run('S.res.deed'),deeds+20);
   assert.equal(live.run('S.res.medal'),medals+7);
+  assert.equal(live.run('S.merit'),merit+7);
+  assert.equal(live.run('S.essence.bow_essence'),bow+1);
+  assert.equal(live.run('S.essence.wind_essence'),wind+1);
   assert.equal(live.run('S.defeated.length'),10);
   const battleSave=live.store.get('rts_save');
   live.run("endBattle('win');exitBattle()");
@@ -207,6 +216,9 @@ check('工造军镇需真实铁器研究；零村寨胜场可付铁仓、练铁�
   assert.equal(reloaded.run('S.development.outer.town.wins'),1);
   assert.equal(reloaded.run('S.res.deed'),deeds+20);
   assert.equal(reloaded.run('S.res.medal'),medals+7);
+  assert.equal(reloaded.run('S.merit'),merit+7);
+  assert.equal(reloaded.run('S.essence.bow_essence'),bow+1);
+  assert.equal(reloaded.run('S.essence.wind_essence'),wind+1);
 });
 
 check('工造军镇胜利写档失败时独立警戒、奖励、战损同场回滚',()=>{
@@ -215,13 +227,13 @@ check('工造军镇胜利写档失败时独立警戒、奖励、战损同场回�
   const raw=e.store.get('rts_save');
   e.run("openDevelopmentOuter('town')");
   assert.equal(e.run('S.battleActive'),true);
-  const before=e.run('JSON.stringify({formation:S.formation,development:S.development,log:S.log,res:S.res})');
+  const before=e.run('JSON.stringify({formation:S.formation,development:S.development,log:S.log,res:S.res,merit:S.merit,essence:S.essence})');
   e.run(`B.ourUnits[0].hp=1;B.ourUnits[0].alive=true;
     B.enemyUnits.forEach(u=>u.alive=false);
     const oldSet=localStorage.setItem;
     localStorage.setItem=(k,v)=>{if(k==='rts_save')throw Error('quota');oldSet(k,v)};
     endBattle('win');`);
-  assert.equal(e.run('JSON.stringify({formation:S.formation,development:S.development,log:S.log,res:S.res})'),before);
+  assert.equal(e.run('JSON.stringify({formation:S.formation,development:S.development,log:S.log,res:S.res,merit:S.merit,essence:S.essence})'),before);
   assert.equal(e.store.get('rts_save'),raw);
   assert.match(e.run("document.getElementById('battle-result').innerHTML"),/保存失败/);
 });
@@ -250,13 +262,14 @@ check('铸银城塞需白银时代；零外域胜场实付档可真实首胜并�
   assert.equal(e.run('S.development.outer.town.wins'),0);
   assert.equal(e.run('S.res.deed'),start.deed+32);
   assert.equal(e.run('S.res.medal'),start.medal+10);
-  assert.equal(e.run('S.merit'),start.merit);
+  assert.equal(e.run('S.merit'),start.merit+10);
   assert.deepEqual(JSON.parse(e.run('JSON.stringify(S.defeated)')),start.defeated);
   const saved=e.store.get('rts_save'),data=JSON.parse(saved);
   assert.equal(data.development.outer.city.wins,1);
   assert.equal(data.development.outer.city.alert,20);
   assert.equal(data.res.deed,start.deed+32);
   assert.equal(data.res.medal,start.medal+10);
+  assert.equal(data.merit,start.merit+10);
   e.run("endBattle('win');exitBattle()");
   assert.equal(e.store.get('rts_save'),saved);
   const reload=environment({rts_save:saved});
@@ -264,19 +277,20 @@ check('铸银城塞需白银时代；零外域胜场实付档可真实首胜并�
   assert.equal(reload.run('S.development.outer.city.wins'),1);
   assert.equal(reload.run('S.res.deed'),start.deed+32);
   assert.equal(reload.run('S.res.medal'),start.medal+10);
+  assert.equal(reload.run('S.merit'),start.merit+10);
 });
 
 check('铸银城塞写档失败时战损、区域进度与奖励整场回滚',()=>{
   const e=battleEnvironment(silverPaidSave);
   e.run('save()');const raw=e.store.get('rts_save');
   e.run("openDevelopmentOuter('city')");
-  const before=e.run('JSON.stringify({formation:S.formation,development:S.development,log:S.log,res:S.res})');
+  const before=e.run('JSON.stringify({formation:S.formation,development:S.development,log:S.log,res:S.res,merit:S.merit,essence:S.essence})');
   e.run(`B.ourUnits[0].hp=1;B.ourUnits[0].alive=true;
     B.enemyUnits.forEach(u=>u.alive=false);
     const oldSet=localStorage.setItem;
     localStorage.setItem=(k,v)=>{if(k==='rts_save')throw Error('quota');oldSet(k,v)};
     endBattle('win');`);
-  assert.equal(e.run('JSON.stringify({formation:S.formation,development:S.development,log:S.log,res:S.res})'),before);
+  assert.equal(e.run('JSON.stringify({formation:S.formation,development:S.development,log:S.log,res:S.res,merit:S.merit,essence:S.essence})'),before);
   assert.equal(e.store.get('rts_save'),raw);
   assert.match(e.run("document.getElementById('battle-result').innerHTML"),/保存失败/);
 });
@@ -304,13 +318,14 @@ check('铸金王都需黄金时代；零外域胜场实付档可真实首胜并�
     assert.equal(e.run(`S.development.outer.${region}.wins`),0);
   assert.equal(e.run('S.res.deed'),before.deed+40);
   assert.equal(e.run('S.res.medal'),before.medal+20);
-  assert.equal(e.run('S.merit'),before.merit);
+  assert.equal(e.run('S.merit'),before.merit+15);
   assert.deepEqual(JSON.parse(e.run('JSON.stringify(S.defeated)')),before.defeated);
   const saved=e.store.get('rts_save'),data=JSON.parse(saved);
   assert.equal(data.development.outer.capital.wins,1);
   assert.equal(data.development.outer.capital.alert,20);
   assert.equal(data.res.deed,before.deed+40);
   assert.equal(data.res.medal,before.medal+20);
+  assert.equal(data.merit,before.merit+15);
   e.run("endBattle('win');exitBattle()");
   assert.equal(e.store.get('rts_save'),saved);
   const reload=environment({rts_save:saved});
@@ -318,6 +333,7 @@ check('铸金王都需黄金时代；零外域胜场实付档可真实首胜并�
   assert.equal(reload.run('S.development.outer.capital.wins'),1);
   assert.equal(reload.run('S.res.deed'),before.deed+40);
   assert.equal(reload.run('S.res.medal'),before.medal+20);
+  assert.equal(reload.run('S.merit'),before.merit+15);
 });
 
 check('铸金王都写档失败时战损、区域进度与奖励整场回滚',()=>{
@@ -325,13 +341,13 @@ check('铸金王都写档失败时战损、区域进度与奖励整场回滚',()
   placeGoldArmy(e);
   e.run('save()');const raw=e.store.get('rts_save');
   e.run("openDevelopmentOuter('capital')");
-  const before=e.run('JSON.stringify({formation:S.formation,development:S.development,log:S.log,res:S.res})');
+  const before=e.run('JSON.stringify({formation:S.formation,development:S.development,log:S.log,res:S.res,merit:S.merit,essence:S.essence})');
   e.run(`B.ourUnits[0].hp=1;B.ourUnits[0].alive=true;
     B.enemyUnits.forEach(u=>u.alive=false);
     const oldSet=localStorage.setItem;
     localStorage.setItem=(k,v)=>{if(k==='rts_save')throw Error('quota');oldSet(k,v)};
     endBattle('win');`);
-  assert.equal(e.run('JSON.stringify({formation:S.formation,development:S.development,log:S.log,res:S.res})'),before);
+  assert.equal(e.run('JSON.stringify({formation:S.formation,development:S.development,log:S.log,res:S.res,merit:S.merit,essence:S.essence})'),before);
   assert.equal(e.store.get('rts_save'),raw);
   assert.match(e.run("document.getElementById('battle-result').innerHTML"),/保存失败/);
 });

@@ -271,6 +271,15 @@ function townGateShortfall(toLv){
 function bossDefeatedCount(){
   return CFG.enemies.filter(e=>e.boss&&S.defeated.includes(e.id)).length;
 }
+function buildingProgressLock(key){
+  const cfg=CFG.buildings[key];
+  if(!cfg?.needBoss||bossDefeatedCount()>=cfg.needBoss||
+    cfg.needDevelopmentTier&&unitTierDevelopmentWon(cfg.needDevelopmentTier))return '';
+  const gate=CFG.unitTierDevelopment?.[cfg.needDevelopmentTier];
+  const area=gate?.track==='border'?CFG.developmentBorder?.[gate.key]:
+    gate?.track==='outer'?CFG.developmentOuter?.[gate.key]:null;
+  return `需击败${cfg.needBoss}个Boss${area?'或首胜「'+area.name+'」':''}`;
+}
 // 切片4（S3 上限扩容）：开关决定是否使用 CFG.caps.expand 的扩容值；关闭时全部走原始数值
 function capsExpanded(){return !!(CFG.caps&&CFG.caps.expanded&&CFG.caps.expand)}
 function expandedResCap(rk){return (capsExpanded()&&CFG.caps.expand.res&&CFG.caps.expand.res[rk])||null}
@@ -517,7 +526,8 @@ function trainLockReason(uk){
       const key=trainBuildingKey(uk);
       if(!key)return '';
       const cfg=CFG.buildings[key],st=bldSt(key);
-      if(cfg.needBoss&&bossDefeatedCount()<cfg.needBoss)return '击败'+cfg.needBoss+'个Boss后解锁'+cfg.name;
+      const progressLock=buildingProgressLock(key);
+      if(progressLock)return progressLock+'后解锁'+cfg.name;
       if(st.lv<=0&&st.state==='idle')return `需先建造${cfg.name}`;
       if(st.state==='building')return `${cfg.name}建设中`;
       if(st.state==='upgrading')return `${cfg.name}升级中`;
@@ -546,7 +556,8 @@ function trainLockReason(uk){
   const key=trainBuildingKey(uk);
   if(!key)return '';
   const cfg=CFG.buildings[key],st=bldSt(key);
-  if(cfg.needBoss&&bossDefeatedCount()<cfg.needBoss)return '击败'+cfg.needBoss+'个Boss后解锁'+cfg.name;
+  const progressLock=buildingProgressLock(key);
+  if(progressLock)return progressLock+'后解锁'+cfg.name;
   if(st.lv<=0&&st.state==='idle')return `需先建造${cfg.name}`;
   if(st.state==='building')return `${cfg.name}建设中`;
   if(st.state==='upgrading')return `${cfg.name}升级中`;
@@ -3040,7 +3051,8 @@ function buildAct(key){
   if(_saveProtected){toast('存档保护中，无法建设');return{ok:false,reason:'save-protected'}}
   const st=bldSt(key);
   if(!buildingScienceUnlocked(key)){toast('需先研究「'+sciName(cfg.needScience)+'」');return{ok:false,reason:'need-science'}}
-  if(cfg.needBoss && bossDefeatedCount()<cfg.needBoss){toast(`击败${cfg.needBoss}个Boss后解锁`);return{ok:false,reason:'need-boss'}}
+  const progressLock=buildingProgressLock(key);
+  if(progressLock){toast(progressLock);return{ok:false,reason:'need-boss'}}
   if(st.state!=='idle'){toast(st.state==='building'?'建造中':'升级中');return{ok:false,reason:'building-busy'}}
   const upLock=st.lv>0?upgradeLockReason(key):'';
   if(upLock){toast(upLock);return{ok:false,reason:'upgrade-locked'}}
@@ -4847,6 +4859,28 @@ function exitTraining(){
   addLog('退出训练'); save(); updateUI();
 }
 
+// 拓境沿用现有研究库存；按本区战前胜次循环精魄，和战损、区域奖励同笔保存。
+function grantDevelopmentResearchReward(domain,priorWins){
+  const reward=domain.researchReward;
+  if(!reward)return '';
+  let html='';
+  const meritGain=Math.max(0,Math.min(reward.merit||0,Number.MAX_SAFE_INTEGER-(S.merit||0)));
+  if(meritGain>0){
+    S.merit=(S.merit||0)+meritGain;
+    html+=`<div style="font-size:11px;color:#c0a060">⚔ 战功 +${meritGain}</div>`;
+  }
+  for(const cycle of reward.essenceCycles||[]){
+    const key=cycle[priorWins%cycle.length],old=S.essence[key]||0;
+    const gained=old<Number.MAX_SAFE_INTEGER?1:0;
+    if(gained>0){
+      S.essence[key]=old+1;
+      const info=CFG.essences[key];
+      html+=`<div style="font-size:11px;color:#b0a0d0">${pix(info.icon,'mini')} ${info.name} +1</div>`;
+    }
+  }
+  return html;
+}
+
 function endBattle(result){
   if(B.settled)return;
   if(specialEncounterConfig(S.battleEncounter)&&result==='win'&&B.enemyUnits?.some(u=>u.alive!==false))return;
@@ -4912,6 +4946,7 @@ function endBattle(result){
         const gained=creditResourceReward(rk,amount);
         rewardHtml+=`<div style="font-size:11px;color:#f0d060">${pix(CFG.res[rk].icon,'mini')} ${resourceDisplayName(rk)} +${gained}</div>`;
       }
+      rewardHtml+=grantDevelopmentResearchReward(domain,previous.wins);
       rewardHtml+='<div style="font-size:10px;color:#aaa">获得点位等级后，可选择该点每60秒在线采集；本场不直接发金属。</div>';
       rewardHtml+=`<div style="font-size:10px;color:#aaa">边疆警戒值 ${e.alert} → ${Math.min(13000,wins*domain.alertPerWin)}</div>`;
     }else if(domain?.developmentOuter){
@@ -4924,6 +4959,7 @@ function endBattle(result){
         const gained=creditResourceReward(rk,amount);
         rewardHtml+=`<div style="font-size:11px;color:#f0d060">${pix(CFG.res[rk].icon,'mini')} ${resourceDisplayName(rk)} +${gained}</div>`;
       }
+      rewardHtml+=grantDevelopmentResearchReward(domain,previous.wins);
       for(const [itemKey,chance] of [['sacredBlood',e.bloodDropChance],['emberElixir',e.emberDropChance]]){
         if(chance>0&&Math.random()*10000<chance){
           const item=CFG.eraMaterials[itemKey],old=S.items[itemKey];

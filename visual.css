@@ -694,7 +694,7 @@ html[data-theme="dark"] .tech-unit-cost{border-top-color:var(--line)}
 /* 战斗血量统一用细红线，日间与夜间都一致。 */
 .battle-hud-bar{height:3px;margin-top:8px;border:0;background:#d2c6bf;border-radius:99px}
 .battle-hud-bar i,
-.battle-hud-side.enemy .battle-hud-bar i{background:#a9001b;border-radius:99px}
+.battle-hud-side.enemy .battle-hud-bar i{background:#890012;border-radius:99px}
 .unit-box .unit-hpbar,
 #battle-screen.hd2d-active .unit-hpbar{
   height:3px;background:#806466;border:0;box-shadow:none;border-radius:99px;
@@ -702,7 +702,7 @@ html[data-theme="dark"] .tech-unit-cost{border-top-color:var(--line)}
 .unit-box .unit-hpfill,
 .unit-box.hp-mid .unit-hpfill,
 .unit-box.hp-low .unit-hpfill{
-  background:#a9001b;box-shadow:none;animation:none;border-radius:99px;
+  background:#890012;box-shadow:none;animation:none;border-radius:99px;
 }
 html[data-theme="dark"] .battle-hud-bar{background:#2f1117}
 html[data-theme="dark"] .unit-box .unit-hpbar{background:#2f1117}

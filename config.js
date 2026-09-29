@@ -26,23 +26,25 @@ const CFG = {
   // 拓境远征首个低警戒入口；铜钱采用母本静态基数，暂不叠警戒奖励倍率。
   developmentBorder: {
     copper:{key:'borderCopper',site:'copper',name:'边疆铜脉哨站',needScience:'sci_copper',developmentBorder:true,
-      boss:false,units:{infantry:[5,4],archer:[2]},alertPerWin:20,levelPerWin:1,reward:{coin:400}},
+      boss:false,units:{infantry:[5,4],archer:[2]},alertPerWin:20,levelPerWin:1,reward:{coin:400},researchReward:{merit:2}},
     iron:{key:'borderIron',site:'iron',name:'边疆铁脉关隘',needScience:'sci_iron',developmentBorder:true,
-      boss:false,units:{infantry:[6,5],archer:[3,2]},alertPerWin:20,levelPerWin:1,reward:{goldCoin:50}}
+      boss:false,units:{infantry:[6,5],archer:[3,2]},alertPerWin:20,levelPerWin:1,reward:{goldCoin:50},researchReward:{merit:3}}
   },
 
   // 外域村/镇/城承担地契与战备勋章回流；按母本层级相对比例试价，科技开放而不绑主线或区域刷胜次。
   developmentOuter: {
     village:{key:'outerVillage',region:'village',name:'外域军屯村寨',needScience:'sci_bronze_age',developmentOuter:true,
-      boss:false,units:{infantry:[6,4,3],archer:[6,4,3],cavalry_t1:[4,3]},alertPerWin:20,reward:{deed:12,medal:5}},
+      boss:false,units:{infantry:[6,4,3],archer:[6,4,3],cavalry_t1:[4,3]},alertPerWin:20,reward:{deed:12,medal:5},
+      researchReward:{merit:5,essenceCycles:[['shield_essence','spear_essence','sword_essence']]}},
     town:{key:'outerTown',region:'town',name:'外域工造军镇',needScience:'sci_iron_age',developmentOuter:true,
-      boss:false,units:{infantry:[9,6,4],archer:[9,6,4],cavalry_t1:[6,5,3]},alertPerWin:20,reward:{deed:20,medal:7}},
+      boss:false,units:{infantry:[9,6,4],archer:[9,6,4],cavalry_t1:[6,5,3]},alertPerWin:20,reward:{deed:20,medal:7},
+      researchReward:{merit:7,essenceCycles:[['bow_essence','crossbow_essence','blade_essence'],['wind_essence','iron_essence']]}},
     city:{key:'outerCity',region:'city',name:'外域铸银城塞',needScience:'sci_silver_age',developmentOuter:true,
       boss:false,units:{infantry:[11,8,5],archer:[11,8,5],cavalry_t1:[8,6,4],silver_heavy:[2]},
-      alertPerWin:20,reward:{deed:32,medal:10}},
+      alertPerWin:20,reward:{deed:32,medal:10},researchReward:{merit:10}},
     capital:{key:'outerCapital',region:'capital',name:'外域铸金王都',needScience:'sci_gold_age',developmentOuter:true,
       boss:true,units:{infantry:[13,10,6],archer:[13,10,6],cavalry_t1:[10,8,5],
-        silver_heavy:[4,3],gold_cavalry:[4,3]},alertPerWin:20,reward:{deed:40,medal:20}}
+        silver_heavy:[4,3],gold_cavalry:[4,3]},alertPerWin:20,reward:{deed:40,medal:20},researchReward:{merit:15}}
   },
   // 母本 winBigWar：村/镇/城每万次基础10次血剂；王都血剂、攻击药各50次，随战前收益系数增长。
   developmentOuterRare:{getPer:40,bloodBase:{village:10,town:10,city:10,capital:50},
@@ -415,13 +417,13 @@ const CFG = {
         {needBossId:40, cost:{wood:8000,stone:8000,food:5000},time:90},
         {needBossId:65, cost:{wood:13000,stone:11000,food:8000},time:150}
       ],build:{wood:240,stone:100,food:100,time:6},upBase:{wood:1000,stone:1000,food:850},upCostLv:1.1},
-    stable:{name:'骑兵训练场',type:'training',trains:'cavalry',tier:1,needBoss:1,
+    stable:{name:'骑兵训练场',type:'training',trains:'cavalry',tier:1,needBoss:1,needDevelopmentTier:1,
       tierUpgrade:[
         {needBossId:5, cost:{wood:2500,stone:2000,food:2000},time:20},
         {needBossId:20, cost:{wood:8000,stone:8000,food:5000},time:45},
         {needBossId:40, cost:{wood:12000,stone:12000,food:8000},time:90}
       ],build:{wood:220,stone:160,food:180,time:7},upBase:{wood:1000,stone:1000,food:1000},upCostLv:1.12},
-    mage_tower:{name:'法师塔',type:'training',trains:'mage',trainsExtra:['arcane_mage'],unitCapBase:1,unitCapPerLv:1,tier:1,needBoss:4,
+    mage_tower:{name:'法师塔',type:'training',trains:'mage',trainsExtra:['arcane_mage'],unitCapBase:1,unitCapPerLv:1,tier:1,needBoss:4,needDevelopmentTier:2,
       tierUpgrade:[
         {needBossId:5,  cost:{wood:800,stone:800,food:600},time:30},
         {needBossId:20, cost:{wood:5000,stone:5000,food:3000},time:60},

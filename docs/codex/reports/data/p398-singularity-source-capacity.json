@@ -1,0 +1,144 @@
+{
+  "baselineSave": "docs/codex/reports/data/p397-quantum-stage100-paid-save.json",
+  "baselineSaveSha256": "ba8602a98d0d927c96cabb2d2074807c9b0ec46183aae4534e5486055c6125c4",
+  "source": "210(1)_unpacked/_analysis/entities_table.json",
+  "nodes": [
+    {
+      "id": 450124,
+      "name": "旧日远征",
+      "prerequisite": 450024,
+      "knowledge": 4000000000,
+      "medal": 4000000,
+      "unlocks": [
+        450124
+      ]
+    },
+    {
+      "id": 450224,
+      "name": "量子武装",
+      "prerequisite": 450124,
+      "knowledge": 5000000000,
+      "medal": 5000000,
+      "unlocks": [
+        450224
+      ]
+    },
+    {
+      "id": 450924,
+      "name": "次元引擎",
+      "prerequisite": 450224,
+      "knowledge": 100000000000,
+      "medal": 30000000,
+      "unlocks": [
+        450924
+      ]
+    },
+    {
+      "id": 450025,
+      "name": "神话时代",
+      "prerequisite": 450924,
+      "knowledge": 10000000000000,
+      "medal": 50000000,
+      "unlocks": [
+        450025
+      ]
+    },
+    {
+      "id": 450125,
+      "name": "上古秘境",
+      "prerequisite": 450025,
+      "knowledge": 15000000000000,
+      "medal": 100000000,
+      "unlocks": [
+        450125
+      ]
+    },
+    {
+      "id": 450225,
+      "name": "深渊之海",
+      "prerequisite": 450125,
+      "knowledge": 30000000000000,
+      "medal": 200000000,
+      "unlocks": [
+        450225
+      ]
+    }
+  ],
+  "directReceivers": [
+    {
+      "id": 450125,
+      "kind": "developScience"
+    },
+    {
+      "id": 460089,
+      "kind": "resourceScience"
+    },
+    {
+      "id": 460090,
+      "kind": "resourceScience"
+    },
+    {
+      "id": 660021,
+      "kind": "daySeason"
+    },
+    {
+      "id": 660022,
+      "kind": "daySeason"
+    }
+  ],
+  "cumulativeToEra": {
+    "knowledge": 10109000000000,
+    "medal": 89000000
+  },
+  "cumulativeThroughLastRegion": {
+    "knowledge": 55109000000000,
+    "medal": 389000000
+  },
+  "actual": {
+    "knowledgeCapacity": 3017311895,
+    "knowledge": 1727566,
+    "medal": 1440726,
+    "quantum": true,
+    "starArray": true,
+    "academy": 50,
+    "library": 1000,
+    "institute": 1000,
+    "storageMastery": 100,
+    "scrollUsed": 133,
+    "knowledgeResearch": {
+      "steam": 64,
+      "electric": 63,
+      "nuclear": 21,
+      "quantum": 0
+    },
+    "awakeningLevel": 6,
+    "awakeningStars": 7
+  },
+  "limits": {
+    "science": 50,
+    "warehouse": 1000,
+    "storageMastery": 100,
+    "scrollUsed": 500,
+    "eraKnowledge": {
+      "steam": 100,
+      "electric": 100,
+      "nuclear": 100,
+      "quantum": 100
+    },
+    "awakeningLevel": 20,
+    "starScale": [
+      300,
+      1.6
+    ],
+    "starSlots": 20,
+    "starSlotLevel": 10
+  },
+  "conditional": {
+    "allStorageNoStar": 679313118000,
+    "starArrayPercent": 3104,
+    "allConditionalMax": 21765192300720,
+    "lastRegionKnowledgeGap": 8234807699280,
+    "assumption": "VM-only maximum of current legal levels, 500 scrolls, awakening 20/300, and 20 knowledge-cap slots at level 10; none of those unowned upgrades were paid"
+  },
+  "postQuantumResearch": []
+}

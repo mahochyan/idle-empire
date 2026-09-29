@@ -1,0 +1,459 @@
+{
+  "sourceFile": "p398-star-beast-star50-paid-save.json",
+  "sourceSha256": "99cb9c2728f7fb222209b4cfd9c2d6872f6d734ded5b866652e5325dd561c04a",
+  "runtimeSha256": {
+    "config.js": "92ea9407ef67fa5d4d5dd929f6a5eec03a96690d75aa56ef0b37de9f280ac686",
+    "levels.js": "cec80c26fa91f941994c253a2fe73be0dfe3f108237620b662fdab9f5449fd1d",
+    "math.js": "55f33b7cb3fa6907c887b2f344ea45b0453749ad325c53550a6fdbbbc524e5d1",
+    "garrison.js": "4d233f0529d256cd1ace2de782603fcfcbbff110032ca4cf29c5e36af30f10ff",
+    "technology.js": "3d3485f57e1e3ef73d11077cec06d467f674959aa6f0dfb27c3eb4d4abf94536",
+    "tests/progression/harness.js": "4770d17fa72cc8c87f4c8ef79678f19d63a41da895b8dd58776e5a39ce2ede2b"
+  },
+  "start": {
+    "tick": 27185693,
+    "city": 3590,
+    "deed": 221615,
+    "stars": 50,
+    "multiplier": 6,
+    "field": 629,
+    "army": 672,
+    "deployed": 626,
+    "alert": 0,
+    "daily": {
+      "starBeast7": 1,
+      "starBeastCalm": 1
+    },
+    "items": {
+      "origin": 420,
+      "illusion": 420,
+      "ring": 420
+    },
+    "resources": {
+      "food": 480699,
+      "copper": 121082.42999792029,
+      "iron": 286640.60000001243,
+      "steel": 24177.800000003306,
+      "tech": 307340352,
+      "medal": 64266871
+    }
+  },
+  "simulatedOnlineSeconds": 2,
+  "simulatedOfflineSeconds": 0,
+  "eighth": {
+    "tier": 8,
+    "seed": 2,
+    "result": "win",
+    "enemyHpLeft": 0,
+    "enemyInitialHp": 1764705,
+    "callbacks": 229,
+    "loss": 1,
+    "rewardEach": 190,
+    "expectedReward": 190,
+    "before": {
+      "tick": 27185693,
+      "city": 3590,
+      "deed": 221615,
+      "stars": 50,
+      "multiplier": 6,
+      "field": 629,
+      "army": 672,
+      "deployed": 626,
+      "alert": 0,
+      "daily": {
+        "starBeast7": 1,
+        "starBeastCalm": 1
+      },
+      "items": {
+        "origin": 420,
+        "illusion": 420,
+        "ring": 420
+      },
+      "resources": {
+        "food": 480699,
+        "copper": 121082.42999792029,
+        "iron": 286640.60000001243,
+        "steel": 24177.800000003306,
+        "tech": 307340352,
+        "medal": 64266871
+      }
+    },
+    "after": {
+      "tick": 27185693,
+      "city": 3590,
+      "deed": 221615,
+      "stars": 50,
+      "multiplier": 6,
+      "field": 629,
+      "army": 671,
+      "deployed": 625,
+      "alert": 450,
+      "daily": {
+        "starBeast8": 1
+      },
+      "items": {
+        "origin": 610,
+        "illusion": 610,
+        "ring": 610
+      },
+      "resources": {
+        "food": 480699,
+        "copper": 121082.42999792029,
+        "iron": 286640.60000001243,
+        "steel": 24177.800000003306,
+        "tech": 307340352,
+        "medal": 64266871
+      }
+    },
+    "sha256": "196e89cea19d0f13a8b2f02ba04cb9b2f543da0aa912febdc4b065849a054ec3",
+    "file": "p398-star-beast-eight-win-paid-save.json"
+  },
+  "restore": {
+    "before": {
+      "tick": 27185693,
+      "city": 3590,
+      "deed": 221615,
+      "stars": 50,
+      "multiplier": 6,
+      "field": 629,
+      "army": 671,
+      "deployed": 625,
+      "alert": 450,
+      "daily": {
+        "starBeast8": 1
+      },
+      "items": {
+        "origin": 610,
+        "illusion": 610,
+        "ring": 610
+      },
+      "resources": {
+        "food": 480699,
+        "copper": 121082.42999792029,
+        "iron": 286640.60000001243,
+        "steel": 24177.800000003306,
+        "tech": 307340352,
+        "medal": 64266871
+      }
+    },
+    "need": {
+      "star_trooper": 1,
+      "electro_trooper": 0,
+      "armored_trooper": 0,
+      "alloy_special": 0,
+      "gold_cavalry": 0,
+      "archer": 0
+    },
+    "costs": {
+      "copper": 8000,
+      "iron": 8000,
+      "steel": 8000
+    },
+    "seconds": 1,
+    "after": {
+      "tick": 27185694,
+      "city": 3590,
+      "deed": 221615,
+      "stars": 50,
+      "multiplier": 6,
+      "field": 629,
+      "army": 672,
+      "deployed": 626,
+      "alert": 450,
+      "daily": {
+        "starBeast8": 1
+      },
+      "items": {
+        "origin": 610,
+        "illusion": 610,
+        "ring": 610
+      },
+      "resources": {
+        "food": 480699,
+        "copper": 113082.42999792029,
+        "iron": 278640.60000001243,
+        "steel": 16177.800000003306,
+        "tech": 307340352,
+        "medal": 64266871
+      }
+    },
+    "sha256": "737cd3b20b33804fc7bc185a8d49c127eaca4a03ddb6d1791d5702de24ab9fe4",
+    "file": "p398-star-beast-eight-refilled-paid-save.json"
+  },
+  "calm": {
+    "action": {
+      "ok": true,
+      "alert": 0,
+      "remaining": 2
+    },
+    "before": {
+      "tick": 27185694,
+      "city": 3590,
+      "deed": 221615,
+      "stars": 50,
+      "multiplier": 6,
+      "field": 629,
+      "army": 672,
+      "deployed": 626,
+      "alert": 450,
+      "daily": {
+        "starBeast8": 1
+      },
+      "items": {
+        "origin": 610,
+        "illusion": 610,
+        "ring": 610
+      },
+      "resources": {
+        "food": 480699,
+        "copper": 113082.42999792029,
+        "iron": 278640.60000001243,
+        "steel": 16177.800000003306,
+        "tech": 307340352,
+        "medal": 64266871
+      }
+    },
+    "after": {
+      "tick": 27185694,
+      "city": 3590,
+      "deed": 221615,
+      "stars": 50,
+      "multiplier": 6,
+      "field": 629,
+      "army": 672,
+      "deployed": 626,
+      "alert": 0,
+      "daily": {
+        "starBeast8": 1,
+        "starBeastCalm": 1
+      },
+      "items": {
+        "origin": 610,
+        "illusion": 610,
+        "ring": 610
+      },
+      "resources": {
+        "food": 480699,
+        "copper": 113082.42999792029,
+        "iron": 278640.60000001243,
+        "steel": 16177.800000003306,
+        "tech": 307340352,
+        "medal": 64266871
+      }
+    },
+    "sha256": "27f5e10ac97de5a3a2ebdd531409df4a38d4ec93dc2aa825344f98f79498f2f8",
+    "file": "p398-star-beast-eight-calm-paid-save.json"
+  },
+  "ninth": {
+    "tier": 9,
+    "seed": 1,
+    "result": "win",
+    "enemyHpLeft": 0,
+    "enemyInitialHp": 2117647,
+    "callbacks": 278,
+    "loss": 2,
+    "rewardEach": 250,
+    "expectedReward": 250,
+    "before": {
+      "tick": 27185694,
+      "city": 3590,
+      "deed": 221615,
+      "stars": 50,
+      "multiplier": 6,
+      "field": 629,
+      "army": 672,
+      "deployed": 626,
+      "alert": 0,
+      "daily": {
+        "starBeast8": 1,
+        "starBeastCalm": 1
+      },
+      "items": {
+        "origin": 610,
+        "illusion": 610,
+        "ring": 610
+      },
+      "resources": {
+        "food": 480699,
+        "copper": 113082.42999792029,
+        "iron": 278640.60000001243,
+        "steel": 16177.800000003306,
+        "tech": 307340352,
+        "medal": 64266871
+      }
+    },
+    "after": {
+      "tick": 27185694,
+      "city": 3590,
+      "deed": 221615,
+      "stars": 50,
+      "multiplier": 6,
+      "field": 629,
+      "army": 670,
+      "deployed": 624,
+      "alert": 500,
+      "daily": {
+        "starBeast8": 1,
+        "starBeastCalm": 1,
+        "starBeast9": 1
+      },
+      "items": {
+        "origin": 860,
+        "illusion": 860,
+        "ring": 860
+      },
+      "resources": {
+        "food": 480699,
+        "copper": 113082.42999792029,
+        "iron": 278640.60000001243,
+        "steel": 16177.800000003306,
+        "tech": 307340352,
+        "medal": 64266871
+      }
+    },
+    "sha256": "b01ddb9e98bc3f137016b3d057dbeac42977c20410c1b21684a89b8e1847df3b",
+    "file": "p398-star-beast-nine-win-paid-save.json"
+  },
+  "ninthRestore": {
+    "before": {
+      "tick": 27185694,
+      "city": 3590,
+      "deed": 221615,
+      "stars": 50,
+      "multiplier": 6,
+      "field": 629,
+      "army": 670,
+      "deployed": 624,
+      "alert": 500,
+      "daily": {
+        "starBeast8": 1,
+        "starBeastCalm": 1,
+        "starBeast9": 1
+      },
+      "items": {
+        "origin": 860,
+        "illusion": 860,
+        "ring": 860
+      },
+      "resources": {
+        "food": 480699,
+        "copper": 113082.42999792029,
+        "iron": 278640.60000001243,
+        "steel": 16177.800000003306,
+        "tech": 307340352,
+        "medal": 64266871
+      }
+    },
+    "need": {
+      "star_trooper": 2,
+      "electro_trooper": 0,
+      "armored_trooper": 0,
+      "alloy_special": 0,
+      "gold_cavalry": 0,
+      "archer": 0
+    },
+    "costs": {
+      "copper": 16000,
+      "iron": 16000,
+      "steel": 16000
+    },
+    "seconds": 1,
+    "after": {
+      "tick": 27185695,
+      "city": 3590,
+      "deed": 221615,
+      "stars": 50,
+      "multiplier": 6,
+      "field": 629,
+      "army": 672,
+      "deployed": 626,
+      "alert": 500,
+      "daily": {
+        "starBeast8": 1,
+        "starBeastCalm": 1,
+        "starBeast9": 1
+      },
+      "items": {
+        "origin": 860,
+        "illusion": 860,
+        "ring": 860
+      },
+      "resources": {
+        "food": 480699,
+        "copper": 97082.42999792029,
+        "iron": 262640.60000001243,
+        "steel": 177.8000000033062,
+        "tech": 307340352,
+        "medal": 64266871
+      }
+    },
+    "sha256": "c3dd687e8e8dc6d12c71597ff9c6388460203217c7fc28e7adc361dd672e1413",
+    "file": "p398-star-beast-nine-refilled-paid-save.json"
+  },
+  "ninthCalm": {
+    "action": {
+      "ok": true,
+      "alert": 0,
+      "remaining": 1
+    },
+    "before": {
+      "tick": 27185695,
+      "city": 3590,
+      "deed": 221615,
+      "stars": 50,
+      "multiplier": 6,
+      "field": 629,
+      "army": 672,
+      "deployed": 626,
+      "alert": 500,
+      "daily": {
+        "starBeast8": 1,
+        "starBeastCalm": 1,
+        "starBeast9": 1
+      },
+      "items": {
+        "origin": 860,
+        "illusion": 860,
+        "ring": 860
+      },
+      "resources": {
+        "food": 480699,
+        "copper": 97082.42999792029,
+        "iron": 262640.60000001243,
+        "steel": 177.8000000033062,
+        "tech": 307340352,
+        "medal": 64266871
+      }
+    },
+    "after": {
+      "tick": 27185695,
+      "city": 3590,
+      "deed": 221615,
+      "stars": 50,
+      "multiplier": 6,
+      "field": 629,
+      "army": 672,
+      "deployed": 626,
+      "alert": 0,
+      "daily": {
+        "starBeast8": 1,
+        "starBeastCalm": 2,
+        "starBeast9": 1
+      },
+      "items": {
+        "origin": 860,
+        "illusion": 860,
+        "ring": 860
+      },
+      "resources": {
+        "food": 480699,
+        "copper": 97082.42999792029,
+        "iron": 262640.60000001243,
+        "steel": 177.8000000033062,
+        "tech": 307340352,
+        "medal": 64266871
+      }
+    },
+    "sha256": "baec1a46cd412b1dcbb455e944ae1f49044e1a07581e43ac1ffa1ba9489e3b7f",
+    "file": "p398-star-beast-nine-calm-paid-save.json"
+  }
+}

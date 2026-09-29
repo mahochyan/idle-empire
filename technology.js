@@ -162,9 +162,8 @@ function upgradeUnit(fromKey,toKey){
   if(building.needScience&&!scienceUnlocked(building.needScience)){
     toast('需先研究「'+sciName(building.needScience)+'」');return{ok:false,reason:'need-science'};
   }
-  if(building.needBoss&&bossDefeatedCount()<building.needBoss){
-    toast(`需先击败${building.needBoss}个Boss`);return{ok:false,reason:'need-boss'};
-  }
+  const progressLock=buildingProgressLock(bKey);
+  if(progressLock){toast(progressLock);return{ok:false,reason:'need-boss'};}
   if(st.lv<=0){toast(`需先建造并完成${building.name}`);return{ok:false,reason:'need-building'};}
   if((st.tier??0)<targetTier){
     toast(`需先将${building.name}晋升至T${targetTier}`);return{ok:false,reason:'need-building-tier'};
@@ -215,13 +214,12 @@ function unlockUnitRoot(unitKey){
   const targetTier=CFG.units[unitKey]?.tier??0;
   const levelLock=checkTierLevel(targetTier);
   if(levelLock){toast(levelLock);return{ok:false,reason:'need-level'};}
-  // 根线研究也须满足训练建筑的建造与 Boss 门；初建未完工时 lv 仍为 0。
+  // 根线研究也须满足训练建筑的建造与主线/拓境进度门；初建未完工时 lv 仍为 0。
   const bKey=Object.keys(CFG.buildings).find(k=>CFG.buildings[k].trains===baseUnitType(unitKey));
   if(!bKey){toast('需先建造对应训练建筑');return{ok:false,reason:'need-building'};}
   const building=CFG.buildings[bKey],st=bldSt(bKey);
-  if(building.needBoss&&bossDefeatedCount()<building.needBoss){
-    toast(`需先击败${building.needBoss}个Boss`);return{ok:false,reason:'need-boss'};
-  }
+  const progressLock=buildingProgressLock(bKey);
+  if(progressLock){toast(progressLock);return{ok:false,reason:'need-boss'};}
   if(st.lv<=0){toast(`需先建造并完成${building.name}`);return{ok:false,reason:'need-building'};}
   const bldTier=st.tier??0;
   if(bldTier<targetTier){
@@ -263,7 +261,7 @@ function rTech(){
 
   // 精魄库存卡片
   h+=`<div class="card"><h3>${pix('tech','card-pix')}精魄库存</h3>`;
-  h+=`<div style="font-size:10px;color:#888;margin-bottom:6px">击败Boss概率掉落精魄，用于解锁T2/T3兵种</div>`;
+  h+=`<div style="font-size:10px;color:#888;margin-bottom:6px">主线Boss概率掉落，外域军屯村寨与工造军镇按胜次轮换获得；用于解锁T2/T3兵种</div>`;
   h+=`<div style="display:flex;flex-wrap:wrap;gap:2px;padding:4px 0">`;
   let hasEssence=false;
   for(const[ek,ei] of Object.entries(CFG.essences||{})){
@@ -272,7 +270,7 @@ function rTech(){
     h+=`<span style="display:inline-flex;align-items:center;gap:3px;margin:2px 8px 2px 0;font-size:11px;color:#aab">
       ${pix(ei.icon||ek,'mini')} ${ei.name}: <span style="color:${cnt>0?'#f0d060':'#555'}">${cnt}</span></span>`;
   }
-  if(!hasEssence)h+=`<span style="font-size:10px;color:#555">暂无精魄，击败Boss获取</span>`;
+  if(!hasEssence)h+=`<span style="font-size:10px;color:#555">暂无精魄，可挑战主线Boss或拓境外域</span>`;
   h+=`</div>`;
   h+=`<div style="font-size:10px;color:#888;margin-top:4px">击败Boss: ${boss} | 科技点: <span style="color:#f0d060">${Math.floor(S.res.tech||0)}</span> | 战功: <span style="color:#c0a060">${S.merit||0}</span></div>`;
   h+=`</div>`;

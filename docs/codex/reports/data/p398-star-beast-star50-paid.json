@@ -1,0 +1,3709 @@
+{
+  "sourceFile": "p397-star-beast-star35-paid-save.json",
+  "sourceSha256": "d71e05a3454d9ebc44ff4f23b7006f722a3eeac4cbf2a6a04cb029dd6ddc93ce",
+  "runtimeSha256": {
+    "config.js": "85501a43d1257c2d189d517fd9dd4edb33e5cc3764f13759ee82d9d7f05a0b01",
+    "levels.js": "cec80c26fa91f941994c253a2fe73be0dfe3f108237620b662fdab9f5449fd1d",
+    "math.js": "88f9c84b549f4b80d331faa59c2a540973c98c5f1caadae5a3d04e7df5941e3f",
+    "garrison.js": "4d233f0529d256cd1ace2de782603fcfcbbff110032ca4cf29c5e36af30f10ff",
+    "technology.js": "9b35d51f46e636713f06cedfb003a19c338026ab2bfbbc80f8c63bc8ef99e486",
+    "tests/progression/harness.js": "4770d17fa72cc8c87f4c8ef79678f19d63a41da895b8dd58776e5a39ce2ede2b"
+  },
+  "start": {
+    "tick": 17076893,
+    "ts": 1795550595000,
+    "city": 1902,
+    "deed": 123958,
+    "food": 480699,
+    "tech": 307340352,
+    "medal": 17675671,
+    "stars": 35,
+    "multiplier": 4.5,
+    "field": 627,
+    "army": 672,
+    "deployed": 626,
+    "garrison": 0,
+    "alert": 0,
+    "daily": {
+      "starBeast7": 1,
+      "starBeastCalm": 1
+    },
+    "weapon": {
+      "researched": true,
+      "level": 1,
+      "progress": 0,
+      "equipped": true
+    }
+  },
+  "targetStars": 50,
+  "offlineWindowSeconds": 86400,
+  "simulatedOfflineSeconds": 10108800,
+  "simulatedOnlineSeconds": 0,
+  "settlements": [
+    {
+      "target": 36,
+      "count": 10,
+      "cost": 114690,
+      "beforeCity": 1902,
+      "afterCity": 1912,
+      "beforeDeed": 123958,
+      "afterDeed": 9268,
+      "saveSha256": "db0664c032618e3ee57a8756f0702d68ad856968006a560c6a60630e73fb8ecb"
+    },
+    {
+      "target": 36,
+      "count": 18,
+      "cost": 207954,
+      "beforeCity": 1912,
+      "afterCity": 1930,
+      "beforeDeed": 219220,
+      "afterDeed": 11266,
+      "saveSha256": "d5af135054fa1d4535554c0df5f78c0f87c0e776170389f1fb3b7d3ebccb5238"
+    },
+    {
+      "target": 36,
+      "count": 18,
+      "cost": 209898,
+      "beforeCity": 1930,
+      "afterCity": 1948,
+      "beforeDeed": 221218,
+      "afterDeed": 11320,
+      "saveSha256": "27a373e145b5ec0a704d4af1a7ff59cc53dba50dbba318056b10c0c4c1b9e30c"
+    },
+    {
+      "target": 36,
+      "count": 18,
+      "cost": 211842,
+      "beforeCity": 1948,
+      "afterCity": 1966,
+      "beforeDeed": 221272,
+      "afterDeed": 9430,
+      "saveSha256": "c5110b4003e7d55cef35cfc48bf900d61a3e0e9201ef810324676c8b2cb11459"
+    },
+    {
+      "target": 36,
+      "count": 18,
+      "cost": 213786,
+      "beforeCity": 1966,
+      "afterCity": 1984,
+      "beforeDeed": 219382,
+      "afterDeed": 5596,
+      "saveSha256": "e0b274d9ef40a6a44fe43da1f9aeda443f7c3e4a24b513942fe6caa403eba6ac"
+    },
+    {
+      "target": 36,
+      "count": 17,
+      "cost": 203694,
+      "beforeCity": 1984,
+      "afterCity": 2001,
+      "beforeDeed": 215548,
+      "afterDeed": 11854,
+      "saveSha256": "ec398421926a02de484c903cd9c28f93a333099b35a10b9775438ca551d8a6a2"
+    },
+    {
+      "target": 36,
+      "count": 1,
+      "cost": 12036,
+      "beforeCity": 2001,
+      "afterCity": 2002,
+      "beforeDeed": 229582,
+      "afterDeed": 217546,
+      "saveSha256": "4532d07c08faa7cb488f25aeb0d12586fe045199798bf75e513ecc823f13362e"
+    },
+    {
+      "target": 37,
+      "count": 17,
+      "cost": 205530,
+      "beforeCity": 2002,
+      "afterCity": 2019,
+      "beforeDeed": 217546,
+      "afterDeed": 12016,
+      "saveSha256": "0d6de9ea1ee668b335bb974e0f67db8f438b7b4c340ae6f8f4d14737d61c289f"
+    },
+    {
+      "target": 37,
+      "count": 18,
+      "cost": 219510,
+      "beforeCity": 2019,
+      "afterCity": 2037,
+      "beforeDeed": 229744,
+      "afterDeed": 10234,
+      "saveSha256": "e4b46ab7e3c4778d6364c6371421ac013e19b04c32cd2555af3dff4181dbdd46"
+    },
+    {
+      "target": 37,
+      "count": 18,
+      "cost": 221454,
+      "beforeCity": 2037,
+      "afterCity": 2055,
+      "beforeDeed": 227962,
+      "afterDeed": 6508,
+      "saveSha256": "85ebae3b4c9751cf45ef359b8bc17a6a6570d4f6112e4e762d39aa1764b2b631"
+    },
+    {
+      "target": 37,
+      "count": 18,
+      "cost": 223398,
+      "beforeCity": 2055,
+      "afterCity": 2073,
+      "beforeDeed": 224236,
+      "afterDeed": 838,
+      "saveSha256": "e1d22067ad0e9e97ae97944a55f9764acaa98e1698bbe5f84a13269ef596a1b7"
+    },
+    {
+      "target": 37,
+      "count": 17,
+      "cost": 212772,
+      "beforeCity": 2073,
+      "afterCity": 2090,
+      "beforeDeed": 218566,
+      "afterDeed": 5794,
+      "saveSha256": "a281c3e5cbba7291d5afc0edbcdaa2e742865808dd41d7ce098723f01a44ba56"
+    },
+    {
+      "target": 37,
+      "count": 12,
+      "cost": 151236,
+      "beforeCity": 2090,
+      "afterCity": 2102,
+      "beforeDeed": 223522,
+      "afterDeed": 72286,
+      "saveSha256": "8429560c1a05d5eaa36c631e44891f8cf358fc5cce4f3be1b71d685d21e9df46"
+    },
+    {
+      "target": 38,
+      "count": 5,
+      "cost": 63270,
+      "beforeCity": 2102,
+      "afterCity": 2107,
+      "beforeDeed": 72286,
+      "afterDeed": 9016,
+      "saveSha256": "e55dd47f3784f5157ff28986860985ac5e23d42e376f220d35e8412d1a1b544b"
+    },
+    {
+      "target": 38,
+      "count": 17,
+      "cost": 216240,
+      "beforeCity": 2107,
+      "afterCity": 2124,
+      "beforeDeed": 226744,
+      "afterDeed": 10504,
+      "saveSha256": "ac83270a8b77e3f275d7adb442411755a05b9e31e3a5d196669191f84b5dbf02"
+    },
+    {
+      "target": 38,
+      "count": 17,
+      "cost": 217974,
+      "beforeCity": 2124,
+      "afterCity": 2141,
+      "beforeDeed": 228232,
+      "afterDeed": 10258,
+      "saveSha256": "8e64357f7764a66f26763f41e7d7b34c2da67662396df870ad47d7383b1397eb"
+    },
+    {
+      "target": 38,
+      "count": 17,
+      "cost": 219708,
+      "beforeCity": 2141,
+      "afterCity": 2158,
+      "beforeDeed": 227986,
+      "afterDeed": 8278,
+      "saveSha256": "1febeea66bc2e0cada55fe1154b251d83616105841098e4101155757dbbdf1a8"
+    },
+    {
+      "target": 38,
+      "count": 17,
+      "cost": 221442,
+      "beforeCity": 2158,
+      "afterCity": 2175,
+      "beforeDeed": 226006,
+      "afterDeed": 4564,
+      "saveSha256": "9d19ccafa081a4c6558852727b14f4c932d5038428fb66de4afda5d3031ac4c4"
+    },
+    {
+      "target": 38,
+      "count": 16,
+      "cost": 210000,
+      "beforeCity": 2175,
+      "afterCity": 2191,
+      "beforeDeed": 222292,
+      "afterDeed": 12292,
+      "saveSha256": "c4404cb9ea5ad921df9d5fbb8cc050f836f1346871aab59b46065832ae693875"
+    },
+    {
+      "target": 38,
+      "count": 11,
+      "cost": 145266,
+      "beforeCity": 2191,
+      "afterCity": 2202,
+      "beforeDeed": 230020,
+      "afterDeed": 84754,
+      "saveSha256": "0bff49c21761fd0b4ac3651d386d214aaaaa09f42e52189eff0c56b0709d9f44"
+    },
+    {
+      "target": 39,
+      "count": 6,
+      "cost": 79542,
+      "beforeCity": 2202,
+      "afterCity": 2208,
+      "beforeDeed": 84754,
+      "afterDeed": 5212,
+      "saveSha256": "1c7c165d8044bf444ed94ecf8f0157daea0d153e7d46fca4fdd39591e7eecbff"
+    },
+    {
+      "target": 39,
+      "count": 16,
+      "cost": 213168,
+      "beforeCity": 2208,
+      "afterCity": 2224,
+      "beforeDeed": 222940,
+      "afterDeed": 9772,
+      "saveSha256": "2c7fa03c74a4feab0c30e6d5c3b40a508eb3dc73cde17d7fd514b4b2a266c83f"
+    },
+    {
+      "target": 39,
+      "count": 16,
+      "cost": 214704,
+      "beforeCity": 2224,
+      "afterCity": 2240,
+      "beforeDeed": 227500,
+      "afterDeed": 12796,
+      "saveSha256": "4bb35990f505dee99e8f03a0db99c9f8d772b89de949d48857cc9cbd9f91f8bd"
+    },
+    {
+      "target": 39,
+      "count": 17,
+      "cost": 229806,
+      "beforeCity": 2240,
+      "afterCity": 2257,
+      "beforeDeed": 230524,
+      "afterDeed": 718,
+      "saveSha256": "402da5c9936ff2187da30b71bbdcf81539b4cce1c372a0d52659b75de3b850b4"
+    },
+    {
+      "target": 39,
+      "count": 16,
+      "cost": 217872,
+      "beforeCity": 2257,
+      "afterCity": 2273,
+      "beforeDeed": 226222,
+      "afterDeed": 8350,
+      "saveSha256": "b415d5498fe4c8a9e163e578f70664ed27d3b46490a5ac91f5736d1dbecc682c"
+    },
+    {
+      "target": 39,
+      "count": 17,
+      "cost": 233172,
+      "beforeCity": 2273,
+      "afterCity": 2290,
+      "beforeDeed": 233854,
+      "afterDeed": 682,
+      "saveSha256": "5ea26609f4ae854d9ca09d57d046452810027c3fd6fbd70bfce70f87d8e09a27"
+    },
+    {
+      "target": 39,
+      "count": 12,
+      "cost": 165636,
+      "beforeCity": 2290,
+      "afterCity": 2302,
+      "beforeDeed": 226186,
+      "afterDeed": 60550,
+      "saveSha256": "e87691610a02e6c9941e039086b0575673e461e3b7ffdb77921c148ee1264334"
+    },
+    {
+      "target": 40,
+      "count": 4,
+      "cost": 55404,
+      "beforeCity": 2302,
+      "afterCity": 2306,
+      "beforeDeed": 60550,
+      "afterDeed": 5146,
+      "saveSha256": "a3175877de47a93224addf6507ad6664a53fe9b3d824cc542ba36bd1df2d8aad"
+    },
+    {
+      "target": 40,
+      "count": 16,
+      "cost": 222576,
+      "beforeCity": 2306,
+      "afterCity": 2322,
+      "beforeDeed": 230650,
+      "afterDeed": 8074,
+      "saveSha256": "b76734720261b1e176b2aa3651d05fbad826889ffb6c839838c16efd2fd68ebd"
+    },
+    {
+      "target": 40,
+      "count": 16,
+      "cost": 224112,
+      "beforeCity": 2322,
+      "afterCity": 2338,
+      "beforeDeed": 233578,
+      "afterDeed": 9466,
+      "saveSha256": "91f93f1930e8681c0276aa36740e2198be0021eb2909b4f6ed540f9c0988fb0b"
+    },
+    {
+      "target": 40,
+      "count": 16,
+      "cost": 225648,
+      "beforeCity": 2338,
+      "afterCity": 2354,
+      "beforeDeed": 234970,
+      "afterDeed": 9322,
+      "saveSha256": "07bb2aa8757cfc52f92425cc37f0d87b27477f1481e9e9132f0656030e7ab2f1"
+    },
+    {
+      "target": 40,
+      "count": 16,
+      "cost": 227184,
+      "beforeCity": 2354,
+      "afterCity": 2370,
+      "beforeDeed": 234826,
+      "afterDeed": 7642,
+      "saveSha256": "1d3a90682fdb7c128792051a0509fdca38fac513e86c8d3a2cb0c40794c1caff"
+    },
+    {
+      "target": 40,
+      "count": 16,
+      "cost": 228720,
+      "beforeCity": 2370,
+      "afterCity": 2386,
+      "beforeDeed": 233146,
+      "afterDeed": 4426,
+      "saveSha256": "7b7a2b606831d869ff5e08c98863e85a1b1aec5c3737114e80c729a4c228dcd6"
+    },
+    {
+      "target": 40,
+      "count": 15,
+      "cost": 215820,
+      "beforeCity": 2386,
+      "afterCity": 2401,
+      "beforeDeed": 229930,
+      "afterDeed": 14110,
+      "saveSha256": "487fbf5701cf4a784b93707376093d8b6a515da7b36de60b742e88ffe2a50d71"
+    },
+    {
+      "target": 40,
+      "count": 1,
+      "cost": 14436,
+      "beforeCity": 2401,
+      "afterCity": 2402,
+      "beforeDeed": 239614,
+      "afterDeed": 225178,
+      "saveSha256": "47cf86b939a6dfbb4071af73c2f34d86c48992ea34233e826294149a860ca9cb"
+    },
+    {
+      "target": 41,
+      "count": 15,
+      "cost": 217260,
+      "beforeCity": 2402,
+      "afterCity": 2417,
+      "beforeDeed": 225178,
+      "afterDeed": 7918,
+      "saveSha256": "413b1f4b165dd981103f75bbba9e13cdffb1b0f08cea122bdb7822033d087d5e"
+    },
+    {
+      "target": 41,
+      "count": 16,
+      "cost": 233232,
+      "beforeCity": 2417,
+      "afterCity": 2433,
+      "beforeDeed": 233422,
+      "afterDeed": 190,
+      "saveSha256": "f0827c1ba57d349e161ddd88a410525534469de8625b66b3269090e7a2914b1e"
+    },
+    {
+      "target": 41,
+      "count": 15,
+      "cost": 220050,
+      "beforeCity": 2433,
+      "afterCity": 2448,
+      "beforeDeed": 225694,
+      "afterDeed": 5644,
+      "saveSha256": "fdc025f46f6545f8b38614ea2d7a6e5d559684a9ba0d3a75374eeadbe3311c46"
+    },
+    {
+      "target": 41,
+      "count": 15,
+      "cost": 221400,
+      "beforeCity": 2448,
+      "afterCity": 2463,
+      "beforeDeed": 231148,
+      "afterDeed": 9748,
+      "saveSha256": "9b4ce0760499c464ba78cb98288b5d644abca9032bc55f32ebcdbd8cded24f79"
+    },
+    {
+      "target": 41,
+      "count": 15,
+      "cost": 222750,
+      "beforeCity": 2463,
+      "afterCity": 2478,
+      "beforeDeed": 235252,
+      "afterDeed": 12502,
+      "saveSha256": "992623b507c4c232bb8ba76b5c3fb57ca269b60d136f1a755322ee9693033725"
+    },
+    {
+      "target": 41,
+      "count": 15,
+      "cost": 224100,
+      "beforeCity": 2478,
+      "afterCity": 2493,
+      "beforeDeed": 238006,
+      "afterDeed": 13906,
+      "saveSha256": "e466347ed21a0de826386b709d679ca182bdc64ffcbf03a80d83e23e68332cd5"
+    },
+    {
+      "target": 41,
+      "count": 15,
+      "cost": 225450,
+      "beforeCity": 2493,
+      "afterCity": 2508,
+      "beforeDeed": 239410,
+      "afterDeed": 13960,
+      "saveSha256": "fd4f60e9726ff1e61df177446a080964ad5a5e30a2e36924dd4bf12e5308d1f7"
+    },
+    {
+      "target": 41,
+      "count": 7,
+      "cost": 105672,
+      "beforeCity": 2508,
+      "afterCity": 2515,
+      "beforeDeed": 247240,
+      "afterDeed": 141568,
+      "saveSha256": "e85ab0335c9be1357daf6116d02990536210288bb3996497ada16ad4471dfef8"
+    },
+    {
+      "target": 42,
+      "count": 9,
+      "cost": 136296,
+      "beforeCity": 2515,
+      "afterCity": 2524,
+      "beforeDeed": 141568,
+      "afterDeed": 5272,
+      "saveSha256": "6a882b96669b7b5536fc7dc7c8156daafbe048d9fdb62887656e97e8b01f9ffc"
+    },
+    {
+      "target": 42,
+      "count": 15,
+      "cost": 228240,
+      "beforeCity": 2524,
+      "afterCity": 2539,
+      "beforeDeed": 238552,
+      "afterDeed": 10312,
+      "saveSha256": "cdc75cde19bbcb608cf2d24d8ec59836754202b782ff7f5bc6cd8872bce5fa2b"
+    },
+    {
+      "target": 42,
+      "count": 15,
+      "cost": 229590,
+      "beforeCity": 2539,
+      "afterCity": 2554,
+      "beforeDeed": 243592,
+      "afterDeed": 14002,
+      "saveSha256": "f0c4ac48e88b838c326ef9042b514503aee4caef84572192ee5bc3445ca1f383"
+    },
+    {
+      "target": 42,
+      "count": 16,
+      "cost": 246383,
+      "beforeCity": 2554,
+      "afterCity": 2570,
+      "beforeDeed": 247282,
+      "afterDeed": 899,
+      "saveSha256": "3bdec1f30a3996f0b82a2792b3bd2424b0b0e6f5d0a1dc8ff2ecf4b2cd17d12d"
+    },
+    {
+      "target": 42,
+      "count": 15,
+      "cost": 232380,
+      "beforeCity": 2570,
+      "afterCity": 2585,
+      "beforeDeed": 234179,
+      "afterDeed": 1799,
+      "saveSha256": "3e838a20c991359e809bf48707d917e0d3e7329f128b2c33d7e7e50dbaa39773"
+    },
+    {
+      "target": 42,
+      "count": 15,
+      "cost": 233730,
+      "beforeCity": 2585,
+      "afterCity": 2600,
+      "beforeDeed": 235079,
+      "afterDeed": 1349,
+      "saveSha256": "3c5f6543a5554823f72bf13b1f19629a263b3b761763f2ccc637460d09817879"
+    },
+    {
+      "target": 42,
+      "count": 14,
+      "cost": 219366,
+      "beforeCity": 2600,
+      "afterCity": 2614,
+      "beforeDeed": 234629,
+      "afterDeed": 15263,
+      "saveSha256": "ff0141bb39138dc9476939dae51166e8599c74572cb8de4dbb65f0392edde38b"
+    },
+    {
+      "target": 42,
+      "count": 13,
+      "cost": 204750,
+      "beforeCity": 2614,
+      "afterCity": 2627,
+      "beforeDeed": 248543,
+      "afterDeed": 43793,
+      "saveSha256": "305505000aaa31cecb50fcbd296be24368c7c7217eb5b7fd889bbd9e46af745f"
+    },
+    {
+      "target": 43,
+      "count": 2,
+      "cost": 31590,
+      "beforeCity": 2627,
+      "afterCity": 2629,
+      "beforeDeed": 43793,
+      "afterDeed": 12203,
+      "saveSha256": "f8e69cb019f343c3e4e0b6ff0a2283c4c0fe2c286820fe039511d210a773752f"
+    },
+    {
+      "target": 43,
+      "count": 15,
+      "cost": 237690,
+      "beforeCity": 2629,
+      "afterCity": 2644,
+      "beforeDeed": 245483,
+      "afterDeed": 7793,
+      "saveSha256": "ccca3b18594980dc04a68bad1582ddc2c60ced7612f819647dce32f12e2a9033"
+    },
+    {
+      "target": 43,
+      "count": 15,
+      "cost": 239040,
+      "beforeCity": 2644,
+      "afterCity": 2659,
+      "beforeDeed": 241073,
+      "afterDeed": 2033,
+      "saveSha256": "dbbe0930643e8f1b715a03ea0fe38e00e00837ce7ece0804777cee63843f63dc"
+    },
+    {
+      "target": 43,
+      "count": 14,
+      "cost": 224322,
+      "beforeCity": 2659,
+      "afterCity": 2673,
+      "beforeDeed": 235313,
+      "afterDeed": 10991,
+      "saveSha256": "ee04b3ebde4f7ceb533a60a16ba74e55c4d851cc325faf362e1fc5fe847e1237"
+    },
+    {
+      "target": 43,
+      "count": 15,
+      "cost": 241650,
+      "beforeCity": 2673,
+      "afterCity": 2688,
+      "beforeDeed": 244271,
+      "afterDeed": 2621,
+      "saveSha256": "555b878f75db848224857d603832fc41637e2a6e8394ae1af8794294aae47452"
+    },
+    {
+      "target": 43,
+      "count": 14,
+      "cost": 226758,
+      "beforeCity": 2688,
+      "afterCity": 2702,
+      "beforeDeed": 235901,
+      "afterDeed": 9143,
+      "saveSha256": "6b305da118a6bd47f795b30e276c38350e647facc705e892b4f058496390d727"
+    },
+    {
+      "target": 43,
+      "count": 14,
+      "cost": 227934,
+      "beforeCity": 2702,
+      "afterCity": 2716,
+      "beforeDeed": 242423,
+      "afterDeed": 14489,
+      "saveSha256": "fff6cd2145a5bcd95728ce3e453eecaa3903d954fb17a821d2e695cd56c96914"
+    },
+    {
+      "target": 43,
+      "count": 15,
+      "cost": 245520,
+      "beforeCity": 2716,
+      "afterCity": 2731,
+      "beforeDeed": 247769,
+      "afterDeed": 2249,
+      "saveSha256": "a7490de2f3b46815e0713557b1f8e433cf017a89f8ea1854f9d6aa8c52bb81bf"
+    },
+    {
+      "target": 43,
+      "count": 9,
+      "cost": 147960,
+      "beforeCity": 2731,
+      "afterCity": 2740,
+      "beforeDeed": 235529,
+      "afterDeed": 87569,
+      "saveSha256": "d825bf1c4d685f0c98ec2a8309dc09bb916a2110c77c4e5b98e6cb3ff832be7b"
+    },
+    {
+      "target": 44,
+      "count": 5,
+      "cost": 82410,
+      "beforeCity": 2740,
+      "afterCity": 2745,
+      "beforeDeed": 87569,
+      "afterDeed": 5159,
+      "saveSha256": "d1c46b019126f45eb420a34800d20de7c0f3e34e543c4d8d9ca420c618e735ac"
+    },
+    {
+      "target": 44,
+      "count": 14,
+      "cost": 231546,
+      "beforeCity": 2745,
+      "afterCity": 2759,
+      "beforeDeed": 238439,
+      "afterDeed": 6893,
+      "saveSha256": "a52337db4ab188adeb86675cf9f48dc00c32bffc45bbe5bc0ff5be7b638ed444"
+    },
+    {
+      "target": 44,
+      "count": 14,
+      "cost": 232722,
+      "beforeCity": 2759,
+      "afterCity": 2773,
+      "beforeDeed": 247949,
+      "afterDeed": 15227,
+      "saveSha256": "8698a39646ed60d88d91c5d8940376508f0eea66b8cc85b19765c6698ac22bef"
+    },
+    {
+      "target": 44,
+      "count": 15,
+      "cost": 250650,
+      "beforeCity": 2773,
+      "afterCity": 2788,
+      "beforeDeed": 256283,
+      "afterDeed": 5633,
+      "saveSha256": "3a01463711642c2bdbbecd5f4f962f4ea35b6c78382b95ff6b305a01922b0994"
+    },
+    {
+      "target": 44,
+      "count": 14,
+      "cost": 235158,
+      "beforeCity": 2788,
+      "afterCity": 2802,
+      "beforeDeed": 246689,
+      "afterDeed": 11531,
+      "saveSha256": "7416b6bb1d4d472886a9c28f16c1faf4b60eb9920ef4ecf30567161861c629ad"
+    },
+    {
+      "target": 44,
+      "count": 14,
+      "cost": 236334,
+      "beforeCity": 2802,
+      "afterCity": 2816,
+      "beforeDeed": 252587,
+      "afterDeed": 16253,
+      "saveSha256": "8eb1d77ba36f210e648c6e0736c039f3fd45bed98c591c3ea8f13d40fadbf730"
+    },
+    {
+      "target": 44,
+      "count": 15,
+      "cost": 254520,
+      "beforeCity": 2816,
+      "afterCity": 2831,
+      "beforeDeed": 257309,
+      "afterDeed": 2789,
+      "saveSha256": "219acec665648daaa74c829a7285de548c0e5f74418f43d34c94843fcb92a7a9"
+    },
+    {
+      "target": 44,
+      "count": 14,
+      "cost": 238770,
+      "beforeCity": 2831,
+      "afterCity": 2845,
+      "beforeDeed": 243845,
+      "afterDeed": 5075,
+      "saveSha256": "2bfce65a3e15cd4abd7e16e55a40cda19da59b0ec3b57a02e62210a61910d9bf"
+    },
+    {
+      "target": 44,
+      "count": 7,
+      "cost": 119826,
+      "beforeCity": 2845,
+      "afterCity": 2852,
+      "beforeDeed": 246131,
+      "afterDeed": 126305,
+      "saveSha256": "f5bddf56d75df5ceb6c16988e1548dde44544d767e47ed4e04887747a90ce1ba"
+    },
+    {
+      "target": 45,
+      "count": 7,
+      "cost": 120120,
+      "beforeCity": 2852,
+      "afterCity": 2859,
+      "beforeDeed": 126305,
+      "afterDeed": 6185,
+      "saveSha256": "787964048a02f3268e04e33a4e2f40f3fe96073f1b55e6b7ea60cce2720dd1d3"
+    },
+    {
+      "target": 45,
+      "count": 14,
+      "cost": 241122,
+      "beforeCity": 2859,
+      "afterCity": 2873,
+      "beforeDeed": 247241,
+      "afterDeed": 6119,
+      "saveSha256": "15eb62fb5cd25993e0499535dd1c558e7198224f1ee42e7dc0b279a4c1b7cf48"
+    },
+    {
+      "target": 45,
+      "count": 14,
+      "cost": 242298,
+      "beforeCity": 2873,
+      "afterCity": 2887,
+      "beforeDeed": 247175,
+      "afterDeed": 4877,
+      "saveSha256": "255db82b4cf7be19727d0bf7f2b1cf0af9d9a975834ed7b5399e2e0c8f1defc1"
+    },
+    {
+      "target": 45,
+      "count": 14,
+      "cost": 243474,
+      "beforeCity": 2887,
+      "afterCity": 2901,
+      "beforeDeed": 245933,
+      "afterDeed": 2459,
+      "saveSha256": "44a025e52659414991ade302335b45e6f1253d73b471f8587eb77362d1ce75ff"
+    },
+    {
+      "target": 45,
+      "count": 13,
+      "cost": 227136,
+      "beforeCity": 2901,
+      "afterCity": 2914,
+      "beforeDeed": 243515,
+      "afterDeed": 16379,
+      "saveSha256": "c2581f12246420d5bf0a16049f5f516e4b2c2364af1c5669e46e4c8f699df41a"
+    },
+    {
+      "target": 45,
+      "count": 14,
+      "cost": 245742,
+      "beforeCity": 2914,
+      "afterCity": 2928,
+      "beforeDeed": 257435,
+      "afterDeed": 11693,
+      "saveSha256": "be75969a3e25c5bfe9daae9a33a15332fa5f828fce1659fe8ee52ea9aa00e80a"
+    },
+    {
+      "target": 45,
+      "count": 14,
+      "cost": 246918,
+      "beforeCity": 2928,
+      "afterCity": 2942,
+      "beforeDeed": 252749,
+      "afterDeed": 5831,
+      "saveSha256": "9407d00bb4d9eee5d52634d06a599545be214396e24f37a43e23ec28b2ffe296"
+    },
+    {
+      "target": 45,
+      "count": 13,
+      "cost": 230334,
+      "beforeCity": 2942,
+      "afterCity": 2955,
+      "beforeDeed": 246887,
+      "afterDeed": 16553,
+      "saveSha256": "e44088b3232b0bea4485110ba55f3ac30869b89b6a0cd421be9af6fb023dd7bb"
+    },
+    {
+      "target": 45,
+      "count": 10,
+      "cost": 177870,
+      "beforeCity": 2955,
+      "afterCity": 2965,
+      "beforeDeed": 257609,
+      "afterDeed": 79739,
+      "saveSha256": "13c12189557e1aeae0f081af36be0a025b53c4239b24c0248213c5470311fd9b"
+    },
+    {
+      "target": 46,
+      "count": 4,
+      "cost": 71316,
+      "beforeCity": 2965,
+      "afterCity": 2969,
+      "beforeDeed": 79739,
+      "afterDeed": 8423,
+      "saveSha256": "544e4ae01ab9bf8027ab270c6cf9fa7aba14eca82bda2a53cf0e34a75903d21d"
+    },
+    {
+      "target": 46,
+      "count": 13,
+      "cost": 232440,
+      "beforeCity": 2969,
+      "afterCity": 2982,
+      "beforeDeed": 249479,
+      "afterDeed": 17039,
+      "saveSha256": "c13dc363ca0bf73da9c7aaf5d85abcb2b8195ffe034a29874738b1013d6ff2b1"
+    },
+    {
+      "target": 46,
+      "count": 14,
+      "cost": 251454,
+      "beforeCity": 2982,
+      "afterCity": 2996,
+      "beforeDeed": 258095,
+      "afterDeed": 6641,
+      "saveSha256": "81911e71359a2105b38fc555b8c075eec82148a0aea42c911817feee38a1bfb7"
+    },
+    {
+      "target": 46,
+      "count": 13,
+      "cost": 234546,
+      "beforeCity": 2996,
+      "afterCity": 3009,
+      "beforeDeed": 247697,
+      "afterDeed": 13151,
+      "saveSha256": "4e891c9010f6f2998186aa4430c2b7484aba117f236aaf2ed425ec09135f3b8e"
+    },
+    {
+      "target": 46,
+      "count": 14,
+      "cost": 253722,
+      "beforeCity": 3009,
+      "afterCity": 3023,
+      "beforeDeed": 261983,
+      "afterDeed": 8261,
+      "saveSha256": "1c5f7659c26eebc1e33aa2f7f329a50ba9ad00f6c15b0894d7d266f4cdac9af4"
+    },
+    {
+      "target": 46,
+      "count": 14,
+      "cost": 254898,
+      "beforeCity": 3023,
+      "afterCity": 3037,
+      "beforeDeed": 257093,
+      "afterDeed": 2195,
+      "saveSha256": "40fa3e5bf80271cb2a3dbd8d8982eda049018fbcf001ff0dd8c99778fe018f9d"
+    },
+    {
+      "target": 46,
+      "count": 13,
+      "cost": 237744,
+      "beforeCity": 3037,
+      "afterCity": 3050,
+      "beforeDeed": 251027,
+      "afterDeed": 13283,
+      "saveSha256": "0f0fddd079699963601c3ecced52c18718addfb3822ec88ca23ad65bc94dae94"
+    },
+    {
+      "target": 46,
+      "count": 14,
+      "cost": 257166,
+      "beforeCity": 3050,
+      "afterCity": 3064,
+      "beforeDeed": 262115,
+      "afterDeed": 4949,
+      "saveSha256": "4a318160d32c54e133a96ce98b2b30c92d801ef6fba46cc1e89598e8965b457f"
+    },
+    {
+      "target": 46,
+      "count": 13,
+      "cost": 239850,
+      "beforeCity": 3064,
+      "afterCity": 3077,
+      "beforeDeed": 253781,
+      "afterDeed": 13931,
+      "saveSha256": "e59c0f56ee89df13f0b70e757a5a76d2425e84f5a227e7c51db555346da4e11a"
+    },
+    {
+      "target": 46,
+      "count": 13,
+      "cost": 240864,
+      "beforeCity": 3077,
+      "afterCity": 3090,
+      "beforeDeed": 262763,
+      "afterDeed": 21899,
+      "saveSha256": "cd7eb4db8afff8cf3c253fcdf2d6ac30afa1b517820bd49499c7caa208b576dc"
+    },
+    {
+      "target": 47,
+      "count": 1,
+      "cost": 18570,
+      "beforeCity": 3090,
+      "afterCity": 3091,
+      "beforeDeed": 21899,
+      "afterDeed": 3329,
+      "saveSha256": "288278fbbed1246e62f90893ac98807cfd2fcc7999787e72655a0ed76e7f2fe0"
+    },
+    {
+      "target": 47,
+      "count": 13,
+      "cost": 241956,
+      "beforeCity": 3091,
+      "afterCity": 3104,
+      "beforeDeed": 252161,
+      "afterDeed": 10205,
+      "saveSha256": "80ca52baa1bdd3ba75ad81ee06b712e0050f3fdfc66d03322addaeb3825e24b0"
+    },
+    {
+      "target": 47,
+      "count": 13,
+      "cost": 242970,
+      "beforeCity": 3104,
+      "afterCity": 3117,
+      "beforeDeed": 259037,
+      "afterDeed": 16067,
+      "saveSha256": "ddbf45e94d2824880064e81df2ebf5920a71534317ce502d379aa033affa3fa8"
+    },
+    {
+      "target": 47,
+      "count": 14,
+      "cost": 262794,
+      "beforeCity": 3117,
+      "afterCity": 3131,
+      "beforeDeed": 264899,
+      "afterDeed": 2105,
+      "saveSha256": "1eeede7d791c4e8689a54ce8e210e94fd9b1db0ec3816b4bcb40df2b78c419e6"
+    },
+    {
+      "target": 47,
+      "count": 13,
+      "cost": 245076,
+      "beforeCity": 3131,
+      "afterCity": 3144,
+      "beforeDeed": 250937,
+      "afterDeed": 5861,
+      "saveSha256": "f2f269308f692a73a7893407dfe53076996467aa9ab74cbae0ce3be5798348bd"
+    },
+    {
+      "target": 47,
+      "count": 13,
+      "cost": 246090,
+      "beforeCity": 3144,
+      "afterCity": 3157,
+      "beforeDeed": 254693,
+      "afterDeed": 8603,
+      "saveSha256": "6e93b838fa54dd1ba983cb9bb6b722a34cf4828374d86bbc29f702f95020b223"
+    },
+    {
+      "target": 47,
+      "count": 13,
+      "cost": 247104,
+      "beforeCity": 3157,
+      "afterCity": 3170,
+      "beforeDeed": 257435,
+      "afterDeed": 10331,
+      "saveSha256": "ca6bbfe84ff4a9ad6ad8cd215b0d9cf4a4a28d64ac94808a2cb9dc98fb99d74f"
+    },
+    {
+      "target": 47,
+      "count": 13,
+      "cost": 248118,
+      "beforeCity": 3170,
+      "afterCity": 3183,
+      "beforeDeed": 259163,
+      "afterDeed": 11045,
+      "saveSha256": "f9ce3711ecf787b12e3138547d5a719bcfb15bd979e3f76c3617defe22f6f15b"
+    },
+    {
+      "target": 47,
+      "count": 13,
+      "cost": 249132,
+      "beforeCity": 3183,
+      "afterCity": 3196,
+      "beforeDeed": 259877,
+      "afterDeed": 10745,
+      "saveSha256": "1103c689e5f95beb1d71569d6918eccb28a38a1aabc26972896bec126b455e1f"
+    },
+    {
+      "target": 47,
+      "count": 13,
+      "cost": 250146,
+      "beforeCity": 3196,
+      "afterCity": 3209,
+      "beforeDeed": 259577,
+      "afterDeed": 9431,
+      "saveSha256": "0c63ad3a4956fae5ded7065ee69beba74c42dde2b593ca3627c09349b0e6e787"
+    },
+    {
+      "target": 47,
+      "count": 6,
+      "cost": 115794,
+      "beforeCity": 3209,
+      "afterCity": 3215,
+      "beforeDeed": 258263,
+      "afterDeed": 142469,
+      "saveSha256": "9bcd678e08338c412e0cda217849ab80b0688d3fab78acd94c09cbb1549e635b"
+    },
+    {
+      "target": 48,
+      "count": 7,
+      "cost": 135366,
+      "beforeCity": 3215,
+      "afterCity": 3222,
+      "beforeDeed": 142469,
+      "afterDeed": 7103,
+      "saveSha256": "b80f585495c99400194241035b5c3b9f980f8b34f5bf3a27770cad1918a67dab"
+    },
+    {
+      "target": 48,
+      "count": 13,
+      "cost": 252174,
+      "beforeCity": 3222,
+      "afterCity": 3235,
+      "beforeDeed": 255935,
+      "afterDeed": 3761,
+      "saveSha256": "d9b6c4b52a96c5fd94071c357254cf21ebabd6cd459c773d8ba2fa8a99fea829"
+    },
+    {
+      "target": 48,
+      "count": 12,
+      "cost": 233676,
+      "beforeCity": 3235,
+      "afterCity": 3247,
+      "beforeDeed": 252593,
+      "afterDeed": 18917,
+      "saveSha256": "0ba5aa1152d8177fd81f8df66839a13c1292c9f0a2024e5fc1172aa1217daa2c"
+    },
+    {
+      "target": 48,
+      "count": 14,
+      "cost": 273714,
+      "beforeCity": 3247,
+      "afterCity": 3261,
+      "beforeDeed": 275525,
+      "afterDeed": 1811,
+      "saveSha256": "ff082f50dc92a112ffeddd96ba508f3267f44f2007bab261cc8f4725288b1a4b"
+    },
+    {
+      "target": 48,
+      "count": 13,
+      "cost": 255216,
+      "beforeCity": 3261,
+      "afterCity": 3274,
+      "beforeDeed": 258419,
+      "afterDeed": 3203,
+      "saveSha256": "fe6295e552527370337ae0b25bcd328a9b5d4a13150b5b1d1a185443043a473a"
+    },
+    {
+      "target": 48,
+      "count": 13,
+      "cost": 256230,
+      "beforeCity": 3274,
+      "afterCity": 3287,
+      "beforeDeed": 259811,
+      "afterDeed": 3581,
+      "saveSha256": "1aa845eb6a6ae6ad04b5e2132aa19631c16fe9d4ce2f67192340f31f8e4634dc"
+    },
+    {
+      "target": 48,
+      "count": 13,
+      "cost": 257244,
+      "beforeCity": 3287,
+      "afterCity": 3300,
+      "beforeDeed": 260189,
+      "afterDeed": 2945,
+      "saveSha256": "12965ca6049a24e309f47978763284247be95f5585b8c4c4bad10a0075b63af9"
+    },
+    {
+      "target": 48,
+      "count": 13,
+      "cost": 258258,
+      "beforeCity": 3300,
+      "afterCity": 3313,
+      "beforeDeed": 259553,
+      "afterDeed": 1295,
+      "saveSha256": "05adfe00eec484a87c702a17cd082483eb508098f9705c0b9382cc04010e4ba5"
+    },
+    {
+      "target": 48,
+      "count": 12,
+      "cost": 239292,
+      "beforeCity": 3313,
+      "afterCity": 3325,
+      "beforeDeed": 257903,
+      "afterDeed": 18611,
+      "saveSha256": "c9b83f916afd90e40f2e7f387a41315f74b1b1ae2aae5b05a9d086a83eb3bf9f"
+    },
+    {
+      "target": 48,
+      "count": 13,
+      "cost": 260208,
+      "beforeCity": 3325,
+      "afterCity": 3338,
+      "beforeDeed": 275219,
+      "afterDeed": 15011,
+      "saveSha256": "fbefdac0e2887b5b305663aedaa73546381f9c96fd5f0bf85b5b3b6c29fc6d05"
+    },
+    {
+      "target": 48,
+      "count": 2,
+      "cost": 40122,
+      "beforeCity": 3338,
+      "afterCity": 3340,
+      "beforeDeed": 271619,
+      "afterDeed": 231497,
+      "saveSha256": "9fa608201481b852413fd5f4aa7332f32403fad33809af37a2177cb1c0dbf9a1"
+    },
+    {
+      "target": 49,
+      "count": 11,
+      "cost": 221100,
+      "beforeCity": 3340,
+      "afterCity": 3351,
+      "beforeDeed": 231497,
+      "afterDeed": 10397,
+      "saveSha256": "ca6b782002291e2938b5b4954969122502a43f00fa14a24526d342a273a3c8fa"
+    },
+    {
+      "target": 49,
+      "count": 13,
+      "cost": 262236,
+      "beforeCity": 3351,
+      "afterCity": 3364,
+      "beforeDeed": 267005,
+      "afterDeed": 4769,
+      "saveSha256": "68ab9a90a3f177d477ebeadffe098407231286feed5098acf0d89c0f7e3f5c75"
+    },
+    {
+      "target": 49,
+      "count": 12,
+      "cost": 242964,
+      "beforeCity": 3364,
+      "afterCity": 3376,
+      "beforeDeed": 261377,
+      "afterDeed": 18413,
+      "saveSha256": "41c45b1ee4ba1be7f6579d6c6c99fc8d19633c7cb69929bfd749d15a802caa59"
+    },
+    {
+      "target": 49,
+      "count": 13,
+      "cost": 264186,
+      "beforeCity": 3376,
+      "afterCity": 3389,
+      "beforeDeed": 275021,
+      "afterDeed": 10835,
+      "saveSha256": "6251d989e0a94de53f11414c0aa1c757e9bb1789a79c13557d9b06c3f04adbc6"
+    },
+    {
+      "target": 49,
+      "count": 13,
+      "cost": 265200,
+      "beforeCity": 3389,
+      "afterCity": 3402,
+      "beforeDeed": 267443,
+      "afterDeed": 2243,
+      "saveSha256": "160b82fb1dc02e11244e2020a8387223ff69d6d4997e6ca62c0b215fcbe29668"
+    },
+    {
+      "target": 49,
+      "count": 12,
+      "cost": 245700,
+      "beforeCity": 3402,
+      "afterCity": 3414,
+      "beforeDeed": 258851,
+      "afterDeed": 13151,
+      "saveSha256": "0f182b03537507219cbdf247ead9968b3c39bd4a1b4aff91c76e4abca097475f"
+    },
+    {
+      "target": 49,
+      "count": 13,
+      "cost": 267150,
+      "beforeCity": 3414,
+      "afterCity": 3427,
+      "beforeDeed": 269759,
+      "afterDeed": 2609,
+      "saveSha256": "5c231c6c661a1c967483bad82054c6569c9ab8c828541ac2bfc350b72171d23d"
+    },
+    {
+      "target": 49,
+      "count": 12,
+      "cost": 247500,
+      "beforeCity": 3427,
+      "afterCity": 3439,
+      "beforeDeed": 259217,
+      "afterDeed": 11717,
+      "saveSha256": "28124a050c4463b2601a76cd0cdda83e82dfd7b90c9b4fcb0eb075347dcfe460"
+    },
+    {
+      "target": 49,
+      "count": 12,
+      "cost": 248364,
+      "beforeCity": 3439,
+      "afterCity": 3451,
+      "beforeDeed": 268325,
+      "afterDeed": 19961,
+      "saveSha256": "d0de8dc2630ae7a1eefe3770331a4c1a5827505c5f97431321c00c2648e1b8f3"
+    },
+    {
+      "target": 49,
+      "count": 13,
+      "cost": 270036,
+      "beforeCity": 3451,
+      "afterCity": 3464,
+      "beforeDeed": 276569,
+      "afterDeed": 6533,
+      "saveSha256": "fe608989221bc42dc70cf80dbbab6bbab7b1e0ee348bb1cd0e6f4828f3bf34eb"
+    },
+    {
+      "target": 49,
+      "count": 1,
+      "cost": 20814,
+      "beforeCity": 3464,
+      "afterCity": 3465,
+      "beforeDeed": 263141,
+      "afterDeed": 242327,
+      "saveSha256": "94e3559bd1437ce6383b5322651f069bfac8b3ff3ebd36163a73cc6e94cf5111"
+    },
+    {
+      "target": 50,
+      "count": 11,
+      "cost": 229350,
+      "beforeCity": 3465,
+      "afterCity": 3476,
+      "beforeDeed": 242327,
+      "afterDeed": 12977,
+      "saveSha256": "a956cffade7160a50ff559d556ec3e2d650d69bc4c807de69a6d1ecf56618d6b"
+    },
+    {
+      "target": 50,
+      "count": 12,
+      "cost": 251028,
+      "beforeCity": 3476,
+      "afterCity": 3488,
+      "beforeDeed": 269585,
+      "afterDeed": 18557,
+      "saveSha256": "87be1ba9adb6faf1a7851f53b1fa21fbb62e148beaf5923bd471901bb2a19846"
+    },
+    {
+      "target": 50,
+      "count": 13,
+      "cost": 272922,
+      "beforeCity": 3488,
+      "afterCity": 3501,
+      "beforeDeed": 275165,
+      "afterDeed": 2243,
+      "saveSha256": "0ab9465cba48e0fd9059899a82d7c8b65fc4fbb1adcab18de2b680f1a47520bd"
+    },
+    {
+      "target": 50,
+      "count": 12,
+      "cost": 252828,
+      "beforeCity": 3501,
+      "afterCity": 3513,
+      "beforeDeed": 266627,
+      "afterDeed": 13799,
+      "saveSha256": "f98ea8e39bd0abc81d1aaef261f063baa05844c6e6e5936693631c0ac3abba32"
+    },
+    {
+      "target": 50,
+      "count": 13,
+      "cost": 274872,
+      "beforeCity": 3513,
+      "afterCity": 3526,
+      "beforeDeed": 278183,
+      "afterDeed": 3311,
+      "saveSha256": "c6dbfb18ad278e350a6253119feffb106e43760f65ad8b97f5e2ad1e7cc8c5ea"
+    },
+    {
+      "target": 50,
+      "count": 12,
+      "cost": 254628,
+      "beforeCity": 3526,
+      "afterCity": 3538,
+      "beforeDeed": 267695,
+      "afterDeed": 13067,
+      "saveSha256": "0a41625e2310cfdc8225c9599501ea6e956d8cc969530e2fb54db1cc5376e688"
+    },
+    {
+      "target": 50,
+      "count": 13,
+      "cost": 276822,
+      "beforeCity": 3538,
+      "afterCity": 3551,
+      "beforeDeed": 277451,
+      "afterDeed": 629,
+      "saveSha256": "fee246b9e63c86e3fd39ec977c182cebbfdf2494bccd827d20d2ade491a01291"
+    },
+    {
+      "target": 50,
+      "count": 12,
+      "cost": 256428,
+      "beforeCity": 3551,
+      "afterCity": 3563,
+      "beforeDeed": 265013,
+      "afterDeed": 8585,
+      "saveSha256": "9b4e53a586e69e088e01c2d71e43cf6aa681537d69c6f115818ed08c7290552f"
+    },
+    {
+      "target": 50,
+      "count": 12,
+      "cost": 257292,
+      "beforeCity": 3563,
+      "afterCity": 3575,
+      "beforeDeed": 272969,
+      "afterDeed": 15677,
+      "saveSha256": "8d01bf5e802a15c86ab44da954b09864746e8f262bcffd1525d3964569fbb3b2"
+    },
+    {
+      "target": 50,
+      "count": 13,
+      "cost": 279708,
+      "beforeCity": 3575,
+      "afterCity": 3588,
+      "beforeDeed": 280061,
+      "afterDeed": 353,
+      "saveSha256": "1472efefaee80e4a55abfb09c7488556ae638ab7b02589f9423f08ad0796f672"
+    },
+    {
+      "target": 50,
+      "count": 2,
+      "cost": 43122,
+      "beforeCity": 3588,
+      "afterCity": 3590,
+      "beforeDeed": 264737,
+      "afterDeed": 221615,
+      "saveSha256": "ab4cee37a1f118cca1efeee4464fcf5cf6fa844c04959d0e898bf2ed7c1bdb99"
+    }
+  ],
+  "offline": [
+    {
+      "index": 1,
+      "target": 36,
+      "seconds": 86400,
+      "beforeDeed": 9268,
+      "afterDeed": 219220,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 209952,
+      "saveSha256": "1b106bced7e1fc80b91232e1c0c9e21a2c3c4130436b3dd8a0b416f369c9e83e"
+    },
+    {
+      "index": 2,
+      "target": 36,
+      "seconds": 86400,
+      "beforeDeed": 11266,
+      "afterDeed": 221218,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 209952,
+      "saveSha256": "e9c6bcbdd3c2d76e402b27f555605cbb353d748a2b04eb06cd686f73f7ecdc4a"
+    },
+    {
+      "index": 3,
+      "target": 36,
+      "seconds": 86400,
+      "beforeDeed": 11320,
+      "afterDeed": 221272,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 209952,
+      "saveSha256": "6fbbd98df0b0243930c89745f7920ade8144f57208c5c6795085039d2fc5a830"
+    },
+    {
+      "index": 4,
+      "target": 36,
+      "seconds": 86400,
+      "beforeDeed": 9430,
+      "afterDeed": 219382,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 209952,
+      "saveSha256": "1b3099c99ab4d7e6ad1370d9225f82b5fc45aeb7438d8fe173bb7b89c626a1fc"
+    },
+    {
+      "index": 5,
+      "target": 36,
+      "seconds": 86400,
+      "beforeDeed": 5596,
+      "afterDeed": 215548,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 209952,
+      "saveSha256": "07ba679a99e7a74f9270d817f53244ec7a6ccc971a78fe58fc761ba3840438cd"
+    },
+    {
+      "index": 6,
+      "target": 36,
+      "seconds": 86400,
+      "beforeDeed": 11854,
+      "afterDeed": 229582,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 217728,
+      "saveSha256": "de00573aebddf4882a756bdd9bc7384b066ccdc039dd37b57cf911d0dc0f7496"
+    },
+    {
+      "index": 7,
+      "target": 37,
+      "seconds": 86400,
+      "beforeDeed": 12016,
+      "afterDeed": 229744,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 217728,
+      "saveSha256": "84a5dd37ff95e4ec1436506ade1b57e61d110a88d42ed5338fe3e45f86a89569"
+    },
+    {
+      "index": 8,
+      "target": 37,
+      "seconds": 86400,
+      "beforeDeed": 10234,
+      "afterDeed": 227962,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 217728,
+      "saveSha256": "0315228f4fe39e638f92e2de4f4f3319cce6c56dd5b6fa42fc31d482354a78fe"
+    },
+    {
+      "index": 9,
+      "target": 37,
+      "seconds": 86400,
+      "beforeDeed": 6508,
+      "afterDeed": 224236,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 217728,
+      "saveSha256": "08e612fe04a84c15d22307640653d6a4222773ea5af6961db76b16f54269c4fb"
+    },
+    {
+      "index": 10,
+      "target": 37,
+      "seconds": 86400,
+      "beforeDeed": 838,
+      "afterDeed": 218566,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 217728,
+      "saveSha256": "3b857402e39ced6aa188330aa7e1a539289e147ebae840211a67551da2ffed25"
+    },
+    {
+      "index": 11,
+      "target": 37,
+      "seconds": 86400,
+      "beforeDeed": 5794,
+      "afterDeed": 223522,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 217728,
+      "saveSha256": "6617c8285e52801174ea06b76542c1d4a3ca45f08ec551da2b10a4156a40c39b"
+    },
+    {
+      "index": 12,
+      "target": 38,
+      "seconds": 86400,
+      "beforeDeed": 9016,
+      "afterDeed": 226744,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 217728,
+      "saveSha256": "06a9c57079337294fe1f7f9505e6ab7e896611c706dc3555e764d0a0cdc66965"
+    },
+    {
+      "index": 13,
+      "target": 38,
+      "seconds": 86400,
+      "beforeDeed": 10504,
+      "afterDeed": 228232,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 217728,
+      "saveSha256": "e07c726d19f35bf498849e7eb43dc79eb69c1e767849e18ae3adaa5cb0bf9bba"
+    },
+    {
+      "index": 14,
+      "target": 38,
+      "seconds": 86400,
+      "beforeDeed": 10258,
+      "afterDeed": 227986,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 217728,
+      "saveSha256": "fe5b2c1a16d3a9b7cd6dd7dfa33f762ad64b0376b33e914f28ac0f131121913f"
+    },
+    {
+      "index": 15,
+      "target": 38,
+      "seconds": 86400,
+      "beforeDeed": 8278,
+      "afterDeed": 226006,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 217728,
+      "saveSha256": "09811dd137bedb932c82b479684f99decb0300d4156be5cd1e43721f25c62a30"
+    },
+    {
+      "index": 16,
+      "target": 38,
+      "seconds": 86400,
+      "beforeDeed": 4564,
+      "afterDeed": 222292,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 217728,
+      "saveSha256": "75690ccba830ddd1bd07e499954209768f0238651c4b5e10fff292c2a081c5d8"
+    },
+    {
+      "index": 17,
+      "target": 38,
+      "seconds": 86400,
+      "beforeDeed": 12292,
+      "afterDeed": 230020,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 217728,
+      "saveSha256": "02bf11d7c43318b6a9f7dfeb3de472216181b460093e2aa2bba7d238212598d6"
+    },
+    {
+      "index": 18,
+      "target": 39,
+      "seconds": 86400,
+      "beforeDeed": 5212,
+      "afterDeed": 222940,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 217728,
+      "saveSha256": "28a5d21e016463da29ada832d2c7dc248fafdab9a0c126d3b9d92045673d895a"
+    },
+    {
+      "index": 19,
+      "target": 39,
+      "seconds": 86400,
+      "beforeDeed": 9772,
+      "afterDeed": 227500,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 217728,
+      "saveSha256": "83cb2d86724cbf20e42b9cac9dd8389cda36b794496a95c35644ad6604bb1bbf"
+    },
+    {
+      "index": 20,
+      "target": 39,
+      "seconds": 86400,
+      "beforeDeed": 12796,
+      "afterDeed": 230524,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 217728,
+      "saveSha256": "0c01edf75117d658ff935e0ac96e9cf6dfd2d4b00f0180b509d399d88dcb4afe"
+    },
+    {
+      "index": 21,
+      "target": 39,
+      "seconds": 86400,
+      "beforeDeed": 718,
+      "afterDeed": 226222,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 225504,
+      "saveSha256": "89f856b2a27821304d5b2d1e0f0fbaf922a66ed6597f5c5127f53950c021990d"
+    },
+    {
+      "index": 22,
+      "target": 39,
+      "seconds": 86400,
+      "beforeDeed": 8350,
+      "afterDeed": 233854,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 225504,
+      "saveSha256": "084c9a0002d18507bbe78a4a42f5693ecd534025e800bf389e3eae3a51376b74"
+    },
+    {
+      "index": 23,
+      "target": 39,
+      "seconds": 86400,
+      "beforeDeed": 682,
+      "afterDeed": 226186,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 225504,
+      "saveSha256": "595089ff165f7a1b3b52737fbb84fd6f069addcaece7c6833cce7391d12d9aa9"
+    },
+    {
+      "index": 24,
+      "target": 40,
+      "seconds": 86400,
+      "beforeDeed": 5146,
+      "afterDeed": 230650,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 225504,
+      "saveSha256": "b8f7ac23744a864cfa69f2e480bb2e99d79981201b38471dd7c7bbe0324b56b9"
+    },
+    {
+      "index": 25,
+      "target": 40,
+      "seconds": 86400,
+      "beforeDeed": 8074,
+      "afterDeed": 233578,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 225504,
+      "saveSha256": "c08020d1bd21913accdd3250f7493fd2593fe9b55b3d23acb1f397deeb54e37a"
+    },
+    {
+      "index": 26,
+      "target": 40,
+      "seconds": 86400,
+      "beforeDeed": 9466,
+      "afterDeed": 234970,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 225504,
+      "saveSha256": "a52e874973db43f1c82b5e41b28ee26c4b3fb4039e9e87bda434b06b1d12a8ac"
+    },
+    {
+      "index": 27,
+      "target": 40,
+      "seconds": 86400,
+      "beforeDeed": 9322,
+      "afterDeed": 234826,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 225504,
+      "saveSha256": "13b7fc75ca9e41a0e124afb6287c402ccca8a7e5d1692c2e802c0335b5095ca2"
+    },
+    {
+      "index": 28,
+      "target": 40,
+      "seconds": 86400,
+      "beforeDeed": 7642,
+      "afterDeed": 233146,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 225504,
+      "saveSha256": "994b5eeb3e4752787afd67582f6cdacd17523f161e2067e7127f83879d772bce"
+    },
+    {
+      "index": 29,
+      "target": 40,
+      "seconds": 86400,
+      "beforeDeed": 4426,
+      "afterDeed": 229930,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 225504,
+      "saveSha256": "ff762bb72a3624dbc53e3630294533c053a0dcb3ad8b12c7eb0748eba03b7fc3"
+    },
+    {
+      "index": 30,
+      "target": 40,
+      "seconds": 86400,
+      "beforeDeed": 14110,
+      "afterDeed": 239614,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 225504,
+      "saveSha256": "3970fad060b8df0666da22a28f1914654bb2e0d567c9b033d5995fe6a898faa4"
+    },
+    {
+      "index": 31,
+      "target": 41,
+      "seconds": 86400,
+      "beforeDeed": 7918,
+      "afterDeed": 233422,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 225504,
+      "saveSha256": "65b4b1fee12b00b0f520a4f79a84f7ddc0305b07c9ec63f58f112501ab98de3a"
+    },
+    {
+      "index": 32,
+      "target": 41,
+      "seconds": 86400,
+      "beforeDeed": 190,
+      "afterDeed": 225694,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 225504,
+      "saveSha256": "fbf337b6753bfe642971c83dc9257327669d447cc400bf39b4f83d15b86a6a40"
+    },
+    {
+      "index": 33,
+      "target": 41,
+      "seconds": 86400,
+      "beforeDeed": 5644,
+      "afterDeed": 231148,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 225504,
+      "saveSha256": "3bf9abc93770e7f966e425c63e7aa5f52cdceb09cff1cc990ee1c1f67beed0b3"
+    },
+    {
+      "index": 34,
+      "target": 41,
+      "seconds": 86400,
+      "beforeDeed": 9748,
+      "afterDeed": 235252,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 225504,
+      "saveSha256": "904d30d87b38bfc9ee87c25d52648a854c02d3893d3e3405f37eeaf18792ab36"
+    },
+    {
+      "index": 35,
+      "target": 41,
+      "seconds": 86400,
+      "beforeDeed": 12502,
+      "afterDeed": 238006,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 225504,
+      "saveSha256": "9d5439f8b54f261b06082f5a29b21582d9fb86703be2d7af468f17c3f49ce0f3"
+    },
+    {
+      "index": 36,
+      "target": 41,
+      "seconds": 86400,
+      "beforeDeed": 13906,
+      "afterDeed": 239410,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 225504,
+      "saveSha256": "4a92e0ce1402ec63931a8dbbfb498f4140a8f11601bfa414313a6312bd7f6b79"
+    },
+    {
+      "index": 37,
+      "target": 41,
+      "seconds": 86400,
+      "beforeDeed": 13960,
+      "afterDeed": 247240,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 233280,
+      "saveSha256": "19ec7ba7b0f58d8b373f338d7c4b4a583aaa3008cf0541eed5538779ec602680"
+    },
+    {
+      "index": 38,
+      "target": 42,
+      "seconds": 86400,
+      "beforeDeed": 5272,
+      "afterDeed": 238552,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 233280,
+      "saveSha256": "3cda20ef353806d58a399ab97a8027bcba75a332f90a48b779a6a1c570096bd2"
+    },
+    {
+      "index": 39,
+      "target": 42,
+      "seconds": 86400,
+      "beforeDeed": 10312,
+      "afterDeed": 243592,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 233280,
+      "saveSha256": "8f6ea3ba7bfab6d0b7d1ec8bc6149957712684ce14f1e59081803f3a819af520"
+    },
+    {
+      "index": 40,
+      "target": 42,
+      "seconds": 86400,
+      "beforeDeed": 14002,
+      "afterDeed": 247282,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 233280,
+      "saveSha256": "6e8d9ad816dfaa8a44506a45909956a8ea0a054225ac87e3ba99dc15be0bf3a7"
+    },
+    {
+      "index": 41,
+      "target": 42,
+      "seconds": 86400,
+      "beforeDeed": 899,
+      "afterDeed": 234179,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 233280,
+      "saveSha256": "fbfbf386037a4a751ec699b25e4ddef1321daf298d620555b693864dc5c3be69"
+    },
+    {
+      "index": 42,
+      "target": 42,
+      "seconds": 86400,
+      "beforeDeed": 1799,
+      "afterDeed": 235079,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 233280,
+      "saveSha256": "50fe23d3d5bd140f2eb9e389c614f9b52370f592decb7b6381b36bb31fd22f0f"
+    },
+    {
+      "index": 43,
+      "target": 42,
+      "seconds": 86400,
+      "beforeDeed": 1349,
+      "afterDeed": 234629,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 233280,
+      "saveSha256": "ea8994b175f20dc7f0f65269eb255d427fdc02279e846b1bbe4bb31f81848028"
+    },
+    {
+      "index": 44,
+      "target": 42,
+      "seconds": 86400,
+      "beforeDeed": 15263,
+      "afterDeed": 248543,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 233280,
+      "saveSha256": "06fd6ac52b2d335040be0f2eec99bc929c94ef1dee28f3fd40aba3a87812e27d"
+    },
+    {
+      "index": 45,
+      "target": 43,
+      "seconds": 86400,
+      "beforeDeed": 12203,
+      "afterDeed": 245483,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 233280,
+      "saveSha256": "8b4704562743f71191588f6dc09bacc9fc942ba6c6a9404b11088a10382885fa"
+    },
+    {
+      "index": 46,
+      "target": 43,
+      "seconds": 86400,
+      "beforeDeed": 7793,
+      "afterDeed": 241073,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 233280,
+      "saveSha256": "cb7a810a3ed66bcb3705155a0085ccfd420641a6551ce9b96cf1fc7dd7c397a2"
+    },
+    {
+      "index": 47,
+      "target": 43,
+      "seconds": 86400,
+      "beforeDeed": 2033,
+      "afterDeed": 235313,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 233280,
+      "saveSha256": "28c924af4adfc1bbe1d87da4f70345bac1288f1de84d49e3172571d25904c223"
+    },
+    {
+      "index": 48,
+      "target": 43,
+      "seconds": 86400,
+      "beforeDeed": 10991,
+      "afterDeed": 244271,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 233280,
+      "saveSha256": "7e845506e2540185caaf1b7ee2e6974a729f8394ea3d4dc7b06c1684ea7aa1e0"
+    },
+    {
+      "index": 49,
+      "target": 43,
+      "seconds": 86400,
+      "beforeDeed": 2621,
+      "afterDeed": 235901,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 233280,
+      "saveSha256": "e88543e5ac4722f08195506e1139a4072c9fb9dc4feffc4967030138307788a1"
+    },
+    {
+      "index": 50,
+      "target": 43,
+      "seconds": 86400,
+      "beforeDeed": 9143,
+      "afterDeed": 242423,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 233280,
+      "saveSha256": "a8b9f89dcecc5862ee7b39d6a46d2024f55869bf67d921499ba70219df46294b"
+    },
+    {
+      "index": 51,
+      "target": 43,
+      "seconds": 86400,
+      "beforeDeed": 14489,
+      "afterDeed": 247769,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 233280,
+      "saveSha256": "ebfe46f395492becc37214010bfd0449a069d4764e5c1dcef34d8ac3723fc55f"
+    },
+    {
+      "index": 52,
+      "target": 43,
+      "seconds": 86400,
+      "beforeDeed": 2249,
+      "afterDeed": 235529,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 233280,
+      "saveSha256": "aa094d862c9611060f7b1d681e67d74799e8493f1872ef6a4003a97b95b6016d"
+    },
+    {
+      "index": 53,
+      "target": 44,
+      "seconds": 86400,
+      "beforeDeed": 5159,
+      "afterDeed": 238439,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 233280,
+      "saveSha256": "cf0f0bb8495d8d39c79ecd01346603cf182b32fd835d23e47fa7bf670276480d"
+    },
+    {
+      "index": 54,
+      "target": 44,
+      "seconds": 86400,
+      "beforeDeed": 6893,
+      "afterDeed": 247949,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 241056,
+      "saveSha256": "de981de5ffdedd65c17a8148daf8a98c4d595cc5ad37b619c5c8829f58ddbcfd"
+    },
+    {
+      "index": 55,
+      "target": 44,
+      "seconds": 86400,
+      "beforeDeed": 15227,
+      "afterDeed": 256283,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 241056,
+      "saveSha256": "d13ec1e714938607b8bae69c48c8264b1338c84f9ddf7c5a7fc9f7782a52e8df"
+    },
+    {
+      "index": 56,
+      "target": 44,
+      "seconds": 86400,
+      "beforeDeed": 5633,
+      "afterDeed": 246689,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 241056,
+      "saveSha256": "5e9877fbb26c188e54cc7fe06280ad3c4f825ec81b90f9505549b90e50b1042d"
+    },
+    {
+      "index": 57,
+      "target": 44,
+      "seconds": 86400,
+      "beforeDeed": 11531,
+      "afterDeed": 252587,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 241056,
+      "saveSha256": "ddacc21cfd5360e2473dbf6b3d8b49a7a06a08d9b894f1db0b5d2b617c5181a6"
+    },
+    {
+      "index": 58,
+      "target": 44,
+      "seconds": 86400,
+      "beforeDeed": 16253,
+      "afterDeed": 257309,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 241056,
+      "saveSha256": "5a18b4a553c5d46b0e43772e9d559d31eb8cef7fbc2a6da291bb9947f1338fa6"
+    },
+    {
+      "index": 59,
+      "target": 44,
+      "seconds": 86400,
+      "beforeDeed": 2789,
+      "afterDeed": 243845,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 241056,
+      "saveSha256": "61264b65c8f5f6b14a3fc42e02a5e7b9799cd70f20eedea1b6329780c5f5657c"
+    },
+    {
+      "index": 60,
+      "target": 44,
+      "seconds": 86400,
+      "beforeDeed": 5075,
+      "afterDeed": 246131,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 241056,
+      "saveSha256": "f6f94d8f732553661040c83d9e9cdc175a968442d92d0d24b3459f57fda6af0f"
+    },
+    {
+      "index": 61,
+      "target": 45,
+      "seconds": 86400,
+      "beforeDeed": 6185,
+      "afterDeed": 247241,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 241056,
+      "saveSha256": "6bf11d9e2b8458a6dab797860799926dc3756fe39b15c66f8991ea63d613ce2e"
+    },
+    {
+      "index": 62,
+      "target": 45,
+      "seconds": 86400,
+      "beforeDeed": 6119,
+      "afterDeed": 247175,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 241056,
+      "saveSha256": "23e3b06ad3a8782ff0d49642bb6f8024262211e9368fd60420ca0cabc8d60fd1"
+    },
+    {
+      "index": 63,
+      "target": 45,
+      "seconds": 86400,
+      "beforeDeed": 4877,
+      "afterDeed": 245933,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 241056,
+      "saveSha256": "f42d7469b55f491f65dcce333a02893c558dfd670d49c7e4852fbb1f383e250b"
+    },
+    {
+      "index": 64,
+      "target": 45,
+      "seconds": 86400,
+      "beforeDeed": 2459,
+      "afterDeed": 243515,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 241056,
+      "saveSha256": "caf8c718f0fea246f24f5bfebca5962dd82a3d8b37373ff84ad04d5a07ad3f4e"
+    },
+    {
+      "index": 65,
+      "target": 45,
+      "seconds": 86400,
+      "beforeDeed": 16379,
+      "afterDeed": 257435,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 241056,
+      "saveSha256": "fa8fb5b553fb077b8734f6a2323349dfea14d9777bca684b7c9479498b5f265f"
+    },
+    {
+      "index": 66,
+      "target": 45,
+      "seconds": 86400,
+      "beforeDeed": 11693,
+      "afterDeed": 252749,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 241056,
+      "saveSha256": "65262f556076974696b1960ded337591de58e5f1eaeada76b64997b7020a8e89"
+    },
+    {
+      "index": 67,
+      "target": 45,
+      "seconds": 86400,
+      "beforeDeed": 5831,
+      "afterDeed": 246887,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 241056,
+      "saveSha256": "b52a2b8101a9549f776f0e477e7437b5a36bfba0ea6dda2bdc369a080875dcc8"
+    },
+    {
+      "index": 68,
+      "target": 45,
+      "seconds": 86400,
+      "beforeDeed": 16553,
+      "afterDeed": 257609,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 241056,
+      "saveSha256": "8781e0560ef31d24067a061aa3e0da648f3ee31b05d316f987c2fdddb2d211b6"
+    },
+    {
+      "index": 69,
+      "target": 46,
+      "seconds": 86400,
+      "beforeDeed": 8423,
+      "afterDeed": 249479,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 241056,
+      "saveSha256": "0f08cf3dde9ef1a83934575476601541a8f8b09673a3ebe158bbc0a86593057a"
+    },
+    {
+      "index": 70,
+      "target": 46,
+      "seconds": 86400,
+      "beforeDeed": 17039,
+      "afterDeed": 258095,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 241056,
+      "saveSha256": "e61fe2c9108bab68ad62af24716fe9295bc0c672cc42f215a415e1f1b51bcfca"
+    },
+    {
+      "index": 71,
+      "target": 46,
+      "seconds": 86400,
+      "beforeDeed": 6641,
+      "afterDeed": 247697,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 241056,
+      "saveSha256": "52dd2a41e2283faf3a9b3c2b9dd7b719c1b4a03dac4f25d63113a260374d8f11"
+    },
+    {
+      "index": 72,
+      "target": 46,
+      "seconds": 86400,
+      "beforeDeed": 13151,
+      "afterDeed": 261983,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 248832,
+      "saveSha256": "3f57c1124c05da23114cddc47f5a915aa7c59a5c78ff2e271bc290264337e0a5"
+    },
+    {
+      "index": 73,
+      "target": 46,
+      "seconds": 86400,
+      "beforeDeed": 8261,
+      "afterDeed": 257093,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 248832,
+      "saveSha256": "c15aa061aa1c0064feaf85c032766cfce744e150248d245f796c959ef39c475b"
+    },
+    {
+      "index": 74,
+      "target": 46,
+      "seconds": 86400,
+      "beforeDeed": 2195,
+      "afterDeed": 251027,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 248832,
+      "saveSha256": "3cc8186133f6ceb784d0e4ac0efe45c24dac00821b25a147a252a57fb93ddf43"
+    },
+    {
+      "index": 75,
+      "target": 46,
+      "seconds": 86400,
+      "beforeDeed": 13283,
+      "afterDeed": 262115,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 248832,
+      "saveSha256": "62fc5a6a804ebdbdc1e2926a861d56fa919d71c7602da97fb2c8f13880d26075"
+    },
+    {
+      "index": 76,
+      "target": 46,
+      "seconds": 86400,
+      "beforeDeed": 4949,
+      "afterDeed": 253781,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 248832,
+      "saveSha256": "386c33fc9d0a00007a498ce5c80ac104258f2be11188d3f873436b391a0e0c29"
+    },
+    {
+      "index": 77,
+      "target": 46,
+      "seconds": 86400,
+      "beforeDeed": 13931,
+      "afterDeed": 262763,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 248832,
+      "saveSha256": "62363807e0c989fb5e421e8af7596b5c412c6589f3fcd3cd1407092f1b113701"
+    },
+    {
+      "index": 78,
+      "target": 47,
+      "seconds": 86400,
+      "beforeDeed": 3329,
+      "afterDeed": 252161,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 248832,
+      "saveSha256": "d51f30a824d09dea01820136e6ed8866419489466a9b13046a596c29d5c94559"
+    },
+    {
+      "index": 79,
+      "target": 47,
+      "seconds": 86400,
+      "beforeDeed": 10205,
+      "afterDeed": 259037,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 248832,
+      "saveSha256": "2575925c293aae6fa40db53e40045550619e38957a972e1ebf2b1dd13815b98e"
+    },
+    {
+      "index": 80,
+      "target": 47,
+      "seconds": 86400,
+      "beforeDeed": 16067,
+      "afterDeed": 264899,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 248832,
+      "saveSha256": "cd07e6a3859b6935c92c58f2b127fc436d1b3060a69c8d622d5decb8103ebafd"
+    },
+    {
+      "index": 81,
+      "target": 47,
+      "seconds": 86400,
+      "beforeDeed": 2105,
+      "afterDeed": 250937,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 248832,
+      "saveSha256": "40d02ec1e6a6fb4999834b4534ddc1d18060f028a3cd58f96d65d67a05088187"
+    },
+    {
+      "index": 82,
+      "target": 47,
+      "seconds": 86400,
+      "beforeDeed": 5861,
+      "afterDeed": 254693,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 248832,
+      "saveSha256": "75e574c33ba3bdef84684ae64c4054bf80e975483b49e3e150487f320f3f11cd"
+    },
+    {
+      "index": 83,
+      "target": 47,
+      "seconds": 86400,
+      "beforeDeed": 8603,
+      "afterDeed": 257435,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 248832,
+      "saveSha256": "c4959e7bffe194ad60d252292124b343a7ca3fa0e7843260b27c21468b409621"
+    },
+    {
+      "index": 84,
+      "target": 47,
+      "seconds": 86400,
+      "beforeDeed": 10331,
+      "afterDeed": 259163,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 248832,
+      "saveSha256": "6348966cb75001bfce5b89a65c9602ef457979fb8c547ee5d670842042e4f4fc"
+    },
+    {
+      "index": 85,
+      "target": 47,
+      "seconds": 86400,
+      "beforeDeed": 11045,
+      "afterDeed": 259877,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 248832,
+      "saveSha256": "cf22fa2934bfe5cffb8272694a5bf772ba6235d9607ac9aa4dacb4ac88dc7bae"
+    },
+    {
+      "index": 86,
+      "target": 47,
+      "seconds": 86400,
+      "beforeDeed": 10745,
+      "afterDeed": 259577,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 248832,
+      "saveSha256": "29c1fbd1b2d61a60d40a69d7128df5dfd9c879fdaa16b441a7fbf7d800c15ae7"
+    },
+    {
+      "index": 87,
+      "target": 47,
+      "seconds": 86400,
+      "beforeDeed": 9431,
+      "afterDeed": 258263,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 248832,
+      "saveSha256": "ca08c9d030fac41117074e579a4340293c0023142b2378d6ad9add2ac833d6e7"
+    },
+    {
+      "index": 88,
+      "target": 48,
+      "seconds": 86400,
+      "beforeDeed": 7103,
+      "afterDeed": 255935,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 248832,
+      "saveSha256": "cb457083422ae7c037ec08f1f989e0d6a1aac41fd204cafa1502a1127b5a0722"
+    },
+    {
+      "index": 89,
+      "target": 48,
+      "seconds": 86400,
+      "beforeDeed": 3761,
+      "afterDeed": 252593,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 248832,
+      "saveSha256": "4dba056df6e2ce55efb8c0ccd951081e53b73270ac6c09fee482b3661246a4bb"
+    },
+    {
+      "index": 90,
+      "target": 48,
+      "seconds": 86400,
+      "beforeDeed": 18917,
+      "afterDeed": 275525,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 256608,
+      "saveSha256": "359ff491632f268e2ab59d95a52333b034beafa4471daee9b2cba1c3d31bec77"
+    },
+    {
+      "index": 91,
+      "target": 48,
+      "seconds": 86400,
+      "beforeDeed": 1811,
+      "afterDeed": 258419,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 256608,
+      "saveSha256": "1382131dfa0166bc2f246160d326ceff223504f3165acdf52122a5946527ecf9"
+    },
+    {
+      "index": 92,
+      "target": 48,
+      "seconds": 86400,
+      "beforeDeed": 3203,
+      "afterDeed": 259811,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 256608,
+      "saveSha256": "1b4c42000c4501de04d4dd1d05ba22957fcde173e47cfaff2682846112ad84e6"
+    },
+    {
+      "index": 93,
+      "target": 48,
+      "seconds": 86400,
+      "beforeDeed": 3581,
+      "afterDeed": 260189,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 256608,
+      "saveSha256": "ca12c27ad78465febd4c9dd2ee3c1a450e13d264b4d01eca964343655f3ac8d4"
+    },
+    {
+      "index": 94,
+      "target": 48,
+      "seconds": 86400,
+      "beforeDeed": 2945,
+      "afterDeed": 259553,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 256608,
+      "saveSha256": "e90a5f0431d9bad9705133d8b78d0ad471399f6a98fc3f5f2219ca89b67ce4ef"
+    },
+    {
+      "index": 95,
+      "target": 48,
+      "seconds": 86400,
+      "beforeDeed": 1295,
+      "afterDeed": 257903,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 256608,
+      "saveSha256": "e083640fcb4701722fd8ad9f2dde890081bdf2b78f6d020ef223af2531e5ac9f"
+    },
+    {
+      "index": 96,
+      "target": 48,
+      "seconds": 86400,
+      "beforeDeed": 18611,
+      "afterDeed": 275219,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 256608,
+      "saveSha256": "018285d59bff12ca6ce64687bcb181aa8ab88fce8bcd873b53109ca7d8a8afd1"
+    },
+    {
+      "index": 97,
+      "target": 48,
+      "seconds": 86400,
+      "beforeDeed": 15011,
+      "afterDeed": 271619,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 256608,
+      "saveSha256": "81fe80e2e84437ad911da8220f1372b9cc171fc72b1f895badc0d066774526ed"
+    },
+    {
+      "index": 98,
+      "target": 49,
+      "seconds": 86400,
+      "beforeDeed": 10397,
+      "afterDeed": 267005,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 256608,
+      "saveSha256": "15dd400ec727b8bd57b064208f9379c10d5ebb14221d9e23977226b18392ece3"
+    },
+    {
+      "index": 99,
+      "target": 49,
+      "seconds": 86400,
+      "beforeDeed": 4769,
+      "afterDeed": 261377,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 256608,
+      "saveSha256": "14609d90aedbdda1a3abc3ce5f3503219237bc9884c470e0b1fdfab6a76e9982"
+    },
+    {
+      "index": 100,
+      "target": 49,
+      "seconds": 86400,
+      "beforeDeed": 18413,
+      "afterDeed": 275021,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 256608,
+      "saveSha256": "0b771d9cefceda91d8f9b60b53de4a66ba9b9b487903a20dda50c06d15e22ba8"
+    },
+    {
+      "index": 101,
+      "target": 49,
+      "seconds": 86400,
+      "beforeDeed": 10835,
+      "afterDeed": 267443,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 256608,
+      "saveSha256": "31c0691e739488c1a98935175a0eccff737e181e0e91dc0153682aebb20d951f"
+    },
+    {
+      "index": 102,
+      "target": 49,
+      "seconds": 86400,
+      "beforeDeed": 2243,
+      "afterDeed": 258851,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 256608,
+      "saveSha256": "d0f8ad681ab9e544ede3da404b38132a26ace8f9158986c0fe1abd90c5ee3b79"
+    },
+    {
+      "index": 103,
+      "target": 49,
+      "seconds": 86400,
+      "beforeDeed": 13151,
+      "afterDeed": 269759,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 256608,
+      "saveSha256": "ab89e4a0119803a9a34b83bc26fd78143bfe9d03449798ef901ebb98fe26df62"
+    },
+    {
+      "index": 104,
+      "target": 49,
+      "seconds": 86400,
+      "beforeDeed": 2609,
+      "afterDeed": 259217,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 256608,
+      "saveSha256": "8b085b7a62fdef1326c3c873d1b782f733a242f6f0f1c4dedab6dd5e3c0af370"
+    },
+    {
+      "index": 105,
+      "target": 49,
+      "seconds": 86400,
+      "beforeDeed": 11717,
+      "afterDeed": 268325,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 256608,
+      "saveSha256": "3980ddbfffdaf524d675331666a3a5615d02ff3bcb08e6b0cfdbfb7308b606d5"
+    },
+    {
+      "index": 106,
+      "target": 49,
+      "seconds": 86400,
+      "beforeDeed": 19961,
+      "afterDeed": 276569,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 256608,
+      "saveSha256": "b9f882d60ec42841245e41d3bc703c711bb3bbae725b43d71f70ad8a3edb3126"
+    },
+    {
+      "index": 107,
+      "target": 49,
+      "seconds": 86400,
+      "beforeDeed": 6533,
+      "afterDeed": 263141,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 256608,
+      "saveSha256": "55f6805dde57cfb762b5c26817ab336ca36334c492a6a8811046602eb1c71ca4"
+    },
+    {
+      "index": 108,
+      "target": 50,
+      "seconds": 86400,
+      "beforeDeed": 12977,
+      "afterDeed": 269585,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 256608,
+      "saveSha256": "d1fc10e3312d8d45bafe89538dea6f55eb9091274be9078791b2fa23ea37710b"
+    },
+    {
+      "index": 109,
+      "target": 50,
+      "seconds": 86400,
+      "beforeDeed": 18557,
+      "afterDeed": 275165,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 256608,
+      "saveSha256": "d073f931eaa61c36806189876a16cdd21dc6b75c47b6a4035bddb78322590253"
+    },
+    {
+      "index": 110,
+      "target": 50,
+      "seconds": 86400,
+      "beforeDeed": 2243,
+      "afterDeed": 266627,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 264384,
+      "saveSha256": "06339543e8fae9154488700e24cb74ba760e243d2f492de0e965c77d877a2583"
+    },
+    {
+      "index": 111,
+      "target": 50,
+      "seconds": 86400,
+      "beforeDeed": 13799,
+      "afterDeed": 278183,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 264384,
+      "saveSha256": "535c28a2a3dea6ef6f4db5d72d305bb9be7d01f546c56c8fcb980eee6882b403"
+    },
+    {
+      "index": 112,
+      "target": 50,
+      "seconds": 86400,
+      "beforeDeed": 3311,
+      "afterDeed": 267695,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 264384,
+      "saveSha256": "39c08940174427980dfe01cdb615b2e66e0411735ce11d692033a7c2902e06c7"
+    },
+    {
+      "index": 113,
+      "target": 50,
+      "seconds": 86400,
+      "beforeDeed": 13067,
+      "afterDeed": 277451,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 264384,
+      "saveSha256": "a201fa763876db5bdcde4948c5bee7d7e704c10c2121cbccec04394896078592"
+    },
+    {
+      "index": 114,
+      "target": 50,
+      "seconds": 86400,
+      "beforeDeed": 629,
+      "afterDeed": 265013,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 264384,
+      "saveSha256": "59bb2ca5153c9fd8f4c034bbec6e71eaaaf9277f3ecb3d73ba1319a29f96dce0"
+    },
+    {
+      "index": 115,
+      "target": 50,
+      "seconds": 86400,
+      "beforeDeed": 8585,
+      "afterDeed": 272969,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 264384,
+      "saveSha256": "3691f28fd5e89722aa81814650afbc35477cf7ad61d70ff85cb2b630e08ceb62"
+    },
+    {
+      "index": 116,
+      "target": 50,
+      "seconds": 86400,
+      "beforeDeed": 15677,
+      "afterDeed": 280061,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 264384,
+      "saveSha256": "bd098193e6c647214b81fabcc00e91d1f2e83e79fbd9a1430a49c2111d9d7980"
+    },
+    {
+      "index": 117,
+      "target": 50,
+      "seconds": 86400,
+      "beforeDeed": 353,
+      "afterDeed": 264737,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 264384,
+      "saveSha256": "fe7e4b6e5e8545902bbe81570ae3605022af4bf30c298582d76781e213927293"
+    }
+  ],
+  "starSteps": [
+    {
+      "target": 36,
+      "before": {
+        "tick": 17595293,
+        "ts": 1796068995000,
+        "city": 2002,
+        "deed": 217546,
+        "food": 480699,
+        "tech": 307340352,
+        "medal": 19788151,
+        "stars": 35,
+        "multiplier": 4.5,
+        "field": 1027,
+        "army": 672,
+        "deployed": 626,
+        "garrison": 0,
+        "alert": 0,
+        "daily": {
+          "starBeast7": 1,
+          "starBeastCalm": 1
+        },
+        "weapon": {
+          "researched": true,
+          "level": 1,
+          "progress": 0,
+          "equipped": true
+        }
+      },
+      "step": {
+        "ok": true,
+        "stars": 36,
+        "fieldSize": 627,
+        "multiplier": 4.6
+      },
+      "after": {
+        "tick": 17595293,
+        "ts": 1796068995000,
+        "city": 2002,
+        "deed": 217546,
+        "food": 480699,
+        "tech": 307340352,
+        "medal": 19788151,
+        "stars": 36,
+        "multiplier": 4.6,
+        "field": 627,
+        "army": 672,
+        "deployed": 626,
+        "garrison": 0,
+        "alert": 0,
+        "daily": {
+          "starBeast7": 1,
+          "starBeastCalm": 1
+        },
+        "weapon": {
+          "researched": true,
+          "level": 1,
+          "progress": 0,
+          "equipped": true
+        }
+      },
+      "saveSha256": "57d51564afcdc24014c37d661db7ad15e5230e06b1b0b0cc2f244cd3b33a93ef"
+    },
+    {
+      "target": 37,
+      "before": {
+        "tick": 18027293,
+        "ts": 1796500995000,
+        "city": 2102,
+        "deed": 72286,
+        "food": 480699,
+        "tech": 307340352,
+        "medal": 21602551,
+        "stars": 36,
+        "multiplier": 4.6,
+        "field": 1027,
+        "army": 672,
+        "deployed": 626,
+        "garrison": 0,
+        "alert": 0,
+        "daily": {
+          "starBeast7": 1,
+          "starBeastCalm": 1
+        },
+        "weapon": {
+          "researched": true,
+          "level": 1,
+          "progress": 0,
+          "equipped": true
+        }
+      },
+      "step": {
+        "ok": true,
+        "stars": 37,
+        "fieldSize": 627,
+        "multiplier": 4.7
+      },
+      "after": {
+        "tick": 18027293,
+        "ts": 1796500995000,
+        "city": 2102,
+        "deed": 72286,
+        "food": 480699,
+        "tech": 307340352,
+        "medal": 21602551,
+        "stars": 37,
+        "multiplier": 4.7,
+        "field": 627,
+        "army": 672,
+        "deployed": 626,
+        "garrison": 0,
+        "alert": 0,
+        "daily": {
+          "starBeast7": 1,
+          "starBeastCalm": 1
+        },
+        "weapon": {
+          "researched": true,
+          "level": 1,
+          "progress": 0,
+          "equipped": true
+        }
+      },
+      "saveSha256": "f545e654932637f3ecc7a4393bf56835ddfa7cca569e30f44b889a1386ce75b3"
+    },
+    {
+      "target": 38,
+      "before": {
+        "tick": 18545693,
+        "ts": 1797019395000,
+        "city": 2202,
+        "deed": 84754,
+        "food": 480699,
+        "tech": 307340352,
+        "medal": 23779831,
+        "stars": 37,
+        "multiplier": 4.7,
+        "field": 1027,
+        "army": 672,
+        "deployed": 626,
+        "garrison": 0,
+        "alert": 0,
+        "daily": {
+          "starBeast7": 1,
+          "starBeastCalm": 1
+        },
+        "weapon": {
+          "researched": true,
+          "level": 1,
+          "progress": 0,
+          "equipped": true
+        }
+      },
+      "step": {
+        "ok": true,
+        "stars": 38,
+        "fieldSize": 627,
+        "multiplier": 4.800000000000001
+      },
+      "after": {
+        "tick": 18545693,
+        "ts": 1797019395000,
+        "city": 2202,
+        "deed": 84754,
+        "food": 480699,
+        "tech": 307340352,
+        "medal": 23779831,
+        "stars": 38,
+        "multiplier": 4.800000000000001,
+        "field": 627,
+        "army": 672,
+        "deployed": 626,
+        "garrison": 0,
+        "alert": 0,
+        "daily": {
+          "starBeast7": 1,
+          "starBeastCalm": 1
+        },
+        "weapon": {
+          "researched": true,
+          "level": 1,
+          "progress": 0,
+          "equipped": true
+        }
+      },
+      "saveSha256": "d80b4342adff8be991d7494cccde1122e482cf589677460b38952a293291282c"
+    },
+    {
+      "target": 39,
+      "before": {
+        "tick": 19064093,
+        "ts": 1797537795000,
+        "city": 2302,
+        "deed": 60550,
+        "food": 480699,
+        "tech": 307340352,
+        "medal": 25995991,
+        "stars": 38,
+        "multiplier": 4.800000000000001,
+        "field": 1027,
+        "army": 672,
+        "deployed": 626,
+        "garrison": 0,
+        "alert": 0,
+        "daily": {
+          "starBeast7": 1,
+          "starBeastCalm": 1
+        },
+        "weapon": {
+          "researched": true,
+          "level": 1,
+          "progress": 0,
+          "equipped": true
+        }
+      },
+      "step": {
+        "ok": true,
+        "stars": 39,
+        "fieldSize": 627,
+        "multiplier": 4.9
+      },
+      "after": {
+        "tick": 19064093,
+        "ts": 1797537795000,
+        "city": 2302,
+        "deed": 60550,
+        "food": 480699,
+        "tech": 307340352,
+        "medal": 25995991,
+        "stars": 39,
+        "multiplier": 4.9,
+        "field": 627,
+        "army": 672,
+        "deployed": 626,
+        "garrison": 0,
+        "alert": 0,
+        "daily": {
+          "starBeast7": 1,
+          "starBeastCalm": 1
+        },
+        "weapon": {
+          "researched": true,
+          "level": 1,
+          "progress": 0,
+          "equipped": true
+        }
+      },
+      "saveSha256": "44fb7ee20f19449eb61f20085fe93c33608e236b59da0a08d564cb08bbb03153"
+    },
+    {
+      "target": 40,
+      "before": {
+        "tick": 19668893,
+        "ts": 1798142595000,
+        "city": 2402,
+        "deed": 225178,
+        "food": 480699,
+        "tech": 307340352,
+        "medal": 28626871,
+        "stars": 39,
+        "multiplier": 4.9,
+        "field": 1027,
+        "army": 672,
+        "deployed": 626,
+        "garrison": 0,
+        "alert": 0,
+        "daily": {
+          "starBeast7": 1,
+          "starBeastCalm": 1
+        },
+        "weapon": {
+          "researched": true,
+          "level": 1,
+          "progress": 0,
+          "equipped": true
+        }
+      },
+      "step": {
+        "ok": true,
+        "stars": 40,
+        "fieldSize": 627,
+        "multiplier": 5
+      },
+      "after": {
+        "tick": 19668893,
+        "ts": 1798142595000,
+        "city": 2402,
+        "deed": 225178,
+        "food": 480699,
+        "tech": 307340352,
+        "medal": 28626871,
+        "stars": 40,
+        "multiplier": 5,
+        "field": 627,
+        "army": 672,
+        "deployed": 626,
+        "garrison": 0,
+        "alert": 0,
+        "daily": {
+          "starBeast7": 1,
+          "starBeastCalm": 1
+        },
+        "weapon": {
+          "researched": true,
+          "level": 1,
+          "progress": 0,
+          "equipped": true
+        }
+      },
+      "saveSha256": "0976e6cbfbfd295544578c8c56cfc1f62d39c7b7dd59530b36ee35153351ddc3"
+    },
+    {
+      "target": 41,
+      "before": {
+        "tick": 20273693,
+        "ts": 1798747395000,
+        "city": 2515,
+        "deed": 141568,
+        "food": 480699,
+        "tech": 307340352,
+        "medal": 31270711,
+        "stars": 40,
+        "multiplier": 5,
+        "field": 1079,
+        "army": 672,
+        "deployed": 626,
+        "garrison": 0,
+        "alert": 0,
+        "daily": {
+          "starBeast7": 1,
+          "starBeastCalm": 1
+        },
+        "weapon": {
+          "researched": true,
+          "level": 1,
+          "progress": 0,
+          "equipped": true
+        }
+      },
+      "step": {
+        "ok": true,
+        "stars": 41,
+        "fieldSize": 629,
+        "multiplier": 5.1000000000000005
+      },
+      "after": {
+        "tick": 20273693,
+        "ts": 1798747395000,
+        "city": 2515,
+        "deed": 141568,
+        "food": 480699,
+        "tech": 307340352,
+        "medal": 31270711,
+        "stars": 41,
+        "multiplier": 5.1000000000000005,
+        "field": 629,
+        "army": 672,
+        "deployed": 626,
+        "garrison": 0,
+        "alert": 0,
+        "daily": {
+          "starBeast7": 1,
+          "starBeastCalm": 1
+        },
+        "weapon": {
+          "researched": true,
+          "level": 1,
+          "progress": 0,
+          "equipped": true
+        }
+      },
+      "saveSha256": "dc345ba563ab4fbc473bd454602cf509115011378ba3b15a7dbd5621f9801eef"
+    },
+    {
+      "target": 42,
+      "before": {
+        "tick": 20878493,
+        "ts": 1799352195000,
+        "city": 2627,
+        "deed": 43793,
+        "food": 480699,
+        "tech": 307340352,
+        "medal": 33992311,
+        "stars": 41,
+        "multiplier": 5.1000000000000005,
+        "field": 1077,
+        "army": 672,
+        "deployed": 626,
+        "garrison": 0,
+        "alert": 0,
+        "daily": {
+          "starBeast7": 1,
+          "starBeastCalm": 1
+        },
+        "weapon": {
+          "researched": true,
+          "level": 1,
+          "progress": 0,
+          "equipped": true
+        }
+      },
+      "step": {
+        "ok": true,
+        "stars": 42,
+        "fieldSize": 627,
+        "multiplier": 5.2
+      },
+      "after": {
+        "tick": 20878493,
+        "ts": 1799352195000,
+        "city": 2627,
+        "deed": 43793,
+        "food": 480699,
+        "tech": 307340352,
+        "medal": 33992311,
+        "stars": 42,
+        "multiplier": 5.2,
+        "field": 627,
+        "army": 672,
+        "deployed": 626,
+        "garrison": 0,
+        "alert": 0,
+        "daily": {
+          "starBeast7": 1,
+          "starBeastCalm": 1
+        },
+        "weapon": {
+          "researched": true,
+          "level": 1,
+          "progress": 0,
+          "equipped": true
+        }
+      },
+      "saveSha256": "f6116e3055af539d7f9184b4ebb03f42b4fd2cde5e7dcfae158bae679f84f385"
+    },
+    {
+      "target": 43,
+      "before": {
+        "tick": 21569693,
+        "ts": 1800043395000,
+        "city": 2740,
+        "deed": 87569,
+        "food": 480699,
+        "tech": 307340352,
+        "medal": 37102711,
+        "stars": 42,
+        "multiplier": 5.2,
+        "field": 1079,
+        "army": 672,
+        "deployed": 626,
+        "garrison": 0,
+        "alert": 0,
+        "daily": {
+          "starBeast7": 1,
+          "starBeastCalm": 1
+        },
+        "weapon": {
+          "researched": true,
+          "level": 1,
+          "progress": 0,
+          "equipped": true
+        }
+      },
+      "step": {
+        "ok": true,
+        "stars": 43,
+        "fieldSize": 629,
+        "multiplier": 5.3
+      },
+      "after": {
+        "tick": 21569693,
+        "ts": 1800043395000,
+        "city": 2740,
+        "deed": 87569,
+        "food": 480699,
+        "tech": 307340352,
+        "medal": 37102711,
+        "stars": 43,
+        "multiplier": 5.3,
+        "field": 629,
+        "army": 672,
+        "deployed": 626,
+        "garrison": 0,
+        "alert": 0,
+        "daily": {
+          "starBeast7": 1,
+          "starBeastCalm": 1
+        },
+        "weapon": {
+          "researched": true,
+          "level": 1,
+          "progress": 0,
+          "equipped": true
+        }
+      },
+      "saveSha256": "aaa251c15d227e1037eb8ce57d0e74bd43113c7c665502bab210f7bc0efba230"
+    },
+    {
+      "target": 44,
+      "before": {
+        "tick": 22260893,
+        "ts": 1800734595000,
+        "city": 2852,
+        "deed": 126305,
+        "food": 480699,
+        "tech": 307340352,
+        "medal": 40303831,
+        "stars": 43,
+        "multiplier": 5.3,
+        "field": 1077,
+        "army": 672,
+        "deployed": 626,
+        "garrison": 0,
+        "alert": 0,
+        "daily": {
+          "starBeast7": 1,
+          "starBeastCalm": 1
+        },
+        "weapon": {
+          "researched": true,
+          "level": 1,
+          "progress": 0,
+          "equipped": true
+        }
+      },
+      "step": {
+        "ok": true,
+        "stars": 44,
+        "fieldSize": 627,
+        "multiplier": 5.4
+      },
+      "after": {
+        "tick": 22260893,
+        "ts": 1800734595000,
+        "city": 2852,
+        "deed": 126305,
+        "food": 480699,
+        "tech": 307340352,
+        "medal": 40303831,
+        "stars": 44,
+        "multiplier": 5.4,
+        "field": 627,
+        "army": 672,
+        "deployed": 626,
+        "garrison": 0,
+        "alert": 0,
+        "daily": {
+          "starBeast7": 1,
+          "starBeastCalm": 1
+        },
+        "weapon": {
+          "researched": true,
+          "level": 1,
+          "progress": 0,
+          "equipped": true
+        }
+      },
+      "saveSha256": "fa7201fdd8e7d0154ba97ba0c2333054de75c16ea19d117f8a63126eb3e0a3f3"
+    },
+    {
+      "target": 45,
+      "before": {
+        "tick": 22952093,
+        "ts": 1801425795000,
+        "city": 2965,
+        "deed": 79739,
+        "food": 480699,
+        "tech": 307340352,
+        "medal": 43517911,
+        "stars": 44,
+        "multiplier": 5.4,
+        "field": 1079,
+        "army": 672,
+        "deployed": 626,
+        "garrison": 0,
+        "alert": 0,
+        "daily": {
+          "starBeast7": 1,
+          "starBeastCalm": 1
+        },
+        "weapon": {
+          "researched": true,
+          "level": 1,
+          "progress": 0,
+          "equipped": true
+        }
+      },
+      "step": {
+        "ok": true,
+        "stars": 45,
+        "fieldSize": 629,
+        "multiplier": 5.5
+      },
+      "after": {
+        "tick": 22952093,
+        "ts": 1801425795000,
+        "city": 2965,
+        "deed": 79739,
+        "food": 480699,
+        "tech": 307340352,
+        "medal": 43517911,
+        "stars": 45,
+        "multiplier": 5.5,
+        "field": 629,
+        "army": 672,
+        "deployed": 626,
+        "garrison": 0,
+        "alert": 0,
+        "daily": {
+          "starBeast7": 1,
+          "starBeastCalm": 1
+        },
+        "weapon": {
+          "researched": true,
+          "level": 1,
+          "progress": 0,
+          "equipped": true
+        }
+      },
+      "saveSha256": "0c585c501c4594d271a9a7318d8a0a3b4f8cc60d8dd8413c143cb5cb45291f27"
+    },
+    {
+      "target": 46,
+      "before": {
+        "tick": 23729693,
+        "ts": 1802203395000,
+        "city": 3090,
+        "deed": 21899,
+        "food": 480699,
+        "tech": 307340352,
+        "medal": 47211511,
+        "stars": 45,
+        "multiplier": 5.5,
+        "field": 1129,
+        "army": 672,
+        "deployed": 626,
+        "garrison": 0,
+        "alert": 0,
+        "daily": {
+          "starBeast7": 1,
+          "starBeastCalm": 1
+        },
+        "weapon": {
+          "researched": true,
+          "level": 1,
+          "progress": 0,
+          "equipped": true
+        }
+      },
+      "step": {
+        "ok": true,
+        "stars": 46,
+        "fieldSize": 629,
+        "multiplier": 5.6000000000000005
+      },
+      "after": {
+        "tick": 23729693,
+        "ts": 1802203395000,
+        "city": 3090,
+        "deed": 21899,
+        "food": 480699,
+        "tech": 307340352,
+        "medal": 47211511,
+        "stars": 46,
+        "multiplier": 5.6000000000000005,
+        "field": 629,
+        "army": 672,
+        "deployed": 626,
+        "garrison": 0,
+        "alert": 0,
+        "daily": {
+          "starBeast7": 1,
+          "starBeastCalm": 1
+        },
+        "weapon": {
+          "researched": true,
+          "level": 1,
+          "progress": 0,
+          "equipped": true
+        }
+      },
+      "saveSha256": "8722e7ee3a9216bf20b092a0ef777cedc3423fa1e3dabf1ac9453cc5945a26a2"
+    },
+    {
+      "target": 47,
+      "before": {
+        "tick": 24593693,
+        "ts": 1803067395000,
+        "city": 3215,
+        "deed": 142469,
+        "food": 480699,
+        "tech": 307340352,
+        "medal": 51358711,
+        "stars": 46,
+        "multiplier": 5.6000000000000005,
+        "field": 1129,
+        "army": 672,
+        "deployed": 626,
+        "garrison": 0,
+        "alert": 0,
+        "daily": {
+          "starBeast7": 1,
+          "starBeastCalm": 1
+        },
+        "weapon": {
+          "researched": true,
+          "level": 1,
+          "progress": 0,
+          "equipped": true
+        }
+      },
+      "step": {
+        "ok": true,
+        "stars": 47,
+        "fieldSize": 629,
+        "multiplier": 5.7
+      },
+      "after": {
+        "tick": 24593693,
+        "ts": 1803067395000,
+        "city": 3215,
+        "deed": 142469,
+        "food": 480699,
+        "tech": 307340352,
+        "medal": 51358711,
+        "stars": 47,
+        "multiplier": 5.7,
+        "field": 629,
+        "army": 672,
+        "deployed": 626,
+        "garrison": 0,
+        "alert": 0,
+        "daily": {
+          "starBeast7": 1,
+          "starBeastCalm": 1
+        },
+        "weapon": {
+          "researched": true,
+          "level": 1,
+          "progress": 0,
+          "equipped": true
+        }
+      },
+      "saveSha256": "6c0033cf42af796cb04e06ea0fbf5e71b7227e360a583a1ab07e5af0709c73da"
+    },
+    {
+      "target": 48,
+      "before": {
+        "tick": 25457693,
+        "ts": 1803931395000,
+        "city": 3340,
+        "deed": 231497,
+        "food": 480699,
+        "tech": 307340352,
+        "medal": 55609591,
+        "stars": 47,
+        "multiplier": 5.7,
+        "field": 1129,
+        "army": 672,
+        "deployed": 626,
+        "garrison": 0,
+        "alert": 0,
+        "daily": {
+          "starBeast7": 1,
+          "starBeastCalm": 1
+        },
+        "weapon": {
+          "researched": true,
+          "level": 1,
+          "progress": 0,
+          "equipped": true
+        }
+      },
+      "step": {
+        "ok": true,
+        "stars": 48,
+        "fieldSize": 629,
+        "multiplier": 5.800000000000001
+      },
+      "after": {
+        "tick": 25457693,
+        "ts": 1803931395000,
+        "city": 3340,
+        "deed": 231497,
+        "food": 480699,
+        "tech": 307340352,
+        "medal": 55609591,
+        "stars": 48,
+        "multiplier": 5.800000000000001,
+        "field": 629,
+        "army": 672,
+        "deployed": 626,
+        "garrison": 0,
+        "alert": 0,
+        "daily": {
+          "starBeast7": 1,
+          "starBeastCalm": 1
+        },
+        "weapon": {
+          "researched": true,
+          "level": 1,
+          "progress": 0,
+          "equipped": true
+        }
+      },
+      "saveSha256": "f92771176e24ea17b1dcb7d624ce39c474830c538b44f9c5d64397750e531775"
+    },
+    {
+      "target": 49,
+      "before": {
+        "tick": 26321693,
+        "ts": 1804795395000,
+        "city": 3465,
+        "deed": 242327,
+        "food": 480699,
+        "tech": 307340352,
+        "medal": 59886391,
+        "stars": 48,
+        "multiplier": 5.800000000000001,
+        "field": 1129,
+        "army": 672,
+        "deployed": 626,
+        "garrison": 0,
+        "alert": 0,
+        "daily": {
+          "starBeast7": 1,
+          "starBeastCalm": 1
+        },
+        "weapon": {
+          "researched": true,
+          "level": 1,
+          "progress": 0,
+          "equipped": true
+        }
+      },
+      "step": {
+        "ok": true,
+        "stars": 49,
+        "fieldSize": 629,
+        "multiplier": 5.9
+      },
+      "after": {
+        "tick": 26321693,
+        "ts": 1804795395000,
+        "city": 3465,
+        "deed": 242327,
+        "food": 480699,
+        "tech": 307340352,
+        "medal": 59886391,
+        "stars": 49,
+        "multiplier": 5.9,
+        "field": 629,
+        "army": 672,
+        "deployed": 626,
+        "garrison": 0,
+        "alert": 0,
+        "daily": {
+          "starBeast7": 1,
+          "starBeastCalm": 1
+        },
+        "weapon": {
+          "researched": true,
+          "level": 1,
+          "progress": 0,
+          "equipped": true
+        }
+      },
+      "saveSha256": "f82dac7c2be26be78589916c5e9b60c9359712cced9fd00c1231a5d5d0229578"
+    },
+    {
+      "target": 50,
+      "before": {
+        "tick": 27185693,
+        "ts": 1805659395000,
+        "city": 3590,
+        "deed": 221615,
+        "food": 480699,
+        "tech": 307340352,
+        "medal": 64266871,
+        "stars": 49,
+        "multiplier": 5.9,
+        "field": 1129,
+        "army": 672,
+        "deployed": 626,
+        "garrison": 0,
+        "alert": 0,
+        "daily": {
+          "starBeast7": 1,
+          "starBeastCalm": 1
+        },
+        "weapon": {
+          "researched": true,
+          "level": 1,
+          "progress": 0,
+          "equipped": true
+        }
+      },
+      "step": {
+        "ok": true,
+        "stars": 50,
+        "fieldSize": 629,
+        "multiplier": 6
+      },
+      "after": {
+        "tick": 27185693,
+        "ts": 1805659395000,
+        "city": 3590,
+        "deed": 221615,
+        "food": 480699,
+        "tech": 307340352,
+        "medal": 64266871,
+        "stars": 50,
+        "multiplier": 6,
+        "field": 629,
+        "army": 672,
+        "deployed": 626,
+        "garrison": 0,
+        "alert": 0,
+        "daily": {
+          "starBeast7": 1,
+          "starBeastCalm": 1
+        },
+        "weapon": {
+          "researched": true,
+          "level": 1,
+          "progress": 0,
+          "equipped": true
+        }
+      },
+      "saveSha256": "99cb9c2728f7fb222209b4cfd9c2d6872f6d734ded5b866652e5325dd561c04a"
+    }
+  ],
+  "milestones": [
+    {
+      "target": 40,
+      "file": "p398-star-beast-star40-paid-save.json",
+      "sha256": "0976e6cbfbfd295544578c8c56cfc1f62d39c7b7dd59530b36ee35153351ddc3",
+      "state": {
+        "tick": 19668893,
+        "ts": 1798142595000,
+        "city": 2402,
+        "deed": 225178,
+        "food": 480699,
+        "tech": 307340352,
+        "medal": 28626871,
+        "stars": 40,
+        "multiplier": 5,
+        "field": 627,
+        "army": 672,
+        "deployed": 626,
+        "garrison": 0,
+        "alert": 0,
+        "daily": {
+          "starBeast7": 1,
+          "starBeastCalm": 1
+        },
+        "weapon": {
+          "researched": true,
+          "level": 1,
+          "progress": 0,
+          "equipped": true
+        }
+      }
+    },
+    {
+      "target": 45,
+      "file": "p398-star-beast-star45-paid-save.json",
+      "sha256": "0c585c501c4594d271a9a7318d8a0a3b4f8cc60d8dd8413c143cb5cb45291f27",
+      "state": {
+        "tick": 22952093,
+        "ts": 1801425795000,
+        "city": 2965,
+        "deed": 79739,
+        "food": 480699,
+        "tech": 307340352,
+        "medal": 43517911,
+        "stars": 45,
+        "multiplier": 5.5,
+        "field": 629,
+        "army": 672,
+        "deployed": 626,
+        "garrison": 0,
+        "alert": 0,
+        "daily": {
+          "starBeast7": 1,
+          "starBeastCalm": 1
+        },
+        "weapon": {
+          "researched": true,
+          "level": 1,
+          "progress": 0,
+          "equipped": true
+        }
+      }
+    },
+    {
+      "target": 50,
+      "file": "p398-star-beast-star50-paid-save.json",
+      "sha256": "99cb9c2728f7fb222209b4cfd9c2d6872f6d734ded5b866652e5325dd561c04a",
+      "state": {
+        "tick": 27185693,
+        "ts": 1805659395000,
+        "city": 3590,
+        "deed": 221615,
+        "food": 480699,
+        "tech": 307340352,
+        "medal": 64266871,
+        "stars": 50,
+        "multiplier": 6,
+        "field": 629,
+        "army": 672,
+        "deployed": 626,
+        "garrison": 0,
+        "alert": 0,
+        "daily": {
+          "starBeast7": 1,
+          "starBeastCalm": 1
+        },
+        "weapon": {
+          "researched": true,
+          "level": 1,
+          "progress": 0,
+          "equipped": true
+        }
+      }
+    }
+  ],
+  "stopped": null,
+  "final": {
+    "tick": 27185693,
+    "ts": 1805659395000,
+    "city": 3590,
+    "deed": 221615,
+    "food": 480699,
+    "tech": 307340352,
+    "medal": 64266871,
+    "stars": 50,
+    "multiplier": 6,
+    "field": 629,
+    "army": 672,
+    "deployed": 626,
+    "garrison": 0,
+    "alert": 0,
+    "daily": {
+      "starBeast7": 1,
+      "starBeastCalm": 1
+    },
+    "weapon": {
+      "researched": true,
+      "level": 1,
+      "progress": 0,
+      "equipped": true
+    }
+  },
+  "finalSaveFile": "p398-star-beast-last-star50-paid-save.json",
+  "finalSaveSha256": "99cb9c2728f7fb222209b4cfd9c2d6872f6d734ded5b866652e5325dd561c04a"
+}

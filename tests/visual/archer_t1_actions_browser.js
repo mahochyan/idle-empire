@@ -199,15 +199,32 @@ async function sameRowAttackOverlap(targetId){
       const accepted=HD2D.playBattle(${JSON.stringify(event)});
       const unit=HD2D.status().battle.layout.find(item=>item.id===70001);
       return {accepted,action:unit?.portraitAction,ready:unit?.portraitActionReady,
-        frames:unit?.portraitActionFrames,facing:unit?.facing};
+        frames:unit?.portraitActionFrames,facing:unit?.facing,
+        followersVisible:unit?.followersVisible,badgeVisible:unit?.badgeVisible};
     })()`);
     check(`Sparse ${kind} uses four high-res frames`,seen.accepted&&
       seen.action===kind&&seen.ready&&seen.frames===4&&seen.facing==='left',seen);
+    if(kind==='death')check('Sparse death hides follower portraits and health badge',
+      seen.followersVisible===0&&seen.badgeVisible===false,seen);
     // Death is fixed to 620 ms by the visual layer, regardless of event
     // duration; capture its final prone frame before the action resets.
     await sleep(kind==='death'?500:310);
     const file=await shot(`qa-${unitSlug}-${kind}-sparse-390`);
     check(`Sparse ${kind} screenshot saved`,fs.statSync(file).size>10000,file);
+    if(kind==='death'){
+      const restored=await evalJs(`(async()=>{
+        for(let attempt=0;attempt<30;attempt++){
+          await new Promise(resolve=>setTimeout(resolve,30));
+          const unit=HD2D.status().battle.layout.find(item=>item.id===70001);
+          if(unit?.portraitAction==='idle')return {
+            action:unit.portraitAction,badge:unit.badgeVisible,
+            followers:unit.followersVisible};
+        }
+        return null;
+      })()`);
+      check('Sparse surviving fixture restores badge and followers after death pose',
+        restored?.action==='idle'&&restored.badge===true&&restored.followers===2,restored);
+    }
   }
   const rows=['front','mid','back'];
   const allies=Array.from({length:12},(_,i)=>[i===targetIndex?unitType:'infantry',
@@ -226,11 +243,14 @@ async function sameRowAttackOverlap(targetId){
       const unit=HD2D.status().battle.layout.find(item=>item.id===${targetId});
       return {accepted,action:unit?.portraitAction,ready:unit?.portraitActionReady,
         frames:unit?.portraitActionFrames,cell:unit?.portraitActionCellPx,
+        badgeVisible:unit?.badgeVisible,
         overflow:document.getElementById('battle-screen').scrollWidth>innerWidth+1};
     })()`);
     check(`Full formation ${kind} uses compact four-frame art without overflow`,
       fullAction.accepted&&fullAction.action===kind&&fullAction.ready&&
       fullAction.frames===4&&fullAction.cell===256&&!fullAction.overflow,fullAction);
+    if(kind==='death')check('Full formation death hides health badge',
+      fullAction.badgeVisible===false,fullAction);
     if(kind==='attack'){
       const overlap=await sameRowAttackOverlap(targetId);
       check('Full attack same-row alpha-content bounds overlap no more than 30%',
@@ -240,6 +260,19 @@ async function sameRowAttackOverlap(targetId){
     await sleep(kind==='death'?500:310);
     const fullShot=await shot(`qa-${unitSlug}-${kind}-full-320`);
     check(`Full formation ${kind} screenshot saved`,fs.statSync(fullShot).size>10000,fullShot);
+    if(kind==='death'){
+      const restored=await evalJs(`(async()=>{
+        for(let attempt=0;attempt<30;attempt++){
+          await new Promise(resolve=>setTimeout(resolve,30));
+          const unit=HD2D.status().battle.layout.find(item=>item.id===${targetId});
+          if(unit?.portraitAction==='idle')return {
+            action:unit.portraitAction,badge:unit.badgeVisible};
+        }
+        return null;
+      })()`);
+      check('Full surviving fixture restores health badge after death pose',
+        restored?.action==='idle'&&restored.badge===true,restored);
+    }
   }
   check('Required HTTP art returned no 404',missing.size===0,[...missing]);
   const failed=checks.filter(item=>!item.ok);

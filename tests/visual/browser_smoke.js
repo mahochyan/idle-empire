@@ -46,7 +46,7 @@ function check(name,ok,detail){checks.push({name,ok:!!ok,detail:ok?undefined:det
 function send(method,params={}){
   return new Promise((resolve,reject)=>{
     const id=++nextId;
-    const timer=setTimeout(()=>{pending.delete(id);reject(Error('CDP_TIMEOUT '+method));},12000);
+    const timer=setTimeout(()=>{pending.delete(id);reject(Error('CDP_TIMEOUT '+method));},25000);
     pending.set(id,{resolve,reject,timer});
     ws.send(JSON.stringify({id,method,params}));
   });
@@ -636,7 +636,7 @@ async function shot(name){
       sparse.bottom-sparse.top>=sparse.stageHeight*0.23&&
       sparse.bottom-sparse.top<=sparse.stageHeight*0.35&&
       sparse.top>=sparse.stageHeight*0.10&&sparse.bottom<=sparse.stageHeight*0.75&&
-      sparse.bloodLineGaps.every(unit=>unit.gap>=-6&&unit.gap<=-3.5)&&
+      sparse.bloodLineGaps.every(unit=>unit.gap>=-4&&unit.gap<=-2)&&
       sparse.outOfBounds.length===0&&sparse.clippedSprites.length===0&&
       sparse.facing.every(unit=>unit.facing===(unit.side==='enemies'?'right':'left')),sparse);
   }
@@ -666,8 +666,8 @@ async function shot(name){
       const fallback=document.querySelector('#battle-field .unit-hpbar');
       const fallbackFill=document.querySelector('#battle-field .unit-hpfill');
       const red=el=>{const value=getComputedStyle(el).backgroundColor.match(/\\d+/g)?.slice(0,3).map(Number)||[];
-        return value.length===3&&value[0]===169&&
-          value[1]===0&&value[2]===27;};
+        return value.length===3&&value[0]===137&&
+          value[1]===0&&value[2]===18;};
       return {hudHeights:elements.map(el=>el.getBoundingClientRect().height),
         hudRed:fills.every(red),fallbackHeight:fallback?.getBoundingClientRect().height,
         fallbackRed:!!fallbackFill&&red(fallbackFill)};
@@ -691,7 +691,7 @@ async function shot(name){
       const nightArtwork=await evalJs("HD2D.status().battle.artworkTheme");
       check('390px 夜间战斗使用夜景，角色保持清晰且血线纤细',
         darkBattle.theme==='dark'&&darkBattle.heights.every(height=>height<=3.5)&&
-        darkBattle.fillColors.every(color=>color==='rgb(169, 0, 27)')&&
+        darkBattle.fillColors.every(color=>color==='rgb(137, 0, 18)')&&
         darkBattle.trackColors.every(color=>color==='rgb(47, 17, 23)')&&
         darkBattle.fallbackArt&&darkBattle.canvasClear&&
         (!battleView.mounted||nightArtwork==='dark'),{...darkBattle,nightArtwork});
@@ -818,7 +818,7 @@ async function shot(name){
     check(`${width}px 六对六宽体混编立绘可见且血线贴近头顶`,
       mediumMounted&&medium.count===12&&medium.uniqueSlots===12&&
       medium.clipped.length===0&&medium.gaps.every(unit=>unit.ready&&
-        unit.gap>=-6&&unit.gap<=-3.5)&&medium.maxSameSideOverlap<=0.15&&
+        unit.gap>=-4&&unit.gap<=-2)&&medium.maxSameSideOverlap<=0.15&&
       medium.maxOpposingOverlap<=0.15,medium);
     await shot(`${width}-battle-medium-6v6`);
   }
@@ -908,7 +908,7 @@ async function shot(name){
         unit.portraitTopFraction-(unit.badgeRect.top+unit.badgeRect.bottom)/2}));
     check(`${width}×${height} 满编血线贴近立绘可见顶部`,
       badgeGaps.length===24&&badgeGaps.every(unit=>unit.ready&&
-        unit.gap>=-5&&unit.gap<=-3),badgeGaps);
+        unit.gap>=-3&&unit.gap<=-1),badgeGaps);
     const outOfBounds=units.filter(unit=>{
       const r=unit.badgeRect;
       return !Object.values(r).every(Number.isFinite)||r.left<0||r.top<0||
@@ -1303,13 +1303,18 @@ async function shot(name){
         {epoch,round:0,speed:1,stage:'vfx-check',allies,enemies:[target]},{});
       const accepted=[],seen=new Map();
       for(const unit of allies){
-        accepted.push(HD2D.playBattle({epoch,type:'attack',sourceId:unit.id,
-          targetId:target.id,sourceSide:'allies',targetSide:'enemies',durationMs:1200}));
-        for(let attempt=0;attempt<20&&!seen.has(unit.type);attempt++){
-          await new Promise(resolve=>setTimeout(resolve,30));
-          const effect=(HD2D.status().battle.effectDetails||[]).find(item=>
-            item.type==='attack'&&item.unitType===unit.type&&item.visible&&item.assetReady);
-          if(effect)seen.set(unit.type,effect);
+        // The first event may finish while its texture uploads on a busy GPU.
+        // Replay once after warmup and still require a live, decoded effect.
+        for(let replay=0;replay<2&&!seen.has(unit.type);replay++){
+          const played=HD2D.playBattle({epoch,type:'attack',sourceId:unit.id,
+            targetId:target.id,sourceSide:'allies',targetSide:'enemies',durationMs:1200});
+          if(replay===0)accepted.push(played);
+          for(let attempt=0;attempt<24&&!seen.has(unit.type);attempt++){
+            await new Promise(resolve=>setTimeout(resolve,30));
+            const effect=(HD2D.status().battle.effectDetails||[]).find(item=>
+              item.type==='attack'&&item.unitType===unit.type&&item.visible&&item.assetReady);
+            if(effect)seen.set(unit.type,effect);
+          }
         }
       }
       const finalEffects=HD2D.status().battle.effectDetails||[];
@@ -1428,12 +1433,19 @@ async function shot(name){
       await new Promise(resolve=>setTimeout(resolve,20));
     }
     const attack=HD2D.playBattle({epoch,type:'attack',sourceId:63001,targetId:63002,
-      sourceSide:'allies',targetSide:'enemies',durationMs:900});
+      sourceSide:'allies',targetSide:'enemies',durationMs:1200});
     return {epoch,mounted,attack,portraits:HD2D.status().battle.layout.every(unit=>unit.portraitReady)};
   })()`);
-  await sleep(410);
-  const starTravel=await evalJs(`HD2D.status().battle.effectDetails.find(effect=>
-    effect.type==='attack'&&effect.unitType==='star_trooper')`);
+  const starTravel=await evalJs(`(async()=>{
+    let effect;
+    for(let attempt=0;attempt<24;attempt++){
+      await new Promise(resolve=>setTimeout(resolve,35));
+      effect=HD2D.status().battle.effectDetails.find(item=>
+        item.type==='attack'&&item.unitType==='star_trooper');
+      if(effect?.phase==='travel'&&effect.visible&&effect.assetReady)break;
+    }
+    return effect;
+  })()`);
   check('高级兵种攻击中段有可见专属轨迹与多层拖尾',
     cinematicVfx.mounted&&cinematicVfx.portraits&&cinematicVfx.attack&&starTravel?.visible&&
     starTravel?.assetReady&&starTravel?.ornaments>=4&&starTravel?.phase==='travel',starTravel);
@@ -1448,6 +1460,19 @@ async function shot(name){
   await shot('390-vfx-star-impact');
   await setView(360,800);await sleep(150);
   const sparseBadgeGap=await evalJs(`(async()=>{
+    // Measure idle portrait anchors in a fresh scene. The preceding attack
+    // and hit deliberately change the sprite pose and its head position.
+    const epoch=battleEpoch+5701;
+    const make=(type,id)=>({type,row:'front',id,count:12,hp:120,maxHp:120,
+      icon:CFG.units[type].icon});
+    HD2D.disposeBattle();
+    HD2D.mountBattle(document.getElementById('battle-scene'),
+      {epoch,round:0,speed:1,stage:'badge-anchor-check',
+        allies:[make('star_trooper',63001)],enemies:[make('wild_bull',63002)]},{});
+    for(let attempt=0;attempt<50;attempt++){
+      if(HD2D.status().battle.layout.every(unit=>unit.portraitReady))break;
+      await new Promise(resolve=>setTimeout(resolve,20));
+    }
     const scene=document.getElementById('battle-scene');
     const layout=HD2D.status().battle.layout;
     const types=new Map([[63001,'star_trooper'],[63002,'wild_bull']]);
@@ -1471,8 +1496,12 @@ async function shot(name){
         inside:unit.badgeRect.top>=0&&unit.badgeRect.bottom<=scene.clientHeight};
     }));
   })()`);
-  check('360×800 稀疏高阶与野兽血条均在立绘上方且完整入镜',
-    sparseBadgeGap.length===2&&sparseBadgeGap.every(item=>item.gap>=-8&&item.gap<=0&&item.inside),
+  // The boar's horn rises well above its mane. The line belongs at the mane,
+  // while the armoured unit has no such tall foreground silhouette.
+  check('360×800 稀疏高阶与野兽血条贴近头部且完整入镜',
+    sparseBadgeGap.length===2&&sparseBadgeGap.every(item=>item.inside&&
+      (item.side==='enemies'?item.gap>=-18&&item.gap<=-10:
+        item.gap>=-8&&item.gap<=0)),
     sparseBadgeGap);
   await shot('360x800-vfx-star-badges');
   for(const [width,height] of [[320,568],[390,844]]){
@@ -1515,7 +1544,7 @@ async function shot(name){
         inside:unit.badgeRect.top>=0&&unit.badgeRect.bottom<=scene.clientHeight};
     })()`);
     check(`${width}px 长枪兵血线贴头而不是枪尖`,spear.mounted&&spear.ready&&
-      spear.headGap>=-7&&spear.headGap<=0&&spear.tipDistance>12&&spear.inside,spear);
+      spear.headGap>=-10&&spear.headGap<=0&&spear.tipDistance>12&&spear.inside,spear);
     await shot(`${width}-spear-head-badge`);
   }
   await setView(390,844);

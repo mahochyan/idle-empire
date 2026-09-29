@@ -41,7 +41,7 @@
     'wild_boar','wild_bull','wild_snake','wild_tiger','wild_turtle','wild_wyrm'
   ]);
   const hiresActionTypes=new Set([
-    'infantry','infantry_t1','infantry_shield','archer','archer_t1','archer_crossbow','mage_t1','star_trooper','cavalry_t1','gold_cavalry'
+    'infantry','infantry_t1','infantry_shield','archer','archer_t1','archer_crossbow','mage_t1','iron_spearman','star_trooper','cavalry_t1','gold_cavalry'
   ]);
   // Authored helmet/hood anchors for frames whose raised weapon sits higher
   // than the face. Other frames use measured alpha bounds.
@@ -967,7 +967,9 @@
   }
   function portraitHeadTop(rgba,size){
     const left=Math.floor(size*0.34),right=Math.ceil(size*0.66);
-    const minRun=Math.max(6,Math.round(size*0.045));
+    // A wider opaque run avoids mistaking narrow horns, halos and weapon tips
+    // for the top of the head. The previous narrow run left some bars floating.
+    const minRun=Math.max(6,Math.round(size*0.09));
     let first=null;
     for(let y=0;y<size;y++){
       let run=0;
@@ -1008,8 +1010,8 @@
     const count='×'+Math.max(0,Math.floor(number(unit.count,0)));
     ctx.clearRect(0,0,width,height);
     const lineY=Math.round(height/2)-3;
-    ctx.fillStyle='#29050b';ctx.fillRect(5,lineY,barWidth,6);
-    ctx.fillStyle='#a9001b';
+    ctx.fillStyle='#25040a';ctx.fillRect(5,lineY,barWidth,6);
+    ctx.fillStyle='#890012';
     ctx.fillRect(5,lineY,Math.round(barWidth*ratio),6);
     // Compact world badges shrink to roughly 30 CSS px on a 320px battlefield.
     // Draw their count larger within the same texture so it remains legible
@@ -1088,6 +1090,7 @@
         portraitActionReady:!!model.hiresActionActive,
         portraitActionFrames:model.hiresActionActive?
           model.sprite.material.map?.userData.hd2dFrames||1:1,
+        badgeVisible:model.badge.visible,
         portraitTopFraction:Number.isFinite(model.actionVisibleTopFraction)?
           model.actionVisibleTopFraction:
           Number.isFinite(model.visibleTopFraction)?model.visibleTopFraction:null,
@@ -1161,7 +1164,7 @@
       model.sprite.scale.y*pixelsPerUnit;
     // The head anchor excludes raised weapons. Keep a narrow gap above the
     // helmet edge; a deeper overlap cuts through the portrait at phone scale.
-    const desiredLinePx=visibleTopPx+(density>=7?4:5);
+    const desiredLinePx=visibleTopPx+(density>=7?2:3);
     const badgePoint=new T.Vector3(model.group.position.x+centeredBadgeX,model.badge.position.y,
       model.group.position.z).project(camera);
     const raisedPoint=new T.Vector3(model.group.position.x+centeredBadgeX,model.badge.position.y+1,
@@ -1317,6 +1320,10 @@
     if(!model)return;
     model.action={kind,start:performance.now(),duration:clamp(number(duration,420),160,1100)};
     model.sprite.material.opacity=1;
+    if(kind==='death'){
+      model.badge.visible=false;
+      for(const follower of model.followers)follower.visible=false;
+    }
     applyUnitActionTexture(state,model,kind);
   }
   function removeUnit(state,model){
@@ -1451,10 +1458,13 @@
         placeBattleBadge(state,model,state.density);
         keepSparseSpriteInside(state,model);
         model.group.visible=true;
+        model.badge.visible=state.options.showWorldBadges!==false&&model.action?.kind!=='death';
         model.followers[0].visible=model.followers[0].userData.artReady&&
-          !model.soloEnemyArt&&state.density<7&&number(unit.count,0)>=3;
+          !model.soloEnemyArt&&model.action?.kind!=='death'&&
+          state.density<7&&number(unit.count,0)>=3;
         model.followers[1].visible=model.followers[1].userData.artReady&&
-          !model.soloEnemyArt&&state.density<7&&number(unit.count,0)>=20;
+          !model.soloEnemyArt&&model.action?.kind!=='death'&&
+          state.density<7&&number(unit.count,0)>=20;
         if(number(unit.count,0)<=0&&!model.pendingRemoval){
           model.pendingRemoval=true;startUnitAction(state,model,'death',620);
         }
@@ -1813,6 +1823,11 @@
             model.sprite.position.x=0;model.sprite.material.opacity=1;
             model.sprite.material.color.setHex(0xffffff);model.sprite.material.rotation=0;
             applyUnitActionTexture(state,model,'idle');
+            model.badge.visible=state.options.showWorldBadges!==false;
+            model.followers[0].visible=model.followers[0].userData.artReady&&
+              !model.soloEnemyArt&&state.density<7&&model.count>=3;
+            model.followers[1].visible=model.followers[1].userData.artReady&&
+              !model.soloEnemyArt&&state.density<7&&model.count>=20;
           }else if(model.hiresIdle){
             const wave=Math.sin(Math.PI*p),material=model.sprite.material,factor=model.heroScale||1,
               pack=model.portraitPack||1;

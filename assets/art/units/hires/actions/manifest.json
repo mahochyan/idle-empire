@@ -1,5 +1,5 @@
 {
-  "version": 7,
+  "version": 8,
   "runtimeSampleEnabled": true,
   "runtimeUnits": [
     "infantry",
@@ -10,6 +10,7 @@
     "archer_t1",
     "archer_crossbow",
     "mage_t1",
+    "iron_spearman",
     "cavalry_t1",
     "gold_cavalry"
   ],
@@ -2428,6 +2429,308 @@
             ],
             "scale": 0.68,
             "baselineY": 494
+          }
+        ]
+      }
+    },
+    "iron_spearman": {
+      "attack": {
+        "path": "./assets/art/units/hires/actions/iron_spearman-attack.png",
+        "compactPath": "./assets/art/units/hires/actions/compact/iron_spearman-attack.png",
+        "compactFrameWidth": 256,
+        "compactFrameHeight": 256,
+        "compactResampling": "nearest",
+        "frameWidth": 512,
+        "frameHeight": 512,
+        "frames": 4,
+        "order": [
+          "idle",
+          "windup_or_jolt",
+          "contact_or_fall",
+          "recover_or_prone"
+        ],
+        "suggestedFrameDurationMs": [
+          60,
+          90,
+          105,
+          100
+        ],
+        "loop": false,
+        "facing": "right",
+        "source": "source/generated/units/actions/iron_spearman/attack-master.png",
+        "sourceSize": [
+          1827,
+          861
+        ],
+        "sourceSeamsX": [
+          609,
+          1275
+        ],
+        "frameAudit": [
+          {
+            "bounds": [
+              52,
+              16,
+              507,
+              497
+            ],
+            "sourceBounds": [
+              52,
+              16,
+              507,
+              497
+            ],
+            "scale": 1.0,
+            "baselineY": 497,
+            "pixelIdenticalToIdle": true
+          },
+          {
+            "bounds": [
+              8,
+              39,
+              338,
+              497
+            ],
+            "sourceBounds": [
+              33,
+              123,
+              519,
+              796
+            ],
+            "scale": 0.68,
+            "baselineY": 497
+          },
+          {
+            "bounds": [
+              8,
+              105,
+              368,
+              497
+            ],
+            "sourceBounds": [
+              136,
+              225,
+              666,
+              801
+            ],
+            "scale": 0.68,
+            "baselineY": 497
+          },
+          {
+            "bounds": [
+              88,
+              17,
+              352,
+              497
+            ],
+            "sourceBounds": [
+              101,
+              43,
+              517,
+              800
+            ],
+            "scale": 0.63408,
+            "baselineY": 497
+          }
+        ]
+      },
+      "hit": {
+        "path": "./assets/art/units/hires/actions/iron_spearman-hit.png",
+        "compactPath": "./assets/art/units/hires/actions/compact/iron_spearman-hit.png",
+        "compactFrameWidth": 256,
+        "compactFrameHeight": 256,
+        "compactResampling": "nearest",
+        "frameWidth": 512,
+        "frameHeight": 512,
+        "frames": 4,
+        "order": [
+          "idle",
+          "windup_or_jolt",
+          "contact_or_fall",
+          "recover_or_prone"
+        ],
+        "suggestedFrameDurationMs": [
+          45,
+          110,
+          130,
+          95
+        ],
+        "loop": false,
+        "facing": "right",
+        "source": "source/generated/units/actions/iron_spearman/hit-master.png",
+        "sourceSize": [
+          2172,
+          724
+        ],
+        "sourceSeamsX": [
+          724,
+          1448
+        ],
+        "frameAudit": [
+          {
+            "bounds": [
+              52,
+              16,
+              507,
+              497
+            ],
+            "sourceBounds": [
+              52,
+              16,
+              507,
+              497
+            ],
+            "scale": 1.0,
+            "baselineY": 497,
+            "pixelIdenticalToIdle": true
+          },
+          {
+            "bounds": [
+              61,
+              25,
+              364,
+              497
+            ],
+            "sourceBounds": [
+              167,
+              15,
+              612,
+              709
+            ],
+            "scale": 0.68,
+            "baselineY": 497
+          },
+          {
+            "bounds": [
+              31,
+              37,
+              371,
+              497
+            ],
+            "sourceBounds": [
+              98,
+              33,
+              598,
+              709
+            ],
+            "scale": 0.68,
+            "baselineY": 497
+          },
+          {
+            "bounds": [
+              39,
+              96,
+              467,
+              497
+            ],
+            "sourceBounds": [
+              81,
+              119,
+              711,
+              709
+            ],
+            "scale": 0.68,
+            "baselineY": 497
+          }
+        ]
+      },
+      "death": {
+        "path": "./assets/art/units/hires/actions/iron_spearman-death.png",
+        "compactPath": "./assets/art/units/hires/actions/compact/iron_spearman-death.png",
+        "compactFrameWidth": 256,
+        "compactFrameHeight": 256,
+        "compactResampling": "nearest",
+        "frameWidth": 512,
+        "frameHeight": 512,
+        "frames": 4,
+        "order": [
+          "idle",
+          "windup_or_jolt",
+          "contact_or_fall",
+          "recover_or_prone"
+        ],
+        "suggestedFrameDurationMs": [
+          50,
+          135,
+          170,
+          280
+        ],
+        "loop": false,
+        "facing": "right",
+        "source": "source/generated/units/actions/iron_spearman/death-master.png",
+        "sourceSize": [
+          2172,
+          724
+        ],
+        "sourceSeamsX": [
+          724,
+          1421
+        ],
+        "frameAudit": [
+          {
+            "bounds": [
+              52,
+              16,
+              507,
+              497
+            ],
+            "sourceBounds": [
+              52,
+              16,
+              507,
+              497
+            ],
+            "scale": 1.0,
+            "baselineY": 497,
+            "pixelIdenticalToIdle": true
+          },
+          {
+            "bounds": [
+              8,
+              153,
+              409,
+              497
+            ],
+            "sourceBounds": [
+              85,
+              127,
+              675,
+              633
+            ],
+            "scale": 0.68,
+            "baselineY": 497
+          },
+          {
+            "bounds": [
+              9,
+              220,
+              417,
+              497
+            ],
+            "sourceBounds": [
+              53,
+              230,
+              655,
+              638
+            ],
+            "scale": 0.68,
+            "baselineY": 497
+          },
+          {
+            "bounds": [
+              8,
+              369,
+              495,
+              497
+            ],
+            "sourceBounds": [
+              1,
+              459,
+              717,
+              647
+            ],
+            "scale": 0.68,
+            "baselineY": 497
           }
         ]
       }

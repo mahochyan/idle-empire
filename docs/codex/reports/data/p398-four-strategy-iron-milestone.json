@@ -1,0 +1,3931 @@
+{
+  "batch": "P398",
+  "sourceSha256": {
+    "config.js": "92ea9407ef67fa5d4d5dd929f6a5eec03a96690d75aa56ef0b37de9f280ac686",
+    "levels.js": "cec80c26fa91f941994c253a2fe73be0dfe3f108237620b662fdab9f5449fd1d",
+    "math.js": "55f33b7cb3fa6907c887b2f344ea45b0453749ad325c53550a6fdbbbc524e5d1",
+    "garrison.js": "4d233f0529d256cd1ace2de782603fcfcbbff110032ca4cf29c5e36af30f10ff",
+    "technology.js": "3d3485f57e1e3ef73d11077cec06d467f674959aa6f0dfb27c3eb4d4abf94536",
+    "tools/verify/probe-four-strategies-p398.js": "bba4bf056edfd436e764df86c5325d67450d5e26659017b04e922e869d7a9337",
+    "tools/verify/probe-population-early-18.js": "20250b9b30fc7ffd9f6741105f13c90c14c005dfeadfcab1ee887edb20b82dd8",
+    "tools/verify/probe-population-first-clear-replenish-p102.js": "28bcfd8a703fe90939382643bc3f3a0ba19e85c45206ba929d598dfc8491aff5"
+  },
+  "unit": "active online seconds, settled offline seconds, elapsed simulation seconds; scripted actions are instantaneous",
+  "method": "four fresh new-game saves, P397 market bridge and first-loss recovery, then same-game paid urbanization, iron research, forge and one iron soldier; no candidate reward injection",
+  "limitations": "harness fixes battle random at 0.5 and freezes natural garrison; iron milestone is not 50-hour or full-era acceptance",
+  "results": {
+    "economic": {
+      "policy": "housing-first 2-scholar start; add three market-paid deeds to L3 six and expand village; immediate next fights",
+      "population": {
+        "population18": {
+          "activeOnlineSeconds": 5341,
+          "settledOfflineSeconds": 0,
+          "elapsedSimulationSeconds": 5341,
+          "population": 18,
+          "capacity": 18,
+          "actions": {
+            "build": 4,
+            "allocate": 13,
+            "research": 6,
+            "settlement": 9,
+            "exchange": 55
+          },
+          "actionCount": 87,
+          "food": 1481.67
+        },
+        "final": {
+          "activeOnlineSeconds": 5561,
+          "settledOfflineSeconds": 0,
+          "elapsedSimulationSeconds": 5561,
+          "population": 18,
+          "actionCount": 94,
+          "actions": {
+            "build": 4,
+            "allocate": 20,
+            "research": 6,
+            "settlement": 9,
+            "exchange": 55
+          },
+          "minFood": 18,
+          "battleWins": 0
+        },
+        "saveSha256": "3705e28bffc5b2f3b16d420a999a0cc49f19c013ccf2a2941aa1696fa24505da"
+      },
+      "campaign": {
+        "entry": {
+          "tick": 5832,
+          "resources": {
+            "wood": 268,
+            "stone": 1594,
+            "food": 7.058244465115514,
+            "tech": 3000,
+            "coal": 220,
+            "copper": 38,
+            "iron": 220,
+            "silver": 0,
+            "gold": 0,
+            "steel": 0,
+            "coin": 97,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 0,
+            "medal": 0,
+            "bone": 0,
+            "hide": 0
+          },
+          "workers": {
+            "wood": 0,
+            "stone": 6,
+            "food": 3,
+            "coal": 6,
+            "copper": 3,
+            "iron": 0,
+            "silver": 0,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "tech": 0
+          },
+          "population": 18,
+          "capacity": 18,
+          "army": {
+            "infantry": 15,
+            "archer": 13,
+            "bronze_guard": 8
+          },
+          "bronzeSciencePaid": true
+        },
+        "operations": {
+          "build": 6,
+          "allocate": 34,
+          "research": 4,
+          "train": 12,
+          "market": 3,
+          "settlement": 1,
+          "formation": 24,
+          "battle": 8
+        },
+        "operationCount": 92,
+        "extraSecondsPerWin": 0,
+        "attempted": 7,
+        "wins": 6,
+        "blockedAt": 7,
+        "rows": [
+          {
+            "stage": 3,
+            "win": true,
+            "tickBefore": 5852,
+            "afterTick": 5872,
+            "deedAfter": 0,
+            "deedSavedAfter": 0,
+            "capacityAfter": 19,
+            "marketBridge": {
+              "gap": 3,
+              "purchaseWaitSeconds": 0,
+              "purchases": [
+                {
+                  "waited": 0,
+                  "sourceCost": 22,
+                  "coinCost": 100,
+                  "bought": {
+                    "ok": true,
+                    "deeds": 1,
+                    "sourceCost": 22,
+                    "coinCost": 100,
+                    "remainingCoin": 0,
+                    "remainingDeed": 7
+                  }
+                },
+                {
+                  "waited": 0,
+                  "sourceCost": 715,
+                  "coinCost": 100,
+                  "bought": {
+                    "ok": true,
+                    "deeds": 1,
+                    "sourceCost": 715,
+                    "coinCost": 100,
+                    "remainingCoin": 0,
+                    "remainingDeed": 8
+                  }
+                },
+                {
+                  "waited": 0,
+                  "sourceCost": 715,
+                  "coinCost": 100,
+                  "bought": {
+                    "ok": true,
+                    "deeds": 1,
+                    "sourceCost": 715,
+                    "coinCost": 100,
+                    "remainingCoin": 0,
+                    "remainingDeed": 9
+                  }
+                }
+              ],
+              "expanded": {
+                "ok": true,
+                "cost": 9,
+                "level": 5,
+                "gain": 1,
+                "count": 1,
+                "remainingDeed": 0
+              },
+              "deedBefore": 6,
+              "deedAfter": 0,
+              "savedDeed": 0,
+              "population": 19,
+              "capacity": 19,
+              "food": 311.05517256969074,
+              "activeTick": 5862
+            },
+            "nextVillageCost": 10,
+            "round": 2,
+            "deployed": 20,
+            "armyBefore": 35,
+            "armyAfter": 34,
+            "byTypeBefore": {
+              "infantry": 15,
+              "archer": 13,
+              "bronze_guard": 7
+            },
+            "byTypeAfter": {
+              "infantry": 15,
+              "archer": 13,
+              "bronze_guard": 6
+            },
+            "populationBefore": 18,
+            "capacityBefore": 18,
+            "replenishment": {
+              "queuedAtStart": {
+                "infantry": 0,
+                "archer": 0,
+                "bronze_guard": 9
+              },
+              "remainingQueue": {
+                "infantry": 0,
+                "archer": 0,
+                "bronze_guard": 9
+              },
+              "queueReasons": {
+                "infantry": "",
+                "archer": "",
+                "bronze_guard": ""
+              },
+              "afterArmy": {
+                "infantry": 15,
+                "archer": 13,
+                "bronze_guard": 6
+              },
+              "resources": {
+                "wood": 592,
+                "food": 373.6198784520436,
+                "coal": 220,
+                "copper": 158
+              }
+            },
+            "resourcesBefore": {
+              "food": 203.24046668733789,
+              "coal": 220,
+              "copper": 98
+            }
+          },
+          {
+            "stage": 4,
+            "win": true,
+            "tickBefore": 5872,
+            "afterTick": 5882,
+            "deedAfter": 0,
+            "deedSavedAfter": 0,
+            "capacityAfter": 19,
+            "marketBridge": null,
+            "nextVillageCost": 10,
+            "round": 3,
+            "deployed": 19,
+            "armyBefore": 34,
+            "armyAfter": 29,
+            "byTypeBefore": {
+              "infantry": 15,
+              "archer": 13,
+              "bronze_guard": 6
+            },
+            "byTypeAfter": {
+              "infantry": 15,
+              "archer": 13,
+              "bronze_guard": 1
+            },
+            "populationBefore": 19,
+            "capacityBefore": 19,
+            "replenishment": {
+              "queuedAtStart": {
+                "infantry": 0,
+                "archer": 0,
+                "bronze_guard": 13
+              },
+              "remainingQueue": {
+                "infantry": 0,
+                "archer": 0,
+                "bronze_guard": 13
+              },
+              "queueReasons": {
+                "infantry": "",
+                "archer": "",
+                "bronze_guard": "资源不足，暂停生产"
+              },
+              "afterArmy": {
+                "infantry": 15,
+                "archer": 13,
+                "bronze_guard": 2
+              },
+              "resources": {
+                "wood": 717,
+                "food": 216.67987845204374,
+                "coal": 220,
+                "copper": 88
+              }
+            },
+            "resourcesBefore": {
+              "food": 373.6198784520436,
+              "coal": 220,
+              "copper": 158
+            }
+          },
+          {
+            "stage": 5,
+            "win": true,
+            "tickBefore": 5882,
+            "afterTick": 5892,
+            "deedAfter": 0,
+            "deedSavedAfter": 0,
+            "capacityAfter": 19,
+            "marketBridge": null,
+            "nextVillageCost": 10,
+            "round": 1,
+            "deployed": 15,
+            "armyBefore": 30,
+            "armyAfter": 29,
+            "byTypeBefore": {
+              "infantry": 15,
+              "archer": 13,
+              "bronze_guard": 2
+            },
+            "byTypeAfter": {
+              "infantry": 15,
+              "archer": 13,
+              "bronze_guard": 1
+            },
+            "populationBefore": 19,
+            "capacityBefore": 19,
+            "replenishment": {
+              "queuedAtStart": {
+                "infantry": 0,
+                "archer": 0,
+                "bronze_guard": 13
+              },
+              "remainingQueue": {
+                "infantry": 0,
+                "archer": 0,
+                "bronze_guard": 13
+              },
+              "queueReasons": {
+                "infantry": "",
+                "archer": "",
+                "bronze_guard": "资源不足，暂停生产"
+              },
+              "afterArmy": {
+                "infantry": 15,
+                "archer": 13,
+                "bronze_guard": 2
+              },
+              "resources": {
+                "wood": 853,
+                "food": 66.13105086583678,
+                "coal": 220,
+                "copper": 18
+              }
+            },
+            "resourcesBefore": {
+              "food": 216.67987845204374,
+              "coal": 220,
+              "copper": 88
+            }
+          },
+          {
+            "stage": 6,
+            "win": true,
+            "tickBefore": 5892,
+            "afterTick": 5902,
+            "deedAfter": 0,
+            "deedSavedAfter": 0,
+            "capacityAfter": 19,
+            "marketBridge": null,
+            "nextVillageCost": 10,
+            "round": 6,
+            "deployed": 25,
+            "armyBefore": 30,
+            "armyAfter": 8,
+            "byTypeBefore": {
+              "infantry": 15,
+              "archer": 13,
+              "bronze_guard": 2
+            },
+            "byTypeAfter": {
+              "infantry": 5,
+              "archer": 3,
+              "bronze_guard": 0
+            },
+            "populationBefore": 19,
+            "capacityBefore": 19,
+            "replenishment": {
+              "queuedAtStart": {
+                "infantry": 10,
+                "archer": 10,
+                "bronze_guard": 15
+              },
+              "remainingQueue": {
+                "infantry": 10,
+                "archer": 10,
+                "bronze_guard": 15
+              },
+              "queueReasons": {
+                "infantry": "",
+                "archer": "",
+                "bronze_guard": "资源不足，暂停生产"
+              },
+              "afterArmy": {
+                "infantry": 5,
+                "archer": 3,
+                "bronze_guard": 0
+              },
+              "resources": {
+                "wood": 999,
+                "food": 234.13105086583678,
+                "coal": 220,
+                "copper": 48
+              }
+            },
+            "resourcesBefore": {
+              "food": 66.13105086583678,
+              "coal": 220,
+              "copper": 18
+            }
+          },
+          {
+            "stage": 7,
+            "win": false,
+            "tickBefore": 5902,
+            "afterTick": 5912,
+            "deedAfter": 0,
+            "deedSavedAfter": 0,
+            "capacityAfter": 19,
+            "marketBridge": null,
+            "nextVillageCost": 10,
+            "round": 1,
+            "deployed": 8,
+            "armyBefore": 8,
+            "armyAfter": 0,
+            "byTypeBefore": {
+              "infantry": 5,
+              "archer": 3,
+              "bronze_guard": 0
+            },
+            "byTypeAfter": {
+              "infantry": 0,
+              "archer": 0,
+              "bronze_guard": 0
+            },
+            "populationBefore": 19,
+            "capacityBefore": 19,
+            "replenishment": null,
+            "resourcesBefore": {
+              "food": 234.13105086583678,
+              "coal": 220,
+              "copper": 48
+            }
+          }
+        ],
+        "recovery": {
+          "stage": 7,
+          "activeWaitSeconds": 600,
+          "firstLoss": {
+            "stage": 7,
+            "round": 1,
+            "armyBefore": {
+              "infantry": 5,
+              "archer": 3,
+              "bronze_guard": 0
+            },
+            "armyAfter": {
+              "infantry": 0,
+              "archer": 0,
+              "bronze_guard": 0
+            },
+            "populationBefore": 19,
+            "populationAfterDefeat": 19
+          },
+          "trainingAttempts": [
+            {
+              "type": "infantry",
+              "requested": 5,
+              "result": {
+                "ok": true,
+                "qty": 5
+              }
+            },
+            {
+              "type": "archer",
+              "requested": 3,
+              "result": {
+                "ok": true,
+                "qty": 3
+              }
+            }
+          ],
+          "beforeRetry": {
+            "tick": 6512,
+            "population": 19,
+            "capacity": 19,
+            "army": {
+              "infantry": 15,
+              "archer": 6,
+              "bronze_guard": 13
+            },
+            "queue": {
+              "infantry": 0,
+              "archer": 7,
+              "bronze_guard": 2
+            },
+            "queueReasons": {
+              "infantry": "",
+              "archer": "资源不足，暂停生产",
+              "bronze_guard": "资源不足，暂停生产"
+            },
+            "trainingBudget": {
+              "infantry": {
+                "cost": {
+                  "wood": 30,
+                  "stone": 10,
+                  "food": 20
+                },
+                "maxAffordable": 2,
+                "unitCapLeft": 25
+              },
+              "archer": {
+                "cost": {
+                  "wood": 80,
+                  "stone": 20,
+                  "food": 30
+                },
+                "maxAffordable": 0,
+                "unitCapLeft": 30
+              },
+              "bronze_guard": {
+                "cost": {
+                  "food": 300,
+                  "copper": 100
+                },
+                "maxAffordable": 0,
+                "unitCapLeft": 2
+              }
+            },
+            "resources": {
+              "wood": 69,
+              "stone": 1594,
+              "food": 122.35653496415782,
+              "tech": 3000,
+              "coal": 220,
+              "copper": 578,
+              "iron": 220,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "goldCoin": 0,
+              "deed": 0,
+              "medal": 0,
+              "bone": 0,
+              "hide": 0
+            }
+          },
+          "retry": {
+            "outcome": {
+              "win": true,
+              "round": 6,
+              "army": 20,
+              "byType": {
+                "infantry": 15,
+                "archer": 5,
+                "bronze_guard": 0
+              }
+            },
+            "battleActiveMs": null,
+            "callbacks": 36,
+            "reward": {
+              "award": 0,
+              "bonus": 0,
+              "spent": 0
+            }
+          },
+          "afterRetry": {
+            "tick": 6522,
+            "population": 19,
+            "capacity": 19,
+            "army": {
+              "infantry": 15,
+              "archer": 7,
+              "bronze_guard": 0
+            },
+            "queue": {
+              "infantry": 0,
+              "archer": 5,
+              "bronze_guard": 2
+            },
+            "queueReasons": {
+              "infantry": "",
+              "archer": "资源不足，暂停生产",
+              "bronze_guard": "资源不足，暂停生产"
+            },
+            "trainingBudget": {
+              "infantry": {
+                "cost": {
+                  "wood": 30,
+                  "stone": 10,
+                  "food": 20
+                },
+                "maxAffordable": 2,
+                "unitCapLeft": 25
+              },
+              "archer": {
+                "cost": {
+                  "wood": 80,
+                  "stone": 20,
+                  "food": 30
+                },
+                "maxAffordable": 0,
+                "unitCapLeft": 29
+              },
+              "bronze_guard": {
+                "cost": {
+                  "food": 300,
+                  "copper": 100
+                },
+                "maxAffordable": 0,
+                "unitCapLeft": 15
+              }
+            },
+            "resources": {
+              "wood": 67,
+              "stone": 1594,
+              "food": 232.129262236885,
+              "tech": 3000,
+              "coal": 220,
+              "copper": 608,
+              "iron": 220,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "goldCoin": 0,
+              "deed": 0,
+              "medal": 0,
+              "bone": 0,
+              "hide": 0
+            }
+          }
+        },
+        "sessionClock": null,
+        "continuation": {
+          "start": {
+            "stage": 7,
+            "retryWon": true,
+            "tick": 6522,
+            "population": 19
+          },
+          "allocation": {
+            "wood": 4,
+            "stone": 3,
+            "food": 5,
+            "coal": 3,
+            "tech": 4
+          },
+          "rates": {
+            "wood": 12,
+            "stone": 6,
+            "food": 12.375000000000002,
+            "coal": 3,
+            "tech": 4.4
+          },
+          "activeWait": 150,
+          "research": [
+            {
+              "id": "sci_urbanization",
+              "alreadyKnown": true,
+              "tick": 6522
+            },
+            {
+              "id": "sci_iron",
+              "alreadyKnown": true,
+              "tick": 6522
+            },
+            {
+              "id": "sci_iron_warehouse",
+              "cost": 1000,
+              "before": 3000,
+              "after": 2000,
+              "paid": {
+                "ok": true
+              },
+              "tick": 6522,
+              "savedScience": true
+            },
+            {
+              "id": "sci_iron_age",
+              "cost": 2500,
+              "before": 2528.000000000011,
+              "after": 28.000000000010914,
+              "paid": {
+                "ok": true
+              },
+              "tick": 6642,
+              "savedScience": true
+            }
+          ],
+          "beforeForge": {
+            "wood": 1107,
+            "stone": 1600,
+            "food": 618.8500702930969,
+            "tech": 28.000000000010914,
+            "coal": 580,
+            "copper": 408,
+            "iron": 220,
+            "silver": 0,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 0,
+            "medal": 0,
+            "bone": 0,
+            "hide": 0
+          },
+          "forge": {
+            "ok": true
+          },
+          "afterForgePaid": {
+            "wood": 507,
+            "stone": 1000,
+            "food": 318.8500702930969,
+            "tech": 28.000000000010914,
+            "coal": 580,
+            "copper": 408,
+            "iron": 220,
+            "silver": 0,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 0,
+            "medal": 0,
+            "bone": 0,
+            "hide": 0
+          },
+          "beforeTraining": {
+            "wood": 747,
+            "stone": 1120,
+            "food": 506.19144960344215,
+            "tech": 116.00000000001097,
+            "coal": 600,
+            "copper": 408,
+            "iron": 220,
+            "silver": 0,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 0,
+            "medal": 0,
+            "bone": 0,
+            "hide": 0
+          },
+          "afterEnqueue": {
+            "wood": 747,
+            "stone": 1120,
+            "food": 506.19144960344215,
+            "tech": 116.00000000001097,
+            "coal": 600,
+            "copper": 408,
+            "iron": 220,
+            "silver": 0,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 0,
+            "medal": 0,
+            "bone": 0,
+            "hide": 0
+          },
+          "trainResult": {
+            "ok": true,
+            "qty": 1
+          },
+          "trainingCharges": [
+            {
+              "cost": {
+                "food": 500,
+                "iron": 100
+              },
+              "n": 1,
+              "tick": 6663
+            }
+          ],
+          "saveResult": {
+            "ok": true
+          },
+          "final": {
+            "tick": 6672,
+            "population": 19,
+            "capacity": 19,
+            "resources": {
+              "wood": 867,
+              "stone": 1180,
+              "food": 98.64144960344217,
+              "tech": 160.00000000001103,
+              "coal": 600,
+              "copper": 408,
+              "iron": 120,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "goldCoin": 0,
+              "deed": 0,
+              "medal": 0,
+              "bone": 0,
+              "hide": 0
+            },
+            "army": {
+              "infantry": 15,
+              "archer": 7,
+              "bronze_guard": 2,
+              "iron_spearman": 1
+            },
+            "queue": {
+              "infantry": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "bronze_guard": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "iron_spearman": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              }
+            },
+            "sciences": [
+              "sci_prospect",
+              "sci_coal",
+              "sci_copper",
+              "sci_wood_store",
+              "sci_urbanization",
+              "sci_iron",
+              "sci_large_granary",
+              "sci_bronze_age",
+              "sci_iron_warehouse",
+              "sci_iron_age"
+            ],
+            "mainlineWins": 7,
+            "sessionClock": null
+          },
+          "saveSha256": "e16168b9e8da0a0fb12e07c756cf0d38e9a3866872a0e983f9704f43a96e2e5d"
+        }
+      },
+      "campaignError": null
+    },
+    "balanced": {
+      "policy": "temporary 4-scholar research after market; add three paid deeds at L3 and expand village; 180 online seconds of post-win replenishment",
+      "population": {
+        "population18": {
+          "activeOnlineSeconds": 5029,
+          "settledOfflineSeconds": 0,
+          "elapsedSimulationSeconds": 5029,
+          "population": 18,
+          "capacity": 18,
+          "actions": {
+            "build": 4,
+            "allocate": 19,
+            "research": 6,
+            "settlement": 9,
+            "exchange": 54
+          },
+          "actionCount": 92,
+          "food": 1937.87
+        },
+        "final": {
+          "activeOnlineSeconds": 5249,
+          "settledOfflineSeconds": 0,
+          "elapsedSimulationSeconds": 5249,
+          "population": 18,
+          "actionCount": 99,
+          "actions": {
+            "build": 4,
+            "allocate": 26,
+            "research": 6,
+            "settlement": 9,
+            "exchange": 54
+          },
+          "minFood": 18,
+          "battleWins": 0
+        },
+        "saveSha256": "87cf589fae317e4f1d54e783d129e92ea6e6eb5d027bbb8006da6a249a65afb9"
+      },
+      "campaign": {
+        "entry": {
+          "tick": 5509,
+          "resources": {
+            "wood": 268,
+            "stone": 1594,
+            "food": 422.5472444650775,
+            "tech": 3000,
+            "coal": 220,
+            "copper": 5,
+            "iron": 220,
+            "silver": 0,
+            "gold": 0,
+            "steel": 0,
+            "coin": 12,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 0,
+            "medal": 0,
+            "bone": 0,
+            "hide": 0
+          },
+          "workers": {
+            "wood": 0,
+            "stone": 6,
+            "food": 3,
+            "coal": 6,
+            "copper": 3,
+            "iron": 0,
+            "silver": 0,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "tech": 0
+          },
+          "population": 18,
+          "capacity": 18,
+          "army": {
+            "infantry": 15,
+            "archer": 13,
+            "bronze_guard": 8
+          },
+          "bronzeSciencePaid": true
+        },
+        "operations": {
+          "build": 6,
+          "allocate": 34,
+          "research": 4,
+          "train": 13,
+          "market": 3,
+          "settlement": 1,
+          "formation": 30,
+          "battle": 9
+        },
+        "operationCount": 100,
+        "extraSecondsPerWin": 180,
+        "attempted": 8,
+        "wins": 7,
+        "blockedAt": 8,
+        "rows": [
+          {
+            "stage": 3,
+            "win": true,
+            "tickBefore": 5529,
+            "afterTick": 5809,
+            "deedAfter": 0,
+            "deedSavedAfter": 0,
+            "capacityAfter": 19,
+            "marketBridge": {
+              "gap": 3,
+              "purchaseWaitSeconds": 80,
+              "purchases": [
+                {
+                  "waited": 0,
+                  "sourceCost": 629,
+                  "coinCost": 100,
+                  "bought": {
+                    "ok": true,
+                    "deeds": 1,
+                    "sourceCost": 629,
+                    "coinCost": 100,
+                    "remainingCoin": 0,
+                    "remainingDeed": 7
+                  }
+                },
+                {
+                  "waited": 0,
+                  "sourceCost": 715,
+                  "coinCost": 100,
+                  "bought": {
+                    "ok": true,
+                    "deeds": 1,
+                    "sourceCost": 715,
+                    "coinCost": 100,
+                    "remainingCoin": 0,
+                    "remainingDeed": 8
+                  }
+                },
+                {
+                  "waited": 80,
+                  "sourceCost": 715,
+                  "coinCost": 100,
+                  "bought": {
+                    "ok": true,
+                    "deeds": 1,
+                    "sourceCost": 715,
+                    "coinCost": 100,
+                    "remainingCoin": 0,
+                    "remainingDeed": 9
+                  }
+                }
+              ],
+              "expanded": {
+                "ok": true,
+                "cost": 9,
+                "level": 5,
+                "gain": 1,
+                "count": 1,
+                "remainingDeed": 0
+              },
+              "deedBefore": 6,
+              "deedAfter": 0,
+              "savedDeed": 0,
+              "population": 19,
+              "capacity": 19,
+              "food": 1037.061819628475,
+              "activeTick": 5619
+            },
+            "nextVillageCost": 10,
+            "round": 2,
+            "deployed": 20,
+            "armyBefore": 35,
+            "armyAfter": 34,
+            "byTypeBefore": {
+              "infantry": 15,
+              "archer": 13,
+              "bronze_guard": 7
+            },
+            "byTypeAfter": {
+              "infantry": 15,
+              "archer": 13,
+              "bronze_guard": 6
+            },
+            "populationBefore": 18,
+            "capacityBefore": 18,
+            "replenishment": {
+              "queuedAtStart": {
+                "infantry": 0,
+                "archer": 0,
+                "bronze_guard": 9
+              },
+              "remainingQueue": {
+                "infantry": 0,
+                "archer": 0,
+                "bronze_guard": 3
+              },
+              "queueReasons": {
+                "infantry": "",
+                "archer": "",
+                "bronze_guard": "资源不足，暂停生产"
+              },
+              "afterArmy": {
+                "infantry": 15,
+                "archer": 13,
+                "bronze_guard": 12
+              },
+              "resources": {
+                "wood": 592,
+                "food": 265.38688658850447,
+                "coal": 220,
+                "copper": 305
+              }
+            },
+            "resourcesBefore": {
+              "food": 618.729466687299,
+              "coal": 220,
+              "copper": 65
+            }
+          },
+          {
+            "stage": 4,
+            "win": true,
+            "tickBefore": 5809,
+            "afterTick": 5999,
+            "deedAfter": 0,
+            "deedSavedAfter": 0,
+            "capacityAfter": 19,
+            "marketBridge": null,
+            "nextVillageCost": 10,
+            "round": 2,
+            "deployed": 23,
+            "armyBefore": 40,
+            "armyAfter": 37,
+            "byTypeBefore": {
+              "infantry": 15,
+              "archer": 13,
+              "bronze_guard": 12
+            },
+            "byTypeAfter": {
+              "infantry": 15,
+              "archer": 13,
+              "bronze_guard": 9
+            },
+            "populationBefore": 19,
+            "capacityBefore": 19,
+            "replenishment": {
+              "queuedAtStart": {
+                "infantry": 0,
+                "archer": 0,
+                "bronze_guard": 5
+              },
+              "remainingQueue": {
+                "infantry": 0,
+                "archer": 0,
+                "bronze_guard": 2
+              },
+              "queueReasons": {
+                "infantry": "",
+                "archer": "",
+                "bronze_guard": "资源不足，暂停生产"
+              },
+              "afterArmy": {
+                "infantry": 15,
+                "archer": 13,
+                "bronze_guard": 13
+              },
+              "resources": {
+                "wood": 717,
+                "food": 138.84927038100622,
+                "coal": 220,
+                "copper": 475
+              }
+            },
+            "resourcesBefore": {
+              "food": 265.38688658850447,
+              "coal": 220,
+              "copper": 305
+            }
+          },
+          {
+            "stage": 5,
+            "win": true,
+            "tickBefore": 5999,
+            "afterTick": 6189,
+            "deedAfter": 0,
+            "deedSavedAfter": 0,
+            "capacityAfter": 19,
+            "marketBridge": null,
+            "nextVillageCost": 10,
+            "round": 1,
+            "deployed": 23,
+            "armyBefore": 41,
+            "armyAfter": 40,
+            "byTypeBefore": {
+              "infantry": 15,
+              "archer": 13,
+              "bronze_guard": 13
+            },
+            "byTypeAfter": {
+              "infantry": 15,
+              "archer": 13,
+              "bronze_guard": 12
+            },
+            "populationBefore": 19,
+            "capacityBefore": 19,
+            "replenishment": {
+              "queuedAtStart": {
+                "infantry": 0,
+                "archer": 0,
+                "bronze_guard": 3
+              },
+              "remainingQueue": {
+                "infantry": 0,
+                "archer": 0,
+                "bronze_guard": 0
+              },
+              "queueReasons": {
+                "infantry": "",
+                "archer": "",
+                "bronze_guard": ""
+              },
+              "afterArmy": {
+                "infantry": 15,
+                "archer": 13,
+                "bronze_guard": 15
+              },
+              "resources": {
+                "wood": 853,
+                "food": 227.60507979677516,
+                "coal": 220,
+                "copper": 745
+              }
+            },
+            "resourcesBefore": {
+              "food": 138.84927038100622,
+              "coal": 220,
+              "copper": 475
+            }
+          },
+          {
+            "stage": 6,
+            "win": true,
+            "tickBefore": 6189,
+            "afterTick": 6379,
+            "deedAfter": 0,
+            "deedSavedAfter": 0,
+            "capacityAfter": 19,
+            "marketBridge": null,
+            "nextVillageCost": 10,
+            "round": 3,
+            "deployed": 28,
+            "armyBefore": 43,
+            "armyAfter": 35,
+            "byTypeBefore": {
+              "infantry": 15,
+              "archer": 13,
+              "bronze_guard": 15
+            },
+            "byTypeAfter": {
+              "infantry": 15,
+              "archer": 13,
+              "bronze_guard": 7
+            },
+            "populationBefore": 19,
+            "capacityBefore": 19,
+            "replenishment": {
+              "queuedAtStart": {
+                "infantry": 0,
+                "archer": 0,
+                "bronze_guard": 8
+              },
+              "remainingQueue": {
+                "infantry": 0,
+                "archer": 0,
+                "bronze_guard": 4
+              },
+              "queueReasons": {
+                "infantry": "",
+                "archer": "",
+                "bronze_guard": "资源不足，暂停生产"
+              },
+              "afterArmy": {
+                "infantry": 15,
+                "archer": 13,
+                "bronze_guard": 11
+              },
+              "resources": {
+                "wood": 999,
+                "food": 186.83428333229352,
+                "coal": 450,
+                "copper": 800
+              }
+            },
+            "resourcesBefore": {
+              "food": 227.60507979677516,
+              "coal": 220,
+              "copper": 745
+            }
+          },
+          {
+            "stage": 7,
+            "win": true,
+            "tickBefore": 6379,
+            "afterTick": 6569,
+            "deedAfter": 0,
+            "deedSavedAfter": 0,
+            "capacityAfter": 19,
+            "marketBridge": null,
+            "nextVillageCost": 10,
+            "round": 5,
+            "deployed": 24,
+            "armyBefore": 39,
+            "armyAfter": 25,
+            "byTypeBefore": {
+              "infantry": 15,
+              "archer": 13,
+              "bronze_guard": 11
+            },
+            "byTypeAfter": {
+              "infantry": 15,
+              "archer": 10,
+              "bronze_guard": 0
+            },
+            "populationBefore": 19,
+            "capacityBefore": 19,
+            "replenishment": {
+              "queuedAtStart": {
+                "infantry": 0,
+                "archer": 3,
+                "bronze_guard": 14
+              },
+              "remainingQueue": {
+                "infantry": 0,
+                "archer": 0,
+                "bronze_guard": 11
+              },
+              "queueReasons": {
+                "infantry": "",
+                "archer": "",
+                "bronze_guard": "资源不足，暂停生产"
+              },
+              "afterArmy": {
+                "infantry": 15,
+                "archer": 13,
+                "bronze_guard": 4
+              },
+              "resources": {
+                "wood": 917,
+                "food": 281.26411254763457,
+                "coal": 600,
+                "copper": 800
+              }
+            },
+            "resourcesBefore": {
+              "food": 186.83428333229352,
+              "coal": 450,
+              "copper": 800
+            }
+          },
+          {
+            "stage": 8,
+            "win": false,
+            "tickBefore": 6569,
+            "afterTick": 6579,
+            "deedAfter": 0,
+            "deedSavedAfter": 0,
+            "capacityAfter": 19,
+            "marketBridge": null,
+            "nextVillageCost": 10,
+            "round": 3,
+            "deployed": 27,
+            "armyBefore": 32,
+            "armyAfter": 5,
+            "byTypeBefore": {
+              "infantry": 15,
+              "archer": 13,
+              "bronze_guard": 4
+            },
+            "byTypeAfter": {
+              "infantry": 5,
+              "archer": 0,
+              "bronze_guard": 0
+            },
+            "populationBefore": 19,
+            "capacityBefore": 19,
+            "replenishment": null,
+            "resourcesBefore": {
+              "food": 281.26411254763457,
+              "coal": 600,
+              "copper": 800
+            }
+          }
+        ],
+        "recovery": {
+          "stage": 8,
+          "activeWaitSeconds": 600,
+          "firstLoss": {
+            "stage": 8,
+            "round": 3,
+            "armyBefore": {
+              "infantry": 15,
+              "archer": 13,
+              "bronze_guard": 4
+            },
+            "armyAfter": {
+              "infantry": 5,
+              "archer": 0,
+              "bronze_guard": 0
+            },
+            "populationBefore": 19,
+            "populationAfterDefeat": 19
+          },
+          "trainingAttempts": [
+            {
+              "type": "infantry",
+              "requested": 10,
+              "result": {
+                "ok": true,
+                "qty": 10
+              }
+            },
+            {
+              "type": "archer",
+              "requested": 13,
+              "result": {
+                "ok": true,
+                "qty": 13
+              }
+            },
+            {
+              "type": "bronze_guard",
+              "requested": 4,
+              "result": {
+                "ok": true,
+                "qty": 4
+              }
+            }
+          ],
+          "beforeRetry": {
+            "tick": 7179,
+            "population": 19,
+            "capacity": 19,
+            "army": {
+              "infantry": 15,
+              "archer": 7,
+              "bronze_guard": 13
+            },
+            "queue": {
+              "infantry": 0,
+              "archer": 6,
+              "bronze_guard": 2
+            },
+            "queueReasons": {
+              "infantry": "",
+              "archer": "资源不足，暂停生产",
+              "bronze_guard": "资源不足，暂停生产"
+            },
+            "trainingBudget": {
+              "infantry": {
+                "cost": {
+                  "wood": 30,
+                  "stone": 10,
+                  "food": 20
+                },
+                "maxAffordable": 1,
+                "unitCapLeft": 25
+              },
+              "archer": {
+                "cost": {
+                  "wood": 80,
+                  "stone": 20,
+                  "food": 30
+                },
+                "maxAffordable": 0,
+                "unitCapLeft": 29
+              },
+              "bronze_guard": {
+                "cost": {
+                  "food": 300,
+                  "copper": 100
+                },
+                "maxAffordable": 0,
+                "unitCapLeft": 2
+              }
+            },
+            "resources": {
+              "wood": 57,
+              "stone": 1594,
+              "food": 171.0333155401039,
+              "tech": 3000,
+              "coal": 594,
+              "copper": 784,
+              "iron": 220,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "goldCoin": 0,
+              "deed": 0,
+              "medal": 0,
+              "bone": 0,
+              "hide": 0
+            }
+          },
+          "retry": {
+            "outcome": {
+              "win": false,
+              "round": 6,
+              "army": 15,
+              "byType": {
+                "infantry": 15,
+                "archer": 0,
+                "bronze_guard": 0
+              }
+            },
+            "battleActiveMs": null,
+            "callbacks": 34,
+            "reward": {
+              "award": 0,
+              "bonus": 0,
+              "spent": 0
+            }
+          },
+          "afterRetry": {
+            "tick": 7189,
+            "population": 19,
+            "capacity": 19,
+            "army": {
+              "infantry": 15,
+              "archer": 0,
+              "bronze_guard": 0
+            },
+            "queue": {
+              "infantry": 0,
+              "archer": 6,
+              "bronze_guard": 2
+            },
+            "queueReasons": {
+              "infantry": "",
+              "archer": "资源不足，暂停生产",
+              "bronze_guard": "资源不足，暂停生产"
+            },
+            "trainingBudget": {
+              "infantry": {
+                "cost": {
+                  "wood": 30,
+                  "stone": 10,
+                  "food": 20
+                },
+                "maxAffordable": 1,
+                "unitCapLeft": 25
+              },
+              "archer": {
+                "cost": {
+                  "wood": 80,
+                  "stone": 20,
+                  "food": 30
+                },
+                "maxAffordable": 0,
+                "unitCapLeft": 36
+              },
+              "bronze_guard": {
+                "cost": {
+                  "food": 300,
+                  "copper": 100
+                },
+                "maxAffordable": 0,
+                "unitCapLeft": 15
+              }
+            },
+            "resources": {
+              "wood": 57,
+              "stone": 1600,
+              "food": 250.13331554010387,
+              "tech": 3000,
+              "coal": 600,
+              "copper": 800,
+              "iron": 220,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "goldCoin": 0,
+              "deed": 0,
+              "medal": 0,
+              "bone": 0,
+              "hide": 0
+            }
+          }
+        },
+        "sessionClock": null,
+        "continuation": {
+          "start": {
+            "stage": 8,
+            "retryWon": false,
+            "tick": 7189,
+            "population": 19
+          },
+          "allocation": {
+            "wood": 4,
+            "stone": 3,
+            "food": 5,
+            "coal": 3,
+            "tech": 4
+          },
+          "rates": {
+            "wood": 12,
+            "stone": 6,
+            "food": 12.375000000000002,
+            "coal": 3,
+            "tech": 4.4
+          },
+          "activeWait": 150,
+          "research": [
+            {
+              "id": "sci_urbanization",
+              "alreadyKnown": true,
+              "tick": 7189
+            },
+            {
+              "id": "sci_iron",
+              "alreadyKnown": true,
+              "tick": 7189
+            },
+            {
+              "id": "sci_iron_warehouse",
+              "cost": 1000,
+              "before": 3000,
+              "after": 2000,
+              "paid": {
+                "ok": true
+              },
+              "tick": 7189,
+              "savedScience": true
+            },
+            {
+              "id": "sci_iron_age",
+              "cost": 2500,
+              "before": 2528.000000000011,
+              "after": 28.000000000010914,
+              "paid": {
+                "ok": true
+              },
+              "tick": 7309,
+              "savedScience": true
+            }
+          ],
+          "beforeForge": {
+            "wood": 1017,
+            "stone": 1600,
+            "food": 666.0276517940154,
+            "tech": 28.000000000010914,
+            "coal": 600,
+            "copper": 600,
+            "iron": 220,
+            "silver": 0,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 0,
+            "medal": 0,
+            "bone": 0,
+            "hide": 0
+          },
+          "forge": {
+            "ok": true
+          },
+          "afterForgePaid": {
+            "wood": 417,
+            "stone": 1000,
+            "food": 366.02765179401536,
+            "tech": 28.000000000010914,
+            "coal": 600,
+            "copper": 600,
+            "iron": 220,
+            "silver": 0,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 0,
+            "medal": 0,
+            "bone": 0,
+            "hide": 0
+          },
+          "beforeTraining": {
+            "wood": 657,
+            "stone": 1120,
+            "food": 563.188521359233,
+            "tech": 116.00000000001097,
+            "coal": 600,
+            "copper": 600,
+            "iron": 220,
+            "silver": 0,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 0,
+            "medal": 0,
+            "bone": 0,
+            "hide": 0
+          },
+          "afterEnqueue": {
+            "wood": 657,
+            "stone": 1120,
+            "food": 563.188521359233,
+            "tech": 116.00000000001097,
+            "coal": 600,
+            "copper": 600,
+            "iron": 220,
+            "silver": 0,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 0,
+            "medal": 0,
+            "bone": 0,
+            "hide": 0
+          },
+          "trainResult": {
+            "ok": true,
+            "qty": 1
+          },
+          "trainingCharges": [
+            {
+              "cost": {
+                "food": 500,
+                "iron": 100
+              },
+              "n": 1,
+              "tick": 7330
+            }
+          ],
+          "saveResult": {
+            "ok": true
+          },
+          "final": {
+            "tick": 7339,
+            "population": 19,
+            "capacity": 19,
+            "resources": {
+              "wood": 777,
+              "stone": 1180,
+              "food": 160.68852135923305,
+              "tech": 160.00000000001103,
+              "coal": 600,
+              "copper": 600,
+              "iron": 120,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "goldCoin": 0,
+              "deed": 0,
+              "medal": 0,
+              "bone": 0,
+              "hide": 0
+            },
+            "army": {
+              "infantry": 15,
+              "archer": 6,
+              "bronze_guard": 2,
+              "iron_spearman": 1
+            },
+            "queue": {
+              "infantry": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "bronze_guard": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "iron_spearman": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              }
+            },
+            "sciences": [
+              "sci_prospect",
+              "sci_coal",
+              "sci_copper",
+              "sci_wood_store",
+              "sci_urbanization",
+              "sci_iron",
+              "sci_large_granary",
+              "sci_bronze_age",
+              "sci_iron_warehouse",
+              "sci_iron_age"
+            ],
+            "mainlineWins": 7,
+            "sessionClock": null
+          },
+          "saveSha256": "5f7abeaea9e975210fae09103c65a6b5e845129490c46a15d9a7c2daa6602023"
+        }
+      },
+      "campaignError": null
+    },
+    "military": {
+      "policy": "2-scholar start; reserve genuine stage-3 deed and spend 600 online seconds after each win on actual troop replenishment",
+      "population": {
+        "population18": {
+          "activeOnlineSeconds": 5341,
+          "settledOfflineSeconds": 0,
+          "elapsedSimulationSeconds": 5341,
+          "population": 18,
+          "capacity": 18,
+          "actions": {
+            "build": 4,
+            "allocate": 13,
+            "research": 6,
+            "settlement": 9,
+            "exchange": 55
+          },
+          "actionCount": 87,
+          "food": 1481.67
+        },
+        "final": {
+          "activeOnlineSeconds": 5561,
+          "settledOfflineSeconds": 0,
+          "elapsedSimulationSeconds": 5561,
+          "population": 18,
+          "actionCount": 94,
+          "actions": {
+            "build": 4,
+            "allocate": 20,
+            "research": 6,
+            "settlement": 9,
+            "exchange": 55
+          },
+          "minFood": 18,
+          "battleWins": 0
+        },
+        "saveSha256": "3705e28bffc5b2f3b16d420a999a0cc49f19c013ccf2a2941aa1696fa24505da"
+      },
+      "campaign": {
+        "entry": {
+          "tick": 5832,
+          "resources": {
+            "wood": 268,
+            "stone": 1594,
+            "food": 7.058244465115514,
+            "tech": 3000,
+            "coal": 220,
+            "copper": 38,
+            "iron": 220,
+            "silver": 0,
+            "gold": 0,
+            "steel": 0,
+            "coin": 97,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 0,
+            "medal": 0,
+            "bone": 0,
+            "hide": 0
+          },
+          "workers": {
+            "wood": 0,
+            "stone": 6,
+            "food": 3,
+            "coal": 6,
+            "copper": 3,
+            "iron": 0,
+            "silver": 0,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "tech": 0
+          },
+          "population": 18,
+          "capacity": 18,
+          "army": {
+            "infantry": 15,
+            "archer": 13,
+            "bronze_guard": 8
+          },
+          "bronzeSciencePaid": true
+        },
+        "operations": {
+          "build": 6,
+          "allocate": 26,
+          "research": 4,
+          "train": 13,
+          "market": 0,
+          "settlement": 0,
+          "formation": 30,
+          "battle": 9
+        },
+        "operationCount": 88,
+        "extraSecondsPerWin": 600,
+        "attempted": 8,
+        "wins": 7,
+        "blockedAt": 8,
+        "rows": [
+          {
+            "stage": 3,
+            "win": true,
+            "tickBefore": 5852,
+            "afterTick": 6462,
+            "deedAfter": 6,
+            "deedSavedAfter": 6,
+            "capacityAfter": 18,
+            "marketBridge": null,
+            "nextVillageCost": 9,
+            "round": 2,
+            "deployed": 20,
+            "armyBefore": 35,
+            "armyAfter": 34,
+            "byTypeBefore": {
+              "infantry": 15,
+              "archer": 13,
+              "bronze_guard": 7
+            },
+            "byTypeAfter": {
+              "infantry": 15,
+              "archer": 13,
+              "bronze_guard": 6
+            },
+            "populationBefore": 18,
+            "capacityBefore": 18,
+            "replenishment": {
+              "queuedAtStart": {
+                "infantry": 0,
+                "archer": 0,
+                "bronze_guard": 9
+              },
+              "remainingQueue": {
+                "infantry": 0,
+                "archer": 0,
+                "bronze_guard": 2
+              },
+              "queueReasons": {
+                "infantry": "",
+                "archer": "",
+                "bronze_guard": "资源不足，暂停生产"
+              },
+              "afterArmy": {
+                "infantry": 15,
+                "archer": 13,
+                "bronze_guard": 13
+              },
+              "resources": {
+                "wood": 592,
+                "food": 103.73950666927358,
+                "coal": 600,
+                "copper": 800
+              }
+            },
+            "resourcesBefore": {
+              "food": 203.24046668733789,
+              "coal": 220,
+              "copper": 98
+            }
+          },
+          {
+            "stage": 4,
+            "win": true,
+            "tickBefore": 6462,
+            "afterTick": 7072,
+            "deedAfter": 6,
+            "deedSavedAfter": 6,
+            "capacityAfter": 18,
+            "marketBridge": null,
+            "nextVillageCost": 9,
+            "round": 2,
+            "deployed": 23,
+            "armyBefore": 41,
+            "armyAfter": 38,
+            "byTypeBefore": {
+              "infantry": 15,
+              "archer": 13,
+              "bronze_guard": 13
+            },
+            "byTypeAfter": {
+              "infantry": 15,
+              "archer": 13,
+              "bronze_guard": 10
+            },
+            "populationBefore": 18,
+            "capacityBefore": 18,
+            "replenishment": {
+              "queuedAtStart": {
+                "infantry": 0,
+                "archer": 0,
+                "bronze_guard": 5
+              },
+              "remainingQueue": {
+                "infantry": 0,
+                "archer": 0,
+                "bronze_guard": 0
+              },
+              "queueReasons": {
+                "infantry": "",
+                "archer": "",
+                "bronze_guard": ""
+              },
+              "afterArmy": {
+                "infantry": 15,
+                "archer": 13,
+                "bronze_guard": 15
+              },
+              "resources": {
+                "wood": 717,
+                "food": 251.14935677678872,
+                "coal": 600,
+                "copper": 800
+              }
+            },
+            "resourcesBefore": {
+              "food": 103.73950666927358,
+              "coal": 600,
+              "copper": 800
+            }
+          },
+          {
+            "stage": 5,
+            "win": true,
+            "tickBefore": 7072,
+            "afterTick": 7682,
+            "deedAfter": 6,
+            "deedSavedAfter": 6,
+            "capacityAfter": 18,
+            "marketBridge": null,
+            "nextVillageCost": 9,
+            "round": 1,
+            "deployed": 23,
+            "armyBefore": 43,
+            "armyAfter": 42,
+            "byTypeBefore": {
+              "infantry": 15,
+              "archer": 13,
+              "bronze_guard": 15
+            },
+            "byTypeAfter": {
+              "infantry": 15,
+              "archer": 13,
+              "bronze_guard": 14
+            },
+            "populationBefore": 18,
+            "capacityBefore": 18,
+            "replenishment": {
+              "queuedAtStart": {
+                "infantry": 0,
+                "archer": 0,
+                "bronze_guard": 1
+              },
+              "remainingQueue": {
+                "infantry": 0,
+                "archer": 0,
+                "bronze_guard": 0
+              },
+              "queueReasons": {
+                "infantry": "",
+                "archer": "",
+                "bronze_guard": ""
+              },
+              "afterArmy": {
+                "infantry": 15,
+                "archer": 13,
+                "bronze_guard": 15
+              },
+              "resources": {
+                "wood": 853,
+                "food": 1350.2675738310172,
+                "coal": 600,
+                "copper": 800
+              }
+            },
+            "resourcesBefore": {
+              "food": 251.14935677678872,
+              "coal": 600,
+              "copper": 800
+            }
+          },
+          {
+            "stage": 6,
+            "win": true,
+            "tickBefore": 7682,
+            "afterTick": 8292,
+            "deedAfter": 6,
+            "deedSavedAfter": 6,
+            "capacityAfter": 18,
+            "marketBridge": null,
+            "nextVillageCost": 9,
+            "round": 3,
+            "deployed": 28,
+            "armyBefore": 43,
+            "armyAfter": 35,
+            "byTypeBefore": {
+              "infantry": 15,
+              "archer": 13,
+              "bronze_guard": 15
+            },
+            "byTypeAfter": {
+              "infantry": 15,
+              "archer": 13,
+              "bronze_guard": 7
+            },
+            "populationBefore": 18,
+            "capacityBefore": 18,
+            "replenishment": {
+              "queuedAtStart": {
+                "infantry": 0,
+                "archer": 0,
+                "bronze_guard": 8
+              },
+              "remainingQueue": {
+                "infantry": 0,
+                "archer": 0,
+                "bronze_guard": 0
+              },
+              "queueReasons": {
+                "infantry": "",
+                "archer": "",
+                "bronze_guard": ""
+              },
+              "afterArmy": {
+                "infantry": 15,
+                "archer": 13,
+                "bronze_guard": 15
+              },
+              "resources": {
+                "wood": 999,
+                "food": 514.5816969960747,
+                "coal": 600,
+                "copper": 800
+              }
+            },
+            "resourcesBefore": {
+              "food": 1350.2675738310172,
+              "coal": 600,
+              "copper": 800
+            }
+          },
+          {
+            "stage": 7,
+            "win": true,
+            "tickBefore": 8292,
+            "afterTick": 8902,
+            "deedAfter": 6,
+            "deedSavedAfter": 6,
+            "capacityAfter": 18,
+            "marketBridge": null,
+            "nextVillageCost": 9,
+            "round": 6,
+            "deployed": 28,
+            "armyBefore": 43,
+            "armyAfter": 22,
+            "byTypeBefore": {
+              "infantry": 15,
+              "archer": 13,
+              "bronze_guard": 15
+            },
+            "byTypeAfter": {
+              "infantry": 15,
+              "archer": 7,
+              "bronze_guard": 0
+            },
+            "populationBefore": 18,
+            "capacityBefore": 18,
+            "replenishment": {
+              "queuedAtStart": {
+                "infantry": 0,
+                "archer": 6,
+                "bronze_guard": 15
+              },
+              "remainingQueue": {
+                "infantry": 0,
+                "archer": 0,
+                "bronze_guard": 6
+              },
+              "queueReasons": {
+                "infantry": "",
+                "archer": "",
+                "bronze_guard": "资源不足，暂停生产"
+              },
+              "afterArmy": {
+                "infantry": 15,
+                "archer": 13,
+                "bronze_guard": 9
+              },
+              "resources": {
+                "wood": 677,
+                "food": 163.35106969169206,
+                "coal": 600,
+                "copper": 800
+              }
+            },
+            "resourcesBefore": {
+              "food": 514.5816969960747,
+              "coal": 600,
+              "copper": 800
+            }
+          },
+          {
+            "stage": 8,
+            "win": false,
+            "tickBefore": 8902,
+            "afterTick": 8912,
+            "deedAfter": 6,
+            "deedSavedAfter": 6,
+            "capacityAfter": 18,
+            "marketBridge": null,
+            "nextVillageCost": 9,
+            "round": 6,
+            "deployed": 32,
+            "armyBefore": 37,
+            "armyAfter": 5,
+            "byTypeBefore": {
+              "infantry": 15,
+              "archer": 13,
+              "bronze_guard": 9
+            },
+            "byTypeAfter": {
+              "infantry": 5,
+              "archer": 0,
+              "bronze_guard": 0
+            },
+            "populationBefore": 18,
+            "capacityBefore": 18,
+            "replenishment": null,
+            "resourcesBefore": {
+              "food": 163.35106969169206,
+              "coal": 600,
+              "copper": 800
+            }
+          }
+        ],
+        "recovery": {
+          "stage": 8,
+          "activeWaitSeconds": 600,
+          "firstLoss": {
+            "stage": 8,
+            "round": 6,
+            "armyBefore": {
+              "infantry": 15,
+              "archer": 13,
+              "bronze_guard": 9
+            },
+            "armyAfter": {
+              "infantry": 5,
+              "archer": 0,
+              "bronze_guard": 0
+            },
+            "populationBefore": 18,
+            "populationAfterDefeat": 18
+          },
+          "trainingAttempts": [
+            {
+              "type": "infantry",
+              "requested": 10,
+              "result": {
+                "ok": true,
+                "qty": 10
+              }
+            },
+            {
+              "type": "archer",
+              "requested": 13,
+              "result": {
+                "ok": true,
+                "qty": 13
+              }
+            },
+            {
+              "type": "bronze_guard",
+              "requested": 9,
+              "result": {
+                "ok": true,
+                "qty": 9
+              }
+            }
+          ],
+          "beforeRetry": {
+            "tick": 9512,
+            "population": 18,
+            "capacity": 18,
+            "army": {
+              "infantry": 15,
+              "archer": 4,
+              "bronze_guard": 9
+            },
+            "queue": {
+              "infantry": 0,
+              "archer": 9,
+              "bronze_guard": 6
+            },
+            "queueReasons": {
+              "infantry": "",
+              "archer": "资源不足，暂停生产",
+              "bronze_guard": "资源不足，暂停生产"
+            },
+            "trainingBudget": {
+              "infantry": {
+                "cost": {
+                  "wood": 30,
+                  "stone": 10,
+                  "food": 20
+                },
+                "maxAffordable": 1,
+                "unitCapLeft": 25
+              },
+              "archer": {
+                "cost": {
+                  "wood": 80,
+                  "stone": 20,
+                  "food": 30
+                },
+                "maxAffordable": 0,
+                "unitCapLeft": 32
+              },
+              "bronze_guard": {
+                "cost": {
+                  "food": 300,
+                  "copper": 100
+                },
+                "maxAffordable": 0,
+                "unitCapLeft": 6
+              }
+            },
+            "resources": {
+              "wood": 57,
+              "stone": 1600,
+              "food": 173.16455838158248,
+              "tech": 3000,
+              "coal": 600,
+              "copper": 800,
+              "iron": 220,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 97,
+              "silverCoin": 0,
+              "goldCoin": 0,
+              "deed": 6,
+              "medal": 0,
+              "bone": 0,
+              "hide": 0
+            }
+          },
+          "retry": {
+            "outcome": {
+              "win": false,
+              "round": 4,
+              "army": 5,
+              "byType": {
+                "infantry": 5,
+                "archer": 0,
+                "bronze_guard": 0
+              }
+            },
+            "battleActiveMs": null,
+            "callbacks": 29,
+            "reward": {
+              "award": 0,
+              "bonus": 0,
+              "spent": 0
+            }
+          },
+          "afterRetry": {
+            "tick": 9522,
+            "population": 18,
+            "capacity": 18,
+            "army": {
+              "infantry": 5,
+              "archer": 0,
+              "bronze_guard": 0
+            },
+            "queue": {
+              "infantry": 0,
+              "archer": 9,
+              "bronze_guard": 6
+            },
+            "queueReasons": {
+              "infantry": "",
+              "archer": "资源不足，暂停生产",
+              "bronze_guard": "资源不足，暂停生产"
+            },
+            "trainingBudget": {
+              "infantry": {
+                "cost": {
+                  "wood": 30,
+                  "stone": 10,
+                  "food": 20
+                },
+                "maxAffordable": 1,
+                "unitCapLeft": 35
+              },
+              "archer": {
+                "cost": {
+                  "wood": 80,
+                  "stone": 20,
+                  "food": 30
+                },
+                "maxAffordable": 0,
+                "unitCapLeft": 36
+              },
+              "bronze_guard": {
+                "cost": {
+                  "food": 300,
+                  "copper": 100
+                },
+                "maxAffordable": 0,
+                "unitCapLeft": 15
+              }
+            },
+            "resources": {
+              "wood": 57,
+              "stone": 1600,
+              "food": 229.41455838158248,
+              "tech": 3000,
+              "coal": 600,
+              "copper": 800,
+              "iron": 220,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 97,
+              "silverCoin": 0,
+              "goldCoin": 0,
+              "deed": 6,
+              "medal": 0,
+              "bone": 0,
+              "hide": 0
+            }
+          }
+        },
+        "sessionClock": null,
+        "continuation": {
+          "start": {
+            "stage": 8,
+            "retryWon": false,
+            "tick": 9522,
+            "population": 18
+          },
+          "allocation": {
+            "wood": 4,
+            "stone": 3,
+            "food": 5,
+            "coal": 2,
+            "tech": 4
+          },
+          "rates": {
+            "wood": 12,
+            "stone": 6,
+            "food": 12.375000000000002,
+            "coal": 2,
+            "tech": 4.4
+          },
+          "activeWait": 270,
+          "research": [
+            {
+              "id": "sci_urbanization",
+              "alreadyKnown": true,
+              "tick": 9522
+            },
+            {
+              "id": "sci_iron",
+              "alreadyKnown": true,
+              "tick": 9522
+            },
+            {
+              "id": "sci_iron_warehouse",
+              "cost": 1000,
+              "before": 3000,
+              "after": 2000,
+              "paid": {
+                "ok": true
+              },
+              "tick": 9522,
+              "savedScience": true
+            },
+            {
+              "id": "sci_iron_age",
+              "cost": 2500,
+              "before": 2528.000000000011,
+              "after": 28.000000000010914,
+              "paid": {
+                "ok": true
+              },
+              "tick": 9642,
+              "savedScience": true
+            }
+          ],
+          "beforeForge": {
+            "wood": 777,
+            "stone": 1600,
+            "food": 303.9507801010393,
+            "tech": 28.000000000010914,
+            "coal": 600,
+            "copper": 500,
+            "iron": 220,
+            "silver": 0,
+            "gold": 0,
+            "steel": 0,
+            "coin": 97,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 6,
+            "medal": 0,
+            "bone": 0,
+            "hide": 0
+          },
+          "forge": {
+            "ok": true
+          },
+          "afterForgePaid": {
+            "wood": 177,
+            "stone": 1000,
+            "food": 3.9507801010392996,
+            "tech": 28.000000000010914,
+            "coal": 600,
+            "copper": 500,
+            "iron": 220,
+            "silver": 0,
+            "gold": 0,
+            "steel": 0,
+            "coin": 97,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 6,
+            "medal": 0,
+            "bone": 0,
+            "hide": 0
+          },
+          "beforeTraining": {
+            "wood": 1857,
+            "stone": 1600,
+            "food": 502.97486678834633,
+            "tech": 644.0000000000092,
+            "coal": 600,
+            "copper": 200,
+            "iron": 220,
+            "silver": 0,
+            "gold": 0,
+            "steel": 0,
+            "coin": 97,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 6,
+            "medal": 0,
+            "bone": 0,
+            "hide": 0
+          },
+          "afterEnqueue": {
+            "wood": 1857,
+            "stone": 1600,
+            "food": 502.97486678834633,
+            "tech": 644.0000000000092,
+            "coal": 600,
+            "copper": 200,
+            "iron": 220,
+            "silver": 0,
+            "gold": 0,
+            "steel": 0,
+            "coin": 97,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 6,
+            "medal": 0,
+            "bone": 0,
+            "hide": 0
+          },
+          "trainResult": {
+            "ok": true,
+            "qty": 1
+          },
+          "trainingCharges": [
+            {
+              "cost": {
+                "food": 500,
+                "iron": 100
+              },
+              "n": 1,
+              "tick": 9783
+            }
+          ],
+          "saveResult": {
+            "ok": true
+          },
+          "final": {
+            "tick": 9792,
+            "population": 18,
+            "capacity": 18,
+            "resources": {
+              "wood": 1977,
+              "stone": 1600,
+              "food": 100.45343821691777,
+              "tech": 688.000000000009,
+              "coal": 600,
+              "copper": 200,
+              "iron": 120,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 97,
+              "silverCoin": 0,
+              "goldCoin": 0,
+              "deed": 6,
+              "medal": 0,
+              "bone": 0,
+              "hide": 0
+            },
+            "army": {
+              "infantry": 5,
+              "archer": 9,
+              "bronze_guard": 6,
+              "iron_spearman": 1
+            },
+            "queue": {
+              "infantry": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "bronze_guard": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "iron_spearman": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              }
+            },
+            "sciences": [
+              "sci_prospect",
+              "sci_coal",
+              "sci_copper",
+              "sci_wood_store",
+              "sci_urbanization",
+              "sci_iron",
+              "sci_large_granary",
+              "sci_bronze_age",
+              "sci_iron_warehouse",
+              "sci_iron_age"
+            ],
+            "mainlineWins": 7,
+            "sessionClock": null
+          },
+          "saveSha256": "6348e9805ca435753446cee67c01d189debea365acfa4f77d38e981a4c553d20"
+        }
+      },
+      "campaignError": null
+    },
+    "short-session": {
+      "policy": "4-scholar research start; add three paid deeds at L3 and expand village; 600 active online seconds followed by actual 8-hour offline settlement, including military phase",
+      "population": {
+        "population18": {
+          "activeOnlineSeconds": 4150,
+          "settledOfflineSeconds": 172800,
+          "elapsedSimulationSeconds": 176950,
+          "population": 18,
+          "capacity": 18,
+          "actions": {
+            "build": 4,
+            "allocate": 19,
+            "research": 6,
+            "settlement": 9,
+            "exchange": 54
+          },
+          "actionCount": 92,
+          "food": 1481.25
+        },
+        "final": {
+          "activeOnlineSeconds": 4320,
+          "settledOfflineSeconds": 201600,
+          "elapsedSimulationSeconds": 205920,
+          "population": 18,
+          "actionCount": 99,
+          "actions": {
+            "build": 4,
+            "allocate": 26,
+            "research": 6,
+            "settlement": 9,
+            "exchange": 54
+          },
+          "minFood": 18,
+          "battleWins": 0
+        },
+        "saveSha256": "c0a762ac84c951f6e4f9ef27151c6c7ede144423436f1a336f642c3056f1fe55"
+      },
+      "campaign": {
+        "entry": {
+          "tick": 206063,
+          "resources": {
+            "wood": 250,
+            "stone": 1088,
+            "food": 6.709328431372434,
+            "tech": 3000,
+            "coal": 594,
+            "copper": 163,
+            "iron": 600,
+            "silver": 0,
+            "gold": 0,
+            "steel": 0,
+            "coin": 90,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 0,
+            "medal": 0,
+            "bone": 0,
+            "hide": 0
+          },
+          "workers": {
+            "wood": 0,
+            "stone": 6,
+            "food": 3,
+            "coal": 6,
+            "copper": 3,
+            "iron": 0,
+            "silver": 0,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "tech": 0
+          },
+          "population": 18,
+          "capacity": 18,
+          "army": {
+            "infantry": 15,
+            "archer": 13,
+            "bronze_guard": 8
+          },
+          "bronzeSciencePaid": true
+        },
+        "operations": {
+          "build": 6,
+          "allocate": 34,
+          "research": 4,
+          "train": 14,
+          "market": 3,
+          "settlement": 1,
+          "formation": 34,
+          "battle": 10
+        },
+        "operationCount": 106,
+        "extraSecondsPerWin": 180,
+        "attempted": 9,
+        "wins": 8,
+        "blockedAt": 9,
+        "rows": [
+          {
+            "stage": 3,
+            "win": true,
+            "tickBefore": 206088,
+            "afterTick": 206312,
+            "deedAfter": 0,
+            "deedSavedAfter": 0,
+            "capacityAfter": 19,
+            "marketBridge": {
+              "gap": 3,
+              "purchaseWaitSeconds": 20,
+              "purchases": [
+                {
+                  "waited": 0,
+                  "sourceCost": 72,
+                  "coinCost": 100,
+                  "bought": {
+                    "ok": true,
+                    "deeds": 1,
+                    "sourceCost": 72,
+                    "coinCost": 100,
+                    "remainingCoin": 0,
+                    "remainingDeed": 7
+                  }
+                },
+                {
+                  "waited": 0,
+                  "sourceCost": 715,
+                  "coinCost": 100,
+                  "bought": {
+                    "ok": true,
+                    "deeds": 1,
+                    "sourceCost": 715,
+                    "coinCost": 100,
+                    "remainingCoin": 0,
+                    "remainingDeed": 8
+                  }
+                },
+                {
+                  "waited": 20,
+                  "sourceCost": 715,
+                  "coinCost": 100,
+                  "bought": {
+                    "ok": true,
+                    "deeds": 1,
+                    "sourceCost": 715,
+                    "coinCost": 100,
+                    "remainingCoin": 0,
+                    "remainingDeed": 9
+                  }
+                }
+              ],
+              "expanded": {
+                "ok": true,
+                "cost": 9,
+                "level": 5,
+                "gain": 1,
+                "count": 1,
+                "remainingDeed": 0
+              },
+              "deedBefore": 6,
+              "deedAfter": 0,
+              "savedDeed": 0,
+              "population": 19,
+              "capacity": 19,
+              "food": 388.3356683006534,
+              "activeTick": 206122
+            },
+            "nextVillageCost": 10,
+            "round": 2,
+            "deployed": 20,
+            "armyBefore": 35,
+            "armyAfter": 34,
+            "byTypeBefore": {
+              "infantry": 15,
+              "archer": 13,
+              "bronze_guard": 7
+            },
+            "byTypeAfter": {
+              "infantry": 15,
+              "archer": 13,
+              "bronze_guard": 6
+            },
+            "populationBefore": 18,
+            "capacityBefore": 18,
+            "replenishment": {
+              "queuedAtStart": {
+                "infantry": 0,
+                "archer": 0,
+                "bronze_guard": 9
+              },
+              "remainingQueue": {
+                "infantry": 0,
+                "archer": 0,
+                "bronze_guard": 5
+              },
+              "queueReasons": {
+                "infantry": "",
+                "archer": "",
+                "bronze_guard": "资源不足，暂停生产"
+              },
+              "afterArmy": {
+                "infantry": 15,
+                "archer": 13,
+                "bronze_guard": 10
+              },
+              "resources": {
+                "wood": 574,
+                "food": 286.99545716071987,
+                "coal": 594,
+                "copper": 483
+              }
+            },
+            "resourcesBefore": {
+              "food": 202.8915506535948,
+              "coal": 594,
+              "copper": 223
+            }
+          },
+          {
+            "stage": 4,
+            "win": true,
+            "tickBefore": 206312,
+            "afterTick": 235308,
+            "deedAfter": 0,
+            "deedSavedAfter": 0,
+            "capacityAfter": 19,
+            "marketBridge": null,
+            "nextVillageCost": 10,
+            "round": 2,
+            "deployed": 23,
+            "armyBefore": 38,
+            "armyAfter": 35,
+            "byTypeBefore": {
+              "infantry": 15,
+              "archer": 13,
+              "bronze_guard": 10
+            },
+            "byTypeAfter": {
+              "infantry": 15,
+              "archer": 13,
+              "bronze_guard": 7
+            },
+            "populationBefore": 19,
+            "capacityBefore": 19,
+            "replenishment": {
+              "queuedAtStart": {
+                "infantry": 0,
+                "archer": 0,
+                "bronze_guard": 7
+              },
+              "remainingQueue": {
+                "infantry": 0,
+                "archer": 0,
+                "bronze_guard": 0
+              },
+              "queueReasons": {
+                "infantry": "",
+                "archer": "",
+                "bronze_guard": ""
+              },
+              "afterArmy": {
+                "infantry": 15,
+                "archer": 13,
+                "bronze_guard": 15
+              },
+              "resources": {
+                "wood": 699,
+                "food": 3000,
+                "coal": 600,
+                "copper": 800
+              }
+            },
+            "resourcesBefore": {
+              "food": 286.99545716071987,
+              "coal": 594,
+              "copper": 483
+            }
+          },
+          {
+            "stage": 5,
+            "win": true,
+            "tickBefore": 235308,
+            "afterTick": 235502,
+            "deedAfter": 0,
+            "deedSavedAfter": 0,
+            "capacityAfter": 19,
+            "marketBridge": null,
+            "nextVillageCost": 10,
+            "round": 1,
+            "deployed": 23,
+            "armyBefore": 43,
+            "armyAfter": 42,
+            "byTypeBefore": {
+              "infantry": 15,
+              "archer": 13,
+              "bronze_guard": 15
+            },
+            "byTypeAfter": {
+              "infantry": 15,
+              "archer": 13,
+              "bronze_guard": 14
+            },
+            "populationBefore": 19,
+            "capacityBefore": 19,
+            "replenishment": {
+              "queuedAtStart": {
+                "infantry": 0,
+                "archer": 0,
+                "bronze_guard": 1
+              },
+              "remainingQueue": {
+                "infantry": 0,
+                "archer": 0,
+                "bronze_guard": 0
+              },
+              "queueReasons": {
+                "infantry": "",
+                "archer": "",
+                "bronze_guard": ""
+              },
+              "afterArmy": {
+                "infantry": 15,
+                "archer": 13,
+                "bronze_guard": 15
+              },
+              "resources": {
+                "wood": 835,
+                "food": 3000,
+                "coal": 600,
+                "copper": 800
+              }
+            },
+            "resourcesBefore": {
+              "food": 3000,
+              "coal": 600,
+              "copper": 800
+            }
+          },
+          {
+            "stage": 6,
+            "win": true,
+            "tickBefore": 235502,
+            "afterTick": 235702,
+            "deedAfter": 0,
+            "deedSavedAfter": 0,
+            "capacityAfter": 19,
+            "marketBridge": null,
+            "nextVillageCost": 10,
+            "round": 3,
+            "deployed": 28,
+            "armyBefore": 43,
+            "armyAfter": 35,
+            "byTypeBefore": {
+              "infantry": 15,
+              "archer": 13,
+              "bronze_guard": 15
+            },
+            "byTypeAfter": {
+              "infantry": 15,
+              "archer": 13,
+              "bronze_guard": 7
+            },
+            "populationBefore": 19,
+            "capacityBefore": 19,
+            "replenishment": {
+              "queuedAtStart": {
+                "infantry": 0,
+                "archer": 0,
+                "bronze_guard": 8
+              },
+              "remainingQueue": {
+                "infantry": 0,
+                "archer": 0,
+                "bronze_guard": 0
+              },
+              "queueReasons": {
+                "infantry": "",
+                "archer": "",
+                "bronze_guard": ""
+              },
+              "afterArmy": {
+                "infantry": 15,
+                "archer": 13,
+                "bronze_guard": 15
+              },
+              "resources": {
+                "wood": 981,
+                "food": 1418.2239809686337,
+                "coal": 594,
+                "copper": 540
+              }
+            },
+            "resourcesBefore": {
+              "food": 3000,
+              "coal": 600,
+              "copper": 800
+            }
+          },
+          {
+            "stage": 7,
+            "win": true,
+            "tickBefore": 235702,
+            "afterTick": 264709,
+            "deedAfter": 0,
+            "deedSavedAfter": 0,
+            "capacityAfter": 19,
+            "marketBridge": null,
+            "nextVillageCost": 10,
+            "round": 6,
+            "deployed": 28,
+            "armyBefore": 43,
+            "armyAfter": 22,
+            "byTypeBefore": {
+              "infantry": 15,
+              "archer": 13,
+              "bronze_guard": 15
+            },
+            "byTypeAfter": {
+              "infantry": 15,
+              "archer": 7,
+              "bronze_guard": 0
+            },
+            "populationBefore": 19,
+            "capacityBefore": 19,
+            "replenishment": {
+              "queuedAtStart": {
+                "infantry": 0,
+                "archer": 6,
+                "bronze_guard": 15
+              },
+              "remainingQueue": {
+                "infantry": 0,
+                "archer": 0,
+                "bronze_guard": 0
+              },
+              "queueReasons": {
+                "infantry": "",
+                "archer": "",
+                "bronze_guard": ""
+              },
+              "afterArmy": {
+                "infantry": 15,
+                "archer": 13,
+                "bronze_guard": 15
+              },
+              "resources": {
+                "wood": 659,
+                "food": 3000,
+                "coal": 600,
+                "copper": 800
+              }
+            },
+            "resourcesBefore": {
+              "food": 1418.2239809686337,
+              "coal": 594,
+              "copper": 540
+            }
+          },
+          {
+            "stage": 8,
+            "win": true,
+            "tickBefore": 264709,
+            "afterTick": 264916,
+            "deedAfter": 0,
+            "deedSavedAfter": 0,
+            "capacityAfter": 19,
+            "marketBridge": null,
+            "nextVillageCost": 10,
+            "round": 6,
+            "deployed": 28,
+            "armyBefore": 43,
+            "armyAfter": 22,
+            "byTypeBefore": {
+              "infantry": 15,
+              "archer": 13,
+              "bronze_guard": 15
+            },
+            "byTypeAfter": {
+              "infantry": 15,
+              "archer": 7,
+              "bronze_guard": 0
+            },
+            "populationBefore": 19,
+            "capacityBefore": 19,
+            "replenishment": {
+              "queuedAtStart": {
+                "infantry": 0,
+                "archer": 6,
+                "bronze_guard": 15
+              },
+              "remainingQueue": {
+                "infantry": 0,
+                "archer": 0,
+                "bronze_guard": 3
+              },
+              "queueReasons": {
+                "infantry": "",
+                "archer": "",
+                "bronze_guard": "资源不足，暂停生产"
+              },
+              "afterArmy": {
+                "infantry": 15,
+                "archer": 13,
+                "bronze_guard": 12
+              },
+              "resources": {
+                "wood": 350,
+                "food": 211.04963664092676,
+                "coal": 594,
+                "copper": 140
+              }
+            },
+            "resourcesBefore": {
+              "food": 3000,
+              "coal": 600,
+              "copper": 800
+            }
+          },
+          {
+            "stage": 9,
+            "win": false,
+            "tickBefore": 264916,
+            "afterTick": 264938,
+            "deedAfter": 0,
+            "deedSavedAfter": 0,
+            "capacityAfter": 19,
+            "marketBridge": null,
+            "nextVillageCost": 10,
+            "round": 4,
+            "deployed": 25,
+            "armyBefore": 40,
+            "armyAfter": 15,
+            "byTypeBefore": {
+              "infantry": 15,
+              "archer": 13,
+              "bronze_guard": 12
+            },
+            "byTypeAfter": {
+              "infantry": 15,
+              "archer": 0,
+              "bronze_guard": 0
+            },
+            "populationBefore": 19,
+            "capacityBefore": 19,
+            "replenishment": null,
+            "resourcesBefore": {
+              "food": 211.04963664092676,
+              "coal": 594,
+              "copper": 140
+            }
+          }
+        ],
+        "recovery": {
+          "stage": 9,
+          "activeWaitSeconds": 600,
+          "firstLoss": {
+            "stage": 9,
+            "round": 4,
+            "armyBefore": {
+              "infantry": 15,
+              "archer": 13,
+              "bronze_guard": 12
+            },
+            "armyAfter": {
+              "infantry": 15,
+              "archer": 0,
+              "bronze_guard": 0
+            },
+            "populationBefore": 19,
+            "populationAfterDefeat": 19
+          },
+          "trainingAttempts": [
+            {
+              "type": "archer",
+              "requested": 13,
+              "result": {
+                "ok": true,
+                "qty": 13
+              }
+            },
+            {
+              "type": "bronze_guard",
+              "requested": 12,
+              "result": {
+                "ok": true,
+                "qty": 12
+              }
+            }
+          ],
+          "beforeRetry": {
+            "tick": 294338,
+            "population": 19,
+            "capacity": 19,
+            "army": {
+              "infantry": 15,
+              "archer": 4,
+              "bronze_guard": 15
+            },
+            "queue": {
+              "infantry": 0,
+              "archer": 9,
+              "bronze_guard": 0
+            },
+            "queueReasons": {
+              "infantry": "",
+              "archer": "资源不足，暂停生产",
+              "bronze_guard": ""
+            },
+            "trainingBudget": {
+              "infantry": {
+                "cost": {
+                  "wood": 30,
+                  "stone": 10,
+                  "food": 20
+                },
+                "maxAffordable": 1,
+                "unitCapLeft": 25
+              },
+              "archer": {
+                "cost": {
+                  "wood": 80,
+                  "stone": 20,
+                  "food": 30
+                },
+                "maxAffordable": 0,
+                "unitCapLeft": 32
+              },
+              "bronze_guard": {
+                "cost": {
+                  "food": 300,
+                  "copper": 100
+                },
+                "maxAffordable": 8,
+                "unitCapLeft": 0
+              }
+            },
+            "resources": {
+              "wood": 30,
+              "stone": 1600,
+              "food": 3000,
+              "tech": 3000,
+              "coal": 600,
+              "copper": 800,
+              "iron": 600,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "goldCoin": 0,
+              "deed": 0,
+              "medal": 0,
+              "bone": 0,
+              "hide": 0
+            }
+          },
+          "retry": {
+            "outcome": {
+              "win": false,
+              "round": 5,
+              "army": 15,
+              "byType": {
+                "infantry": 15,
+                "archer": 0,
+                "bronze_guard": 0
+              }
+            },
+            "battleActiveMs": 15330,
+            "callbacks": 38,
+            "reward": {
+              "award": 0,
+              "bonus": 0,
+              "spent": 0
+            }
+          },
+          "afterRetry": {
+            "tick": 294364,
+            "population": 19,
+            "capacity": 19,
+            "army": {
+              "infantry": 15,
+              "archer": 0,
+              "bronze_guard": 0
+            },
+            "queue": {
+              "infantry": 0,
+              "archer": 9,
+              "bronze_guard": 0
+            },
+            "queueReasons": {
+              "infantry": "",
+              "archer": "资源不足，暂停生产",
+              "bronze_guard": ""
+            },
+            "trainingBudget": {
+              "infantry": {
+                "cost": {
+                  "wood": 30,
+                  "stone": 10,
+                  "food": 20
+                },
+                "maxAffordable": 1,
+                "unitCapLeft": 25
+              },
+              "archer": {
+                "cost": {
+                  "wood": 80,
+                  "stone": 20,
+                  "food": 30
+                },
+                "maxAffordable": 0,
+                "unitCapLeft": 36
+              },
+              "bronze_guard": {
+                "cost": {
+                  "food": 300,
+                  "copper": 100
+                },
+                "maxAffordable": 8,
+                "unitCapLeft": 15
+              }
+            },
+            "resources": {
+              "wood": 30,
+              "stone": 1600,
+              "food": 3000,
+              "tech": 3000,
+              "coal": 600,
+              "copper": 800,
+              "iron": 600,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "goldCoin": 0,
+              "deed": 0,
+              "medal": 0,
+              "bone": 0,
+              "hide": 0
+            }
+          }
+        },
+        "sessionClock": {
+          "profile": {
+            "activeSec": 600,
+            "offlineSec": 28800
+          },
+          "activeOnlineSeconds": 6504,
+          "settledOfflineSeconds": 288000,
+          "nextPauseActiveSecond": 6600,
+          "pausePending": false,
+          "offlineWindows": [
+            {
+              "reason": "tick-boundary",
+              "activeOnlineSeconds": 4800,
+              "durationSec": 28800,
+              "gains": {
+                "stone": 6,
+                "food": 2762.501810106548,
+                "coal": 6,
+                "copper": 271
+              },
+              "before": {
+                "tick": 206400,
+                "population": 19,
+                "capacity": 19,
+                "resources": {
+                  "food": 237.49818989345223,
+                  "coal": 594,
+                  "copper": 529
+                },
+                "army": {
+                  "infantry": 15,
+                  "archer": 0,
+                  "bronze_guard": 2
+                },
+                "queue": {
+                  "infantry": 0,
+                  "archer": 0,
+                  "bronze_guard": 6
+                }
+              },
+              "after": {
+                "tick": 235200,
+                "population": 19,
+                "capacity": 19,
+                "resources": {
+                  "food": 3000,
+                  "coal": 600,
+                  "copper": 800
+                },
+                "army": {
+                  "infantry": 15,
+                  "archer": 0,
+                  "bronze_guard": 8
+                },
+                "queue": {
+                  "infantry": 0,
+                  "archer": 0,
+                  "bronze_guard": 0
+                }
+              }
+            },
+            {
+              "reason": "tick-boundary",
+              "activeOnlineSeconds": 5400,
+              "durationSec": 28800,
+              "gains": {
+                "stone": 6,
+                "food": 2933.871073055773,
+                "coal": 6,
+                "copper": 617
+              },
+              "before": {
+                "tick": 235800,
+                "population": 19,
+                "capacity": 19,
+                "resources": {
+                  "food": 66.12892694422699,
+                  "coal": 594,
+                  "copper": 183
+                },
+                "army": {
+                  "infantry": 15,
+                  "archer": 6,
+                  "bronze_guard": 6
+                },
+                "queue": {
+                  "infantry": 0,
+                  "archer": 0,
+                  "bronze_guard": 9
+                }
+              },
+              "after": {
+                "tick": 264600,
+                "population": 19,
+                "capacity": 19,
+                "resources": {
+                  "food": 3000,
+                  "coal": 600,
+                  "copper": 800
+                },
+                "army": {
+                  "infantry": 15,
+                  "archer": 6,
+                  "bronze_guard": 15
+                },
+                "queue": {
+                  "infantry": 0,
+                  "archer": 0,
+                  "bronze_guard": 0
+                }
+              }
+            },
+            {
+              "reason": "tick-boundary",
+              "activeOnlineSeconds": 6000,
+              "durationSec": 28800,
+              "gains": {
+                "stone": 6,
+                "food": 2986.2611456485565,
+                "coal": 6,
+                "copper": 544
+              },
+              "before": {
+                "tick": 265200,
+                "population": 19,
+                "capacity": 19,
+                "resources": {
+                  "food": 13.738854351443333,
+                  "coal": 594,
+                  "copper": 256
+                },
+                "army": {
+                  "infantry": 15,
+                  "archer": 4,
+                  "bronze_guard": 7
+                },
+                "queue": {
+                  "infantry": 0,
+                  "archer": 9,
+                  "bronze_guard": 8
+                }
+              },
+              "after": {
+                "tick": 294000,
+                "population": 19,
+                "capacity": 19,
+                "resources": {
+                  "food": 3000,
+                  "coal": 600,
+                  "copper": 800
+                },
+                "army": {
+                  "infantry": 15,
+                  "archer": 4,
+                  "bronze_guard": 15
+                },
+                "queue": {
+                  "infantry": 0,
+                  "archer": 9,
+                  "bronze_guard": 0
+                }
+              }
+            }
+          ]
+        },
+        "continuation": {
+          "start": {
+            "stage": 9,
+            "retryWon": false,
+            "tick": 294364,
+            "population": 19
+          },
+          "allocation": {
+            "wood": 4,
+            "stone": 3,
+            "food": 5,
+            "coal": 3,
+            "tech": 4
+          },
+          "rates": {
+            "wood": 12,
+            "stone": 6,
+            "food": 12.375000000000002,
+            "coal": 3,
+            "tech": 4.4
+          },
+          "activeWait": 140,
+          "research": [
+            {
+              "id": "sci_urbanization",
+              "alreadyKnown": true,
+              "tick": 294364
+            },
+            {
+              "id": "sci_iron",
+              "alreadyKnown": true,
+              "tick": 294364
+            },
+            {
+              "id": "sci_iron_warehouse",
+              "cost": 1000,
+              "before": 3000,
+              "after": 2000,
+              "paid": {
+                "ok": true
+              },
+              "tick": 294364,
+              "savedScience": true
+            },
+            {
+              "id": "sci_iron_age",
+              "cost": 2500,
+              "before": 2528.000000000011,
+              "after": 28.000000000010914,
+              "paid": {
+                "ok": true
+              },
+              "tick": 294484,
+              "savedScience": true
+            }
+          ],
+          "beforeForge": {
+            "wood": 750,
+            "stone": 1600,
+            "food": 3000,
+            "tech": 28.000000000010914,
+            "coal": 600,
+            "copper": 800,
+            "iron": 600,
+            "silver": 0,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 0,
+            "medal": 0,
+            "bone": 0,
+            "hide": 0
+          },
+          "forge": {
+            "ok": true
+          },
+          "afterForgePaid": {
+            "wood": 150,
+            "stone": 1000,
+            "food": 2700,
+            "tech": 28.000000000010914,
+            "coal": 600,
+            "copper": 800,
+            "iron": 600,
+            "silver": 0,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 0,
+            "medal": 0,
+            "bone": 0,
+            "hide": 0
+          },
+          "beforeTraining": {
+            "wood": 270,
+            "stone": 1060,
+            "food": 2798.000000000002,
+            "tech": 72.00000000001091,
+            "coal": 600,
+            "copper": 800,
+            "iron": 600,
+            "silver": 0,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 0,
+            "medal": 0,
+            "bone": 0,
+            "hide": 0
+          },
+          "afterEnqueue": {
+            "wood": 270,
+            "stone": 1060,
+            "food": 2798.000000000002,
+            "tech": 72.00000000001091,
+            "coal": 600,
+            "copper": 800,
+            "iron": 600,
+            "silver": 0,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 0,
+            "medal": 0,
+            "bone": 0,
+            "hide": 0
+          },
+          "trainResult": {
+            "ok": true,
+            "qty": 1
+          },
+          "trainingCharges": [
+            {
+              "cost": {
+                "food": 500,
+                "iron": 100
+              },
+              "n": 1,
+              "tick": 294495
+            }
+          ],
+          "saveResult": {
+            "ok": true
+          },
+          "final": {
+            "tick": 294504,
+            "population": 19,
+            "capacity": 19,
+            "resources": {
+              "wood": 390,
+              "stone": 1120,
+              "food": 2394.898000000003,
+              "tech": 116.00000000001097,
+              "coal": 600,
+              "copper": 800,
+              "iron": 500,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "goldCoin": 0,
+              "deed": 0,
+              "medal": 0,
+              "bone": 0,
+              "hide": 0
+            },
+            "army": {
+              "infantry": 15,
+              "archer": 9,
+              "bronze_guard": 0,
+              "iron_spearman": 1
+            },
+            "queue": {
+              "infantry": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "bronze_guard": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "iron_spearman": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              }
+            },
+            "sciences": [
+              "sci_prospect",
+              "sci_coal",
+              "sci_copper",
+              "sci_wood_store",
+              "sci_urbanization",
+              "sci_iron",
+              "sci_large_granary",
+              "sci_bronze_age",
+              "sci_iron_warehouse",
+              "sci_iron_age"
+            ],
+            "mainlineWins": 8,
+            "sessionClock": {
+              "profile": {
+                "activeSec": 600,
+                "offlineSec": 28800
+              },
+              "activeOnlineSeconds": 6504,
+              "settledOfflineSeconds": 288000,
+              "nextPauseActiveSecond": 6600,
+              "pausePending": false,
+              "offlineWindows": [
+                {
+                  "reason": "tick-boundary",
+                  "activeOnlineSeconds": 4800,
+                  "durationSec": 28800,
+                  "gains": {
+                    "stone": 6,
+                    "food": 2762.501810106548,
+                    "coal": 6,
+                    "copper": 271
+                  },
+                  "before": {
+                    "tick": 206400,
+                    "population": 19,
+                    "capacity": 19,
+                    "resources": {
+                      "food": 237.49818989345223,
+                      "coal": 594,
+                      "copper": 529
+                    },
+                    "army": {
+                      "infantry": 15,
+                      "archer": 0,
+                      "bronze_guard": 2
+                    },
+                    "queue": {
+                      "infantry": 0,
+                      "archer": 0,
+                      "bronze_guard": 6
+                    }
+                  },
+                  "after": {
+                    "tick": 235200,
+                    "population": 19,
+                    "capacity": 19,
+                    "resources": {
+                      "food": 3000,
+                      "coal": 600,
+                      "copper": 800
+                    },
+                    "army": {
+                      "infantry": 15,
+                      "archer": 0,
+                      "bronze_guard": 8
+                    },
+                    "queue": {
+                      "infantry": 0,
+                      "archer": 0,
+                      "bronze_guard": 0
+                    }
+                  }
+                },
+                {
+                  "reason": "tick-boundary",
+                  "activeOnlineSeconds": 5400,
+                  "durationSec": 28800,
+                  "gains": {
+                    "stone": 6,
+                    "food": 2933.871073055773,
+                    "coal": 6,
+                    "copper": 617
+                  },
+                  "before": {
+                    "tick": 235800,
+                    "population": 19,
+                    "capacity": 19,
+                    "resources": {
+                      "food": 66.12892694422699,
+                      "coal": 594,
+                      "copper": 183
+                    },
+                    "army": {
+                      "infantry": 15,
+                      "archer": 6,
+                      "bronze_guard": 6
+                    },
+                    "queue": {
+                      "infantry": 0,
+                      "archer": 0,
+                      "bronze_guard": 9
+                    }
+                  },
+                  "after": {
+                    "tick": 264600,
+                    "population": 19,
+                    "capacity": 19,
+                    "resources": {
+                      "food": 3000,
+                      "coal": 600,
+                      "copper": 800
+                    },
+                    "army": {
+                      "infantry": 15,
+                      "archer": 6,
+                      "bronze_guard": 15
+                    },
+                    "queue": {
+                      "infantry": 0,
+                      "archer": 0,
+                      "bronze_guard": 0
+                    }
+                  }
+                },
+                {
+                  "reason": "tick-boundary",
+                  "activeOnlineSeconds": 6000,
+                  "durationSec": 28800,
+                  "gains": {
+                    "stone": 6,
+                    "food": 2986.2611456485565,
+                    "coal": 6,
+                    "copper": 544
+                  },
+                  "before": {
+                    "tick": 265200,
+                    "population": 19,
+                    "capacity": 19,
+                    "resources": {
+                      "food": 13.738854351443333,
+                      "coal": 594,
+                      "copper": 256
+                    },
+                    "army": {
+                      "infantry": 15,
+                      "archer": 4,
+                      "bronze_guard": 7
+                    },
+                    "queue": {
+                      "infantry": 0,
+                      "archer": 9,
+                      "bronze_guard": 8
+                    }
+                  },
+                  "after": {
+                    "tick": 294000,
+                    "population": 19,
+                    "capacity": 19,
+                    "resources": {
+                      "food": 3000,
+                      "coal": 600,
+                      "copper": 800
+                    },
+                    "army": {
+                      "infantry": 15,
+                      "archer": 4,
+                      "bronze_guard": 15
+                    },
+                    "queue": {
+                      "infantry": 0,
+                      "archer": 9,
+                      "bronze_guard": 0
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "saveSha256": "f93d14e340027a743fc3a0f00cc19ede393d67100172387df581d2f9bbd324f8"
+        }
+      },
+      "campaignError": null
+    }
+  }
+}

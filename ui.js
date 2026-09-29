@@ -542,7 +542,7 @@ const BUILD_CATEGORIES = {
 };
 
 function rBuildDetailCard(key, cfg, showPrimaryAction=true){
-  const st=bldSt(key),scienceLocked=cfg.needScience&&!buildingScienceUnlocked(key),locked=(cfg.needBoss&&bossDefeatedCount()<cfg.needBoss)||scienceLocked,upLock=st.lv>0?upgradeLockReason(key):'';
+  const st=bldSt(key),scienceLocked=cfg.needScience&&!buildingScienceUnlocked(key),progressLock=buildingProgressLock(key),locked=!!progressLock||scienceLocked,upLock=st.lv>0?upgradeLockReason(key):'';
   // 右侧对齐标签：资源Buff 或 解锁条件
   const buffLabel=cfg.buffRes&&st.state==='idle'&&st.lv>0?`<span style="font-size:12px;color:#40bf80">${pix(CFG.res[cfg.buffRes].icon,'sm')} ${CFG.res[cfg.buffRes].name} Buff: +${((st.lv*cfg.buffPerLv+cfg.buffBase)*100).toFixed(0)}%</span>`:'';
   // IE-007：被动产出/消耗标识
@@ -554,7 +554,7 @@ function rBuildDetailCard(key, cfg, showPrimaryAction=true){
   })():'';
   const lockLabel=locked?(scienceLocked
     ?`<span style="font-size:11px;color:#e06060">${pix('lock','mini')}需先研究「${(typeof sciName==='function')?sciName(cfg.needScience):(CFG.sciences?.[cfg.needScience]?.name||cfg.needScience)}」</span>`
-    :`<span style="font-size:11px;color:#e06060">${pix('lock','mini')}需击败第${cfg.needBoss}个Boss</span>`):'';
+    :`<span style="font-size:11px;color:#e06060">${pix('lock','mini')}${esc(progressLock)}</span>`):'';
   const rightLabel=lockLabel||buffLabel||prodLabel;
   let h=`<div class="card" style="${locked?'opacity:.7':''}"><h3 style="display:flex;justify-content:space-between;align-items:center">`;
   h+=`<span>${pix(key,'card-pix')}${cfg.name}`;if(st.state==='idle'&&st.lv>0)h+=` <span style="color:#f0d060">Lv.${st.lv}</span>`;if(cfg.trains){const tls=['T0基础','T1进阶','T2精锐','T3终极','T4传说'];h+=` <span style="font-size:10px;color:#f0d060">时代:${tls[st.tier??0]||'T'+(st.tier??0)}</span>`;if(st.state==='tier_upgrading')h+=` → <span style="color:#40bf80">${tls[(st.tier??0)+1]||'T'+((st.tier??0)+1)}</span>`;}
@@ -633,7 +633,7 @@ let _buildSearch='';
 function buildEntryState(key,cfg){
   const st=bldSt(key);
   if(st.state!=='idle')return{rank:0,status:'施工中',disabled:true,action:'施工中'};
-  const lock=cfg.needBoss&&bossDefeatedCount()<cfg.needBoss||!buildingScienceUnlocked(key);
+  const lock=!!buildingProgressLock(key)||!buildingScienceUnlocked(key);
   const limit=st.lv>0?upgradeLockReason(key):'';
   if(lock||limit)return{rank:3,status:lock?'尚未解锁':limit,disabled:true,action:st.lv?'升级':'建造'};
   const cost=st.lv?upCost(key):buildingInitialCost(key);
@@ -1044,7 +1044,7 @@ function rBarracks(){
       const scienceLock=cfg?.needScience&&!scienceUnlocked(cfg.needScience);
       const unitScience=CFG.units[bu]?.needScience;
       const unitScienceLock=unitScience&&!scienceUnlocked(unitScience);
-      const bossLock=cfg&&cfg.needBoss&&bossDefeatedCount()<cfg.needBoss;
+      const bossLock=cfg&&!!buildingProgressLock(bKey);
       const notBuilt=!cfg||st.lv<=0;
       const isLocked=scienceLock||unitScienceLock||bossLock||notBuilt;
       const foldKey='line_'+bu;
@@ -1060,7 +1060,7 @@ function rBarracks(){
         if(!target||!freeRoot&&!S.upgradedUnits[fromKey])return false;
         if(checkTierLevel(targetTier)||!cfg||st.lv<=0||(st.tier??0)<targetTier)return false;
         if(cfg.needScience&&!scienceUnlocked(cfg.needScience)||target.needScience&&!scienceUnlocked(target.needScience))return false;
-        if(cfg.needBoss&&bossDefeatedCount()<cfg.needBoss)return false;
+        if(buildingProgressLock(bKey))return false;
         return (S.res.tech||0)>=(br.needTech||0)
           && (S.merit||0)>=(br.needMerit||0)
           && S.res.wood>=(br.cost?.wood||0)
@@ -1216,12 +1216,12 @@ function rFight(){
     h+=`</div>`;
     // 拓境是独立于百关主线的发展副本；复用现有卡片样式，避免干扰并行美术工作。
     h+=`<div class="card"><h3>${pix('battle','card-pix')}拓境远征</h3>`;
-    h+=`<div style="font-size:11px;color:#aaa;margin-bottom:7px">边疆占领采集点，外域回收地契与战备勋章；不计入百关主线。使用当前远征编队，战损照常结算。</div>`;
+    h+=`<div style="font-size:11px;color:#aaa;margin-bottom:7px">边疆占领采集点，外域回收地契、战备勋章与兵种研究精魄；胜利另得战功，不计入百关主线。使用当前远征编队，战损照常结算。</div>`;
     for(const [site,domain] of Object.entries(CFG.developmentBorder)){
       const unlocked=scienceUnlocked(domain.needScience),point=S.development.border.sites[site];
       const selected=S.development.border.collection.activeSite===site;
       const reward=Object.entries(domain.reward).map(([key,amount])=>`${esc(resourceDisplayName(key))} ×${amount}`).join('、');
-      h+=`<div style="border-top:1px dashed #34394b;padding-top:7px;margin-top:7px;font-size:11px;color:#aaa">${esc(domain.name)} · 点位 ${point.level}/${CFG.developmentCollection.maxLevel}级 · 警戒 ${Math.min(13000,point.wins*domain.alertPerWin)} · 基础战利品 ${reward}</div>`;
+      h+=`<div style="border-top:1px dashed #34394b;padding-top:7px;margin-top:7px;font-size:11px;color:#aaa">${esc(domain.name)} · 点位 ${point.level}/${CFG.developmentCollection.maxLevel}级 · 警戒 ${Math.min(13000,point.wins*domain.alertPerWin)} · 基础战利品 ${reward}、战功 ×${domain.researchReward.merit}</div>`;
       h+=`<div style="font-size:10px;color:#888;margin:3px 0">${unlocked?'胜利提升点位；仅选中的一处每'+CFG.developmentCollection.periodSec+'秒采集'+(selected?'（剩余 '+(CFG.developmentCollection.periodSec-S.development.border.collection.elapsedSec)+' 秒）':''):'需研究「'+esc(sciName(domain.needScience))+'」'}</div>`;
       h+=`<button class="btn btn-go btn-xs" onclick="openDevelopmentBorder('${site}')" ${unlocked&&formCnt()>0?'':'disabled'}>挑战</button>`;
       if(point.level>0)h+=` <button class="btn btn-ghost btn-xs" onclick="selectDevelopmentSiteFromUI(${selected?'null':`'${site}'`})">${selected?'停止采集':'设为采集点'}</button>`;
@@ -1230,7 +1230,8 @@ function rFight(){
       const unlocked=scienceUnlocked(domain.needScience),state=S.development.outer[region];
       const encounter=materialDomainEncounter(domain.key);
       const reward=Object.entries(domain.reward).map(([key,amount])=>`${esc(resourceDisplayName(key))} ×${amount}`).join('、');
-      h+=`<div style="border-top:1px dashed #34394b;padding-top:7px;margin-top:7px;font-size:11px;color:#aaa">${esc(domain.name)} · 胜场 ${state.wins} · 警戒 ${Math.min(13000,state.alert)} · 基础战利品 ${reward}</div>`;
+      h+=`<div style="border-top:1px dashed #34394b;padding-top:7px;margin-top:7px;font-size:11px;color:#aaa">${esc(domain.name)} · 胜场 ${state.wins} · 警戒 ${Math.min(13000,state.alert)} · 基础战利品 ${reward}、战功 ×${domain.researchReward.merit}</div>`;
+      if(domain.researchReward.essenceCycles)h+=`<div style="font-size:10px;color:#aaa;margin:3px 0">轮换精魄：${domain.researchReward.essenceCycles.map(cycle=>cycle.map(key=>esc(CFG.essences[key].name)).join('／')).join(' + ')}</div>`;
       h+=`<div style="font-size:10px;color:#888;margin:3px 0">稀有掉落：${esc(CFG.eraMaterials.sacredBlood.name)} ${(encounter.bloodDropChance/100).toFixed(2)}%${encounter.emberDropChance>0?' · '+esc(CFG.eraMaterials.emberElixir.name)+' '+(encounter.emberDropChance/100).toFixed(2)+'%':''}</div>`;
       if(!unlocked)h+=`<div style="font-size:10px;color:#888;margin:3px 0">需研究「${esc(sciName(domain.needScience))}」</div>`;
       h+=`<button class="btn btn-go btn-xs" onclick="openDevelopmentOuter('${region}')" ${unlocked&&formCnt()>0?'':'disabled'}>挑战</button>`;
@@ -1433,7 +1434,7 @@ function rTechFull(){
   const essenceKinds=Object.keys(CFG.essences||{}).filter(key=>(S.essence?.[key]||0)>0).length;
   h+=`<details class="card tech-essence-inventory" ${_techEssenceOpen?'open':''} ontoggle="setTechEssenceOpen(this.open)">
     <summary>${pix('tech','card-pix')}<span>精魄库存</span><small>已持有 ${essenceKinds} 类</small></summary>`;
-  h+=`<div style="font-size:10px;color:#888;margin-bottom:6px">击败Boss概率掉落精魄，用于解锁T2/T3兵种</div>`;
+  h+=`<div style="font-size:10px;color:#888;margin-bottom:6px">主线Boss概率掉落，外域军屯村寨与工造军镇按胜次轮换获得；用于解锁T2/T3兵种</div>`;
   h+=`<div style="display:flex;flex-wrap:wrap;gap:2px;padding:4px 0">`;
   let hasEssence=false;
   for(const[ek,ei] of Object.entries(CFG.essences||{})){
@@ -1442,7 +1443,7 @@ function rTechFull(){
     h+=`<span style="display:inline-flex;align-items:center;gap:3px;margin:2px 8px 2px 0;font-size:11px;color:#aab">
       ${pix(ei.icon||ek,'mini')} ${ei.name}: <span style="color:${cnt>0?'#f0d060':'#555'}">${cnt}</span></span>`;
   }
-  if(!hasEssence)h+=`<span style="font-size:10px;color:#555">暂无精魄，击败Boss获取</span>`;
+  if(!hasEssence)h+=`<span style="font-size:10px;color:#555">暂无精魄，可挑战主线Boss或拓境外域</span>`;
   h+=`</div>`;
   h+=`<div style="font-size:10px;color:#888;margin-top:4px">击败Boss: ${boss} | 科技点: <span style="color:#f0d060">${Math.floor(S.res.tech||0)}</span> | 战功: <span style="color:#c0a060">${S.merit||0}</span></div>`;
   h+=`</details>`;
@@ -1679,7 +1680,7 @@ function rTechFull(){
     const buildingState=buildingKey?bldSt(buildingKey):null;
     const buildingReady=!!(building&&buildingState.lv>0&&(buildingState.tier??0)>=node.tier&&
       (!building.needScience||scienceUnlocked(building.needScience))&&
-      (!building.needBoss||bossDefeatedCount()>=building.needBoss));
+      !buildingProgressLock(buildingKey));
     const unitScience=CFG.units[key]?.needScience;
     const unitScienceReady=!unitScience||scienceUnlocked(unitScience);
     const levelReady=!checkTierLevel(node.tier);
