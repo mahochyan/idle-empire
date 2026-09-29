@@ -1,0 +1,99 @@
+{
+  "sourceName": "p400-armament-natural-route-save.json",
+  "sourceHash": "368dfa4d10f89469ae71cd2679183333526a7ed92b794fbb6e838dd375035f60",
+  "before": {
+    "tech": 83263.24032306671,
+    "medal": 4094694,
+    "steel": 323996,
+    "starOriginStone": 30,
+    "atkLevel": 0,
+    "hpLevel": 0,
+    "atk": 513.12,
+    "hp": 62.38400000000001,
+    "army": 673,
+    "deployed": 626,
+    "leaf": 33,
+    "blood": 25,
+    "alert": 4100
+  },
+  "atkPaid": {
+    "ok": true,
+    "level": 1,
+    "cost": {
+      "steel": 8000,
+      "starOriginStone": 10
+    }
+  },
+  "hpPaid": {
+    "ok": true,
+    "level": 1,
+    "cost": {
+      "steel": 8000,
+      "starOriginStone": 10
+    }
+  },
+  "afterUpgrade": {
+    "tech": 83263.24032306671,
+    "medal": 4094694,
+    "steel": 307996,
+    "starOriginStone": 10,
+    "atkLevel": 1,
+    "hpLevel": 1,
+    "atk": 517.12,
+    "hp": 65.18400000000001,
+    "army": 673,
+    "deployed": 626
+  },
+  "exchange": {
+    "ok": true,
+    "gained": 1,
+    "spent": 3,
+    "count": 1
+  },
+  "cleanser": {
+    "ok": true,
+    "alert": 4000,
+    "spent": 1
+  },
+  "entry": {
+    "star": [
+      {
+        "count": 55,
+        "atk": 517.12,
+        "maxHp": 512.1600000000001
+      },
+      {
+        "count": 54,
+        "atk": 517.12,
+        "maxHp": 502.84800000000007
+      },
+      {
+        "count": 46,
+        "atk": 517.12,
+        "maxHp": 428.35200000000003
+      }
+    ],
+    "enemy": [
+      {
+        "type": "revival_god",
+        "count": 2520,
+        "hp": 2520
+      }
+    ]
+  },
+  "battle": {
+    "outcome": "win",
+    "callbacks": 9,
+    "afterBattle": {
+      "army": 673,
+      "deployed": 626,
+      "leaf": 138,
+      "steel": 307996,
+      "starOriginStone": 10,
+      "atkLevel": 1,
+      "hpLevel": 1
+    }
+  },
+  "finalName": "p400-armament-natural-invested-save.json",
+  "finalHash": "e466af613d8048e4d68fb7993956a02491271c50c429a28775e0dad9222b2a9d"
+}

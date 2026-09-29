@@ -9,6 +9,8 @@ const {environment}=require('../../tests/progression/harness');
 const root=path.resolve(__dirname,'../..');
 const sourceFile='docs/codex/reports/data/p245-outer-village-l10-save.json';
 const refill=process.argv.includes('--paid-refill');
+const maxAttempts=Number((process.argv.find(arg=>arg.startsWith('--attempts='))||'--attempts=15').split('=')[1]);
+assert.ok(Number.isSafeInteger(maxAttempts)&&maxAttempts>=1&&maxAttempts<=100,'invalid attempt count');
 const raw=fs.readFileSync(path.join(root,sourceFile),'utf8').trim();
 const hash=text=>crypto.createHash('sha256').update(text).digest('hex');
 const runtimeFiles=['config.js','levels.js','math.js','garrison.js','technology.js','tests/progression/harness.js'];
@@ -91,10 +93,13 @@ function rebuild(){
     reasons:Object.fromEntries(Object.keys(targets).map(type=>[type,
       game.run(`S.queue['${type}']?.reason||''`)]))};
 }
-for(let attempt=1;attempt<=15;attempt++){
+for(let attempt=1;attempt<=maxAttempts;attempt++){
   const before=take();
   game.run("openDevelopmentOuter('village')");
   if(!game.run('S.battleActive')){results.push({attempt,entrance:'blocked',before});break}
+  const enemy=JSON.parse(game.run(`JSON.stringify(B.enemyUnits.map(unit=>({
+    type:unit.type,initialCount:unit.initialCount,atk:unit.atk,def:unit.def,maxHp:unit.maxHp
+  })))`));
   let callbacks=0;
   while(game.run('S.battleActive')&&callbacks<2000){
     assert.equal(game.run('__step()'),true,'battle callback missing');callbacks++;
@@ -107,7 +112,7 @@ for(let attempt=1;attempt<=15;attempt++){
   assert.equal(reloaded.run('loadSaveAndApply().status'),'ok');
   assert.equal(reloaded.run('S.development.outer.village.wins'),after.wins);
   assert.equal(reloaded.run('S.merit'),after.merit);
-  results.push({attempt,outcome,callbacks,before,after,saveSha256:hash(save)});
+  results.push({attempt,outcome,callbacks,enemy,before,after,saveSha256:hash(save)});
   game.run('exitBattle()');
   if(outcome!=='win')break;
   if(refill){
@@ -122,14 +127,15 @@ const finalSave=game.store.get('rts_save');
 const finalReload=environment({rts_save:finalSave});
 assert.equal(finalReload.run('loadSaveAndApply().status'),'ok');
 assert.equal(finalReload.run('S.development.outer.village.wins'),results.at(-1).after.wins);
-const report={batch:'P399',mode:refill?'real paid L10 village consecutive battles with paid refill':
+const report={batch:maxAttempts===15?'P399':'P400',maxAttempts,mode:refill?'real paid L10 village consecutive battles with paid refill':
     'real paid L10 village consecutive battles without refill',
   sourceFile,sourceSha256:hash(raw),runtimeSha256:sourceHash,
   gameClock:'battle callbacks advance tick by scheduled milliseconds; online recovery uses tick(); no offline settlement',
   finalSaveSha256:hash(finalSave),results};
-const output=path.join(root,`docs/codex/reports/data/p399-regional-essence-${refill?'paid-refill':'unreplenished'}.json`);
+const prefix=maxAttempts===15?'p399':'p400';
+const output=path.join(root,`docs/codex/reports/data/${prefix}-regional-essence-${refill?'paid-refill':'unreplenished'}.json`);
 fs.writeFileSync(output,JSON.stringify(report,null,2)+'\n');
-fs.writeFileSync(path.join(root,`docs/codex/reports/data/p399-regional-essence-${refill?'paid-refill':'unreplenished'}-save.json`),finalSave);
+fs.writeFileSync(path.join(root,`docs/codex/reports/data/${prefix}-regional-essence-${refill?'paid-refill':'unreplenished'}-save.json`),finalSave);
 console.log(JSON.stringify({attempts:results.length,results:results.map(({attempt,outcome,callbacks,before,after})=>({
   attempt,outcome,callbacks,armyBefore:before.army,armyAfter:after.army,merit:after.merit,
   essence:after.essence,wins:after.wins,alert:after.alert,

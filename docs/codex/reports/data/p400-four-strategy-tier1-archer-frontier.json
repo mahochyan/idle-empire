@@ -1,0 +1,3948 @@
+{
+  "batch": "P400",
+  "probe": "paid-l20-tier1-archer-frontier",
+  "sourceSha256": {
+    "config.js": "3730abb54cf3fc311c9a9e607da5e8233796c47d63d3070d59e3bfb3ea54918c",
+    "levels.js": "cec80c26fa91f941994c253a2fe73be0dfe3f108237620b662fdab9f5449fd1d",
+    "math.js": "4e121994991540d91b52d63b64b21506ff42f84f7e3e558917cebfdec65366bb",
+    "garrison.js": "4d233f0529d256cd1ace2de782603fcfcbbff110032ca4cf29c5e36af30f10ff",
+    "technology.js": "3d3485f57e1e3ef73d11077cec06d467f674959aa6f0dfb27c3eb4d4abf94536",
+    "tests/progression/harness.js": "4770d17fa72cc8c87f4c8ef79678f19d63a41da895b8dd58776e5a39ce2ede2b",
+    "tools/verify/probe-four-strategy-l40-p400.js": "386a982014b71dcb89c1fbf1e1a6aab522e0bc43751bd89e57cc460b68dea431"
+  },
+  "unit": "active online seconds, settled offline seconds, elapsed simulated seconds; scripted menu actions instantaneous",
+  "method": "one independent P399 economic real-paid L20 save with paid T1 archer research; real role allocation, queues, production, battle callbacks, losses and saves; fixed battle random 0.5; natural garrison frozen",
+  "results": {
+    "economic": {
+      "inputFile": "docs/codex/reports/data/p399-four-strategy-economic-l20-save.json",
+      "inputSha256": "5b9ec036c2929ed8e75b267ef42a6759495306e6f7f6dc784abb78c24a9edd1a",
+      "migration": {
+        "status": "ok",
+        "filled": [],
+        "sourceVersion": 34,
+        "loadedVersion": 34,
+        "preMigrationPreserved": false,
+        "normalBackupPreserved": false
+      },
+      "initialClock": {
+        "active": 20823,
+        "offline": 0,
+        "elapsed": 20823
+      },
+      "initial": {
+        "tick": 20823,
+        "population": 19,
+        "resources": {
+          "wood": 2400,
+          "stone": 1600,
+          "food": 3000,
+          "tech": 160.00000000001103,
+          "coal": 1,
+          "copper": 10,
+          "iron": 10,
+          "silver": 0,
+          "gold": 0,
+          "steel": 0,
+          "coin": 0,
+          "silverCoin": 0,
+          "goldCoin": 0,
+          "deed": 0,
+          "medal": 0,
+          "bone": 0,
+          "hide": 0
+        },
+        "workers": {
+          "wood": 4,
+          "stone": 3,
+          "food": 7,
+          "coal": 3,
+          "copper": 2,
+          "iron": 0,
+          "silver": 0,
+          "gold": 0,
+          "steel": 0,
+          "coin": 0,
+          "silverCoin": 0,
+          "goldCoin": 0,
+          "tech": 0
+        },
+        "pool": {
+          "infantry": 15,
+          "archer": 0,
+          "bronze_guard": 0,
+          "iron_spearman": 0
+        },
+        "owned": {
+          "iron_spearman": 10,
+          "bronze_guard": 1,
+          "archer": 20,
+          "infantry": 15,
+          "archer_t1": 0
+        },
+        "queue": {
+          "infantry": {
+            "count": 0,
+            "timer": 0,
+            "reason": ""
+          },
+          "archer": {
+            "count": 0,
+            "timer": 0,
+            "reason": ""
+          },
+          "bronze_guard": {
+            "count": 0,
+            "timer": 0,
+            "reason": ""
+          },
+          "iron_spearman": {
+            "count": 0,
+            "timer": 0,
+            "reason": ""
+          }
+        },
+        "formation": {
+          "front": [],
+          "mid": [
+            {
+              "type": "iron_spearman",
+              "count": 10,
+              "id": 1790740532984.5
+            },
+            {
+              "type": "bronze_guard",
+              "count": 1,
+              "id": 1790740532985.5
+            }
+          ],
+          "back": [
+            {
+              "type": "archer",
+              "count": 10,
+              "id": 1790740532986.5
+            },
+            {
+              "type": "archer",
+              "count": 10,
+              "id": 1790740532987.5
+            }
+          ]
+        },
+        "defeated": 20
+      },
+      "firstStage": 21,
+      "upgradePath": {
+        "before": {
+          "clock": {
+            "active": 20823,
+            "offline": 0,
+            "elapsed": 20823,
+            "tick": 20823,
+            "offlineWindows": []
+          },
+          "tech": 160.00000000001103,
+          "merit": 153,
+          "oldArchers": 20,
+          "tier": 0
+        },
+        "knowledgeWait": 20,
+        "tierCost": {
+          "wood": 600,
+          "stone": 300,
+          "food": 200,
+          "time": 20
+        },
+        "tierAction": {
+          "ok": true,
+          "tier": 1
+        },
+        "tierWait": 20,
+        "researchBefore": {
+          "tech": 248.00000000001057,
+          "merit": 153,
+          "resources": {
+            "wood": 2400,
+            "stone": 1596,
+            "food": 3000,
+            "tech": 248.00000000001057,
+            "coal": 1,
+            "copper": 10,
+            "iron": 50,
+            "silver": 0,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 0,
+            "medal": 0,
+            "bone": 0,
+            "hide": 0
+          }
+        },
+        "research": {
+          "ok": true
+        },
+        "after": {
+          "clock": {
+            "active": 20863,
+            "offline": 0,
+            "elapsed": 20863,
+            "tick": 20863,
+            "offlineWindows": []
+          },
+          "tech": 48.00000000001057,
+          "merit": 148,
+          "oldArchers": 0,
+          "tier": 1
+        }
+      },
+      "workers": {
+        "iron": {
+          "wood": 4,
+          "stone": 3,
+          "food": 7,
+          "coal": 3,
+          "iron": 2
+        },
+        "support": {
+          "wood": 4,
+          "stone": 3,
+          "food": 7,
+          "coal": 3,
+          "copper": 2
+        }
+      },
+      "ironSupply": {
+        "label": "iron-front",
+        "target": {
+          "iron_spearman": 20
+        },
+        "ledger": [
+          {
+            "type": "iron_spearman",
+            "requested": 10,
+            "result": {
+              "ok": true,
+              "qty": 10
+            }
+          }
+        ],
+        "waited": 960,
+        "complete": true,
+        "before": {
+          "active": 20863,
+          "offline": 0,
+          "elapsed": 20863,
+          "tick": 20863,
+          "offlineWindows": []
+        },
+        "after": {
+          "active": 21823,
+          "offline": 0,
+          "elapsed": 21823,
+          "tick": 21823,
+          "offlineWindows": []
+        },
+        "owned": {
+          "iron_spearman": 20
+        },
+        "queue": {
+          "iron_spearman": 0
+        },
+        "reasons": {
+          "iron_spearman": ""
+        },
+        "resources": {
+          "wood": 2400,
+          "stone": 1596,
+          "food": 2624.927777777775,
+          "tech": 48.00000000001057,
+          "coal": 598,
+          "copper": 10,
+          "iron": 10,
+          "silver": 0,
+          "gold": 0,
+          "steel": 0,
+          "coin": 0,
+          "silverCoin": 0,
+          "goldCoin": 0,
+          "deed": 0,
+          "medal": 0,
+          "bone": 0,
+          "hide": 0
+        }
+      },
+      "supportSupply": {
+        "label": "bronze-and-archers",
+        "target": {
+          "bronze_guard": 20,
+          "archer_t1": 20
+        },
+        "ledger": [
+          {
+            "type": "bronze_guard",
+            "requested": 19,
+            "result": {
+              "ok": true,
+              "qty": 19
+            }
+          },
+          {
+            "type": "archer_t1",
+            "requested": 20,
+            "result": {
+              "ok": true,
+              "qty": 20
+            }
+          }
+        ],
+        "waited": 1070,
+        "complete": true,
+        "before": {
+          "active": 21823,
+          "offline": 0,
+          "elapsed": 21823,
+          "tick": 21823,
+          "offlineWindows": []
+        },
+        "after": {
+          "active": 22893,
+          "offline": 0,
+          "elapsed": 22893,
+          "tick": 22893,
+          "offlineWindows": []
+        },
+        "owned": {
+          "bronze_guard": 20,
+          "archer_t1": 20
+        },
+        "queue": {
+          "bronze_guard": 0,
+          "archer_t1": 0
+        },
+        "reasons": {
+          "bronze_guard": "",
+          "archer_t1": ""
+        },
+        "resources": {
+          "wood": 2400,
+          "stone": 1600,
+          "food": 1423.7949117686192,
+          "tech": 48.00000000001057,
+          "coal": 3,
+          "copper": 12,
+          "iron": 10,
+          "silver": 0,
+          "gold": 0,
+          "steel": 0,
+          "coin": 0,
+          "silverCoin": 0,
+          "goldCoin": 0,
+          "deed": 0,
+          "medal": 0,
+          "bone": 0,
+          "hide": 0
+        }
+      },
+      "upgrades": [],
+      "between": [
+        {
+          "stage": 22,
+          "ironRefill": {
+            "label": "after-win-iron-22",
+            "target": {
+              "iron_spearman": 20
+            },
+            "ledger": [],
+            "waited": 0,
+            "complete": true,
+            "before": {
+              "active": 22894,
+              "offline": 0,
+              "elapsed": 22894,
+              "tick": 22894,
+              "offlineWindows": []
+            },
+            "after": {
+              "active": 22894,
+              "offline": 0,
+              "elapsed": 22894,
+              "tick": 22894,
+              "offlineWindows": []
+            },
+            "owned": {
+              "iron_spearman": 20
+            },
+            "queue": {
+              "iron_spearman": 0
+            },
+            "reasons": {
+              "iron_spearman": ""
+            },
+            "resources": {
+              "wood": 2400,
+              "stone": 1600,
+              "food": 2083.7949117686194,
+              "tech": 48.00000000001057,
+              "coal": 3,
+              "copper": 12,
+              "iron": 10,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "goldCoin": 0,
+              "deed": 0,
+              "medal": 0,
+              "bone": 0,
+              "hide": 0
+            }
+          },
+          "supportRefill": {
+            "label": "after-win-support-22",
+            "target": {
+              "bronze_guard": 20,
+              "archer_t1": 20
+            },
+            "ledger": [],
+            "waited": 0,
+            "complete": true,
+            "before": {
+              "active": 22894,
+              "offline": 0,
+              "elapsed": 22894,
+              "tick": 22894,
+              "offlineWindows": []
+            },
+            "after": {
+              "active": 22894,
+              "offline": 0,
+              "elapsed": 22894,
+              "tick": 22894,
+              "offlineWindows": []
+            },
+            "owned": {
+              "bronze_guard": 20,
+              "archer_t1": 20
+            },
+            "queue": {
+              "bronze_guard": 0,
+              "archer_t1": 0
+            },
+            "reasons": {
+              "bronze_guard": "",
+              "archer_t1": ""
+            },
+            "resources": {
+              "wood": 2400,
+              "stone": 1600,
+              "food": 2083.7949117686194,
+              "tech": 48.00000000001057,
+              "coal": 3,
+              "copper": 12,
+              "iron": 10,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "goldCoin": 0,
+              "deed": 0,
+              "medal": 0,
+              "bone": 0,
+              "hide": 0
+            }
+          }
+        },
+        {
+          "stage": 23,
+          "ironRefill": {
+            "label": "after-win-iron-23",
+            "target": {
+              "iron_spearman": 20
+            },
+            "ledger": [],
+            "waited": 0,
+            "complete": true,
+            "before": {
+              "active": 22896,
+              "offline": 0,
+              "elapsed": 22896,
+              "tick": 22896,
+              "offlineWindows": []
+            },
+            "after": {
+              "active": 22896,
+              "offline": 0,
+              "elapsed": 22896,
+              "tick": 22896,
+              "offlineWindows": []
+            },
+            "owned": {
+              "iron_spearman": 20
+            },
+            "queue": {
+              "iron_spearman": 0
+            },
+            "reasons": {
+              "iron_spearman": ""
+            },
+            "resources": {
+              "wood": 2400,
+              "stone": 1600,
+              "food": 2776.7949117686194,
+              "tech": 48.00000000001057,
+              "coal": 3,
+              "copper": 12,
+              "iron": 10,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "goldCoin": 0,
+              "deed": 0,
+              "medal": 0,
+              "bone": 0,
+              "hide": 0
+            }
+          },
+          "supportRefill": {
+            "label": "after-win-support-23",
+            "target": {
+              "bronze_guard": 20,
+              "archer_t1": 20
+            },
+            "ledger": [],
+            "waited": 0,
+            "complete": true,
+            "before": {
+              "active": 22896,
+              "offline": 0,
+              "elapsed": 22896,
+              "tick": 22896,
+              "offlineWindows": []
+            },
+            "after": {
+              "active": 22896,
+              "offline": 0,
+              "elapsed": 22896,
+              "tick": 22896,
+              "offlineWindows": []
+            },
+            "owned": {
+              "bronze_guard": 20,
+              "archer_t1": 20
+            },
+            "queue": {
+              "bronze_guard": 0,
+              "archer_t1": 0
+            },
+            "reasons": {
+              "bronze_guard": "",
+              "archer_t1": ""
+            },
+            "resources": {
+              "wood": 2400,
+              "stone": 1600,
+              "food": 2776.7949117686194,
+              "tech": 48.00000000001057,
+              "coal": 3,
+              "copper": 12,
+              "iron": 10,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "goldCoin": 0,
+              "deed": 0,
+              "medal": 0,
+              "bone": 0,
+              "hide": 0
+            }
+          }
+        },
+        {
+          "stage": 24,
+          "ironRefill": {
+            "label": "after-win-iron-24",
+            "target": {
+              "iron_spearman": 20
+            },
+            "ledger": [],
+            "waited": 0,
+            "complete": true,
+            "before": {
+              "active": 22898,
+              "offline": 0,
+              "elapsed": 22898,
+              "tick": 22898,
+              "offlineWindows": []
+            },
+            "after": {
+              "active": 22898,
+              "offline": 0,
+              "elapsed": 22898,
+              "tick": 22898,
+              "offlineWindows": []
+            },
+            "owned": {
+              "iron_spearman": 20
+            },
+            "queue": {
+              "iron_spearman": 0
+            },
+            "reasons": {
+              "iron_spearman": ""
+            },
+            "resources": {
+              "wood": 2400,
+              "stone": 1600,
+              "food": 3000,
+              "tech": 48.00000000001057,
+              "coal": 3,
+              "copper": 12,
+              "iron": 10,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "goldCoin": 0,
+              "deed": 0,
+              "medal": 0,
+              "bone": 0,
+              "hide": 0
+            }
+          },
+          "supportRefill": {
+            "label": "after-win-support-24",
+            "target": {
+              "bronze_guard": 20,
+              "archer_t1": 20
+            },
+            "ledger": [],
+            "waited": 0,
+            "complete": true,
+            "before": {
+              "active": 22898,
+              "offline": 0,
+              "elapsed": 22898,
+              "tick": 22898,
+              "offlineWindows": []
+            },
+            "after": {
+              "active": 22898,
+              "offline": 0,
+              "elapsed": 22898,
+              "tick": 22898,
+              "offlineWindows": []
+            },
+            "owned": {
+              "bronze_guard": 20,
+              "archer_t1": 20
+            },
+            "queue": {
+              "bronze_guard": 0,
+              "archer_t1": 0
+            },
+            "reasons": {
+              "bronze_guard": "",
+              "archer_t1": ""
+            },
+            "resources": {
+              "wood": 2400,
+              "stone": 1600,
+              "food": 3000,
+              "tech": 48.00000000001057,
+              "coal": 3,
+              "copper": 12,
+              "iron": 10,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "goldCoin": 0,
+              "deed": 0,
+              "medal": 0,
+              "bone": 0,
+              "hide": 0
+            }
+          }
+        },
+        {
+          "stage": 25,
+          "ironRefill": {
+            "label": "after-win-iron-25",
+            "target": {
+              "iron_spearman": 20
+            },
+            "ledger": [],
+            "waited": 0,
+            "complete": true,
+            "before": {
+              "active": 22903,
+              "offline": 0,
+              "elapsed": 22903,
+              "tick": 22903,
+              "offlineWindows": []
+            },
+            "after": {
+              "active": 22903,
+              "offline": 0,
+              "elapsed": 22903,
+              "tick": 22903,
+              "offlineWindows": []
+            },
+            "owned": {
+              "iron_spearman": 20
+            },
+            "queue": {
+              "iron_spearman": 0
+            },
+            "reasons": {
+              "iron_spearman": ""
+            },
+            "resources": {
+              "wood": 2400,
+              "stone": 1600,
+              "food": 3000,
+              "tech": 48.00000000001057,
+              "coal": 3,
+              "copper": 12,
+              "iron": 10,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "goldCoin": 0,
+              "deed": 0,
+              "medal": 0,
+              "bone": 0,
+              "hide": 0
+            }
+          },
+          "supportRefill": {
+            "label": "after-win-support-25",
+            "target": {
+              "bronze_guard": 20,
+              "archer_t1": 20
+            },
+            "ledger": [
+              {
+                "type": "bronze_guard",
+                "requested": 4,
+                "result": {
+                  "ok": true,
+                  "qty": 4
+                }
+              }
+            ],
+            "waited": 260,
+            "complete": true,
+            "before": {
+              "active": 22903,
+              "offline": 0,
+              "elapsed": 22903,
+              "tick": 22903,
+              "offlineWindows": []
+            },
+            "after": {
+              "active": 23163,
+              "offline": 0,
+              "elapsed": 23163,
+              "tick": 23163,
+              "offlineWindows": []
+            },
+            "owned": {
+              "bronze_guard": 20,
+              "archer_t1": 20
+            },
+            "queue": {
+              "bronze_guard": 0,
+              "archer_t1": 0
+            },
+            "reasons": {
+              "bronze_guard": "",
+              "archer_t1": ""
+            },
+            "resources": {
+              "wood": 2400,
+              "stone": 1600,
+              "food": 2484.7495343699416,
+              "tech": 48.00000000001057,
+              "coal": 3,
+              "copper": 2,
+              "iron": 10,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "goldCoin": 0,
+              "deed": 0,
+              "medal": 0,
+              "bone": 0,
+              "hide": 0
+            }
+          }
+        },
+        {
+          "stage": 26,
+          "ironRefill": {
+            "label": "after-win-iron-26",
+            "target": {
+              "iron_spearman": 20
+            },
+            "ledger": [],
+            "waited": 0,
+            "complete": true,
+            "before": {
+              "active": 23169,
+              "offline": 0,
+              "elapsed": 23169,
+              "tick": 23169,
+              "offlineWindows": []
+            },
+            "after": {
+              "active": 23169,
+              "offline": 0,
+              "elapsed": 23169,
+              "tick": 23169,
+              "offlineWindows": []
+            },
+            "owned": {
+              "iron_spearman": 20
+            },
+            "queue": {
+              "iron_spearman": 0
+            },
+            "reasons": {
+              "iron_spearman": ""
+            },
+            "resources": {
+              "wood": 2400,
+              "stone": 1600,
+              "food": 3000,
+              "tech": 48.00000000001057,
+              "coal": 3,
+              "copper": 2,
+              "iron": 10,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "goldCoin": 0,
+              "deed": 0,
+              "medal": 0,
+              "bone": 0,
+              "hide": 0
+            }
+          },
+          "supportRefill": {
+            "label": "after-win-support-26",
+            "target": {
+              "bronze_guard": 20,
+              "archer_t1": 20
+            },
+            "ledger": [
+              {
+                "type": "bronze_guard",
+                "requested": 5,
+                "result": {
+                  "ok": true,
+                  "qty": 5
+                }
+              }
+            ],
+            "waited": 340,
+            "complete": true,
+            "before": {
+              "active": 23169,
+              "offline": 0,
+              "elapsed": 23169,
+              "tick": 23169,
+              "offlineWindows": []
+            },
+            "after": {
+              "active": 23509,
+              "offline": 0,
+              "elapsed": 23509,
+              "tick": 23509,
+              "offlineWindows": []
+            },
+            "owned": {
+              "bronze_guard": 20,
+              "archer_t1": 20
+            },
+            "queue": {
+              "bronze_guard": 0,
+              "archer_t1": 0
+            },
+            "reasons": {
+              "bronze_guard": "",
+              "archer_t1": ""
+            },
+            "resources": {
+              "wood": 2400,
+              "stone": 1600,
+              "food": 2460.9621013326223,
+              "tech": 48.00000000001057,
+              "coal": 3,
+              "copper": 12,
+              "iron": 10,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "goldCoin": 0,
+              "deed": 0,
+              "medal": 0,
+              "bone": 0,
+              "hide": 0
+            }
+          }
+        },
+        {
+          "stage": 27,
+          "ironRefill": {
+            "label": "after-win-iron-27",
+            "target": {
+              "iron_spearman": 20
+            },
+            "ledger": [],
+            "waited": 0,
+            "complete": true,
+            "before": {
+              "active": 23516,
+              "offline": 0,
+              "elapsed": 23516,
+              "tick": 23516,
+              "offlineWindows": []
+            },
+            "after": {
+              "active": 23516,
+              "offline": 0,
+              "elapsed": 23516,
+              "tick": 23516,
+              "offlineWindows": []
+            },
+            "owned": {
+              "iron_spearman": 20
+            },
+            "queue": {
+              "iron_spearman": 0
+            },
+            "reasons": {
+              "iron_spearman": ""
+            },
+            "resources": {
+              "wood": 2400,
+              "stone": 1600,
+              "food": 3000,
+              "tech": 48.00000000001057,
+              "coal": 3,
+              "copper": 12,
+              "iron": 10,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "goldCoin": 0,
+              "deed": 0,
+              "medal": 0,
+              "bone": 0,
+              "hide": 0
+            }
+          },
+          "supportRefill": {
+            "label": "after-win-support-27",
+            "target": {
+              "bronze_guard": 20,
+              "archer_t1": 20
+            },
+            "ledger": [
+              {
+                "type": "bronze_guard",
+                "requested": 6,
+                "result": {
+                  "ok": true,
+                  "qty": 6
+                }
+              }
+            ],
+            "waited": 400,
+            "complete": true,
+            "before": {
+              "active": 23516,
+              "offline": 0,
+              "elapsed": 23516,
+              "tick": 23516,
+              "offlineWindows": []
+            },
+            "after": {
+              "active": 23916,
+              "offline": 0,
+              "elapsed": 23916,
+              "tick": 23916,
+              "offlineWindows": []
+            },
+            "owned": {
+              "bronze_guard": 20,
+              "archer_t1": 20
+            },
+            "queue": {
+              "bronze_guard": 0,
+              "archer_t1": 0
+            },
+            "reasons": {
+              "bronze_guard": "",
+              "archer_t1": ""
+            },
+            "resources": {
+              "wood": 2400,
+              "stone": 1600,
+              "food": 2436.379958475463,
+              "tech": 48.00000000001057,
+              "coal": 3,
+              "copper": 12,
+              "iron": 10,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "goldCoin": 0,
+              "deed": 0,
+              "medal": 0,
+              "bone": 0,
+              "hide": 0
+            }
+          }
+        },
+        {
+          "stage": 28,
+          "ironRefill": {
+            "label": "after-win-iron-28",
+            "target": {
+              "iron_spearman": 20
+            },
+            "ledger": [
+              {
+                "type": "iron_spearman",
+                "requested": 10,
+                "result": {
+                  "ok": true,
+                  "qty": 10
+                }
+              }
+            ],
+            "waited": 1000,
+            "complete": true,
+            "before": {
+              "active": 23931,
+              "offline": 0,
+              "elapsed": 23931,
+              "tick": 23931,
+              "offlineWindows": []
+            },
+            "after": {
+              "active": 24931,
+              "offline": 0,
+              "elapsed": 24931,
+              "tick": 24931,
+              "offlineWindows": []
+            },
+            "owned": {
+              "iron_spearman": 20
+            },
+            "queue": {
+              "iron_spearman": 0
+            },
+            "reasons": {
+              "iron_spearman": ""
+            },
+            "resources": {
+              "wood": 2400,
+              "stone": 1596,
+              "food": 2564.949999999999,
+              "tech": 48.00000000001057,
+              "coal": 598,
+              "copper": 12,
+              "iron": 10,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "goldCoin": 0,
+              "deed": 0,
+              "medal": 0,
+              "bone": 0,
+              "hide": 0
+            }
+          },
+          "supportRefill": {
+            "label": "after-win-support-28",
+            "target": {
+              "bronze_guard": 20,
+              "archer_t1": 20
+            },
+            "ledger": [
+              {
+                "type": "bronze_guard",
+                "requested": 15,
+                "result": {
+                  "ok": true,
+                  "qty": 15
+                }
+              }
+            ],
+            "waited": 800,
+            "complete": true,
+            "before": {
+              "active": 24931,
+              "offline": 0,
+              "elapsed": 24931,
+              "tick": 24931,
+              "offlineWindows": []
+            },
+            "after": {
+              "active": 25731,
+              "offline": 0,
+              "elapsed": 25731,
+              "tick": 25731,
+              "offlineWindows": []
+            },
+            "owned": {
+              "bronze_guard": 20,
+              "archer_t1": 20
+            },
+            "queue": {
+              "bronze_guard": 0,
+              "archer_t1": 0
+            },
+            "reasons": {
+              "bronze_guard": "",
+              "archer_t1": ""
+            },
+            "resources": {
+              "wood": 2400,
+              "stone": 1596,
+              "food": 1832.2931981963704,
+              "tech": 48.00000000001057,
+              "coal": 1,
+              "copper": 10,
+              "iron": 10,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "goldCoin": 0,
+              "deed": 0,
+              "medal": 0,
+              "bone": 0,
+              "hide": 0
+            }
+          }
+        },
+        {
+          "stage": 29,
+          "ironRefill": {
+            "label": "after-win-iron-29",
+            "target": {
+              "iron_spearman": 20
+            },
+            "ledger": [
+              {
+                "type": "iron_spearman",
+                "requested": 10,
+                "result": {
+                  "ok": true,
+                  "qty": 10
+                }
+              }
+            ],
+            "waited": 1000,
+            "complete": true,
+            "before": {
+              "active": 25748,
+              "offline": 0,
+              "elapsed": 25748,
+              "tick": 25748,
+              "offlineWindows": []
+            },
+            "after": {
+              "active": 26748,
+              "offline": 0,
+              "elapsed": 26748,
+              "tick": 26748,
+              "offlineWindows": []
+            },
+            "owned": {
+              "iron_spearman": 20
+            },
+            "queue": {
+              "iron_spearman": 0
+            },
+            "reasons": {
+              "iron_spearman": ""
+            },
+            "resources": {
+              "wood": 2400,
+              "stone": 1596,
+              "food": 2567.3313559322014,
+              "tech": 48.00000000001057,
+              "coal": 598,
+              "copper": 10,
+              "iron": 10,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "goldCoin": 0,
+              "deed": 0,
+              "medal": 0,
+              "bone": 0,
+              "hide": 0
+            }
+          },
+          "supportRefill": {
+            "label": "after-win-support-29",
+            "target": {
+              "bronze_guard": 20,
+              "archer_t1": 20
+            },
+            "ledger": [
+              {
+                "type": "bronze_guard",
+                "requested": 16,
+                "result": {
+                  "ok": true,
+                  "qty": 16
+                }
+              }
+            ],
+            "waited": 870,
+            "complete": true,
+            "before": {
+              "active": 26748,
+              "offline": 0,
+              "elapsed": 26748,
+              "tick": 26748,
+              "offlineWindows": []
+            },
+            "after": {
+              "active": 27618,
+              "offline": 0,
+              "elapsed": 27618,
+              "tick": 27618,
+              "offlineWindows": []
+            },
+            "owned": {
+              "bronze_guard": 20,
+              "archer_t1": 20
+            },
+            "queue": {
+              "bronze_guard": 0,
+              "archer_t1": 0
+            },
+            "reasons": {
+              "bronze_guard": "",
+              "archer_t1": ""
+            },
+            "resources": {
+              "wood": 2400,
+              "stone": 1600,
+              "food": 1948.0556652131297,
+              "tech": 48.00000000001057,
+              "coal": 3,
+              "copper": 12,
+              "iron": 10,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "goldCoin": 0,
+              "deed": 0,
+              "medal": 0,
+              "bone": 0,
+              "hide": 0
+            }
+          }
+        }
+      ],
+      "battles": [
+        {
+          "stage": 21,
+          "win": true,
+          "round": 1,
+          "callbacks": 4,
+          "enemy": {
+            "name": "步兵小队",
+            "boss": false,
+            "totalTroops": 9,
+            "totalHp": 9
+          },
+          "deployed": {
+            "iron": 20,
+            "bronze": 20,
+            "archer": 20,
+            "archerKey": "archer_t1",
+            "infantry": 0,
+            "deployed": 60
+          },
+          "before": {
+            "tick": 22893,
+            "pool": {
+              "infantry": 15,
+              "archer": 0,
+              "bronze_guard": 0,
+              "iron_spearman": 0,
+              "archer_t1": 0
+            },
+            "owned": {
+              "iron_spearman": 20,
+              "bronze_guard": 20,
+              "archer": 0,
+              "infantry": 15,
+              "archer_t1": 20
+            },
+            "resources": {
+              "wood": 2400,
+              "stone": 1600,
+              "food": 1423.7949117686192,
+              "tech": 48.00000000001057,
+              "coal": 3,
+              "copper": 12,
+              "iron": 10,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "goldCoin": 0,
+              "deed": 0,
+              "medal": 0,
+              "bone": 0,
+              "hide": 0
+            },
+            "defeated": 20
+          },
+          "after": {
+            "tick": 22894,
+            "pool": {
+              "infantry": 15,
+              "archer": 0,
+              "bronze_guard": 0,
+              "iron_spearman": 0,
+              "archer_t1": 0
+            },
+            "owned": {
+              "iron_spearman": 20,
+              "bronze_guard": 20,
+              "archer": 0,
+              "infantry": 15,
+              "archer_t1": 20
+            },
+            "resources": {
+              "wood": 2400,
+              "stone": 1600,
+              "food": 2083.7949117686194,
+              "tech": 48.00000000001057,
+              "coal": 3,
+              "copper": 12,
+              "iron": 10,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "goldCoin": 0,
+              "deed": 0,
+              "medal": 0,
+              "bone": 0,
+              "hide": 0
+            },
+            "defeated": 21
+          },
+          "losses": {
+            "iron_spearman": 0,
+            "bronze_guard": 0,
+            "archer": 0,
+            "infantry": 0,
+            "archer_t1": 0
+          },
+          "clockBefore": {
+            "active": 22893,
+            "offline": 0,
+            "elapsed": 22893,
+            "tick": 22893,
+            "offlineWindows": []
+          },
+          "clockAfter": {
+            "active": 22894,
+            "offline": 0,
+            "elapsed": 22894,
+            "tick": 22894,
+            "offlineWindows": []
+          }
+        },
+        {
+          "stage": 22,
+          "win": true,
+          "round": 1,
+          "callbacks": 4,
+          "enemy": {
+            "name": "步兵小队",
+            "boss": false,
+            "totalTroops": 11,
+            "totalHp": 11
+          },
+          "deployed": {
+            "iron": 20,
+            "bronze": 20,
+            "archer": 20,
+            "archerKey": "archer_t1",
+            "infantry": 0,
+            "deployed": 60
+          },
+          "before": {
+            "tick": 22894,
+            "pool": {
+              "infantry": 15,
+              "archer": 0,
+              "bronze_guard": 0,
+              "iron_spearman": 0,
+              "archer_t1": 0
+            },
+            "owned": {
+              "iron_spearman": 20,
+              "bronze_guard": 20,
+              "archer": 0,
+              "infantry": 15,
+              "archer_t1": 20
+            },
+            "resources": {
+              "wood": 2400,
+              "stone": 1600,
+              "food": 2083.7949117686194,
+              "tech": 48.00000000001057,
+              "coal": 3,
+              "copper": 12,
+              "iron": 10,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "goldCoin": 0,
+              "deed": 0,
+              "medal": 0,
+              "bone": 0,
+              "hide": 0
+            },
+            "defeated": 21
+          },
+          "after": {
+            "tick": 22896,
+            "pool": {
+              "infantry": 15,
+              "archer": 0,
+              "bronze_guard": 0,
+              "iron_spearman": 0,
+              "archer_t1": 0
+            },
+            "owned": {
+              "iron_spearman": 20,
+              "bronze_guard": 20,
+              "archer": 0,
+              "infantry": 15,
+              "archer_t1": 20
+            },
+            "resources": {
+              "wood": 2400,
+              "stone": 1600,
+              "food": 2776.7949117686194,
+              "tech": 48.00000000001057,
+              "coal": 3,
+              "copper": 12,
+              "iron": 10,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "goldCoin": 0,
+              "deed": 0,
+              "medal": 0,
+              "bone": 0,
+              "hide": 0
+            },
+            "defeated": 22
+          },
+          "losses": {
+            "iron_spearman": 0,
+            "bronze_guard": 0,
+            "archer": 0,
+            "infantry": 0,
+            "archer_t1": 0
+          },
+          "clockBefore": {
+            "active": 22894,
+            "offline": 0,
+            "elapsed": 22894,
+            "tick": 22894,
+            "offlineWindows": []
+          },
+          "clockAfter": {
+            "active": 22896,
+            "offline": 0,
+            "elapsed": 22896,
+            "tick": 22896,
+            "offlineWindows": []
+          }
+        },
+        {
+          "stage": 23,
+          "win": true,
+          "round": 1,
+          "callbacks": 4,
+          "enemy": {
+            "name": "山口步兵哨位",
+            "boss": false,
+            "totalTroops": 12,
+            "totalHp": 12
+          },
+          "deployed": {
+            "iron": 20,
+            "bronze": 20,
+            "archer": 20,
+            "archerKey": "archer_t1",
+            "infantry": 0,
+            "deployed": 60
+          },
+          "before": {
+            "tick": 22896,
+            "pool": {
+              "infantry": 15,
+              "archer": 0,
+              "bronze_guard": 0,
+              "iron_spearman": 0,
+              "archer_t1": 0
+            },
+            "owned": {
+              "iron_spearman": 20,
+              "bronze_guard": 20,
+              "archer": 0,
+              "infantry": 15,
+              "archer_t1": 20
+            },
+            "resources": {
+              "wood": 2400,
+              "stone": 1600,
+              "food": 2776.7949117686194,
+              "tech": 48.00000000001057,
+              "coal": 3,
+              "copper": 12,
+              "iron": 10,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "goldCoin": 0,
+              "deed": 0,
+              "medal": 0,
+              "bone": 0,
+              "hide": 0
+            },
+            "defeated": 22
+          },
+          "after": {
+            "tick": 22898,
+            "pool": {
+              "infantry": 15,
+              "archer": 0,
+              "bronze_guard": 0,
+              "iron_spearman": 0,
+              "archer_t1": 0
+            },
+            "owned": {
+              "iron_spearman": 20,
+              "bronze_guard": 20,
+              "archer": 0,
+              "infantry": 15,
+              "archer_t1": 20
+            },
+            "resources": {
+              "wood": 2400,
+              "stone": 1600,
+              "food": 3000,
+              "tech": 48.00000000001057,
+              "coal": 3,
+              "copper": 12,
+              "iron": 10,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "goldCoin": 0,
+              "deed": 0,
+              "medal": 0,
+              "bone": 0,
+              "hide": 0
+            },
+            "defeated": 23
+          },
+          "losses": {
+            "iron_spearman": 0,
+            "bronze_guard": 0,
+            "archer": 0,
+            "infantry": 0,
+            "archer_t1": 0
+          },
+          "clockBefore": {
+            "active": 22896,
+            "offline": 0,
+            "elapsed": 22896,
+            "tick": 22896,
+            "offlineWindows": []
+          },
+          "clockAfter": {
+            "active": 22898,
+            "offline": 0,
+            "elapsed": 22898,
+            "tick": 22898,
+            "offlineWindows": []
+          }
+        },
+        {
+          "stage": 24,
+          "win": true,
+          "round": 2,
+          "callbacks": 14,
+          "enemy": {
+            "name": "弓兵哨位",
+            "boss": false,
+            "totalTroops": 36,
+            "totalHp": 36
+          },
+          "deployed": {
+            "iron": 20,
+            "bronze": 20,
+            "archer": 20,
+            "archerKey": "archer_t1",
+            "infantry": 0,
+            "deployed": 60
+          },
+          "before": {
+            "tick": 22898,
+            "pool": {
+              "infantry": 15,
+              "archer": 0,
+              "bronze_guard": 0,
+              "iron_spearman": 0,
+              "archer_t1": 0
+            },
+            "owned": {
+              "iron_spearman": 20,
+              "bronze_guard": 20,
+              "archer": 0,
+              "infantry": 15,
+              "archer_t1": 20
+            },
+            "resources": {
+              "wood": 2400,
+              "stone": 1600,
+              "food": 3000,
+              "tech": 48.00000000001057,
+              "coal": 3,
+              "copper": 12,
+              "iron": 10,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "goldCoin": 0,
+              "deed": 0,
+              "medal": 0,
+              "bone": 0,
+              "hide": 0
+            },
+            "defeated": 23
+          },
+          "after": {
+            "tick": 22903,
+            "pool": {
+              "infantry": 15,
+              "archer": 0,
+              "bronze_guard": 0,
+              "iron_spearman": 0,
+              "archer_t1": 0
+            },
+            "owned": {
+              "iron_spearman": 20,
+              "bronze_guard": 16,
+              "archer": 0,
+              "infantry": 15,
+              "archer_t1": 20
+            },
+            "resources": {
+              "wood": 2400,
+              "stone": 1600,
+              "food": 3000,
+              "tech": 48.00000000001057,
+              "coal": 3,
+              "copper": 12,
+              "iron": 10,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "goldCoin": 0,
+              "deed": 0,
+              "medal": 0,
+              "bone": 0,
+              "hide": 0
+            },
+            "defeated": 24
+          },
+          "losses": {
+            "iron_spearman": 0,
+            "bronze_guard": 4,
+            "archer": 0,
+            "infantry": 0,
+            "archer_t1": 0
+          },
+          "clockBefore": {
+            "active": 22898,
+            "offline": 0,
+            "elapsed": 22898,
+            "tick": 22898,
+            "offlineWindows": []
+          },
+          "clockAfter": {
+            "active": 22903,
+            "offline": 0,
+            "elapsed": 22903,
+            "tick": 22903,
+            "offlineWindows": []
+          }
+        },
+        {
+          "stage": 25,
+          "win": true,
+          "round": 2,
+          "callbacks": 15,
+          "enemy": {
+            "name": "弓兵哨位",
+            "boss": false,
+            "totalTroops": 40,
+            "totalHp": 40
+          },
+          "deployed": {
+            "iron": 20,
+            "bronze": 20,
+            "archer": 20,
+            "archerKey": "archer_t1",
+            "infantry": 0,
+            "deployed": 60
+          },
+          "before": {
+            "tick": 23163,
+            "pool": {
+              "infantry": 15,
+              "archer": 0,
+              "bronze_guard": 0,
+              "iron_spearman": 0,
+              "archer_t1": 0
+            },
+            "owned": {
+              "iron_spearman": 20,
+              "bronze_guard": 20,
+              "archer": 0,
+              "infantry": 15,
+              "archer_t1": 20
+            },
+            "resources": {
+              "wood": 2400,
+              "stone": 1600,
+              "food": 2484.7495343699416,
+              "tech": 48.00000000001057,
+              "coal": 3,
+              "copper": 2,
+              "iron": 10,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "goldCoin": 0,
+              "deed": 0,
+              "medal": 0,
+              "bone": 0,
+              "hide": 0
+            },
+            "defeated": 24
+          },
+          "after": {
+            "tick": 23169,
+            "pool": {
+              "infantry": 15,
+              "archer": 0,
+              "bronze_guard": 0,
+              "iron_spearman": 0,
+              "archer_t1": 0
+            },
+            "owned": {
+              "iron_spearman": 20,
+              "bronze_guard": 15,
+              "archer": 0,
+              "infantry": 15,
+              "archer_t1": 20
+            },
+            "resources": {
+              "wood": 2400,
+              "stone": 1600,
+              "food": 3000,
+              "tech": 48.00000000001057,
+              "coal": 3,
+              "copper": 2,
+              "iron": 10,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "goldCoin": 0,
+              "deed": 0,
+              "medal": 0,
+              "bone": 0,
+              "hide": 0
+            },
+            "defeated": 25
+          },
+          "losses": {
+            "iron_spearman": 0,
+            "bronze_guard": 5,
+            "archer": 0,
+            "infantry": 0,
+            "archer_t1": 0
+          },
+          "clockBefore": {
+            "active": 23163,
+            "offline": 0,
+            "elapsed": 23163,
+            "tick": 23163,
+            "offlineWindows": []
+          },
+          "clockAfter": {
+            "active": 23169,
+            "offline": 0,
+            "elapsed": 23169,
+            "tick": 23169,
+            "offlineWindows": []
+          }
+        },
+        {
+          "stage": 26,
+          "win": true,
+          "round": 2,
+          "callbacks": 17,
+          "enemy": {
+            "name": "山口步弓前哨",
+            "boss": false,
+            "totalTroops": 42,
+            "totalHp": 42
+          },
+          "deployed": {
+            "iron": 20,
+            "bronze": 20,
+            "archer": 20,
+            "archerKey": "archer_t1",
+            "infantry": 0,
+            "deployed": 60
+          },
+          "before": {
+            "tick": 23509,
+            "pool": {
+              "infantry": 15,
+              "archer": 0,
+              "bronze_guard": 0,
+              "iron_spearman": 0,
+              "archer_t1": 0
+            },
+            "owned": {
+              "iron_spearman": 20,
+              "bronze_guard": 20,
+              "archer": 0,
+              "infantry": 15,
+              "archer_t1": 20
+            },
+            "resources": {
+              "wood": 2400,
+              "stone": 1600,
+              "food": 2460.9621013326223,
+              "tech": 48.00000000001057,
+              "coal": 3,
+              "copper": 12,
+              "iron": 10,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "goldCoin": 0,
+              "deed": 0,
+              "medal": 0,
+              "bone": 0,
+              "hide": 0
+            },
+            "defeated": 25
+          },
+          "after": {
+            "tick": 23516,
+            "pool": {
+              "infantry": 15,
+              "archer": 0,
+              "bronze_guard": 0,
+              "iron_spearman": 0,
+              "archer_t1": 0
+            },
+            "owned": {
+              "iron_spearman": 20,
+              "bronze_guard": 14,
+              "archer": 0,
+              "infantry": 15,
+              "archer_t1": 20
+            },
+            "resources": {
+              "wood": 2400,
+              "stone": 1600,
+              "food": 3000,
+              "tech": 48.00000000001057,
+              "coal": 3,
+              "copper": 12,
+              "iron": 10,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "goldCoin": 0,
+              "deed": 0,
+              "medal": 0,
+              "bone": 0,
+              "hide": 0
+            },
+            "defeated": 26
+          },
+          "losses": {
+            "iron_spearman": 0,
+            "bronze_guard": 6,
+            "archer": 0,
+            "infantry": 0,
+            "archer_t1": 0
+          },
+          "clockBefore": {
+            "active": 23509,
+            "offline": 0,
+            "elapsed": 23509,
+            "tick": 23509,
+            "offlineWindows": []
+          },
+          "clockAfter": {
+            "active": 23516,
+            "offline": 0,
+            "elapsed": 23516,
+            "tick": 23516,
+            "offlineWindows": []
+          }
+        },
+        {
+          "stage": 27,
+          "win": true,
+          "round": 4,
+          "callbacks": 37,
+          "enemy": {
+            "name": "骑兵斥候",
+            "boss": false,
+            "totalTroops": 72,
+            "totalHp": 72
+          },
+          "deployed": {
+            "iron": 20,
+            "bronze": 20,
+            "archer": 20,
+            "archerKey": "archer_t1",
+            "infantry": 0,
+            "deployed": 60
+          },
+          "before": {
+            "tick": 23916,
+            "pool": {
+              "infantry": 15,
+              "archer": 0,
+              "bronze_guard": 0,
+              "iron_spearman": 0,
+              "archer_t1": 0
+            },
+            "owned": {
+              "iron_spearman": 20,
+              "bronze_guard": 20,
+              "archer": 0,
+              "infantry": 15,
+              "archer_t1": 20
+            },
+            "resources": {
+              "wood": 2400,
+              "stone": 1600,
+              "food": 2436.379958475463,
+              "tech": 48.00000000001057,
+              "coal": 3,
+              "copper": 12,
+              "iron": 10,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "goldCoin": 0,
+              "deed": 0,
+              "medal": 0,
+              "bone": 0,
+              "hide": 0
+            },
+            "defeated": 26
+          },
+          "after": {
+            "tick": 23931,
+            "pool": {
+              "infantry": 15,
+              "archer": 0,
+              "bronze_guard": 0,
+              "iron_spearman": 0,
+              "archer_t1": 0
+            },
+            "owned": {
+              "iron_spearman": 10,
+              "bronze_guard": 5,
+              "archer": 0,
+              "infantry": 15,
+              "archer_t1": 20
+            },
+            "resources": {
+              "wood": 2400,
+              "stone": 1600,
+              "food": 3000,
+              "tech": 48.00000000001057,
+              "coal": 3,
+              "copper": 12,
+              "iron": 10,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "goldCoin": 0,
+              "deed": 0,
+              "medal": 0,
+              "bone": 0,
+              "hide": 0
+            },
+            "defeated": 27
+          },
+          "losses": {
+            "iron_spearman": 10,
+            "bronze_guard": 15,
+            "archer": 0,
+            "infantry": 0,
+            "archer_t1": 0
+          },
+          "clockBefore": {
+            "active": 23916,
+            "offline": 0,
+            "elapsed": 23916,
+            "tick": 23916,
+            "offlineWindows": []
+          },
+          "clockAfter": {
+            "active": 23931,
+            "offline": 0,
+            "elapsed": 23931,
+            "tick": 23931,
+            "offlineWindows": []
+          }
+        },
+        {
+          "stage": 28,
+          "win": true,
+          "round": 4,
+          "callbacks": 40,
+          "enemy": {
+            "name": "骑兵斥候",
+            "boss": false,
+            "totalTroops": 78,
+            "totalHp": 78
+          },
+          "deployed": {
+            "iron": 20,
+            "bronze": 20,
+            "archer": 20,
+            "archerKey": "archer_t1",
+            "infantry": 0,
+            "deployed": 60
+          },
+          "before": {
+            "tick": 25731,
+            "pool": {
+              "infantry": 15,
+              "archer": 0,
+              "bronze_guard": 0,
+              "iron_spearman": 0,
+              "archer_t1": 0
+            },
+            "owned": {
+              "iron_spearman": 20,
+              "bronze_guard": 20,
+              "archer": 0,
+              "infantry": 15,
+              "archer_t1": 20
+            },
+            "resources": {
+              "wood": 2400,
+              "stone": 1596,
+              "food": 1832.2931981963704,
+              "tech": 48.00000000001057,
+              "coal": 1,
+              "copper": 10,
+              "iron": 10,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "goldCoin": 0,
+              "deed": 0,
+              "medal": 0,
+              "bone": 0,
+              "hide": 0
+            },
+            "defeated": 27
+          },
+          "after": {
+            "tick": 25748,
+            "pool": {
+              "infantry": 15,
+              "archer": 0,
+              "bronze_guard": 0,
+              "iron_spearman": 0,
+              "archer_t1": 0
+            },
+            "owned": {
+              "iron_spearman": 10,
+              "bronze_guard": 4,
+              "archer": 0,
+              "infantry": 15,
+              "archer_t1": 20
+            },
+            "resources": {
+              "wood": 2400,
+              "stone": 1600,
+              "food": 2760.29319819637,
+              "tech": 48.00000000001057,
+              "coal": 1,
+              "copper": 10,
+              "iron": 10,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "goldCoin": 0,
+              "deed": 0,
+              "medal": 0,
+              "bone": 0,
+              "hide": 0
+            },
+            "defeated": 28
+          },
+          "losses": {
+            "iron_spearman": 10,
+            "bronze_guard": 16,
+            "archer": 0,
+            "infantry": 0,
+            "archer_t1": 0
+          },
+          "clockBefore": {
+            "active": 25731,
+            "offline": 0,
+            "elapsed": 25731,
+            "tick": 25731,
+            "offlineWindows": []
+          },
+          "clockAfter": {
+            "active": 25748,
+            "offline": 0,
+            "elapsed": 25748,
+            "tick": 25748,
+            "offlineWindows": []
+          }
+        },
+        {
+          "stage": 29,
+          "win": false,
+          "round": 4,
+          "callbacks": 50,
+          "enemy": {
+            "name": "帝国军校学徒",
+            "boss": false,
+            "totalTroops": 111,
+            "totalHp": 111
+          },
+          "deployed": {
+            "iron": 20,
+            "bronze": 20,
+            "archer": 20,
+            "archerKey": "archer_t1",
+            "infantry": 0,
+            "deployed": 60
+          },
+          "before": {
+            "tick": 27618,
+            "pool": {
+              "infantry": 15,
+              "archer": 0,
+              "bronze_guard": 0,
+              "iron_spearman": 0,
+              "archer_t1": 0
+            },
+            "owned": {
+              "iron_spearman": 20,
+              "bronze_guard": 20,
+              "archer": 0,
+              "infantry": 15,
+              "archer_t1": 20
+            },
+            "resources": {
+              "wood": 2400,
+              "stone": 1600,
+              "food": 1948.0556652131297,
+              "tech": 48.00000000001057,
+              "coal": 3,
+              "copper": 12,
+              "iron": 10,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "goldCoin": 0,
+              "deed": 0,
+              "medal": 0,
+              "bone": 0,
+              "hide": 0
+            },
+            "defeated": 28
+          },
+          "after": {
+            "tick": 27638,
+            "pool": {
+              "infantry": 15,
+              "archer": 0,
+              "bronze_guard": 0,
+              "iron_spearman": 0,
+              "archer_t1": 0
+            },
+            "owned": {
+              "iron_spearman": 0,
+              "bronze_guard": 0,
+              "archer": 0,
+              "infantry": 15,
+              "archer_t1": 0
+            },
+            "resources": {
+              "wood": 2400,
+              "stone": 1600,
+              "food": 1948.0556652131297,
+              "tech": 48.00000000001057,
+              "coal": 3,
+              "copper": 12,
+              "iron": 10,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "goldCoin": 0,
+              "deed": 0,
+              "medal": 0,
+              "bone": 0,
+              "hide": 0
+            },
+            "defeated": 28
+          },
+          "losses": {
+            "iron_spearman": 20,
+            "bronze_guard": 20,
+            "archer": 0,
+            "infantry": 0,
+            "archer_t1": 20
+          },
+          "clockBefore": {
+            "active": 27618,
+            "offline": 0,
+            "elapsed": 27618,
+            "tick": 27618,
+            "offlineWindows": []
+          },
+          "clockAfter": {
+            "active": 27638,
+            "offline": 0,
+            "elapsed": 27638,
+            "tick": 27638,
+            "offlineWindows": []
+          }
+        }
+      ],
+      "recovery": [
+        {
+          "stage": 29,
+          "ironRefill": {
+            "label": "post-defeat-iron-29",
+            "target": {
+              "iron_spearman": 20
+            },
+            "ledger": [
+              {
+                "type": "iron_spearman",
+                "requested": 20,
+                "result": {
+                  "ok": true,
+                  "qty": 20
+                }
+              }
+            ],
+            "waited": 2000,
+            "complete": true,
+            "before": {
+              "active": 27638,
+              "offline": 0,
+              "elapsed": 27638,
+              "tick": 27638,
+              "offlineWindows": []
+            },
+            "after": {
+              "active": 29638,
+              "offline": 0,
+              "elapsed": 29638,
+              "tick": 29638,
+              "offlineWindows": []
+            },
+            "owned": {
+              "iron_spearman": 20
+            },
+            "queue": {
+              "iron_spearman": 0
+            },
+            "reasons": {
+              "iron_spearman": ""
+            },
+            "resources": {
+              "wood": 2400,
+              "stone": 1596,
+              "food": 2627.135714285714,
+              "tech": 48.00000000001057,
+              "coal": 598,
+              "copper": 12,
+              "iron": 10,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "goldCoin": 0,
+              "deed": 0,
+              "medal": 0,
+              "bone": 0,
+              "hide": 0
+            }
+          },
+          "supportRefill": {
+            "label": "post-defeat-support-29",
+            "target": {
+              "bronze_guard": 20,
+              "archer_t1": 20,
+              "infantry": 10
+            },
+            "ledger": [
+              {
+                "type": "bronze_guard",
+                "requested": 20,
+                "result": {
+                  "ok": true,
+                  "qty": 20
+                }
+              },
+              {
+                "type": "archer_t1",
+                "requested": 20,
+                "result": {
+                  "ok": true,
+                  "qty": 20
+                }
+              }
+            ],
+            "waited": 1130,
+            "complete": true,
+            "before": {
+              "active": 29638,
+              "offline": 0,
+              "elapsed": 29638,
+              "tick": 29638,
+              "offlineWindows": []
+            },
+            "after": {
+              "active": 30768,
+              "offline": 0,
+              "elapsed": 30768,
+              "tick": 30768,
+              "offlineWindows": []
+            },
+            "owned": {
+              "bronze_guard": 20,
+              "archer_t1": 20,
+              "infantry": 15
+            },
+            "queue": {
+              "bronze_guard": 0,
+              "archer_t1": 0,
+              "infantry": 0
+            },
+            "reasons": {
+              "bronze_guard": "",
+              "archer_t1": "",
+              "infantry": ""
+            },
+            "resources": {
+              "wood": 2400,
+              "stone": 1600,
+              "food": 1564.6784966677574,
+              "tech": 48.00000000001057,
+              "coal": 3,
+              "copper": 4,
+              "iron": 10,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "goldCoin": 0,
+              "deed": 0,
+              "medal": 0,
+              "bone": 0,
+              "hide": 0
+            }
+          }
+        },
+        {
+          "stage": 29,
+          "rematch": {
+            "stage": 29,
+            "win": false,
+            "round": 5,
+            "callbacks": 55,
+            "enemy": {
+              "name": "帝国军校学徒",
+              "boss": false,
+              "totalTroops": 111,
+              "totalHp": 111
+            },
+            "deployed": {
+              "iron": 20,
+              "bronze": 20,
+              "archer": 20,
+              "archerKey": "archer_t1",
+              "infantry": 10,
+              "deployed": 70
+            },
+            "before": {
+              "tick": 30768,
+              "pool": {
+                "infantry": 5,
+                "archer": 0,
+                "bronze_guard": 0,
+                "iron_spearman": 0,
+                "archer_t1": 0
+              },
+              "owned": {
+                "iron_spearman": 20,
+                "bronze_guard": 20,
+                "archer": 0,
+                "infantry": 15,
+                "archer_t1": 20
+              },
+              "resources": {
+                "wood": 2400,
+                "stone": 1600,
+                "food": 1564.6784966677574,
+                "tech": 48.00000000001057,
+                "coal": 3,
+                "copper": 4,
+                "iron": 10,
+                "silver": 0,
+                "gold": 0,
+                "steel": 0,
+                "coin": 0,
+                "silverCoin": 0,
+                "goldCoin": 0,
+                "deed": 0,
+                "medal": 0,
+                "bone": 0,
+                "hide": 0
+              },
+              "defeated": 28
+            },
+            "after": {
+              "tick": 30791,
+              "pool": {
+                "infantry": 5,
+                "archer": 0,
+                "bronze_guard": 0,
+                "iron_spearman": 0,
+                "archer_t1": 0
+              },
+              "owned": {
+                "iron_spearman": 0,
+                "bronze_guard": 0,
+                "archer": 0,
+                "infantry": 5,
+                "archer_t1": 0
+              },
+              "resources": {
+                "wood": 2400,
+                "stone": 1600,
+                "food": 1564.6784966677574,
+                "tech": 48.00000000001057,
+                "coal": 3,
+                "copper": 4,
+                "iron": 10,
+                "silver": 0,
+                "gold": 0,
+                "steel": 0,
+                "coin": 0,
+                "silverCoin": 0,
+                "goldCoin": 0,
+                "deed": 0,
+                "medal": 0,
+                "bone": 0,
+                "hide": 0
+              },
+              "defeated": 28
+            },
+            "losses": {
+              "iron_spearman": 20,
+              "bronze_guard": 20,
+              "archer": 0,
+              "infantry": 10,
+              "archer_t1": 20
+            },
+            "clockBefore": {
+              "active": 30768,
+              "offline": 0,
+              "elapsed": 30768,
+              "tick": 30768,
+              "offlineWindows": []
+            },
+            "clockAfter": {
+              "active": 30791,
+              "offline": 0,
+              "elapsed": 30791,
+              "tick": 30791,
+              "offlineWindows": []
+            }
+          }
+        }
+      ],
+      "final": {
+        "tick": 30791,
+        "population": 19,
+        "resources": {
+          "wood": 2400,
+          "stone": 1600,
+          "food": 1564.6784966677574,
+          "tech": 48.00000000001057,
+          "coal": 3,
+          "copper": 4,
+          "iron": 10,
+          "silver": 0,
+          "gold": 0,
+          "steel": 0,
+          "coin": 0,
+          "silverCoin": 0,
+          "goldCoin": 0,
+          "deed": 0,
+          "medal": 0,
+          "bone": 0,
+          "hide": 0
+        },
+        "workers": {
+          "wood": 4,
+          "stone": 3,
+          "food": 7,
+          "coal": 3,
+          "copper": 2,
+          "iron": 0,
+          "silver": 0,
+          "gold": 0,
+          "steel": 0,
+          "coin": 0,
+          "silverCoin": 0,
+          "goldCoin": 0,
+          "tech": 0
+        },
+        "pool": {
+          "infantry": 5,
+          "archer": 0,
+          "bronze_guard": 0,
+          "iron_spearman": 0,
+          "archer_t1": 0
+        },
+        "owned": {
+          "iron_spearman": 0,
+          "bronze_guard": 0,
+          "archer": 0,
+          "infantry": 5,
+          "archer_t1": 0
+        },
+        "queue": {
+          "infantry": {
+            "count": 0,
+            "timer": 0,
+            "reason": ""
+          },
+          "archer": {
+            "count": 0,
+            "timer": 0,
+            "reason": ""
+          },
+          "bronze_guard": {
+            "count": 0,
+            "timer": 0,
+            "reason": ""
+          },
+          "iron_spearman": {
+            "count": 0,
+            "timer": 0,
+            "reason": ""
+          },
+          "archer_t1": {
+            "count": 0,
+            "timer": 0,
+            "reason": ""
+          }
+        },
+        "formation": {
+          "front": [],
+          "mid": [],
+          "back": []
+        },
+        "defeated": 28
+      },
+      "finalClock": {
+        "active": 30791,
+        "offline": 0,
+        "elapsed": 30791,
+        "tick": 30791,
+        "offlineWindows": []
+      },
+      "trainingCharges": [
+        {
+          "cost": {
+            "food": 500,
+            "iron": 100
+          },
+          "n": 1,
+          "tick": 20914
+        },
+        {
+          "cost": {
+            "food": 500,
+            "iron": 100
+          },
+          "n": 1,
+          "tick": 21014
+        },
+        {
+          "cost": {
+            "food": 500,
+            "iron": 100
+          },
+          "n": 1,
+          "tick": 21114
+        },
+        {
+          "cost": {
+            "food": 500,
+            "iron": 100
+          },
+          "n": 1,
+          "tick": 21214
+        },
+        {
+          "cost": {
+            "food": 500,
+            "iron": 100
+          },
+          "n": 1,
+          "tick": 21314
+        },
+        {
+          "cost": {
+            "food": 500,
+            "iron": 100
+          },
+          "n": 1,
+          "tick": 21414
+        },
+        {
+          "cost": {
+            "food": 500,
+            "iron": 100
+          },
+          "n": 1,
+          "tick": 21514
+        },
+        {
+          "cost": {
+            "food": 500,
+            "iron": 100
+          },
+          "n": 1,
+          "tick": 21614
+        },
+        {
+          "cost": {
+            "food": 500,
+            "iron": 100
+          },
+          "n": 1,
+          "tick": 21714
+        },
+        {
+          "cost": {
+            "food": 500,
+            "iron": 100
+          },
+          "n": 1,
+          "tick": 21814
+        },
+        {
+          "cost": {
+            "wood": 120,
+            "stone": 40,
+            "food": 50
+          },
+          "n": 2,
+          "tick": 21824
+        },
+        {
+          "cost": {
+            "wood": 120,
+            "stone": 40,
+            "food": 50
+          },
+          "n": 2,
+          "tick": 21825
+        },
+        {
+          "cost": {
+            "wood": 120,
+            "stone": 40,
+            "food": 50
+          },
+          "n": 2,
+          "tick": 21826
+        },
+        {
+          "cost": {
+            "wood": 120,
+            "stone": 40,
+            "food": 50
+          },
+          "n": 2,
+          "tick": 21827
+        },
+        {
+          "cost": {
+            "wood": 120,
+            "stone": 40,
+            "food": 50
+          },
+          "n": 2,
+          "tick": 21828
+        },
+        {
+          "cost": {
+            "wood": 120,
+            "stone": 40,
+            "food": 50
+          },
+          "n": 2,
+          "tick": 21829
+        },
+        {
+          "cost": {
+            "wood": 120,
+            "stone": 40,
+            "food": 50
+          },
+          "n": 2,
+          "tick": 21830
+        },
+        {
+          "cost": {
+            "wood": 120,
+            "stone": 40,
+            "food": 50
+          },
+          "n": 2,
+          "tick": 21831
+        },
+        {
+          "cost": {
+            "wood": 120,
+            "stone": 40,
+            "food": 50
+          },
+          "n": 2,
+          "tick": 21832
+        },
+        {
+          "cost": {
+            "wood": 120,
+            "stone": 40,
+            "food": 50
+          },
+          "n": 2,
+          "tick": 21833
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 21869
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 21919
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 21969
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 22019
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 22069
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 22119
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 22169
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 22219
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 22269
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 22319
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 22369
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 22419
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 22485
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 22552
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 22619
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 22685
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 22752
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 22819
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 22885
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 22962
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 23029
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 23095
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 23162
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 23235
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 23301
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 23368
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 23435
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 23501
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 23575
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 23642
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 23708
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 23775
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 23842
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 23908
+        },
+        {
+          "cost": {
+            "food": 500,
+            "iron": 100
+          },
+          "n": 1,
+          "tick": 24022
+        },
+        {
+          "cost": {
+            "food": 500,
+            "iron": 100
+          },
+          "n": 1,
+          "tick": 24122
+        },
+        {
+          "cost": {
+            "food": 500,
+            "iron": 100
+          },
+          "n": 1,
+          "tick": 24222
+        },
+        {
+          "cost": {
+            "food": 500,
+            "iron": 100
+          },
+          "n": 1,
+          "tick": 24322
+        },
+        {
+          "cost": {
+            "food": 500,
+            "iron": 100
+          },
+          "n": 1,
+          "tick": 24422
+        },
+        {
+          "cost": {
+            "food": 500,
+            "iron": 100
+          },
+          "n": 1,
+          "tick": 24522
+        },
+        {
+          "cost": {
+            "food": 500,
+            "iron": 100
+          },
+          "n": 1,
+          "tick": 24622
+        },
+        {
+          "cost": {
+            "food": 500,
+            "iron": 100
+          },
+          "n": 1,
+          "tick": 24722
+        },
+        {
+          "cost": {
+            "food": 500,
+            "iron": 100
+          },
+          "n": 1,
+          "tick": 24822
+        },
+        {
+          "cost": {
+            "food": 500,
+            "iron": 100
+          },
+          "n": 1,
+          "tick": 24922
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 24976
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 25026
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 25076
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 25126
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 25176
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 25226
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 25276
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 25326
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 25376
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 25426
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 25476
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 25526
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 25592
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 25659
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 25725
+        },
+        {
+          "cost": {
+            "food": 500,
+            "iron": 100
+          },
+          "n": 1,
+          "tick": 25839
+        },
+        {
+          "cost": {
+            "food": 500,
+            "iron": 100
+          },
+          "n": 1,
+          "tick": 25939
+        },
+        {
+          "cost": {
+            "food": 500,
+            "iron": 100
+          },
+          "n": 1,
+          "tick": 26039
+        },
+        {
+          "cost": {
+            "food": 500,
+            "iron": 100
+          },
+          "n": 1,
+          "tick": 26139
+        },
+        {
+          "cost": {
+            "food": 500,
+            "iron": 100
+          },
+          "n": 1,
+          "tick": 26239
+        },
+        {
+          "cost": {
+            "food": 500,
+            "iron": 100
+          },
+          "n": 1,
+          "tick": 26339
+        },
+        {
+          "cost": {
+            "food": 500,
+            "iron": 100
+          },
+          "n": 1,
+          "tick": 26439
+        },
+        {
+          "cost": {
+            "food": 500,
+            "iron": 100
+          },
+          "n": 1,
+          "tick": 26539
+        },
+        {
+          "cost": {
+            "food": 500,
+            "iron": 100
+          },
+          "n": 1,
+          "tick": 26639
+        },
+        {
+          "cost": {
+            "food": 500,
+            "iron": 100
+          },
+          "n": 1,
+          "tick": 26739
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 26794
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 26844
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 26894
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 26944
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 26994
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 27044
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 27094
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 27144
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 27194
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 27244
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 27294
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 27344
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 27410
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 27477
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 27544
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 27610
+        },
+        {
+          "cost": {
+            "food": 500,
+            "iron": 100
+          },
+          "n": 1,
+          "tick": 27729
+        },
+        {
+          "cost": {
+            "food": 500,
+            "iron": 100
+          },
+          "n": 1,
+          "tick": 27829
+        },
+        {
+          "cost": {
+            "food": 500,
+            "iron": 100
+          },
+          "n": 1,
+          "tick": 27929
+        },
+        {
+          "cost": {
+            "food": 500,
+            "iron": 100
+          },
+          "n": 1,
+          "tick": 28029
+        },
+        {
+          "cost": {
+            "food": 500,
+            "iron": 100
+          },
+          "n": 1,
+          "tick": 28129
+        },
+        {
+          "cost": {
+            "food": 500,
+            "iron": 100
+          },
+          "n": 1,
+          "tick": 28229
+        },
+        {
+          "cost": {
+            "food": 500,
+            "iron": 100
+          },
+          "n": 1,
+          "tick": 28329
+        },
+        {
+          "cost": {
+            "food": 500,
+            "iron": 100
+          },
+          "n": 1,
+          "tick": 28429
+        },
+        {
+          "cost": {
+            "food": 500,
+            "iron": 100
+          },
+          "n": 1,
+          "tick": 28529
+        },
+        {
+          "cost": {
+            "food": 500,
+            "iron": 100
+          },
+          "n": 1,
+          "tick": 28629
+        },
+        {
+          "cost": {
+            "food": 500,
+            "iron": 100
+          },
+          "n": 1,
+          "tick": 28729
+        },
+        {
+          "cost": {
+            "food": 500,
+            "iron": 100
+          },
+          "n": 1,
+          "tick": 28829
+        },
+        {
+          "cost": {
+            "food": 500,
+            "iron": 100
+          },
+          "n": 1,
+          "tick": 28929
+        },
+        {
+          "cost": {
+            "food": 500,
+            "iron": 100
+          },
+          "n": 1,
+          "tick": 29029
+        },
+        {
+          "cost": {
+            "food": 500,
+            "iron": 100
+          },
+          "n": 1,
+          "tick": 29129
+        },
+        {
+          "cost": {
+            "food": 500,
+            "iron": 100
+          },
+          "n": 1,
+          "tick": 29229
+        },
+        {
+          "cost": {
+            "food": 500,
+            "iron": 100
+          },
+          "n": 1,
+          "tick": 29329
+        },
+        {
+          "cost": {
+            "food": 500,
+            "iron": 100
+          },
+          "n": 1,
+          "tick": 29429
+        },
+        {
+          "cost": {
+            "food": 500,
+            "iron": 100
+          },
+          "n": 1,
+          "tick": 29529
+        },
+        {
+          "cost": {
+            "food": 500,
+            "iron": 100
+          },
+          "n": 1,
+          "tick": 29629
+        },
+        {
+          "cost": {
+            "wood": 120,
+            "stone": 40,
+            "food": 50
+          },
+          "n": 2,
+          "tick": 29639
+        },
+        {
+          "cost": {
+            "wood": 120,
+            "stone": 40,
+            "food": 50
+          },
+          "n": 2,
+          "tick": 29640
+        },
+        {
+          "cost": {
+            "wood": 120,
+            "stone": 40,
+            "food": 50
+          },
+          "n": 2,
+          "tick": 29641
+        },
+        {
+          "cost": {
+            "wood": 120,
+            "stone": 40,
+            "food": 50
+          },
+          "n": 2,
+          "tick": 29642
+        },
+        {
+          "cost": {
+            "wood": 120,
+            "stone": 40,
+            "food": 50
+          },
+          "n": 2,
+          "tick": 29643
+        },
+        {
+          "cost": {
+            "wood": 120,
+            "stone": 40,
+            "food": 50
+          },
+          "n": 2,
+          "tick": 29644
+        },
+        {
+          "cost": {
+            "wood": 120,
+            "stone": 40,
+            "food": 50
+          },
+          "n": 2,
+          "tick": 29645
+        },
+        {
+          "cost": {
+            "wood": 120,
+            "stone": 40,
+            "food": 50
+          },
+          "n": 2,
+          "tick": 29646
+        },
+        {
+          "cost": {
+            "wood": 120,
+            "stone": 40,
+            "food": 50
+          },
+          "n": 2,
+          "tick": 29647
+        },
+        {
+          "cost": {
+            "wood": 120,
+            "stone": 40,
+            "food": 50
+          },
+          "n": 2,
+          "tick": 29648
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 29683
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 29733
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 29783
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 29833
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 29883
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 29933
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 29983
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 30033
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 30083
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 30133
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 30183
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 30233
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 30299
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 30366
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 30432
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 30499
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 30566
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 30632
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 30699
+        },
+        {
+          "cost": {
+            "food": 300,
+            "copper": 100
+          },
+          "n": 1,
+          "tick": 30766
+        }
+      ],
+      "paidTraining": {
+        "iron": 50,
+        "bronze": 85,
+        "archer": 0,
+        "archerT1": 40,
+        "infantry": 0,
+        "other": 0
+      },
+      "outputFile": "docs/codex/reports/data/p400-four-strategy-economic-tier1-archer-frontier-save.json",
+      "outputSha256": "18bae3cf234f064b598bf5e771f2b987a9e5bd440e81070bee05f47faff88273"
+    }
+  }
+}
