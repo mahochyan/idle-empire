@@ -1,0 +1,3805 @@
+{
+  "batch": "P396",
+  "kind": "isolated current-code terminal sensitivity with paid pre-quantum input",
+  "unit": "soldiers, HP, battle rounds; no simulated production time",
+  "input": {
+    "file": "p395-quantum-steam32-medal-combined-paid-save.json",
+    "sha256": "f66e754ae19d5d23c1c1540aec102392f79b81fc78c210c1b4dd9ea1e8fba28b",
+    "paid": true,
+    "quantumSciencePaid": false
+  },
+  "eligibility": "Terminal science gate bypassed only inside battle VM; no science flags, units, stock, or progression are injected.",
+  "sourceHashes": [
+    {
+      "file": "config.js",
+      "sha256": "c1e9257c1b0677c5a306a80c28e8b729b4667bc2dbd7e43e1f88bed06d97e869"
+    },
+    {
+      "file": "levels.js",
+      "sha256": "7105cc27283ea25aa6829135b09c1da2f1b0ea5a7f1721d6bb3167e3d57c5f08"
+    },
+    {
+      "file": "math.js",
+      "sha256": "9cb16af1e322205a2a92110758d71ac5bea0c422b04d981aab870c18a8cd2513"
+    },
+    {
+      "file": "garrison.js",
+      "sha256": "4d233f0529d256cd1ace2de782603fcfcbbff110032ca4cf29c5e36af30f10ff"
+    },
+    {
+      "file": "technology.js",
+      "sha256": "c51fb05821593d9e76396ff18b0a38d78dee1db9cdc55631b78a7f223ad0a006"
+    },
+    {
+      "file": "tests/progression/harness.js",
+      "sha256": "4770d17fa72cc8c87f4c8ef79678f19d63a41da895b8dd58776e5a39ce2ede2b"
+    },
+    {
+      "file": "tools/verify/probe-stage100-terminal-p396.js",
+      "sha256": "1f933ba9c4f04961d80ab1282c4e52927a88bc4757abd45423d151298125445c"
+    }
+  ],
+  "scales": [
+    1,
+    60,
+    80,
+    100,
+    120,
+    140,
+    160,
+    180,
+    200,
+    220,
+    240,
+    260,
+    280,
+    300
+  ],
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+  ],
+  "summary": [
+    {
+      "perGroup": 1,
+      "totalEnemy": 11,
+      "wins": 16,
+      "of": 16,
+      "meanWinLoss": 1.5,
+      "minWinLoss": 0,
+      "maxWinLoss": 4,
+      "fullArmyLosses": 0
+    },
+    {
+      "perGroup": 60,
+      "totalEnemy": 660,
+      "wins": 16,
+      "of": 16,
+      "meanWinLoss": 177.5,
+      "minWinLoss": 97,
+      "maxWinLoss": 328,
+      "fullArmyLosses": 0
+    },
+    {
+      "perGroup": 80,
+      "totalEnemy": 880,
+      "wins": 16,
+      "of": 16,
+      "meanWinLoss": 213.375,
+      "minWinLoss": 103,
+      "maxWinLoss": 340,
+      "fullArmyLosses": 0
+    },
+    {
+      "perGroup": 100,
+      "totalEnemy": 1100,
+      "wins": 16,
+      "of": 16,
+      "meanWinLoss": 279.8125,
+      "minWinLoss": 195,
+      "maxWinLoss": 361,
+      "fullArmyLosses": 0
+    },
+    {
+      "perGroup": 120,
+      "totalEnemy": 1320,
+      "wins": 16,
+      "of": 16,
+      "meanWinLoss": 288.1875,
+      "minWinLoss": 231,
+      "maxWinLoss": 395,
+      "fullArmyLosses": 0
+    },
+    {
+      "perGroup": 140,
+      "totalEnemy": 1540,
+      "wins": 16,
+      "of": 16,
+      "meanWinLoss": 330.0625,
+      "minWinLoss": 206,
+      "maxWinLoss": 416,
+      "fullArmyLosses": 0
+    },
+    {
+      "perGroup": 160,
+      "totalEnemy": 1760,
+      "wins": 16,
+      "of": 16,
+      "meanWinLoss": 346.9375,
+      "minWinLoss": 213,
+      "maxWinLoss": 436,
+      "fullArmyLosses": 0
+    },
+    {
+      "perGroup": 180,
+      "totalEnemy": 1980,
+      "wins": 16,
+      "of": 16,
+      "meanWinLoss": 336.625,
+      "minWinLoss": 217,
+      "maxWinLoss": 484,
+      "fullArmyLosses": 0
+    },
+    {
+      "perGroup": 200,
+      "totalEnemy": 2200,
+      "wins": 16,
+      "of": 16,
+      "meanWinLoss": 380.625,
+      "minWinLoss": 282,
+      "maxWinLoss": 480,
+      "fullArmyLosses": 0
+    },
+    {
+      "perGroup": 220,
+      "totalEnemy": 2420,
+      "wins": 16,
+      "of": 16,
+      "meanWinLoss": 360.6875,
+      "minWinLoss": 266,
+      "maxWinLoss": 458,
+      "fullArmyLosses": 0
+    },
+    {
+      "perGroup": 240,
+      "totalEnemy": 2640,
+      "wins": 16,
+      "of": 16,
+      "meanWinLoss": 375.375,
+      "minWinLoss": 281,
+      "maxWinLoss": 473,
+      "fullArmyLosses": 0
+    },
+    {
+      "perGroup": 260,
+      "totalEnemy": 2860,
+      "wins": 15,
+      "of": 16,
+      "meanWinLoss": 414.3333333333333,
+      "minWinLoss": 290,
+      "maxWinLoss": 484,
+      "fullArmyLosses": 1
+    },
+    {
+      "perGroup": 280,
+      "totalEnemy": 3080,
+      "wins": 12,
+      "of": 16,
+      "meanWinLoss": 434.5,
+      "minWinLoss": 393,
+      "maxWinLoss": 501,
+      "fullArmyLosses": 4
+    },
+    {
+      "perGroup": 300,
+      "totalEnemy": 3300,
+      "wins": 11,
+      "of": 16,
+      "meanWinLoss": 469.6363636363636,
+      "minWinLoss": 417,
+      "maxWinLoss": 496,
+      "fullArmyLosses": 5
+    }
+  ],
+  "rows": [
+    {
+      "scale": 1,
+      "seed": 1,
+      "enemy": {
+        "groups": 11,
+        "people": 11,
+        "hp": 11
+      },
+      "won": true,
+      "loss": 3,
+      "beforeDeployed": 502,
+      "afterDeployed": 499,
+      "enemyHp": 0,
+      "round": 3,
+      "callbacks": 34
+    },
+    {
+      "scale": 1,
+      "seed": 2,
+      "enemy": {
+        "groups": 11,
+        "people": 11,
+        "hp": 11
+      },
+      "won": true,
+      "loss": 1,
+      "beforeDeployed": 502,
+      "afterDeployed": 501,
+      "enemyHp": 0,
+      "round": 2,
+      "callbacks": 31
+    },
+    {
+      "scale": 1,
+      "seed": 3,
+      "enemy": {
+        "groups": 11,
+        "people": 11,
+        "hp": 11
+      },
+      "won": true,
+      "loss": 4,
+      "beforeDeployed": 502,
+      "afterDeployed": 498,
+      "enemyHp": 0,
+      "round": 3,
+      "callbacks": 37
+    },
+    {
+      "scale": 1,
+      "seed": 4,
+      "enemy": {
+        "groups": 11,
+        "people": 11,
+        "hp": 11
+      },
+      "won": true,
+      "loss": 1,
+      "beforeDeployed": 502,
+      "afterDeployed": 501,
+      "enemyHp": 0,
+      "round": 2,
+      "callbacks": 27
+    },
+    {
+      "scale": 1,
+      "seed": 5,
+      "enemy": {
+        "groups": 11,
+        "people": 11,
+        "hp": 11
+      },
+      "won": true,
+      "loss": 2,
+      "beforeDeployed": 502,
+      "afterDeployed": 500,
+      "enemyHp": 0,
+      "round": 2,
+      "callbacks": 29
+    },
+    {
+      "scale": 1,
+      "seed": 6,
+      "enemy": {
+        "groups": 11,
+        "people": 11,
+        "hp": 11
+      },
+      "won": true,
+      "loss": 1,
+      "beforeDeployed": 502,
+      "afterDeployed": 501,
+      "enemyHp": 0,
+      "round": 2,
+      "callbacks": 26
+    },
+    {
+      "scale": 1,
+      "seed": 7,
+      "enemy": {
+        "groups": 11,
+        "people": 11,
+        "hp": 11
+      },
+      "won": true,
+      "loss": 2,
+      "beforeDeployed": 502,
+      "afterDeployed": 500,
+      "enemyHp": 0,
+      "round": 2,
+      "callbacks": 27
+    },
+    {
+      "scale": 1,
+      "seed": 8,
+      "enemy": {
+        "groups": 11,
+        "people": 11,
+        "hp": 11
+      },
+      "won": true,
+      "loss": 2,
+      "beforeDeployed": 502,
+      "afterDeployed": 500,
+      "enemyHp": 0,
+      "round": 3,
+      "callbacks": 36
+    },
+    {
+      "scale": 1,
+      "seed": 9,
+      "enemy": {
+        "groups": 11,
+        "people": 11,
+        "hp": 11
+      },
+      "won": true,
+      "loss": 0,
+      "beforeDeployed": 502,
+      "afterDeployed": 502,
+      "enemyHp": 0,
+      "round": 2,
+      "callbacks": 24
+    },
+    {
+      "scale": 1,
+      "seed": 10,
+      "enemy": {
+        "groups": 11,
+        "people": 11,
+        "hp": 11
+      },
+      "won": true,
+      "loss": 1,
+      "beforeDeployed": 502,
+      "afterDeployed": 501,
+      "enemyHp": 0,
+      "round": 2,
+      "callbacks": 21
+    },
+    {
+      "scale": 1,
+      "seed": 11,
+      "enemy": {
+        "groups": 11,
+        "people": 11,
+        "hp": 11
+      },
+      "won": true,
+      "loss": 1,
+      "beforeDeployed": 502,
+      "afterDeployed": 501,
+      "enemyHp": 0,
+      "round": 2,
+      "callbacks": 28
+    },
+    {
+      "scale": 1,
+      "seed": 12,
+      "enemy": {
+        "groups": 11,
+        "people": 11,
+        "hp": 11
+      },
+      "won": true,
+      "loss": 2,
+      "beforeDeployed": 502,
+      "afterDeployed": 500,
+      "enemyHp": 0,
+      "round": 2,
+      "callbacks": 31
+    },
+    {
+      "scale": 1,
+      "seed": 13,
+      "enemy": {
+        "groups": 11,
+        "people": 11,
+        "hp": 11
+      },
+      "won": true,
+      "loss": 1,
+      "beforeDeployed": 502,
+      "afterDeployed": 501,
+      "enemyHp": 0,
+      "round": 2,
+      "callbacks": 29
+    },
+    {
+      "scale": 1,
+      "seed": 14,
+      "enemy": {
+        "groups": 11,
+        "people": 11,
+        "hp": 11
+      },
+      "won": true,
+      "loss": 1,
+      "beforeDeployed": 502,
+      "afterDeployed": 501,
+      "enemyHp": 0,
+      "round": 2,
+      "callbacks": 24
+    },
+    {
+      "scale": 1,
+      "seed": 15,
+      "enemy": {
+        "groups": 11,
+        "people": 11,
+        "hp": 11
+      },
+      "won": true,
+      "loss": 2,
+      "beforeDeployed": 502,
+      "afterDeployed": 500,
+      "enemyHp": 0,
+      "round": 2,
+      "callbacks": 29
+    },
+    {
+      "scale": 1,
+      "seed": 16,
+      "enemy": {
+        "groups": 11,
+        "people": 11,
+        "hp": 11
+      },
+      "won": true,
+      "loss": 0,
+      "beforeDeployed": 502,
+      "afterDeployed": 502,
+      "enemyHp": 0,
+      "round": 2,
+      "callbacks": 28
+    },
+    {
+      "scale": 60,
+      "seed": 1,
+      "enemy": {
+        "groups": 11,
+        "people": 660,
+        "hp": 660
+      },
+      "won": true,
+      "loss": 284,
+      "beforeDeployed": 502,
+      "afterDeployed": 218,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 76
+    },
+    {
+      "scale": 60,
+      "seed": 2,
+      "enemy": {
+        "groups": 11,
+        "people": 660,
+        "hp": 660
+      },
+      "won": true,
+      "loss": 195,
+      "beforeDeployed": 502,
+      "afterDeployed": 307,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 60
+    },
+    {
+      "scale": 60,
+      "seed": 3,
+      "enemy": {
+        "groups": 11,
+        "people": 660,
+        "hp": 660
+      },
+      "won": true,
+      "loss": 174,
+      "beforeDeployed": 502,
+      "afterDeployed": 328,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 61
+    },
+    {
+      "scale": 60,
+      "seed": 4,
+      "enemy": {
+        "groups": 11,
+        "people": 660,
+        "hp": 660
+      },
+      "won": true,
+      "loss": 328,
+      "beforeDeployed": 502,
+      "afterDeployed": 174,
+      "enemyHp": 0,
+      "round": 6,
+      "callbacks": 72
+    },
+    {
+      "scale": 60,
+      "seed": 5,
+      "enemy": {
+        "groups": 11,
+        "people": 660,
+        "hp": 660
+      },
+      "won": true,
+      "loss": 216,
+      "beforeDeployed": 502,
+      "afterDeployed": 286,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 62
+    },
+    {
+      "scale": 60,
+      "seed": 6,
+      "enemy": {
+        "groups": 11,
+        "people": 660,
+        "hp": 660
+      },
+      "won": true,
+      "loss": 181,
+      "beforeDeployed": 502,
+      "afterDeployed": 321,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 67
+    },
+    {
+      "scale": 60,
+      "seed": 7,
+      "enemy": {
+        "groups": 11,
+        "people": 660,
+        "hp": 660
+      },
+      "won": true,
+      "loss": 176,
+      "beforeDeployed": 502,
+      "afterDeployed": 326,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 63
+    },
+    {
+      "scale": 60,
+      "seed": 8,
+      "enemy": {
+        "groups": 11,
+        "people": 660,
+        "hp": 660
+      },
+      "won": true,
+      "loss": 161,
+      "beforeDeployed": 502,
+      "afterDeployed": 341,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 70
+    },
+    {
+      "scale": 60,
+      "seed": 9,
+      "enemy": {
+        "groups": 11,
+        "people": 660,
+        "hp": 660
+      },
+      "won": true,
+      "loss": 189,
+      "beforeDeployed": 502,
+      "afterDeployed": 313,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 63
+    },
+    {
+      "scale": 60,
+      "seed": 10,
+      "enemy": {
+        "groups": 11,
+        "people": 660,
+        "hp": 660
+      },
+      "won": true,
+      "loss": 100,
+      "beforeDeployed": 502,
+      "afterDeployed": 402,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 62
+    },
+    {
+      "scale": 60,
+      "seed": 11,
+      "enemy": {
+        "groups": 11,
+        "people": 660,
+        "hp": 660
+      },
+      "won": true,
+      "loss": 138,
+      "beforeDeployed": 502,
+      "afterDeployed": 364,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 62
+    },
+    {
+      "scale": 60,
+      "seed": 12,
+      "enemy": {
+        "groups": 11,
+        "people": 660,
+        "hp": 660
+      },
+      "won": true,
+      "loss": 172,
+      "beforeDeployed": 502,
+      "afterDeployed": 330,
+      "enemyHp": 0,
+      "round": 6,
+      "callbacks": 82
+    },
+    {
+      "scale": 60,
+      "seed": 13,
+      "enemy": {
+        "groups": 11,
+        "people": 660,
+        "hp": 660
+      },
+      "won": true,
+      "loss": 104,
+      "beforeDeployed": 502,
+      "afterDeployed": 398,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 56
+    },
+    {
+      "scale": 60,
+      "seed": 14,
+      "enemy": {
+        "groups": 11,
+        "people": 660,
+        "hp": 660
+      },
+      "won": true,
+      "loss": 97,
+      "beforeDeployed": 502,
+      "afterDeployed": 405,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 54
+    },
+    {
+      "scale": 60,
+      "seed": 15,
+      "enemy": {
+        "groups": 11,
+        "people": 660,
+        "hp": 660
+      },
+      "won": true,
+      "loss": 161,
+      "beforeDeployed": 502,
+      "afterDeployed": 341,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 63
+    },
+    {
+      "scale": 60,
+      "seed": 16,
+      "enemy": {
+        "groups": 11,
+        "people": 660,
+        "hp": 660
+      },
+      "won": true,
+      "loss": 164,
+      "beforeDeployed": 502,
+      "afterDeployed": 338,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 48
+    },
+    {
+      "scale": 80,
+      "seed": 1,
+      "enemy": {
+        "groups": 11,
+        "people": 880,
+        "hp": 880
+      },
+      "won": true,
+      "loss": 228,
+      "beforeDeployed": 502,
+      "afterDeployed": 274,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 62
+    },
+    {
+      "scale": 80,
+      "seed": 2,
+      "enemy": {
+        "groups": 11,
+        "people": 880,
+        "hp": 880
+      },
+      "won": true,
+      "loss": 224,
+      "beforeDeployed": 502,
+      "afterDeployed": 278,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 64
+    },
+    {
+      "scale": 80,
+      "seed": 3,
+      "enemy": {
+        "groups": 11,
+        "people": 880,
+        "hp": 880
+      },
+      "won": true,
+      "loss": 199,
+      "beforeDeployed": 502,
+      "afterDeployed": 303,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 61
+    },
+    {
+      "scale": 80,
+      "seed": 4,
+      "enemy": {
+        "groups": 11,
+        "people": 880,
+        "hp": 880
+      },
+      "won": true,
+      "loss": 216,
+      "beforeDeployed": 502,
+      "afterDeployed": 286,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 60
+    },
+    {
+      "scale": 80,
+      "seed": 5,
+      "enemy": {
+        "groups": 11,
+        "people": 880,
+        "hp": 880
+      },
+      "won": true,
+      "loss": 217,
+      "beforeDeployed": 502,
+      "afterDeployed": 285,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 53
+    },
+    {
+      "scale": 80,
+      "seed": 6,
+      "enemy": {
+        "groups": 11,
+        "people": 880,
+        "hp": 880
+      },
+      "won": true,
+      "loss": 269,
+      "beforeDeployed": 502,
+      "afterDeployed": 233,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 65
+    },
+    {
+      "scale": 80,
+      "seed": 7,
+      "enemy": {
+        "groups": 11,
+        "people": 880,
+        "hp": 880
+      },
+      "won": true,
+      "loss": 240,
+      "beforeDeployed": 502,
+      "afterDeployed": 262,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 59
+    },
+    {
+      "scale": 80,
+      "seed": 8,
+      "enemy": {
+        "groups": 11,
+        "people": 880,
+        "hp": 880
+      },
+      "won": true,
+      "loss": 136,
+      "beforeDeployed": 502,
+      "afterDeployed": 366,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 63
+    },
+    {
+      "scale": 80,
+      "seed": 9,
+      "enemy": {
+        "groups": 11,
+        "people": 880,
+        "hp": 880
+      },
+      "won": true,
+      "loss": 103,
+      "beforeDeployed": 502,
+      "afterDeployed": 399,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 61
+    },
+    {
+      "scale": 80,
+      "seed": 10,
+      "enemy": {
+        "groups": 11,
+        "people": 880,
+        "hp": 880
+      },
+      "won": true,
+      "loss": 148,
+      "beforeDeployed": 502,
+      "afterDeployed": 354,
+      "enemyHp": 0,
+      "round": 3,
+      "callbacks": 46
+    },
+    {
+      "scale": 80,
+      "seed": 11,
+      "enemy": {
+        "groups": 11,
+        "people": 880,
+        "hp": 880
+      },
+      "won": true,
+      "loss": 159,
+      "beforeDeployed": 502,
+      "afterDeployed": 343,
+      "enemyHp": 0,
+      "round": 3,
+      "callbacks": 46
+    },
+    {
+      "scale": 80,
+      "seed": 12,
+      "enemy": {
+        "groups": 11,
+        "people": 880,
+        "hp": 880
+      },
+      "won": true,
+      "loss": 265,
+      "beforeDeployed": 502,
+      "afterDeployed": 237,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 78
+    },
+    {
+      "scale": 80,
+      "seed": 13,
+      "enemy": {
+        "groups": 11,
+        "people": 880,
+        "hp": 880
+      },
+      "won": true,
+      "loss": 160,
+      "beforeDeployed": 502,
+      "afterDeployed": 342,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 64
+    },
+    {
+      "scale": 80,
+      "seed": 14,
+      "enemy": {
+        "groups": 11,
+        "people": 880,
+        "hp": 880
+      },
+      "won": true,
+      "loss": 214,
+      "beforeDeployed": 502,
+      "afterDeployed": 288,
+      "enemyHp": 0,
+      "round": 3,
+      "callbacks": 47
+    },
+    {
+      "scale": 80,
+      "seed": 15,
+      "enemy": {
+        "groups": 11,
+        "people": 880,
+        "hp": 880
+      },
+      "won": true,
+      "loss": 340,
+      "beforeDeployed": 502,
+      "afterDeployed": 162,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 66
+    },
+    {
+      "scale": 80,
+      "seed": 16,
+      "enemy": {
+        "groups": 11,
+        "people": 880,
+        "hp": 880
+      },
+      "won": true,
+      "loss": 296,
+      "beforeDeployed": 502,
+      "afterDeployed": 206,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 65
+    },
+    {
+      "scale": 100,
+      "seed": 1,
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "won": true,
+      "loss": 314,
+      "beforeDeployed": 502,
+      "afterDeployed": 188,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 63
+    },
+    {
+      "scale": 100,
+      "seed": 2,
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "won": true,
+      "loss": 333,
+      "beforeDeployed": 502,
+      "afterDeployed": 169,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 69
+    },
+    {
+      "scale": 100,
+      "seed": 3,
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "won": true,
+      "loss": 195,
+      "beforeDeployed": 502,
+      "afterDeployed": 307,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 64
+    },
+    {
+      "scale": 100,
+      "seed": 4,
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "won": true,
+      "loss": 361,
+      "beforeDeployed": 502,
+      "afterDeployed": 141,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 76
+    },
+    {
+      "scale": 100,
+      "seed": 5,
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "won": true,
+      "loss": 338,
+      "beforeDeployed": 502,
+      "afterDeployed": 164,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 61
+    },
+    {
+      "scale": 100,
+      "seed": 6,
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "won": true,
+      "loss": 297,
+      "beforeDeployed": 502,
+      "afterDeployed": 205,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 65
+    },
+    {
+      "scale": 100,
+      "seed": 7,
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "won": true,
+      "loss": 281,
+      "beforeDeployed": 502,
+      "afterDeployed": 221,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 55
+    },
+    {
+      "scale": 100,
+      "seed": 8,
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "won": true,
+      "loss": 226,
+      "beforeDeployed": 502,
+      "afterDeployed": 276,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 61
+    },
+    {
+      "scale": 100,
+      "seed": 9,
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "won": true,
+      "loss": 220,
+      "beforeDeployed": 502,
+      "afterDeployed": 282,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 69
+    },
+    {
+      "scale": 100,
+      "seed": 10,
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "won": true,
+      "loss": 220,
+      "beforeDeployed": 502,
+      "afterDeployed": 282,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 61
+    },
+    {
+      "scale": 100,
+      "seed": 11,
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "won": true,
+      "loss": 275,
+      "beforeDeployed": 502,
+      "afterDeployed": 227,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 63
+    },
+    {
+      "scale": 100,
+      "seed": 12,
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "won": true,
+      "loss": 343,
+      "beforeDeployed": 502,
+      "afterDeployed": 159,
+      "enemyHp": 0,
+      "round": 6,
+      "callbacks": 84
+    },
+    {
+      "scale": 100,
+      "seed": 13,
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "won": true,
+      "loss": 207,
+      "beforeDeployed": 502,
+      "afterDeployed": 295,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 66
+    },
+    {
+      "scale": 100,
+      "seed": 14,
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "won": true,
+      "loss": 334,
+      "beforeDeployed": 502,
+      "afterDeployed": 168,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 67
+    },
+    {
+      "scale": 100,
+      "seed": 15,
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "won": true,
+      "loss": 221,
+      "beforeDeployed": 502,
+      "afterDeployed": 281,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 61
+    },
+    {
+      "scale": 100,
+      "seed": 16,
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "won": true,
+      "loss": 312,
+      "beforeDeployed": 502,
+      "afterDeployed": 190,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 72
+    },
+    {
+      "scale": 120,
+      "seed": 1,
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "won": true,
+      "loss": 274,
+      "beforeDeployed": 502,
+      "afterDeployed": 228,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 63
+    },
+    {
+      "scale": 120,
+      "seed": 2,
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "won": true,
+      "loss": 395,
+      "beforeDeployed": 502,
+      "afterDeployed": 107,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 59
+    },
+    {
+      "scale": 120,
+      "seed": 3,
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "won": true,
+      "loss": 255,
+      "beforeDeployed": 502,
+      "afterDeployed": 247,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 63
+    },
+    {
+      "scale": 120,
+      "seed": 4,
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "won": true,
+      "loss": 289,
+      "beforeDeployed": 502,
+      "afterDeployed": 213,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 73
+    },
+    {
+      "scale": 120,
+      "seed": 5,
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "won": true,
+      "loss": 330,
+      "beforeDeployed": 502,
+      "afterDeployed": 172,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 59
+    },
+    {
+      "scale": 120,
+      "seed": 6,
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "won": true,
+      "loss": 286,
+      "beforeDeployed": 502,
+      "afterDeployed": 216,
+      "enemyHp": 0,
+      "round": 6,
+      "callbacks": 72
+    },
+    {
+      "scale": 120,
+      "seed": 7,
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "won": true,
+      "loss": 319,
+      "beforeDeployed": 502,
+      "afterDeployed": 183,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 59
+    },
+    {
+      "scale": 120,
+      "seed": 8,
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "won": true,
+      "loss": 293,
+      "beforeDeployed": 502,
+      "afterDeployed": 209,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 70
+    },
+    {
+      "scale": 120,
+      "seed": 9,
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "won": true,
+      "loss": 231,
+      "beforeDeployed": 502,
+      "afterDeployed": 271,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 62
+    },
+    {
+      "scale": 120,
+      "seed": 10,
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "won": true,
+      "loss": 283,
+      "beforeDeployed": 502,
+      "afterDeployed": 219,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 69
+    },
+    {
+      "scale": 120,
+      "seed": 11,
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "won": true,
+      "loss": 282,
+      "beforeDeployed": 502,
+      "afterDeployed": 220,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 61
+    },
+    {
+      "scale": 120,
+      "seed": 12,
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "won": true,
+      "loss": 285,
+      "beforeDeployed": 502,
+      "afterDeployed": 217,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 69
+    },
+    {
+      "scale": 120,
+      "seed": 13,
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "won": true,
+      "loss": 319,
+      "beforeDeployed": 502,
+      "afterDeployed": 183,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 66
+    },
+    {
+      "scale": 120,
+      "seed": 14,
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "won": true,
+      "loss": 249,
+      "beforeDeployed": 502,
+      "afterDeployed": 253,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 61
+    },
+    {
+      "scale": 120,
+      "seed": 15,
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "won": true,
+      "loss": 250,
+      "beforeDeployed": 502,
+      "afterDeployed": 252,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 73
+    },
+    {
+      "scale": 120,
+      "seed": 16,
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "won": true,
+      "loss": 271,
+      "beforeDeployed": 502,
+      "afterDeployed": 231,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 71
+    },
+    {
+      "scale": 140,
+      "seed": 1,
+      "enemy": {
+        "groups": 11,
+        "people": 1540,
+        "hp": 1540
+      },
+      "won": true,
+      "loss": 313,
+      "beforeDeployed": 502,
+      "afterDeployed": 189,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 66
+    },
+    {
+      "scale": 140,
+      "seed": 2,
+      "enemy": {
+        "groups": 11,
+        "people": 1540,
+        "hp": 1540
+      },
+      "won": true,
+      "loss": 300,
+      "beforeDeployed": 502,
+      "afterDeployed": 202,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 61
+    },
+    {
+      "scale": 140,
+      "seed": 3,
+      "enemy": {
+        "groups": 11,
+        "people": 1540,
+        "hp": 1540
+      },
+      "won": true,
+      "loss": 333,
+      "beforeDeployed": 502,
+      "afterDeployed": 169,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 55
+    },
+    {
+      "scale": 140,
+      "seed": 4,
+      "enemy": {
+        "groups": 11,
+        "people": 1540,
+        "hp": 1540
+      },
+      "won": true,
+      "loss": 339,
+      "beforeDeployed": 502,
+      "afterDeployed": 163,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 71
+    },
+    {
+      "scale": 140,
+      "seed": 5,
+      "enemy": {
+        "groups": 11,
+        "people": 1540,
+        "hp": 1540
+      },
+      "won": true,
+      "loss": 343,
+      "beforeDeployed": 502,
+      "afterDeployed": 159,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 53
+    },
+    {
+      "scale": 140,
+      "seed": 6,
+      "enemy": {
+        "groups": 11,
+        "people": 1540,
+        "hp": 1540
+      },
+      "won": true,
+      "loss": 279,
+      "beforeDeployed": 502,
+      "afterDeployed": 223,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 60
+    },
+    {
+      "scale": 140,
+      "seed": 7,
+      "enemy": {
+        "groups": 11,
+        "people": 1540,
+        "hp": 1540
+      },
+      "won": true,
+      "loss": 308,
+      "beforeDeployed": 502,
+      "afterDeployed": 194,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 53
+    },
+    {
+      "scale": 140,
+      "seed": 8,
+      "enemy": {
+        "groups": 11,
+        "people": 1540,
+        "hp": 1540
+      },
+      "won": true,
+      "loss": 206,
+      "beforeDeployed": 502,
+      "afterDeployed": 296,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 68
+    },
+    {
+      "scale": 140,
+      "seed": 9,
+      "enemy": {
+        "groups": 11,
+        "people": 1540,
+        "hp": 1540
+      },
+      "won": true,
+      "loss": 416,
+      "beforeDeployed": 502,
+      "afterDeployed": 86,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 66
+    },
+    {
+      "scale": 140,
+      "seed": 10,
+      "enemy": {
+        "groups": 11,
+        "people": 1540,
+        "hp": 1540
+      },
+      "won": true,
+      "loss": 343,
+      "beforeDeployed": 502,
+      "afterDeployed": 159,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 72
+    },
+    {
+      "scale": 140,
+      "seed": 11,
+      "enemy": {
+        "groups": 11,
+        "people": 1540,
+        "hp": 1540
+      },
+      "won": true,
+      "loss": 310,
+      "beforeDeployed": 502,
+      "afterDeployed": 192,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 65
+    },
+    {
+      "scale": 140,
+      "seed": 12,
+      "enemy": {
+        "groups": 11,
+        "people": 1540,
+        "hp": 1540
+      },
+      "won": true,
+      "loss": 416,
+      "beforeDeployed": 502,
+      "afterDeployed": 86,
+      "enemyHp": 0,
+      "round": 6,
+      "callbacks": 75
+    },
+    {
+      "scale": 140,
+      "seed": 13,
+      "enemy": {
+        "groups": 11,
+        "people": 1540,
+        "hp": 1540
+      },
+      "won": true,
+      "loss": 360,
+      "beforeDeployed": 502,
+      "afterDeployed": 142,
+      "enemyHp": 0,
+      "round": 6,
+      "callbacks": 65
+    },
+    {
+      "scale": 140,
+      "seed": 14,
+      "enemy": {
+        "groups": 11,
+        "people": 1540,
+        "hp": 1540
+      },
+      "won": true,
+      "loss": 288,
+      "beforeDeployed": 502,
+      "afterDeployed": 214,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 68
+    },
+    {
+      "scale": 140,
+      "seed": 15,
+      "enemy": {
+        "groups": 11,
+        "people": 1540,
+        "hp": 1540
+      },
+      "won": true,
+      "loss": 377,
+      "beforeDeployed": 502,
+      "afterDeployed": 125,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 53
+    },
+    {
+      "scale": 140,
+      "seed": 16,
+      "enemy": {
+        "groups": 11,
+        "people": 1540,
+        "hp": 1540
+      },
+      "won": true,
+      "loss": 350,
+      "beforeDeployed": 502,
+      "afterDeployed": 152,
+      "enemyHp": 0,
+      "round": 3,
+      "callbacks": 43
+    },
+    {
+      "scale": 160,
+      "seed": 1,
+      "enemy": {
+        "groups": 11,
+        "people": 1760,
+        "hp": 1760
+      },
+      "won": true,
+      "loss": 273,
+      "beforeDeployed": 502,
+      "afterDeployed": 229,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 64
+    },
+    {
+      "scale": 160,
+      "seed": 2,
+      "enemy": {
+        "groups": 11,
+        "people": 1760,
+        "hp": 1760
+      },
+      "won": true,
+      "loss": 403,
+      "beforeDeployed": 502,
+      "afterDeployed": 99,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 64
+    },
+    {
+      "scale": 160,
+      "seed": 3,
+      "enemy": {
+        "groups": 11,
+        "people": 1760,
+        "hp": 1760
+      },
+      "won": true,
+      "loss": 374,
+      "beforeDeployed": 502,
+      "afterDeployed": 128,
+      "enemyHp": 0,
+      "round": 6,
+      "callbacks": 72
+    },
+    {
+      "scale": 160,
+      "seed": 4,
+      "enemy": {
+        "groups": 11,
+        "people": 1760,
+        "hp": 1760
+      },
+      "won": true,
+      "loss": 363,
+      "beforeDeployed": 502,
+      "afterDeployed": 139,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 71
+    },
+    {
+      "scale": 160,
+      "seed": 5,
+      "enemy": {
+        "groups": 11,
+        "people": 1760,
+        "hp": 1760
+      },
+      "won": true,
+      "loss": 213,
+      "beforeDeployed": 502,
+      "afterDeployed": 289,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 53
+    },
+    {
+      "scale": 160,
+      "seed": 6,
+      "enemy": {
+        "groups": 11,
+        "people": 1760,
+        "hp": 1760
+      },
+      "won": true,
+      "loss": 365,
+      "beforeDeployed": 502,
+      "afterDeployed": 137,
+      "enemyHp": 0,
+      "round": 6,
+      "callbacks": 69
+    },
+    {
+      "scale": 160,
+      "seed": 7,
+      "enemy": {
+        "groups": 11,
+        "people": 1760,
+        "hp": 1760
+      },
+      "won": true,
+      "loss": 308,
+      "beforeDeployed": 502,
+      "afterDeployed": 194,
+      "enemyHp": 0,
+      "round": 3,
+      "callbacks": 52
+    },
+    {
+      "scale": 160,
+      "seed": 8,
+      "enemy": {
+        "groups": 11,
+        "people": 1760,
+        "hp": 1760
+      },
+      "won": true,
+      "loss": 316,
+      "beforeDeployed": 502,
+      "afterDeployed": 186,
+      "enemyHp": 0,
+      "round": 6,
+      "callbacks": 72
+    },
+    {
+      "scale": 160,
+      "seed": 9,
+      "enemy": {
+        "groups": 11,
+        "people": 1760,
+        "hp": 1760
+      },
+      "won": true,
+      "loss": 343,
+      "beforeDeployed": 502,
+      "afterDeployed": 159,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 64
+    },
+    {
+      "scale": 160,
+      "seed": 10,
+      "enemy": {
+        "groups": 11,
+        "people": 1760,
+        "hp": 1760
+      },
+      "won": true,
+      "loss": 406,
+      "beforeDeployed": 502,
+      "afterDeployed": 96,
+      "enemyHp": 0,
+      "round": 6,
+      "callbacks": 71
+    },
+    {
+      "scale": 160,
+      "seed": 11,
+      "enemy": {
+        "groups": 11,
+        "people": 1760,
+        "hp": 1760
+      },
+      "won": true,
+      "loss": 357,
+      "beforeDeployed": 502,
+      "afterDeployed": 145,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 57
+    },
+    {
+      "scale": 160,
+      "seed": 12,
+      "enemy": {
+        "groups": 11,
+        "people": 1760,
+        "hp": 1760
+      },
+      "won": true,
+      "loss": 436,
+      "beforeDeployed": 502,
+      "afterDeployed": 66,
+      "enemyHp": 0,
+      "round": 6,
+      "callbacks": 77
+    },
+    {
+      "scale": 160,
+      "seed": 13,
+      "enemy": {
+        "groups": 11,
+        "people": 1760,
+        "hp": 1760
+      },
+      "won": true,
+      "loss": 294,
+      "beforeDeployed": 502,
+      "afterDeployed": 208,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 57
+    },
+    {
+      "scale": 160,
+      "seed": 14,
+      "enemy": {
+        "groups": 11,
+        "people": 1760,
+        "hp": 1760
+      },
+      "won": true,
+      "loss": 293,
+      "beforeDeployed": 502,
+      "afterDeployed": 209,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 59
+    },
+    {
+      "scale": 160,
+      "seed": 15,
+      "enemy": {
+        "groups": 11,
+        "people": 1760,
+        "hp": 1760
+      },
+      "won": true,
+      "loss": 382,
+      "beforeDeployed": 502,
+      "afterDeployed": 120,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 65
+    },
+    {
+      "scale": 160,
+      "seed": 16,
+      "enemy": {
+        "groups": 11,
+        "people": 1760,
+        "hp": 1760
+      },
+      "won": true,
+      "loss": 425,
+      "beforeDeployed": 502,
+      "afterDeployed": 77,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 56
+    },
+    {
+      "scale": 180,
+      "seed": 1,
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "won": true,
+      "loss": 217,
+      "beforeDeployed": 502,
+      "afterDeployed": 285,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 55
+    },
+    {
+      "scale": 180,
+      "seed": 2,
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "won": true,
+      "loss": 368,
+      "beforeDeployed": 502,
+      "afterDeployed": 134,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 70
+    },
+    {
+      "scale": 180,
+      "seed": 3,
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "won": true,
+      "loss": 342,
+      "beforeDeployed": 502,
+      "afterDeployed": 160,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 55
+    },
+    {
+      "scale": 180,
+      "seed": 4,
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "won": true,
+      "loss": 380,
+      "beforeDeployed": 502,
+      "afterDeployed": 122,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 71
+    },
+    {
+      "scale": 180,
+      "seed": 5,
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "won": true,
+      "loss": 315,
+      "beforeDeployed": 502,
+      "afterDeployed": 187,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 55
+    },
+    {
+      "scale": 180,
+      "seed": 6,
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "won": true,
+      "loss": 380,
+      "beforeDeployed": 502,
+      "afterDeployed": 122,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 64
+    },
+    {
+      "scale": 180,
+      "seed": 7,
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "won": true,
+      "loss": 377,
+      "beforeDeployed": 502,
+      "afterDeployed": 125,
+      "enemyHp": 0,
+      "round": 3,
+      "callbacks": 41
+    },
+    {
+      "scale": 180,
+      "seed": 8,
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "won": true,
+      "loss": 304,
+      "beforeDeployed": 502,
+      "afterDeployed": 198,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 67
+    },
+    {
+      "scale": 180,
+      "seed": 9,
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "won": true,
+      "loss": 311,
+      "beforeDeployed": 502,
+      "afterDeployed": 191,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 72
+    },
+    {
+      "scale": 180,
+      "seed": 10,
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "won": true,
+      "loss": 322,
+      "beforeDeployed": 502,
+      "afterDeployed": 180,
+      "enemyHp": 0,
+      "round": 6,
+      "callbacks": 78
+    },
+    {
+      "scale": 180,
+      "seed": 11,
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "won": true,
+      "loss": 294,
+      "beforeDeployed": 502,
+      "afterDeployed": 208,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 68
+    },
+    {
+      "scale": 180,
+      "seed": 12,
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "won": true,
+      "loss": 405,
+      "beforeDeployed": 502,
+      "afterDeployed": 97,
+      "enemyHp": 0,
+      "round": 7,
+      "callbacks": 83
+    },
+    {
+      "scale": 180,
+      "seed": 13,
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "won": true,
+      "loss": 287,
+      "beforeDeployed": 502,
+      "afterDeployed": 215,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 61
+    },
+    {
+      "scale": 180,
+      "seed": 14,
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "won": true,
+      "loss": 227,
+      "beforeDeployed": 502,
+      "afterDeployed": 275,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 50
+    },
+    {
+      "scale": 180,
+      "seed": 15,
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "won": true,
+      "loss": 484,
+      "beforeDeployed": 502,
+      "afterDeployed": 18,
+      "enemyHp": 0,
+      "round": 8,
+      "callbacks": 96
+    },
+    {
+      "scale": 180,
+      "seed": 16,
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "won": true,
+      "loss": 373,
+      "beforeDeployed": 502,
+      "afterDeployed": 129,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 56
+    },
+    {
+      "scale": 200,
+      "seed": 1,
+      "enemy": {
+        "groups": 11,
+        "people": 2200,
+        "hp": 2200
+      },
+      "won": true,
+      "loss": 428,
+      "beforeDeployed": 502,
+      "afterDeployed": 74,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 67
+    },
+    {
+      "scale": 200,
+      "seed": 2,
+      "enemy": {
+        "groups": 11,
+        "people": 2200,
+        "hp": 2200
+      },
+      "won": true,
+      "loss": 480,
+      "beforeDeployed": 502,
+      "afterDeployed": 22,
+      "enemyHp": 0,
+      "round": 8,
+      "callbacks": 84
+    },
+    {
+      "scale": 200,
+      "seed": 3,
+      "enemy": {
+        "groups": 11,
+        "people": 2200,
+        "hp": 2200
+      },
+      "won": true,
+      "loss": 297,
+      "beforeDeployed": 502,
+      "afterDeployed": 205,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 66
+    },
+    {
+      "scale": 200,
+      "seed": 4,
+      "enemy": {
+        "groups": 11,
+        "people": 2200,
+        "hp": 2200
+      },
+      "won": true,
+      "loss": 414,
+      "beforeDeployed": 502,
+      "afterDeployed": 88,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 63
+    },
+    {
+      "scale": 200,
+      "seed": 5,
+      "enemy": {
+        "groups": 11,
+        "people": 2200,
+        "hp": 2200
+      },
+      "won": true,
+      "loss": 409,
+      "beforeDeployed": 502,
+      "afterDeployed": 93,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 49
+    },
+    {
+      "scale": 200,
+      "seed": 6,
+      "enemy": {
+        "groups": 11,
+        "people": 2200,
+        "hp": 2200
+      },
+      "won": true,
+      "loss": 371,
+      "beforeDeployed": 502,
+      "afterDeployed": 131,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 54
+    },
+    {
+      "scale": 200,
+      "seed": 7,
+      "enemy": {
+        "groups": 11,
+        "people": 2200,
+        "hp": 2200
+      },
+      "won": true,
+      "loss": 374,
+      "beforeDeployed": 502,
+      "afterDeployed": 128,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 52
+    },
+    {
+      "scale": 200,
+      "seed": 8,
+      "enemy": {
+        "groups": 11,
+        "people": 2200,
+        "hp": 2200
+      },
+      "won": true,
+      "loss": 356,
+      "beforeDeployed": 502,
+      "afterDeployed": 146,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 57
+    },
+    {
+      "scale": 200,
+      "seed": 9,
+      "enemy": {
+        "groups": 11,
+        "people": 2200,
+        "hp": 2200
+      },
+      "won": true,
+      "loss": 404,
+      "beforeDeployed": 502,
+      "afterDeployed": 98,
+      "enemyHp": 0,
+      "round": 7,
+      "callbacks": 77
+    },
+    {
+      "scale": 200,
+      "seed": 10,
+      "enemy": {
+        "groups": 11,
+        "people": 2200,
+        "hp": 2200
+      },
+      "won": true,
+      "loss": 426,
+      "beforeDeployed": 502,
+      "afterDeployed": 76,
+      "enemyHp": 0,
+      "round": 6,
+      "callbacks": 75
+    },
+    {
+      "scale": 200,
+      "seed": 11,
+      "enemy": {
+        "groups": 11,
+        "people": 2200,
+        "hp": 2200
+      },
+      "won": true,
+      "loss": 340,
+      "beforeDeployed": 502,
+      "afterDeployed": 162,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 63
+    },
+    {
+      "scale": 200,
+      "seed": 12,
+      "enemy": {
+        "groups": 11,
+        "people": 2200,
+        "hp": 2200
+      },
+      "won": true,
+      "loss": 353,
+      "beforeDeployed": 502,
+      "afterDeployed": 149,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 57
+    },
+    {
+      "scale": 200,
+      "seed": 13,
+      "enemy": {
+        "groups": 11,
+        "people": 2200,
+        "hp": 2200
+      },
+      "won": true,
+      "loss": 282,
+      "beforeDeployed": 502,
+      "afterDeployed": 220,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 57
+    },
+    {
+      "scale": 200,
+      "seed": 14,
+      "enemy": {
+        "groups": 11,
+        "people": 2200,
+        "hp": 2200
+      },
+      "won": true,
+      "loss": 422,
+      "beforeDeployed": 502,
+      "afterDeployed": 80,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 54
+    },
+    {
+      "scale": 200,
+      "seed": 15,
+      "enemy": {
+        "groups": 11,
+        "people": 2200,
+        "hp": 2200
+      },
+      "won": true,
+      "loss": 321,
+      "beforeDeployed": 502,
+      "afterDeployed": 181,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 55
+    },
+    {
+      "scale": 200,
+      "seed": 16,
+      "enemy": {
+        "groups": 11,
+        "people": 2200,
+        "hp": 2200
+      },
+      "won": true,
+      "loss": 413,
+      "beforeDeployed": 502,
+      "afterDeployed": 89,
+      "enemyHp": 0,
+      "round": 6,
+      "callbacks": 65
+    },
+    {
+      "scale": 220,
+      "seed": 1,
+      "enemy": {
+        "groups": 11,
+        "people": 2420,
+        "hp": 2420
+      },
+      "won": true,
+      "loss": 304,
+      "beforeDeployed": 502,
+      "afterDeployed": 198,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 59
+    },
+    {
+      "scale": 220,
+      "seed": 2,
+      "enemy": {
+        "groups": 11,
+        "people": 2420,
+        "hp": 2420
+      },
+      "won": true,
+      "loss": 323,
+      "beforeDeployed": 502,
+      "afterDeployed": 179,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 62
+    },
+    {
+      "scale": 220,
+      "seed": 3,
+      "enemy": {
+        "groups": 11,
+        "people": 2420,
+        "hp": 2420
+      },
+      "won": true,
+      "loss": 335,
+      "beforeDeployed": 502,
+      "afterDeployed": 167,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 69
+    },
+    {
+      "scale": 220,
+      "seed": 4,
+      "enemy": {
+        "groups": 11,
+        "people": 2420,
+        "hp": 2420
+      },
+      "won": true,
+      "loss": 385,
+      "beforeDeployed": 502,
+      "afterDeployed": 117,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 53
+    },
+    {
+      "scale": 220,
+      "seed": 5,
+      "enemy": {
+        "groups": 11,
+        "people": 2420,
+        "hp": 2420
+      },
+      "won": true,
+      "loss": 458,
+      "beforeDeployed": 502,
+      "afterDeployed": 44,
+      "enemyHp": 0,
+      "round": 6,
+      "callbacks": 67
+    },
+    {
+      "scale": 220,
+      "seed": 6,
+      "enemy": {
+        "groups": 11,
+        "people": 2420,
+        "hp": 2420
+      },
+      "won": true,
+      "loss": 416,
+      "beforeDeployed": 502,
+      "afterDeployed": 86,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 56
+    },
+    {
+      "scale": 220,
+      "seed": 7,
+      "enemy": {
+        "groups": 11,
+        "people": 2420,
+        "hp": 2420
+      },
+      "won": true,
+      "loss": 388,
+      "beforeDeployed": 502,
+      "afterDeployed": 114,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 53
+    },
+    {
+      "scale": 220,
+      "seed": 8,
+      "enemy": {
+        "groups": 11,
+        "people": 2420,
+        "hp": 2420
+      },
+      "won": true,
+      "loss": 377,
+      "beforeDeployed": 502,
+      "afterDeployed": 125,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 59
+    },
+    {
+      "scale": 220,
+      "seed": 9,
+      "enemy": {
+        "groups": 11,
+        "people": 2420,
+        "hp": 2420
+      },
+      "won": true,
+      "loss": 396,
+      "beforeDeployed": 502,
+      "afterDeployed": 106,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 66
+    },
+    {
+      "scale": 220,
+      "seed": 10,
+      "enemy": {
+        "groups": 11,
+        "people": 2420,
+        "hp": 2420
+      },
+      "won": true,
+      "loss": 348,
+      "beforeDeployed": 502,
+      "afterDeployed": 154,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 61
+    },
+    {
+      "scale": 220,
+      "seed": 11,
+      "enemy": {
+        "groups": 11,
+        "people": 2420,
+        "hp": 2420
+      },
+      "won": true,
+      "loss": 293,
+      "beforeDeployed": 502,
+      "afterDeployed": 209,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 58
+    },
+    {
+      "scale": 220,
+      "seed": 12,
+      "enemy": {
+        "groups": 11,
+        "people": 2420,
+        "hp": 2420
+      },
+      "won": true,
+      "loss": 423,
+      "beforeDeployed": 502,
+      "afterDeployed": 79,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 61
+    },
+    {
+      "scale": 220,
+      "seed": 13,
+      "enemy": {
+        "groups": 11,
+        "people": 2420,
+        "hp": 2420
+      },
+      "won": true,
+      "loss": 266,
+      "beforeDeployed": 502,
+      "afterDeployed": 236,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 61
+    },
+    {
+      "scale": 220,
+      "seed": 14,
+      "enemy": {
+        "groups": 11,
+        "people": 2420,
+        "hp": 2420
+      },
+      "won": true,
+      "loss": 322,
+      "beforeDeployed": 502,
+      "afterDeployed": 180,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 58
+    },
+    {
+      "scale": 220,
+      "seed": 15,
+      "enemy": {
+        "groups": 11,
+        "people": 2420,
+        "hp": 2420
+      },
+      "won": true,
+      "loss": 336,
+      "beforeDeployed": 502,
+      "afterDeployed": 166,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 53
+    },
+    {
+      "scale": 220,
+      "seed": 16,
+      "enemy": {
+        "groups": 11,
+        "people": 2420,
+        "hp": 2420
+      },
+      "won": true,
+      "loss": 401,
+      "beforeDeployed": 502,
+      "afterDeployed": 101,
+      "enemyHp": 0,
+      "round": 6,
+      "callbacks": 77
+    },
+    {
+      "scale": 240,
+      "seed": 1,
+      "enemy": {
+        "groups": 11,
+        "people": 2640,
+        "hp": 2640
+      },
+      "won": true,
+      "loss": 316,
+      "beforeDeployed": 502,
+      "afterDeployed": 186,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 67
+    },
+    {
+      "scale": 240,
+      "seed": 2,
+      "enemy": {
+        "groups": 11,
+        "people": 2640,
+        "hp": 2640
+      },
+      "won": true,
+      "loss": 334,
+      "beforeDeployed": 502,
+      "afterDeployed": 168,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 63
+    },
+    {
+      "scale": 240,
+      "seed": 3,
+      "enemy": {
+        "groups": 11,
+        "people": 2640,
+        "hp": 2640
+      },
+      "won": true,
+      "loss": 325,
+      "beforeDeployed": 502,
+      "afterDeployed": 177,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 66
+    },
+    {
+      "scale": 240,
+      "seed": 4,
+      "enemy": {
+        "groups": 11,
+        "people": 2640,
+        "hp": 2640
+      },
+      "won": true,
+      "loss": 297,
+      "beforeDeployed": 502,
+      "afterDeployed": 205,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 58
+    },
+    {
+      "scale": 240,
+      "seed": 5,
+      "enemy": {
+        "groups": 11,
+        "people": 2640,
+        "hp": 2640
+      },
+      "won": true,
+      "loss": 328,
+      "beforeDeployed": 502,
+      "afterDeployed": 174,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 59
+    },
+    {
+      "scale": 240,
+      "seed": 6,
+      "enemy": {
+        "groups": 11,
+        "people": 2640,
+        "hp": 2640
+      },
+      "won": true,
+      "loss": 373,
+      "beforeDeployed": 502,
+      "afterDeployed": 129,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 54
+    },
+    {
+      "scale": 240,
+      "seed": 7,
+      "enemy": {
+        "groups": 11,
+        "people": 2640,
+        "hp": 2640
+      },
+      "won": true,
+      "loss": 400,
+      "beforeDeployed": 502,
+      "afterDeployed": 102,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 54
+    },
+    {
+      "scale": 240,
+      "seed": 8,
+      "enemy": {
+        "groups": 11,
+        "people": 2640,
+        "hp": 2640
+      },
+      "won": true,
+      "loss": 391,
+      "beforeDeployed": 502,
+      "afterDeployed": 111,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 57
+    },
+    {
+      "scale": 240,
+      "seed": 9,
+      "enemy": {
+        "groups": 11,
+        "people": 2640,
+        "hp": 2640
+      },
+      "won": true,
+      "loss": 363,
+      "beforeDeployed": 502,
+      "afterDeployed": 139,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 61
+    },
+    {
+      "scale": 240,
+      "seed": 10,
+      "enemy": {
+        "groups": 11,
+        "people": 2640,
+        "hp": 2640
+      },
+      "won": true,
+      "loss": 458,
+      "beforeDeployed": 502,
+      "afterDeployed": 44,
+      "enemyHp": 0,
+      "round": 9,
+      "callbacks": 97
+    },
+    {
+      "scale": 240,
+      "seed": 11,
+      "enemy": {
+        "groups": 11,
+        "people": 2640,
+        "hp": 2640
+      },
+      "won": true,
+      "loss": 281,
+      "beforeDeployed": 502,
+      "afterDeployed": 221,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 57
+    },
+    {
+      "scale": 240,
+      "seed": 12,
+      "enemy": {
+        "groups": 11,
+        "people": 2640,
+        "hp": 2640
+      },
+      "won": true,
+      "loss": 443,
+      "beforeDeployed": 502,
+      "afterDeployed": 59,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 61
+    },
+    {
+      "scale": 240,
+      "seed": 13,
+      "enemy": {
+        "groups": 11,
+        "people": 2640,
+        "hp": 2640
+      },
+      "won": true,
+      "loss": 395,
+      "beforeDeployed": 502,
+      "afterDeployed": 107,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 59
+    },
+    {
+      "scale": 240,
+      "seed": 14,
+      "enemy": {
+        "groups": 11,
+        "people": 2640,
+        "hp": 2640
+      },
+      "won": true,
+      "loss": 391,
+      "beforeDeployed": 502,
+      "afterDeployed": 111,
+      "enemyHp": 0,
+      "round": 6,
+      "callbacks": 70
+    },
+    {
+      "scale": 240,
+      "seed": 15,
+      "enemy": {
+        "groups": 11,
+        "people": 2640,
+        "hp": 2640
+      },
+      "won": true,
+      "loss": 438,
+      "beforeDeployed": 502,
+      "afterDeployed": 64,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 53
+    },
+    {
+      "scale": 240,
+      "seed": 16,
+      "enemy": {
+        "groups": 11,
+        "people": 2640,
+        "hp": 2640
+      },
+      "won": true,
+      "loss": 473,
+      "beforeDeployed": 502,
+      "afterDeployed": 29,
+      "enemyHp": 0,
+      "round": 7,
+      "callbacks": 81
+    },
+    {
+      "scale": 260,
+      "seed": 1,
+      "enemy": {
+        "groups": 11,
+        "people": 2860,
+        "hp": 2860
+      },
+      "won": true,
+      "loss": 482,
+      "beforeDeployed": 502,
+      "afterDeployed": 20,
+      "enemyHp": 0,
+      "round": 7,
+      "callbacks": 74
+    },
+    {
+      "scale": 260,
+      "seed": 2,
+      "enemy": {
+        "groups": 11,
+        "people": 2860,
+        "hp": 2860
+      },
+      "won": true,
+      "loss": 458,
+      "beforeDeployed": 502,
+      "afterDeployed": 44,
+      "enemyHp": 0,
+      "round": 6,
+      "callbacks": 67
+    },
+    {
+      "scale": 260,
+      "seed": 3,
+      "enemy": {
+        "groups": 11,
+        "people": 2860,
+        "hp": 2860
+      },
+      "won": true,
+      "loss": 448,
+      "beforeDeployed": 502,
+      "afterDeployed": 54,
+      "enemyHp": 0,
+      "round": 6,
+      "callbacks": 78
+    },
+    {
+      "scale": 260,
+      "seed": 4,
+      "enemy": {
+        "groups": 11,
+        "people": 2860,
+        "hp": 2860
+      },
+      "won": true,
+      "loss": 484,
+      "beforeDeployed": 502,
+      "afterDeployed": 18,
+      "enemyHp": 0,
+      "round": 8,
+      "callbacks": 72
+    },
+    {
+      "scale": 260,
+      "seed": 5,
+      "enemy": {
+        "groups": 11,
+        "people": 2860,
+        "hp": 2860
+      },
+      "won": true,
+      "loss": 346,
+      "beforeDeployed": 502,
+      "afterDeployed": 156,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 61
+    },
+    {
+      "scale": 260,
+      "seed": 6,
+      "enemy": {
+        "groups": 11,
+        "people": 2860,
+        "hp": 2860
+      },
+      "won": true,
+      "loss": 380,
+      "beforeDeployed": 502,
+      "afterDeployed": 122,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 57
+    },
+    {
+      "scale": 260,
+      "seed": 7,
+      "enemy": {
+        "groups": 11,
+        "people": 2860,
+        "hp": 2860
+      },
+      "won": true,
+      "loss": 416,
+      "beforeDeployed": 502,
+      "afterDeployed": 86,
+      "enemyHp": 0,
+      "round": 6,
+      "callbacks": 65
+    },
+    {
+      "scale": 260,
+      "seed": 8,
+      "enemy": {
+        "groups": 11,
+        "people": 2860,
+        "hp": 2860
+      },
+      "won": true,
+      "loss": 380,
+      "beforeDeployed": 502,
+      "afterDeployed": 122,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 59
+    },
+    {
+      "scale": 260,
+      "seed": 9,
+      "enemy": {
+        "groups": 11,
+        "people": 2860,
+        "hp": 2860
+      },
+      "won": true,
+      "loss": 374,
+      "beforeDeployed": 502,
+      "afterDeployed": 128,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 58
+    },
+    {
+      "scale": 260,
+      "seed": 10,
+      "enemy": {
+        "groups": 11,
+        "people": 2860,
+        "hp": 2860
+      },
+      "won": true,
+      "loss": 404,
+      "beforeDeployed": 502,
+      "afterDeployed": 98,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 48
+    },
+    {
+      "scale": 260,
+      "seed": 11,
+      "enemy": {
+        "groups": 11,
+        "people": 2860,
+        "hp": 2860
+      },
+      "won": true,
+      "loss": 290,
+      "beforeDeployed": 502,
+      "afterDeployed": 212,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 57
+    },
+    {
+      "scale": 260,
+      "seed": 12,
+      "enemy": {
+        "groups": 11,
+        "people": 2860,
+        "hp": 2860
+      },
+      "won": true,
+      "loss": 468,
+      "beforeDeployed": 502,
+      "afterDeployed": 34,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 61
+    },
+    {
+      "scale": 260,
+      "seed": 13,
+      "enemy": {
+        "groups": 11,
+        "people": 2860,
+        "hp": 2860
+      },
+      "won": false,
+      "loss": 502,
+      "beforeDeployed": 502,
+      "afterDeployed": 0,
+      "enemyHp": 1433,
+      "round": 5,
+      "callbacks": 71
+    },
+    {
+      "scale": 260,
+      "seed": 14,
+      "enemy": {
+        "groups": 11,
+        "people": 2860,
+        "hp": 2860
+      },
+      "won": true,
+      "loss": 360,
+      "beforeDeployed": 502,
+      "afterDeployed": 142,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 56
+    },
+    {
+      "scale": 260,
+      "seed": 15,
+      "enemy": {
+        "groups": 11,
+        "people": 2860,
+        "hp": 2860
+      },
+      "won": true,
+      "loss": 462,
+      "beforeDeployed": 502,
+      "afterDeployed": 40,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 61
+    },
+    {
+      "scale": 260,
+      "seed": 16,
+      "enemy": {
+        "groups": 11,
+        "people": 2860,
+        "hp": 2860
+      },
+      "won": true,
+      "loss": 463,
+      "beforeDeployed": 502,
+      "afterDeployed": 39,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 79
+    },
+    {
+      "scale": 280,
+      "seed": 1,
+      "enemy": {
+        "groups": 11,
+        "people": 3080,
+        "hp": 3080
+      },
+      "won": false,
+      "loss": 502,
+      "beforeDeployed": 502,
+      "afterDeployed": 0,
+      "enemyHp": 622,
+      "round": 6,
+      "callbacks": 82
+    },
+    {
+      "scale": 280,
+      "seed": 2,
+      "enemy": {
+        "groups": 11,
+        "people": 3080,
+        "hp": 3080
+      },
+      "won": true,
+      "loss": 501,
+      "beforeDeployed": 502,
+      "afterDeployed": 1,
+      "enemyHp": 0,
+      "round": 16,
+      "callbacks": 93
+    },
+    {
+      "scale": 280,
+      "seed": 3,
+      "enemy": {
+        "groups": 11,
+        "people": 3080,
+        "hp": 3080
+      },
+      "won": false,
+      "loss": 502,
+      "beforeDeployed": 502,
+      "afterDeployed": 0,
+      "enemyHp": 1463,
+      "round": 5,
+      "callbacks": 77
+    },
+    {
+      "scale": 280,
+      "seed": 4,
+      "enemy": {
+        "groups": 11,
+        "people": 3080,
+        "hp": 3080
+      },
+      "won": true,
+      "loss": 441,
+      "beforeDeployed": 502,
+      "afterDeployed": 61,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 56
+    },
+    {
+      "scale": 280,
+      "seed": 5,
+      "enemy": {
+        "groups": 11,
+        "people": 3080,
+        "hp": 3080
+      },
+      "won": true,
+      "loss": 455,
+      "beforeDeployed": 502,
+      "afterDeployed": 47,
+      "enemyHp": 0,
+      "round": 6,
+      "callbacks": 66
+    },
+    {
+      "scale": 280,
+      "seed": 6,
+      "enemy": {
+        "groups": 11,
+        "people": 3080,
+        "hp": 3080
+      },
+      "won": true,
+      "loss": 408,
+      "beforeDeployed": 502,
+      "afterDeployed": 94,
+      "enemyHp": 0,
+      "round": 7,
+      "callbacks": 77
+    },
+    {
+      "scale": 280,
+      "seed": 7,
+      "enemy": {
+        "groups": 11,
+        "people": 3080,
+        "hp": 3080
+      },
+      "won": true,
+      "loss": 428,
+      "beforeDeployed": 502,
+      "afterDeployed": 74,
+      "enemyHp": 0,
+      "round": 6,
+      "callbacks": 69
+    },
+    {
+      "scale": 280,
+      "seed": 8,
+      "enemy": {
+        "groups": 11,
+        "people": 3080,
+        "hp": 3080
+      },
+      "won": true,
+      "loss": 393,
+      "beforeDeployed": 502,
+      "afterDeployed": 109,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 59
+    },
+    {
+      "scale": 280,
+      "seed": 9,
+      "enemy": {
+        "groups": 11,
+        "people": 3080,
+        "hp": 3080
+      },
+      "won": false,
+      "loss": 502,
+      "beforeDeployed": 502,
+      "afterDeployed": 0,
+      "enemyHp": 280,
+      "round": 8,
+      "callbacks": 80
+    },
+    {
+      "scale": 280,
+      "seed": 10,
+      "enemy": {
+        "groups": 11,
+        "people": 3080,
+        "hp": 3080
+      },
+      "won": true,
+      "loss": 409,
+      "beforeDeployed": 502,
+      "afterDeployed": 93,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 48
+    },
+    {
+      "scale": 280,
+      "seed": 11,
+      "enemy": {
+        "groups": 11,
+        "people": 3080,
+        "hp": 3080
+      },
+      "won": true,
+      "loss": 404,
+      "beforeDeployed": 502,
+      "afterDeployed": 98,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 61
+    },
+    {
+      "scale": 280,
+      "seed": 12,
+      "enemy": {
+        "groups": 11,
+        "people": 3080,
+        "hp": 3080
+      },
+      "won": true,
+      "loss": 402,
+      "beforeDeployed": 502,
+      "afterDeployed": 100,
+      "enemyHp": 0,
+      "round": 4,
+      "callbacks": 50
+    },
+    {
+      "scale": 280,
+      "seed": 13,
+      "enemy": {
+        "groups": 11,
+        "people": 3080,
+        "hp": 3080
+      },
+      "won": false,
+      "loss": 502,
+      "beforeDeployed": 502,
+      "afterDeployed": 0,
+      "enemyHp": 1922,
+      "round": 4,
+      "callbacks": 68
+    },
+    {
+      "scale": 280,
+      "seed": 14,
+      "enemy": {
+        "groups": 11,
+        "people": 3080,
+        "hp": 3080
+      },
+      "won": true,
+      "loss": 421,
+      "beforeDeployed": 502,
+      "afterDeployed": 81,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 60
+    },
+    {
+      "scale": 280,
+      "seed": 15,
+      "enemy": {
+        "groups": 11,
+        "people": 3080,
+        "hp": 3080
+      },
+      "won": true,
+      "loss": 478,
+      "beforeDeployed": 502,
+      "afterDeployed": 24,
+      "enemyHp": 0,
+      "round": 7,
+      "callbacks": 64
+    },
+    {
+      "scale": 280,
+      "seed": 16,
+      "enemy": {
+        "groups": 11,
+        "people": 3080,
+        "hp": 3080
+      },
+      "won": true,
+      "loss": 474,
+      "beforeDeployed": 502,
+      "afterDeployed": 28,
+      "enemyHp": 0,
+      "round": 6,
+      "callbacks": 65
+    },
+    {
+      "scale": 300,
+      "seed": 1,
+      "enemy": {
+        "groups": 11,
+        "people": 3300,
+        "hp": 3300
+      },
+      "won": false,
+      "loss": 502,
+      "beforeDeployed": 502,
+      "afterDeployed": 0,
+      "enemyHp": 588,
+      "round": 6,
+      "callbacks": 63
+    },
+    {
+      "scale": 300,
+      "seed": 2,
+      "enemy": {
+        "groups": 11,
+        "people": 3300,
+        "hp": 3300
+      },
+      "won": true,
+      "loss": 496,
+      "beforeDeployed": 502,
+      "afterDeployed": 6,
+      "enemyHp": 0,
+      "round": 9,
+      "callbacks": 75
+    },
+    {
+      "scale": 300,
+      "seed": 3,
+      "enemy": {
+        "groups": 11,
+        "people": 3300,
+        "hp": 3300
+      },
+      "won": true,
+      "loss": 491,
+      "beforeDeployed": 502,
+      "afterDeployed": 11,
+      "enemyHp": 0,
+      "round": 9,
+      "callbacks": 78
+    },
+    {
+      "scale": 300,
+      "seed": 4,
+      "enemy": {
+        "groups": 11,
+        "people": 3300,
+        "hp": 3300
+      },
+      "won": true,
+      "loss": 471,
+      "beforeDeployed": 502,
+      "afterDeployed": 31,
+      "enemyHp": 0,
+      "round": 6,
+      "callbacks": 63
+    },
+    {
+      "scale": 300,
+      "seed": 5,
+      "enemy": {
+        "groups": 11,
+        "people": 3300,
+        "hp": 3300
+      },
+      "won": false,
+      "loss": 502,
+      "beforeDeployed": 502,
+      "afterDeployed": 0,
+      "enemyHp": 112,
+      "round": 12,
+      "callbacks": 98
+    },
+    {
+      "scale": 300,
+      "seed": 6,
+      "enemy": {
+        "groups": 11,
+        "people": 3300,
+        "hp": 3300
+      },
+      "won": true,
+      "loss": 481,
+      "beforeDeployed": 502,
+      "afterDeployed": 21,
+      "enemyHp": 0,
+      "round": 8,
+      "callbacks": 74
+    },
+    {
+      "scale": 300,
+      "seed": 7,
+      "enemy": {
+        "groups": 11,
+        "people": 3300,
+        "hp": 3300
+      },
+      "won": true,
+      "loss": 467,
+      "beforeDeployed": 502,
+      "afterDeployed": 35,
+      "enemyHp": 0,
+      "round": 6,
+      "callbacks": 69
+    },
+    {
+      "scale": 300,
+      "seed": 8,
+      "enemy": {
+        "groups": 11,
+        "people": 3300,
+        "hp": 3300
+      },
+      "won": false,
+      "loss": 502,
+      "beforeDeployed": 502,
+      "afterDeployed": 0,
+      "enemyHp": 67,
+      "round": 9,
+      "callbacks": 80
+    },
+    {
+      "scale": 300,
+      "seed": 9,
+      "enemy": {
+        "groups": 11,
+        "people": 3300,
+        "hp": 3300
+      },
+      "won": false,
+      "loss": 502,
+      "beforeDeployed": 502,
+      "afterDeployed": 0,
+      "enemyHp": 479,
+      "round": 6,
+      "callbacks": 70
+    },
+    {
+      "scale": 300,
+      "seed": 10,
+      "enemy": {
+        "groups": 11,
+        "people": 3300,
+        "hp": 3300
+      },
+      "won": true,
+      "loss": 468,
+      "beforeDeployed": 502,
+      "afterDeployed": 34,
+      "enemyHp": 0,
+      "round": 7,
+      "callbacks": 70
+    },
+    {
+      "scale": 300,
+      "seed": 11,
+      "enemy": {
+        "groups": 11,
+        "people": 3300,
+        "hp": 3300
+      },
+      "won": true,
+      "loss": 465,
+      "beforeDeployed": 502,
+      "afterDeployed": 37,
+      "enemyHp": 0,
+      "round": 6,
+      "callbacks": 64
+    },
+    {
+      "scale": 300,
+      "seed": 12,
+      "enemy": {
+        "groups": 11,
+        "people": 3300,
+        "hp": 3300
+      },
+      "won": false,
+      "loss": 502,
+      "beforeDeployed": 502,
+      "afterDeployed": 0,
+      "enemyHp": 490,
+      "round": 6,
+      "callbacks": 67
+    },
+    {
+      "scale": 300,
+      "seed": 13,
+      "enemy": {
+        "groups": 11,
+        "people": 3300,
+        "hp": 3300
+      },
+      "won": true,
+      "loss": 482,
+      "beforeDeployed": 502,
+      "afterDeployed": 20,
+      "enemyHp": 0,
+      "round": 8,
+      "callbacks": 70
+    },
+    {
+      "scale": 300,
+      "seed": 14,
+      "enemy": {
+        "groups": 11,
+        "people": 3300,
+        "hp": 3300
+      },
+      "won": true,
+      "loss": 434,
+      "beforeDeployed": 502,
+      "afterDeployed": 68,
+      "enemyHp": 0,
+      "round": 5,
+      "callbacks": 60
+    },
+    {
+      "scale": 300,
+      "seed": 15,
+      "enemy": {
+        "groups": 11,
+        "people": 3300,
+        "hp": 3300
+      },
+      "won": true,
+      "loss": 494,
+      "beforeDeployed": 502,
+      "afterDeployed": 8,
+      "enemyHp": 0,
+      "round": 14,
+      "callbacks": 105
+    },
+    {
+      "scale": 300,
+      "seed": 16,
+      "enemy": {
+        "groups": 11,
+        "people": 3300,
+        "hp": 3300
+      },
+      "won": true,
+      "loss": 417,
+      "beforeDeployed": 502,
+      "afterDeployed": 85,
+      "enemyHp": 0,
+      "round": 6,
+      "callbacks": 67
+    }
+  ],
+  "caveat": "Engineering fixed streams, not player win rates. No paid quantum research or paid postbattle refills are demonstrated."
+}

@@ -1,0 +1,127 @@
+{
+  "source": "p396-quantum-paid-bridge-save.json",
+  "sourceSha256": "f80351aca309c5268575a583b7ca8e46a763407d2a52d476a1e666e4049a6fdd",
+  "start": {
+    "tech": 404429558,
+    "medal": 3092442,
+    "cap": 404429558,
+    "scrollUsed": 133,
+    "scrollLimit": 500,
+    "stars": 0,
+    "levels": {
+      "steam": 33,
+      "electric": 19,
+      "nuclear": 8
+    },
+    "stock": {
+      "godCrystal": 9,
+      "guardianStone": 72,
+      "revivalLeaf": 4
+    },
+    "wildStock": {
+      "boarHeart": 20,
+      "bullHorn": 66,
+      "snakeGall": 29,
+      "tigerPelt": 38,
+      "turtleShell": 511,
+      "wyrmSinew": 47
+    },
+    "next": {
+      "steam": {
+        "tech": 10200000,
+        "godCrystal": 340
+      },
+      "electric": {
+        "tech": 40000000,
+        "guardianStone": 400
+      },
+      "nuclear": {
+        "tech": 180000000,
+        "revivalLeaf": 900
+      }
+    }
+  },
+  "target": 3000000000,
+  "base": 7733000,
+  "currentCapGap": 2595570442,
+  "next": {
+    "steam": {
+      "cost": {
+        "tech": 10200000,
+        "godCrystal": 340
+      },
+      "capacityGain": 9405339,
+      "materialShortfall": 331,
+      "techShortfall": 0
+    },
+    "electric": {
+      "cost": {
+        "tech": 40000000,
+        "guardianStone": 400
+      },
+      "capacityGain": 13945847,
+      "materialShortfall": 328,
+      "techShortfall": 0
+    },
+    "nuclear": {
+      "cost": {
+        "tech": 180000000,
+        "revivalLeaf": 900
+      },
+      "capacityGain": 22468309,
+      "materialShortfall": 896,
+      "techShortfall": 0
+    }
+  },
+  "rows": [
+    {
+      "scrollUsed": 133,
+      "extraScrolls": 0,
+      "levels": {
+        "steam": 100,
+        "electric": 56,
+        "nuclear": 13
+      },
+      "cap": 3008627272,
+      "extraTech": 5258700000,
+      "grossMaterials": {
+        "godCrystal": 44890,
+        "guardianStone": 28120,
+        "revivalLeaf": 5500
+      },
+      "missingFromCurrentStock": {
+        "godCrystal": 44881,
+        "guardianStone": 28048,
+        "revivalLeaf": 5496
+      },
+      "passing": 400264,
+      "actualCapVerified": true,
+      "minimumAdditionalWildMaterials": 0
+    },
+    {
+      "scrollUsed": 500,
+      "extraScrolls": 367,
+      "levels": {
+        "steam": 80,
+        "electric": 30,
+        "nuclear": 8
+      },
+      "cap": 3006590400,
+      "extraTech": 1353700000,
+      "grossMaterials": {
+        "godCrystal": 26790,
+        "guardianStone": 5500,
+        "revivalLeaf": 0
+      },
+      "missingFromCurrentStock": {
+        "godCrystal": 26781,
+        "guardianStone": 5428,
+        "revivalLeaf": 0
+      },
+      "passing": 507086,
+      "actualCapVerified": true,
+      "minimumAdditionalWildMaterials": 6629
+    }
+  ],
+  "scope": "Conditional capacity and gross resource requirements only; no candidate action paid."
+}

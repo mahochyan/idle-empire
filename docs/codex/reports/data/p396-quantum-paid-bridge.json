@@ -1,0 +1,4301 @@
+{
+  "sourceFile": "p395-quantum-steam32-medal-combined-paid-save.json",
+  "sourceSha256": "f66e754ae19d5d23c1c1540aec102392f79b81fc78c210c1b4dd9ea1e8fba28b",
+  "runtimeSha256": {
+    "config.js": "c1e9257c1b0677c5a306a80c28e8b729b4667bc2dbd7e43e1f88bed06d97e869",
+    "levels.js": "7105cc27283ea25aa6829135b09c1da2f1b0ea5a7f1721d6bb3167e3d57c5f08",
+    "math.js": "9cb16af1e322205a2a92110758d71ac5bea0c422b04d981aab870c18a8cd2513",
+    "garrison.js": "4d233f0529d256cd1ace2de782603fcfcbbff110032ca4cf29c5e36af30f10ff",
+    "technology.js": "c51fb05821593d9e76396ff18b0a38d78dee1db9cdc55631b78a7f223ad0a006",
+    "tests/progression/harness.js": "4770d17fa72cc8c87f4c8ef79678f19d63a41da895b8dd58776e5a39ce2ede2b"
+  },
+  "clock": {
+    "onlineSeconds": 13516,
+    "offlineSeconds": 0,
+    "wallClockNote": "Execution time is not player elapsed time; online seconds are simulated tick() calls."
+  },
+  "start": {
+    "tick": 12937460,
+    "tech": 339018782,
+    "medal": 3073710,
+    "cap": 357121694,
+    "food": 482790,
+    "army": 548,
+    "deployed": 502,
+    "crystal": 49,
+    "guardian": 104,
+    "leaf": 75,
+    "blood": 31,
+    "cleanser": 0,
+    "scroll": 131,
+    "alert": {
+      "crystal": 5000,
+      "guardian": 4900,
+      "leaf": 3400
+    },
+    "storage": {
+      "steam": 32,
+      "electric": 18,
+      "nuclear": 7
+    }
+  },
+  "costs": {
+    "quantum": {
+      "tech": 3000000000,
+      "medal": 3000000,
+      "merit": 0
+    },
+    "steam": {
+      "tech": 9900000,
+      "godCrystal": 330
+    },
+    "electric": {
+      "tech": 38000000,
+      "guardianStone": 380
+    },
+    "nuclear": {
+      "tech": 160000000,
+      "revivalLeaf": 800
+    }
+  },
+  "battles": [
+    {
+      "key": "revivalLeaf",
+      "result": "win",
+      "callbacks": 6,
+      "enemyHpLeft": 0,
+      "before": {
+        "tick": 12938902,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 75,
+        "blood": 28,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3300
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      },
+      "after": {
+        "tick": 12938902,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 156,
+        "blood": 30,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      },
+      "gain": 81,
+      "loss": 0,
+      "expectedReward": 81,
+      "checkpoint": "b191aa9bfaf8222b714854e2312f25ce2b6a32e116227fc1ce3a439fceae7ed2"
+    },
+    {
+      "key": "revivalLeaf",
+      "result": "win",
+      "callbacks": 6,
+      "enemyHpLeft": 0,
+      "before": {
+        "tick": 12938908,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 156,
+        "blood": 27,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3300
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      },
+      "after": {
+        "tick": 12938908,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 237,
+        "blood": 29,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      },
+      "gain": 81,
+      "loss": 0,
+      "expectedReward": 81,
+      "checkpoint": "8869e9ee7104d55c7da3283623f2bd8bfc31ef53169730997f65e23325f2bcc9"
+    },
+    {
+      "key": "revivalLeaf",
+      "result": "win",
+      "callbacks": 6,
+      "enemyHpLeft": 0,
+      "before": {
+        "tick": 12938914,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 237,
+        "blood": 26,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3300
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      },
+      "after": {
+        "tick": 12938914,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 318,
+        "blood": 28,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      },
+      "gain": 81,
+      "loss": 0,
+      "expectedReward": 81,
+      "checkpoint": "ce225a5060068ac9b27fc32275986450503884f4fdeec830aa548c40c6828efc"
+    },
+    {
+      "key": "revivalLeaf",
+      "result": "win",
+      "callbacks": 6,
+      "enemyHpLeft": 0,
+      "before": {
+        "tick": 12938920,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 318,
+        "blood": 25,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3300
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      },
+      "after": {
+        "tick": 12938920,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 399,
+        "blood": 27,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      },
+      "gain": 81,
+      "loss": 0,
+      "expectedReward": 81,
+      "checkpoint": "08a205865a15559979479ae86354eecda142ba2533f332bb270fe5bcc719420d"
+    },
+    {
+      "key": "revivalLeaf",
+      "result": "win",
+      "callbacks": 6,
+      "enemyHpLeft": 0,
+      "before": {
+        "tick": 12938926,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 399,
+        "blood": 24,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3300
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      },
+      "after": {
+        "tick": 12938926,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 480,
+        "blood": 26,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      },
+      "gain": 81,
+      "loss": 0,
+      "expectedReward": 81,
+      "checkpoint": "52955929e331fca200f7bef5e773ddd35523be23158b3d038cd6325626f10d4b"
+    },
+    {
+      "key": "revivalLeaf",
+      "result": "win",
+      "callbacks": 6,
+      "enemyHpLeft": 0,
+      "before": {
+        "tick": 12938932,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 480,
+        "blood": 23,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3300
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      },
+      "after": {
+        "tick": 12938932,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 561,
+        "blood": 25,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      },
+      "gain": 81,
+      "loss": 0,
+      "expectedReward": 81,
+      "checkpoint": "9ca456da157aa78876e27aa942d50ef20299925ac454954f685491a420ef934e"
+    },
+    {
+      "key": "revivalLeaf",
+      "result": "win",
+      "callbacks": 6,
+      "enemyHpLeft": 0,
+      "before": {
+        "tick": 12938938,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 561,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3300
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      },
+      "after": {
+        "tick": 12938938,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 642,
+        "blood": 24,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      },
+      "gain": 81,
+      "loss": 0,
+      "expectedReward": 81,
+      "checkpoint": "9ce8c8f01423719997217d87fae1d55a0f54a84419962fc382d2833fc83713bf"
+    },
+    {
+      "key": "revivalLeaf",
+      "result": "win",
+      "callbacks": 6,
+      "enemyHpLeft": 0,
+      "before": {
+        "tick": 12938944,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 642,
+        "blood": 21,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3300
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      },
+      "after": {
+        "tick": 12938944,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 723,
+        "blood": 23,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      },
+      "gain": 81,
+      "loss": 0,
+      "expectedReward": 81,
+      "checkpoint": "3631ecdb647f9c378de169e5f483edd412644bbeaa5d317ad477cb78156a64cd"
+    },
+    {
+      "key": "revivalLeaf",
+      "result": "win",
+      "callbacks": 6,
+      "enemyHpLeft": 0,
+      "before": {
+        "tick": 12938950,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 723,
+        "blood": 20,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3300
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      },
+      "after": {
+        "tick": 12938950,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 804,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      },
+      "gain": 81,
+      "loss": 0,
+      "expectedReward": 81,
+      "checkpoint": "fc72558cf40bec7ba4294648d66c0fff8d99da3db5e97b6da32cf201c06fbcf2"
+    },
+    {
+      "key": "guardianStone",
+      "result": "win",
+      "callbacks": 36,
+      "enemyHpLeft": 0,
+      "before": {
+        "tick": 12938956,
+        "tech": 179018782,
+        "medal": 3073710,
+        "cap": 378128852,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 4,
+        "blood": 19,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4800,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 8
+        }
+      },
+      "after": {
+        "tick": 12938956,
+        "tech": 179018782,
+        "medal": 3076034,
+        "cap": 378128852,
+        "food": 482790,
+        "army": 649,
+        "deployed": 603,
+        "crystal": 49,
+        "guardian": 220,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 8
+        }
+      },
+      "gain": 116,
+      "loss": 23,
+      "expectedReward": 116,
+      "checkpoint": "cf1a67251f5bcaa7d3218763fa5be818f18575ad9c0e935001d750c2f62481a2"
+    },
+    {
+      "key": "guardianStone",
+      "result": "win",
+      "callbacks": 36,
+      "enemyHpLeft": 0,
+      "before": {
+        "tick": 12939134,
+        "tech": 179018782,
+        "medal": 3076034,
+        "cap": 378128852,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 220,
+        "leaf": 4,
+        "blood": 19,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4800,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 8
+        }
+      },
+      "after": {
+        "tick": 12939134,
+        "tech": 179018782,
+        "medal": 3078358,
+        "cap": 378128852,
+        "food": 482790,
+        "army": 660,
+        "deployed": 614,
+        "crystal": 49,
+        "guardian": 336,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 8
+        }
+      },
+      "gain": 116,
+      "loss": 12,
+      "expectedReward": 116,
+      "checkpoint": "39f632a2a8f4ca98e788b821c047c5c1b1075520dfe2d44863b55dca25a9f76c"
+    },
+    {
+      "key": "guardianStone",
+      "result": "win",
+      "callbacks": 37,
+      "enemyHpLeft": 0,
+      "before": {
+        "tick": 12939563,
+        "tech": 179018782,
+        "medal": 3078358,
+        "cap": 378128852,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 336,
+        "leaf": 4,
+        "blood": 19,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4800,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 8
+        }
+      },
+      "after": {
+        "tick": 12939563,
+        "tech": 179018782,
+        "medal": 3080682,
+        "cap": 378128852,
+        "food": 482790,
+        "army": 661,
+        "deployed": 615,
+        "crystal": 49,
+        "guardian": 452,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 8
+        }
+      },
+      "gain": 116,
+      "loss": 11,
+      "expectedReward": 116,
+      "checkpoint": "898255a29c10256e960c8ef3c96bb598a64e541cf60822cea35f53846945f7aa"
+    },
+    {
+      "key": "godCrystal",
+      "result": "win",
+      "callbacks": 9,
+      "enemyHpLeft": 0,
+      "before": {
+        "tick": 12939626,
+        "tech": 141018782,
+        "medal": 3080682,
+        "cap": 391633454,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 72,
+        "leaf": 4,
+        "blood": 19,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 4900,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 19,
+          "nuclear": 8
+        }
+      },
+      "after": {
+        "tick": 12939626,
+        "tech": 141018782,
+        "medal": 3083034,
+        "cap": 391633454,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 107,
+        "guardian": 72,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 19,
+          "nuclear": 8
+        }
+      },
+      "gain": 58,
+      "loss": 0,
+      "expectedReward": 58,
+      "checkpoint": "2bc875aa98f543d643c7350fe6fe52ced451748f6ac4483a13ad0780fe9486f7"
+    },
+    {
+      "key": "godCrystal",
+      "result": "win",
+      "callbacks": 9,
+      "enemyHpLeft": 0,
+      "before": {
+        "tick": 12939632,
+        "tech": 141018782,
+        "medal": 3083034,
+        "cap": 391633454,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 107,
+        "guardian": 72,
+        "leaf": 4,
+        "blood": 19,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 4900,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 19,
+          "nuclear": 8
+        }
+      },
+      "after": {
+        "tick": 12939632,
+        "tech": 141018782,
+        "medal": 3085386,
+        "cap": 391633454,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 165,
+        "guardian": 72,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 19,
+          "nuclear": 8
+        }
+      },
+      "gain": 58,
+      "loss": 0,
+      "expectedReward": 58,
+      "checkpoint": "ef29242691b67c3edf530faf0b4d242a354302b7e685b78daaccc6668cd9afca"
+    },
+    {
+      "key": "godCrystal",
+      "result": "win",
+      "callbacks": 9,
+      "enemyHpLeft": 0,
+      "before": {
+        "tick": 12939638,
+        "tech": 141018782,
+        "medal": 3085386,
+        "cap": 391633454,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 165,
+        "guardian": 72,
+        "leaf": 4,
+        "blood": 19,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 4900,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 19,
+          "nuclear": 8
+        }
+      },
+      "after": {
+        "tick": 12939638,
+        "tech": 141018782,
+        "medal": 3087738,
+        "cap": 391633454,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 223,
+        "guardian": 72,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 19,
+          "nuclear": 8
+        }
+      },
+      "gain": 58,
+      "loss": 0,
+      "expectedReward": 58,
+      "checkpoint": "d3c5a3c551a03b5cac1771ecedaee48380812f569830c1311ce432ad2c35a0cb"
+    },
+    {
+      "key": "godCrystal",
+      "result": "win",
+      "callbacks": 9,
+      "enemyHpLeft": 0,
+      "before": {
+        "tick": 12939644,
+        "tech": 141018782,
+        "medal": 3087738,
+        "cap": 391633454,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 223,
+        "guardian": 72,
+        "leaf": 4,
+        "blood": 19,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 4900,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 19,
+          "nuclear": 8
+        }
+      },
+      "after": {
+        "tick": 12939644,
+        "tech": 141018782,
+        "medal": 3090090,
+        "cap": 391633454,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 281,
+        "guardian": 72,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 19,
+          "nuclear": 8
+        }
+      },
+      "gain": 58,
+      "loss": 0,
+      "expectedReward": 58,
+      "checkpoint": "a43b46fb1d6f0c48ab74b557f8770384cf6198b3f6ba77baa49574a806050e7f"
+    },
+    {
+      "key": "godCrystal",
+      "result": "win",
+      "callbacks": 16,
+      "enemyHpLeft": 0,
+      "before": {
+        "tick": 12939650,
+        "tech": 141018782,
+        "medal": 3090090,
+        "cap": 391633454,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 281,
+        "guardian": 72,
+        "leaf": 4,
+        "blood": 19,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 4900,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 19,
+          "nuclear": 8
+        }
+      },
+      "after": {
+        "tick": 12939650,
+        "tech": 141018782,
+        "medal": 3092442,
+        "cap": 391633454,
+        "food": 482790,
+        "army": 664,
+        "deployed": 618,
+        "crystal": 339,
+        "guardian": 72,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 19,
+          "nuclear": 8
+        }
+      },
+      "gain": 58,
+      "loss": 8,
+      "expectedReward": 58,
+      "checkpoint": "537d4a0594a02f2e8b73bbf494354d091a5ad6935cdee5a4bad7864e41c281fb"
+    }
+  ],
+  "payments": [
+    {
+      "key": "nuclearKnowledge",
+      "before": {
+        "tick": 12938956,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 804,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      },
+      "cost": {
+        "tech": 160000000,
+        "revivalLeaf": 800
+      },
+      "fill": {
+        "seconds": 0,
+        "before": 339018782,
+        "after": 339018782
+      },
+      "paid": {
+        "ok": true,
+        "level": 8,
+        "cost": {
+          "tech": 160000000,
+          "revivalLeaf": 800
+        }
+      },
+      "after": {
+        "tick": 12938956,
+        "tech": 179018782,
+        "medal": 3073710,
+        "cap": 378128852,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 8
+        }
+      },
+      "checkpoint": "9e2ca41270d4bd0073d843e5653d38205779dd660324ed8cf7009c15543ff15c"
+    },
+    {
+      "key": "electricKnowledge",
+      "before": {
+        "tick": 12939626,
+        "tech": 179018782,
+        "medal": 3080682,
+        "cap": 378128852,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 452,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 8
+        }
+      },
+      "cost": {
+        "tech": 38000000,
+        "guardianStone": 380
+      },
+      "fill": {
+        "seconds": 0,
+        "before": 179018782,
+        "after": 179018782
+      },
+      "paid": {
+        "ok": true,
+        "level": 19,
+        "cost": {
+          "tech": 38000000,
+          "guardianStone": 380
+        }
+      },
+      "after": {
+        "tick": 12939626,
+        "tech": 141018782,
+        "medal": 3080682,
+        "cap": 391633454,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 72,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 19,
+          "nuclear": 8
+        }
+      },
+      "checkpoint": "6d6053d2a51be48e58be630b36ae8a4b4dfa4ca1a287e98113b14aeaa24e3a50"
+    },
+    {
+      "key": "steamKnowledge",
+      "before": {
+        "tick": 12939676,
+        "tech": 141018782,
+        "medal": 3092442,
+        "cap": 391633454,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 339,
+        "guardian": 72,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 19,
+          "nuclear": 8
+        }
+      },
+      "cost": {
+        "tech": 9900000,
+        "godCrystal": 330
+      },
+      "fill": {
+        "seconds": 0,
+        "before": 141018782,
+        "after": 141018782
+      },
+      "paid": {
+        "ok": true,
+        "level": 33,
+        "cost": {
+          "tech": 9900000,
+          "godCrystal": 330
+        }
+      },
+      "after": {
+        "tick": 12939676,
+        "tech": 131118782,
+        "medal": 3092442,
+        "cap": 400958060,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 9,
+        "guardian": 72,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 33,
+          "electric": 19,
+          "nuclear": 8
+        }
+      },
+      "checkpoint": "0842a2656517d271f46995e1cf3f0477cc5cae1c3ed76ca5b427276dccfda244"
+    }
+  ],
+  "replenishments": [
+    {
+      "before": {
+        "tick": 12937460,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 548,
+        "deployed": 502,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 75,
+        "blood": 31,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      },
+      "need": {
+        "star_trooper": 43,
+        "electro_trooper": 81,
+        "armored_trooper": 0,
+        "alloy_special": 0,
+        "gold_cavalry": 0,
+        "archer": 0
+      },
+      "trainingCost": {
+        "steel": 992000,
+        "iron": 992000,
+        "copper": 992000
+      },
+      "seconds": 1442,
+      "minFood": 482790,
+      "phases": {
+        "stone": 48,
+        "coal": 426,
+        "copper": 419,
+        "iron": 242,
+        "steel": 244,
+        "wood": 0,
+        "gold": 0,
+        "food": 0,
+        "training": 63
+      },
+      "after": {
+        "tick": 12938902,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 75,
+        "blood": 31,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      },
+      "checkpoint": "f52a42ac6bc2e5e598921c272060b14e9d3d8a31681b5194219a8585344b633f"
+    },
+    {
+      "before": {
+        "tick": 12938956,
+        "tech": 179018782,
+        "medal": 3076034,
+        "cap": 378128852,
+        "food": 482790,
+        "army": 649,
+        "deployed": 603,
+        "crystal": 49,
+        "guardian": 220,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 8
+        }
+      },
+      "need": {
+        "star_trooper": 3,
+        "electro_trooper": 20,
+        "armored_trooper": 0,
+        "alloy_special": 0,
+        "gold_cavalry": 0,
+        "archer": 0
+      },
+      "trainingCost": {
+        "steel": 184000,
+        "iron": 184000,
+        "copper": 184000
+      },
+      "seconds": 172,
+      "minFood": 482790,
+      "phases": {
+        "stone": 50,
+        "coal": 0,
+        "copper": 66,
+        "iron": 0,
+        "steel": 44,
+        "wood": 0,
+        "gold": 0,
+        "food": 0,
+        "training": 12
+      },
+      "after": {
+        "tick": 12939128,
+        "tech": 179018782,
+        "medal": 3076034,
+        "cap": 378128852,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 220,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 8
+        }
+      },
+      "checkpoint": "117f8ebec3348b1f337e9be41f7371ec18bd2521e54c4560779532b09d045b68"
+    },
+    {
+      "before": {
+        "tick": 12939134,
+        "tech": 179018782,
+        "medal": 3078358,
+        "cap": 378128852,
+        "food": 482790,
+        "army": 660,
+        "deployed": 614,
+        "crystal": 49,
+        "guardian": 336,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 8
+        }
+      },
+      "need": {
+        "star_trooper": 3,
+        "electro_trooper": 9,
+        "armored_trooper": 0,
+        "alloy_special": 0,
+        "gold_cavalry": 0,
+        "archer": 0
+      },
+      "trainingCost": {
+        "steel": 96000,
+        "iron": 96000,
+        "copper": 96000
+      },
+      "seconds": 423,
+      "minFood": 482790,
+      "phases": {
+        "stone": 0,
+        "coal": 142,
+        "copper": 27,
+        "iron": 226,
+        "steel": 21,
+        "wood": 0,
+        "gold": 0,
+        "food": 0,
+        "training": 7
+      },
+      "after": {
+        "tick": 12939557,
+        "tech": 179018782,
+        "medal": 3078358,
+        "cap": 378128852,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 336,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 8
+        }
+      },
+      "checkpoint": "624310f4cd0e25f8753250a6625e03155281e7beb4fa6f723344dc0baa0ae6c7"
+    },
+    {
+      "before": {
+        "tick": 12939563,
+        "tech": 179018782,
+        "medal": 3080682,
+        "cap": 378128852,
+        "food": 482790,
+        "army": 661,
+        "deployed": 615,
+        "crystal": 49,
+        "guardian": 452,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 8
+        }
+      },
+      "need": {
+        "star_trooper": 11,
+        "electro_trooper": 0,
+        "armored_trooper": 0,
+        "alloy_special": 0,
+        "gold_cavalry": 0,
+        "archer": 0
+      },
+      "trainingCost": {
+        "steel": 88000,
+        "iron": 88000,
+        "copper": 88000
+      },
+      "seconds": 57,
+      "minFood": 482790,
+      "phases": {
+        "stone": 0,
+        "coal": 0,
+        "copper": 29,
+        "iron": 0,
+        "steel": 22,
+        "wood": 0,
+        "gold": 0,
+        "food": 0,
+        "training": 6
+      },
+      "after": {
+        "tick": 12939620,
+        "tech": 179018782,
+        "medal": 3080682,
+        "cap": 378128852,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 452,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 8
+        }
+      },
+      "checkpoint": "2d41bea367c200733f0c285eb2f315fafd7331c3ee01346b9a3097492d7ed064"
+    },
+    {
+      "before": {
+        "tick": 12939650,
+        "tech": 141018782,
+        "medal": 3092442,
+        "cap": 391633454,
+        "food": 482790,
+        "army": 664,
+        "deployed": 618,
+        "crystal": 339,
+        "guardian": 72,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 19,
+          "nuclear": 8
+        }
+      },
+      "need": {
+        "star_trooper": 8,
+        "electro_trooper": 0,
+        "armored_trooper": 0,
+        "alloy_special": 0,
+        "gold_cavalry": 0,
+        "archer": 0
+      },
+      "trainingCost": {
+        "steel": 64000,
+        "iron": 64000,
+        "copper": 64000
+      },
+      "seconds": 20,
+      "minFood": 482790,
+      "phases": {
+        "stone": 0,
+        "coal": 0,
+        "copper": 0,
+        "iron": 0,
+        "steel": 16,
+        "wood": 0,
+        "gold": 0,
+        "food": 0,
+        "training": 4
+      },
+      "after": {
+        "tick": 12939670,
+        "tech": 141018782,
+        "medal": 3092442,
+        "cap": 391633454,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 339,
+        "guardian": 72,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 19,
+          "nuclear": 8
+        }
+      },
+      "checkpoint": "0e7f955778f464ef9ac09cb96fb1f2938b94c9431e24f538852095972a497f2d"
+    }
+  ],
+  "cleansers": [
+    {
+      "key": "revivalLeaf",
+      "before": {
+        "tick": 12938902,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 75,
+        "blood": 31,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      },
+      "exchange": {
+        "ok": true,
+        "gained": 1,
+        "spent": 3,
+        "count": 1
+      },
+      "use": {
+        "ok": true,
+        "alert": 3300,
+        "spent": 1
+      },
+      "after": {
+        "tick": 12938902,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 75,
+        "blood": 28,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3300
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      },
+      "checkpoint": "d08b14adfa93f19c34565c2ba88abe7a5ac6042a67b198ce3acb83b6ec975c03"
+    },
+    {
+      "key": "revivalLeaf",
+      "before": {
+        "tick": 12938908,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 156,
+        "blood": 30,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      },
+      "exchange": {
+        "ok": true,
+        "gained": 1,
+        "spent": 3,
+        "count": 1
+      },
+      "use": {
+        "ok": true,
+        "alert": 3300,
+        "spent": 1
+      },
+      "after": {
+        "tick": 12938908,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 156,
+        "blood": 27,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3300
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      },
+      "checkpoint": "34151c55683bc70db47305cbc09b70bdfdbeebea4ec1a1482a48af0b64c908bc"
+    },
+    {
+      "key": "revivalLeaf",
+      "before": {
+        "tick": 12938914,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 237,
+        "blood": 29,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      },
+      "exchange": {
+        "ok": true,
+        "gained": 1,
+        "spent": 3,
+        "count": 1
+      },
+      "use": {
+        "ok": true,
+        "alert": 3300,
+        "spent": 1
+      },
+      "after": {
+        "tick": 12938914,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 237,
+        "blood": 26,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3300
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      },
+      "checkpoint": "84592f5a8e958e9e09f09838e2efdc4210b7e68924dff2efc1dde0ed33a11a99"
+    },
+    {
+      "key": "revivalLeaf",
+      "before": {
+        "tick": 12938920,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 318,
+        "blood": 28,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      },
+      "exchange": {
+        "ok": true,
+        "gained": 1,
+        "spent": 3,
+        "count": 1
+      },
+      "use": {
+        "ok": true,
+        "alert": 3300,
+        "spent": 1
+      },
+      "after": {
+        "tick": 12938920,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 318,
+        "blood": 25,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3300
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      },
+      "checkpoint": "d5dad76990fda6beaf86c1f7d7b63acc9742d47850b16d16c9c3a4659973be5f"
+    },
+    {
+      "key": "revivalLeaf",
+      "before": {
+        "tick": 12938926,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 399,
+        "blood": 27,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      },
+      "exchange": {
+        "ok": true,
+        "gained": 1,
+        "spent": 3,
+        "count": 1
+      },
+      "use": {
+        "ok": true,
+        "alert": 3300,
+        "spent": 1
+      },
+      "after": {
+        "tick": 12938926,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 399,
+        "blood": 24,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3300
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      },
+      "checkpoint": "dd8a733308d7e9ab6d12e3f574aaf08eb97d6010214dd874351f263036920ea5"
+    },
+    {
+      "key": "revivalLeaf",
+      "before": {
+        "tick": 12938932,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 480,
+        "blood": 26,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      },
+      "exchange": {
+        "ok": true,
+        "gained": 1,
+        "spent": 3,
+        "count": 1
+      },
+      "use": {
+        "ok": true,
+        "alert": 3300,
+        "spent": 1
+      },
+      "after": {
+        "tick": 12938932,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 480,
+        "blood": 23,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3300
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      },
+      "checkpoint": "3d2ef515af66cc1f723d5b70ebeb0d0acd1bfd402ae6a5fe05e395ffaf846229"
+    },
+    {
+      "key": "revivalLeaf",
+      "before": {
+        "tick": 12938938,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 561,
+        "blood": 25,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      },
+      "exchange": {
+        "ok": true,
+        "gained": 1,
+        "spent": 3,
+        "count": 1
+      },
+      "use": {
+        "ok": true,
+        "alert": 3300,
+        "spent": 1
+      },
+      "after": {
+        "tick": 12938938,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 561,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3300
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      },
+      "checkpoint": "effec3f48c2fef4c44bc66b612711ab8ce19f975e5b9d8ae49d867b566233439"
+    },
+    {
+      "key": "revivalLeaf",
+      "before": {
+        "tick": 12938944,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 642,
+        "blood": 24,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      },
+      "exchange": {
+        "ok": true,
+        "gained": 1,
+        "spent": 3,
+        "count": 1
+      },
+      "use": {
+        "ok": true,
+        "alert": 3300,
+        "spent": 1
+      },
+      "after": {
+        "tick": 12938944,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 642,
+        "blood": 21,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3300
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      },
+      "checkpoint": "cef1cde7c28f2146a37f6c6bb10ca1e53a9e7e2ea0d9532f2b0cc97d6e15e2b7"
+    },
+    {
+      "key": "revivalLeaf",
+      "before": {
+        "tick": 12938950,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 723,
+        "blood": 23,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      },
+      "exchange": {
+        "ok": true,
+        "gained": 1,
+        "spent": 3,
+        "count": 1
+      },
+      "use": {
+        "ok": true,
+        "alert": 3300,
+        "spent": 1
+      },
+      "after": {
+        "tick": 12938950,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 723,
+        "blood": 20,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3300
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      },
+      "checkpoint": "f4df7851db01bc4038e5757fef15de47702f15c80aaacd204087754d68a26db5"
+    },
+    {
+      "key": "guardianStone",
+      "before": {
+        "tick": 12938956,
+        "tech": 179018782,
+        "medal": 3073710,
+        "cap": 378128852,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 8
+        }
+      },
+      "exchange": {
+        "ok": true,
+        "gained": 1,
+        "spent": 3,
+        "count": 1
+      },
+      "use": {
+        "ok": true,
+        "alert": 4800,
+        "spent": 1
+      },
+      "after": {
+        "tick": 12938956,
+        "tech": 179018782,
+        "medal": 3073710,
+        "cap": 378128852,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 4,
+        "blood": 19,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4800,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 8
+        }
+      },
+      "checkpoint": "e59ac085259ac7d8b381ac2796a0ae96989e5bf258020580b054493b79c6ce2a"
+    },
+    {
+      "key": "guardianStone",
+      "before": {
+        "tick": 12939134,
+        "tech": 179018782,
+        "medal": 3076034,
+        "cap": 378128852,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 220,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 8
+        }
+      },
+      "exchange": {
+        "ok": true,
+        "gained": 1,
+        "spent": 3,
+        "count": 1
+      },
+      "use": {
+        "ok": true,
+        "alert": 4800,
+        "spent": 1
+      },
+      "after": {
+        "tick": 12939134,
+        "tech": 179018782,
+        "medal": 3076034,
+        "cap": 378128852,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 220,
+        "leaf": 4,
+        "blood": 19,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4800,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 8
+        }
+      },
+      "checkpoint": "32720c9bf476631127641174ee4ee83b814d7d4f938f6e7f5fb57de8411cc440"
+    },
+    {
+      "key": "guardianStone",
+      "before": {
+        "tick": 12939563,
+        "tech": 179018782,
+        "medal": 3078358,
+        "cap": 378128852,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 336,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 8
+        }
+      },
+      "exchange": {
+        "ok": true,
+        "gained": 1,
+        "spent": 3,
+        "count": 1
+      },
+      "use": {
+        "ok": true,
+        "alert": 4800,
+        "spent": 1
+      },
+      "after": {
+        "tick": 12939563,
+        "tech": 179018782,
+        "medal": 3078358,
+        "cap": 378128852,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 336,
+        "leaf": 4,
+        "blood": 19,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4800,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 8
+        }
+      },
+      "checkpoint": "226962d385bfdaf5db5cfc0f42eb61d7208241131cf1a3372d206e100b624b12"
+    },
+    {
+      "key": "godCrystal",
+      "before": {
+        "tick": 12939626,
+        "tech": 141018782,
+        "medal": 3080682,
+        "cap": 391633454,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 72,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 19,
+          "nuclear": 8
+        }
+      },
+      "exchange": {
+        "ok": true,
+        "gained": 1,
+        "spent": 3,
+        "count": 1
+      },
+      "use": {
+        "ok": true,
+        "alert": 4900,
+        "spent": 1
+      },
+      "after": {
+        "tick": 12939626,
+        "tech": 141018782,
+        "medal": 3080682,
+        "cap": 391633454,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 72,
+        "leaf": 4,
+        "blood": 19,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 4900,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 19,
+          "nuclear": 8
+        }
+      },
+      "checkpoint": "685f7e3466446e1f8c1c1147150975647ecfecaa2447972f1acfcd011eaad108"
+    },
+    {
+      "key": "godCrystal",
+      "before": {
+        "tick": 12939632,
+        "tech": 141018782,
+        "medal": 3083034,
+        "cap": 391633454,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 107,
+        "guardian": 72,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 19,
+          "nuclear": 8
+        }
+      },
+      "exchange": {
+        "ok": true,
+        "gained": 1,
+        "spent": 3,
+        "count": 1
+      },
+      "use": {
+        "ok": true,
+        "alert": 4900,
+        "spent": 1
+      },
+      "after": {
+        "tick": 12939632,
+        "tech": 141018782,
+        "medal": 3083034,
+        "cap": 391633454,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 107,
+        "guardian": 72,
+        "leaf": 4,
+        "blood": 19,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 4900,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 19,
+          "nuclear": 8
+        }
+      },
+      "checkpoint": "467a0984601d66c1133a892ee433e6dd84707a406a04c937b5a1a1b88a8f6cee"
+    },
+    {
+      "key": "godCrystal",
+      "before": {
+        "tick": 12939638,
+        "tech": 141018782,
+        "medal": 3085386,
+        "cap": 391633454,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 165,
+        "guardian": 72,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 19,
+          "nuclear": 8
+        }
+      },
+      "exchange": {
+        "ok": true,
+        "gained": 1,
+        "spent": 3,
+        "count": 1
+      },
+      "use": {
+        "ok": true,
+        "alert": 4900,
+        "spent": 1
+      },
+      "after": {
+        "tick": 12939638,
+        "tech": 141018782,
+        "medal": 3085386,
+        "cap": 391633454,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 165,
+        "guardian": 72,
+        "leaf": 4,
+        "blood": 19,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 4900,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 19,
+          "nuclear": 8
+        }
+      },
+      "checkpoint": "b4c829e93ca94035c449af71872285f46acc5e8766bcc59800184e0cdb394f1b"
+    },
+    {
+      "key": "godCrystal",
+      "before": {
+        "tick": 12939644,
+        "tech": 141018782,
+        "medal": 3087738,
+        "cap": 391633454,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 223,
+        "guardian": 72,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 19,
+          "nuclear": 8
+        }
+      },
+      "exchange": {
+        "ok": true,
+        "gained": 1,
+        "spent": 3,
+        "count": 1
+      },
+      "use": {
+        "ok": true,
+        "alert": 4900,
+        "spent": 1
+      },
+      "after": {
+        "tick": 12939644,
+        "tech": 141018782,
+        "medal": 3087738,
+        "cap": 391633454,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 223,
+        "guardian": 72,
+        "leaf": 4,
+        "blood": 19,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 4900,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 19,
+          "nuclear": 8
+        }
+      },
+      "checkpoint": "4c51ef8458f348ca65b3ac860aee534169a8d1671f465b460b14728bb2179da0"
+    },
+    {
+      "key": "godCrystal",
+      "before": {
+        "tick": 12939650,
+        "tech": 141018782,
+        "medal": 3090090,
+        "cap": 391633454,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 281,
+        "guardian": 72,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 19,
+          "nuclear": 8
+        }
+      },
+      "exchange": {
+        "ok": true,
+        "gained": 1,
+        "spent": 3,
+        "count": 1
+      },
+      "use": {
+        "ok": true,
+        "alert": 4900,
+        "spent": 1
+      },
+      "after": {
+        "tick": 12939650,
+        "tech": 141018782,
+        "medal": 3090090,
+        "cap": 391633454,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 281,
+        "guardian": 72,
+        "leaf": 4,
+        "blood": 19,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 4900,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 19,
+          "nuclear": 8
+        }
+      },
+      "checkpoint": "8af168a24815a73c2fb176c3834e7057957cda17b7e2be191a7d78148d65324d"
+    }
+  ],
+  "scrollTrades": [
+    {
+      "key": "snakeGall",
+      "price": 200,
+      "stockBefore": 429,
+      "trade": {
+        "ok": true,
+        "cost": 200,
+        "scrollGain": 1,
+        "materialKey": "snakeGall"
+      },
+      "use": {
+        "ok": true,
+        "used": 132
+      },
+      "before": {
+        "tick": 12939676,
+        "tech": 131118782,
+        "medal": 3092442,
+        "cap": 400958060,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 9,
+        "guardian": 72,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 33,
+          "electric": 19,
+          "nuclear": 8
+        }
+      },
+      "after": {
+        "tick": 12939676,
+        "tech": 131118782,
+        "medal": 3092442,
+        "cap": 402693809,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 9,
+        "guardian": 72,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 132,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 33,
+          "electric": 19,
+          "nuclear": 8
+        }
+      },
+      "checkpoint": "73a5aca5cff4c32b3952fb34ddcf61c094e88fd5882d3413b62cdcd992824d47"
+    },
+    {
+      "key": "snakeGall",
+      "price": 200,
+      "stockBefore": 229,
+      "trade": {
+        "ok": true,
+        "cost": 200,
+        "scrollGain": 1,
+        "materialKey": "snakeGall"
+      },
+      "use": {
+        "ok": true,
+        "used": 133
+      },
+      "before": {
+        "tick": 12939676,
+        "tech": 131118782,
+        "medal": 3092442,
+        "cap": 402693809,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 9,
+        "guardian": 72,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 132,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 33,
+          "electric": 19,
+          "nuclear": 8
+        }
+      },
+      "after": {
+        "tick": 12939676,
+        "tech": 131118782,
+        "medal": 3092442,
+        "cap": 404429558,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 9,
+        "guardian": 72,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 133,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 33,
+          "electric": 19,
+          "nuclear": 8
+        }
+      },
+      "checkpoint": "5fd4bdfeb9cb65d6af9fe4fe55a5750acbc4e919eb8341252d4762ed0a0eff63"
+    }
+  ],
+  "marketRefreshes": [],
+  "checkpoints": [
+    {
+      "label": "replenish-1",
+      "sha256": "f52a42ac6bc2e5e598921c272060b14e9d3d8a31681b5194219a8585344b633f",
+      "state": {
+        "tick": 12938902,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 75,
+        "blood": 31,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      }
+    },
+    {
+      "label": "cleanse-revivalLeaf-1",
+      "sha256": "d08b14adfa93f19c34565c2ba88abe7a5ac6042a67b198ce3acb83b6ec975c03",
+      "state": {
+        "tick": 12938902,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 75,
+        "blood": 28,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3300
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      }
+    },
+    {
+      "label": "revivalLeaf-1",
+      "sha256": "b191aa9bfaf8222b714854e2312f25ce2b6a32e116227fc1ce3a439fceae7ed2",
+      "state": {
+        "tick": 12938902,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 156,
+        "blood": 30,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      }
+    },
+    {
+      "label": "cleanse-revivalLeaf-2",
+      "sha256": "34151c55683bc70db47305cbc09b70bdfdbeebea4ec1a1482a48af0b64c908bc",
+      "state": {
+        "tick": 12938908,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 156,
+        "blood": 27,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3300
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      }
+    },
+    {
+      "label": "revivalLeaf-2",
+      "sha256": "8869e9ee7104d55c7da3283623f2bd8bfc31ef53169730997f65e23325f2bcc9",
+      "state": {
+        "tick": 12938908,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 237,
+        "blood": 29,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      }
+    },
+    {
+      "label": "cleanse-revivalLeaf-3",
+      "sha256": "84592f5a8e958e9e09f09838e2efdc4210b7e68924dff2efc1dde0ed33a11a99",
+      "state": {
+        "tick": 12938914,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 237,
+        "blood": 26,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3300
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      }
+    },
+    {
+      "label": "revivalLeaf-3",
+      "sha256": "ce225a5060068ac9b27fc32275986450503884f4fdeec830aa548c40c6828efc",
+      "state": {
+        "tick": 12938914,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 318,
+        "blood": 28,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      }
+    },
+    {
+      "label": "cleanse-revivalLeaf-4",
+      "sha256": "d5dad76990fda6beaf86c1f7d7b63acc9742d47850b16d16c9c3a4659973be5f",
+      "state": {
+        "tick": 12938920,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 318,
+        "blood": 25,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3300
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      }
+    },
+    {
+      "label": "revivalLeaf-4",
+      "sha256": "08a205865a15559979479ae86354eecda142ba2533f332bb270fe5bcc719420d",
+      "state": {
+        "tick": 12938920,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 399,
+        "blood": 27,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      }
+    },
+    {
+      "label": "cleanse-revivalLeaf-5",
+      "sha256": "dd8a733308d7e9ab6d12e3f574aaf08eb97d6010214dd874351f263036920ea5",
+      "state": {
+        "tick": 12938926,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 399,
+        "blood": 24,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3300
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      }
+    },
+    {
+      "label": "revivalLeaf-5",
+      "sha256": "52955929e331fca200f7bef5e773ddd35523be23158b3d038cd6325626f10d4b",
+      "state": {
+        "tick": 12938926,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 480,
+        "blood": 26,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      }
+    },
+    {
+      "label": "cleanse-revivalLeaf-6",
+      "sha256": "3d2ef515af66cc1f723d5b70ebeb0d0acd1bfd402ae6a5fe05e395ffaf846229",
+      "state": {
+        "tick": 12938932,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 480,
+        "blood": 23,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3300
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      }
+    },
+    {
+      "label": "revivalLeaf-6",
+      "sha256": "9ca456da157aa78876e27aa942d50ef20299925ac454954f685491a420ef934e",
+      "state": {
+        "tick": 12938932,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 561,
+        "blood": 25,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      }
+    },
+    {
+      "label": "cleanse-revivalLeaf-7",
+      "sha256": "effec3f48c2fef4c44bc66b612711ab8ce19f975e5b9d8ae49d867b566233439",
+      "state": {
+        "tick": 12938938,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 561,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3300
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      }
+    },
+    {
+      "label": "revivalLeaf-7",
+      "sha256": "9ce8c8f01423719997217d87fae1d55a0f54a84419962fc382d2833fc83713bf",
+      "state": {
+        "tick": 12938938,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 642,
+        "blood": 24,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      }
+    },
+    {
+      "label": "cleanse-revivalLeaf-8",
+      "sha256": "cef1cde7c28f2146a37f6c6bb10ca1e53a9e7e2ea0d9532f2b0cc97d6e15e2b7",
+      "state": {
+        "tick": 12938944,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 642,
+        "blood": 21,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3300
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      }
+    },
+    {
+      "label": "revivalLeaf-8",
+      "sha256": "3631ecdb647f9c378de169e5f483edd412644bbeaa5d317ad477cb78156a64cd",
+      "state": {
+        "tick": 12938944,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 723,
+        "blood": 23,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      }
+    },
+    {
+      "label": "cleanse-revivalLeaf-9",
+      "sha256": "f4df7851db01bc4038e5757fef15de47702f15c80aaacd204087754d68a26db5",
+      "state": {
+        "tick": 12938950,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 723,
+        "blood": 20,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3300
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      }
+    },
+    {
+      "label": "revivalLeaf-9",
+      "sha256": "fc72558cf40bec7ba4294648d66c0fff8d99da3db5e97b6da32cf201c06fbcf2",
+      "state": {
+        "tick": 12938950,
+        "tech": 339018782,
+        "medal": 3073710,
+        "cap": 357121694,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 804,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 7
+        }
+      }
+    },
+    {
+      "label": "nuclearKnowledge-8",
+      "sha256": "9e2ca41270d4bd0073d843e5653d38205779dd660324ed8cf7009c15543ff15c",
+      "state": {
+        "tick": 12938956,
+        "tech": 179018782,
+        "medal": 3073710,
+        "cap": 378128852,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 8
+        }
+      }
+    },
+    {
+      "label": "cleanse-guardianStone-10",
+      "sha256": "e59ac085259ac7d8b381ac2796a0ae96989e5bf258020580b054493b79c6ce2a",
+      "state": {
+        "tick": 12938956,
+        "tech": 179018782,
+        "medal": 3073710,
+        "cap": 378128852,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 104,
+        "leaf": 4,
+        "blood": 19,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4800,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 8
+        }
+      }
+    },
+    {
+      "label": "guardianStone-10",
+      "sha256": "cf1a67251f5bcaa7d3218763fa5be818f18575ad9c0e935001d750c2f62481a2",
+      "state": {
+        "tick": 12938956,
+        "tech": 179018782,
+        "medal": 3076034,
+        "cap": 378128852,
+        "food": 482790,
+        "army": 649,
+        "deployed": 603,
+        "crystal": 49,
+        "guardian": 220,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 8
+        }
+      }
+    },
+    {
+      "label": "replenish-2",
+      "sha256": "117f8ebec3348b1f337e9be41f7371ec18bd2521e54c4560779532b09d045b68",
+      "state": {
+        "tick": 12939128,
+        "tech": 179018782,
+        "medal": 3076034,
+        "cap": 378128852,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 220,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 8
+        }
+      }
+    },
+    {
+      "label": "cleanse-guardianStone-11",
+      "sha256": "32720c9bf476631127641174ee4ee83b814d7d4f938f6e7f5fb57de8411cc440",
+      "state": {
+        "tick": 12939134,
+        "tech": 179018782,
+        "medal": 3076034,
+        "cap": 378128852,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 220,
+        "leaf": 4,
+        "blood": 19,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4800,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 8
+        }
+      }
+    },
+    {
+      "label": "guardianStone-11",
+      "sha256": "39f632a2a8f4ca98e788b821c047c5c1b1075520dfe2d44863b55dca25a9f76c",
+      "state": {
+        "tick": 12939134,
+        "tech": 179018782,
+        "medal": 3078358,
+        "cap": 378128852,
+        "food": 482790,
+        "army": 660,
+        "deployed": 614,
+        "crystal": 49,
+        "guardian": 336,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 8
+        }
+      }
+    },
+    {
+      "label": "replenish-3",
+      "sha256": "624310f4cd0e25f8753250a6625e03155281e7beb4fa6f723344dc0baa0ae6c7",
+      "state": {
+        "tick": 12939557,
+        "tech": 179018782,
+        "medal": 3078358,
+        "cap": 378128852,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 336,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 8
+        }
+      }
+    },
+    {
+      "label": "cleanse-guardianStone-12",
+      "sha256": "226962d385bfdaf5db5cfc0f42eb61d7208241131cf1a3372d206e100b624b12",
+      "state": {
+        "tick": 12939563,
+        "tech": 179018782,
+        "medal": 3078358,
+        "cap": 378128852,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 336,
+        "leaf": 4,
+        "blood": 19,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4800,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 8
+        }
+      }
+    },
+    {
+      "label": "guardianStone-12",
+      "sha256": "898255a29c10256e960c8ef3c96bb598a64e541cf60822cea35f53846945f7aa",
+      "state": {
+        "tick": 12939563,
+        "tech": 179018782,
+        "medal": 3080682,
+        "cap": 378128852,
+        "food": 482790,
+        "army": 661,
+        "deployed": 615,
+        "crystal": 49,
+        "guardian": 452,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 8
+        }
+      }
+    },
+    {
+      "label": "replenish-4",
+      "sha256": "2d41bea367c200733f0c285eb2f315fafd7331c3ee01346b9a3097492d7ed064",
+      "state": {
+        "tick": 12939620,
+        "tech": 179018782,
+        "medal": 3080682,
+        "cap": 378128852,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 452,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 18,
+          "nuclear": 8
+        }
+      }
+    },
+    {
+      "label": "electricKnowledge-19",
+      "sha256": "6d6053d2a51be48e58be630b36ae8a4b4dfa4ca1a287e98113b14aeaa24e3a50",
+      "state": {
+        "tick": 12939626,
+        "tech": 141018782,
+        "medal": 3080682,
+        "cap": 391633454,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 72,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 19,
+          "nuclear": 8
+        }
+      }
+    },
+    {
+      "label": "cleanse-godCrystal-13",
+      "sha256": "685f7e3466446e1f8c1c1147150975647ecfecaa2447972f1acfcd011eaad108",
+      "state": {
+        "tick": 12939626,
+        "tech": 141018782,
+        "medal": 3080682,
+        "cap": 391633454,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 49,
+        "guardian": 72,
+        "leaf": 4,
+        "blood": 19,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 4900,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 19,
+          "nuclear": 8
+        }
+      }
+    },
+    {
+      "label": "godCrystal-13",
+      "sha256": "2bc875aa98f543d643c7350fe6fe52ced451748f6ac4483a13ad0780fe9486f7",
+      "state": {
+        "tick": 12939626,
+        "tech": 141018782,
+        "medal": 3083034,
+        "cap": 391633454,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 107,
+        "guardian": 72,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 19,
+          "nuclear": 8
+        }
+      }
+    },
+    {
+      "label": "cleanse-godCrystal-14",
+      "sha256": "467a0984601d66c1133a892ee433e6dd84707a406a04c937b5a1a1b88a8f6cee",
+      "state": {
+        "tick": 12939632,
+        "tech": 141018782,
+        "medal": 3083034,
+        "cap": 391633454,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 107,
+        "guardian": 72,
+        "leaf": 4,
+        "blood": 19,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 4900,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 19,
+          "nuclear": 8
+        }
+      }
+    },
+    {
+      "label": "godCrystal-14",
+      "sha256": "ef29242691b67c3edf530faf0b4d242a354302b7e685b78daaccc6668cd9afca",
+      "state": {
+        "tick": 12939632,
+        "tech": 141018782,
+        "medal": 3085386,
+        "cap": 391633454,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 165,
+        "guardian": 72,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 19,
+          "nuclear": 8
+        }
+      }
+    },
+    {
+      "label": "cleanse-godCrystal-15",
+      "sha256": "b4c829e93ca94035c449af71872285f46acc5e8766bcc59800184e0cdb394f1b",
+      "state": {
+        "tick": 12939638,
+        "tech": 141018782,
+        "medal": 3085386,
+        "cap": 391633454,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 165,
+        "guardian": 72,
+        "leaf": 4,
+        "blood": 19,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 4900,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 19,
+          "nuclear": 8
+        }
+      }
+    },
+    {
+      "label": "godCrystal-15",
+      "sha256": "d3c5a3c551a03b5cac1771ecedaee48380812f569830c1311ce432ad2c35a0cb",
+      "state": {
+        "tick": 12939638,
+        "tech": 141018782,
+        "medal": 3087738,
+        "cap": 391633454,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 223,
+        "guardian": 72,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 19,
+          "nuclear": 8
+        }
+      }
+    },
+    {
+      "label": "cleanse-godCrystal-16",
+      "sha256": "4c51ef8458f348ca65b3ac860aee534169a8d1671f465b460b14728bb2179da0",
+      "state": {
+        "tick": 12939644,
+        "tech": 141018782,
+        "medal": 3087738,
+        "cap": 391633454,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 223,
+        "guardian": 72,
+        "leaf": 4,
+        "blood": 19,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 4900,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 19,
+          "nuclear": 8
+        }
+      }
+    },
+    {
+      "label": "godCrystal-16",
+      "sha256": "a43b46fb1d6f0c48ab74b557f8770384cf6198b3f6ba77baa49574a806050e7f",
+      "state": {
+        "tick": 12939644,
+        "tech": 141018782,
+        "medal": 3090090,
+        "cap": 391633454,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 281,
+        "guardian": 72,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 19,
+          "nuclear": 8
+        }
+      }
+    },
+    {
+      "label": "cleanse-godCrystal-17",
+      "sha256": "8af168a24815a73c2fb176c3834e7057957cda17b7e2be191a7d78148d65324d",
+      "state": {
+        "tick": 12939650,
+        "tech": 141018782,
+        "medal": 3090090,
+        "cap": 391633454,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 281,
+        "guardian": 72,
+        "leaf": 4,
+        "blood": 19,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 4900,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 19,
+          "nuclear": 8
+        }
+      }
+    },
+    {
+      "label": "godCrystal-17",
+      "sha256": "537d4a0594a02f2e8b73bbf494354d091a5ad6935cdee5a4bad7864e41c281fb",
+      "state": {
+        "tick": 12939650,
+        "tech": 141018782,
+        "medal": 3092442,
+        "cap": 391633454,
+        "food": 482790,
+        "army": 664,
+        "deployed": 618,
+        "crystal": 339,
+        "guardian": 72,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 19,
+          "nuclear": 8
+        }
+      }
+    },
+    {
+      "label": "replenish-5",
+      "sha256": "0e7f955778f464ef9ac09cb96fb1f2938b94c9431e24f538852095972a497f2d",
+      "state": {
+        "tick": 12939670,
+        "tech": 141018782,
+        "medal": 3092442,
+        "cap": 391633454,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 339,
+        "guardian": 72,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 32,
+          "electric": 19,
+          "nuclear": 8
+        }
+      }
+    },
+    {
+      "label": "steamKnowledge-33",
+      "sha256": "0842a2656517d271f46995e1cf3f0477cc5cae1c3ed76ca5b427276dccfda244",
+      "state": {
+        "tick": 12939676,
+        "tech": 131118782,
+        "medal": 3092442,
+        "cap": 400958060,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 9,
+        "guardian": 72,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 131,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 33,
+          "electric": 19,
+          "nuclear": 8
+        }
+      }
+    },
+    {
+      "label": "scroll-1",
+      "sha256": "73a5aca5cff4c32b3952fb34ddcf61c094e88fd5882d3413b62cdcd992824d47",
+      "state": {
+        "tick": 12939676,
+        "tech": 131118782,
+        "medal": 3092442,
+        "cap": 402693809,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 9,
+        "guardian": 72,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 132,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 33,
+          "electric": 19,
+          "nuclear": 8
+        }
+      }
+    },
+    {
+      "label": "scroll-2",
+      "sha256": "5fd4bdfeb9cb65d6af9fe4fe55a5750acbc4e919eb8341252d4762ed0a0eff63",
+      "state": {
+        "tick": 12939676,
+        "tech": 131118782,
+        "medal": 3092442,
+        "cap": 404429558,
+        "food": 482790,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 9,
+        "guardian": 72,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 133,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 33,
+          "electric": 19,
+          "nuclear": 8
+        }
+      }
+    },
+    {
+      "label": "final",
+      "sha256": "f80351aca309c5268575a583b7ca8e46a763407d2a52d476a1e666e4049a6fdd",
+      "state": {
+        "tick": 12950976,
+        "tech": 404429558,
+        "medal": 3092442,
+        "cap": 404429558,
+        "food": 486970,
+        "army": 672,
+        "deployed": 626,
+        "crystal": 9,
+        "guardian": 72,
+        "leaf": 4,
+        "blood": 22,
+        "cleanser": 0,
+        "scroll": 133,
+        "alert": {
+          "crystal": 5000,
+          "guardian": 4900,
+          "leaf": 3400
+        },
+        "storage": {
+          "steam": 33,
+          "electric": 19,
+          "nuclear": 8
+        }
+      }
+    }
+  ],
+  "knowledgeRatePerOnlineSecond": 24354,
+  "fillToCap": {
+    "seconds": 11300,
+    "before": 131118782,
+    "after": 404429558
+  },
+  "trainingPaid": {
+    "copper": 1424000,
+    "iron": 1424000,
+    "steel": 1424000
+  },
+  "quantumAttempt": {
+    "ok": false,
+    "reason": "insufficient-tech"
+  },
+  "final": {
+    "tick": 12950976,
+    "tech": 404429558,
+    "medal": 3092442,
+    "cap": 404429558,
+    "food": 486970,
+    "army": 672,
+    "deployed": 626,
+    "crystal": 9,
+    "guardian": 72,
+    "leaf": 4,
+    "blood": 22,
+    "cleanser": 0,
+    "scroll": 133,
+    "alert": {
+      "crystal": 5000,
+      "guardian": 4900,
+      "leaf": 3400
+    },
+    "storage": {
+      "steam": 33,
+      "electric": 19,
+      "nuclear": 8
+    }
+  },
+  "remainingTechCapGap": 2595570442,
+  "nextCosts": {
+    "steam": {
+      "tech": 10200000,
+      "godCrystal": 340
+    },
+    "electric": {
+      "tech": 40000000,
+      "guardianStone": 400
+    },
+    "nuclear": {
+      "tech": 180000000,
+      "revivalLeaf": 900
+    }
+  },
+  "saveFile": "p396-quantum-paid-bridge-save.json",
+  "saveSha256": "f80351aca309c5268575a583b7ca8e46a763407d2a52d476a1e666e4049a6fdd"
+}
