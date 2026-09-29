@@ -1,0 +1,103 @@
+{
+  "batch": "P394",
+  "mathSha256": "9cb16af1e322205a2a92110758d71ac5bea0c422b04d981aab870c18a8cd2513",
+  "results": [
+    {
+      "file": "p394-tier4-star12-paid-save.json",
+      "sha256": "caab6f4009b8c4e9c5fe75c7b7fd0d14ef78ab1579a3da153ab589381dfdfd10",
+      "tier": 4,
+      "seeds": [
+        1,
+        11,
+        16
+      ],
+      "wins": 3,
+      "closest": 0,
+      "rows": [
+        {
+          "seed": 1,
+          "result": "win",
+          "enemyHpLeft": 0,
+          "loss": 7,
+          "ringDelta": 50,
+          "saveSha256": "dd99d2f0e10927411a1310c9125b670ca01b1e88b454feba0123ccf2603bba78"
+        },
+        {
+          "seed": 11,
+          "result": "win",
+          "enemyHpLeft": 0,
+          "loss": 6,
+          "ringDelta": 50,
+          "saveSha256": "3cbc3b1677f7a263952c1ac629a3e301468c8aac26f8c40e18a85582a00f26af"
+        },
+        {
+          "seed": 16,
+          "result": "win",
+          "enemyHpLeft": 0,
+          "loss": 11,
+          "ringDelta": 50,
+          "saveSha256": "45fbea69729119ae8c174c32ddb989704d0b47f9b40a496809ac851658482d09"
+        }
+      ]
+    },
+    {
+      "file": "p394-tier4-to5-star17-paid-save.json",
+      "sha256": "048a4ff0338271ea7221283b5d1d20d74436c1d06da79f57859d67fac3d9298a",
+      "tier": 5,
+      "seeds": [
+        1,
+        11,
+        16
+      ],
+      "wins": 3,
+      "closest": 0,
+      "rows": [
+        {
+          "seed": 1,
+          "result": "win",
+          "enemyHpLeft": 0,
+          "loss": 4,
+          "ringDelta": 70,
+          "saveSha256": "370ce446d21d9981cfbd9c5337e979c361a4d85ef122c417dae2132a617798cd"
+        },
+        {
+          "seed": 11,
+          "result": "win",
+          "enemyHpLeft": 0,
+          "loss": 4,
+          "ringDelta": 70,
+          "saveSha256": "c981e082084391ebb279138ee0478daff08661a91df5aba39a67c526157e438b"
+        },
+        {
+          "seed": 16,
+          "result": "win",
+          "enemyHpLeft": 0,
+          "loss": 6,
+          "ringDelta": 70,
+          "saveSha256": "dac2eaae88575d5e2421ff8e2346baa78336d9698633ff6cb390f0995889d2ec"
+        }
+      ]
+    },
+    {
+      "file": "p394-tier4-after5-refilled-paid-save.json",
+      "sha256": "14bd38b1c9c428c6b8e7a42a8c16296158de59eafccb9e50ec774a32a73a666a",
+      "tier": 6,
+      "seeds": [
+        11
+      ],
+      "wins": 0,
+      "closest": 400542,
+      "rows": [
+        {
+          "seed": 11,
+          "result": "lose",
+          "enemyHpLeft": 400542,
+          "loss": 11,
+          "ringDelta": 0,
+          "saveSha256": "1e1729cc9936e33f577d88da80854bce114bea19bd9e67047a9ffd874bcc5da2"
+        }
+      ]
+    }
+  ],
+  "scope": "New-runtime smoke on old paid checkpoints; independent save/load for each fixed seed. No paid path rerun."
+}

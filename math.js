@@ -1495,13 +1495,14 @@ function diagClear(){_diagRing=[];return 0}
 function idemActive(){return !!(CFG.idem&&CFG.idem.enabled)}
 function idemKey(type,target){return type+':'+String(target)}
 function strHash(s){let h=5381;const t=String(s==null?'':s);for(let i=0;i<t.length;i++)h=((h<<5)+h+t.charCodeAt(i))|0;return (h>>>0).toString(36)}
-function idemSeen(key){try{const w=(CFG.idem&&CFG.idem.windowMs)||5000,now=Date.now();return (Array.isArray(S.ops)?S.ops:[]).some(o=>o&&o.key===key&&(now-(o.t||0))<w)}catch(e){return false}}
+function idemWithinWindow(now,t,windowMs){return Number.isFinite(t)&&Math.abs(now-t)<windowMs}
+function idemSeen(key){try{const w=(CFG.idem&&CFG.idem.windowMs)||5000,now=Date.now();return (Array.isArray(S.ops)?S.ops:[]).some(o=>o&&o.key===key&&idemWithinWindow(now,o.t,w))}catch(e){return false}}
 function idemMark(key){
   if(!idemActive())return;
   try{
     const now=Date.now(),w=(CFG.idem&&CFG.idem.windowMs)||5000,max=(CFG.idem&&CFG.idem.max)||200;
     S.ops=Array.isArray(S.ops)?S.ops:[];
-    S.ops=S.ops.filter(o=>o&&typeof o.t==='number'&&(now-o.t)<Math.max(w,60000)); // 窗口外清理（留 60s 观察期）
+    S.ops=S.ops.filter(o=>o&&idemWithinWindow(now,o.t,Math.max(w,60000))); // 窗口外清理（留 60s 观察期）
     S.ops.push({key,t:now});
     if(S.ops.length>max)S.ops.splice(0,S.ops.length-max);
   }catch(e){}

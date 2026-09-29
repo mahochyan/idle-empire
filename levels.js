@@ -65,7 +65,7 @@ CFG.enemies = [
   {id:48,name:'骑兵突击',desc:'侍从骑士踏破防线',units:{"infantry":[13,10,6],"archer":[13,10,6],"cavalry_t1":[13,10,6]},reward:{"wood":3026,"stone":2302,"food":1973}},
   {id:49,name:'秘法团',desc:'强大的魔法能量涌动',units:{"infantry":[14,10,6],"archer":[14,10,6],"cavalry_t1":[14,10,6],"mage_t1":[14,10,6]},reward:{"wood":3147,"stone":2394,"food":2052}},
   // ===== 第50关 Boss =====
-  {id:50,name:'钢铁巨人',desc:'BOSS·全身覆甲，刀枪不入',units:{"infantry":[1,1,1],"archer":[1,1,1],"cavalry_t1":[1,1,1],"mage_t1":[1,1]},boss:true,bossMult:{"atk":1.5,"def":1.42},reward:{"wood":27600,"stone":21000,"food":18000},drops:{"shield_essence":{"prob":0.7,"count":2},"spear_essence":{"prob":0.7,"count":2},"sword_essence":{"prob":0.7,"count":2}}},
+  {id:50,name:'钢铁巨人',desc:'BOSS·全身覆甲，刀枪不入',units:{"infantry":[12,12,12],"archer":[12,12,12],"cavalry_t1":[12,12,12],"mage_t1":[12,12]},boss:true,bossMult:{"atk":1.5,"def":1.42},reward:{"wood":27600,"stone":21000,"food":18000},drops:{"shield_essence":{"prob":0.7,"count":2},"spear_essence":{"prob":0.7,"count":2},"sword_essence":{"prob":0.7,"count":2}}},
 
   // ===== 第六章：精英卫队 (L51-L60) =====
   {id:51,name:'重步卫队',desc:'零散的步兵正在巡逻',units:{"infantry":[7,5]},reward:{"wood":3200,"stone":2450,"food":2100}},
@@ -78,7 +78,7 @@ CFG.enemies = [
   {id:58,name:'骑兵突击',desc:'侍从骑士踏破防线',units:{"infantry":[14,10,6],"archer":[14,10,6],"cavalry_t1":[14,10,6]},reward:{"wood":4210,"stone":3224,"food":2763}},
   {id:59,name:'秘法团',desc:'强大的魔法能量涌动',units:{"infantry":[15,11,6],"archer":[15,11,6],"cavalry_t1":[15,11,6],"mage_t1":[15,11,6]},reward:{"wood":4379,"stone":3352,"food":2873}},
   // ===== 第60关 Boss =====
-  {id:60,name:'暗影将军',desc:'BOSS·夜幕中的暗杀大师',units:{"infantry":[1,1,1],"archer":[1,1,1],"cavalry_t1":[1,1,1],"mage_t1":[1,1]},boss:true,bossMult:{"atk":1.55,"def":1.45},reward:{"wood":38400,"stone":29400,"food":25200},drops:{"bow_essence":{"prob":0.75,"count":2},"crossbow_essence":{"prob":0.75,"count":2},"blade_essence":{"prob":0.75,"count":2}}},
+  {id:60,name:'暗影将军',desc:'BOSS·夜幕中的暗杀大师',units:{"infantry":[13,13,13],"archer":[13,13,13],"cavalry_t1":[13,13,13],"mage_t1":[13,13]},boss:true,bossMult:{"atk":1.55,"def":1.45},reward:{"wood":38400,"stone":29400,"food":25200},drops:{"bow_essence":{"prob":0.75,"count":2},"crossbow_essence":{"prob":0.75,"count":2},"blade_essence":{"prob":0.75,"count":2}}},
 
   // ===== 第七章：军团对垒 (L61-L70) =====
   {id:61,name:'精锐步兵',desc:'零散的步兵正在巡逻',units:{"infantry":[7,5]},reward:{"wood":4300,"stone":3300,"food":2800}},
@@ -91,7 +91,7 @@ CFG.enemies = [
   {id:68,name:'铁骑队',desc:'铁骑踏破防线',units:{"infantry":[14,10,6],"archer":[14,10,6],"cavalry_t1":[14,10,6]},reward:{"wood":5658,"stone":4342,"food":3684}},
   {id:69,name:'大法师塔',desc:'强大的魔法能量涌动',units:{"infantry":[15,11,6],"archer":[15,11,6],"cavalry_t1":[15,11,6],"mage_t1":[15,11,6]},reward:{"wood":5884,"stone":4516,"food":3831}},
   // ===== 第70关 Boss =====
-  {id:70,name:'亡灵统帅',desc:'BOSS·率领亡灵大军的统帅',units:{"infantry":[1,1,1],"archer":[1,1,1],"cavalry_t1":[1,1,1],"mage_t1":[1,1]},boss:true,bossMult:{"atk":1.6,"def":1.48},reward:{"wood":51600,"stone":39600,"food":33600},drops:{"shield_essence":{"prob":0.8,"count":3},"spear_essence":{"prob":0.8,"count":3},"sword_essence":{"prob":0.8,"count":3}}},
+  {id:70,name:'亡灵统帅',desc:'BOSS·率领亡灵大军的统帅',units:{"infantry":[14,14,14],"archer":[14,14,14],"cavalry_t1":[14,14,14],"mage_t1":[14,14]},boss:true,bossMult:{"atk":1.6,"def":1.48},reward:{"wood":51600,"stone":39600,"food":33600},drops:{"shield_essence":{"prob":0.8,"count":3},"spear_essence":{"prob":0.8,"count":3},"sword_essence":{"prob":0.8,"count":3}}},
 
   // ===== 第八章：精锐之师 (L71-L80) =====
   {id:71,name:'精锐步兵',desc:'零散的步兵正在巡逻',units:{"infantry":[8,6]},reward:{"wood":5600,"stone":4300,"food":3600}},
@@ -104,7 +104,7 @@ CFG.enemies = [
   {id:78,name:'铁骑队',desc:'铁骑踏破防线',units:{"infantry":[15,11,6],"archer":[15,11,6],"cavalry_t1":[15,11,6]},reward:{"wood":6887,"stone":5288,"food":4427}},
   {id:79,name:'大法师塔',desc:'强大的魔法能量涌动',units:{"infantry":[16,12,7],"archer":[16,12,7],"cavalry_t1":[16,12,7],"mage_t1":[16,12,7]},reward:{"wood":7093,"stone":5447,"food":4560}},
   // ===== 第80关 Boss =====
-  {id:80,name:'炎龙骑士',desc:'BOSS·驾驭炎龙的传奇骑士',units:{"infantry":[1,1,1],"archer":[1,1,1],"cavalry_t1":[1,1,1],"mage_t1":[1,1]},boss:true,bossMult:{"atk":1.65,"def":1.52},reward:{"wood":67200,"stone":51600,"food":43200},drops:{"bow_essence":{"prob":0.8500000000000001,"count":3},"crossbow_essence":{"prob":0.8500000000000001,"count":3},"blade_essence":{"prob":0.8500000000000001,"count":3}}},
+  {id:80,name:'炎龙骑士',desc:'BOSS·驾驭炎龙的传奇骑士',units:{"infantry":[15,15,15],"archer":[15,15,15],"cavalry_t1":[15,15,15],"mage_t1":[15,15]},boss:true,bossMult:{"atk":1.65,"def":1.52},reward:{"wood":67200,"stone":51600,"food":43200},drops:{"bow_essence":{"prob":0.8500000000000001,"count":3},"crossbow_essence":{"prob":0.8500000000000001,"count":3},"blade_essence":{"prob":0.8500000000000001,"count":3}}},
 
   // ===== 第九章：帝国主力 (L81-L90) =====
   {id:81,name:'精锐步兵',desc:'零散的步兵正在巡逻',units:{"infantry":[8,6]},reward:{"wood":7200,"stone":5500,"food":4600}},

@@ -1,0 +1,5089 @@
+{
+  "batch": "P394",
+  "source": {
+    "pre": {
+      "file": "p393-tier3-city-star10-prebattle-paid-save.json",
+      "sha256": "df515a38dca073d7ff5fde1c235a48574b395041903b083f87d901c350380d51"
+    },
+    "win": {
+      "file": "p393-tier3-city-star10-seed1-paid-save.json",
+      "sha256": "d407c2849e4050c0f8231d61075e735e60aed4bc8f4944f71d38d3434050af04"
+    }
+  },
+  "runtimeSha256": {
+    "config.js": "1d46cd09d15cd9faf05cbb40a0b5e30fdf7d6ae3bcfd21550233c178378ebfd8",
+    "levels.js": "dec14783bbeb41111ae116598dff48c9a6930b2dbf7879e2265f8887d4cc9f54",
+    "math.js": "8980af2b1c87dcdc7b3bb359294d93a741947c35c5538c66b2c139b1e92238ec",
+    "garrison.js": "4d233f0529d256cd1ace2de782603fcfcbbff110032ca4cf29c5e36af30f10ff",
+    "technology.js": "c51fb05821593d9e76396ff18b0a38d78dee1db9cdc55631b78a7f223ad0a006"
+  },
+  "replenishment": {
+    "before": {
+      "city": 340,
+      "deed": 96805,
+      "army": 666,
+      "deployed": 620,
+      "field": 629,
+      "stars": 10,
+      "multiplier": 2,
+      "daily": {
+        "starBeast1": 1,
+        "starBeast2": 1,
+        "starBeast3": 1
+      },
+      "alert": 450,
+      "items": {
+        "origin": 60,
+        "illusion": 60,
+        "ring": 60
+      },
+      "front": [
+        {
+          "type": "star_trooper",
+          "count": 53
+        },
+        {
+          "type": "star_trooper",
+          "count": 51
+        },
+        {
+          "type": "electro_trooper",
+          "count": 55
+        },
+        {
+          "type": "electro_trooper",
+          "count": 45
+        }
+      ],
+      "mid": [
+        {
+          "type": "armored_trooper",
+          "count": 55
+        },
+        {
+          "type": "alloy_special",
+          "count": 55
+        },
+        {
+          "type": "star_trooper",
+          "count": 46
+        },
+        {
+          "type": "gold_cavalry",
+          "count": 40
+        }
+      ],
+      "back": [
+        {
+          "type": "archer",
+          "count": 55
+        },
+        {
+          "type": "archer",
+          "count": 55
+        },
+        {
+          "type": "archer",
+          "count": 55
+        },
+        {
+          "type": "archer",
+          "count": 55
+        }
+      ],
+      "resources": {
+        "food": 480699,
+        "copper": 4125.299997924994,
+        "iron": 922867,
+        "steel": 1159,
+        "medal": 1042870,
+        "tech": 13721
+      }
+    },
+    "need": {
+      "star_trooper": 5,
+      "electro_trooper": 1,
+      "armored_trooper": 0,
+      "alloy_special": 0,
+      "gold_cavalry": 0,
+      "archer": 0
+    },
+    "trainingCost": {
+      "steel": 48000,
+      "iron": 48000,
+      "copper": 48000
+    },
+    "seconds": 33,
+    "minFood": 480699,
+    "phases": {
+      "stone": 0,
+      "coal": 0,
+      "copper": 17,
+      "iron": 0,
+      "steel": 12,
+      "training": 4
+    },
+    "after": {
+      "city": 340,
+      "deed": 96805,
+      "army": 672,
+      "deployed": 626,
+      "field": 629,
+      "stars": 10,
+      "multiplier": 2,
+      "daily": {
+        "starBeast1": 1,
+        "starBeast2": 1,
+        "starBeast3": 1
+      },
+      "alert": 450,
+      "items": {
+        "origin": 60,
+        "illusion": 60,
+        "ring": 60
+      },
+      "front": [
+        {
+          "type": "star_trooper",
+          "count": 55
+        },
+        {
+          "type": "star_trooper",
+          "count": 54
+        },
+        {
+          "type": "electro_trooper",
+          "count": 55
+        },
+        {
+          "type": "electro_trooper",
+          "count": 46
+        }
+      ],
+      "mid": [
+        {
+          "type": "armored_trooper",
+          "count": 55
+        },
+        {
+          "type": "alloy_special",
+          "count": 55
+        },
+        {
+          "type": "star_trooper",
+          "count": 46
+        },
+        {
+          "type": "gold_cavalry",
+          "count": 40
+        }
+      ],
+      "back": [
+        {
+          "type": "archer",
+          "count": 55
+        },
+        {
+          "type": "archer",
+          "count": 55
+        },
+        {
+          "type": "archer",
+          "count": 55
+        },
+        {
+          "type": "archer",
+          "count": 55
+        }
+      ],
+      "resources": {
+        "food": 480699,
+        "copper": 774.2999979249907,
+        "iron": 863141,
+        "steel": 5926,
+        "medal": 1042870,
+        "tech": 13721
+      }
+    },
+    "resBefore": {
+      "wood": 6495,
+      "stone": 638678,
+      "food": 480699,
+      "tech": 13721,
+      "coal": 192415,
+      "copper": 4125.299997924994,
+      "iron": 922867,
+      "silver": 7.3999999999995225,
+      "gold": 532.4625000000879,
+      "steel": 1159,
+      "coin": 0.7999999999992724,
+      "silverCoin": 295.99999999999983,
+      "deed": 96805,
+      "medal": 1042870,
+      "bone": 65,
+      "goldCoin": 0,
+      "hide": 115
+    },
+    "resAfter": {
+      "wood": 6495,
+      "stone": 590872,
+      "food": 480699,
+      "tech": 13721,
+      "coal": 144609,
+      "copper": 774.2999979249907,
+      "iron": 863141,
+      "silver": 7.3999999999995225,
+      "gold": 532.4625000000879,
+      "steel": 5926,
+      "coin": 0.7999999999992724,
+      "silverCoin": 295.99999999999983,
+      "deed": 96805,
+      "medal": 1042870,
+      "bone": 65,
+      "goldCoin": 0,
+      "hide": 115
+    },
+    "sha256": "28644e0b0b756e6627a4f41e70635aa5cccabee5b9dbeabadecf950a18eca90b",
+    "file": "p394-tier4-refilled-paid-save.json"
+  },
+  "fullPressure": {
+    "wins16": 0,
+    "closest": 30868,
+    "rows": [
+      {
+        "seed": 1,
+        "tier": 4,
+        "result": "lose",
+        "enemyInitialHp": 705882,
+        "enemyHpLeft": 38661,
+        "loss": 10,
+        "ringDelta": 0,
+        "after": {
+          "city": 340,
+          "deed": 96805,
+          "army": 662,
+          "deployed": 616,
+          "field": 629,
+          "stars": 10,
+          "multiplier": 2,
+          "daily": {
+            "starBeast1": 1,
+            "starBeast2": 1,
+            "starBeast3": 1
+          },
+          "alert": 450,
+          "items": {
+            "origin": 60,
+            "illusion": 60,
+            "ring": 60
+          },
+          "front": [
+            {
+              "type": "star_trooper",
+              "count": 52
+            },
+            {
+              "type": "star_trooper",
+              "count": 51
+            },
+            {
+              "type": "electro_trooper",
+              "count": 55
+            },
+            {
+              "type": "electro_trooper",
+              "count": 42
+            }
+          ],
+          "mid": [
+            {
+              "type": "armored_trooper",
+              "count": 55
+            },
+            {
+              "type": "alloy_special",
+              "count": 55
+            },
+            {
+              "type": "star_trooper",
+              "count": 46
+            },
+            {
+              "type": "gold_cavalry",
+              "count": 40
+            }
+          ],
+          "back": [
+            {
+              "type": "archer",
+              "count": 55
+            },
+            {
+              "type": "archer",
+              "count": 55
+            },
+            {
+              "type": "archer",
+              "count": 55
+            },
+            {
+              "type": "archer",
+              "count": 55
+            }
+          ],
+          "resources": {
+            "food": 480699,
+            "copper": 774.2999979249907,
+            "iron": 863141,
+            "steel": 5926,
+            "medal": 1042870,
+            "tech": 13721
+          }
+        },
+        "callbacks": 301,
+        "saveSha256": "5cb3d5fc17ee58aa546b365b6122a90d421dd2725f906936273e5e63b8a10be1"
+      },
+      {
+        "seed": 2,
+        "tier": 4,
+        "result": "lose",
+        "enemyInitialHp": 705882,
+        "enemyHpLeft": 34362,
+        "loss": 11,
+        "ringDelta": 0,
+        "after": {
+          "city": 340,
+          "deed": 96805,
+          "army": 661,
+          "deployed": 615,
+          "field": 629,
+          "stars": 10,
+          "multiplier": 2,
+          "daily": {
+            "starBeast1": 1,
+            "starBeast2": 1,
+            "starBeast3": 1
+          },
+          "alert": 450,
+          "items": {
+            "origin": 60,
+            "illusion": 60,
+            "ring": 60
+          },
+          "front": [
+            {
+              "type": "star_trooper",
+              "count": 53
+            },
+            {
+              "type": "star_trooper",
+              "count": 51
+            },
+            {
+              "type": "electro_trooper",
+              "count": 54
+            },
+            {
+              "type": "electro_trooper",
+              "count": 41
+            }
+          ],
+          "mid": [
+            {
+              "type": "armored_trooper",
+              "count": 55
+            },
+            {
+              "type": "alloy_special",
+              "count": 55
+            },
+            {
+              "type": "star_trooper",
+              "count": 46
+            },
+            {
+              "type": "gold_cavalry",
+              "count": 40
+            }
+          ],
+          "back": [
+            {
+              "type": "archer",
+              "count": 55
+            },
+            {
+              "type": "archer",
+              "count": 55
+            },
+            {
+              "type": "archer",
+              "count": 55
+            },
+            {
+              "type": "archer",
+              "count": 55
+            }
+          ],
+          "resources": {
+            "food": 480699,
+            "copper": 774.2999979249907,
+            "iron": 863141,
+            "steel": 5926,
+            "medal": 1042870,
+            "tech": 13721
+          }
+        },
+        "callbacks": 301,
+        "saveSha256": "b18b6cd57e5ff3831caa2340aca4df9f6b555e25c84b7deef4e511deff50b26e"
+      },
+      {
+        "seed": 3,
+        "tier": 4,
+        "result": "lose",
+        "enemyInitialHp": 705882,
+        "enemyHpLeft": 42949,
+        "loss": 14,
+        "ringDelta": 0,
+        "after": {
+          "city": 340,
+          "deed": 96805,
+          "army": 658,
+          "deployed": 612,
+          "field": 629,
+          "stars": 10,
+          "multiplier": 2,
+          "daily": {
+            "starBeast1": 1,
+            "starBeast2": 1,
+            "starBeast3": 1
+          },
+          "alert": 450,
+          "items": {
+            "origin": 60,
+            "illusion": 60,
+            "ring": 60
+          },
+          "front": [
+            {
+              "type": "star_trooper",
+              "count": 50
+            },
+            {
+              "type": "star_trooper",
+              "count": 50
+            },
+            {
+              "type": "electro_trooper",
+              "count": 55
+            },
+            {
+              "type": "electro_trooper",
+              "count": 41
+            }
+          ],
+          "mid": [
+            {
+              "type": "armored_trooper",
+              "count": 55
+            },
+            {
+              "type": "alloy_special",
+              "count": 55
+            },
+            {
+              "type": "star_trooper",
+              "count": 46
+            },
+            {
+              "type": "gold_cavalry",
+              "count": 40
+            }
+          ],
+          "back": [
+            {
+              "type": "archer",
+              "count": 55
+            },
+            {
+              "type": "archer",
+              "count": 55
+            },
+            {
+              "type": "archer",
+              "count": 55
+            },
+            {
+              "type": "archer",
+              "count": 55
+            }
+          ],
+          "resources": {
+            "food": 480699,
+            "copper": 774.2999979249907,
+            "iron": 863141,
+            "steel": 5926,
+            "medal": 1042870,
+            "tech": 13721
+          }
+        },
+        "callbacks": 301,
+        "saveSha256": "27e597afe94720312bdae35ab29a246afbe24e821b8879d49663f580a17640d6"
+      },
+      {
+        "seed": 4,
+        "tier": 4,
+        "result": "lose",
+        "enemyInitialHp": 705882,
+        "enemyHpLeft": 58308,
+        "loss": 17,
+        "ringDelta": 0,
+        "after": {
+          "city": 340,
+          "deed": 96805,
+          "army": 655,
+          "deployed": 609,
+          "field": 629,
+          "stars": 10,
+          "multiplier": 2,
+          "daily": {
+            "starBeast1": 1,
+            "starBeast2": 1,
+            "starBeast3": 1
+          },
+          "alert": 450,
+          "items": {
+            "origin": 60,
+            "illusion": 60,
+            "ring": 60
+          },
+          "front": [
+            {
+              "type": "star_trooper",
+              "count": 52
+            },
+            {
+              "type": "star_trooper",
+              "count": 52
+            },
+            {
+              "type": "electro_trooper",
+              "count": 55
+            },
+            {
+              "type": "electro_trooper",
+              "count": 34
+            }
+          ],
+          "mid": [
+            {
+              "type": "armored_trooper",
+              "count": 55
+            },
+            {
+              "type": "alloy_special",
+              "count": 55
+            },
+            {
+              "type": "star_trooper",
+              "count": 46
+            },
+            {
+              "type": "gold_cavalry",
+              "count": 40
+            }
+          ],
+          "back": [
+            {
+              "type": "archer",
+              "count": 55
+            },
+            {
+              "type": "archer",
+              "count": 55
+            },
+            {
+              "type": "archer",
+              "count": 55
+            },
+            {
+              "type": "archer",
+              "count": 55
+            }
+          ],
+          "resources": {
+            "food": 480699,
+            "copper": 774.2999979249907,
+            "iron": 863141,
+            "steel": 5926,
+            "medal": 1042870,
+            "tech": 13721
+          }
+        },
+        "callbacks": 301,
+        "saveSha256": "12a99b7dbb05600b225cb6734fd5bc9121ffebf1580891be4723c60951b05177"
+      },
+      {
+        "seed": 5,
+        "tier": 4,
+        "result": "lose",
+        "enemyInitialHp": 705882,
+        "enemyHpLeft": 59512,
+        "loss": 16,
+        "ringDelta": 0,
+        "after": {
+          "city": 340,
+          "deed": 96805,
+          "army": 656,
+          "deployed": 610,
+          "field": 629,
+          "stars": 10,
+          "multiplier": 2,
+          "daily": {
+            "starBeast1": 1,
+            "starBeast2": 1,
+            "starBeast3": 1
+          },
+          "alert": 450,
+          "items": {
+            "origin": 60,
+            "illusion": 60,
+            "ring": 60
+          },
+          "front": [
+            {
+              "type": "star_trooper",
+              "count": 53
+            },
+            {
+              "type": "star_trooper",
+              "count": 53
+            },
+            {
+              "type": "electro_trooper",
+              "count": 52
+            },
+            {
+              "type": "electro_trooper",
+              "count": 36
+            }
+          ],
+          "mid": [
+            {
+              "type": "armored_trooper",
+              "count": 55
+            },
+            {
+              "type": "alloy_special",
+              "count": 55
+            },
+            {
+              "type": "star_trooper",
+              "count": 46
+            },
+            {
+              "type": "gold_cavalry",
+              "count": 40
+            }
+          ],
+          "back": [
+            {
+              "type": "archer",
+              "count": 55
+            },
+            {
+              "type": "archer",
+              "count": 55
+            },
+            {
+              "type": "archer",
+              "count": 55
+            },
+            {
+              "type": "archer",
+              "count": 55
+            }
+          ],
+          "resources": {
+            "food": 480699,
+            "copper": 774.2999979249907,
+            "iron": 863141,
+            "steel": 5926,
+            "medal": 1042870,
+            "tech": 13721
+          }
+        },
+        "callbacks": 301,
+        "saveSha256": "f04314a121292403f3c52f888eb599a6cc38b47131b2df447bfc5e0d815568b3"
+      },
+      {
+        "seed": 6,
+        "tier": 4,
+        "result": "lose",
+        "enemyInitialHp": 705882,
+        "enemyHpLeft": 45003,
+        "loss": 14,
+        "ringDelta": 0,
+        "after": {
+          "city": 340,
+          "deed": 96805,
+          "army": 658,
+          "deployed": 612,
+          "field": 629,
+          "stars": 10,
+          "multiplier": 2,
+          "daily": {
+            "starBeast1": 1,
+            "starBeast2": 1,
+            "starBeast3": 1
+          },
+          "alert": 450,
+          "items": {
+            "origin": 60,
+            "illusion": 60,
+            "ring": 60
+          },
+          "front": [
+            {
+              "type": "star_trooper",
+              "count": 52
+            },
+            {
+              "type": "star_trooper",
+              "count": 50
+            },
+            {
+              "type": "electro_trooper",
+              "count": 55
+            },
+            {
+              "type": "electro_trooper",
+              "count": 39
+            }
+          ],
+          "mid": [
+            {
+              "type": "armored_trooper",
+              "count": 55
+            },
+            {
+              "type": "alloy_special",
+              "count": 55
+            },
+            {
+              "type": "star_trooper",
+              "count": 46
+            },
+            {
+              "type": "gold_cavalry",
+              "count": 40
+            }
+          ],
+          "back": [
+            {
+              "type": "archer",
+              "count": 55
+            },
+            {
+              "type": "archer",
+              "count": 55
+            },
+            {
+              "type": "archer",
+              "count": 55
+            },
+            {
+              "type": "archer",
+              "count": 55
+            }
+          ],
+          "resources": {
+            "food": 480699,
+            "copper": 774.2999979249907,
+            "iron": 863141,
+            "steel": 5926,
+            "medal": 1042870,
+            "tech": 13721
+          }
+        },
+        "callbacks": 301,
+        "saveSha256": "0487254d594f9b27e07dcdd23a42e597dbe107f236128eb0f8d51ab55ed6baf2"
+      },
+      {
+        "seed": 7,
+        "tier": 4,
+        "result": "lose",
+        "enemyInitialHp": 705882,
+        "enemyHpLeft": 46533,
+        "loss": 13,
+        "ringDelta": 0,
+        "after": {
+          "city": 340,
+          "deed": 96805,
+          "army": 659,
+          "deployed": 613,
+          "field": 629,
+          "stars": 10,
+          "multiplier": 2,
+          "daily": {
+            "starBeast1": 1,
+            "starBeast2": 1,
+            "starBeast3": 1
+          },
+          "alert": 450,
+          "items": {
+            "origin": 60,
+            "illusion": 60,
+            "ring": 60
+          },
+          "front": [
+            {
+              "type": "star_trooper",
+              "count": 50
+            },
+            {
+              "type": "star_trooper",
+              "count": 51
+            },
+            {
+              "type": "electro_trooper",
+              "count": 50
+            },
+            {
+              "type": "electro_trooper",
+              "count": 46
+            }
+          ],
+          "mid": [
+            {
+              "type": "armored_trooper",
+              "count": 55
+            },
+            {
+              "type": "alloy_special",
+              "count": 55
+            },
+            {
+              "type": "star_trooper",
+              "count": 46
+            },
+            {
+              "type": "gold_cavalry",
+              "count": 40
+            }
+          ],
+          "back": [
+            {
+              "type": "archer",
+              "count": 55
+            },
+            {
+              "type": "archer",
+              "count": 55
+            },
+            {
+              "type": "archer",
+              "count": 55
+            },
+            {
+              "type": "archer",
+              "count": 55
+            }
+          ],
+          "resources": {
+            "food": 480699,
+            "copper": 774.2999979249907,
+            "iron": 863141,
+            "steel": 5926,
+            "medal": 1042870,
+            "tech": 13721
+          }
+        },
+        "callbacks": 301,
+        "saveSha256": "8ac23abebdaf0fe727a53a2ab3df710f05a88b957f411c39cf236ff4eddf4540"
+      },
+      {
+        "seed": 8,
+        "tier": 4,
+        "result": "lose",
+        "enemyInitialHp": 705882,
+        "enemyHpLeft": 45619,
+        "loss": 12,
+        "ringDelta": 0,
+        "after": {
+          "city": 340,
+          "deed": 96805,
+          "army": 660,
+          "deployed": 614,
+          "field": 629,
+          "stars": 10,
+          "multiplier": 2,
+          "daily": {
+            "starBeast1": 1,
+            "starBeast2": 1,
+            "starBeast3": 1
+          },
+          "alert": 450,
+          "items": {
+            "origin": 60,
+            "illusion": 60,
+            "ring": 60
+          },
+          "front": [
+            {
+              "type": "star_trooper",
+              "count": 53
+            },
+            {
+              "type": "star_trooper",
+              "count": 50
+            },
+            {
+              "type": "electro_trooper",
+              "count": 55
+            },
+            {
+              "type": "electro_trooper",
+              "count": 40
+            }
+          ],
+          "mid": [
+            {
+              "type": "armored_trooper",
+              "count": 55
+            },
+            {
+              "type": "alloy_special",
+              "count": 55
+            },
+            {
+              "type": "star_trooper",
+              "count": 46
+            },
+            {
+              "type": "gold_cavalry",
+              "count": 40
+            }
+          ],
+          "back": [
+            {
+              "type": "archer",
+              "count": 55
+            },
+            {
+              "type": "archer",
+              "count": 55
+            },
+            {
+              "type": "archer",
+              "count": 55
+            },
+            {
+              "type": "archer",
+              "count": 55
+            }
+          ],
+          "resources": {
+            "food": 480699,
+            "copper": 774.2999979249907,
+            "iron": 863141,
+            "steel": 5926,
+            "medal": 1042870,
+            "tech": 13721
+          }
+        },
+        "callbacks": 301,
+        "saveSha256": "2cee8f14212d5c18711f24d598849fc1dad2bca7a3bbba2ad458719952fb52a4"
+      },
+      {
+        "seed": 9,
+        "tier": 4,
+        "result": "lose",
+        "enemyInitialHp": 705882,
+        "enemyHpLeft": 37550,
+        "loss": 9,
+        "ringDelta": 0,
+        "after": {
+          "city": 340,
+          "deed": 96805,
+          "army": 663,
+          "deployed": 617,
+          "field": 629,
+          "stars": 10,
+          "multiplier": 2,
+          "daily": {
+            "starBeast1": 1,
+            "starBeast2": 1,
+            "starBeast3": 1
+          },
+          "alert": 450,
+          "items": {
+            "origin": 60,
+            "illusion": 60,
+            "ring": 60
+          },
+          "front": [
+            {
+              "type": "star_trooper",
+              "count": 51
+            },
+            {
+              "type": "star_trooper",
+              "count": 50
+            },
+            {
+              "type": "electro_trooper",
+              "count": 54
+            },
+            {
+              "type": "electro_trooper",
+              "count": 46
+            }
+          ],
+          "mid": [
+            {
+              "type": "armored_trooper",
+              "count": 55
+            },
+            {
+              "type": "alloy_special",
+              "count": 55
+            },
+            {
+              "type": "star_trooper",
+              "count": 46
+            },
+            {
+              "type": "gold_cavalry",
+              "count": 40
+            }
+          ],
+          "back": [
+            {
+              "type": "archer",
+              "count": 55
+            },
+            {
+              "type": "archer",
+              "count": 55
+            },
+            {
+              "type": "archer",
+              "count": 55
+            },
+            {
+              "type": "archer",
+              "count": 55
+            }
+          ],
+          "resources": {
+            "food": 480699,
+            "copper": 774.2999979249907,
+            "iron": 863141,
+            "steel": 5926,
+            "medal": 1042870,
+            "tech": 13721
+          }
+        },
+        "callbacks": 301,
+        "saveSha256": "a0b7c479a398c6017bf5117f2e235d5f8b187da787e4605ac37a51c7175559af"
+      },
+      {
+        "seed": 10,
+        "tier": 4,
+        "result": "lose",
+        "enemyInitialHp": 705882,
+        "enemyHpLeft": 40074,
+        "loss": 13,
+        "ringDelta": 0,
+        "after": {
+          "city": 340,
+          "deed": 96805,
+          "army": 659,
+          "deployed": 613,
+          "field": 629,
+          "stars": 10,
+          "multiplier": 2,
+          "daily": {
+            "starBeast1": 1,
+            "starBeast2": 1,
+            "starBeast3": 1
+          },
+          "alert": 450,
+          "items": {
+            "origin": 60,
+            "illusion": 60,
+            "ring": 60
+          },
+          "front": [
+            {
+              "type": "star_trooper",
+              "count": 53
+            },
+            {
+              "type": "star_trooper",
+              "count": 49
+            },
+            {
+              "type": "electro_trooper",
+              "count": 50
+            },
+            {
+              "type": "electro_trooper",
+              "count": 45
+            }
+          ],
+          "mid": [
+            {
+              "type": "armored_trooper",
+              "count": 55
+            },
+            {
+              "type": "alloy_special",
+              "count": 55
+            },
+            {
+              "type": "star_trooper",
+              "count": 46
+            },
+            {
+              "type": "gold_cavalry",
+              "count": 40
+            }
+          ],
+          "back": [
+            {
+              "type": "archer",
+              "count": 55
+            },
+            {
+              "type": "archer",
+              "count": 55
+            },
+            {
+              "type": "archer",
+              "count": 55
+            },
+            {
+              "type": "archer",
+              "count": 55
+            }
+          ],
+          "resources": {
+            "food": 480699,
+            "copper": 774.2999979249907,
+            "iron": 863141,
+            "steel": 5926,
+            "medal": 1042870,
+            "tech": 13721
+          }
+        },
+        "callbacks": 301,
+        "saveSha256": "56d6b0ec814eb98cdf984931e0e7582bfae422673af8eb8bf27390efd9ca8669"
+      },
+      {
+        "seed": 11,
+        "tier": 4,
+        "result": "lose",
+        "enemyInitialHp": 705882,
+        "enemyHpLeft": 30868,
+        "loss": 10,
+        "ringDelta": 0,
+        "after": {
+          "city": 340,
+          "deed": 96805,
+          "army": 662,
+          "deployed": 616,
+          "field": 629,
+          "stars": 10,
+          "multiplier": 2,
+          "daily": {
+            "starBeast1": 1,
+            "starBeast2": 1,
+            "starBeast3": 1
+          },
+          "alert": 450,
+          "items": {
+            "origin": 60,
+            "illusion": 60,
+            "ring": 60
+          },
+          "front": [
+            {
+              "type": "star_trooper",
+              "count": 55
+            },
+            {
+              "type": "star_trooper",
+              "count": 48
+            },
+            {
+              "type": "electro_trooper",
+              "count": 52
+            },
+            {
+              "type": "electro_trooper",
+              "count": 45
+            }
+          ],
+          "mid": [
+            {
+              "type": "armored_trooper",
+              "count": 55
+            },
+            {
+              "type": "alloy_special",
+              "count": 55
+            },
+            {
+              "type": "star_trooper",
+              "count": 46
+            },
+            {
+              "type": "gold_cavalry",
+              "count": 40
+            }
+          ],
+          "back": [
+            {
+              "type": "archer",
+              "count": 55
+            },
+            {
+              "type": "archer",
+              "count": 55
+            },
+            {
+              "type": "archer",
+              "count": 55
+            },
+            {
+              "type": "archer",
+              "count": 55
+            }
+          ],
+          "resources": {
+            "food": 480699,
+            "copper": 774.2999979249907,
+            "iron": 863141,
+            "steel": 5926,
+            "medal": 1042870,
+            "tech": 13721
+          }
+        },
+        "callbacks": 301,
+        "saveSha256": "4c37571f33daa0edbd38cc27c8ef4db2cd42952361ac0c2ff3931a2f999b52ce"
+      },
+      {
+        "seed": 12,
+        "tier": 4,
+        "result": "lose",
+        "enemyInitialHp": 705882,
+        "enemyHpLeft": 47033,
+        "loss": 11,
+        "ringDelta": 0,
+        "after": {
+          "city": 340,
+          "deed": 96805,
+          "army": 661,
+          "deployed": 615,
+          "field": 629,
+          "stars": 10,
+          "multiplier": 2,
+          "daily": {
+            "starBeast1": 1,
+            "starBeast2": 1,
+            "starBeast3": 1
+          },
+          "alert": 450,
+          "items": {
+            "origin": 60,
+            "illusion": 60,
+            "ring": 60
+          },
+          "front": [
+            {
+              "type": "star_trooper",
+              "count": 52
+            },
+            {
+              "type": "star_trooper",
+              "count": 52
+            },
+            {
+              "type": "electro_trooper",
+              "count": 55
+            },
+            {
+              "type": "electro_trooper",
+              "count": 40
+            }
+          ],
+          "mid": [
+            {
+              "type": "armored_trooper",
+              "count": 55
+            },
+            {
+              "type": "alloy_special",
+              "count": 55
+            },
+            {
+              "type": "star_trooper",
+              "count": 46
+            },
+            {
+              "type": "gold_cavalry",
+              "count": 40
+            }
+          ],
+          "back": [
+            {
+              "type": "archer",
+              "count": 55
+            },
+            {
+              "type": "archer",
+              "count": 55
+            },
+            {
+              "type": "archer",
+              "count": 55
+            },
+            {
+              "type": "archer",
+              "count": 55
+            }
+          ],
+          "resources": {
+            "food": 480699,
+            "copper": 774.2999979249907,
+            "iron": 863141,
+            "steel": 5926,
+            "medal": 1042870,
+            "tech": 13721
+          }
+        },
+        "callbacks": 301,
+        "saveSha256": "267a8d8387f1f7d187f5dd3a7a912564a78e10105b122a1d101cfa1204d5247d"
+      },
+      {
+        "seed": 13,
+        "tier": 4,
+        "result": "lose",
+        "enemyInitialHp": 705882,
+        "enemyHpLeft": 45974,
+        "loss": 15,
+        "ringDelta": 0,
+        "after": {
+          "city": 340,
+          "deed": 96805,
+          "army": 657,
+          "deployed": 611,
+          "field": 629,
+          "stars": 10,
+          "multiplier": 2,
+          "daily": {
+            "starBeast1": 1,
+            "starBeast2": 1,
+            "starBeast3": 1
+          },
+          "alert": 450,
+          "items": {
+            "origin": 60,
+            "illusion": 60,
+            "ring": 60
+          },
+          "front": [
+            {
+              "type": "star_trooper",
+              "count": 54
+            },
+            {
+              "type": "star_trooper",
+              "count": 50
+            },
+            {
+              "type": "electro_trooper",
+              "count": 51
+            },
+            {
+              "type": "electro_trooper",
+              "count": 40
+            }
+          ],
+          "mid": [
+            {
+              "type": "armored_trooper",
+              "count": 55
+            },
+            {
+              "type": "alloy_special",
+              "count": 55
+            },
+            {
+              "type": "star_trooper",
+              "count": 46
+            },
+            {
+              "type": "gold_cavalry",
+              "count": 40
+            }
+          ],
+          "back": [
+            {
+              "type": "archer",
+              "count": 55
+            },
+            {
+              "type": "archer",
+              "count": 55
+            },
+            {
+              "type": "archer",
+              "count": 55
+            },
+            {
+              "type": "archer",
+              "count": 55
+            }
+          ],
+          "resources": {
+            "food": 480699,
+            "copper": 774.2999979249907,
+            "iron": 863141,
+            "steel": 5926,
+            "medal": 1042870,
+            "tech": 13721
+          }
+        },
+        "callbacks": 301,
+        "saveSha256": "48632210f7c201651537d42396f31a257bf389a6eaa3ca7fd39fc803b8bb10cd"
+      },
+      {
+        "seed": 14,
+        "tier": 4,
+        "result": "lose",
+        "enemyInitialHp": 705882,
+        "enemyHpLeft": 32131,
+        "loss": 8,
+        "ringDelta": 0,
+        "after": {
+          "city": 340,
+          "deed": 96805,
+          "army": 664,
+          "deployed": 618,
+          "field": 629,
+          "stars": 10,
+          "multiplier": 2,
+          "daily": {
+            "starBeast1": 1,
+            "starBeast2": 1,
+            "starBeast3": 1
+          },
+          "alert": 450,
+          "items": {
+            "origin": 60,
+            "illusion": 60,
+            "ring": 60
+          },
+          "front": [
+            {
+              "type": "star_trooper",
+              "count": 51
+            },
+            {
+              "type": "star_trooper",
+              "count": 52
+            },
+            {
+              "type": "electro_trooper",
+              "count": 53
+            },
+            {
+              "type": "electro_trooper",
+              "count": 46
+            }
+          ],
+          "mid": [
+            {
+              "type": "armored_trooper",
+              "count": 55
+            },
+            {
+              "type": "alloy_special",
+              "count": 55
+            },
+            {
+              "type": "star_trooper",
+              "count": 46
+            },
+            {
+              "type": "gold_cavalry",
+              "count": 40
+            }
+          ],
+          "back": [
+            {
+              "type": "archer",
+              "count": 55
+            },
+            {
+              "type": "archer",
+              "count": 55
+            },
+            {
+              "type": "archer",
+              "count": 55
+            },
+            {
+              "type": "archer",
+              "count": 55
+            }
+          ],
+          "resources": {
+            "food": 480699,
+            "copper": 774.2999979249907,
+            "iron": 863141,
+            "steel": 5926,
+            "medal": 1042870,
+            "tech": 13721
+          }
+        },
+        "callbacks": 301,
+        "saveSha256": "f7e164cfbd46fce23229f20b985b94b6cddd58d700217e96611b331e6d0c2c0a"
+      },
+      {
+        "seed": 15,
+        "tier": 4,
+        "result": "lose",
+        "enemyInitialHp": 705882,
+        "enemyHpLeft": 31250,
+        "loss": 9,
+        "ringDelta": 0,
+        "after": {
+          "city": 340,
+          "deed": 96805,
+          "army": 663,
+          "deployed": 617,
+          "field": 629,
+          "stars": 10,
+          "multiplier": 2,
+          "daily": {
+            "starBeast1": 1,
+            "starBeast2": 1,
+            "starBeast3": 1
+          },
+          "alert": 450,
+          "items": {
+            "origin": 60,
+            "illusion": 60,
+            "ring": 60
+          },
+          "front": [
+            {
+              "type": "star_trooper",
+              "count": 52
+            },
+            {
+              "type": "star_trooper",
+              "count": 48
+            },
+            {
+              "type": "electro_trooper",
+              "count": 55
+            },
+            {
+              "type": "electro_trooper",
+              "count": 46
+            }
+          ],
+          "mid": [
+            {
+              "type": "armored_trooper",
+              "count": 55
+            },
+            {
+              "type": "alloy_special",
+              "count": 55
+            },
+            {
+              "type": "star_trooper",
+              "count": 46
+            },
+            {
+              "type": "gold_cavalry",
+              "count": 40
+            }
+          ],
+          "back": [
+            {
+              "type": "archer",
+              "count": 55
+            },
+            {
+              "type": "archer",
+              "count": 55
+            },
+            {
+              "type": "archer",
+              "count": 55
+            },
+            {
+              "type": "archer",
+              "count": 55
+            }
+          ],
+          "resources": {
+            "food": 480699,
+            "copper": 774.2999979249907,
+            "iron": 863141,
+            "steel": 5926,
+            "medal": 1042870,
+            "tech": 13721
+          }
+        },
+        "callbacks": 301,
+        "saveSha256": "3497489789050306e111f2371e0f80d12e959e02857af8f5bd7a01bea17b7e91"
+      },
+      {
+        "seed": 16,
+        "tier": 4,
+        "result": "lose",
+        "enemyInitialHp": 705882,
+        "enemyHpLeft": 52813,
+        "loss": 16,
+        "ringDelta": 0,
+        "after": {
+          "city": 340,
+          "deed": 96805,
+          "army": 656,
+          "deployed": 610,
+          "field": 629,
+          "stars": 10,
+          "multiplier": 2,
+          "daily": {
+            "starBeast1": 1,
+            "starBeast2": 1,
+            "starBeast3": 1
+          },
+          "alert": 450,
+          "items": {
+            "origin": 60,
+            "illusion": 60,
+            "ring": 60
+          },
+          "front": [
+            {
+              "type": "star_trooper",
+              "count": 52
+            },
+            {
+              "type": "star_trooper",
+              "count": 52
+            },
+            {
+              "type": "electro_trooper",
+              "count": 52
+            },
+            {
+              "type": "electro_trooper",
+              "count": 38
+            }
+          ],
+          "mid": [
+            {
+              "type": "armored_trooper",
+              "count": 55
+            },
+            {
+              "type": "alloy_special",
+              "count": 55
+            },
+            {
+              "type": "star_trooper",
+              "count": 46
+            },
+            {
+              "type": "gold_cavalry",
+              "count": 40
+            }
+          ],
+          "back": [
+            {
+              "type": "archer",
+              "count": 55
+            },
+            {
+              "type": "archer",
+              "count": 55
+            },
+            {
+              "type": "archer",
+              "count": 55
+            },
+            {
+              "type": "archer",
+              "count": 55
+            }
+          ],
+          "resources": {
+            "food": 480699,
+            "copper": 774.2999979249907,
+            "iron": 863141,
+            "steel": 5926,
+            "medal": 1042870,
+            "tech": 13721
+          }
+        },
+        "callbacks": 301,
+        "saveSha256": "4126ac023333f73e4b944ca7797be103bc3011bf5713e7ff77a398b1adb17bfc"
+      }
+    ]
+  },
+  "offline": [
+    {
+      "target": 12,
+      "seconds": 28800,
+      "beforeDeed": 16219,
+      "afterDeed": 70651,
+      "gains": {
+        "stone": -144500.39999999595,
+        "coal": -144500.3999999998,
+        "iron": -144500.39999998757,
+        "steel": 650251.8000000033,
+        "deed": 54432,
+        "medal": 90720,
+        "bone": 362880
+      },
+      "sha256": "e8fad632f2130ac5581735a20b0180bafd1cc84f54b43fba029f9cb2746812f2"
+    },
+    {
+      "target": 12,
+      "seconds": 28800,
+      "beforeDeed": 70651,
+      "afterDeed": 125083,
+      "gains": {
+        "deed": 54432,
+        "medal": 90720,
+        "bone": 362880
+      },
+      "sha256": "c18469f919857221607880430cd875b15277f241ce8fb5a0edbeff79845892a3"
+    }
+  ],
+  "starSteps": [
+    {
+      "target": 11,
+      "needed": 37,
+      "quote": {
+        "cost": 80586,
+        "remainingDeed": 16219
+      },
+      "before": {
+        "city": 340,
+        "deed": 96805,
+        "army": 672,
+        "deployed": 626,
+        "field": 629,
+        "stars": 10,
+        "multiplier": 2,
+        "daily": {
+          "starBeast1": 1,
+          "starBeast2": 1,
+          "starBeast3": 1
+        },
+        "alert": 450,
+        "items": {
+          "origin": 60,
+          "illusion": 60,
+          "ring": 60
+        },
+        "front": [
+          {
+            "type": "star_trooper",
+            "count": 55
+          },
+          {
+            "type": "star_trooper",
+            "count": 54
+          },
+          {
+            "type": "electro_trooper",
+            "count": 55
+          },
+          {
+            "type": "electro_trooper",
+            "count": 46
+          }
+        ],
+        "mid": [
+          {
+            "type": "armored_trooper",
+            "count": 55
+          },
+          {
+            "type": "alloy_special",
+            "count": 55
+          },
+          {
+            "type": "star_trooper",
+            "count": 46
+          },
+          {
+            "type": "gold_cavalry",
+            "count": 40
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 55
+          },
+          {
+            "type": "archer",
+            "count": 55
+          },
+          {
+            "type": "archer",
+            "count": 55
+          },
+          {
+            "type": "archer",
+            "count": 55
+          }
+        ],
+        "resources": {
+          "food": 480699,
+          "copper": 774.2999979249907,
+          "iron": 863141,
+          "steel": 5926,
+          "medal": 1042870,
+          "tech": 13721
+        }
+      },
+      "after": {
+        "city": 377,
+        "deed": 16219,
+        "army": 672,
+        "deployed": 626,
+        "field": 627,
+        "stars": 11,
+        "multiplier": 2.1,
+        "daily": {
+          "starBeast1": 1,
+          "starBeast2": 1,
+          "starBeast3": 1
+        },
+        "alert": 450,
+        "items": {
+          "origin": 60,
+          "illusion": 60,
+          "ring": 60
+        },
+        "front": [
+          {
+            "type": "star_trooper",
+            "count": 55
+          },
+          {
+            "type": "star_trooper",
+            "count": 54
+          },
+          {
+            "type": "electro_trooper",
+            "count": 55
+          },
+          {
+            "type": "electro_trooper",
+            "count": 46
+          }
+        ],
+        "mid": [
+          {
+            "type": "armored_trooper",
+            "count": 55
+          },
+          {
+            "type": "alloy_special",
+            "count": 55
+          },
+          {
+            "type": "star_trooper",
+            "count": 46
+          },
+          {
+            "type": "gold_cavalry",
+            "count": 40
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 55
+          },
+          {
+            "type": "archer",
+            "count": 55
+          },
+          {
+            "type": "archer",
+            "count": 55
+          },
+          {
+            "type": "archer",
+            "count": 55
+          }
+        ],
+        "resources": {
+          "food": 480699,
+          "copper": 774.2999979249907,
+          "iron": 863141,
+          "steel": 5926,
+          "medal": 1042870,
+          "tech": 13721
+        }
+      },
+      "file": "p394-tier4-star11-paid-save.json",
+      "sha256": "d0131326ebac554e9bbf5e61fd13646e3779254250b7d4b4138867f4d0d6b340",
+      "pressure": {
+        "wins16": 1,
+        "closest": 0,
+        "rows": [
+          {
+            "seed": 1,
+            "tier": 4,
+            "result": "lose",
+            "enemyInitialHp": 705882,
+            "enemyHpLeft": 7306,
+            "loss": 8,
+            "ringDelta": 0,
+            "after": {
+              "city": 377,
+              "deed": 16219,
+              "army": 664,
+              "deployed": 618,
+              "field": 627,
+              "stars": 11,
+              "multiplier": 2.1,
+              "daily": {
+                "starBeast1": 1,
+                "starBeast2": 1,
+                "starBeast3": 1
+              },
+              "alert": 450,
+              "items": {
+                "origin": 60,
+                "illusion": 60,
+                "ring": 60
+              },
+              "front": [
+                {
+                  "type": "star_trooper",
+                  "count": 52
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 51
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 44
+                }
+              ],
+              "mid": [
+                {
+                  "type": "armored_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "alloy_special",
+                  "count": 55
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 46
+                },
+                {
+                  "type": "gold_cavalry",
+                  "count": 40
+                }
+              ],
+              "back": [
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                }
+              ],
+              "resources": {
+                "food": 480699,
+                "copper": 774.2999979249907,
+                "iron": 863141,
+                "steel": 5926,
+                "medal": 1042870,
+                "tech": 13721
+              }
+            },
+            "callbacks": 301,
+            "saveSha256": "72c790cc2f804130d31b05d850fe4c7545dbd152c2292f4dba457258cec1fec5"
+          },
+          {
+            "seed": 2,
+            "tier": 4,
+            "result": "lose",
+            "enemyInitialHp": 705882,
+            "enemyHpLeft": 4165,
+            "loss": 10,
+            "ringDelta": 0,
+            "after": {
+              "city": 377,
+              "deed": 16219,
+              "army": 662,
+              "deployed": 616,
+              "field": 627,
+              "stars": 11,
+              "multiplier": 2.1,
+              "daily": {
+                "starBeast1": 1,
+                "starBeast2": 1,
+                "starBeast3": 1
+              },
+              "alert": 450,
+              "items": {
+                "origin": 60,
+                "illusion": 60,
+                "ring": 60
+              },
+              "front": [
+                {
+                  "type": "star_trooper",
+                  "count": 53
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 51
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 41
+                }
+              ],
+              "mid": [
+                {
+                  "type": "armored_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "alloy_special",
+                  "count": 55
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 46
+                },
+                {
+                  "type": "gold_cavalry",
+                  "count": 40
+                }
+              ],
+              "back": [
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                }
+              ],
+              "resources": {
+                "food": 480699,
+                "copper": 774.2999979249907,
+                "iron": 863141,
+                "steel": 5926,
+                "medal": 1042870,
+                "tech": 13721
+              }
+            },
+            "callbacks": 301,
+            "saveSha256": "e3ee46d45dd6ebcacf550fda55a83bd88916045713f11d805bd2b21c5303ca3a"
+          },
+          {
+            "seed": 3,
+            "tier": 4,
+            "result": "lose",
+            "enemyInitialHp": 705882,
+            "enemyHpLeft": 11566,
+            "loss": 12,
+            "ringDelta": 0,
+            "after": {
+              "city": 377,
+              "deed": 16219,
+              "army": 660,
+              "deployed": 614,
+              "field": 627,
+              "stars": 11,
+              "multiplier": 2.1,
+              "daily": {
+                "starBeast1": 1,
+                "starBeast2": 1,
+                "starBeast3": 1
+              },
+              "alert": 450,
+              "items": {
+                "origin": 60,
+                "illusion": 60,
+                "ring": 60
+              },
+              "front": [
+                {
+                  "type": "star_trooper",
+                  "count": 51
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 50
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 42
+                }
+              ],
+              "mid": [
+                {
+                  "type": "armored_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "alloy_special",
+                  "count": 55
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 46
+                },
+                {
+                  "type": "gold_cavalry",
+                  "count": 40
+                }
+              ],
+              "back": [
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                }
+              ],
+              "resources": {
+                "food": 480699,
+                "copper": 774.2999979249907,
+                "iron": 863141,
+                "steel": 5926,
+                "medal": 1042870,
+                "tech": 13721
+              }
+            },
+            "callbacks": 301,
+            "saveSha256": "f1f6d9adc057e97ca6b8219ae00c69545c6f9d8668174618eda20c178c6156ee"
+          },
+          {
+            "seed": 4,
+            "tier": 4,
+            "result": "lose",
+            "enemyInitialHp": 705882,
+            "enemyHpLeft": 21740,
+            "loss": 14,
+            "ringDelta": 0,
+            "after": {
+              "city": 377,
+              "deed": 16219,
+              "army": 658,
+              "deployed": 612,
+              "field": 627,
+              "stars": 11,
+              "multiplier": 2.1,
+              "daily": {
+                "starBeast1": 1,
+                "starBeast2": 1,
+                "starBeast3": 1
+              },
+              "alert": 450,
+              "items": {
+                "origin": 60,
+                "illusion": 60,
+                "ring": 60
+              },
+              "front": [
+                {
+                  "type": "star_trooper",
+                  "count": 52
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 52
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 37
+                }
+              ],
+              "mid": [
+                {
+                  "type": "armored_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "alloy_special",
+                  "count": 55
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 46
+                },
+                {
+                  "type": "gold_cavalry",
+                  "count": 40
+                }
+              ],
+              "back": [
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                }
+              ],
+              "resources": {
+                "food": 480699,
+                "copper": 774.2999979249907,
+                "iron": 863141,
+                "steel": 5926,
+                "medal": 1042870,
+                "tech": 13721
+              }
+            },
+            "callbacks": 301,
+            "saveSha256": "a849f5fad3e2891cb87c0050d6e12548a753f33da1c905ad98cc112a4786db63"
+          },
+          {
+            "seed": 5,
+            "tier": 4,
+            "result": "lose",
+            "enemyInitialHp": 705882,
+            "enemyHpLeft": 24705,
+            "loss": 12,
+            "ringDelta": 0,
+            "after": {
+              "city": 377,
+              "deed": 16219,
+              "army": 660,
+              "deployed": 614,
+              "field": 627,
+              "stars": 11,
+              "multiplier": 2.1,
+              "daily": {
+                "starBeast1": 1,
+                "starBeast2": 1,
+                "starBeast3": 1
+              },
+              "alert": 450,
+              "items": {
+                "origin": 60,
+                "illusion": 60,
+                "ring": 60
+              },
+              "front": [
+                {
+                  "type": "star_trooper",
+                  "count": 53
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 53
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 54
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 38
+                }
+              ],
+              "mid": [
+                {
+                  "type": "armored_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "alloy_special",
+                  "count": 55
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 46
+                },
+                {
+                  "type": "gold_cavalry",
+                  "count": 40
+                }
+              ],
+              "back": [
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                }
+              ],
+              "resources": {
+                "food": 480699,
+                "copper": 774.2999979249907,
+                "iron": 863141,
+                "steel": 5926,
+                "medal": 1042870,
+                "tech": 13721
+              }
+            },
+            "callbacks": 301,
+            "saveSha256": "da1281b92f3d6f666fbd7e5dc366ab4ab547244e5b5bf3180c3431d0dd0adeb6"
+          },
+          {
+            "seed": 6,
+            "tier": 4,
+            "result": "lose",
+            "enemyInitialHp": 705882,
+            "enemyHpLeft": 15053,
+            "loss": 13,
+            "ringDelta": 0,
+            "after": {
+              "city": 377,
+              "deed": 16219,
+              "army": 659,
+              "deployed": 613,
+              "field": 627,
+              "stars": 11,
+              "multiplier": 2.1,
+              "daily": {
+                "starBeast1": 1,
+                "starBeast2": 1,
+                "starBeast3": 1
+              },
+              "alert": 450,
+              "items": {
+                "origin": 60,
+                "illusion": 60,
+                "ring": 60
+              },
+              "front": [
+                {
+                  "type": "star_trooper",
+                  "count": 52
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 50
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 40
+                }
+              ],
+              "mid": [
+                {
+                  "type": "armored_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "alloy_special",
+                  "count": 55
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 46
+                },
+                {
+                  "type": "gold_cavalry",
+                  "count": 40
+                }
+              ],
+              "back": [
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                }
+              ],
+              "resources": {
+                "food": 480699,
+                "copper": 774.2999979249907,
+                "iron": 863141,
+                "steel": 5926,
+                "medal": 1042870,
+                "tech": 13721
+              }
+            },
+            "callbacks": 301,
+            "saveSha256": "adc37d9ef0d54a2ad56324d54a9babf99d1097fabbc9bfd2375f0c25d80efdf6"
+          },
+          {
+            "seed": 7,
+            "tier": 4,
+            "result": "lose",
+            "enemyInitialHp": 705882,
+            "enemyHpLeft": 16054,
+            "loss": 12,
+            "ringDelta": 0,
+            "after": {
+              "city": 377,
+              "deed": 16219,
+              "army": 660,
+              "deployed": 614,
+              "field": 627,
+              "stars": 11,
+              "multiplier": 2.1,
+              "daily": {
+                "starBeast1": 1,
+                "starBeast2": 1,
+                "starBeast3": 1
+              },
+              "alert": 450,
+              "items": {
+                "origin": 60,
+                "illusion": 60,
+                "ring": 60
+              },
+              "front": [
+                {
+                  "type": "star_trooper",
+                  "count": 50
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 51
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 51
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 46
+                }
+              ],
+              "mid": [
+                {
+                  "type": "armored_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "alloy_special",
+                  "count": 55
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 46
+                },
+                {
+                  "type": "gold_cavalry",
+                  "count": 40
+                }
+              ],
+              "back": [
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                }
+              ],
+              "resources": {
+                "food": 480699,
+                "copper": 774.2999979249907,
+                "iron": 863141,
+                "steel": 5926,
+                "medal": 1042870,
+                "tech": 13721
+              }
+            },
+            "callbacks": 301,
+            "saveSha256": "0b8aae0f64757c306725bea1db52ff8282cbbb9fb054743615a5d15fa3277ebd"
+          },
+          {
+            "seed": 8,
+            "tier": 4,
+            "result": "lose",
+            "enemyInitialHp": 705882,
+            "enemyHpLeft": 16378,
+            "loss": 10,
+            "ringDelta": 0,
+            "after": {
+              "city": 377,
+              "deed": 16219,
+              "army": 662,
+              "deployed": 616,
+              "field": 627,
+              "stars": 11,
+              "multiplier": 2.1,
+              "daily": {
+                "starBeast1": 1,
+                "starBeast2": 1,
+                "starBeast3": 1
+              },
+              "alert": 450,
+              "items": {
+                "origin": 60,
+                "illusion": 60,
+                "ring": 60
+              },
+              "front": [
+                {
+                  "type": "star_trooper",
+                  "count": 54
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 50
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 41
+                }
+              ],
+              "mid": [
+                {
+                  "type": "armored_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "alloy_special",
+                  "count": 55
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 46
+                },
+                {
+                  "type": "gold_cavalry",
+                  "count": 40
+                }
+              ],
+              "back": [
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                }
+              ],
+              "resources": {
+                "food": 480699,
+                "copper": 774.2999979249907,
+                "iron": 863141,
+                "steel": 5926,
+                "medal": 1042870,
+                "tech": 13721
+              }
+            },
+            "callbacks": 301,
+            "saveSha256": "b7845016611924bfd62cb41dbe520b95c782cbdb4575df7dac1dac1f342318ec"
+          },
+          {
+            "seed": 9,
+            "tier": 4,
+            "result": "lose",
+            "enemyInitialHp": 705882,
+            "enemyHpLeft": 8284,
+            "loss": 7,
+            "ringDelta": 0,
+            "after": {
+              "city": 377,
+              "deed": 16219,
+              "army": 665,
+              "deployed": 619,
+              "field": 627,
+              "stars": 11,
+              "multiplier": 2.1,
+              "daily": {
+                "starBeast1": 1,
+                "starBeast2": 1,
+                "starBeast3": 1
+              },
+              "alert": 450,
+              "items": {
+                "origin": 60,
+                "illusion": 60,
+                "ring": 60
+              },
+              "front": [
+                {
+                  "type": "star_trooper",
+                  "count": 52
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 50
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 46
+                }
+              ],
+              "mid": [
+                {
+                  "type": "armored_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "alloy_special",
+                  "count": 55
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 46
+                },
+                {
+                  "type": "gold_cavalry",
+                  "count": 40
+                }
+              ],
+              "back": [
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                }
+              ],
+              "resources": {
+                "food": 480699,
+                "copper": 774.2999979249907,
+                "iron": 863141,
+                "steel": 5926,
+                "medal": 1042870,
+                "tech": 13721
+              }
+            },
+            "callbacks": 301,
+            "saveSha256": "50287e1d2111ccd17e23463d2e27700957ef757d9e0cbc8741fb12d9e72b0f90"
+          },
+          {
+            "seed": 10,
+            "tier": 4,
+            "result": "lose",
+            "enemyInitialHp": 705882,
+            "enemyHpLeft": 10269,
+            "loss": 12,
+            "ringDelta": 0,
+            "after": {
+              "city": 377,
+              "deed": 16219,
+              "army": 660,
+              "deployed": 614,
+              "field": 627,
+              "stars": 11,
+              "multiplier": 2.1,
+              "daily": {
+                "starBeast1": 1,
+                "starBeast2": 1,
+                "starBeast3": 1
+              },
+              "alert": 450,
+              "items": {
+                "origin": 60,
+                "illusion": 60,
+                "ring": 60
+              },
+              "front": [
+                {
+                  "type": "star_trooper",
+                  "count": 53
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 49
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 51
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 45
+                }
+              ],
+              "mid": [
+                {
+                  "type": "armored_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "alloy_special",
+                  "count": 55
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 46
+                },
+                {
+                  "type": "gold_cavalry",
+                  "count": 40
+                }
+              ],
+              "back": [
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                }
+              ],
+              "resources": {
+                "food": 480699,
+                "copper": 774.2999979249907,
+                "iron": 863141,
+                "steel": 5926,
+                "medal": 1042870,
+                "tech": 13721
+              }
+            },
+            "callbacks": 301,
+            "saveSha256": "34c72f6a19578f9c2fa21bf2ab8adaa2a35db3cb0d5b0db973aaf6b3bc7a2c0c"
+          },
+          {
+            "seed": 11,
+            "tier": 4,
+            "result": "win",
+            "enemyInitialHp": 705882,
+            "enemyHpLeft": 0,
+            "loss": 7,
+            "ringDelta": 50,
+            "after": {
+              "city": 377,
+              "deed": 16219,
+              "army": 665,
+              "deployed": 619,
+              "field": 627,
+              "stars": 11,
+              "multiplier": 2.1,
+              "daily": {
+                "starBeast1": 1,
+                "starBeast2": 1,
+                "starBeast3": 1,
+                "starBeast4": 1
+              },
+              "alert": 700,
+              "items": {
+                "origin": 110,
+                "illusion": 110,
+                "ring": 110
+              },
+              "front": [
+                {
+                  "type": "star_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 49
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 53
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 46
+                }
+              ],
+              "mid": [
+                {
+                  "type": "armored_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "alloy_special",
+                  "count": 55
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 46
+                },
+                {
+                  "type": "gold_cavalry",
+                  "count": 40
+                }
+              ],
+              "back": [
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                }
+              ],
+              "resources": {
+                "food": 480699,
+                "copper": 774.2999979249907,
+                "iron": 863141,
+                "steel": 5926,
+                "medal": 1042870,
+                "tech": 13721
+              }
+            },
+            "callbacks": 299,
+            "saveSha256": "d7a0e3f36a3c07cbf930ede2df95ce845cecf4816b83df3d7049cd33caaec733"
+          },
+          {
+            "seed": 12,
+            "tier": 4,
+            "result": "lose",
+            "enemyInitialHp": 705882,
+            "enemyHpLeft": 18730,
+            "loss": 11,
+            "ringDelta": 0,
+            "after": {
+              "city": 377,
+              "deed": 16219,
+              "army": 661,
+              "deployed": 615,
+              "field": 627,
+              "stars": 11,
+              "multiplier": 2.1,
+              "daily": {
+                "starBeast1": 1,
+                "starBeast2": 1,
+                "starBeast3": 1
+              },
+              "alert": 450,
+              "items": {
+                "origin": 60,
+                "illusion": 60,
+                "ring": 60
+              },
+              "front": [
+                {
+                  "type": "star_trooper",
+                  "count": 52
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 52
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 40
+                }
+              ],
+              "mid": [
+                {
+                  "type": "armored_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "alloy_special",
+                  "count": 55
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 46
+                },
+                {
+                  "type": "gold_cavalry",
+                  "count": 40
+                }
+              ],
+              "back": [
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                }
+              ],
+              "resources": {
+                "food": 480699,
+                "copper": 774.2999979249907,
+                "iron": 863141,
+                "steel": 5926,
+                "medal": 1042870,
+                "tech": 13721
+              }
+            },
+            "callbacks": 301,
+            "saveSha256": "72e63a8d97f685745a228336dc1c76919d8e23ec407a85b88b0ab9fa63c35403"
+          },
+          {
+            "seed": 13,
+            "tier": 4,
+            "result": "lose",
+            "enemyInitialHp": 705882,
+            "enemyHpLeft": 11888,
+            "loss": 12,
+            "ringDelta": 0,
+            "after": {
+              "city": 377,
+              "deed": 16219,
+              "army": 660,
+              "deployed": 614,
+              "field": 627,
+              "stars": 11,
+              "multiplier": 2.1,
+              "daily": {
+                "starBeast1": 1,
+                "starBeast2": 1,
+                "starBeast3": 1
+              },
+              "alert": 450,
+              "items": {
+                "origin": 60,
+                "illusion": 60,
+                "ring": 60
+              },
+              "front": [
+                {
+                  "type": "star_trooper",
+                  "count": 54
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 50
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 53
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 41
+                }
+              ],
+              "mid": [
+                {
+                  "type": "armored_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "alloy_special",
+                  "count": 55
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 46
+                },
+                {
+                  "type": "gold_cavalry",
+                  "count": 40
+                }
+              ],
+              "back": [
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                }
+              ],
+              "resources": {
+                "food": 480699,
+                "copper": 774.2999979249907,
+                "iron": 863141,
+                "steel": 5926,
+                "medal": 1042870,
+                "tech": 13721
+              }
+            },
+            "callbacks": 301,
+            "saveSha256": "2e5cf2d2052ed873fadd684ccba9061137239434a1f2474a8f683de0093f6564"
+          },
+          {
+            "seed": 14,
+            "tier": 4,
+            "result": "lose",
+            "enemyInitialHp": 705882,
+            "enemyHpLeft": 2129,
+            "loss": 7,
+            "ringDelta": 0,
+            "after": {
+              "city": 377,
+              "deed": 16219,
+              "army": 665,
+              "deployed": 619,
+              "field": 627,
+              "stars": 11,
+              "multiplier": 2.1,
+              "daily": {
+                "starBeast1": 1,
+                "starBeast2": 1,
+                "starBeast3": 1
+              },
+              "alert": 450,
+              "items": {
+                "origin": 60,
+                "illusion": 60,
+                "ring": 60
+              },
+              "front": [
+                {
+                  "type": "star_trooper",
+                  "count": 51
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 52
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 54
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 46
+                }
+              ],
+              "mid": [
+                {
+                  "type": "armored_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "alloy_special",
+                  "count": 55
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 46
+                },
+                {
+                  "type": "gold_cavalry",
+                  "count": 40
+                }
+              ],
+              "back": [
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                }
+              ],
+              "resources": {
+                "food": 480699,
+                "copper": 774.2999979249907,
+                "iron": 863141,
+                "steel": 5926,
+                "medal": 1042870,
+                "tech": 13721
+              }
+            },
+            "callbacks": 301,
+            "saveSha256": "7fc118fe8dc6a6947b4e68d53706247bbe1d0368658a9eb0f2a2914d7cf38293"
+          },
+          {
+            "seed": 15,
+            "tier": 4,
+            "result": "lose",
+            "enemyInitialHp": 705882,
+            "enemyHpLeft": 2638,
+            "loss": 9,
+            "ringDelta": 0,
+            "after": {
+              "city": 377,
+              "deed": 16219,
+              "army": 663,
+              "deployed": 617,
+              "field": 627,
+              "stars": 11,
+              "multiplier": 2.1,
+              "daily": {
+                "starBeast1": 1,
+                "starBeast2": 1,
+                "starBeast3": 1
+              },
+              "alert": 450,
+              "items": {
+                "origin": 60,
+                "illusion": 60,
+                "ring": 60
+              },
+              "front": [
+                {
+                  "type": "star_trooper",
+                  "count": 52
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 48
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 46
+                }
+              ],
+              "mid": [
+                {
+                  "type": "armored_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "alloy_special",
+                  "count": 55
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 46
+                },
+                {
+                  "type": "gold_cavalry",
+                  "count": 40
+                }
+              ],
+              "back": [
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                }
+              ],
+              "resources": {
+                "food": 480699,
+                "copper": 774.2999979249907,
+                "iron": 863141,
+                "steel": 5926,
+                "medal": 1042870,
+                "tech": 13721
+              }
+            },
+            "callbacks": 301,
+            "saveSha256": "1ff8ae0b9e80a446f2f410fa9b5ad8ff70f7ccca883e5affca5016d456d24386"
+          },
+          {
+            "seed": 16,
+            "tier": 4,
+            "result": "lose",
+            "enemyInitialHp": 705882,
+            "enemyHpLeft": 23240,
+            "loss": 15,
+            "ringDelta": 0,
+            "after": {
+              "city": 377,
+              "deed": 16219,
+              "army": 657,
+              "deployed": 611,
+              "field": 627,
+              "stars": 11,
+              "multiplier": 2.1,
+              "daily": {
+                "starBeast1": 1,
+                "starBeast2": 1,
+                "starBeast3": 1
+              },
+              "alert": 450,
+              "items": {
+                "origin": 60,
+                "illusion": 60,
+                "ring": 60
+              },
+              "front": [
+                {
+                  "type": "star_trooper",
+                  "count": 52
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 52
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 52
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 39
+                }
+              ],
+              "mid": [
+                {
+                  "type": "armored_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "alloy_special",
+                  "count": 55
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 46
+                },
+                {
+                  "type": "gold_cavalry",
+                  "count": 40
+                }
+              ],
+              "back": [
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                }
+              ],
+              "resources": {
+                "food": 480699,
+                "copper": 774.2999979249907,
+                "iron": 863141,
+                "steel": 5926,
+                "medal": 1042870,
+                "tech": 13721
+              }
+            },
+            "callbacks": 301,
+            "saveSha256": "fbfc7cc3ba5d0eebb7f2b8665c57f16b9e5b843f09a7c002e4473f782c0664fb"
+          }
+        ]
+      },
+      "firstWin": {
+        "file": "p394-tier4-star11-seed11-win-save.json",
+        "sha256": "d7a0e3f36a3c07cbf930ede2df95ce845cecf4816b83df3d7049cd33caaec733"
+      }
+    },
+    {
+      "target": 12,
+      "needed": 38,
+      "quote": {
+        "cost": 91314,
+        "remainingDeed": 33769
+      },
+      "before": {
+        "city": 377,
+        "deed": 125083,
+        "army": 672,
+        "deployed": 626,
+        "field": 627,
+        "stars": 11,
+        "multiplier": 2.1,
+        "daily": {
+          "starBeast1": 1,
+          "starBeast2": 1,
+          "starBeast3": 1
+        },
+        "alert": 450,
+        "items": {
+          "origin": 60,
+          "illusion": 60,
+          "ring": 60
+        },
+        "front": [
+          {
+            "type": "star_trooper",
+            "count": 55
+          },
+          {
+            "type": "star_trooper",
+            "count": 54
+          },
+          {
+            "type": "electro_trooper",
+            "count": 55
+          },
+          {
+            "type": "electro_trooper",
+            "count": 46
+          }
+        ],
+        "mid": [
+          {
+            "type": "armored_trooper",
+            "count": 55
+          },
+          {
+            "type": "alloy_special",
+            "count": 55
+          },
+          {
+            "type": "star_trooper",
+            "count": 46
+          },
+          {
+            "type": "gold_cavalry",
+            "count": 40
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 55
+          },
+          {
+            "type": "archer",
+            "count": 55
+          },
+          {
+            "type": "archer",
+            "count": 55
+          },
+          {
+            "type": "archer",
+            "count": 55
+          }
+        ],
+        "resources": {
+          "food": 480699,
+          "copper": 774.2999979249907,
+          "iron": 718640.6000000124,
+          "steel": 656177.8000000033,
+          "medal": 1224310,
+          "tech": 13721
+        }
+      },
+      "after": {
+        "city": 415,
+        "deed": 33769,
+        "army": 672,
+        "deployed": 626,
+        "field": 629,
+        "stars": 12,
+        "multiplier": 2.2,
+        "daily": {
+          "starBeast1": 1,
+          "starBeast2": 1,
+          "starBeast3": 1
+        },
+        "alert": 450,
+        "items": {
+          "origin": 60,
+          "illusion": 60,
+          "ring": 60
+        },
+        "front": [
+          {
+            "type": "star_trooper",
+            "count": 55
+          },
+          {
+            "type": "star_trooper",
+            "count": 54
+          },
+          {
+            "type": "electro_trooper",
+            "count": 55
+          },
+          {
+            "type": "electro_trooper",
+            "count": 46
+          }
+        ],
+        "mid": [
+          {
+            "type": "armored_trooper",
+            "count": 55
+          },
+          {
+            "type": "alloy_special",
+            "count": 55
+          },
+          {
+            "type": "star_trooper",
+            "count": 46
+          },
+          {
+            "type": "gold_cavalry",
+            "count": 40
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 55
+          },
+          {
+            "type": "archer",
+            "count": 55
+          },
+          {
+            "type": "archer",
+            "count": 55
+          },
+          {
+            "type": "archer",
+            "count": 55
+          }
+        ],
+        "resources": {
+          "food": 480699,
+          "copper": 774.2999979249907,
+          "iron": 718640.6000000124,
+          "steel": 656177.8000000033,
+          "medal": 1224310,
+          "tech": 13721
+        }
+      },
+      "file": "p394-tier4-star12-paid-save.json",
+      "sha256": "caab6f4009b8c4e9c5fe75c7b7fd0d14ef78ab1579a3da153ab589381dfdfd10",
+      "pressure": {
+        "wins16": 16,
+        "closest": 0,
+        "rows": [
+          {
+            "seed": 1,
+            "tier": 4,
+            "result": "win",
+            "enemyInitialHp": 705882,
+            "enemyHpLeft": 0,
+            "loss": 7,
+            "ringDelta": 50,
+            "after": {
+              "city": 415,
+              "deed": 33769,
+              "army": 665,
+              "deployed": 619,
+              "field": 629,
+              "stars": 12,
+              "multiplier": 2.2,
+              "daily": {
+                "starBeast4": 1
+              },
+              "alert": 700,
+              "items": {
+                "origin": 110,
+                "illusion": 110,
+                "ring": 110
+              },
+              "front": [
+                {
+                  "type": "star_trooper",
+                  "count": 52
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 51
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 45
+                }
+              ],
+              "mid": [
+                {
+                  "type": "armored_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "alloy_special",
+                  "count": 55
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 46
+                },
+                {
+                  "type": "gold_cavalry",
+                  "count": 40
+                }
+              ],
+              "back": [
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                }
+              ],
+              "resources": {
+                "food": 480699,
+                "copper": 774.2999979249907,
+                "iron": 718640.6000000124,
+                "steel": 656177.8000000033,
+                "medal": 1224310,
+                "tech": 13721
+              }
+            },
+            "callbacks": 296,
+            "saveSha256": "dd99d2f0e10927411a1310c9125b670ca01b1e88b454feba0123ccf2603bba78"
+          },
+          {
+            "seed": 2,
+            "tier": 4,
+            "result": "win",
+            "enemyInitialHp": 705882,
+            "enemyHpLeft": 0,
+            "loss": 7,
+            "ringDelta": 50,
+            "after": {
+              "city": 415,
+              "deed": 33769,
+              "army": 665,
+              "deployed": 619,
+              "field": 629,
+              "stars": 12,
+              "multiplier": 2.2,
+              "daily": {
+                "starBeast4": 1
+              },
+              "alert": 700,
+              "items": {
+                "origin": 110,
+                "illusion": 110,
+                "ring": 110
+              },
+              "front": [
+                {
+                  "type": "star_trooper",
+                  "count": 54
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 51
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 43
+                }
+              ],
+              "mid": [
+                {
+                  "type": "armored_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "alloy_special",
+                  "count": 55
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 46
+                },
+                {
+                  "type": "gold_cavalry",
+                  "count": 40
+                }
+              ],
+              "back": [
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                }
+              ],
+              "resources": {
+                "food": 480699,
+                "copper": 774.2999979249907,
+                "iron": 718640.6000000124,
+                "steel": 656177.8000000033,
+                "medal": 1224310,
+                "tech": 13721
+              }
+            },
+            "callbacks": 289,
+            "saveSha256": "027e81882a23615fd3f51206d00d32085dd13fa22befcf35faf3c9d21d9a87d4"
+          },
+          {
+            "seed": 3,
+            "tier": 4,
+            "result": "win",
+            "enemyInitialHp": 705882,
+            "enemyHpLeft": 0,
+            "loss": 10,
+            "ringDelta": 50,
+            "after": {
+              "city": 415,
+              "deed": 33769,
+              "army": 662,
+              "deployed": 616,
+              "field": 629,
+              "stars": 12,
+              "multiplier": 2.2,
+              "daily": {
+                "starBeast4": 1
+              },
+              "alert": 700,
+              "items": {
+                "origin": 110,
+                "illusion": 110,
+                "ring": 110
+              },
+              "front": [
+                {
+                  "type": "star_trooper",
+                  "count": 51
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 51
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 43
+                }
+              ],
+              "mid": [
+                {
+                  "type": "armored_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "alloy_special",
+                  "count": 55
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 46
+                },
+                {
+                  "type": "gold_cavalry",
+                  "count": 40
+                }
+              ],
+              "back": [
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                }
+              ],
+              "resources": {
+                "food": 480699,
+                "copper": 774.2999979249907,
+                "iron": 718640.6000000124,
+                "steel": 656177.8000000033,
+                "medal": 1224310,
+                "tech": 13721
+              }
+            },
+            "callbacks": 296,
+            "saveSha256": "12c4fff4de7d13851d192befb7b07313c7d005c339ce9e633d3d572d5f763325"
+          },
+          {
+            "seed": 4,
+            "tier": 4,
+            "result": "win",
+            "enemyInitialHp": 705882,
+            "enemyHpLeft": 0,
+            "loss": 13,
+            "ringDelta": 50,
+            "after": {
+              "city": 415,
+              "deed": 33769,
+              "army": 659,
+              "deployed": 613,
+              "field": 629,
+              "stars": 12,
+              "multiplier": 2.2,
+              "daily": {
+                "starBeast4": 1
+              },
+              "alert": 700,
+              "items": {
+                "origin": 110,
+                "illusion": 110,
+                "ring": 110
+              },
+              "front": [
+                {
+                  "type": "star_trooper",
+                  "count": 52
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 52
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 38
+                }
+              ],
+              "mid": [
+                {
+                  "type": "armored_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "alloy_special",
+                  "count": 55
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 46
+                },
+                {
+                  "type": "gold_cavalry",
+                  "count": 40
+                }
+              ],
+              "back": [
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                }
+              ],
+              "resources": {
+                "food": 480699,
+                "copper": 774.2999979249907,
+                "iron": 718640.6000000124,
+                "steel": 656177.8000000033,
+                "medal": 1224310,
+                "tech": 13721
+              }
+            },
+            "callbacks": 297,
+            "saveSha256": "d46d3e745cf32c6f081299e4d0feb76f67a7110f817aa337bc7028dc4f060b66"
+          },
+          {
+            "seed": 5,
+            "tier": 4,
+            "result": "win",
+            "enemyInitialHp": 705882,
+            "enemyHpLeft": 0,
+            "loss": 10,
+            "ringDelta": 50,
+            "after": {
+              "city": 415,
+              "deed": 33769,
+              "army": 662,
+              "deployed": 616,
+              "field": 629,
+              "stars": 12,
+              "multiplier": 2.2,
+              "daily": {
+                "starBeast4": 1
+              },
+              "alert": 700,
+              "items": {
+                "origin": 110,
+                "illusion": 110,
+                "ring": 110
+              },
+              "front": [
+                {
+                  "type": "star_trooper",
+                  "count": 53
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 53
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 39
+                }
+              ],
+              "mid": [
+                {
+                  "type": "armored_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "alloy_special",
+                  "count": 55
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 46
+                },
+                {
+                  "type": "gold_cavalry",
+                  "count": 40
+                }
+              ],
+              "back": [
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                }
+              ],
+              "resources": {
+                "food": 480699,
+                "copper": 774.2999979249907,
+                "iron": 718640.6000000124,
+                "steel": 656177.8000000033,
+                "medal": 1224310,
+                "tech": 13721
+              }
+            },
+            "callbacks": 298,
+            "saveSha256": "c58eec27aa59018200751527ec747bad1f5289dd5021b610a5bbd0efb2374692"
+          },
+          {
+            "seed": 6,
+            "tier": 4,
+            "result": "win",
+            "enemyInitialHp": 705882,
+            "enemyHpLeft": 0,
+            "loss": 11,
+            "ringDelta": 50,
+            "after": {
+              "city": 415,
+              "deed": 33769,
+              "army": 661,
+              "deployed": 615,
+              "field": 629,
+              "stars": 12,
+              "multiplier": 2.2,
+              "daily": {
+                "starBeast4": 1
+              },
+              "alert": 700,
+              "items": {
+                "origin": 110,
+                "illusion": 110,
+                "ring": 110
+              },
+              "front": [
+                {
+                  "type": "star_trooper",
+                  "count": 52
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 50
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 42
+                }
+              ],
+              "mid": [
+                {
+                  "type": "armored_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "alloy_special",
+                  "count": 55
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 46
+                },
+                {
+                  "type": "gold_cavalry",
+                  "count": 40
+                }
+              ],
+              "back": [
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                }
+              ],
+              "resources": {
+                "food": 480699,
+                "copper": 774.2999979249907,
+                "iron": 718640.6000000124,
+                "steel": 656177.8000000033,
+                "medal": 1224310,
+                "tech": 13721
+              }
+            },
+            "callbacks": 296,
+            "saveSha256": "34f45b46fe71bc730e6d27fe191dfc66985ff379078ccd066dc0fd7e95b4742b"
+          },
+          {
+            "seed": 7,
+            "tier": 4,
+            "result": "win",
+            "enemyInitialHp": 705882,
+            "enemyHpLeft": 0,
+            "loss": 9,
+            "ringDelta": 50,
+            "after": {
+              "city": 415,
+              "deed": 33769,
+              "army": 663,
+              "deployed": 617,
+              "field": 629,
+              "stars": 12,
+              "multiplier": 2.2,
+              "daily": {
+                "starBeast4": 1
+              },
+              "alert": 700,
+              "items": {
+                "origin": 110,
+                "illusion": 110,
+                "ring": 110
+              },
+              "front": [
+                {
+                  "type": "star_trooper",
+                  "count": 51
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 51
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 53
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 46
+                }
+              ],
+              "mid": [
+                {
+                  "type": "armored_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "alloy_special",
+                  "count": 55
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 46
+                },
+                {
+                  "type": "gold_cavalry",
+                  "count": 40
+                }
+              ],
+              "back": [
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                }
+              ],
+              "resources": {
+                "food": 480699,
+                "copper": 774.2999979249907,
+                "iron": 718640.6000000124,
+                "steel": 656177.8000000033,
+                "medal": 1224310,
+                "tech": 13721
+              }
+            },
+            "callbacks": 296,
+            "saveSha256": "a49dbd12aa86bb14f4043b2ad28013ef0a85c2a5a5866e129c84f9de3a37045d"
+          },
+          {
+            "seed": 8,
+            "tier": 4,
+            "result": "win",
+            "enemyInitialHp": 705882,
+            "enemyHpLeft": 0,
+            "loss": 8,
+            "ringDelta": 50,
+            "after": {
+              "city": 415,
+              "deed": 33769,
+              "army": 664,
+              "deployed": 618,
+              "field": 629,
+              "stars": 12,
+              "multiplier": 2.2,
+              "daily": {
+                "starBeast4": 1
+              },
+              "alert": 700,
+              "items": {
+                "origin": 110,
+                "illusion": 110,
+                "ring": 110
+              },
+              "front": [
+                {
+                  "type": "star_trooper",
+                  "count": 54
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 51
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 42
+                }
+              ],
+              "mid": [
+                {
+                  "type": "armored_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "alloy_special",
+                  "count": 55
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 46
+                },
+                {
+                  "type": "gold_cavalry",
+                  "count": 40
+                }
+              ],
+              "back": [
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                }
+              ],
+              "resources": {
+                "food": 480699,
+                "copper": 774.2999979249907,
+                "iron": 718640.6000000124,
+                "steel": 656177.8000000033,
+                "medal": 1224310,
+                "tech": 13721
+              }
+            },
+            "callbacks": 297,
+            "saveSha256": "fb3c5cc7f356a0e354b5fc3d766df98f43d550e2376d75f31791dcbf155be7e4"
+          },
+          {
+            "seed": 9,
+            "tier": 4,
+            "result": "win",
+            "enemyInitialHp": 705882,
+            "enemyHpLeft": 0,
+            "loss": 6,
+            "ringDelta": 50,
+            "after": {
+              "city": 415,
+              "deed": 33769,
+              "army": 666,
+              "deployed": 620,
+              "field": 629,
+              "stars": 12,
+              "multiplier": 2.2,
+              "daily": {
+                "starBeast4": 1
+              },
+              "alert": 700,
+              "items": {
+                "origin": 110,
+                "illusion": 110,
+                "ring": 110
+              },
+              "front": [
+                {
+                  "type": "star_trooper",
+                  "count": 52
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 51
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 46
+                }
+              ],
+              "mid": [
+                {
+                  "type": "armored_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "alloy_special",
+                  "count": 55
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 46
+                },
+                {
+                  "type": "gold_cavalry",
+                  "count": 40
+                }
+              ],
+              "back": [
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                }
+              ],
+              "resources": {
+                "food": 480699,
+                "copper": 774.2999979249907,
+                "iron": 718640.6000000124,
+                "steel": 656177.8000000033,
+                "medal": 1224310,
+                "tech": 13721
+              }
+            },
+            "callbacks": 296,
+            "saveSha256": "2453ab0a24206794725e523c7b44dc12ca680786709a3289c1858b8f048cbad1"
+          },
+          {
+            "seed": 10,
+            "tier": 4,
+            "result": "win",
+            "enemyInitialHp": 705882,
+            "enemyHpLeft": 0,
+            "loss": 9,
+            "ringDelta": 50,
+            "after": {
+              "city": 415,
+              "deed": 33769,
+              "army": 663,
+              "deployed": 617,
+              "field": 629,
+              "stars": 12,
+              "multiplier": 2.2,
+              "daily": {
+                "starBeast4": 1
+              },
+              "alert": 700,
+              "items": {
+                "origin": 110,
+                "illusion": 110,
+                "ring": 110
+              },
+              "front": [
+                {
+                  "type": "star_trooper",
+                  "count": 53
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 50
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 53
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 45
+                }
+              ],
+              "mid": [
+                {
+                  "type": "armored_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "alloy_special",
+                  "count": 55
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 46
+                },
+                {
+                  "type": "gold_cavalry",
+                  "count": 40
+                }
+              ],
+              "back": [
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                }
+              ],
+              "resources": {
+                "food": 480699,
+                "copper": 774.2999979249907,
+                "iron": 718640.6000000124,
+                "steel": 656177.8000000033,
+                "medal": 1224310,
+                "tech": 13721
+              }
+            },
+            "callbacks": 296,
+            "saveSha256": "7da2cfc06fbee3ab78bf00755ba67715a80f2e95366a877e65b21b3a52f3187e"
+          },
+          {
+            "seed": 11,
+            "tier": 4,
+            "result": "win",
+            "enemyInitialHp": 705882,
+            "enemyHpLeft": 0,
+            "loss": 6,
+            "ringDelta": 50,
+            "after": {
+              "city": 415,
+              "deed": 33769,
+              "army": 666,
+              "deployed": 620,
+              "field": 629,
+              "stars": 12,
+              "multiplier": 2.2,
+              "daily": {
+                "starBeast4": 1
+              },
+              "alert": 700,
+              "items": {
+                "origin": 110,
+                "illusion": 110,
+                "ring": 110
+              },
+              "front": [
+                {
+                  "type": "star_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 49
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 54
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 46
+                }
+              ],
+              "mid": [
+                {
+                  "type": "armored_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "alloy_special",
+                  "count": 55
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 46
+                },
+                {
+                  "type": "gold_cavalry",
+                  "count": 40
+                }
+              ],
+              "back": [
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                }
+              ],
+              "resources": {
+                "food": 480699,
+                "copper": 774.2999979249907,
+                "iron": 718640.6000000124,
+                "steel": 656177.8000000033,
+                "medal": 1224310,
+                "tech": 13721
+              }
+            },
+            "callbacks": 288,
+            "saveSha256": "3cbc3b1677f7a263952c1ac629a3e301468c8aac26f8c40e18a85582a00f26af"
+          },
+          {
+            "seed": 12,
+            "tier": 4,
+            "result": "win",
+            "enemyInitialHp": 705882,
+            "enemyHpLeft": 0,
+            "loss": 9,
+            "ringDelta": 50,
+            "after": {
+              "city": 415,
+              "deed": 33769,
+              "army": 663,
+              "deployed": 617,
+              "field": 629,
+              "stars": 12,
+              "multiplier": 2.2,
+              "daily": {
+                "starBeast4": 1
+              },
+              "alert": 700,
+              "items": {
+                "origin": 110,
+                "illusion": 110,
+                "ring": 110
+              },
+              "front": [
+                {
+                  "type": "star_trooper",
+                  "count": 52
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 52
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 42
+                }
+              ],
+              "mid": [
+                {
+                  "type": "armored_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "alloy_special",
+                  "count": 55
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 46
+                },
+                {
+                  "type": "gold_cavalry",
+                  "count": 40
+                }
+              ],
+              "back": [
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                }
+              ],
+              "resources": {
+                "food": 480699,
+                "copper": 774.2999979249907,
+                "iron": 718640.6000000124,
+                "steel": 656177.8000000033,
+                "medal": 1224310,
+                "tech": 13721
+              }
+            },
+            "callbacks": 297,
+            "saveSha256": "4fc5ff875582ce34aae608773ff2ff60420d58440c174d3f3d2014211cd34562"
+          },
+          {
+            "seed": 13,
+            "tier": 4,
+            "result": "win",
+            "enemyInitialHp": 705882,
+            "enemyHpLeft": 0,
+            "loss": 9,
+            "ringDelta": 50,
+            "after": {
+              "city": 415,
+              "deed": 33769,
+              "army": 663,
+              "deployed": 617,
+              "field": 629,
+              "stars": 12,
+              "multiplier": 2.2,
+              "daily": {
+                "starBeast4": 1
+              },
+              "alert": 700,
+              "items": {
+                "origin": 110,
+                "illusion": 110,
+                "ring": 110
+              },
+              "front": [
+                {
+                  "type": "star_trooper",
+                  "count": 54
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 50
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 54
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 43
+                }
+              ],
+              "mid": [
+                {
+                  "type": "armored_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "alloy_special",
+                  "count": 55
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 46
+                },
+                {
+                  "type": "gold_cavalry",
+                  "count": 40
+                }
+              ],
+              "back": [
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                }
+              ],
+              "resources": {
+                "food": 480699,
+                "copper": 774.2999979249907,
+                "iron": 718640.6000000124,
+                "steel": 656177.8000000033,
+                "medal": 1224310,
+                "tech": 13721
+              }
+            },
+            "callbacks": 296,
+            "saveSha256": "928062a542903e78dfa1005f518f3a67bcde58870b7729a849970ab2457693bf"
+          },
+          {
+            "seed": 14,
+            "tier": 4,
+            "result": "win",
+            "enemyInitialHp": 705882,
+            "enemyHpLeft": 0,
+            "loss": 4,
+            "ringDelta": 50,
+            "after": {
+              "city": 415,
+              "deed": 33769,
+              "army": 668,
+              "deployed": 622,
+              "field": 629,
+              "stars": 12,
+              "multiplier": 2.2,
+              "daily": {
+                "starBeast4": 1
+              },
+              "alert": 700,
+              "items": {
+                "origin": 110,
+                "illusion": 110,
+                "ring": 110
+              },
+              "front": [
+                {
+                  "type": "star_trooper",
+                  "count": 52
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 53
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 46
+                }
+              ],
+              "mid": [
+                {
+                  "type": "armored_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "alloy_special",
+                  "count": 55
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 46
+                },
+                {
+                  "type": "gold_cavalry",
+                  "count": 40
+                }
+              ],
+              "back": [
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                }
+              ],
+              "resources": {
+                "food": 480699,
+                "copper": 774.2999979249907,
+                "iron": 718640.6000000124,
+                "steel": 656177.8000000033,
+                "medal": 1224310,
+                "tech": 13721
+              }
+            },
+            "callbacks": 289,
+            "saveSha256": "08a9ad9f6ce89aa83776fbc8abb0037a0dd8fd360852f169c1985f0cb69f69ee"
+          },
+          {
+            "seed": 15,
+            "tier": 4,
+            "result": "win",
+            "enemyInitialHp": 705882,
+            "enemyHpLeft": 0,
+            "loss": 7,
+            "ringDelta": 50,
+            "after": {
+              "city": 415,
+              "deed": 33769,
+              "army": 665,
+              "deployed": 619,
+              "field": 629,
+              "stars": 12,
+              "multiplier": 2.2,
+              "daily": {
+                "starBeast4": 1
+              },
+              "alert": 700,
+              "items": {
+                "origin": 110,
+                "illusion": 110,
+                "ring": 110
+              },
+              "front": [
+                {
+                  "type": "star_trooper",
+                  "count": 53
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 49
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 46
+                }
+              ],
+              "mid": [
+                {
+                  "type": "armored_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "alloy_special",
+                  "count": 55
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 46
+                },
+                {
+                  "type": "gold_cavalry",
+                  "count": 40
+                }
+              ],
+              "back": [
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                }
+              ],
+              "resources": {
+                "food": 480699,
+                "copper": 774.2999979249907,
+                "iron": 718640.6000000124,
+                "steel": 656177.8000000033,
+                "medal": 1224310,
+                "tech": 13721
+              }
+            },
+            "callbacks": 289,
+            "saveSha256": "56f36a5f3ad1b649165e906ce43d8c4dd890e5bb37ac32265fa200a4b58a492b"
+          },
+          {
+            "seed": 16,
+            "tier": 4,
+            "result": "win",
+            "enemyInitialHp": 705882,
+            "enemyHpLeft": 0,
+            "loss": 11,
+            "ringDelta": 50,
+            "after": {
+              "city": 415,
+              "deed": 33769,
+              "army": 661,
+              "deployed": 615,
+              "field": 629,
+              "stars": 12,
+              "multiplier": 2.2,
+              "daily": {
+                "starBeast4": 1
+              },
+              "alert": 700,
+              "items": {
+                "origin": 110,
+                "illusion": 110,
+                "ring": 110
+              },
+              "front": [
+                {
+                  "type": "star_trooper",
+                  "count": 53
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 53
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 53
+                },
+                {
+                  "type": "electro_trooper",
+                  "count": 40
+                }
+              ],
+              "mid": [
+                {
+                  "type": "armored_trooper",
+                  "count": 55
+                },
+                {
+                  "type": "alloy_special",
+                  "count": 55
+                },
+                {
+                  "type": "star_trooper",
+                  "count": 46
+                },
+                {
+                  "type": "gold_cavalry",
+                  "count": 40
+                }
+              ],
+              "back": [
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                },
+                {
+                  "type": "archer",
+                  "count": 55
+                }
+              ],
+              "resources": {
+                "food": 480699,
+                "copper": 774.2999979249907,
+                "iron": 718640.6000000124,
+                "steel": 656177.8000000033,
+                "medal": 1224310,
+                "tech": 13721
+              }
+            },
+            "callbacks": 297,
+            "saveSha256": "45fbea69729119ae8c174c32ddb989704d0b47f9b40a496809ac851658482d09"
+          }
+        ]
+      },
+      "firstWin": {
+        "file": "p394-tier4-star12-seed1-win-save.json",
+        "sha256": "dd99d2f0e10927411a1310c9125b670ca01b1e88b454feba0123ccf2603bba78"
+      }
+    }
+  ],
+  "scope": "Actual tick/train/formation/city/star/offline/battle/save/load; independent fixed seeds 1–16."
+}

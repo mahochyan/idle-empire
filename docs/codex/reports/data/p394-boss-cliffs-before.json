@@ -1,0 +1,3973 @@
+{
+  "baseline": "e9755b245678ad76c2e974cc6563b7fe4847f64a",
+  "source": {
+    "file": "tools\\verify\\probe-stage-frontier.js",
+    "sha256": "1afba76fc768b9bf8d6636f05dac278b64aff1ed401aa316806dfe372ed5620d"
+  },
+  "input": {
+    "file": "docs\\codex\\reports\\data\\p100-natural-campaign-entry-before-upgrades-save.json",
+    "sha256": "d90f82556623e6e33c0c507d0e87d3067619a0fd38c8a2ec92d35c92e55a9445"
+  },
+  "candidateSoldiersPerGroup": {
+    "50": 12,
+    "60": 13,
+    "70": 14,
+    "80": 15
+  },
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+  ],
+  "runs": [
+    {
+      "seed": 1,
+      "mode": "formal",
+      "wins": 81,
+      "blockedAt": null,
+      "onlineSeconds": 1000,
+      "trainingSpend": {
+        "food": 277080,
+        "steel": 17900,
+        "wood": 22880,
+        "stone": 5720
+      },
+      "checkpoints": [
+        {
+          "stage": 49,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 63,
+          "loss": 17,
+          "armyAfter": 108
+        },
+        {
+          "stage": 50,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 73,
+          "loss": 7,
+          "armyAfter": 118
+        },
+        {
+          "stage": 51,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 59,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 57,
+          "loss": 23,
+          "armyAfter": 102
+        },
+        {
+          "stage": 60,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 78,
+          "loss": 2,
+          "armyAfter": 123
+        },
+        {
+          "stage": 61,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 69,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 72,
+          "loss": 8,
+          "armyAfter": 117
+        },
+        {
+          "stage": 70,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 76,
+          "loss": 4,
+          "armyAfter": 121
+        },
+        {
+          "stage": 71,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 79,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 52,
+          "loss": 28,
+          "armyAfter": 97
+        },
+        {
+          "stage": 80,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 79,
+          "loss": 1,
+          "armyAfter": 124
+        },
+        {
+          "stage": 81,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        }
+      ]
+    },
+    {
+      "seed": 1,
+      "mode": "candidate",
+      "wins": 81,
+      "blockedAt": null,
+      "onlineSeconds": 1527,
+      "trainingSpend": {
+        "food": 435600,
+        "steel": 28300,
+        "wood": 29600,
+        "stone": 7400
+      },
+      "checkpoints": [
+        {
+          "stage": 49,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 63,
+          "loss": 17,
+          "armyAfter": 108
+        },
+        {
+          "stage": 50,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 44,
+          "loss": 36,
+          "armyAfter": 89
+        },
+        {
+          "stage": 51,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 59,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 68,
+          "loss": 12,
+          "armyAfter": 113
+        },
+        {
+          "stage": 60,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 45,
+          "loss": 35,
+          "armyAfter": 90
+        },
+        {
+          "stage": 61,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 69,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 52,
+          "loss": 28,
+          "armyAfter": 97
+        },
+        {
+          "stage": 70,
+          "win": true,
+          "round": 5,
+          "deployedBefore": 80,
+          "deployedAfter": 50,
+          "loss": 30,
+          "armyAfter": 95
+        },
+        {
+          "stage": 71,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 79,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 70,
+          "loss": 10,
+          "armyAfter": 115
+        },
+        {
+          "stage": 80,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 13,
+          "loss": 67,
+          "armyAfter": 58
+        },
+        {
+          "stage": 81,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        }
+      ]
+    },
+    {
+      "seed": 2,
+      "mode": "formal",
+      "wins": 81,
+      "blockedAt": null,
+      "onlineSeconds": 940,
+      "trainingSpend": {
+        "food": 256380,
+        "steel": 16500,
+        "wood": 23680,
+        "stone": 5920
+      },
+      "checkpoints": [
+        {
+          "stage": 49,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 64,
+          "loss": 16,
+          "armyAfter": 109
+        },
+        {
+          "stage": 50,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 75,
+          "loss": 5,
+          "armyAfter": 120
+        },
+        {
+          "stage": 51,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 59,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 54,
+          "loss": 26,
+          "armyAfter": 99
+        },
+        {
+          "stage": 60,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 78,
+          "loss": 2,
+          "armyAfter": 123
+        },
+        {
+          "stage": 61,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 69,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 57,
+          "loss": 23,
+          "armyAfter": 102
+        },
+        {
+          "stage": 70,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 76,
+          "loss": 4,
+          "armyAfter": 121
+        },
+        {
+          "stage": 71,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 79,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 43,
+          "loss": 37,
+          "armyAfter": 88
+        },
+        {
+          "stage": 80,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 75,
+          "loss": 5,
+          "armyAfter": 120
+        },
+        {
+          "stage": 81,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        }
+      ]
+    },
+    {
+      "seed": 2,
+      "mode": "candidate",
+      "wins": 81,
+      "blockedAt": null,
+      "onlineSeconds": 1371,
+      "trainingSpend": {
+        "food": 383460,
+        "steel": 24800,
+        "wood": 30560,
+        "stone": 7640
+      },
+      "checkpoints": [
+        {
+          "stage": 49,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 64,
+          "loss": 16,
+          "armyAfter": 109
+        },
+        {
+          "stage": 50,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 43,
+          "loss": 37,
+          "armyAfter": 88
+        },
+        {
+          "stage": 51,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 59,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 56,
+          "loss": 24,
+          "armyAfter": 101
+        },
+        {
+          "stage": 60,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 56,
+          "loss": 24,
+          "armyAfter": 101
+        },
+        {
+          "stage": 61,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 69,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 59,
+          "loss": 21,
+          "armyAfter": 104
+        },
+        {
+          "stage": 70,
+          "win": true,
+          "round": 6,
+          "deployedBefore": 80,
+          "deployedAfter": 30,
+          "loss": 50,
+          "armyAfter": 75
+        },
+        {
+          "stage": 71,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 79,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 54,
+          "loss": 26,
+          "armyAfter": 99
+        },
+        {
+          "stage": 80,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 17,
+          "loss": 63,
+          "armyAfter": 62
+        },
+        {
+          "stage": 81,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        }
+      ]
+    },
+    {
+      "seed": 3,
+      "mode": "formal",
+      "wins": 81,
+      "blockedAt": null,
+      "onlineSeconds": 1055,
+      "trainingSpend": {
+        "food": 291120,
+        "steel": 18800,
+        "wood": 24320,
+        "stone": 6080
+      },
+      "checkpoints": [
+        {
+          "stage": 49,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 47,
+          "loss": 33,
+          "armyAfter": 92
+        },
+        {
+          "stage": 50,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 76,
+          "loss": 4,
+          "armyAfter": 121
+        },
+        {
+          "stage": 51,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 59,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 66,
+          "loss": 14,
+          "armyAfter": 111
+        },
+        {
+          "stage": 60,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 61,
+          "loss": 19,
+          "armyAfter": 106
+        },
+        {
+          "stage": 61,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 69,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 36,
+          "loss": 44,
+          "armyAfter": 81
+        },
+        {
+          "stage": 70,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 73,
+          "loss": 7,
+          "armyAfter": 118
+        },
+        {
+          "stage": 71,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 79,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 61,
+          "loss": 19,
+          "armyAfter": 106
+        },
+        {
+          "stage": 80,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 68,
+          "loss": 12,
+          "armyAfter": 113
+        },
+        {
+          "stage": 81,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        }
+      ]
+    },
+    {
+      "seed": 3,
+      "mode": "candidate",
+      "wins": 81,
+      "blockedAt": null,
+      "onlineSeconds": 1424,
+      "trainingSpend": {
+        "food": 400050,
+        "steel": 25900,
+        "wood": 30800,
+        "stone": 7700
+      },
+      "checkpoints": [
+        {
+          "stage": 49,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 47,
+          "loss": 33,
+          "armyAfter": 92
+        },
+        {
+          "stage": 50,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 38,
+          "loss": 42,
+          "armyAfter": 83
+        },
+        {
+          "stage": 51,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 59,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 55,
+          "loss": 25,
+          "armyAfter": 100
+        },
+        {
+          "stage": 60,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 19,
+          "loss": 61,
+          "armyAfter": 64
+        },
+        {
+          "stage": 61,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 69,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 50,
+          "loss": 30,
+          "armyAfter": 95
+        },
+        {
+          "stage": 70,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 28,
+          "loss": 52,
+          "armyAfter": 73
+        },
+        {
+          "stage": 71,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 79,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 55,
+          "loss": 25,
+          "armyAfter": 100
+        },
+        {
+          "stage": 80,
+          "win": true,
+          "round": 5,
+          "deployedBefore": 80,
+          "deployedAfter": 28,
+          "loss": 52,
+          "armyAfter": 73
+        },
+        {
+          "stage": 81,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        }
+      ]
+    },
+    {
+      "seed": 4,
+      "mode": "formal",
+      "wins": 81,
+      "blockedAt": null,
+      "onlineSeconds": 918,
+      "trainingSpend": {
+        "food": 254130,
+        "steel": 16400,
+        "wood": 21680,
+        "stone": 5420
+      },
+      "checkpoints": [
+        {
+          "stage": 49,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 47,
+          "loss": 33,
+          "armyAfter": 92
+        },
+        {
+          "stage": 50,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 78,
+          "loss": 2,
+          "armyAfter": 123
+        },
+        {
+          "stage": 51,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 59,
+          "win": true,
+          "round": 5,
+          "deployedBefore": 80,
+          "deployedAfter": 46,
+          "loss": 34,
+          "armyAfter": 91
+        },
+        {
+          "stage": 60,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 77,
+          "loss": 3,
+          "armyAfter": 122
+        },
+        {
+          "stage": 61,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 69,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 46,
+          "loss": 34,
+          "armyAfter": 91
+        },
+        {
+          "stage": 70,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 75,
+          "loss": 5,
+          "armyAfter": 120
+        },
+        {
+          "stage": 71,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 79,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 63,
+          "loss": 17,
+          "armyAfter": 108
+        },
+        {
+          "stage": 80,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 78,
+          "loss": 2,
+          "armyAfter": 123
+        },
+        {
+          "stage": 81,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        }
+      ]
+    },
+    {
+      "seed": 4,
+      "mode": "candidate",
+      "wins": 81,
+      "blockedAt": null,
+      "onlineSeconds": 1381,
+      "trainingSpend": {
+        "food": 384240,
+        "steel": 24800,
+        "wood": 32640,
+        "stone": 8160
+      },
+      "checkpoints": [
+        {
+          "stage": 49,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 47,
+          "loss": 33,
+          "armyAfter": 92
+        },
+        {
+          "stage": 50,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 53,
+          "loss": 27,
+          "armyAfter": 98
+        },
+        {
+          "stage": 51,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 78,
+          "loss": 2,
+          "armyAfter": 123
+        },
+        {
+          "stage": 59,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 47,
+          "loss": 33,
+          "armyAfter": 92
+        },
+        {
+          "stage": 60,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 38,
+          "loss": 42,
+          "armyAfter": 83
+        },
+        {
+          "stage": 61,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 79,
+          "loss": 1,
+          "armyAfter": 124
+        },
+        {
+          "stage": 69,
+          "win": true,
+          "round": 6,
+          "deployedBefore": 80,
+          "deployedAfter": 32,
+          "loss": 48,
+          "armyAfter": 77
+        },
+        {
+          "stage": 70,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 59,
+          "loss": 21,
+          "armyAfter": 104
+        },
+        {
+          "stage": 71,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 79,
+          "win": true,
+          "round": 5,
+          "deployedBefore": 80,
+          "deployedAfter": 28,
+          "loss": 52,
+          "armyAfter": 73
+        },
+        {
+          "stage": 80,
+          "win": true,
+          "round": 6,
+          "deployedBefore": 80,
+          "deployedAfter": 15,
+          "loss": 65,
+          "armyAfter": 60
+        },
+        {
+          "stage": 81,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        }
+      ]
+    },
+    {
+      "seed": 5,
+      "mode": "formal",
+      "wins": 81,
+      "blockedAt": null,
+      "onlineSeconds": 1081,
+      "trainingSpend": {
+        "food": 302460,
+        "steel": 19600,
+        "wood": 22560,
+        "stone": 5640
+      },
+      "checkpoints": [
+        {
+          "stage": 49,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 39,
+          "loss": 41,
+          "armyAfter": 84
+        },
+        {
+          "stage": 50,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 75,
+          "loss": 5,
+          "armyAfter": 120
+        },
+        {
+          "stage": 51,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 59,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 48,
+          "loss": 32,
+          "armyAfter": 93
+        },
+        {
+          "stage": 60,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 78,
+          "loss": 2,
+          "armyAfter": 123
+        },
+        {
+          "stage": 61,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 69,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 59,
+          "loss": 21,
+          "armyAfter": 104
+        },
+        {
+          "stage": 70,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 74,
+          "loss": 6,
+          "armyAfter": 119
+        },
+        {
+          "stage": 71,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 79,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 50,
+          "loss": 30,
+          "armyAfter": 95
+        },
+        {
+          "stage": 80,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 78,
+          "loss": 2,
+          "armyAfter": 123
+        },
+        {
+          "stage": 81,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        }
+      ]
+    },
+    {
+      "seed": 5,
+      "mode": "candidate",
+      "wins": 81,
+      "blockedAt": null,
+      "onlineSeconds": 1480,
+      "trainingSpend": {
+        "food": 416760,
+        "steel": 27000,
+        "wood": 31360,
+        "stone": 7840
+      },
+      "checkpoints": [
+        {
+          "stage": 49,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 39,
+          "loss": 41,
+          "armyAfter": 84
+        },
+        {
+          "stage": 50,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 58,
+          "loss": 22,
+          "armyAfter": 103
+        },
+        {
+          "stage": 51,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 59,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 41,
+          "loss": 39,
+          "armyAfter": 86
+        },
+        {
+          "stage": 60,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 48,
+          "loss": 32,
+          "armyAfter": 93
+        },
+        {
+          "stage": 61,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 69,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 62,
+          "loss": 18,
+          "armyAfter": 107
+        },
+        {
+          "stage": 70,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 21,
+          "loss": 59,
+          "armyAfter": 66
+        },
+        {
+          "stage": 71,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 79,
+          "win": true,
+          "round": 5,
+          "deployedBefore": 80,
+          "deployedAfter": 42,
+          "loss": 38,
+          "armyAfter": 87
+        },
+        {
+          "stage": 80,
+          "win": true,
+          "round": 6,
+          "deployedBefore": 80,
+          "deployedAfter": 5,
+          "loss": 75,
+          "armyAfter": 50
+        },
+        {
+          "stage": 81,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        }
+      ]
+    },
+    {
+      "seed": 6,
+      "mode": "formal",
+      "wins": 81,
+      "blockedAt": null,
+      "onlineSeconds": 958,
+      "trainingSpend": {
+        "food": 251190,
+        "steel": 16000,
+        "wood": 29840,
+        "stone": 7460
+      },
+      "checkpoints": [
+        {
+          "stage": 49,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 34,
+          "loss": 46,
+          "armyAfter": 79
+        },
+        {
+          "stage": 50,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 78,
+          "loss": 2,
+          "armyAfter": 123
+        },
+        {
+          "stage": 51,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 59,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 63,
+          "loss": 17,
+          "armyAfter": 108
+        },
+        {
+          "stage": 60,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 79,
+          "loss": 1,
+          "armyAfter": 124
+        },
+        {
+          "stage": 61,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 69,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 52,
+          "loss": 28,
+          "armyAfter": 97
+        },
+        {
+          "stage": 70,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 79,
+          "loss": 1,
+          "armyAfter": 124
+        },
+        {
+          "stage": 71,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 79,
+          "win": true,
+          "round": 5,
+          "deployedBefore": 80,
+          "deployedAfter": 27,
+          "loss": 53,
+          "armyAfter": 72
+        },
+        {
+          "stage": 80,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 74,
+          "loss": 6,
+          "armyAfter": 119
+        },
+        {
+          "stage": 81,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        }
+      ]
+    },
+    {
+      "seed": 6,
+      "mode": "candidate",
+      "wins": 81,
+      "blockedAt": null,
+      "onlineSeconds": 1412,
+      "trainingSpend": {
+        "food": 389640,
+        "steel": 25100,
+        "wood": 35040,
+        "stone": 8760
+      },
+      "checkpoints": [
+        {
+          "stage": 49,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 34,
+          "loss": 46,
+          "armyAfter": 79
+        },
+        {
+          "stage": 50,
+          "win": true,
+          "round": 5,
+          "deployedBefore": 80,
+          "deployedAfter": 40,
+          "loss": 40,
+          "armyAfter": 85
+        },
+        {
+          "stage": 51,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 59,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 47,
+          "loss": 33,
+          "armyAfter": 92
+        },
+        {
+          "stage": 60,
+          "win": true,
+          "round": 5,
+          "deployedBefore": 80,
+          "deployedAfter": 42,
+          "loss": 38,
+          "armyAfter": 87
+        },
+        {
+          "stage": 61,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 69,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 50,
+          "loss": 30,
+          "armyAfter": 95
+        },
+        {
+          "stage": 70,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 28,
+          "loss": 52,
+          "armyAfter": 73
+        },
+        {
+          "stage": 71,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 79,
+          "win": true,
+          "round": 5,
+          "deployedBefore": 80,
+          "deployedAfter": 49,
+          "loss": 31,
+          "armyAfter": 94
+        },
+        {
+          "stage": 80,
+          "win": true,
+          "round": 5,
+          "deployedBefore": 80,
+          "deployedAfter": 14,
+          "loss": 66,
+          "armyAfter": 59
+        },
+        {
+          "stage": 81,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        }
+      ]
+    },
+    {
+      "seed": 7,
+      "mode": "formal",
+      "wins": 81,
+      "blockedAt": null,
+      "onlineSeconds": 1086,
+      "trainingSpend": {
+        "food": 299040,
+        "steel": 19300,
+        "wood": 25440,
+        "stone": 6360
+      },
+      "checkpoints": [
+        {
+          "stage": 49,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 58,
+          "loss": 22,
+          "armyAfter": 103
+        },
+        {
+          "stage": 50,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 78,
+          "loss": 2,
+          "armyAfter": 123
+        },
+        {
+          "stage": 51,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 59,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 67,
+          "loss": 13,
+          "armyAfter": 112
+        },
+        {
+          "stage": 60,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 79,
+          "loss": 1,
+          "armyAfter": 124
+        },
+        {
+          "stage": 61,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 69,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 60,
+          "loss": 20,
+          "armyAfter": 105
+        },
+        {
+          "stage": 70,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 79,
+          "loss": 1,
+          "armyAfter": 124
+        },
+        {
+          "stage": 71,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 79,
+          "win": true,
+          "round": 5,
+          "deployedBefore": 80,
+          "deployedAfter": 33,
+          "loss": 47,
+          "armyAfter": 78
+        },
+        {
+          "stage": 80,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 77,
+          "loss": 3,
+          "armyAfter": 122
+        },
+        {
+          "stage": 81,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        }
+      ]
+    },
+    {
+      "seed": 7,
+      "mode": "candidate",
+      "wins": 81,
+      "blockedAt": null,
+      "onlineSeconds": 1562,
+      "trainingSpend": {
+        "food": 435000,
+        "steel": 28100,
+        "wood": 36000,
+        "stone": 9000
+      },
+      "checkpoints": [
+        {
+          "stage": 49,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 58,
+          "loss": 22,
+          "armyAfter": 103
+        },
+        {
+          "stage": 50,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 52,
+          "loss": 28,
+          "armyAfter": 97
+        },
+        {
+          "stage": 51,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 59,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 49,
+          "loss": 31,
+          "armyAfter": 94
+        },
+        {
+          "stage": 60,
+          "win": true,
+          "round": 5,
+          "deployedBefore": 80,
+          "deployedAfter": 32,
+          "loss": 48,
+          "armyAfter": 77
+        },
+        {
+          "stage": 61,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 69,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 46,
+          "loss": 34,
+          "armyAfter": 91
+        },
+        {
+          "stage": 70,
+          "win": true,
+          "round": 6,
+          "deployedBefore": 80,
+          "deployedAfter": 25,
+          "loss": 55,
+          "armyAfter": 70
+        },
+        {
+          "stage": 71,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 79,
+          "win": true,
+          "round": 5,
+          "deployedBefore": 80,
+          "deployedAfter": 32,
+          "loss": 48,
+          "armyAfter": 77
+        },
+        {
+          "stage": 80,
+          "win": true,
+          "round": 5,
+          "deployedBefore": 80,
+          "deployedAfter": 38,
+          "loss": 42,
+          "armyAfter": 83
+        },
+        {
+          "stage": 81,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        }
+      ]
+    },
+    {
+      "seed": 8,
+      "mode": "formal",
+      "wins": 81,
+      "blockedAt": null,
+      "onlineSeconds": 1079,
+      "trainingSpend": {
+        "food": 290160,
+        "steel": 18600,
+        "wood": 29760,
+        "stone": 7440
+      },
+      "checkpoints": [
+        {
+          "stage": 49,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 40,
+          "loss": 40,
+          "armyAfter": 85
+        },
+        {
+          "stage": 50,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 78,
+          "loss": 2,
+          "armyAfter": 123
+        },
+        {
+          "stage": 51,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 59,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 40,
+          "loss": 40,
+          "armyAfter": 85
+        },
+        {
+          "stage": 60,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 70,
+          "loss": 10,
+          "armyAfter": 115
+        },
+        {
+          "stage": 61,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 69,
+          "win": true,
+          "round": 5,
+          "deployedBefore": 80,
+          "deployedAfter": 46,
+          "loss": 34,
+          "armyAfter": 91
+        },
+        {
+          "stage": 70,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 74,
+          "loss": 6,
+          "armyAfter": 119
+        },
+        {
+          "stage": 71,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 79,
+          "win": true,
+          "round": 5,
+          "deployedBefore": 80,
+          "deployedAfter": 35,
+          "loss": 45,
+          "armyAfter": 80
+        },
+        {
+          "stage": 80,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 78,
+          "loss": 2,
+          "armyAfter": 123
+        },
+        {
+          "stage": 81,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        }
+      ]
+    },
+    {
+      "seed": 8,
+      "mode": "candidate",
+      "wins": 81,
+      "blockedAt": null,
+      "onlineSeconds": 1277,
+      "trainingSpend": {
+        "food": 352020,
+        "steel": 22700,
+        "wood": 30720,
+        "stone": 7680
+      },
+      "checkpoints": [
+        {
+          "stage": 49,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 40,
+          "loss": 40,
+          "armyAfter": 85
+        },
+        {
+          "stage": 50,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 35,
+          "loss": 45,
+          "armyAfter": 80
+        },
+        {
+          "stage": 51,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 59,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 64,
+          "loss": 16,
+          "armyAfter": 109
+        },
+        {
+          "stage": 60,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 42,
+          "loss": 38,
+          "armyAfter": 87
+        },
+        {
+          "stage": 61,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 69,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 69,
+          "loss": 11,
+          "armyAfter": 114
+        },
+        {
+          "stage": 70,
+          "win": true,
+          "round": 5,
+          "deployedBefore": 80,
+          "deployedAfter": 36,
+          "loss": 44,
+          "armyAfter": 81
+        },
+        {
+          "stage": 71,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 79,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 73,
+          "loss": 7,
+          "armyAfter": 118
+        },
+        {
+          "stage": 80,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 41,
+          "loss": 39,
+          "armyAfter": 86
+        },
+        {
+          "stage": 81,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        }
+      ]
+    },
+    {
+      "seed": 9,
+      "mode": "formal",
+      "wins": 81,
+      "blockedAt": null,
+      "onlineSeconds": 975,
+      "trainingSpend": {
+        "food": 275850,
+        "steel": 17900,
+        "wood": 19600,
+        "stone": 4900
+      },
+      "checkpoints": [
+        {
+          "stage": 49,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 53,
+          "loss": 27,
+          "armyAfter": 98
+        },
+        {
+          "stage": 50,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 77,
+          "loss": 3,
+          "armyAfter": 122
+        },
+        {
+          "stage": 51,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 59,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 41,
+          "loss": 39,
+          "armyAfter": 86
+        },
+        {
+          "stage": 60,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 75,
+          "loss": 5,
+          "armyAfter": 120
+        },
+        {
+          "stage": 61,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 69,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 55,
+          "loss": 25,
+          "armyAfter": 100
+        },
+        {
+          "stage": 70,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 77,
+          "loss": 3,
+          "armyAfter": 122
+        },
+        {
+          "stage": 71,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 79,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 53,
+          "loss": 27,
+          "armyAfter": 98
+        },
+        {
+          "stage": 80,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 77,
+          "loss": 3,
+          "armyAfter": 122
+        },
+        {
+          "stage": 81,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        }
+      ]
+    },
+    {
+      "seed": 9,
+      "mode": "candidate",
+      "wins": 81,
+      "blockedAt": null,
+      "onlineSeconds": 1466,
+      "trainingSpend": {
+        "food": 415170,
+        "steel": 26900,
+        "wood": 31120,
+        "stone": 7780
+      },
+      "checkpoints": [
+        {
+          "stage": 49,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 53,
+          "loss": 27,
+          "armyAfter": 98
+        },
+        {
+          "stage": 50,
+          "win": true,
+          "round": 5,
+          "deployedBefore": 80,
+          "deployedAfter": 25,
+          "loss": 55,
+          "armyAfter": 70
+        },
+        {
+          "stage": 51,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 59,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 31,
+          "loss": 49,
+          "armyAfter": 76
+        },
+        {
+          "stage": 60,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 43,
+          "loss": 37,
+          "armyAfter": 88
+        },
+        {
+          "stage": 61,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 69,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 45,
+          "loss": 35,
+          "armyAfter": 90
+        },
+        {
+          "stage": 70,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 59,
+          "loss": 21,
+          "armyAfter": 104
+        },
+        {
+          "stage": 71,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 79,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 47,
+          "loss": 33,
+          "armyAfter": 92
+        },
+        {
+          "stage": 80,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 34,
+          "loss": 46,
+          "armyAfter": 79
+        },
+        {
+          "stage": 81,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        }
+      ]
+    },
+    {
+      "seed": 10,
+      "mode": "formal",
+      "wins": 81,
+      "blockedAt": null,
+      "onlineSeconds": 1127,
+      "trainingSpend": {
+        "food": 305400,
+        "steel": 19600,
+        "wood": 30400,
+        "stone": 7600
+      },
+      "checkpoints": [
+        {
+          "stage": 49,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 42,
+          "loss": 38,
+          "armyAfter": 87
+        },
+        {
+          "stage": 50,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 77,
+          "loss": 3,
+          "armyAfter": 122
+        },
+        {
+          "stage": 51,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 59,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 65,
+          "loss": 15,
+          "armyAfter": 110
+        },
+        {
+          "stage": 60,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 75,
+          "loss": 5,
+          "armyAfter": 120
+        },
+        {
+          "stage": 61,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 69,
+          "win": true,
+          "round": 5,
+          "deployedBefore": 80,
+          "deployedAfter": 28,
+          "loss": 52,
+          "armyAfter": 73
+        },
+        {
+          "stage": 70,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 73,
+          "loss": 7,
+          "armyAfter": 118
+        },
+        {
+          "stage": 71,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 79,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 36,
+          "loss": 44,
+          "armyAfter": 81
+        },
+        {
+          "stage": 80,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 73,
+          "loss": 7,
+          "armyAfter": 118
+        },
+        {
+          "stage": 81,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        }
+      ]
+    },
+    {
+      "seed": 10,
+      "mode": "candidate",
+      "wins": 81,
+      "blockedAt": null,
+      "onlineSeconds": 1400,
+      "trainingSpend": {
+        "food": 391170,
+        "steel": 25300,
+        "wood": 31120,
+        "stone": 7780
+      },
+      "checkpoints": [
+        {
+          "stage": 49,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 42,
+          "loss": 38,
+          "armyAfter": 87
+        },
+        {
+          "stage": 50,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 33,
+          "loss": 47,
+          "armyAfter": 78
+        },
+        {
+          "stage": 51,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 59,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 64,
+          "loss": 16,
+          "armyAfter": 109
+        },
+        {
+          "stage": 60,
+          "win": true,
+          "round": 5,
+          "deployedBefore": 80,
+          "deployedAfter": 48,
+          "loss": 32,
+          "armyAfter": 93
+        },
+        {
+          "stage": 61,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 69,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 58,
+          "loss": 22,
+          "armyAfter": 103
+        },
+        {
+          "stage": 70,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 62,
+          "loss": 18,
+          "armyAfter": 107
+        },
+        {
+          "stage": 71,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 79,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 62,
+          "loss": 18,
+          "armyAfter": 107
+        },
+        {
+          "stage": 80,
+          "win": true,
+          "round": 5,
+          "deployedBefore": 80,
+          "deployedAfter": 30,
+          "loss": 50,
+          "armyAfter": 75
+        },
+        {
+          "stage": 81,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        }
+      ]
+    },
+    {
+      "seed": 11,
+      "mode": "formal",
+      "wins": 81,
+      "blockedAt": null,
+      "onlineSeconds": 1019,
+      "trainingSpend": {
+        "food": 271740,
+        "steel": 17400,
+        "wood": 28640,
+        "stone": 7160
+      },
+      "checkpoints": [
+        {
+          "stage": 49,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 44,
+          "loss": 36,
+          "armyAfter": 89
+        },
+        {
+          "stage": 50,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 75,
+          "loss": 5,
+          "armyAfter": 120
+        },
+        {
+          "stage": 51,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 59,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 72,
+          "loss": 8,
+          "armyAfter": 117
+        },
+        {
+          "stage": 60,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 74,
+          "loss": 6,
+          "armyAfter": 119
+        },
+        {
+          "stage": 61,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 69,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 60,
+          "loss": 20,
+          "armyAfter": 105
+        },
+        {
+          "stage": 70,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 77,
+          "loss": 3,
+          "armyAfter": 122
+        },
+        {
+          "stage": 71,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 79,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 63,
+          "loss": 17,
+          "armyAfter": 108
+        },
+        {
+          "stage": 80,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 72,
+          "loss": 8,
+          "armyAfter": 117
+        },
+        {
+          "stage": 81,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        }
+      ]
+    },
+    {
+      "seed": 11,
+      "mode": "candidate",
+      "wins": 81,
+      "blockedAt": null,
+      "onlineSeconds": 1453,
+      "trainingSpend": {
+        "food": 399030,
+        "steel": 25700,
+        "wood": 36080,
+        "stone": 9020
+      },
+      "checkpoints": [
+        {
+          "stage": 49,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 44,
+          "loss": 36,
+          "armyAfter": 89
+        },
+        {
+          "stage": 50,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 57,
+          "loss": 23,
+          "armyAfter": 102
+        },
+        {
+          "stage": 51,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 59,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 50,
+          "loss": 30,
+          "armyAfter": 95
+        },
+        {
+          "stage": 60,
+          "win": true,
+          "round": 6,
+          "deployedBefore": 80,
+          "deployedAfter": 32,
+          "loss": 48,
+          "armyAfter": 77
+        },
+        {
+          "stage": 61,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 69,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 51,
+          "loss": 29,
+          "armyAfter": 96
+        },
+        {
+          "stage": 70,
+          "win": true,
+          "round": 5,
+          "deployedBefore": 80,
+          "deployedAfter": 41,
+          "loss": 39,
+          "armyAfter": 86
+        },
+        {
+          "stage": 71,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 79,
+          "loss": 1,
+          "armyAfter": 124
+        },
+        {
+          "stage": 79,
+          "win": true,
+          "round": 5,
+          "deployedBefore": 80,
+          "deployedAfter": 36,
+          "loss": 44,
+          "armyAfter": 81
+        },
+        {
+          "stage": 80,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 53,
+          "loss": 27,
+          "armyAfter": 98
+        },
+        {
+          "stage": 81,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        }
+      ]
+    },
+    {
+      "seed": 12,
+      "mode": "formal",
+      "wins": 81,
+      "blockedAt": null,
+      "onlineSeconds": 1005,
+      "trainingSpend": {
+        "food": 272460,
+        "steel": 17500,
+        "wood": 26560,
+        "stone": 6640
+      },
+      "checkpoints": [
+        {
+          "stage": 49,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 48,
+          "loss": 32,
+          "armyAfter": 93
+        },
+        {
+          "stage": 50,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 75,
+          "loss": 5,
+          "armyAfter": 120
+        },
+        {
+          "stage": 51,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 59,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 70,
+          "loss": 10,
+          "armyAfter": 115
+        },
+        {
+          "stage": 60,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 76,
+          "loss": 4,
+          "armyAfter": 121
+        },
+        {
+          "stage": 61,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 69,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 68,
+          "loss": 12,
+          "armyAfter": 113
+        },
+        {
+          "stage": 70,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 76,
+          "loss": 4,
+          "armyAfter": 121
+        },
+        {
+          "stage": 71,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 79,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 39,
+          "loss": 41,
+          "armyAfter": 84
+        },
+        {
+          "stage": 80,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 78,
+          "loss": 2,
+          "armyAfter": 123
+        },
+        {
+          "stage": 81,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        }
+      ]
+    },
+    {
+      "seed": 12,
+      "mode": "candidate",
+      "wins": 81,
+      "blockedAt": null,
+      "onlineSeconds": 1409,
+      "trainingSpend": {
+        "food": 379800,
+        "steel": 24300,
+        "wood": 40800,
+        "stone": 10200
+      },
+      "checkpoints": [
+        {
+          "stage": 49,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 48,
+          "loss": 32,
+          "armyAfter": 93
+        },
+        {
+          "stage": 50,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 26,
+          "loss": 54,
+          "armyAfter": 71
+        },
+        {
+          "stage": 51,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 59,
+          "win": true,
+          "round": 5,
+          "deployedBefore": 80,
+          "deployedAfter": 46,
+          "loss": 34,
+          "armyAfter": 91
+        },
+        {
+          "stage": 60,
+          "win": true,
+          "round": 5,
+          "deployedBefore": 80,
+          "deployedAfter": 30,
+          "loss": 50,
+          "armyAfter": 75
+        },
+        {
+          "stage": 61,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 69,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 44,
+          "loss": 36,
+          "armyAfter": 89
+        },
+        {
+          "stage": 70,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 17,
+          "loss": 63,
+          "armyAfter": 62
+        },
+        {
+          "stage": 71,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 79,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 35,
+          "loss": 45,
+          "armyAfter": 80
+        },
+        {
+          "stage": 80,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 60,
+          "loss": 20,
+          "armyAfter": 105
+        },
+        {
+          "stage": 81,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        }
+      ]
+    },
+    {
+      "seed": 13,
+      "mode": "formal",
+      "wins": 81,
+      "blockedAt": null,
+      "onlineSeconds": 923,
+      "trainingSpend": {
+        "food": 257790,
+        "steel": 16700,
+        "wood": 19440,
+        "stone": 4860
+      },
+      "checkpoints": [
+        {
+          "stage": 49,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 71,
+          "loss": 9,
+          "armyAfter": 116
+        },
+        {
+          "stage": 50,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 79,
+          "loss": 1,
+          "armyAfter": 124
+        },
+        {
+          "stage": 51,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 59,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 63,
+          "loss": 17,
+          "armyAfter": 108
+        },
+        {
+          "stage": 60,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 77,
+          "loss": 3,
+          "armyAfter": 122
+        },
+        {
+          "stage": 61,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 69,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 63,
+          "loss": 17,
+          "armyAfter": 108
+        },
+        {
+          "stage": 70,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 79,
+          "loss": 1,
+          "armyAfter": 124
+        },
+        {
+          "stage": 71,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 79,
+          "win": true,
+          "round": 5,
+          "deployedBefore": 80,
+          "deployedAfter": 51,
+          "loss": 29,
+          "armyAfter": 96
+        },
+        {
+          "stage": 80,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 78,
+          "loss": 2,
+          "armyAfter": 123
+        },
+        {
+          "stage": 81,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        }
+      ]
+    },
+    {
+      "seed": 13,
+      "mode": "candidate",
+      "wins": 81,
+      "blockedAt": null,
+      "onlineSeconds": 1297,
+      "trainingSpend": {
+        "food": 367950,
+        "steel": 23900,
+        "wood": 25200,
+        "stone": 6300
+      },
+      "checkpoints": [
+        {
+          "stage": 49,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 71,
+          "loss": 9,
+          "armyAfter": 116
+        },
+        {
+          "stage": 50,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 54,
+          "loss": 26,
+          "armyAfter": 99
+        },
+        {
+          "stage": 51,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 59,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 60,
+          "loss": 20,
+          "armyAfter": 105
+        },
+        {
+          "stage": 60,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 60,
+          "loss": 20,
+          "armyAfter": 105
+        },
+        {
+          "stage": 61,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 79,
+          "loss": 1,
+          "armyAfter": 124
+        },
+        {
+          "stage": 69,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 37,
+          "loss": 43,
+          "armyAfter": 82
+        },
+        {
+          "stage": 70,
+          "win": true,
+          "round": 5,
+          "deployedBefore": 80,
+          "deployedAfter": 33,
+          "loss": 47,
+          "armyAfter": 78
+        },
+        {
+          "stage": 71,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 79,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 57,
+          "loss": 23,
+          "armyAfter": 102
+        },
+        {
+          "stage": 80,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 49,
+          "loss": 31,
+          "armyAfter": 94
+        },
+        {
+          "stage": 81,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        }
+      ]
+    },
+    {
+      "seed": 14,
+      "mode": "formal",
+      "wins": 81,
+      "blockedAt": null,
+      "onlineSeconds": 998,
+      "trainingSpend": {
+        "food": 280440,
+        "steel": 18200,
+        "wood": 19840,
+        "stone": 4960
+      },
+      "checkpoints": [
+        {
+          "stage": 49,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 53,
+          "loss": 27,
+          "armyAfter": 98
+        },
+        {
+          "stage": 50,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 78,
+          "loss": 2,
+          "armyAfter": 123
+        },
+        {
+          "stage": 51,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 59,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 51,
+          "loss": 29,
+          "armyAfter": 96
+        },
+        {
+          "stage": 60,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 72,
+          "loss": 8,
+          "armyAfter": 117
+        },
+        {
+          "stage": 61,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 69,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 61,
+          "loss": 19,
+          "armyAfter": 106
+        },
+        {
+          "stage": 70,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 76,
+          "loss": 4,
+          "armyAfter": 121
+        },
+        {
+          "stage": 71,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 79,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 57,
+          "loss": 23,
+          "armyAfter": 102
+        },
+        {
+          "stage": 80,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 77,
+          "loss": 3,
+          "armyAfter": 122
+        },
+        {
+          "stage": 81,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        }
+      ]
+    },
+    {
+      "seed": 14,
+      "mode": "candidate",
+      "wins": 81,
+      "blockedAt": null,
+      "onlineSeconds": 1385,
+      "trainingSpend": {
+        "food": 389250,
+        "steel": 25200,
+        "wood": 30000,
+        "stone": 7500
+      },
+      "checkpoints": [
+        {
+          "stage": 49,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 53,
+          "loss": 27,
+          "armyAfter": 98
+        },
+        {
+          "stage": 50,
+          "win": true,
+          "round": 5,
+          "deployedBefore": 80,
+          "deployedAfter": 45,
+          "loss": 35,
+          "armyAfter": 90
+        },
+        {
+          "stage": 51,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 59,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 42,
+          "loss": 38,
+          "armyAfter": 87
+        },
+        {
+          "stage": 60,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 24,
+          "loss": 56,
+          "armyAfter": 69
+        },
+        {
+          "stage": 61,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 79,
+          "loss": 1,
+          "armyAfter": 124
+        },
+        {
+          "stage": 69,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 70,
+          "loss": 10,
+          "armyAfter": 115
+        },
+        {
+          "stage": 70,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 12,
+          "loss": 68,
+          "armyAfter": 57
+        },
+        {
+          "stage": 71,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 79,
+          "win": true,
+          "round": 5,
+          "deployedBefore": 80,
+          "deployedAfter": 28,
+          "loss": 52,
+          "armyAfter": 73
+        },
+        {
+          "stage": 80,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 42,
+          "loss": 38,
+          "armyAfter": 87
+        },
+        {
+          "stage": 81,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        }
+      ]
+    },
+    {
+      "seed": 15,
+      "mode": "formal",
+      "wins": 81,
+      "blockedAt": null,
+      "onlineSeconds": 1093,
+      "trainingSpend": {
+        "food": 294810,
+        "steel": 18900,
+        "wood": 30160,
+        "stone": 7540
+      },
+      "checkpoints": [
+        {
+          "stage": 49,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 66,
+          "loss": 14,
+          "armyAfter": 111
+        },
+        {
+          "stage": 50,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 78,
+          "loss": 2,
+          "armyAfter": 123
+        },
+        {
+          "stage": 51,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 59,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 43,
+          "loss": 37,
+          "armyAfter": 88
+        },
+        {
+          "stage": 60,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 74,
+          "loss": 6,
+          "armyAfter": 119
+        },
+        {
+          "stage": 61,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 69,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 49,
+          "loss": 31,
+          "armyAfter": 94
+        },
+        {
+          "stage": 70,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 77,
+          "loss": 3,
+          "armyAfter": 122
+        },
+        {
+          "stage": 71,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 79,
+          "win": true,
+          "round": 5,
+          "deployedBefore": 80,
+          "deployedAfter": 29,
+          "loss": 51,
+          "armyAfter": 74
+        },
+        {
+          "stage": 80,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 74,
+          "loss": 6,
+          "armyAfter": 119
+        },
+        {
+          "stage": 81,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        }
+      ]
+    },
+    {
+      "seed": 15,
+      "mode": "candidate",
+      "wins": 81,
+      "blockedAt": null,
+      "onlineSeconds": 1432,
+      "trainingSpend": {
+        "food": 394350,
+        "steel": 25400,
+        "wood": 35600,
+        "stone": 8900
+      },
+      "checkpoints": [
+        {
+          "stage": 49,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 66,
+          "loss": 14,
+          "armyAfter": 111
+        },
+        {
+          "stage": 50,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 44,
+          "loss": 36,
+          "armyAfter": 89
+        },
+        {
+          "stage": 51,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 59,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 47,
+          "loss": 33,
+          "armyAfter": 92
+        },
+        {
+          "stage": 60,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 41,
+          "loss": 39,
+          "armyAfter": 86
+        },
+        {
+          "stage": 61,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 69,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 44,
+          "loss": 36,
+          "armyAfter": 89
+        },
+        {
+          "stage": 70,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 26,
+          "loss": 54,
+          "armyAfter": 71
+        },
+        {
+          "stage": 71,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 79,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 52,
+          "loss": 28,
+          "armyAfter": 97
+        },
+        {
+          "stage": 80,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 18,
+          "loss": 62,
+          "armyAfter": 63
+        },
+        {
+          "stage": 81,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        }
+      ]
+    },
+    {
+      "seed": 16,
+      "mode": "formal",
+      "wins": 81,
+      "blockedAt": null,
+      "onlineSeconds": 979,
+      "trainingSpend": {
+        "food": 270690,
+        "steel": 17500,
+        "wood": 21840,
+        "stone": 5460
+      },
+      "checkpoints": [
+        {
+          "stage": 49,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 59,
+          "loss": 21,
+          "armyAfter": 104
+        },
+        {
+          "stage": 50,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 78,
+          "loss": 2,
+          "armyAfter": 123
+        },
+        {
+          "stage": 51,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 59,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 68,
+          "loss": 12,
+          "armyAfter": 113
+        },
+        {
+          "stage": 60,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 77,
+          "loss": 3,
+          "armyAfter": 122
+        },
+        {
+          "stage": 61,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 69,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 42,
+          "loss": 38,
+          "armyAfter": 87
+        },
+        {
+          "stage": 70,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 69,
+          "loss": 11,
+          "armyAfter": 114
+        },
+        {
+          "stage": 71,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 79,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 46,
+          "loss": 34,
+          "armyAfter": 91
+        },
+        {
+          "stage": 80,
+          "win": true,
+          "round": 2,
+          "deployedBefore": 80,
+          "deployedAfter": 77,
+          "loss": 3,
+          "armyAfter": 122
+        },
+        {
+          "stage": 81,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        }
+      ]
+    },
+    {
+      "seed": 16,
+      "mode": "candidate",
+      "wins": 81,
+      "blockedAt": null,
+      "onlineSeconds": 1439,
+      "trainingSpend": {
+        "food": 405780,
+        "steel": 26300,
+        "wood": 30080,
+        "stone": 7520
+      },
+      "checkpoints": [
+        {
+          "stage": 49,
+          "win": true,
+          "round": 3,
+          "deployedBefore": 80,
+          "deployedAfter": 59,
+          "loss": 21,
+          "armyAfter": 104
+        },
+        {
+          "stage": 50,
+          "win": true,
+          "round": 6,
+          "deployedBefore": 80,
+          "deployedAfter": 29,
+          "loss": 51,
+          "armyAfter": 74
+        },
+        {
+          "stage": 51,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 59,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 47,
+          "loss": 33,
+          "armyAfter": 92
+        },
+        {
+          "stage": 60,
+          "win": true,
+          "round": 5,
+          "deployedBefore": 80,
+          "deployedAfter": 42,
+          "loss": 38,
+          "armyAfter": 87
+        },
+        {
+          "stage": 61,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 69,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 40,
+          "loss": 40,
+          "armyAfter": 85
+        },
+        {
+          "stage": 70,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 33,
+          "loss": 47,
+          "armyAfter": 78
+        },
+        {
+          "stage": 71,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        },
+        {
+          "stage": 79,
+          "win": true,
+          "round": 4,
+          "deployedBefore": 80,
+          "deployedAfter": 66,
+          "loss": 14,
+          "armyAfter": 111
+        },
+        {
+          "stage": 80,
+          "win": true,
+          "round": 5,
+          "deployedBefore": 80,
+          "deployedAfter": 30,
+          "loss": 50,
+          "armyAfter": 75
+        },
+        {
+          "stage": 81,
+          "win": true,
+          "round": 1,
+          "deployedBefore": 80,
+          "deployedAfter": 80,
+          "loss": 0,
+          "armyAfter": 125
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,5899 @@
+{
+  "batch": "P394",
+  "source": {
+    "file": "p393-tier3-city-star10-prebattle-paid-save.json",
+    "sha256": "df515a38dca073d7ff5fde1c235a48574b395041903b083f87d901c350380d51"
+  },
+  "runtimeSha256": {
+    "config.js": "1d46cd09d15cd9faf05cbb40a0b5e30fdf7d6ae3bcfd21550233c178378ebfd8",
+    "levels.js": "dc0f73ccb179900f2a270f35ab22775d2eb7ca18caf10037480f3bc7a3359afc",
+    "math.js": "9cb16af1e322205a2a92110758d71ac5bea0c422b04d981aab870c18a8cd2513",
+    "garrison.js": "4d233f0529d256cd1ace2de782603fcfcbbff110032ca4cf29c5e36af30f10ff",
+    "technology.js": "c51fb05821593d9e76396ff18b0a38d78dee1db9cdc55631b78a7f223ad0a006",
+    "tests/progression/harness.js": "4770d17fa72cc8c87f4c8ef79678f19d63a41da895b8dd58776e5a39ce2ede2b"
+  },
+  "start": {
+    "tick": 12295860,
+    "resources": {
+      "tech": 13721,
+      "medal": 1042870,
+      "food": 480699,
+      "copper": 4125.299997924994,
+      "iron": 922867,
+      "steel": 1159,
+      "stone": 638678,
+      "coal": 192415
+    },
+    "cap": 307340352,
+    "items": {
+      "godCrystal": 41,
+      "guardianStone": 9,
+      "revivalLeaf": 195,
+      "boarHeart": 20,
+      "bullHorn": 66,
+      "snakeGall": 429,
+      "tigerPelt": 38,
+      "turtleShell": 511,
+      "wyrmSinew": 207,
+      "storageScroll": 0,
+      "sacredBlood": 3,
+      "domainCleanser": 0
+    },
+    "kills": {
+      "godCrystal": 5000,
+      "guardianStone": 4500,
+      "revivalLeaf": 2600,
+      "wildBoar": 4420,
+      "wildBull": 3790,
+      "wildSnake": 3000,
+      "wildTiger": 3400,
+      "wildTurtle": 4000,
+      "wildWyrm": 4040
+    },
+    "army": 672,
+    "deployed": 626,
+    "storage": {
+      "steam": 30,
+      "electric": 17,
+      "nuclear": 6
+    },
+    "scrollUsed": 130,
+    "offers": {
+      "heart": 1,
+      "wild": {
+        "bullHorn": {
+          "count": 0,
+          "quality": 100
+        },
+        "snakeGall": {
+          "count": 0,
+          "quality": 100
+        },
+        "tigerPelt": {
+          "count": 0,
+          "quality": 100
+        },
+        "turtleShell": {
+          "count": 0,
+          "quality": 100
+        },
+        "wyrmSinew": {
+          "count": 1,
+          "quality": 80
+        }
+      }
+    },
+    "refreshCharges": 5,
+    "refreshClock": 307,
+    "battleEncounter": null
+  },
+  "cost": {
+    "steam": {
+      "tech": 9300000,
+      "godCrystal": 310
+    },
+    "electric": {
+      "tech": 36000000,
+      "guardianStone": 360
+    },
+    "nuclear": {
+      "tech": 140000000,
+      "revivalLeaf": 700
+    },
+    "quantum": {
+      "tech": 3000000000,
+      "medal": 3000000,
+      "merit": 0
+    }
+  },
+  "trials": {
+    "godCrystal": [
+      {
+        "key": "godCrystal",
+        "result": "win",
+        "callbacks": 36,
+        "enemyHpLeft": 0,
+        "before": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 41,
+          "alert": 5000
+        },
+        "after": {
+          "army": 605,
+          "deployed": 559,
+          "stock": 100,
+          "alert": 5100
+        },
+        "loss": 67,
+        "gain": 59,
+        "expectedReward": 59,
+        "saveSha256": "5ba947606ee06f57940bf23d9bcd97535ee95abcb0922354884ed89c31415c4c",
+        "seed": 1
+      },
+      {
+        "key": "godCrystal",
+        "result": "win",
+        "callbacks": 47,
+        "enemyHpLeft": 0,
+        "before": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 41,
+          "alert": 5000
+        },
+        "after": {
+          "army": 570,
+          "deployed": 524,
+          "stock": 100,
+          "alert": 5100
+        },
+        "loss": 102,
+        "gain": 59,
+        "expectedReward": 59,
+        "saveSha256": "1f6d46b224526dbc42fa2520980c7027146899abd7b5dc1f0cedd99946a8a146",
+        "seed": 2
+      },
+      {
+        "key": "godCrystal",
+        "result": "win",
+        "callbacks": 39,
+        "enemyHpLeft": 0,
+        "before": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 41,
+          "alert": 5000
+        },
+        "after": {
+          "army": 577,
+          "deployed": 531,
+          "stock": 100,
+          "alert": 5100
+        },
+        "loss": 95,
+        "gain": 59,
+        "expectedReward": 59,
+        "saveSha256": "38334e1d6fcb33c95de26a5afbe7477b83aa2b033aadaaed760d2c4f17b18043",
+        "seed": 3
+      },
+      {
+        "key": "godCrystal",
+        "result": "win",
+        "callbacks": 28,
+        "enemyHpLeft": 0,
+        "before": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 41,
+          "alert": 5000
+        },
+        "after": {
+          "army": 621,
+          "deployed": 575,
+          "stock": 100,
+          "alert": 5100
+        },
+        "loss": 51,
+        "gain": 59,
+        "expectedReward": 59,
+        "saveSha256": "cbba9da14a4daa331749cc5716c2f614773c5c320d0bfabdadfc7202624a155a",
+        "seed": 4
+      }
+    ],
+    "guardianStone": [
+      {
+        "key": "guardianStone",
+        "result": "win",
+        "callbacks": 28,
+        "enemyHpLeft": 0,
+        "before": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 9,
+          "alert": 4500
+        },
+        "after": {
+          "army": 666,
+          "deployed": 620,
+          "stock": 121,
+          "alert": 4600
+        },
+        "loss": 6,
+        "gain": 112,
+        "expectedReward": 112,
+        "saveSha256": "97ca6095d1c3341a0232ca4c5cf3eadd8414cf776b19248a9e87737147fc0e2b",
+        "seed": 1
+      },
+      {
+        "key": "guardianStone",
+        "result": "win",
+        "callbacks": 26,
+        "enemyHpLeft": 0,
+        "before": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 9,
+          "alert": 4500
+        },
+        "after": {
+          "army": 663,
+          "deployed": 617,
+          "stock": 121,
+          "alert": 4600
+        },
+        "loss": 9,
+        "gain": 112,
+        "expectedReward": 112,
+        "saveSha256": "1069615bd7549a88dace167996e505d938812e136248c47c954cfc40cbd7148b",
+        "seed": 2
+      },
+      {
+        "key": "guardianStone",
+        "result": "win",
+        "callbacks": 19,
+        "enemyHpLeft": 0,
+        "before": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 9,
+          "alert": 4500
+        },
+        "after": {
+          "army": 670,
+          "deployed": 624,
+          "stock": 121,
+          "alert": 4600
+        },
+        "loss": 2,
+        "gain": 112,
+        "expectedReward": 112,
+        "saveSha256": "c867b80a1b59560fc6246344862b840471d70a979a627933a6818f49611d1236",
+        "seed": 3
+      },
+      {
+        "key": "guardianStone",
+        "result": "win",
+        "callbacks": 26,
+        "enemyHpLeft": 0,
+        "before": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 9,
+          "alert": 4500
+        },
+        "after": {
+          "army": 665,
+          "deployed": 619,
+          "stock": 121,
+          "alert": 4600
+        },
+        "loss": 7,
+        "gain": 112,
+        "expectedReward": 112,
+        "saveSha256": "9cbca41ecf24bba4188aefecdcc5c07f5b250a1880714d8ebb2718a49138ccc4",
+        "seed": 4
+      }
+    ],
+    "revivalLeaf": [
+      {
+        "key": "revivalLeaf",
+        "result": "win",
+        "callbacks": 6,
+        "enemyHpLeft": 0,
+        "before": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 195,
+          "alert": 2600
+        },
+        "after": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 256,
+          "alert": 2700
+        },
+        "loss": 0,
+        "gain": 61,
+        "expectedReward": 61,
+        "saveSha256": "b85d618acf471d86b04e83e6274006c5ce3a0dcfc2154f7666ebdeca7c95f3f5",
+        "seed": 1
+      },
+      {
+        "key": "revivalLeaf",
+        "result": "win",
+        "callbacks": 6,
+        "enemyHpLeft": 0,
+        "before": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 195,
+          "alert": 2600
+        },
+        "after": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 256,
+          "alert": 2700
+        },
+        "loss": 0,
+        "gain": 61,
+        "expectedReward": 61,
+        "saveSha256": "b85d618acf471d86b04e83e6274006c5ce3a0dcfc2154f7666ebdeca7c95f3f5",
+        "seed": 2
+      },
+      {
+        "key": "revivalLeaf",
+        "result": "win",
+        "callbacks": 6,
+        "enemyHpLeft": 0,
+        "before": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 195,
+          "alert": 2600
+        },
+        "after": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 256,
+          "alert": 2700
+        },
+        "loss": 0,
+        "gain": 61,
+        "expectedReward": 61,
+        "saveSha256": "b85d618acf471d86b04e83e6274006c5ce3a0dcfc2154f7666ebdeca7c95f3f5",
+        "seed": 3
+      },
+      {
+        "key": "revivalLeaf",
+        "result": "win",
+        "callbacks": 6,
+        "enemyHpLeft": 0,
+        "before": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 195,
+          "alert": 2600
+        },
+        "after": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 256,
+          "alert": 2700
+        },
+        "loss": 0,
+        "gain": 61,
+        "expectedReward": 61,
+        "saveSha256": "b85d618acf471d86b04e83e6274006c5ce3a0dcfc2154f7666ebdeca7c95f3f5",
+        "seed": 4
+      }
+    ],
+    "boarHeart": [
+      {
+        "key": "bone",
+        "result": "win",
+        "callbacks": 12,
+        "enemyHpLeft": 0,
+        "before": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 20,
+          "alert": 4420
+        },
+        "after": {
+          "army": 567,
+          "deployed": 521,
+          "stock": 45,
+          "alert": 4430
+        },
+        "loss": 105,
+        "gain": 25,
+        "expectedReward": null,
+        "saveSha256": "3cc5c3ce3a2dc5e98c457e498456a40a803c96695dfb1c4816c92becf4575f04",
+        "seed": 1
+      },
+      {
+        "key": "bone",
+        "result": "win",
+        "callbacks": 12,
+        "enemyHpLeft": 0,
+        "before": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 20,
+          "alert": 4420
+        },
+        "after": {
+          "army": 570,
+          "deployed": 524,
+          "stock": 45,
+          "alert": 4430
+        },
+        "loss": 102,
+        "gain": 25,
+        "expectedReward": null,
+        "saveSha256": "efb36785381032af2a475c9821305138550d811f0d6b39be4c995de474fce295",
+        "seed": 2
+      },
+      {
+        "key": "bone",
+        "result": "win",
+        "callbacks": 12,
+        "enemyHpLeft": 0,
+        "before": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 20,
+          "alert": 4420
+        },
+        "after": {
+          "army": 530,
+          "deployed": 484,
+          "stock": 45,
+          "alert": 4430
+        },
+        "loss": 142,
+        "gain": 25,
+        "expectedReward": null,
+        "saveSha256": "9d0b3363a2fb0d55e415f382c9052da3962a357a1110219f593705712aea5179",
+        "seed": 3
+      },
+      {
+        "key": "bone",
+        "result": "win",
+        "callbacks": 12,
+        "enemyHpLeft": 0,
+        "before": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 20,
+          "alert": 4420
+        },
+        "after": {
+          "army": 548,
+          "deployed": 502,
+          "stock": 20,
+          "alert": 4430
+        },
+        "loss": 124,
+        "gain": 0,
+        "expectedReward": null,
+        "saveSha256": "185c87d31d84cbdf8a5ed5053d27c19f21fd7b1b30985329f404cf99bcae66da",
+        "seed": 4
+      }
+    ],
+    "bullHorn": [
+      {
+        "key": "bullHorn",
+        "result": "win",
+        "callbacks": 12,
+        "enemyHpLeft": 0,
+        "before": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 66,
+          "alert": 3790
+        },
+        "after": {
+          "army": 593,
+          "deployed": 547,
+          "stock": 91,
+          "alert": 3800
+        },
+        "loss": 79,
+        "gain": 25,
+        "expectedReward": null,
+        "saveSha256": "7e41c45a916caf2f8136dc661f80dd0fcdaac6315fb41afc4c931e3c574992d8",
+        "seed": 1
+      },
+      {
+        "key": "bullHorn",
+        "result": "win",
+        "callbacks": 12,
+        "enemyHpLeft": 0,
+        "before": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 66,
+          "alert": 3790
+        },
+        "after": {
+          "army": 581,
+          "deployed": 535,
+          "stock": 91,
+          "alert": 3800
+        },
+        "loss": 91,
+        "gain": 25,
+        "expectedReward": null,
+        "saveSha256": "81cc4d9ddc29fe81984cc199c18661f8da7e7f4294801ab0ce1ba606c8cda8c8",
+        "seed": 2
+      },
+      {
+        "key": "bullHorn",
+        "result": "win",
+        "callbacks": 12,
+        "enemyHpLeft": 0,
+        "before": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 66,
+          "alert": 3790
+        },
+        "after": {
+          "army": 536,
+          "deployed": 490,
+          "stock": 91,
+          "alert": 3800
+        },
+        "loss": 136,
+        "gain": 25,
+        "expectedReward": null,
+        "saveSha256": "a4ea2ed352d33c9c77d3c50fc89146b1270a6f1050fb7c6ffccaf76531cf22f9",
+        "seed": 3
+      },
+      {
+        "key": "bullHorn",
+        "result": "win",
+        "callbacks": 12,
+        "enemyHpLeft": 0,
+        "before": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 66,
+          "alert": 3790
+        },
+        "after": {
+          "army": 572,
+          "deployed": 526,
+          "stock": 66,
+          "alert": 3800
+        },
+        "loss": 100,
+        "gain": 0,
+        "expectedReward": null,
+        "saveSha256": "0cfb2c0147437c0948a6d34e54da9ea994f8af689ba15130fe773557f71ca23f",
+        "seed": 4
+      }
+    ],
+    "snakeGall": [
+      {
+        "key": "snakeGall",
+        "result": "win",
+        "callbacks": 13,
+        "enemyHpLeft": 0,
+        "before": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 429,
+          "alert": 3000
+        },
+        "after": {
+          "army": 536,
+          "deployed": 490,
+          "stock": 429,
+          "alert": 3010
+        },
+        "loss": 136,
+        "gain": 0,
+        "expectedReward": null,
+        "saveSha256": "108568717cf5c1abd9e01c08538cf2281b77f4d2e3e30facdf556d68b2c19371",
+        "seed": 1
+      },
+      {
+        "key": "snakeGall",
+        "result": "win",
+        "callbacks": 13,
+        "enemyHpLeft": 0,
+        "before": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 429,
+          "alert": 3000
+        },
+        "after": {
+          "army": 489,
+          "deployed": 443,
+          "stock": 454,
+          "alert": 3010
+        },
+        "loss": 183,
+        "gain": 25,
+        "expectedReward": null,
+        "saveSha256": "e4308625f591ac2a3cef5e65a825d5f4841f417e610f5f58ec9ea5022537967c",
+        "seed": 2
+      },
+      {
+        "key": "snakeGall",
+        "result": "win",
+        "callbacks": 13,
+        "enemyHpLeft": 0,
+        "before": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 429,
+          "alert": 3000
+        },
+        "after": {
+          "army": 534,
+          "deployed": 488,
+          "stock": 454,
+          "alert": 3010
+        },
+        "loss": 138,
+        "gain": 25,
+        "expectedReward": null,
+        "saveSha256": "d877c2aad2fa3ee523a2d5632569393db070f1c8a30c8b4d4d2e079f906a96bb",
+        "seed": 3
+      },
+      {
+        "key": "snakeGall",
+        "result": "win",
+        "callbacks": 13,
+        "enemyHpLeft": 0,
+        "before": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 429,
+          "alert": 3000
+        },
+        "after": {
+          "army": 513,
+          "deployed": 467,
+          "stock": 454,
+          "alert": 3010
+        },
+        "loss": 159,
+        "gain": 25,
+        "expectedReward": null,
+        "saveSha256": "ddaf94917f94228fed38981986bc1cf72d29a120e8a03ae8b109ad03686d8b79",
+        "seed": 4
+      }
+    ],
+    "tigerPelt": [
+      {
+        "key": "tigerPelt",
+        "result": "win",
+        "callbacks": 12,
+        "enemyHpLeft": 0,
+        "before": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 38,
+          "alert": 3400
+        },
+        "after": {
+          "army": 534,
+          "deployed": 488,
+          "stock": 63,
+          "alert": 3410
+        },
+        "loss": 138,
+        "gain": 25,
+        "expectedReward": null,
+        "saveSha256": "cc0a62257707aabeec0e6adb5064d38fc180a8162da02b0fdbef57b50141cd8e",
+        "seed": 1
+      },
+      {
+        "key": "tigerPelt",
+        "result": "win",
+        "callbacks": 12,
+        "enemyHpLeft": 0,
+        "before": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 38,
+          "alert": 3400
+        },
+        "after": {
+          "army": 576,
+          "deployed": 530,
+          "stock": 63,
+          "alert": 3410
+        },
+        "loss": 96,
+        "gain": 25,
+        "expectedReward": null,
+        "saveSha256": "dafc99055c9090518c2b30957b5f104649bc3e1daaf101a8beaf4b20f922c4a5",
+        "seed": 2
+      },
+      {
+        "key": "tigerPelt",
+        "result": "win",
+        "callbacks": 12,
+        "enemyHpLeft": 0,
+        "before": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 38,
+          "alert": 3400
+        },
+        "after": {
+          "army": 573,
+          "deployed": 527,
+          "stock": 63,
+          "alert": 3410
+        },
+        "loss": 99,
+        "gain": 25,
+        "expectedReward": null,
+        "saveSha256": "fb93228afb7b03fee2c3fc64d2fed253e1b9f76086d9d5864bde8e1a9e6de873",
+        "seed": 3
+      },
+      {
+        "key": "tigerPelt",
+        "result": "win",
+        "callbacks": 12,
+        "enemyHpLeft": 0,
+        "before": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 38,
+          "alert": 3400
+        },
+        "after": {
+          "army": 599,
+          "deployed": 553,
+          "stock": 63,
+          "alert": 3410
+        },
+        "loss": 73,
+        "gain": 25,
+        "expectedReward": null,
+        "saveSha256": "f29ec721ae4ede2d9a90ac4be89822f1294808598fe31d95ea903d72dc50bfdb",
+        "seed": 4
+      }
+    ],
+    "turtleShell": [
+      {
+        "key": "turtleShell",
+        "result": "win",
+        "callbacks": 12,
+        "enemyHpLeft": 0,
+        "before": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 511,
+          "alert": 4000
+        },
+        "after": {
+          "army": 529,
+          "deployed": 483,
+          "stock": 536,
+          "alert": 4010
+        },
+        "loss": 143,
+        "gain": 25,
+        "expectedReward": null,
+        "saveSha256": "8aa5f5764c8c6feacf30185d3fed5b2aaaa22708b3802683dbea6b6fb4f1e23c",
+        "seed": 1
+      },
+      {
+        "key": "turtleShell",
+        "result": "win",
+        "callbacks": 12,
+        "enemyHpLeft": 0,
+        "before": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 511,
+          "alert": 4000
+        },
+        "after": {
+          "army": 525,
+          "deployed": 479,
+          "stock": 536,
+          "alert": 4010
+        },
+        "loss": 147,
+        "gain": 25,
+        "expectedReward": null,
+        "saveSha256": "e98e0647fb6d30a780cf0c27aaef8db9844bbf34b96942f3f878d0cc9926dd12",
+        "seed": 2
+      },
+      {
+        "key": "turtleShell",
+        "result": "win",
+        "callbacks": 12,
+        "enemyHpLeft": 0,
+        "before": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 511,
+          "alert": 4000
+        },
+        "after": {
+          "army": 533,
+          "deployed": 487,
+          "stock": 536,
+          "alert": 4010
+        },
+        "loss": 139,
+        "gain": 25,
+        "expectedReward": null,
+        "saveSha256": "a3beb5347517e34b45a296eab8859fad08014adf89affe3be604e079a3bc7af7",
+        "seed": 3
+      },
+      {
+        "key": "turtleShell",
+        "result": "win",
+        "callbacks": 12,
+        "enemyHpLeft": 0,
+        "before": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 511,
+          "alert": 4000
+        },
+        "after": {
+          "army": 522,
+          "deployed": 476,
+          "stock": 511,
+          "alert": 4010
+        },
+        "loss": 150,
+        "gain": 0,
+        "expectedReward": null,
+        "saveSha256": "d1ffb120086abbdb95cf54d74edee8bc356caa824e87140310f856cab557bfa7",
+        "seed": 4
+      }
+    ],
+    "wyrmSinew": [
+      {
+        "key": "wyrmSinew",
+        "result": "win",
+        "callbacks": 6,
+        "enemyHpLeft": 0,
+        "before": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 207,
+          "alert": 4040
+        },
+        "after": {
+          "army": 627,
+          "deployed": 581,
+          "stock": 232,
+          "alert": 4050
+        },
+        "loss": 45,
+        "gain": 25,
+        "expectedReward": null,
+        "saveSha256": "2137b8e273cc5be96f567e9050b5482fcbd1a7ddfd29a3f234bb4435190a9717",
+        "seed": 1
+      },
+      {
+        "key": "wyrmSinew",
+        "result": "win",
+        "callbacks": 8,
+        "enemyHpLeft": 0,
+        "before": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 207,
+          "alert": 4040
+        },
+        "after": {
+          "army": 598,
+          "deployed": 552,
+          "stock": 232,
+          "alert": 4050
+        },
+        "loss": 74,
+        "gain": 25,
+        "expectedReward": null,
+        "saveSha256": "5da378a9fe7c78745dfefe3aa51fe5e559b51c49188841cf19cbe08733acb31f",
+        "seed": 2
+      },
+      {
+        "key": "wyrmSinew",
+        "result": "win",
+        "callbacks": 8,
+        "enemyHpLeft": 0,
+        "before": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 207,
+          "alert": 4040
+        },
+        "after": {
+          "army": 579,
+          "deployed": 533,
+          "stock": 232,
+          "alert": 4050
+        },
+        "loss": 93,
+        "gain": 25,
+        "expectedReward": null,
+        "saveSha256": "2bb7da701fcbf1921e915bb5140f49017e88971ee6579b73b0b66c903d4da17f",
+        "seed": 3
+      },
+      {
+        "key": "wyrmSinew",
+        "result": "win",
+        "callbacks": 6,
+        "enemyHpLeft": 0,
+        "before": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 207,
+          "alert": 4040
+        },
+        "after": {
+          "army": 587,
+          "deployed": 541,
+          "stock": 232,
+          "alert": 4050
+        },
+        "loss": 85,
+        "gain": 25,
+        "expectedReward": null,
+        "saveSha256": "b44908b47d7aef54b6dac94f9ada16c0fafa4f5291f7fb8aa39fa641b4031c92",
+        "seed": 4
+      }
+    ]
+  },
+  "episodes": {
+    "guardianStone": {
+      "rows": [
+        {
+          "key": "guardianStone",
+          "result": "win",
+          "callbacks": 28,
+          "enemyHpLeft": 0,
+          "before": {
+            "army": 672,
+            "deployed": 626,
+            "stock": 9,
+            "alert": 4500
+          },
+          "after": {
+            "army": 666,
+            "deployed": 620,
+            "stock": 121,
+            "alert": 4600
+          },
+          "loss": 6,
+          "gain": 112,
+          "expectedReward": 112,
+          "saveSha256": "97ca6095d1c3341a0232ca4c5cf3eadd8414cf776b19248a9e87737147fc0e2b"
+        },
+        {
+          "key": "guardianStone",
+          "result": "win",
+          "callbacks": 33,
+          "enemyHpLeft": 0,
+          "before": {
+            "army": 666,
+            "deployed": 620,
+            "stock": 121,
+            "alert": 4600
+          },
+          "after": {
+            "army": 645,
+            "deployed": 599,
+            "stock": 234,
+            "alert": 4700
+          },
+          "loss": 21,
+          "gain": 113,
+          "expectedReward": 113,
+          "saveSha256": "5c994c6f92eed08fbd7d0ab69c9ef5f56d62a49ce3d43d0ce7b440934752b2c1"
+        },
+        {
+          "key": "guardianStone",
+          "result": "win",
+          "callbacks": 38,
+          "enemyHpLeft": 0,
+          "before": {
+            "army": 645,
+            "deployed": 599,
+            "stock": 234,
+            "alert": 4700
+          },
+          "after": {
+            "army": 624,
+            "deployed": 578,
+            "stock": 348,
+            "alert": 4800
+          },
+          "loss": 21,
+          "gain": 114,
+          "expectedReward": 114,
+          "saveSha256": "565384c73b665e06377312ea55a8fb85702c77e5219d9e75869c3aef57b6bb58"
+        },
+        {
+          "key": "guardianStone",
+          "result": "win",
+          "callbacks": 74,
+          "enemyHpLeft": 0,
+          "before": {
+            "army": 624,
+            "deployed": 578,
+            "stock": 348,
+            "alert": 4800
+          },
+          "after": {
+            "army": 578,
+            "deployed": 532,
+            "stock": 464,
+            "alert": 4900
+          },
+          "loss": 46,
+          "gain": 116,
+          "expectedReward": 116,
+          "saveSha256": "43edff36464acf9643d79fedecc559f6b8b1ca0659b1dc1c62d4101af53062f7"
+        },
+        {
+          "key": "guardianStone",
+          "result": "win",
+          "callbacks": 110,
+          "enemyHpLeft": 0,
+          "before": {
+            "army": 578,
+            "deployed": 532,
+            "stock": 464,
+            "alert": 4900
+          },
+          "after": {
+            "army": 519,
+            "deployed": 473,
+            "stock": 581,
+            "alert": 5000
+          },
+          "loss": 59,
+          "gain": 117,
+          "expectedReward": 117,
+          "saveSha256": "9376d9011320012f94662a047b03784fce213df1419bcfcb409a2dadcdea9df0"
+        },
+        {
+          "key": "guardianStone",
+          "result": "lose",
+          "callbacks": 266,
+          "enemyHpLeft": 2968,
+          "before": {
+            "army": 519,
+            "deployed": 473,
+            "stock": 581,
+            "alert": 5000
+          },
+          "after": {
+            "army": 371,
+            "deployed": 325,
+            "stock": 581,
+            "alert": 5000
+          },
+          "loss": 148,
+          "gain": 0,
+          "expectedReward": 119,
+          "saveSha256": "05bd15a8f710b72aaf0959dd4bf5c1fca359e3cd785fe7da4653a68dd9e078d2"
+        }
+      ],
+      "final": {
+        "tick": 12295860,
+        "resources": {
+          "tech": 13721,
+          "medal": 1054350,
+          "food": 480699,
+          "copper": 4125.299997924994,
+          "iron": 922867,
+          "steel": 1159,
+          "stone": 638678,
+          "coal": 192415
+        },
+        "cap": 307340352,
+        "items": {
+          "godCrystal": 41,
+          "guardianStone": 581,
+          "revivalLeaf": 195,
+          "boarHeart": 20,
+          "bullHorn": 66,
+          "snakeGall": 429,
+          "tigerPelt": 38,
+          "turtleShell": 511,
+          "wyrmSinew": 207,
+          "storageScroll": 0,
+          "sacredBlood": 18,
+          "domainCleanser": 0
+        },
+        "kills": {
+          "godCrystal": 5000,
+          "guardianStone": 5000,
+          "revivalLeaf": 2600,
+          "wildBoar": 4420,
+          "wildBull": 3790,
+          "wildSnake": 3000,
+          "wildTiger": 3400,
+          "wildTurtle": 4000,
+          "wildWyrm": 4040
+        },
+        "army": 371,
+        "deployed": 325,
+        "storage": {
+          "steam": 30,
+          "electric": 17,
+          "nuclear": 6
+        },
+        "scrollUsed": 130,
+        "offers": {
+          "heart": 1,
+          "wild": {
+            "bullHorn": {
+              "count": 0,
+              "quality": 100
+            },
+            "snakeGall": {
+              "count": 0,
+              "quality": 100
+            },
+            "tigerPelt": {
+              "count": 0,
+              "quality": 100
+            },
+            "turtleShell": {
+              "count": 0,
+              "quality": 100
+            },
+            "wyrmSinew": {
+              "count": 1,
+              "quality": 80
+            }
+          }
+        },
+        "refreshCharges": 5,
+        "refreshClock": 307,
+        "battleEncounter": null
+      },
+      "checkpointSha256": "05bd15a8f710b72aaf0959dd4bf5c1fca359e3cd785fe7da4653a68dd9e078d2"
+    },
+    "revivalLeaf": {
+      "rows": [
+        {
+          "key": "revivalLeaf",
+          "result": "win",
+          "callbacks": 6,
+          "enemyHpLeft": 0,
+          "before": {
+            "army": 672,
+            "deployed": 626,
+            "stock": 195,
+            "alert": 2600
+          },
+          "after": {
+            "army": 672,
+            "deployed": 626,
+            "stock": 256,
+            "alert": 2700
+          },
+          "loss": 0,
+          "gain": 61,
+          "expectedReward": 61,
+          "saveSha256": "b85d618acf471d86b04e83e6274006c5ce3a0dcfc2154f7666ebdeca7c95f3f5"
+        },
+        {
+          "key": "revivalLeaf",
+          "result": "win",
+          "callbacks": 6,
+          "enemyHpLeft": 0,
+          "before": {
+            "army": 672,
+            "deployed": 626,
+            "stock": 256,
+            "alert": 2700
+          },
+          "after": {
+            "army": 672,
+            "deployed": 626,
+            "stock": 318,
+            "alert": 2800
+          },
+          "loss": 0,
+          "gain": 62,
+          "expectedReward": 62,
+          "saveSha256": "08c9d30975c36668a20025f20671cb93daf835d56990362f9ab2085e6d941aa9"
+        },
+        {
+          "key": "revivalLeaf",
+          "result": "win",
+          "callbacks": 6,
+          "enemyHpLeft": 0,
+          "before": {
+            "army": 672,
+            "deployed": 626,
+            "stock": 318,
+            "alert": 2800
+          },
+          "after": {
+            "army": 672,
+            "deployed": 626,
+            "stock": 381,
+            "alert": 2900
+          },
+          "loss": 0,
+          "gain": 63,
+          "expectedReward": 63,
+          "saveSha256": "aa8d5f6e7d26fbcd87cb93a50c9e9021d845109d093365ac2982a6116fa20981"
+        },
+        {
+          "key": "revivalLeaf",
+          "result": "win",
+          "callbacks": 6,
+          "enemyHpLeft": 0,
+          "before": {
+            "army": 672,
+            "deployed": 626,
+            "stock": 381,
+            "alert": 2900
+          },
+          "after": {
+            "army": 672,
+            "deployed": 626,
+            "stock": 457,
+            "alert": 3000
+          },
+          "loss": 0,
+          "gain": 76,
+          "expectedReward": 76,
+          "saveSha256": "0b64ddd7fae2e72ba68b97ce70612f9ccd6f5ba3309ab879ba2f7139b5032a49"
+        },
+        {
+          "key": "revivalLeaf",
+          "result": "win",
+          "callbacks": 6,
+          "enemyHpLeft": 0,
+          "before": {
+            "army": 672,
+            "deployed": 626,
+            "stock": 457,
+            "alert": 3000
+          },
+          "after": {
+            "army": 672,
+            "deployed": 626,
+            "stock": 535,
+            "alert": 3100
+          },
+          "loss": 0,
+          "gain": 78,
+          "expectedReward": 78,
+          "saveSha256": "cca8b31f060eed6ae0ffd32504d45eb154fe78949ae5b6aa9f5c9cf96aa43b13"
+        },
+        {
+          "key": "revivalLeaf",
+          "result": "win",
+          "callbacks": 6,
+          "enemyHpLeft": 0,
+          "before": {
+            "army": 672,
+            "deployed": 626,
+            "stock": 535,
+            "alert": 3100
+          },
+          "after": {
+            "army": 672,
+            "deployed": 626,
+            "stock": 614,
+            "alert": 3200
+          },
+          "loss": 0,
+          "gain": 79,
+          "expectedReward": 79,
+          "saveSha256": "94ea6f998262e7ed2d9ef35e25a7dd09ff7c4907af12d0caa49ce9c39607af18"
+        },
+        {
+          "key": "revivalLeaf",
+          "result": "win",
+          "callbacks": 6,
+          "enemyHpLeft": 0,
+          "before": {
+            "army": 672,
+            "deployed": 626,
+            "stock": 614,
+            "alert": 3200
+          },
+          "after": {
+            "army": 672,
+            "deployed": 626,
+            "stock": 694,
+            "alert": 3300
+          },
+          "loss": 0,
+          "gain": 80,
+          "expectedReward": 80,
+          "saveSha256": "7eba7903a04c9efd4138d317771a5d6a6947bf01d7c3925b11a60fbd74ef04e2"
+        },
+        {
+          "key": "revivalLeaf",
+          "result": "win",
+          "callbacks": 6,
+          "enemyHpLeft": 0,
+          "before": {
+            "army": 672,
+            "deployed": 626,
+            "stock": 694,
+            "alert": 3300
+          },
+          "after": {
+            "army": 672,
+            "deployed": 626,
+            "stock": 775,
+            "alert": 3400
+          },
+          "loss": 0,
+          "gain": 81,
+          "expectedReward": 81,
+          "saveSha256": "e80e99772142f4585fd8ca24493cc7a1505c4ec0217718fed893f667820aebf1"
+        },
+        {
+          "key": "revivalLeaf",
+          "result": "win",
+          "callbacks": 6,
+          "enemyHpLeft": 0,
+          "before": {
+            "army": 672,
+            "deployed": 626,
+            "stock": 775,
+            "alert": 3400
+          },
+          "after": {
+            "army": 672,
+            "deployed": 626,
+            "stock": 857,
+            "alert": 3500
+          },
+          "loss": 0,
+          "gain": 82,
+          "expectedReward": 82,
+          "saveSha256": "54ae18c70bf14a4d57d7819b408626124c12ef4a7c93d31b82140d1e82897053"
+        },
+        {
+          "key": "revivalLeaf",
+          "result": "win",
+          "callbacks": 7,
+          "enemyHpLeft": 0,
+          "before": {
+            "army": 672,
+            "deployed": 626,
+            "stock": 857,
+            "alert": 3500
+          },
+          "after": {
+            "army": 672,
+            "deployed": 626,
+            "stock": 941,
+            "alert": 3600
+          },
+          "loss": 0,
+          "gain": 84,
+          "expectedReward": 84,
+          "saveSha256": "4083b1931b2fd187d5e39732eb43243607fdaf0d353b41b881d822504be1545b"
+        },
+        {
+          "key": "revivalLeaf",
+          "result": "win",
+          "callbacks": 7,
+          "enemyHpLeft": 0,
+          "before": {
+            "army": 672,
+            "deployed": 626,
+            "stock": 941,
+            "alert": 3600
+          },
+          "after": {
+            "army": 672,
+            "deployed": 626,
+            "stock": 1026,
+            "alert": 3700
+          },
+          "loss": 0,
+          "gain": 85,
+          "expectedReward": 85,
+          "saveSha256": "b699839d016cc58f38cf568fa0debc44e60db4a2df70ad0f9b18e2785f36f396"
+        },
+        {
+          "key": "revivalLeaf",
+          "result": "win",
+          "callbacks": 7,
+          "enemyHpLeft": 0,
+          "before": {
+            "army": 672,
+            "deployed": 626,
+            "stock": 1026,
+            "alert": 3700
+          },
+          "after": {
+            "army": 672,
+            "deployed": 626,
+            "stock": 1112,
+            "alert": 3800
+          },
+          "loss": 0,
+          "gain": 86,
+          "expectedReward": 86,
+          "saveSha256": "44efe3bb284956134a21f2204f0d26e9345459df8c1d3931d7b917474d3feeb7"
+        },
+        {
+          "key": "revivalLeaf",
+          "result": "win",
+          "callbacks": 7,
+          "enemyHpLeft": 0,
+          "before": {
+            "army": 672,
+            "deployed": 626,
+            "stock": 1112,
+            "alert": 3800
+          },
+          "after": {
+            "army": 672,
+            "deployed": 626,
+            "stock": 1199,
+            "alert": 3900
+          },
+          "loss": 0,
+          "gain": 87,
+          "expectedReward": 87,
+          "saveSha256": "1d556e8d9b94c37b38653e38fa1719bf738ef70a73504d62bccf4eb6be2a1c09"
+        },
+        {
+          "key": "revivalLeaf",
+          "result": "win",
+          "callbacks": 7,
+          "enemyHpLeft": 0,
+          "before": {
+            "army": 672,
+            "deployed": 626,
+            "stock": 1199,
+            "alert": 3900
+          },
+          "after": {
+            "army": 672,
+            "deployed": 626,
+            "stock": 1302,
+            "alert": 4000
+          },
+          "loss": 0,
+          "gain": 103,
+          "expectedReward": 103,
+          "saveSha256": "84dd6b3dce7d04a4fc3be07d971a315539367c545744af33103e130a24b50d50"
+        },
+        {
+          "key": "revivalLeaf",
+          "result": "win",
+          "callbacks": 8,
+          "enemyHpLeft": 0,
+          "before": {
+            "army": 672,
+            "deployed": 626,
+            "stock": 1302,
+            "alert": 4000
+          },
+          "after": {
+            "army": 672,
+            "deployed": 626,
+            "stock": 1407,
+            "alert": 4100
+          },
+          "loss": 0,
+          "gain": 105,
+          "expectedReward": 105,
+          "saveSha256": "5e92db0875a04c6141f214101f4bdff99425690851bfd9461d9ca8556fb7f039"
+        },
+        {
+          "key": "revivalLeaf",
+          "result": "win",
+          "callbacks": 8,
+          "enemyHpLeft": 0,
+          "before": {
+            "army": 672,
+            "deployed": 626,
+            "stock": 1407,
+            "alert": 4100
+          },
+          "after": {
+            "army": 672,
+            "deployed": 626,
+            "stock": 1513,
+            "alert": 4200
+          },
+          "loss": 0,
+          "gain": 106,
+          "expectedReward": 106,
+          "saveSha256": "9089a9c5f2285c05d1964224919c68934cc2f7e22e8bafc152f25cb05da8f18a"
+        }
+      ],
+      "final": {
+        "tick": 12295860,
+        "resources": {
+          "tech": 13721,
+          "medal": 1042870,
+          "food": 480699,
+          "copper": 4125.299997924994,
+          "iron": 922867,
+          "steel": 1159,
+          "stone": 638678,
+          "coal": 192415
+        },
+        "cap": 307340352,
+        "items": {
+          "godCrystal": 41,
+          "guardianStone": 9,
+          "revivalLeaf": 1513,
+          "boarHeart": 20,
+          "bullHorn": 66,
+          "snakeGall": 429,
+          "tigerPelt": 38,
+          "turtleShell": 511,
+          "wyrmSinew": 207,
+          "storageScroll": 0,
+          "sacredBlood": 37,
+          "domainCleanser": 0
+        },
+        "kills": {
+          "godCrystal": 5000,
+          "guardianStone": 4500,
+          "revivalLeaf": 4200,
+          "wildBoar": 4420,
+          "wildBull": 3790,
+          "wildSnake": 3000,
+          "wildTiger": 3400,
+          "wildTurtle": 4000,
+          "wildWyrm": 4040
+        },
+        "army": 672,
+        "deployed": 626,
+        "storage": {
+          "steam": 30,
+          "electric": 17,
+          "nuclear": 6
+        },
+        "scrollUsed": 130,
+        "offers": {
+          "heart": 1,
+          "wild": {
+            "bullHorn": {
+              "count": 0,
+              "quality": 100
+            },
+            "snakeGall": {
+              "count": 0,
+              "quality": 100
+            },
+            "tigerPelt": {
+              "count": 0,
+              "quality": 100
+            },
+            "turtleShell": {
+              "count": 0,
+              "quality": 100
+            },
+            "wyrmSinew": {
+              "count": 1,
+              "quality": 80
+            }
+          }
+        },
+        "refreshCharges": 5,
+        "refreshClock": 307,
+        "battleEncounter": null
+      },
+      "checkpointSha256": "9089a9c5f2285c05d1964224919c68934cc2f7e22e8bafc152f25cb05da8f18a"
+    },
+    "wyrmSinew": {
+      "rows": [
+        {
+          "key": "wyrmSinew",
+          "result": "win",
+          "callbacks": 6,
+          "enemyHpLeft": 0,
+          "before": {
+            "army": 672,
+            "deployed": 626,
+            "stock": 207,
+            "alert": 4040
+          },
+          "after": {
+            "army": 627,
+            "deployed": 581,
+            "stock": 232,
+            "alert": 4050
+          },
+          "loss": 45,
+          "gain": 25,
+          "expectedReward": null,
+          "saveSha256": "2137b8e273cc5be96f567e9050b5482fcbd1a7ddfd29a3f234bb4435190a9717"
+        },
+        {
+          "key": "wyrmSinew",
+          "result": "lose",
+          "callbacks": 23,
+          "enemyHpLeft": 74,
+          "before": {
+            "army": 627,
+            "deployed": 581,
+            "stock": 232,
+            "alert": 4050
+          },
+          "after": {
+            "army": 46,
+            "deployed": 0,
+            "stock": 232,
+            "alert": 4050
+          },
+          "loss": 581,
+          "gain": 0,
+          "expectedReward": null,
+          "saveSha256": "e24a06a76a26886e56d9a94ae88f13b29bf071d0085d867232502c697ca46759"
+        }
+      ],
+      "final": {
+        "tick": 12295860,
+        "resources": {
+          "tech": 13721,
+          "medal": 1042870,
+          "food": 480699,
+          "copper": 4125.299997924994,
+          "iron": 922867,
+          "steel": 1159,
+          "stone": 638678,
+          "coal": 192415
+        },
+        "cap": 307340352,
+        "items": {
+          "godCrystal": 41,
+          "guardianStone": 9,
+          "revivalLeaf": 195,
+          "boarHeart": 20,
+          "bullHorn": 66,
+          "snakeGall": 429,
+          "tigerPelt": 38,
+          "turtleShell": 511,
+          "wyrmSinew": 232,
+          "storageScroll": 0,
+          "sacredBlood": 3,
+          "domainCleanser": 0
+        },
+        "kills": {
+          "godCrystal": 5000,
+          "guardianStone": 4500,
+          "revivalLeaf": 2600,
+          "wildBoar": 4420,
+          "wildBull": 3790,
+          "wildSnake": 3000,
+          "wildTiger": 3400,
+          "wildTurtle": 4000,
+          "wildWyrm": 4050
+        },
+        "army": 46,
+        "deployed": 0,
+        "storage": {
+          "steam": 30,
+          "electric": 17,
+          "nuclear": 6
+        },
+        "scrollUsed": 130,
+        "offers": {
+          "heart": 1,
+          "wild": {
+            "bullHorn": {
+              "count": 0,
+              "quality": 100
+            },
+            "snakeGall": {
+              "count": 0,
+              "quality": 100
+            },
+            "tigerPelt": {
+              "count": 0,
+              "quality": 100
+            },
+            "turtleShell": {
+              "count": 0,
+              "quality": 100
+            },
+            "wyrmSinew": {
+              "count": 1,
+              "quality": 80
+            }
+          }
+        },
+        "refreshCharges": 5,
+        "refreshClock": 307,
+        "battleEncounter": null
+      },
+      "checkpointSha256": "e24a06a76a26886e56d9a94ae88f13b29bf071d0085d867232502c697ca46759"
+    },
+    "godCrystal": {
+      "rows": [
+        {
+          "key": "godCrystal",
+          "result": "win",
+          "callbacks": 36,
+          "enemyHpLeft": 0,
+          "before": {
+            "army": 672,
+            "deployed": 626,
+            "stock": 41,
+            "alert": 5000
+          },
+          "after": {
+            "army": 605,
+            "deployed": 559,
+            "stock": 100,
+            "alert": 5100
+          },
+          "loss": 67,
+          "gain": 59,
+          "expectedReward": 59,
+          "saveSha256": "5ba947606ee06f57940bf23d9bcd97535ee95abcb0922354884ed89c31415c4c"
+        },
+        {
+          "key": "godCrystal",
+          "result": "win",
+          "callbacks": 141,
+          "enemyHpLeft": 0,
+          "before": {
+            "army": 605,
+            "deployed": 559,
+            "stock": 100,
+            "alert": 5100
+          },
+          "after": {
+            "army": 419,
+            "deployed": 373,
+            "stock": 160,
+            "alert": 5200
+          },
+          "loss": 186,
+          "gain": 60,
+          "expectedReward": 60,
+          "saveSha256": "f48bf214e56b52f63f0930753402c805442bd8b50e79b3726d5c10f02dfe7a63"
+        },
+        {
+          "key": "godCrystal",
+          "result": "lose",
+          "callbacks": 232,
+          "enemyHpLeft": 2538,
+          "before": {
+            "army": 419,
+            "deployed": 373,
+            "stock": 160,
+            "alert": 5200
+          },
+          "after": {
+            "army": 101,
+            "deployed": 55,
+            "stock": 160,
+            "alert": 5200
+          },
+          "loss": 318,
+          "gain": 0,
+          "expectedReward": 60,
+          "saveSha256": "939f9ea90d67eee07748104e8a17a525163e1070ad24af6b24c79516dde9eb58"
+        }
+      ],
+      "final": {
+        "tick": 12295860,
+        "resources": {
+          "tech": 13721,
+          "medal": 1047658,
+          "food": 480699,
+          "copper": 4125.299997924994,
+          "iron": 922867,
+          "steel": 1159,
+          "stone": 638678,
+          "coal": 192415
+        },
+        "cap": 307340352,
+        "items": {
+          "godCrystal": 160,
+          "guardianStone": 9,
+          "revivalLeaf": 195,
+          "boarHeart": 20,
+          "bullHorn": 66,
+          "snakeGall": 429,
+          "tigerPelt": 38,
+          "turtleShell": 511,
+          "wyrmSinew": 207,
+          "storageScroll": 0,
+          "sacredBlood": 9,
+          "domainCleanser": 0
+        },
+        "kills": {
+          "godCrystal": 5200,
+          "guardianStone": 4500,
+          "revivalLeaf": 2600,
+          "wildBoar": 4420,
+          "wildBull": 3790,
+          "wildSnake": 3000,
+          "wildTiger": 3400,
+          "wildTurtle": 4000,
+          "wildWyrm": 4040
+        },
+        "army": 101,
+        "deployed": 55,
+        "storage": {
+          "steam": 30,
+          "electric": 17,
+          "nuclear": 6
+        },
+        "scrollUsed": 130,
+        "offers": {
+          "heart": 1,
+          "wild": {
+            "bullHorn": {
+              "count": 0,
+              "quality": 100
+            },
+            "snakeGall": {
+              "count": 0,
+              "quality": 100
+            },
+            "tigerPelt": {
+              "count": 0,
+              "quality": 100
+            },
+            "turtleShell": {
+              "count": 0,
+              "quality": 100
+            },
+            "wyrmSinew": {
+              "count": 1,
+              "quality": 80
+            }
+          }
+        },
+        "refreshCharges": 5,
+        "refreshClock": 307,
+        "battleEncounter": null
+      },
+      "checkpointSha256": "939f9ea90d67eee07748104e8a17a525163e1070ad24af6b24c79516dde9eb58"
+    }
+  },
+  "market": {
+    "startingStock": {
+      "boarHeart": 20,
+      "bullHorn": 66,
+      "snakeGall": 429,
+      "tigerPelt": 38,
+      "turtleShell": 511,
+      "wyrmSinew": 207
+    },
+    "rounds": [
+      {
+        "kind": "initial-offers",
+        "purchases": [
+          {
+            "key": "wyrmSinew",
+            "quoted": 160,
+            "stockBefore": 207,
+            "stockAfter": 47,
+            "scrollUsed": 131,
+            "cap": 308676614,
+            "saveSha256": "cf24e7e431a793bef99058b1f1023071b8d9ba2d596e43a7f54519fb13fde25a"
+          }
+        ]
+      },
+      {
+        "kind": "charged-refresh",
+        "refreshed": {
+          "ok": true,
+          "offers": 6,
+          "charges": 4
+        },
+        "offers": {
+          "heart": 1,
+          "wild": {
+            "bullHorn": {
+              "count": 1,
+              "quality": 80
+            },
+            "snakeGall": {
+              "count": 0,
+              "quality": 100
+            },
+            "tigerPelt": {
+              "count": 0,
+              "quality": 100
+            },
+            "turtleShell": {
+              "count": 0,
+              "quality": 100
+            },
+            "wyrmSinew": {
+              "count": 1,
+              "quality": 100
+            }
+          }
+        },
+        "purchases": []
+      },
+      {
+        "kind": "charged-refresh",
+        "refreshed": {
+          "ok": true,
+          "offers": 3,
+          "charges": 3
+        },
+        "offers": {
+          "heart": 2,
+          "wild": {
+            "bullHorn": {
+              "count": 0,
+              "quality": 100
+            },
+            "snakeGall": {
+              "count": 0,
+              "quality": 100
+            },
+            "tigerPelt": {
+              "count": 0,
+              "quality": 100
+            },
+            "turtleShell": {
+              "count": 0,
+              "quality": 100
+            },
+            "wyrmSinew": {
+              "count": 0,
+              "quality": 100
+            }
+          }
+        },
+        "purchases": []
+      },
+      {
+        "kind": "charged-refresh",
+        "refreshed": {
+          "ok": true,
+          "offers": 5,
+          "charges": 2
+        },
+        "offers": {
+          "heart": 0,
+          "wild": {
+            "bullHorn": {
+              "count": 2,
+              "quality": 80
+            },
+            "snakeGall": {
+              "count": 0,
+              "quality": 100
+            },
+            "tigerPelt": {
+              "count": 1,
+              "quality": 100
+            },
+            "turtleShell": {
+              "count": 0,
+              "quality": 100
+            },
+            "wyrmSinew": {
+              "count": 0,
+              "quality": 100
+            }
+          }
+        },
+        "purchases": []
+      },
+      {
+        "kind": "charged-refresh",
+        "refreshed": {
+          "ok": true,
+          "offers": 0,
+          "charges": 1
+        },
+        "offers": {
+          "heart": 0,
+          "wild": {
+            "bullHorn": {
+              "count": 0,
+              "quality": 100
+            },
+            "snakeGall": {
+              "count": 0,
+              "quality": 100
+            },
+            "tigerPelt": {
+              "count": 0,
+              "quality": 100
+            },
+            "turtleShell": {
+              "count": 0,
+              "quality": 100
+            },
+            "wyrmSinew": {
+              "count": 0,
+              "quality": 100
+            }
+          }
+        },
+        "purchases": []
+      },
+      {
+        "kind": "charged-refresh",
+        "refreshed": {
+          "ok": true,
+          "offers": 4,
+          "charges": 0
+        },
+        "offers": {
+          "heart": 0,
+          "wild": {
+            "bullHorn": {
+              "count": 0,
+              "quality": 100
+            },
+            "snakeGall": {
+              "count": 1,
+              "quality": 50
+            },
+            "tigerPelt": {
+              "count": 1,
+              "quality": 80
+            },
+            "turtleShell": {
+              "count": 0,
+              "quality": 100
+            },
+            "wyrmSinew": {
+              "count": 0,
+              "quality": 100
+            }
+          }
+        },
+        "purchases": [
+          {
+            "key": "snakeGall",
+            "quoted": 100,
+            "stockBefore": 429,
+            "stockAfter": 329,
+            "scrollUsed": 132,
+            "cap": 310012876,
+            "saveSha256": "9e227881660093873fd489df2682f34c4aeb5814336dd18f0c68c5fcf26cc1d7"
+          }
+        ]
+      }
+    ],
+    "trades": [
+      {
+        "key": "wyrmSinew",
+        "quoted": 160,
+        "stockBefore": 207,
+        "stockAfter": 47,
+        "scrollUsed": 131,
+        "cap": 308676614,
+        "saveSha256": "cf24e7e431a793bef99058b1f1023071b8d9ba2d596e43a7f54519fb13fde25a"
+      },
+      {
+        "key": "snakeGall",
+        "quoted": 100,
+        "stockBefore": 429,
+        "stockAfter": 329,
+        "scrollUsed": 132,
+        "cap": 310012876,
+        "saveSha256": "9e227881660093873fd489df2682f34c4aeb5814336dd18f0c68c5fcf26cc1d7"
+      }
+    ],
+    "final": {
+      "tick": 12295860,
+      "resources": {
+        "tech": 13721,
+        "medal": 1042870,
+        "food": 480699,
+        "copper": 4125.299997924994,
+        "iron": 922867,
+        "steel": 1159,
+        "stone": 638678,
+        "coal": 192415
+      },
+      "cap": 310012876,
+      "items": {
+        "godCrystal": 41,
+        "guardianStone": 9,
+        "revivalLeaf": 195,
+        "boarHeart": 20,
+        "bullHorn": 66,
+        "snakeGall": 329,
+        "tigerPelt": 38,
+        "turtleShell": 511,
+        "wyrmSinew": 47,
+        "storageScroll": 0,
+        "sacredBlood": 3,
+        "domainCleanser": 0
+      },
+      "kills": {
+        "godCrystal": 5000,
+        "guardianStone": 4500,
+        "revivalLeaf": 2600,
+        "wildBoar": 4420,
+        "wildBull": 3790,
+        "wildSnake": 3000,
+        "wildTiger": 3400,
+        "wildTurtle": 4000,
+        "wildWyrm": 4040
+      },
+      "army": 672,
+      "deployed": 626,
+      "storage": {
+        "steam": 30,
+        "electric": 17,
+        "nuclear": 6
+      },
+      "scrollUsed": 132,
+      "offers": {
+        "heart": 0,
+        "wild": {
+          "bullHorn": {
+            "count": 0,
+            "quality": 100
+          },
+          "snakeGall": {
+            "count": 0,
+            "quality": 50
+          },
+          "tigerPelt": {
+            "count": 1,
+            "quality": 80
+          },
+          "turtleShell": {
+            "count": 0,
+            "quality": 100
+          },
+          "wyrmSinew": {
+            "count": 0,
+            "quality": 100
+          }
+        }
+      },
+      "refreshCharges": 0,
+      "refreshClock": 307,
+      "battleEncounter": null
+    },
+    "finalSaveSha256": "9e227881660093873fd489df2682f34c4aeb5814336dd18f0c68c5fcf26cc1d7"
+  },
+  "wildSupply": {
+    "cycles": [
+      {
+        "before": {
+          "tick": 12295860,
+          "resources": {
+            "tech": 13721,
+            "medal": 1042870,
+            "food": 480699,
+            "copper": 4125.299997924994,
+            "iron": 922867,
+            "steel": 1159,
+            "stone": 638678,
+            "coal": 192415
+          },
+          "cap": 308676614,
+          "items": {
+            "godCrystal": 41,
+            "guardianStone": 9,
+            "revivalLeaf": 195,
+            "boarHeart": 20,
+            "bullHorn": 66,
+            "snakeGall": 429,
+            "tigerPelt": 38,
+            "turtleShell": 511,
+            "wyrmSinew": 47,
+            "storageScroll": 0,
+            "sacredBlood": 3,
+            "domainCleanser": 0
+          },
+          "kills": {
+            "godCrystal": 5000,
+            "guardianStone": 4500,
+            "revivalLeaf": 2600,
+            "wildBoar": 4420,
+            "wildBull": 3790,
+            "wildSnake": 3000,
+            "wildTiger": 3400,
+            "wildTurtle": 4000,
+            "wildWyrm": 4040
+          },
+          "army": 672,
+          "deployed": 626,
+          "storage": {
+            "steam": 30,
+            "electric": 17,
+            "nuclear": 6
+          },
+          "scrollUsed": 131,
+          "offers": {
+            "heart": 1,
+            "wild": {
+              "bullHorn": {
+                "count": 0,
+                "quality": 100
+              },
+              "snakeGall": {
+                "count": 0,
+                "quality": 100
+              },
+              "tigerPelt": {
+                "count": 0,
+                "quality": 100
+              },
+              "turtleShell": {
+                "count": 0,
+                "quality": 100
+              },
+              "wyrmSinew": {
+                "count": 0,
+                "quality": 80
+              }
+            }
+          },
+          "refreshCharges": 5,
+          "refreshClock": 307,
+          "battleEncounter": null
+        },
+        "hunt": {
+          "key": "wyrmSinew",
+          "result": "win",
+          "callbacks": 6,
+          "enemyHpLeft": 0,
+          "before": {
+            "army": 672,
+            "deployed": 626,
+            "stock": 47,
+            "alert": 4040
+          },
+          "after": {
+            "army": 627,
+            "deployed": 581,
+            "stock": 72,
+            "alert": 4050
+          },
+          "loss": 45,
+          "gain": 25,
+          "expectedReward": null,
+          "saveSha256": "92318d80867b6277411b57c82c50e3883d911aa3590935cac3f120fe75d2d6f4"
+        },
+        "recovery": {
+          "before": {
+            "army": 627,
+            "deployed": 581
+          },
+          "need": {
+            "star_trooper": 0,
+            "electro_trooper": 45,
+            "armored_trooper": 0,
+            "alloy_special": 0,
+            "gold_cavalry": 0,
+            "archer": 0
+          },
+          "trainingCost": {
+            "steel": 360000,
+            "iron": 360000,
+            "copper": 360000
+          },
+          "seconds": 414,
+          "minFood": 480699,
+          "phases": {
+            "stone": 0,
+            "coal": 142,
+            "copper": 160,
+            "iron": 0,
+            "steel": 89,
+            "training": 23
+          },
+          "after": {
+            "army": 672,
+            "deployed": 626
+          },
+          "saveSha256": "1ac939075979df25b168c1a92e80a98e33518d5468c8afd7a8f7e64ccf5b8b7f"
+        },
+        "after": {
+          "tick": 12296274,
+          "resources": {
+            "tech": 13721,
+            "medal": 1042870,
+            "food": 482790,
+            "copper": 52663.649997926215,
+            "iron": 482589,
+            "steel": 2410,
+            "stone": 228268,
+            "coal": 214288.5
+          },
+          "cap": 308676614,
+          "items": {
+            "godCrystal": 41,
+            "guardianStone": 9,
+            "revivalLeaf": 195,
+            "boarHeart": 20,
+            "bullHorn": 66,
+            "snakeGall": 429,
+            "tigerPelt": 38,
+            "turtleShell": 511,
+            "wyrmSinew": 72,
+            "storageScroll": 0,
+            "sacredBlood": 3,
+            "domainCleanser": 0
+          },
+          "kills": {
+            "godCrystal": 5000,
+            "guardianStone": 4500,
+            "revivalLeaf": 2600,
+            "wildBoar": 4420,
+            "wildBull": 3790,
+            "wildSnake": 3000,
+            "wildTiger": 3400,
+            "wildTurtle": 4000,
+            "wildWyrm": 4050
+          },
+          "army": 672,
+          "deployed": 626,
+          "storage": {
+            "steam": 30,
+            "electric": 17,
+            "nuclear": 6
+          },
+          "scrollUsed": 131,
+          "offers": {
+            "heart": 1,
+            "wild": {
+              "bullHorn": {
+                "count": 1,
+                "quality": 100
+              },
+              "snakeGall": {
+                "count": 0,
+                "quality": 100
+              },
+              "tigerPelt": {
+                "count": 0,
+                "quality": 100
+              },
+              "turtleShell": {
+                "count": 0,
+                "quality": 100
+              },
+              "wyrmSinew": {
+                "count": 0,
+                "quality": 100
+              }
+            }
+          },
+          "refreshCharges": 5,
+          "refreshClock": 1093,
+          "battleEncounter": null
+        },
+        "saveSha256": "1ac939075979df25b168c1a92e80a98e33518d5468c8afd7a8f7e64ccf5b8b7f"
+      },
+      {
+        "before": {
+          "tick": 12296274,
+          "resources": {
+            "tech": 13721,
+            "medal": 1042870,
+            "food": 482790,
+            "copper": 52663.649997926215,
+            "iron": 482589,
+            "steel": 2410,
+            "stone": 228268,
+            "coal": 214288.5
+          },
+          "cap": 308676614,
+          "items": {
+            "godCrystal": 41,
+            "guardianStone": 9,
+            "revivalLeaf": 195,
+            "boarHeart": 20,
+            "bullHorn": 66,
+            "snakeGall": 429,
+            "tigerPelt": 38,
+            "turtleShell": 511,
+            "wyrmSinew": 72,
+            "storageScroll": 0,
+            "sacredBlood": 3,
+            "domainCleanser": 0
+          },
+          "kills": {
+            "godCrystal": 5000,
+            "guardianStone": 4500,
+            "revivalLeaf": 2600,
+            "wildBoar": 4420,
+            "wildBull": 3790,
+            "wildSnake": 3000,
+            "wildTiger": 3400,
+            "wildTurtle": 4000,
+            "wildWyrm": 4050
+          },
+          "army": 672,
+          "deployed": 626,
+          "storage": {
+            "steam": 30,
+            "electric": 17,
+            "nuclear": 6
+          },
+          "scrollUsed": 131,
+          "offers": {
+            "heart": 1,
+            "wild": {
+              "bullHorn": {
+                "count": 1,
+                "quality": 100
+              },
+              "snakeGall": {
+                "count": 0,
+                "quality": 100
+              },
+              "tigerPelt": {
+                "count": 0,
+                "quality": 100
+              },
+              "turtleShell": {
+                "count": 0,
+                "quality": 100
+              },
+              "wyrmSinew": {
+                "count": 0,
+                "quality": 100
+              }
+            }
+          },
+          "refreshCharges": 5,
+          "refreshClock": 1093,
+          "battleEncounter": null
+        },
+        "hunt": {
+          "key": "wyrmSinew",
+          "result": "win",
+          "callbacks": 12,
+          "enemyHpLeft": 0,
+          "before": {
+            "army": 672,
+            "deployed": 626,
+            "stock": 72,
+            "alert": 4050
+          },
+          "after": {
+            "army": 473,
+            "deployed": 427,
+            "stock": 72,
+            "alert": 4060
+          },
+          "loss": 199,
+          "gain": 0,
+          "expectedReward": null,
+          "saveSha256": "c79fc61163805a26c251af6e134ecb6df31c835aac891ae14fac8320a2d9229b"
+        },
+        "recovery": {
+          "before": {
+            "army": 473,
+            "deployed": 427
+          },
+          "need": {
+            "star_trooper": 109,
+            "electro_trooper": 90,
+            "armored_trooper": 0,
+            "alloy_special": 0,
+            "gold_cavalry": 0,
+            "archer": 0
+          },
+          "trainingCost": {
+            "steel": 1592000,
+            "iron": 1592000,
+            "copper": 1592000
+          },
+          "seconds": 2320,
+          "minFood": 482790,
+          "phases": {
+            "stone": 97,
+            "coal": 700,
+            "copper": 640,
+            "iron": 391,
+            "steel": 392,
+            "training": 100
+          },
+          "after": {
+            "army": 672,
+            "deployed": 626
+          },
+          "saveSha256": "a35f615b1143de6559674bf8781197115ab80add4ffedb099a240496949d4ee4"
+        },
+        "after": {
+          "tick": 12298594,
+          "resources": {
+            "tech": 13721,
+            "medal": 1042870,
+            "food": 482790,
+            "copper": 101514.39999791748,
+            "iron": 124074,
+            "steel": 1538,
+            "stone": 205718,
+            "coal": 313057.5
+          },
+          "cap": 308676614,
+          "items": {
+            "godCrystal": 41,
+            "guardianStone": 9,
+            "revivalLeaf": 195,
+            "boarHeart": 20,
+            "bullHorn": 66,
+            "snakeGall": 429,
+            "tigerPelt": 38,
+            "turtleShell": 511,
+            "wyrmSinew": 72,
+            "storageScroll": 0,
+            "sacredBlood": 3,
+            "domainCleanser": 0
+          },
+          "kills": {
+            "godCrystal": 5000,
+            "guardianStone": 4500,
+            "revivalLeaf": 2600,
+            "wildBoar": 4420,
+            "wildBull": 3790,
+            "wildSnake": 3000,
+            "wildTiger": 3400,
+            "wildTurtle": 4000,
+            "wildWyrm": 4060
+          },
+          "army": 672,
+          "deployed": 626,
+          "storage": {
+            "steam": 30,
+            "electric": 17,
+            "nuclear": 6
+          },
+          "scrollUsed": 131,
+          "offers": {
+            "heart": 0,
+            "wild": {
+              "bullHorn": {
+                "count": 0,
+                "quality": 100
+              },
+              "snakeGall": {
+                "count": 1,
+                "quality": 80
+              },
+              "tigerPelt": {
+                "count": 1,
+                "quality": 100
+              },
+              "turtleShell": {
+                "count": 1,
+                "quality": 100
+              },
+              "wyrmSinew": {
+                "count": 0,
+                "quality": 100
+              }
+            }
+          },
+          "refreshCharges": 5,
+          "refreshClock": 1173,
+          "battleEncounter": null
+        },
+        "saveSha256": "a35f615b1143de6559674bf8781197115ab80add4ffedb099a240496949d4ee4"
+      },
+      {
+        "before": {
+          "tick": 12298594,
+          "resources": {
+            "tech": 13721,
+            "medal": 1042870,
+            "food": 482790,
+            "copper": 101514.39999791748,
+            "iron": 124074,
+            "steel": 1538,
+            "stone": 205718,
+            "coal": 313057.5
+          },
+          "cap": 308676614,
+          "items": {
+            "godCrystal": 41,
+            "guardianStone": 9,
+            "revivalLeaf": 195,
+            "boarHeart": 20,
+            "bullHorn": 66,
+            "snakeGall": 429,
+            "tigerPelt": 38,
+            "turtleShell": 511,
+            "wyrmSinew": 72,
+            "storageScroll": 0,
+            "sacredBlood": 3,
+            "domainCleanser": 0
+          },
+          "kills": {
+            "godCrystal": 5000,
+            "guardianStone": 4500,
+            "revivalLeaf": 2600,
+            "wildBoar": 4420,
+            "wildBull": 3790,
+            "wildSnake": 3000,
+            "wildTiger": 3400,
+            "wildTurtle": 4000,
+            "wildWyrm": 4060
+          },
+          "army": 672,
+          "deployed": 626,
+          "storage": {
+            "steam": 30,
+            "electric": 17,
+            "nuclear": 6
+          },
+          "scrollUsed": 131,
+          "offers": {
+            "heart": 0,
+            "wild": {
+              "bullHorn": {
+                "count": 0,
+                "quality": 100
+              },
+              "snakeGall": {
+                "count": 1,
+                "quality": 80
+              },
+              "tigerPelt": {
+                "count": 1,
+                "quality": 100
+              },
+              "turtleShell": {
+                "count": 1,
+                "quality": 100
+              },
+              "wyrmSinew": {
+                "count": 0,
+                "quality": 100
+              }
+            }
+          },
+          "refreshCharges": 5,
+          "refreshClock": 1173,
+          "battleEncounter": null
+        },
+        "hunt": {
+          "key": "wyrmSinew",
+          "result": "win",
+          "callbacks": 19,
+          "enemyHpLeft": 0,
+          "before": {
+            "army": 672,
+            "deployed": 626,
+            "stock": 72,
+            "alert": 4060
+          },
+          "after": {
+            "army": 373,
+            "deployed": 327,
+            "stock": 97,
+            "alert": 4070
+          },
+          "loss": 299,
+          "gain": 25,
+          "expectedReward": null,
+          "saveSha256": "4e6508f4cd49f30fec9d6472f6317ef4dbd1976ef08dfe681e4b24f55bba2c95"
+        },
+        "recovery": {
+          "before": {
+            "army": 373,
+            "deployed": 327
+          },
+          "need": {
+            "star_trooper": 150,
+            "electro_trooper": 101,
+            "armored_trooper": 33,
+            "alloy_special": 15,
+            "gold_cavalry": 0,
+            "archer": 0
+          },
+          "trainingCost": {
+            "steel": 2075500,
+            "iron": 2074000,
+            "copper": 2074000,
+            "food": 22500
+          },
+          "seconds": 3406,
+          "minFood": 474235.1869924253,
+          "phases": {
+            "stone": 147,
+            "coal": 965,
+            "copper": 811,
+            "iron": 821,
+            "steel": 511,
+            "training": 151
+          },
+          "after": {
+            "army": 672,
+            "deployed": 626
+          },
+          "saveSha256": "9f53e292418ccea599ffaa5721f749803fcd6c837b0ab18ef9d1012856119f0d"
+        },
+        "after": {
+          "tick": 12302000,
+          "resources": {
+            "tech": 13721,
+            "medal": 1042870,
+            "food": 474496.1560400443,
+            "copper": 47881.64999789887,
+            "iron": 899041,
+            "steel": 101662,
+            "stone": 188580,
+            "coal": 394124.75
+          },
+          "cap": 308676614,
+          "items": {
+            "godCrystal": 41,
+            "guardianStone": 9,
+            "revivalLeaf": 195,
+            "boarHeart": 20,
+            "bullHorn": 66,
+            "snakeGall": 429,
+            "tigerPelt": 38,
+            "turtleShell": 511,
+            "wyrmSinew": 97,
+            "storageScroll": 0,
+            "sacredBlood": 3,
+            "domainCleanser": 0
+          },
+          "kills": {
+            "godCrystal": 5000,
+            "guardianStone": 4500,
+            "revivalLeaf": 2600,
+            "wildBoar": 4420,
+            "wildBull": 3790,
+            "wildSnake": 3000,
+            "wildTiger": 3400,
+            "wildTurtle": 4000,
+            "wildWyrm": 4070
+          },
+          "army": 672,
+          "deployed": 626,
+          "storage": {
+            "steam": 30,
+            "electric": 17,
+            "nuclear": 6
+          },
+          "scrollUsed": 131,
+          "offers": {
+            "heart": 0,
+            "wild": {
+              "bullHorn": {
+                "count": 0,
+                "quality": 100
+              },
+              "snakeGall": {
+                "count": 0,
+                "quality": 100
+              },
+              "tigerPelt": {
+                "count": 0,
+                "quality": 100
+              },
+              "turtleShell": {
+                "count": 0,
+                "quality": 100
+              },
+              "wyrmSinew": {
+                "count": 0,
+                "quality": 100
+              }
+            }
+          },
+          "refreshCharges": 5,
+          "refreshClock": 167,
+          "battleEncounter": null
+        },
+        "saveSha256": "9f53e292418ccea599ffaa5721f749803fcd6c837b0ab18ef9d1012856119f0d"
+      },
+      {
+        "before": {
+          "tick": 12302000,
+          "resources": {
+            "tech": 13721,
+            "medal": 1042870,
+            "food": 474496.1560400443,
+            "copper": 47881.64999789887,
+            "iron": 899041,
+            "steel": 101662,
+            "stone": 188580,
+            "coal": 394124.75
+          },
+          "cap": 308676614,
+          "items": {
+            "godCrystal": 41,
+            "guardianStone": 9,
+            "revivalLeaf": 195,
+            "boarHeart": 20,
+            "bullHorn": 66,
+            "snakeGall": 429,
+            "tigerPelt": 38,
+            "turtleShell": 511,
+            "wyrmSinew": 97,
+            "storageScroll": 0,
+            "sacredBlood": 3,
+            "domainCleanser": 0
+          },
+          "kills": {
+            "godCrystal": 5000,
+            "guardianStone": 4500,
+            "revivalLeaf": 2600,
+            "wildBoar": 4420,
+            "wildBull": 3790,
+            "wildSnake": 3000,
+            "wildTiger": 3400,
+            "wildTurtle": 4000,
+            "wildWyrm": 4070
+          },
+          "army": 672,
+          "deployed": 626,
+          "storage": {
+            "steam": 30,
+            "electric": 17,
+            "nuclear": 6
+          },
+          "scrollUsed": 131,
+          "offers": {
+            "heart": 0,
+            "wild": {
+              "bullHorn": {
+                "count": 0,
+                "quality": 100
+              },
+              "snakeGall": {
+                "count": 0,
+                "quality": 100
+              },
+              "tigerPelt": {
+                "count": 0,
+                "quality": 100
+              },
+              "turtleShell": {
+                "count": 0,
+                "quality": 100
+              },
+              "wyrmSinew": {
+                "count": 0,
+                "quality": 100
+              }
+            }
+          },
+          "refreshCharges": 5,
+          "refreshClock": 167,
+          "battleEncounter": null
+        },
+        "hunt": {
+          "key": "wyrmSinew",
+          "result": "win",
+          "callbacks": 6,
+          "enemyHpLeft": 0,
+          "before": {
+            "army": 672,
+            "deployed": 626,
+            "stock": 97,
+            "alert": 4070
+          },
+          "after": {
+            "army": 597,
+            "deployed": 551,
+            "stock": 122,
+            "alert": 4080
+          },
+          "loss": 75,
+          "gain": 25,
+          "expectedReward": null,
+          "saveSha256": "ba9f96e5dc1cf81effbcf0a77d046952f252c6006e44b428fedae86e46313b8b"
+        },
+        "recovery": {
+          "before": {
+            "army": 597,
+            "deployed": 551
+          },
+          "need": {
+            "star_trooper": 46,
+            "electro_trooper": 29,
+            "armored_trooper": 0,
+            "alloy_special": 0,
+            "gold_cavalry": 0,
+            "archer": 0
+          },
+          "trainingCost": {
+            "steel": 600000,
+            "iron": 600000,
+            "copper": 600000
+          },
+          "seconds": 572,
+          "minFood": 474496.1560400443,
+          "phases": {
+            "stone": 49,
+            "coal": 137,
+            "copper": 225,
+            "iron": 0,
+            "steel": 123,
+            "training": 38
+          },
+          "after": {
+            "army": 672,
+            "deployed": 626
+          },
+          "saveSha256": "7f5c2299e02dc034eee9a6daa63f7cf5c2e889594730a4a01e0c6c4a7bca2404"
+        },
+        "after": {
+          "tick": 12302572,
+          "resources": {
+            "tech": 13721,
+            "medal": 1042870,
+            "food": 482790,
+            "copper": 35015.99999790065,
+            "iron": 188095,
+            "steel": 919,
+            "stone": 796528,
+            "coal": 225789
+          },
+          "cap": 308676614,
+          "items": {
+            "godCrystal": 41,
+            "guardianStone": 9,
+            "revivalLeaf": 195,
+            "boarHeart": 20,
+            "bullHorn": 66,
+            "snakeGall": 429,
+            "tigerPelt": 38,
+            "turtleShell": 511,
+            "wyrmSinew": 122,
+            "storageScroll": 0,
+            "sacredBlood": 3,
+            "domainCleanser": 0
+          },
+          "kills": {
+            "godCrystal": 5000,
+            "guardianStone": 4500,
+            "revivalLeaf": 2600,
+            "wildBoar": 4420,
+            "wildBull": 3790,
+            "wildSnake": 3000,
+            "wildTiger": 3400,
+            "wildTurtle": 4000,
+            "wildWyrm": 4080
+          },
+          "army": 672,
+          "deployed": 626,
+          "storage": {
+            "steam": 30,
+            "electric": 17,
+            "nuclear": 6
+          },
+          "scrollUsed": 131,
+          "offers": {
+            "heart": 0,
+            "wild": {
+              "bullHorn": {
+                "count": 0,
+                "quality": 100
+              },
+              "snakeGall": {
+                "count": 0,
+                "quality": 100
+              },
+              "tigerPelt": {
+                "count": 0,
+                "quality": 100
+              },
+              "turtleShell": {
+                "count": 0,
+                "quality": 100
+              },
+              "wyrmSinew": {
+                "count": 0,
+                "quality": 100
+              }
+            }
+          },
+          "refreshCharges": 5,
+          "refreshClock": 795,
+          "battleEncounter": null
+        },
+        "saveSha256": "7f5c2299e02dc034eee9a6daa63f7cf5c2e889594730a4a01e0c6c4a7bca2404"
+      },
+      {
+        "before": {
+          "tick": 12302572,
+          "resources": {
+            "tech": 13721,
+            "medal": 1042870,
+            "food": 482790,
+            "copper": 35015.99999790065,
+            "iron": 188095,
+            "steel": 919,
+            "stone": 796528,
+            "coal": 225789
+          },
+          "cap": 308676614,
+          "items": {
+            "godCrystal": 41,
+            "guardianStone": 9,
+            "revivalLeaf": 195,
+            "boarHeart": 20,
+            "bullHorn": 66,
+            "snakeGall": 429,
+            "tigerPelt": 38,
+            "turtleShell": 511,
+            "wyrmSinew": 122,
+            "storageScroll": 0,
+            "sacredBlood": 3,
+            "domainCleanser": 0
+          },
+          "kills": {
+            "godCrystal": 5000,
+            "guardianStone": 4500,
+            "revivalLeaf": 2600,
+            "wildBoar": 4420,
+            "wildBull": 3790,
+            "wildSnake": 3000,
+            "wildTiger": 3400,
+            "wildTurtle": 4000,
+            "wildWyrm": 4080
+          },
+          "army": 672,
+          "deployed": 626,
+          "storage": {
+            "steam": 30,
+            "electric": 17,
+            "nuclear": 6
+          },
+          "scrollUsed": 131,
+          "offers": {
+            "heart": 0,
+            "wild": {
+              "bullHorn": {
+                "count": 0,
+                "quality": 100
+              },
+              "snakeGall": {
+                "count": 0,
+                "quality": 100
+              },
+              "tigerPelt": {
+                "count": 0,
+                "quality": 100
+              },
+              "turtleShell": {
+                "count": 0,
+                "quality": 100
+              },
+              "wyrmSinew": {
+                "count": 0,
+                "quality": 100
+              }
+            }
+          },
+          "refreshCharges": 5,
+          "refreshClock": 795,
+          "battleEncounter": null
+        },
+        "hunt": {
+          "key": "wyrmSinew",
+          "result": "win",
+          "callbacks": 19,
+          "enemyHpLeft": 0,
+          "before": {
+            "army": 672,
+            "deployed": 626,
+            "stock": 122,
+            "alert": 4080
+          },
+          "after": {
+            "army": 328,
+            "deployed": 282,
+            "stock": 147,
+            "alert": 4090
+          },
+          "loss": 344,
+          "gain": 25,
+          "expectedReward": null,
+          "saveSha256": "c56849bd4dab1088537c5021936ec2a2e61022422ac3670472848e5362bfad22"
+        },
+        "recovery": {
+          "before": {
+            "army": 328,
+            "deployed": 282
+          },
+          "need": {
+            "star_trooper": 151,
+            "electro_trooper": 101,
+            "armored_trooper": 36,
+            "alloy_special": 16,
+            "gold_cavalry": 40,
+            "archer": 0
+          },
+          "trainingCost": {
+            "steel": 2089600,
+            "iron": 2088000,
+            "copper": 2088000,
+            "food": 64000,
+            "gold": 4000
+          },
+          "seconds": 3435,
+          "minFood": 473701.1945113644,
+          "phases": {
+            "stone": 146,
+            "coal": 967,
+            "copper": 819,
+            "iron": 808,
+            "steel": 515,
+            "training": 173,
+            "gold": null
+          },
+          "after": {
+            "army": 672,
+            "deployed": 626
+          },
+          "saveSha256": "34dfec75669cacc6b9bc9cd7d56143beeec54c82cea785d14b2e79870078cf59"
+        },
+        "after": {
+          "tick": 12306007,
+          "resources": {
+            "tech": 13721,
+            "medal": 1042870,
+            "food": 478824.6090694429,
+            "copper": 12032.249997881649,
+            "iron": 891785,
+            "steel": 107238,
+            "stone": 689190,
+            "coal": 259726.75
+          },
+          "cap": 308676614,
+          "items": {
+            "godCrystal": 41,
+            "guardianStone": 9,
+            "revivalLeaf": 195,
+            "boarHeart": 20,
+            "bullHorn": 66,
+            "snakeGall": 429,
+            "tigerPelt": 38,
+            "turtleShell": 511,
+            "wyrmSinew": 147,
+            "storageScroll": 0,
+            "sacredBlood": 3,
+            "domainCleanser": 0
+          },
+          "kills": {
+            "godCrystal": 5000,
+            "guardianStone": 4500,
+            "revivalLeaf": 2600,
+            "wildBoar": 4420,
+            "wildBull": 3790,
+            "wildSnake": 3000,
+            "wildTiger": 3400,
+            "wildTurtle": 4000,
+            "wildWyrm": 4090
+          },
+          "army": 672,
+          "deployed": 626,
+          "storage": {
+            "steam": 30,
+            "electric": 17,
+            "nuclear": 6
+          },
+          "scrollUsed": 131,
+          "offers": {
+            "heart": 1,
+            "wild": {
+              "bullHorn": {
+                "count": 0,
+                "quality": 100
+              },
+              "snakeGall": {
+                "count": 0,
+                "quality": 100
+              },
+              "tigerPelt": {
+                "count": 0,
+                "quality": 100
+              },
+              "turtleShell": {
+                "count": 1,
+                "quality": 80
+              },
+              "wyrmSinew": {
+                "count": 0,
+                "quality": 100
+              }
+            }
+          },
+          "refreshCharges": 5,
+          "refreshClock": 960,
+          "battleEncounter": null
+        },
+        "saveSha256": "34dfec75669cacc6b9bc9cd7d56143beeec54c82cea785d14b2e79870078cf59"
+      },
+      {
+        "before": {
+          "tick": 12306007,
+          "resources": {
+            "tech": 13721,
+            "medal": 1042870,
+            "food": 478824.6090694429,
+            "copper": 12032.249997881649,
+            "iron": 891785,
+            "steel": 107238,
+            "stone": 689190,
+            "coal": 259726.75
+          },
+          "cap": 308676614,
+          "items": {
+            "godCrystal": 41,
+            "guardianStone": 9,
+            "revivalLeaf": 195,
+            "boarHeart": 20,
+            "bullHorn": 66,
+            "snakeGall": 429,
+            "tigerPelt": 38,
+            "turtleShell": 511,
+            "wyrmSinew": 147,
+            "storageScroll": 0,
+            "sacredBlood": 3,
+            "domainCleanser": 0
+          },
+          "kills": {
+            "godCrystal": 5000,
+            "guardianStone": 4500,
+            "revivalLeaf": 2600,
+            "wildBoar": 4420,
+            "wildBull": 3790,
+            "wildSnake": 3000,
+            "wildTiger": 3400,
+            "wildTurtle": 4000,
+            "wildWyrm": 4090
+          },
+          "army": 672,
+          "deployed": 626,
+          "storage": {
+            "steam": 30,
+            "electric": 17,
+            "nuclear": 6
+          },
+          "scrollUsed": 131,
+          "offers": {
+            "heart": 1,
+            "wild": {
+              "bullHorn": {
+                "count": 0,
+                "quality": 100
+              },
+              "snakeGall": {
+                "count": 0,
+                "quality": 100
+              },
+              "tigerPelt": {
+                "count": 0,
+                "quality": 100
+              },
+              "turtleShell": {
+                "count": 1,
+                "quality": 80
+              },
+              "wyrmSinew": {
+                "count": 0,
+                "quality": 100
+              }
+            }
+          },
+          "refreshCharges": 5,
+          "refreshClock": 960,
+          "battleEncounter": null
+        },
+        "hunt": {
+          "key": "wyrmSinew",
+          "result": "win",
+          "callbacks": 19,
+          "enemyHpLeft": 0,
+          "before": {
+            "army": 672,
+            "deployed": 626,
+            "stock": 147,
+            "alert": 4090
+          },
+          "after": {
+            "army": 331,
+            "deployed": 285,
+            "stock": 172,
+            "alert": 4100
+          },
+          "loss": 341,
+          "gain": 25,
+          "expectedReward": null,
+          "saveSha256": "15f6def1da25c0c60b83cd2533c92c12e133401f7268cff680af93f04d9f7acc"
+        },
+        "recovery": {
+          "before": {
+            "army": 331,
+            "deployed": 285
+          },
+          "need": {
+            "star_trooper": 155,
+            "electro_trooper": 101,
+            "armored_trooper": 11,
+            "alloy_special": 34,
+            "gold_cavalry": 40,
+            "archer": 0
+          },
+          "trainingCost": {
+            "steel": 2073400,
+            "iron": 2070000,
+            "copper": 2070000,
+            "food": 91000,
+            "gold": 4000
+          },
+          "seconds": 3112,
+          "minFood": 459882.3780847346,
+          "phases": {
+            "stone": 147,
+            "coal": 837,
+            "copper": 834,
+            "iron": 638,
+            "steel": 484,
+            "training": 172
+          },
+          "after": {
+            "army": 672,
+            "deployed": 626
+          },
+          "saveSha256": "20fe3366a40ade15a995de0f1f0413f051f5ab1e553d8ba74b88d7a862b44d50"
+        },
+        "after": {
+          "tick": 12309119,
+          "resources": {
+            "tech": 13721,
+            "medal": 1042870,
+            "food": 459882.3780847346,
+            "copper": 91881.5999978618,
+            "iron": 936073,
+            "steel": 172931,
+            "stone": 905670,
+            "coal": 19682
+          },
+          "cap": 308676614,
+          "items": {
+            "godCrystal": 41,
+            "guardianStone": 9,
+            "revivalLeaf": 195,
+            "boarHeart": 20,
+            "bullHorn": 66,
+            "snakeGall": 429,
+            "tigerPelt": 38,
+            "turtleShell": 511,
+            "wyrmSinew": 172,
+            "storageScroll": 0,
+            "sacredBlood": 3,
+            "domainCleanser": 0
+          },
+          "kills": {
+            "godCrystal": 5000,
+            "guardianStone": 4500,
+            "revivalLeaf": 2600,
+            "wildBoar": 4420,
+            "wildBull": 3790,
+            "wildSnake": 3000,
+            "wildTiger": 3400,
+            "wildTurtle": 4000,
+            "wildWyrm": 4100
+          },
+          "army": 672,
+          "deployed": 626,
+          "storage": {
+            "steam": 30,
+            "electric": 17,
+            "nuclear": 6
+          },
+          "scrollUsed": 131,
+          "offers": {
+            "heart": 1,
+            "wild": {
+              "bullHorn": {
+                "count": 1,
+                "quality": 80
+              },
+              "snakeGall": {
+                "count": 0,
+                "quality": 100
+              },
+              "tigerPelt": {
+                "count": 0,
+                "quality": 100
+              },
+              "turtleShell": {
+                "count": 0,
+                "quality": 100
+              },
+              "wyrmSinew": {
+                "count": 0,
+                "quality": 100
+              }
+            }
+          },
+          "refreshCharges": 5,
+          "refreshClock": 248,
+          "battleEncounter": null
+        },
+        "saveSha256": "20fe3366a40ade15a995de0f1f0413f051f5ab1e553d8ba74b88d7a862b44d50"
+      },
+      {
+        "before": {
+          "tick": 12309119,
+          "resources": {
+            "tech": 13721,
+            "medal": 1042870,
+            "food": 459882.3780847346,
+            "copper": 91881.5999978618,
+            "iron": 936073,
+            "steel": 172931,
+            "stone": 905670,
+            "coal": 19682
+          },
+          "cap": 308676614,
+          "items": {
+            "godCrystal": 41,
+            "guardianStone": 9,
+            "revivalLeaf": 195,
+            "boarHeart": 20,
+            "bullHorn": 66,
+            "snakeGall": 429,
+            "tigerPelt": 38,
+            "turtleShell": 511,
+            "wyrmSinew": 172,
+            "storageScroll": 0,
+            "sacredBlood": 3,
+            "domainCleanser": 0
+          },
+          "kills": {
+            "godCrystal": 5000,
+            "guardianStone": 4500,
+            "revivalLeaf": 2600,
+            "wildBoar": 4420,
+            "wildBull": 3790,
+            "wildSnake": 3000,
+            "wildTiger": 3400,
+            "wildTurtle": 4000,
+            "wildWyrm": 4100
+          },
+          "army": 672,
+          "deployed": 626,
+          "storage": {
+            "steam": 30,
+            "electric": 17,
+            "nuclear": 6
+          },
+          "scrollUsed": 131,
+          "offers": {
+            "heart": 1,
+            "wild": {
+              "bullHorn": {
+                "count": 1,
+                "quality": 80
+              },
+              "snakeGall": {
+                "count": 0,
+                "quality": 100
+              },
+              "tigerPelt": {
+                "count": 0,
+                "quality": 100
+              },
+              "turtleShell": {
+                "count": 0,
+                "quality": 100
+              },
+              "wyrmSinew": {
+                "count": 0,
+                "quality": 100
+              }
+            }
+          },
+          "refreshCharges": 5,
+          "refreshClock": 248,
+          "battleEncounter": null
+        },
+        "hunt": {
+          "key": "wyrmSinew",
+          "result": "win",
+          "callbacks": 6,
+          "enemyHpLeft": 0,
+          "before": {
+            "army": 672,
+            "deployed": 626,
+            "stock": 172,
+            "alert": 4100
+          },
+          "after": {
+            "army": 627,
+            "deployed": 581,
+            "stock": 172,
+            "alert": 4110
+          },
+          "loss": 45,
+          "gain": 0,
+          "expectedReward": null,
+          "saveSha256": "9c85cb993f07ba823aef2ced4f3af295435e5ec203be8fe542d1eb37dd0a6581"
+        },
+        "recovery": {
+          "before": {
+            "army": 627,
+            "deployed": 581
+          },
+          "need": {
+            "star_trooper": 0,
+            "electro_trooper": 45,
+            "armored_trooper": 0,
+            "alloy_special": 0,
+            "gold_cavalry": 0,
+            "archer": 0
+          },
+          "trainingCost": {
+            "steel": 360000,
+            "iron": 360000,
+            "copper": 360000
+          },
+          "seconds": 333,
+          "minFood": 459882.3780847346,
+          "phases": {
+            "stone": 0,
+            "coal": 142,
+            "copper": 121,
+            "iron": 0,
+            "steel": 47,
+            "training": 23
+          },
+          "after": {
+            "army": 672,
+            "deployed": 626
+          },
+          "saveSha256": "f9489bf6fdb7fb30e868f0cc7f4c7447b5bb9ccf223bb4fa0c55dce886291b4b"
+        },
+        "after": {
+          "tick": 12309452,
+          "resources": {
+            "tech": 13721,
+            "medal": 1042870,
+            "food": 482790,
+            "copper": 53354.39999786312,
+            "iron": 533679,
+            "steel": 3704,
+            "stone": 603500,
+            "coal": 149795.5
+          },
+          "cap": 308676614,
+          "items": {
+            "godCrystal": 41,
+            "guardianStone": 9,
+            "revivalLeaf": 195,
+            "boarHeart": 20,
+            "bullHorn": 66,
+            "snakeGall": 429,
+            "tigerPelt": 38,
+            "turtleShell": 511,
+            "wyrmSinew": 172,
+            "storageScroll": 0,
+            "sacredBlood": 3,
+            "domainCleanser": 0
+          },
+          "kills": {
+            "godCrystal": 5000,
+            "guardianStone": 4500,
+            "revivalLeaf": 2600,
+            "wildBoar": 4420,
+            "wildBull": 3790,
+            "wildSnake": 3000,
+            "wildTiger": 3400,
+            "wildTurtle": 4000,
+            "wildWyrm": 4110
+          },
+          "army": 672,
+          "deployed": 626,
+          "storage": {
+            "steam": 30,
+            "electric": 17,
+            "nuclear": 6
+          },
+          "scrollUsed": 131,
+          "offers": {
+            "heart": 0,
+            "wild": {
+              "bullHorn": {
+                "count": 0,
+                "quality": 100
+              },
+              "snakeGall": {
+                "count": 0,
+                "quality": 100
+              },
+              "tigerPelt": {
+                "count": 0,
+                "quality": 100
+              },
+              "turtleShell": {
+                "count": 0,
+                "quality": 100
+              },
+              "wyrmSinew": {
+                "count": 0,
+                "quality": 100
+              }
+            }
+          },
+          "refreshCharges": 5,
+          "refreshClock": 1115,
+          "battleEncounter": null
+        },
+        "saveSha256": "f9489bf6fdb7fb30e868f0cc7f4c7447b5bb9ccf223bb4fa0c55dce886291b4b"
+      },
+      {
+        "before": {
+          "tick": 12309452,
+          "resources": {
+            "tech": 13721,
+            "medal": 1042870,
+            "food": 482790,
+            "copper": 53354.39999786312,
+            "iron": 533679,
+            "steel": 3704,
+            "stone": 603500,
+            "coal": 149795.5
+          },
+          "cap": 308676614,
+          "items": {
+            "godCrystal": 41,
+            "guardianStone": 9,
+            "revivalLeaf": 195,
+            "boarHeart": 20,
+            "bullHorn": 66,
+            "snakeGall": 429,
+            "tigerPelt": 38,
+            "turtleShell": 511,
+            "wyrmSinew": 172,
+            "storageScroll": 0,
+            "sacredBlood": 3,
+            "domainCleanser": 0
+          },
+          "kills": {
+            "godCrystal": 5000,
+            "guardianStone": 4500,
+            "revivalLeaf": 2600,
+            "wildBoar": 4420,
+            "wildBull": 3790,
+            "wildSnake": 3000,
+            "wildTiger": 3400,
+            "wildTurtle": 4000,
+            "wildWyrm": 4110
+          },
+          "army": 672,
+          "deployed": 626,
+          "storage": {
+            "steam": 30,
+            "electric": 17,
+            "nuclear": 6
+          },
+          "scrollUsed": 131,
+          "offers": {
+            "heart": 0,
+            "wild": {
+              "bullHorn": {
+                "count": 0,
+                "quality": 100
+              },
+              "snakeGall": {
+                "count": 0,
+                "quality": 100
+              },
+              "tigerPelt": {
+                "count": 0,
+                "quality": 100
+              },
+              "turtleShell": {
+                "count": 0,
+                "quality": 100
+              },
+              "wyrmSinew": {
+                "count": 0,
+                "quality": 100
+              }
+            }
+          },
+          "refreshCharges": 5,
+          "refreshClock": 1115,
+          "battleEncounter": null
+        },
+        "hunt": {
+          "key": "wyrmSinew",
+          "result": "win",
+          "callbacks": 6,
+          "enemyHpLeft": 0,
+          "before": {
+            "army": 672,
+            "deployed": 626,
+            "stock": 172,
+            "alert": 4110
+          },
+          "after": {
+            "army": 616,
+            "deployed": 570,
+            "stock": 197,
+            "alert": 4120
+          },
+          "loss": 56,
+          "gain": 25,
+          "expectedReward": null,
+          "saveSha256": "dce53fe653d1dd30355e46946818ab8bb6269e057d86e4fbdd49555534716627"
+        },
+        "recovery": {
+          "before": {
+            "army": 616,
+            "deployed": 570
+          },
+          "need": {
+            "star_trooper": 0,
+            "electro_trooper": 56,
+            "armored_trooper": 0,
+            "alloy_special": 0,
+            "gold_cavalry": 0,
+            "archer": 0
+          },
+          "trainingCost": {
+            "steel": 448000,
+            "iron": 448000,
+            "copper": 448000
+          },
+          "seconds": 451,
+          "minFood": 482790,
+          "phases": {
+            "stone": 0,
+            "coal": 132,
+            "copper": 177,
+            "iron": 4,
+            "steel": 110,
+            "training": 28
+          },
+          "after": {
+            "army": 672,
+            "deployed": 626
+          },
+          "saveSha256": "c9f8f565938bf3288ffc30104061be230e3afc4ed783a5cc4cc688cd4ab97cc9"
+        },
+        "after": {
+          "tick": 12309903,
+          "resources": {
+            "tech": 13721,
+            "medal": 1042870,
+            "food": 482790,
+            "copper": 63006.64999786489,
+            "iron": 2695,
+            "steel": 2194,
+            "stone": 127244,
+            "coal": 78988.5
+          },
+          "cap": 308676614,
+          "items": {
+            "godCrystal": 41,
+            "guardianStone": 9,
+            "revivalLeaf": 195,
+            "boarHeart": 20,
+            "bullHorn": 66,
+            "snakeGall": 429,
+            "tigerPelt": 38,
+            "turtleShell": 511,
+            "wyrmSinew": 197,
+            "storageScroll": 0,
+            "sacredBlood": 3,
+            "domainCleanser": 0
+          },
+          "kills": {
+            "godCrystal": 5000,
+            "guardianStone": 4500,
+            "revivalLeaf": 2600,
+            "wildBoar": 4420,
+            "wildBull": 3790,
+            "wildSnake": 3000,
+            "wildTiger": 3400,
+            "wildTurtle": 4000,
+            "wildWyrm": 4120
+          },
+          "army": 672,
+          "deployed": 626,
+          "storage": {
+            "steam": 30,
+            "electric": 17,
+            "nuclear": 6
+          },
+          "scrollUsed": 131,
+          "offers": {
+            "heart": 0,
+            "wild": {
+              "bullHorn": {
+                "count": 0,
+                "quality": 100
+              },
+              "snakeGall": {
+                "count": 0,
+                "quality": 100
+              },
+              "tigerPelt": {
+                "count": 0,
+                "quality": 100
+              },
+              "turtleShell": {
+                "count": 0,
+                "quality": 100
+              },
+              "wyrmSinew": {
+                "count": 0,
+                "quality": 100
+              }
+            }
+          },
+          "refreshCharges": 5,
+          "refreshClock": 664,
+          "battleEncounter": null
+        },
+        "saveSha256": "c9f8f565938bf3288ffc30104061be230e3afc4ed783a5cc4cc688cd4ab97cc9"
+      },
+      {
+        "before": {
+          "tick": 12309903,
+          "resources": {
+            "tech": 13721,
+            "medal": 1042870,
+            "food": 482790,
+            "copper": 63006.64999786489,
+            "iron": 2695,
+            "steel": 2194,
+            "stone": 127244,
+            "coal": 78988.5
+          },
+          "cap": 308676614,
+          "items": {
+            "godCrystal": 41,
+            "guardianStone": 9,
+            "revivalLeaf": 195,
+            "boarHeart": 20,
+            "bullHorn": 66,
+            "snakeGall": 429,
+            "tigerPelt": 38,
+            "turtleShell": 511,
+            "wyrmSinew": 197,
+            "storageScroll": 0,
+            "sacredBlood": 3,
+            "domainCleanser": 0
+          },
+          "kills": {
+            "godCrystal": 5000,
+            "guardianStone": 4500,
+            "revivalLeaf": 2600,
+            "wildBoar": 4420,
+            "wildBull": 3790,
+            "wildSnake": 3000,
+            "wildTiger": 3400,
+            "wildTurtle": 4000,
+            "wildWyrm": 4120
+          },
+          "army": 672,
+          "deployed": 626,
+          "storage": {
+            "steam": 30,
+            "electric": 17,
+            "nuclear": 6
+          },
+          "scrollUsed": 131,
+          "offers": {
+            "heart": 0,
+            "wild": {
+              "bullHorn": {
+                "count": 0,
+                "quality": 100
+              },
+              "snakeGall": {
+                "count": 0,
+                "quality": 100
+              },
+              "tigerPelt": {
+                "count": 0,
+                "quality": 100
+              },
+              "turtleShell": {
+                "count": 0,
+                "quality": 100
+              },
+              "wyrmSinew": {
+                "count": 0,
+                "quality": 100
+              }
+            }
+          },
+          "refreshCharges": 5,
+          "refreshClock": 664,
+          "battleEncounter": null
+        },
+        "hunt": {
+          "key": "wyrmSinew",
+          "result": "win",
+          "callbacks": 6,
+          "enemyHpLeft": 0,
+          "before": {
+            "army": 672,
+            "deployed": 626,
+            "stock": 197,
+            "alert": 4120
+          },
+          "after": {
+            "army": 601,
+            "deployed": 555,
+            "stock": 222,
+            "alert": 4130
+          },
+          "loss": 71,
+          "gain": 25,
+          "expectedReward": null,
+          "saveSha256": "9a100951f3d54c9119ba5c5baf877198ad64b652c1ebbe6409a2b6330a3bb07a"
+        },
+        "recovery": {
+          "before": {
+            "army": 601,
+            "deployed": 555
+          },
+          "need": {
+            "star_trooper": 55,
+            "electro_trooper": 16,
+            "armored_trooper": 0,
+            "alloy_special": 0,
+            "gold_cavalry": 0,
+            "archer": 0
+          },
+          "trainingCost": {
+            "steel": 568000,
+            "iron": 568000,
+            "copper": 568000
+          },
+          "seconds": 934,
+          "minFood": 482790,
+          "phases": {
+            "stone": 49,
+            "coal": 264,
+            "copper": 199,
+            "iron": 246,
+            "steel": 140,
+            "training": 36
+          },
+          "after": {
+            "army": 672,
+            "deployed": 626
+          },
+          "saveSha256": "7e65e68775f811bbda3a93c864bf623935654439f90689a46383d69ebc1d6c8b"
+        },
+        "after": {
+          "tick": 12310837,
+          "resources": {
+            "tech": 13721,
+            "medal": 1042870,
+            "food": 482790,
+            "copper": 19632.39999786654,
+            "iron": 306929,
+            "steel": 2454,
+            "stone": 326586,
+            "coal": 110558.5
+          },
+          "cap": 308676614,
+          "items": {
+            "godCrystal": 41,
+            "guardianStone": 9,
+            "revivalLeaf": 195,
+            "boarHeart": 20,
+            "bullHorn": 66,
+            "snakeGall": 429,
+            "tigerPelt": 38,
+            "turtleShell": 511,
+            "wyrmSinew": 222,
+            "storageScroll": 0,
+            "sacredBlood": 3,
+            "domainCleanser": 0
+          },
+          "kills": {
+            "godCrystal": 5000,
+            "guardianStone": 4500,
+            "revivalLeaf": 2600,
+            "wildBoar": 4420,
+            "wildBull": 3790,
+            "wildSnake": 3000,
+            "wildTiger": 3400,
+            "wildTurtle": 4000,
+            "wildWyrm": 4130
+          },
+          "army": 672,
+          "deployed": 626,
+          "storage": {
+            "steam": 30,
+            "electric": 17,
+            "nuclear": 6
+          },
+          "scrollUsed": 131,
+          "offers": {
+            "heart": 0,
+            "wild": {
+              "bullHorn": {
+                "count": 0,
+                "quality": 100
+              },
+              "snakeGall": {
+                "count": 0,
+                "quality": 100
+              },
+              "tigerPelt": {
+                "count": 0,
+                "quality": 100
+              },
+              "turtleShell": {
+                "count": 0,
+                "quality": 100
+              },
+              "wyrmSinew": {
+                "count": 1,
+                "quality": 80
+              }
+            }
+          },
+          "refreshCharges": 5,
+          "refreshClock": 930,
+          "battleEncounter": null
+        },
+        "saveSha256": "7e65e68775f811bbda3a93c864bf623935654439f90689a46383d69ebc1d6c8b"
+      }
+    ],
+    "marketRounds": [
+      {
+        "kind": "paid",
+        "price": 160,
+        "trade": {
+          "ok": true,
+          "cost": 160,
+          "scrollGain": 1,
+          "materialKey": "wyrmSinew"
+        },
+        "use": {
+          "ok": true,
+          "used": 132
+        },
+        "saveSha256": "d9ffa0f5fbc90e5bed7b0a5734f9389a15a2cacdeab51c6dc970f31378a9cf46"
+      }
+    ],
+    "afterFirstScroll": {
+      "tick": 12295860,
+      "resources": {
+        "tech": 13721,
+        "medal": 1042870,
+        "food": 480699,
+        "copper": 4125.299997924994,
+        "iron": 922867,
+        "steel": 1159,
+        "stone": 638678,
+        "coal": 192415
+      },
+      "cap": 308676614,
+      "items": {
+        "godCrystal": 41,
+        "guardianStone": 9,
+        "revivalLeaf": 195,
+        "boarHeart": 20,
+        "bullHorn": 66,
+        "snakeGall": 429,
+        "tigerPelt": 38,
+        "turtleShell": 511,
+        "wyrmSinew": 47,
+        "storageScroll": 0,
+        "sacredBlood": 3,
+        "domainCleanser": 0
+      },
+      "kills": {
+        "godCrystal": 5000,
+        "guardianStone": 4500,
+        "revivalLeaf": 2600,
+        "wildBoar": 4420,
+        "wildBull": 3790,
+        "wildSnake": 3000,
+        "wildTiger": 3400,
+        "wildTurtle": 4000,
+        "wildWyrm": 4040
+      },
+      "army": 672,
+      "deployed": 626,
+      "storage": {
+        "steam": 30,
+        "electric": 17,
+        "nuclear": 6
+      },
+      "scrollUsed": 131,
+      "offers": {
+        "heart": 1,
+        "wild": {
+          "bullHorn": {
+            "count": 0,
+            "quality": 100
+          },
+          "snakeGall": {
+            "count": 0,
+            "quality": 100
+          },
+          "tigerPelt": {
+            "count": 0,
+            "quality": 100
+          },
+          "turtleShell": {
+            "count": 0,
+            "quality": 100
+          },
+          "wyrmSinew": {
+            "count": 0,
+            "quality": 80
+          }
+        }
+      },
+      "refreshCharges": 5,
+      "refreshClock": 307,
+      "battleEncounter": null
+    },
+    "cleanseAttempt": {
+      "ok": false,
+      "reason": "domain-locked"
+    },
+    "replenished": true,
+    "final": {
+      "tick": 12310837,
+      "resources": {
+        "tech": 13721,
+        "medal": 1042870,
+        "food": 482790,
+        "copper": 19632.39999786654,
+        "iron": 306929,
+        "steel": 2454,
+        "stone": 326586,
+        "coal": 110558.5
+      },
+      "cap": 310012876,
+      "items": {
+        "godCrystal": 41,
+        "guardianStone": 9,
+        "revivalLeaf": 195,
+        "boarHeart": 20,
+        "bullHorn": 66,
+        "snakeGall": 429,
+        "tigerPelt": 38,
+        "turtleShell": 511,
+        "wyrmSinew": 62,
+        "storageScroll": 0,
+        "sacredBlood": 3,
+        "domainCleanser": 0
+      },
+      "kills": {
+        "godCrystal": 5000,
+        "guardianStone": 4500,
+        "revivalLeaf": 2600,
+        "wildBoar": 4420,
+        "wildBull": 3790,
+        "wildSnake": 3000,
+        "wildTiger": 3400,
+        "wildTurtle": 4000,
+        "wildWyrm": 4130
+      },
+      "army": 672,
+      "deployed": 626,
+      "storage": {
+        "steam": 30,
+        "electric": 17,
+        "nuclear": 6
+      },
+      "scrollUsed": 132,
+      "offers": {
+        "heart": 0,
+        "wild": {
+          "bullHorn": {
+            "count": 0,
+            "quality": 100
+          },
+          "snakeGall": {
+            "count": 0,
+            "quality": 100
+          },
+          "tigerPelt": {
+            "count": 0,
+            "quality": 100
+          },
+          "turtleShell": {
+            "count": 0,
+            "quality": 100
+          },
+          "wyrmSinew": {
+            "count": 0,
+            "quality": 80
+          }
+        }
+      },
+      "refreshCharges": 5,
+      "refreshClock": 930,
+      "battleEncounter": null
+    },
+    "finalSaveSha256": "d9ffa0f5fbc90e5bed7b0a5734f9389a15a2cacdeab51c6dc970f31378a9cf46",
+    "trainingPaid": {
+      "copper": 10160000,
+      "iron": 10160000,
+      "steel": 10166500,
+      "food": 177500,
+      "gold": 8000
+    }
+  },
+  "paid": {
+    "steps": [
+      {
+        "label": "first-scroll",
+        "state": {
+          "tick": 12295860,
+          "resources": {
+            "tech": 13721,
+            "medal": 1042870,
+            "food": 480699,
+            "copper": 4125.299997924994,
+            "iron": 922867,
+            "steel": 1159,
+            "stone": 638678,
+            "coal": 192415
+          },
+          "cap": 308676614,
+          "items": {
+            "godCrystal": 41,
+            "guardianStone": 9,
+            "revivalLeaf": 195,
+            "boarHeart": 20,
+            "bullHorn": 66,
+            "snakeGall": 429,
+            "tigerPelt": 38,
+            "turtleShell": 511,
+            "wyrmSinew": 47,
+            "storageScroll": 0,
+            "sacredBlood": 3,
+            "domainCleanser": 0
+          },
+          "kills": {
+            "godCrystal": 5000,
+            "guardianStone": 4500,
+            "revivalLeaf": 2600,
+            "wildBoar": 4420,
+            "wildBull": 3790,
+            "wildSnake": 3000,
+            "wildTiger": 3400,
+            "wildTurtle": 4000,
+            "wildWyrm": 4040
+          },
+          "army": 672,
+          "deployed": 626,
+          "storage": {
+            "steam": 30,
+            "electric": 17,
+            "nuclear": 6
+          },
+          "scrollUsed": 131,
+          "offers": {
+            "heart": 1,
+            "wild": {
+              "bullHorn": {
+                "count": 0,
+                "quality": 100
+              },
+              "snakeGall": {
+                "count": 0,
+                "quality": 100
+              },
+              "tigerPelt": {
+                "count": 0,
+                "quality": 100
+              },
+              "turtleShell": {
+                "count": 0,
+                "quality": 100
+              },
+              "wyrmSinew": {
+                "count": 0,
+                "quality": 80
+              }
+            }
+          },
+          "refreshCharges": 5,
+          "refreshClock": 307,
+          "battleEncounter": null
+        },
+        "sha256": "cf24e7e431a793bef99058b1f1023071b8d9ba2d596e43a7f54519fb13fde25a"
+      },
+      {
+        "label": "eight-leaf-wins",
+        "state": {
+          "tick": 12295860,
+          "resources": {
+            "tech": 13721,
+            "medal": 1042870,
+            "food": 480699,
+            "copper": 4125.299997924994,
+            "iron": 922867,
+            "steel": 1159,
+            "stone": 638678,
+            "coal": 192415
+          },
+          "cap": 308676614,
+          "items": {
+            "godCrystal": 41,
+            "guardianStone": 9,
+            "revivalLeaf": 775,
+            "boarHeart": 20,
+            "bullHorn": 66,
+            "snakeGall": 429,
+            "tigerPelt": 38,
+            "turtleShell": 511,
+            "wyrmSinew": 47,
+            "storageScroll": 0,
+            "sacredBlood": 19,
+            "domainCleanser": 0
+          },
+          "kills": {
+            "godCrystal": 5000,
+            "guardianStone": 4500,
+            "revivalLeaf": 3400,
+            "wildBoar": 4420,
+            "wildBull": 3790,
+            "wildSnake": 3000,
+            "wildTiger": 3400,
+            "wildTurtle": 4000,
+            "wildWyrm": 4040
+          },
+          "army": 672,
+          "deployed": 626,
+          "storage": {
+            "steam": 30,
+            "electric": 17,
+            "nuclear": 6
+          },
+          "scrollUsed": 131,
+          "offers": {
+            "heart": 1,
+            "wild": {
+              "bullHorn": {
+                "count": 0,
+                "quality": 100
+              },
+              "snakeGall": {
+                "count": 0,
+                "quality": 100
+              },
+              "tigerPelt": {
+                "count": 0,
+                "quality": 100
+              },
+              "turtleShell": {
+                "count": 0,
+                "quality": 100
+              },
+              "wyrmSinew": {
+                "count": 0,
+                "quality": 80
+              }
+            }
+          },
+          "refreshCharges": 5,
+          "refreshClock": 307,
+          "battleEncounter": null
+        },
+        "sha256": "a137e84f8c0645cca535baa18dd117944e9bed6a21d10486f740cb4da46e4046"
+      },
+      {
+        "label": "nuclear-upgrade",
+        "state": {
+          "tick": 12301608,
+          "resources": {
+            "tech": 513,
+            "medal": 1042870,
+            "food": 482790,
+            "copper": 4125.299997924994,
+            "iron": 922867,
+            "steel": 1159,
+            "stone": 638678,
+            "coal": 192415
+          },
+          "cap": 327968902,
+          "items": {
+            "godCrystal": 41,
+            "guardianStone": 9,
+            "revivalLeaf": 75,
+            "boarHeart": 20,
+            "bullHorn": 66,
+            "snakeGall": 429,
+            "tigerPelt": 38,
+            "turtleShell": 511,
+            "wyrmSinew": 47,
+            "storageScroll": 0,
+            "sacredBlood": 19,
+            "domainCleanser": 0
+          },
+          "kills": {
+            "godCrystal": 5000,
+            "guardianStone": 4500,
+            "revivalLeaf": 3400,
+            "wildBoar": 4420,
+            "wildBull": 3790,
+            "wildSnake": 3000,
+            "wildTiger": 3400,
+            "wildTurtle": 4000,
+            "wildWyrm": 4040
+          },
+          "army": 672,
+          "deployed": 626,
+          "storage": {
+            "steam": 30,
+            "electric": 17,
+            "nuclear": 7
+          },
+          "scrollUsed": 131,
+          "offers": {
+            "heart": 0,
+            "wild": {
+              "bullHorn": {
+                "count": 0,
+                "quality": 100
+              },
+              "snakeGall": {
+                "count": 0,
+                "quality": 100
+              },
+              "tigerPelt": {
+                "count": 0,
+                "quality": 100
+              },
+              "turtleShell": {
+                "count": 0,
+                "quality": 100
+              },
+              "wyrmSinew": {
+                "count": 1,
+                "quality": 80
+              }
+            }
+          },
+          "refreshCharges": 5,
+          "refreshClock": 559,
+          "battleEncounter": null
+        },
+        "sha256": "c2743130ce6d53f49ddd567ccbfe60ff69d6320c06903a6485d74f5a62fa33a8"
+      },
+      {
+        "label": "guardian-wins",
+        "state": {
+          "tick": 12301608,
+          "resources": {
+            "tech": 513,
+            "medal": 1051998,
+            "food": 482790,
+            "copper": 4125.299997924994,
+            "iron": 922867,
+            "steel": 1159,
+            "stone": 638678,
+            "coal": 192415
+          },
+          "cap": 327968902,
+          "items": {
+            "godCrystal": 41,
+            "guardianStone": 464,
+            "revivalLeaf": 75,
+            "boarHeart": 20,
+            "bullHorn": 66,
+            "snakeGall": 429,
+            "tigerPelt": 38,
+            "turtleShell": 511,
+            "wyrmSinew": 47,
+            "storageScroll": 0,
+            "sacredBlood": 31,
+            "domainCleanser": 0
+          },
+          "kills": {
+            "godCrystal": 5000,
+            "guardianStone": 4900,
+            "revivalLeaf": 3400,
+            "wildBoar": 4420,
+            "wildBull": 3790,
+            "wildSnake": 3000,
+            "wildTiger": 3400,
+            "wildTurtle": 4000,
+            "wildWyrm": 4040
+          },
+          "army": 641,
+          "deployed": 595,
+          "storage": {
+            "steam": 30,
+            "electric": 17,
+            "nuclear": 7
+          },
+          "scrollUsed": 131,
+          "offers": {
+            "heart": 0,
+            "wild": {
+              "bullHorn": {
+                "count": 0,
+                "quality": 100
+              },
+              "snakeGall": {
+                "count": 0,
+                "quality": 100
+              },
+              "tigerPelt": {
+                "count": 0,
+                "quality": 100
+              },
+              "turtleShell": {
+                "count": 0,
+                "quality": 100
+              },
+              "wyrmSinew": {
+                "count": 1,
+                "quality": 80
+              }
+            }
+          },
+          "refreshCharges": 5,
+          "refreshClock": 559,
+          "battleEncounter": null
+        },
+        "sha256": "bd8fda6163dab54ae3f49b30f55853461fa346cde5ac5642f83d2df853003cba"
+      },
+      {
+        "label": "electric-upgrade",
+        "state": {
+          "tick": 12303087,
+          "resources": {
+            "tech": 20079,
+            "medal": 1051998,
+            "food": 482790,
+            "copper": 4125.299997924994,
+            "iron": 922867,
+            "steel": 1159,
+            "stone": 638678,
+            "coal": 192415
+          },
+          "cap": 340115899,
+          "items": {
+            "godCrystal": 41,
+            "guardianStone": 104,
+            "revivalLeaf": 75,
+            "boarHeart": 20,
+            "bullHorn": 66,
+            "snakeGall": 429,
+            "tigerPelt": 38,
+            "turtleShell": 511,
+            "wyrmSinew": 47,
+            "storageScroll": 0,
+            "sacredBlood": 31,
+            "domainCleanser": 0
+          },
+          "kills": {
+            "godCrystal": 5000,
+            "guardianStone": 4900,
+            "revivalLeaf": 3400,
+            "wildBoar": 4420,
+            "wildBull": 3790,
+            "wildSnake": 3000,
+            "wildTiger": 3400,
+            "wildTurtle": 4000,
+            "wildWyrm": 4040
+          },
+          "army": 641,
+          "deployed": 595,
+          "storage": {
+            "steam": 30,
+            "electric": 18,
+            "nuclear": 7
+          },
+          "scrollUsed": 131,
+          "offers": {
+            "heart": 0,
+            "wild": {
+              "bullHorn": {
+                "count": 0,
+                "quality": 100
+              },
+              "snakeGall": {
+                "count": 0,
+                "quality": 100
+              },
+              "tigerPelt": {
+                "count": 0,
+                "quality": 100
+              },
+              "turtleShell": {
+                "count": 0,
+                "quality": 100
+              },
+              "wyrmSinew": {
+                "count": 0,
+                "quality": 100
+              }
+            }
+          },
+          "refreshCharges": 5,
+          "refreshClock": 280,
+          "battleEncounter": null
+        },
+        "sha256": "b8a66998aeaea6b2eba55dda3c98a3a6ded1387e5bb949647a0e998d303a1cce"
+      },
+      {
+        "label": "crystal-cycle-1",
+        "state": {
+          "tick": 12303410,
+          "resources": {
+            "tech": 20079,
+            "medal": 1054350,
+            "food": 482790,
+            "copper": 24019.299997925133,
+            "iron": 619845,
+            "steel": 758,
+            "stone": 367176,
+            "coal": 353196.5
+          },
+          "cap": 340115899,
+          "items": {
+            "godCrystal": 99,
+            "guardianStone": 104,
+            "revivalLeaf": 75,
+            "boarHeart": 20,
+            "bullHorn": 66,
+            "snakeGall": 429,
+            "tigerPelt": 38,
+            "turtleShell": 511,
+            "wyrmSinew": 47,
+            "storageScroll": 0,
+            "sacredBlood": 31,
+            "domainCleanser": 0
+          },
+          "kills": {
+            "godCrystal": 5000,
+            "guardianStone": 4900,
+            "revivalLeaf": 3400,
+            "wildBoar": 4420,
+            "wildBull": 3790,
+            "wildSnake": 3000,
+            "wildTiger": 3400,
+            "wildTurtle": 4000,
+            "wildWyrm": 4040
+          },
+          "army": 672,
+          "deployed": 626,
+          "storage": {
+            "steam": 30,
+            "electric": 18,
+            "nuclear": 7
+          },
+          "scrollUsed": 131,
+          "offers": {
+            "heart": 0,
+            "wild": {
+              "bullHorn": {
+                "count": 0,
+                "quality": 100
+              },
+              "snakeGall": {
+                "count": 0,
+                "quality": 100
+              },
+              "tigerPelt": {
+                "count": 0,
+                "quality": 100
+              },
+              "turtleShell": {
+                "count": 0,
+                "quality": 100
+              },
+              "wyrmSinew": {
+                "count": 1,
+                "quality": 80
+              }
+            }
+          },
+          "refreshCharges": 5,
+          "refreshClock": 1157,
+          "battleEncounter": null
+        },
+        "sha256": "fb7b921471e5781ad508ae4751f8840c1b4699d45862d96156c1243e0f9e4064"
+      },
+      {
+        "label": "crystal-cycle-2",
+        "state": {
+          "tick": 12303416,
+          "resources": {
+            "tech": 20079,
+            "medal": 1056702,
+            "food": 482790,
+            "copper": 37413.99999792513,
+            "iron": 619845,
+            "steel": 758,
+            "stone": 356352,
+            "coal": 342372.5
+          },
+          "cap": 340115899,
+          "items": {
+            "godCrystal": 157,
+            "guardianStone": 104,
+            "revivalLeaf": 75,
+            "boarHeart": 20,
+            "bullHorn": 66,
+            "snakeGall": 429,
+            "tigerPelt": 38,
+            "turtleShell": 511,
+            "wyrmSinew": 47,
+            "storageScroll": 0,
+            "sacredBlood": 31,
+            "domainCleanser": 0
+          },
+          "kills": {
+            "godCrystal": 5000,
+            "guardianStone": 4900,
+            "revivalLeaf": 3400,
+            "wildBoar": 4420,
+            "wildBull": 3790,
+            "wildSnake": 3000,
+            "wildTiger": 3400,
+            "wildTurtle": 4000,
+            "wildWyrm": 4040
+          },
+          "army": 672,
+          "deployed": 626,
+          "storage": {
+            "steam": 30,
+            "electric": 18,
+            "nuclear": 7
+          },
+          "scrollUsed": 131,
+          "offers": {
+            "heart": 0,
+            "wild": {
+              "bullHorn": {
+                "count": 0,
+                "quality": 100
+              },
+              "snakeGall": {
+                "count": 0,
+                "quality": 100
+              },
+              "tigerPelt": {
+                "count": 0,
+                "quality": 100
+              },
+              "turtleShell": {
+                "count": 0,
+                "quality": 100
+              },
+              "wyrmSinew": {
+                "count": 1,
+                "quality": 80
+              }
+            }
+          },
+          "refreshCharges": 5,
+          "refreshClock": 1151,
+          "battleEncounter": null
+        },
+        "sha256": "0589bd8b7ddb96d9c2013a9f5ae47deb3ae0a86c422a0d49b97094592eb92077"
+      },
+      {
+        "label": "crystal-cycle-3",
+        "state": {
+          "tick": 12303422,
+          "resources": {
+            "tech": 20079,
+            "medal": 1059054,
+            "food": 482790,
+            "copper": 50808.69999792511,
+            "iron": 619845,
+            "steel": 758,
+            "stone": 345528,
+            "coal": 331548.5
+          },
+          "cap": 340115899,
+          "items": {
+            "godCrystal": 215,
+            "guardianStone": 104,
+            "revivalLeaf": 75,
+            "boarHeart": 20,
+            "bullHorn": 66,
+            "snakeGall": 429,
+            "tigerPelt": 38,
+            "turtleShell": 511,
+            "wyrmSinew": 47,
+            "storageScroll": 0,
+            "sacredBlood": 31,
+            "domainCleanser": 0
+          },
+          "kills": {
+            "godCrystal": 5000,
+            "guardianStone": 4900,
+            "revivalLeaf": 3400,
+            "wildBoar": 4420,
+            "wildBull": 3790,
+            "wildSnake": 3000,
+            "wildTiger": 3400,
+            "wildTurtle": 4000,
+            "wildWyrm": 4040
+          },
+          "army": 672,
+          "deployed": 626,
+          "storage": {
+            "steam": 30,
+            "electric": 18,
+            "nuclear": 7
+          },
+          "scrollUsed": 131,
+          "offers": {
+            "heart": 0,
+            "wild": {
+              "bullHorn": {
+                "count": 0,
+                "quality": 100
+              },
+              "snakeGall": {
+                "count": 0,
+                "quality": 100
+              },
+              "tigerPelt": {
+                "count": 0,
+                "quality": 100
+              },
+              "turtleShell": {
+                "count": 0,
+                "quality": 100
+              },
+              "wyrmSinew": {
+                "count": 1,
+                "quality": 80
+              }
+            }
+          },
+          "refreshCharges": 5,
+          "refreshClock": 1145,
+          "battleEncounter": null
+        },
+        "sha256": "93d07f9c1f7bea229db938543805af7015218eb0f061aad1b2e858b3769148dd"
+      },
+      {
+        "label": "crystal-cycle-4",
+        "state": {
+          "tick": 12303448,
+          "resources": {
+            "tech": 20079,
+            "medal": 1061406,
+            "food": 482790,
+            "copper": 9133.19999792509,
+            "iron": 541413,
+            "steel": 1702,
+            "stone": 313056,
+            "coal": 299076.5
+          },
+          "cap": 340115899,
+          "items": {
+            "godCrystal": 273,
+            "guardianStone": 104,
+            "revivalLeaf": 75,
+            "boarHeart": 20,
+            "bullHorn": 66,
+            "snakeGall": 429,
+            "tigerPelt": 38,
+            "turtleShell": 511,
+            "wyrmSinew": 47,
+            "storageScroll": 0,
+            "sacredBlood": 31,
+            "domainCleanser": 0
+          },
+          "kills": {
+            "godCrystal": 5000,
+            "guardianStone": 4900,
+            "revivalLeaf": 3400,
+            "wildBoar": 4420,
+            "wildBull": 3790,
+            "wildSnake": 3000,
+            "wildTiger": 3400,
+            "wildTurtle": 4000,
+            "wildWyrm": 4040
+          },
+          "army": 672,
+          "deployed": 626,
+          "storage": {
+            "steam": 30,
+            "electric": 18,
+            "nuclear": 7
+          },
+          "scrollUsed": 131,
+          "offers": {
+            "heart": 0,
+            "wild": {
+              "bullHorn": {
+                "count": 0,
+                "quality": 100
+              },
+              "snakeGall": {
+                "count": 0,
+                "quality": 100
+              },
+              "tigerPelt": {
+                "count": 0,
+                "quality": 100
+              },
+              "turtleShell": {
+                "count": 0,
+                "quality": 100
+              },
+              "wyrmSinew": {
+                "count": 1,
+                "quality": 80
+              }
+            }
+          },
+          "refreshCharges": 5,
+          "refreshClock": 1119,
+          "battleEncounter": null
+        },
+        "sha256": "6199b2ff4edd3f938513cac37f8ee6311b20e26c0bfbd09d82e50c7b2d184efd"
+      },
+      {
+        "label": "crystal-cycle-5",
+        "state": {
+          "tick": 12303448,
+          "resources": {
+            "tech": 20079,
+            "medal": 1063758,
+            "food": 482790,
+            "copper": 9133.19999792509,
+            "iron": 541413,
+            "steel": 1702,
+            "stone": 313056,
+            "coal": 299076.5
+          },
+          "cap": 340115899,
+          "items": {
+            "godCrystal": 331,
+            "guardianStone": 104,
+            "revivalLeaf": 75,
+            "boarHeart": 20,
+            "bullHorn": 66,
+            "snakeGall": 429,
+            "tigerPelt": 38,
+            "turtleShell": 511,
+            "wyrmSinew": 47,
+            "storageScroll": 0,
+            "sacredBlood": 31,
+            "domainCleanser": 0
+          },
+          "kills": {
+            "godCrystal": 5000,
+            "guardianStone": 4900,
+            "revivalLeaf": 3400,
+            "wildBoar": 4420,
+            "wildBull": 3790,
+            "wildSnake": 3000,
+            "wildTiger": 3400,
+            "wildTurtle": 4000,
+            "wildWyrm": 4040
+          },
+          "army": 672,
+          "deployed": 626,
+          "storage": {
+            "steam": 30,
+            "electric": 18,
+            "nuclear": 7
+          },
+          "scrollUsed": 131,
+          "offers": {
+            "heart": 0,
+            "wild": {
+              "bullHorn": {
+                "count": 0,
+                "quality": 100
+              },
+              "snakeGall": {
+                "count": 0,
+                "quality": 100
+              },
+              "tigerPelt": {
+                "count": 0,
+                "quality": 100
+              },
+              "turtleShell": {
+                "count": 0,
+                "quality": 100
+              },
+              "wyrmSinew": {
+                "count": 1,
+                "quality": 80
+              }
+            }
+          },
+          "refreshCharges": 5,
+          "refreshClock": 1119,
+          "battleEncounter": null
+        },
+        "sha256": "3447716ce00b4b9778643673fa19ad42d92a272a81dc7dc1af990c882b04302b"
+      },
+      {
+        "label": "steam-upgrade",
+        "state": {
+          "tick": 12303830,
+          "resources": {
+            "tech": 23307,
+            "medal": 1063758,
+            "food": 482790,
+            "copper": 9133.19999792509,
+            "iron": 541413,
+            "steel": 1702,
+            "stone": 313056,
+            "coal": 299076.5
+          },
+          "cap": 348618782,
+          "items": {
+            "godCrystal": 21,
+            "guardianStone": 104,
+            "revivalLeaf": 75,
+            "boarHeart": 20,
+            "bullHorn": 66,
+            "snakeGall": 429,
+            "tigerPelt": 38,
+            "turtleShell": 511,
+            "wyrmSinew": 47,
+            "storageScroll": 0,
+            "sacredBlood": 31,
+            "domainCleanser": 0
+          },
+          "kills": {
+            "godCrystal": 5000,
+            "guardianStone": 4900,
+            "revivalLeaf": 3400,
+            "wildBoar": 4420,
+            "wildBull": 3790,
+            "wildSnake": 3000,
+            "wildTiger": 3400,
+            "wildTurtle": 4000,
+            "wildWyrm": 4040
+          },
+          "army": 672,
+          "deployed": 626,
+          "storage": {
+            "steam": 31,
+            "electric": 18,
+            "nuclear": 7
+          },
+          "scrollUsed": 131,
+          "offers": {
+            "heart": 0,
+            "wild": {
+              "bullHorn": {
+                "count": 0,
+                "quality": 100
+              },
+              "snakeGall": {
+                "count": 0,
+                "quality": 100
+              },
+              "tigerPelt": {
+                "count": 0,
+                "quality": 100
+              },
+              "turtleShell": {
+                "count": 0,
+                "quality": 100
+              },
+              "wyrmSinew": {
+                "count": 1,
+                "quality": 80
+              }
+            }
+          },
+          "refreshCharges": 5,
+          "refreshClock": 737,
+          "battleEncounter": null
+        },
+        "sha256": "8b140b350c72b47d03663ede93b04b00ee8435370d006d3e44101c4c04a4131c"
+      }
+    ],
+    "firstScroll": {
+      "materialCost": 160,
+      "checkpoint": "cf24e7e431a793bef99058b1f1023071b8d9ba2d596e43a7f54519fb13fde25a"
+    },
+    "leafBattles": [
+      {
+        "key": "revivalLeaf",
+        "result": "win",
+        "callbacks": 6,
+        "enemyHpLeft": 0,
+        "before": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 195,
+          "alert": 2600
+        },
+        "after": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 256,
+          "alert": 2700
+        },
+        "loss": 0,
+        "gain": 61,
+        "expectedReward": 61,
+        "saveSha256": "6b104a91e617258b18ff17c52ef942feacd0af817d4bbb81667188a385afeafa"
+      },
+      {
+        "key": "revivalLeaf",
+        "result": "win",
+        "callbacks": 6,
+        "enemyHpLeft": 0,
+        "before": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 256,
+          "alert": 2700
+        },
+        "after": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 318,
+          "alert": 2800
+        },
+        "loss": 0,
+        "gain": 62,
+        "expectedReward": 62,
+        "saveSha256": "8481935c37045ca0ffc230c499b61e9a305ec5e3b55818360a37ba0e877878a8"
+      },
+      {
+        "key": "revivalLeaf",
+        "result": "win",
+        "callbacks": 6,
+        "enemyHpLeft": 0,
+        "before": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 318,
+          "alert": 2800
+        },
+        "after": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 381,
+          "alert": 2900
+        },
+        "loss": 0,
+        "gain": 63,
+        "expectedReward": 63,
+        "saveSha256": "082c988dc2d302f6e5fbc1f6e7b888f1af372082cf2edbc41324fd40ae0ef1b4"
+      },
+      {
+        "key": "revivalLeaf",
+        "result": "win",
+        "callbacks": 6,
+        "enemyHpLeft": 0,
+        "before": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 381,
+          "alert": 2900
+        },
+        "after": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 457,
+          "alert": 3000
+        },
+        "loss": 0,
+        "gain": 76,
+        "expectedReward": 76,
+        "saveSha256": "3e91828a6899816b89ec58ebc73cf67cc4f159ebca1d1b90a0558f3d0a00e41b"
+      },
+      {
+        "key": "revivalLeaf",
+        "result": "win",
+        "callbacks": 6,
+        "enemyHpLeft": 0,
+        "before": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 457,
+          "alert": 3000
+        },
+        "after": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 535,
+          "alert": 3100
+        },
+        "loss": 0,
+        "gain": 78,
+        "expectedReward": 78,
+        "saveSha256": "bc93a3b14cb1433d8b9a979e4821d2476f7fef46ccc0c19e71a3e19f85d76310"
+      },
+      {
+        "key": "revivalLeaf",
+        "result": "win",
+        "callbacks": 6,
+        "enemyHpLeft": 0,
+        "before": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 535,
+          "alert": 3100
+        },
+        "after": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 614,
+          "alert": 3200
+        },
+        "loss": 0,
+        "gain": 79,
+        "expectedReward": 79,
+        "saveSha256": "053aacaf2558f0f224adcc24844989141086802b1c1cb2624a477fd281a0428e"
+      },
+      {
+        "key": "revivalLeaf",
+        "result": "win",
+        "callbacks": 6,
+        "enemyHpLeft": 0,
+        "before": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 614,
+          "alert": 3200
+        },
+        "after": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 694,
+          "alert": 3300
+        },
+        "loss": 0,
+        "gain": 80,
+        "expectedReward": 80,
+        "saveSha256": "56de906a97e295371fcd25725dc5ff94c497ed16e5d4a868a471e4e6935c1591"
+      },
+      {
+        "key": "revivalLeaf",
+        "result": "win",
+        "callbacks": 6,
+        "enemyHpLeft": 0,
+        "before": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 694,
+          "alert": 3300
+        },
+        "after": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 775,
+          "alert": 3400
+        },
+        "loss": 0,
+        "gain": 81,
+        "expectedReward": 81,
+        "saveSha256": "a137e84f8c0645cca535baa18dd117944e9bed6a21d10486f740cb4da46e4046"
+      }
+    ],
+    "leafCheckpoint": "a137e84f8c0645cca535baa18dd117944e9bed6a21d10486f740cb4da46e4046",
+    "nuclearTechFill": {
+      "before": 13721,
+      "after": 140000513,
+      "rate": 24354,
+      "seconds": 5748,
+      "done": true,
+      "minFood": 480699
+    },
+    "nuclearUpgrade": {
+      "ok": true,
+      "level": 7,
+      "cost": {
+        "tech": 140000000,
+        "revivalLeaf": 700
+      }
+    },
+    "nuclearCheckpoint": "c2743130ce6d53f49ddd567ccbfe60ff69d6320c06903a6485d74f5a62fa33a8",
+    "guardianBattles": [
+      {
+        "key": "guardianStone",
+        "result": "win",
+        "callbacks": 27,
+        "enemyHpLeft": 0,
+        "before": {
+          "army": 672,
+          "deployed": 626,
+          "stock": 9,
+          "alert": 4500
+        },
+        "after": {
+          "army": 668,
+          "deployed": 622,
+          "stock": 121,
+          "alert": 4600
+        },
+        "loss": 4,
+        "gain": 112,
+        "expectedReward": 112,
+        "saveSha256": "30c34eaca31958414268df019acddc2b5525fedd73e5050ac88c4d8da9ac572e"
+      },
+      {
+        "key": "guardianStone",
+        "result": "win",
+        "callbacks": 27,
+        "enemyHpLeft": 0,
+        "before": {
+          "army": 668,
+          "deployed": 622,
+          "stock": 121,
+          "alert": 4600
+        },
+        "after": {
+          "army": 661,
+          "deployed": 615,
+          "stock": 234,
+          "alert": 4700
+        },
+        "loss": 7,
+        "gain": 113,
+        "expectedReward": 113,
+        "saveSha256": "d93a555ce1510a416ae016b080bf875140fd66e14d14d7803547ce284cec38d0"
+      },
+      {
+        "key": "guardianStone",
+        "result": "win",
+        "callbacks": 39,
+        "enemyHpLeft": 0,
+        "before": {
+          "army": 661,
+          "deployed": 615,
+          "stock": 234,
+          "alert": 4700
+        },
+        "after": {
+          "army": 651,
+          "deployed": 605,
+          "stock": 348,
+          "alert": 4800
+        },
+        "loss": 10,
+        "gain": 114,
+        "expectedReward": 114,
+        "saveSha256": "caeecae9078970e977ba103a077a3981727ca802665044807e4a08641133c908"
+      },
+      {
+        "key": "guardianStone",
+        "result": "win",
+        "callbacks": 37,
+        "enemyHpLeft": 0,
+        "before": {
+          "army": 651,
+          "deployed": 605,
+          "stock": 348,
+          "alert": 4800
+        },
+        "after": {
+          "army": 641,
+          "deployed": 595,
+          "stock": 464,
+          "alert": 4900
+        },
+        "loss": 10,
+        "gain": 116,
+        "expectedReward": 116,
+        "saveSha256": "bd8fda6163dab54ae3f49b30f55853461fa346cde5ac5642f83d2df853003cba"
+      }
+    ],
+    "guardianReady": true,
+    "guardianCheckpoint": "bd8fda6163dab54ae3f49b30f55853461fa346cde5ac5642f83d2df853003cba",
+    "electricTechFill": {
+      "before": 513,
+      "after": 36020079,
+      "rate": 24354,
+      "seconds": 1479,
+      "done": true,
+      "minFood": 482790
+    },
+    "electricUpgrade": {
+      "ok": true,
+      "level": 18,
+      "cost": {
+        "tech": 36000000,
+        "guardianStone": 360
+      }
+    },
+    "electricCheckpoint": "b8a66998aeaea6b2eba55dda3c98a3a6ded1387e5bb949647a0e998d303a1cce",
+    "beforeCrystal": {
+      "tick": 12303087,
+      "resources": {
+        "tech": 20079,
+        "medal": 1051998,
+        "food": 482790,
+        "copper": 4125.299997924994,
+        "iron": 922867,
+        "steel": 1159,
+        "stone": 638678,
+        "coal": 192415
+      },
+      "cap": 340115899,
+      "items": {
+        "godCrystal": 41,
+        "guardianStone": 104,
+        "revivalLeaf": 75,
+        "boarHeart": 20,
+        "bullHorn": 66,
+        "snakeGall": 429,
+        "tigerPelt": 38,
+        "turtleShell": 511,
+        "wyrmSinew": 47,
+        "storageScroll": 0,
+        "sacredBlood": 31,
+        "domainCleanser": 0
+      },
+      "kills": {
+        "godCrystal": 5000,
+        "guardianStone": 4900,
+        "revivalLeaf": 3400,
+        "wildBoar": 4420,
+        "wildBull": 3790,
+        "wildSnake": 3000,
+        "wildTiger": 3400,
+        "wildTurtle": 4000,
+        "wildWyrm": 4040
+      },
+      "army": 641,
+      "deployed": 595,
+      "storage": {
+        "steam": 30,
+        "electric": 18,
+        "nuclear": 7
+      },
+      "scrollUsed": 131,
+      "offers": {
+        "heart": 0,
+        "wild": {
+          "bullHorn": {
+            "count": 0,
+            "quality": 100
+          },
+          "snakeGall": {
+            "count": 0,
+            "quality": 100
+          },
+          "tigerPelt": {
+            "count": 0,
+            "quality": 100
+          },
+          "turtleShell": {
+            "count": 0,
+            "quality": 100
+          },
+          "wyrmSinew": {
+            "count": 0,
+            "quality": 100
+          }
+        }
+      },
+      "refreshCharges": 5,
+      "refreshClock": 280,
+      "battleEncounter": null
+    },
+    "crystal": {
+      "cycles": [
+        {
+          "cleanser": {
+            "exchange": {
+              "ok": true,
+              "gained": 1,
+              "spent": 3,
+              "count": 1
+            },
+            "cleanse": {
+              "ok": true,
+              "alert": 4900,
+              "spent": 1
+            }
+          },
+          "battle": {
+            "key": "godCrystal",
+            "result": "win",
+            "callbacks": 9,
+            "enemyHpLeft": 0,
+            "before": {
+              "army": 672,
+              "deployed": 626,
+              "stock": 41,
+              "alert": 4900
+            },
+            "after": {
+              "army": 672,
+              "deployed": 626,
+              "stock": 99,
+              "alert": 5000
+            },
+            "loss": 0,
+            "gain": 58,
+            "expectedReward": 58,
+            "saveSha256": "f760a3dccf367b1b5b990c49ce8474358eecab3a25d84dffbaeb4523dca08b73"
+          },
+          "cooldownSeconds": 6,
+          "saveSha256": "fb7b921471e5781ad508ae4751f8840c1b4699d45862d96156c1243e0f9e4064"
+        },
+        {
+          "cleanser": {
+            "exchange": {
+              "ok": true,
+              "gained": 1,
+              "spent": 3,
+              "count": 1
+            },
+            "cleanse": {
+              "ok": true,
+              "alert": 4900,
+              "spent": 1
+            }
+          },
+          "battle": {
+            "key": "godCrystal",
+            "result": "win",
+            "callbacks": 9,
+            "enemyHpLeft": 0,
+            "before": {
+              "army": 672,
+              "deployed": 626,
+              "stock": 99,
+              "alert": 4900
+            },
+            "after": {
+              "army": 672,
+              "deployed": 626,
+              "stock": 157,
+              "alert": 5000
+            },
+            "loss": 0,
+            "gain": 58,
+            "expectedReward": 58,
+            "saveSha256": "48524716054a589b0ce94ce27971f633c35a3921e75007b5f7255bcc263bc251"
+          },
+          "cooldownSeconds": 6,
+          "saveSha256": "0589bd8b7ddb96d9c2013a9f5ae47deb3ae0a86c422a0d49b97094592eb92077"
+        },
+        {
+          "cleanser": {
+            "exchange": {
+              "ok": true,
+              "gained": 1,
+              "spent": 3,
+              "count": 1
+            },
+            "cleanse": {
+              "ok": true,
+              "alert": 4900,
+              "spent": 1
+            }
+          },
+          "battle": {
+            "key": "godCrystal",
+            "result": "win",
+            "callbacks": 9,
+            "enemyHpLeft": 0,
+            "before": {
+              "army": 672,
+              "deployed": 626,
+              "stock": 157,
+              "alert": 4900
+            },
+            "after": {
+              "army": 672,
+              "deployed": 626,
+              "stock": 215,
+              "alert": 5000
+            },
+            "loss": 0,
+            "gain": 58,
+            "expectedReward": 58,
+            "saveSha256": "19c8a512dd0263f43fef45a6af4919ad04d551cd117b10cbbd6cfb965965eb4c"
+          },
+          "cooldownSeconds": 6,
+          "saveSha256": "93d07f9c1f7bea229db938543805af7015218eb0f061aad1b2e858b3769148dd"
+        },
+        {
+          "cleanser": {
+            "exchange": {
+              "ok": true,
+              "gained": 1,
+              "spent": 3,
+              "count": 1
+            },
+            "cleanse": {
+              "ok": true,
+              "alert": 4900,
+              "spent": 1
+            }
+          },
+          "battle": {
+            "key": "godCrystal",
+            "result": "win",
+            "callbacks": 16,
+            "enemyHpLeft": 0,
+            "before": {
+              "army": 672,
+              "deployed": 626,
+              "stock": 215,
+              "alert": 4900
+            },
+            "after": {
+              "army": 664,
+              "deployed": 618,
+              "stock": 273,
+              "alert": 5000
+            },
+            "loss": 8,
+            "gain": 58,
+            "expectedReward": 58,
+            "saveSha256": "b32903133fee7c6ba6df089c1e2f771629b294e0200da0a0a882701bb56600c7"
+          },
+          "recovery": {
+            "before": {
+              "army": 664,
+              "deployed": 618
+            },
+            "need": {
+              "star_trooper": 8,
+              "electro_trooper": 0,
+              "armored_trooper": 0,
+              "alloy_special": 0,
+              "gold_cavalry": 0,
+              "archer": 0
+            },
+            "trainingCost": {
+              "steel": 64000,
+              "iron": 64000,
+              "copper": 64000
+            },
+            "seconds": 26,
+            "minFood": 482790,
+            "phases": {
+              "stone": 0,
+              "coal": 0,
+              "copper": 6,
+              "iron": 0,
+              "steel": 16,
+              "training": 4
+            },
+            "after": {
+              "army": 672,
+              "deployed": 626
+            },
+            "saveSha256": "6199b2ff4edd3f938513cac37f8ee6311b20e26c0bfbd09d82e50c7b2d184efd"
+          },
+          "saveSha256": "6199b2ff4edd3f938513cac37f8ee6311b20e26c0bfbd09d82e50c7b2d184efd"
+        },
+        {
+          "cleanser": {
+            "exchange": {
+              "ok": true,
+              "gained": 1,
+              "spent": 3,
+              "count": 1
+            },
+            "cleanse": {
+              "ok": true,
+              "alert": 4900,
+              "spent": 1
+            }
+          },
+          "battle": {
+            "key": "godCrystal",
+            "result": "win",
+            "callbacks": 8,
+            "enemyHpLeft": 0,
+            "before": {
+              "army": 672,
+              "deployed": 626,
+              "stock": 273,
+              "alert": 4900
+            },
+            "after": {
+              "army": 672,
+              "deployed": 626,
+              "stock": 331,
+              "alert": 5000
+            },
+            "loss": 0,
+            "gain": 58,
+            "expectedReward": 58,
+            "saveSha256": "3447716ce00b4b9778643673fa19ad42d92a272a81dc7dc1af990c882b04302b"
+          },
+          "saveSha256": "3447716ce00b4b9778643673fa19ad42d92a272a81dc7dc1af990c882b04302b"
+        }
+      ],
+      "recoveryBefore": {
+        "before": {
+          "army": 641,
+          "deployed": 595
+        },
+        "need": {
+          "star_trooper": 23,
+          "electro_trooper": 8,
+          "armored_trooper": 0,
+          "alloy_special": 0,
+          "gold_cavalry": 0,
+          "archer": 0
+        },
+        "trainingCost": {
+          "steel": 248000,
+          "iron": 248000,
+          "copper": 248000
+        },
+        "seconds": 317,
+        "minFood": 482790,
+        "phases": {
+          "stone": 0,
+          "coal": 142,
+          "copper": 98,
+          "iron": 0,
+          "steel": 61,
+          "training": 16
+        },
+        "after": {
+          "army": 672,
+          "deployed": 626
+        },
+        "saveSha256": "cdaf33d9fb00908b9260b3c99dd8ea0d9a299cb5742c2bcbba1b1423b4834cda"
+      },
+      "sameWindowRepeat": {
+        "exchange": {
+          "ok": true,
+          "repeat": true,
+          "gained": 0,
+          "spent": 0
+        },
+        "cleanse": {
+          "ok": true,
+          "repeat": true,
+          "alert": 4900
+        },
+        "stateUnchanged": true
+      },
+      "ready": true
+    },
+    "steamTechFill": {
+      "before": 20079,
+      "after": 9323307,
+      "rate": 24354,
+      "seconds": 382,
+      "done": true,
+      "minFood": 482790
+    },
+    "steamUpgrade": {
+      "ok": true,
+      "level": 31,
+      "cost": {
+        "tech": 9300000,
+        "godCrystal": 310
+      }
+    },
+    "steamCheckpoint": "8b140b350c72b47d03663ede93b04b00ee8435370d006d3e44101c4c04a4131c",
+    "nextCosts": {
+      "steam": {
+        "tech": 9600000,
+        "godCrystal": 320
+      },
+      "electric": {
+        "tech": 38000000,
+        "guardianStone": 380
+      },
+      "nuclear": {
+        "tech": 160000000,
+        "revivalLeaf": 800
+      }
+    },
+    "quantumAttempt": {
+      "ok": false,
+      "reason": "insufficient-tech"
+    },
+    "final": {
+      "tick": 12303830,
+      "resources": {
+        "tech": 23307,
+        "medal": 1063758,
+        "food": 482790,
+        "copper": 9133.19999792509,
+        "iron": 541413,
+        "steel": 1702,
+        "stone": 313056,
+        "coal": 299076.5
+      },
+      "cap": 348618782,
+      "items": {
+        "godCrystal": 21,
+        "guardianStone": 104,
+        "revivalLeaf": 75,
+        "boarHeart": 20,
+        "bullHorn": 66,
+        "snakeGall": 429,
+        "tigerPelt": 38,
+        "turtleShell": 511,
+        "wyrmSinew": 47,
+        "storageScroll": 0,
+        "sacredBlood": 31,
+        "domainCleanser": 0
+      },
+      "kills": {
+        "godCrystal": 5000,
+        "guardianStone": 4900,
+        "revivalLeaf": 3400,
+        "wildBoar": 4420,
+        "wildBull": 3790,
+        "wildSnake": 3000,
+        "wildTiger": 3400,
+        "wildTurtle": 4000,
+        "wildWyrm": 4040
+      },
+      "army": 672,
+      "deployed": 626,
+      "storage": {
+        "steam": 31,
+        "electric": 18,
+        "nuclear": 7
+      },
+      "scrollUsed": 131,
+      "offers": {
+        "heart": 0,
+        "wild": {
+          "bullHorn": {
+            "count": 0,
+            "quality": 100
+          },
+          "snakeGall": {
+            "count": 0,
+            "quality": 100
+          },
+          "tigerPelt": {
+            "count": 0,
+            "quality": 100
+          },
+          "turtleShell": {
+            "count": 0,
+            "quality": 100
+          },
+          "wyrmSinew": {
+            "count": 1,
+            "quality": 80
+          }
+        }
+      },
+      "refreshCharges": 5,
+      "refreshClock": 737,
+      "battleEncounter": null
+    },
+    "trainingPaid": {
+      "copper": 312000,
+      "iron": 312000,
+      "steel": 312000
+    },
+    "finalSaveSha256": "8b140b350c72b47d03663ede93b04b00ee8435370d006d3e44101c4c04a4131c"
+  }
+}

@@ -1,0 +1,6925 @@
+{
+  "kind": "stage 96 low paid failure recovery and stage 90/91 first-clear sensitivity",
+  "head": "e9755b245678ad76c2e974cc6563b7fe4847f64a",
+  "mode": "pilot",
+  "inputs": {
+    "failed": {
+      "file": "p-stage90-low-continuation-agent-through99-save.json",
+      "sha256": "3431e971b76a4a8fbff3305ecec13ddf5ff502af5a135b0c865738fafb9eab48"
+    },
+    "early": {
+      "file": "p-stage90-entry-low-paid-save.json",
+      "sha256": "09a37a54262d6cae73c5a90a520f9c529c210c282a6d297c0dca9705ad08bb25"
+    }
+  },
+  "sourceHashes": [
+    {
+      "file": "config.js",
+      "sha256": "1d46cd09d15cd9faf05cbb40a0b5e30fdf7d6ae3bcfd21550233c178378ebfd8"
+    },
+    {
+      "file": "levels.js",
+      "sha256": "dec14783bbeb41111ae116598dff48c9a6930b2dbf7879e2265f8887d4cc9f54"
+    },
+    {
+      "file": "math.js",
+      "sha256": "8980af2b1c87dcdc7b3bb359294d93a741947c35c5538c66b2c139b1e92238ec"
+    },
+    {
+      "file": "garrison.js",
+      "sha256": "4d233f0529d256cd1ace2de782603fcfcbbff110032ca4cf29c5e36af30f10ff"
+    },
+    {
+      "file": "technology.js",
+      "sha256": "c51fb05821593d9e76396ff18b0a38d78dee1db9cdc55631b78a7f223ad0a006"
+    },
+    {
+      "file": "tests/progression/harness.js",
+      "sha256": "4770d17fa72cc8c87f4c8ef79678f19d63a41da895b8dd58776e5a39ce2ede2b"
+    },
+    {
+      "file": "tools/verify/probe-stage96-low-p394.js",
+      "sha256": "ebd9660de6d3cbc91e24bc7a374735923a05023221eb81551ad22250014693f1"
+    }
+  ],
+  "seeds": [
+    1,
+    7,
+    9
+  ],
+  "formations": {
+    "alloyArcher": [
+      [
+        "front",
+        "alloy_special",
+        40,
+        0
+      ],
+      [
+        "mid",
+        "archer",
+        20,
+        0
+      ],
+      [
+        "back",
+        "archer",
+        20,
+        0
+      ]
+    ],
+    "alloyArmorArcher": [
+      [
+        "front",
+        "alloy_special",
+        40,
+        0
+      ],
+      [
+        "front",
+        "armored_trooper",
+        40,
+        1
+      ],
+      [
+        "mid",
+        "archer",
+        20,
+        0
+      ],
+      [
+        "back",
+        "archer",
+        20,
+        0
+      ]
+    ],
+    "armorArcher": [
+      [
+        "front",
+        "armored_trooper",
+        40,
+        0
+      ],
+      [
+        "mid",
+        "archer",
+        20,
+        0
+      ],
+      [
+        "back",
+        "archer",
+        20,
+        0
+      ]
+    ],
+    "armorAlloy": [
+      [
+        "front",
+        "armored_trooper",
+        40,
+        0
+      ],
+      [
+        "front",
+        "alloy_special",
+        40,
+        1
+      ]
+    ]
+  },
+  "summary": [
+    {
+      "strategy": "alloyArcher",
+      "wins": 0,
+      "of": 3,
+      "meanLoss": 80,
+      "meanWinLoss": null,
+      "meanFailedEnemyHp": 164
+    },
+    {
+      "strategy": "alloyArmorArcher",
+      "wins": 3,
+      "of": 3,
+      "meanLoss": 37.333333333333336,
+      "meanWinLoss": 37.333333333333336,
+      "meanFailedEnemyHp": null
+    },
+    {
+      "strategy": "armorArcher",
+      "wins": 2,
+      "of": 3,
+      "meanLoss": 72.33333333333333,
+      "meanWinLoss": 68.5,
+      "meanFailedEnemyHp": 54
+    },
+    {
+      "strategy": "armorAlloy",
+      "wins": 3,
+      "of": 3,
+      "meanLoss": 8,
+      "meanWinLoss": 8,
+      "meanFailedEnemyHp": null
+    }
+  ],
+  "failedRetries": [
+    {
+      "initialSeed": 1,
+      "retrySeed": 101,
+      "initialSaveSha256": "424badbb7eee0218a47159a9dc61d20beb49914f5c5e01c4700d7b8bb2d4ded3",
+      "prep": {
+        "before": {
+          "second": 3322075,
+          "army": 45,
+          "deployed": 0,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 40,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 23415.703482598274,
+            "steel": 23,
+            "wood": 483600,
+            "stone": 324776,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [],
+            "mid": [],
+            "back": []
+          },
+          "defeated": 95,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "after": {
+          "second": 3322422,
+          "army": 85,
+          "deployed": 80,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 0,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 6469.895710048825,
+            "steel": 7,
+            "wood": 483600,
+            "stone": 325576,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [
+              {
+                "type": "armored_trooper",
+                "count": 40,
+                "id": 1790710431881
+              },
+              {
+                "type": "alloy_special",
+                "count": 40,
+                "id": 1790710431882
+              }
+            ],
+            "mid": [],
+            "back": []
+          },
+          "defeated": 95,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "trained": {
+          "armored_trooper": 0,
+          "alloy_special": 40
+        },
+        "paid": {
+          "food": 60000,
+          "steel": 4000
+        },
+        "seconds": 347
+      },
+      "retry": {
+        "stage": 96,
+        "candidate": {
+          "before": 60,
+          "after": 450,
+          "units": {
+            "infantry": [
+              105,
+              75,
+              45
+            ],
+            "archer": [
+              105,
+              75,
+              45
+            ]
+          }
+        },
+        "won": true,
+        "before": {
+          "army": 85,
+          "deployed": 80
+        },
+        "after": {
+          "army": 76,
+          "deployed": 71
+        },
+        "loss": 9,
+        "enemyHp": 0,
+        "round": 1,
+        "callbacks": 10,
+        "saveSha256": "33da6f40e75e34a3590f7c5bca2851d1829f171db9858bdb527447deccf36b29",
+        "rngEnd": 2647776461
+      }
+    },
+    {
+      "initialSeed": 7,
+      "retrySeed": 107,
+      "initialSaveSha256": "eec3ef1677912274b44f14ad837e2163183464a57ae7ac26f204119f167fff35",
+      "prep": {
+        "before": {
+          "second": 3322075,
+          "army": 45,
+          "deployed": 0,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 40,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 23415.703482598274,
+            "steel": 23,
+            "wood": 483600,
+            "stone": 324776,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [],
+            "mid": [],
+            "back": []
+          },
+          "defeated": 95,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "after": {
+          "second": 3322422,
+          "army": 85,
+          "deployed": 80,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 0,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 6469.895710048825,
+            "steel": 7,
+            "wood": 483600,
+            "stone": 325576,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [
+              {
+                "type": "armored_trooper",
+                "count": 40,
+                "id": 1790710432068
+              },
+              {
+                "type": "alloy_special",
+                "count": 40,
+                "id": 1790710432069
+              }
+            ],
+            "mid": [],
+            "back": []
+          },
+          "defeated": 95,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "trained": {
+          "armored_trooper": 0,
+          "alloy_special": 40
+        },
+        "paid": {
+          "food": 60000,
+          "steel": 4000
+        },
+        "seconds": 347
+      },
+      "retry": {
+        "stage": 96,
+        "candidate": {
+          "before": 60,
+          "after": 450,
+          "units": {
+            "infantry": [
+              105,
+              75,
+              45
+            ],
+            "archer": [
+              105,
+              75,
+              45
+            ]
+          }
+        },
+        "won": true,
+        "before": {
+          "army": 85,
+          "deployed": 80
+        },
+        "after": {
+          "army": 78,
+          "deployed": 73
+        },
+        "loss": 7,
+        "enemyHp": 0,
+        "round": 1,
+        "callbacks": 10,
+        "saveSha256": "28b3adb599680c6b641e2686b9bedbef953628d2cb28f228403616ae4d646b47",
+        "rngEnd": 921274074
+      }
+    },
+    {
+      "initialSeed": 9,
+      "retrySeed": 109,
+      "initialSaveSha256": "ca0f1a9986f0a8c14c03ee483fa157f89ed01bd33c1707b42640aa4cc9e8d025",
+      "prep": {
+        "before": {
+          "second": 3322075,
+          "army": 45,
+          "deployed": 0,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 40,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 23415.703482598274,
+            "steel": 23,
+            "wood": 483600,
+            "stone": 324776,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [],
+            "mid": [],
+            "back": []
+          },
+          "defeated": 95,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "after": {
+          "second": 3322422,
+          "army": 85,
+          "deployed": 80,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 0,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 6469.895710048825,
+            "steel": 7,
+            "wood": 483600,
+            "stone": 325576,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [
+              {
+                "type": "armored_trooper",
+                "count": 40,
+                "id": 1790710432255
+              },
+              {
+                "type": "alloy_special",
+                "count": 40,
+                "id": 1790710432256
+              }
+            ],
+            "mid": [],
+            "back": []
+          },
+          "defeated": 95,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "trained": {
+          "armored_trooper": 0,
+          "alloy_special": 40
+        },
+        "paid": {
+          "food": 60000,
+          "steel": 4000
+        },
+        "seconds": 347
+      },
+      "retry": {
+        "stage": 96,
+        "candidate": {
+          "before": 60,
+          "after": 450,
+          "units": {
+            "infantry": [
+              105,
+              75,
+              45
+            ],
+            "archer": [
+              105,
+              75,
+              45
+            ]
+          }
+        },
+        "won": true,
+        "before": {
+          "army": 85,
+          "deployed": 80
+        },
+        "after": {
+          "army": 72,
+          "deployed": 67
+        },
+        "loss": 13,
+        "enemyHp": 0,
+        "round": 2,
+        "callbacks": 16,
+        "saveSha256": "05cf9fe3519e0e51870c6e72c7a09100bde956f84cdf7ca9d0bde8191057fb28",
+        "rngEnd": 3376084183
+      }
+    }
+  ],
+  "retrySummary": {
+    "wins": 3,
+    "of": 3,
+    "meanRetryLoss": 9.666666666666666
+  },
+  "earlySummary": [
+    {
+      "strategy": "alloyArcher",
+      "stage90Wins": 3,
+      "stage91Wins": 3,
+      "bothWins": 3,
+      "of": 3,
+      "meanStage90Loss": 65,
+      "meanStage91Loss": 13,
+      "maxTotalPrepSeconds": 269
+    },
+    {
+      "strategy": "armorAlloy",
+      "stage90Wins": 3,
+      "stage91Wins": 3,
+      "bothWins": 3,
+      "of": 3,
+      "meanStage90Loss": 7.333333333333333,
+      "meanStage91Loss": 1,
+      "maxTotalPrepSeconds": 783
+    }
+  ],
+  "earlyRows": [
+    {
+      "strategy": "alloyArcher",
+      "seed": 1,
+      "prep90": {
+        "before": {
+          "second": 3321219,
+          "army": 72,
+          "deployed": 27,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 40,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 204366.11278882215,
+            "steel": 23,
+            "wood": 488400,
+            "stone": 325600,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [
+              {
+                "type": "alloy_special",
+                "count": 27,
+                "id": 1790709500341
+              }
+            ],
+            "mid": [],
+            "back": []
+          },
+          "defeated": 89,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "after": {
+          "second": 3321300,
+          "army": 125,
+          "deployed": 80,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 40,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 188477.67170402248,
+            "steel": 19,
+            "wood": 485200,
+            "stone": 324776,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [
+              {
+                "type": "alloy_special",
+                "count": 40,
+                "id": 1790710432952
+              }
+            ],
+            "mid": [
+              {
+                "type": "archer",
+                "count": 20,
+                "id": 1790710432953
+              }
+            ],
+            "back": [
+              {
+                "type": "archer",
+                "count": 20,
+                "id": 1790710432954
+              }
+            ]
+          },
+          "defeated": 89,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "trained": {
+          "alloy_special": 13,
+          "archer": 40
+        },
+        "paid": {
+          "food": 20700,
+          "steel": 1300,
+          "wood": 3200,
+          "stone": 800
+        },
+        "seconds": 81
+      },
+      "battle90": {
+        "stage": 90,
+        "candidate": {
+          "before": 11,
+          "after": 165,
+          "units": {
+            "infantry": [
+              15,
+              15,
+              15
+            ],
+            "archer": [
+              15,
+              15,
+              15
+            ],
+            "cavalry_t1": [
+              15,
+              15,
+              15
+            ],
+            "mage_t1": [
+              15,
+              15
+            ]
+          }
+        },
+        "won": true,
+        "before": {
+          "army": 125,
+          "deployed": 80
+        },
+        "after": {
+          "army": 71,
+          "deployed": 26
+        },
+        "loss": 54,
+        "enemyHp": 0,
+        "round": 2,
+        "callbacks": 31,
+        "saveSha256": "c0b3aba2314f10e0eb8688295eca0f1179b6267f4aa45653f7f45a667a459b72",
+        "rngEnd": 3985495722
+      },
+      "prep91": {
+        "before": {
+          "second": 3321300,
+          "army": 71,
+          "deployed": 26,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 40,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 209000,
+            "steel": 19,
+            "wood": 488400,
+            "stone": 325600,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [
+              {
+                "type": "alloy_special",
+                "count": 26,
+                "id": 1790710432952
+              }
+            ],
+            "mid": [],
+            "back": []
+          },
+          "defeated": 90,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "after": {
+          "second": 3321385,
+          "army": 125,
+          "deployed": 80,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 40,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 191604.3361707763,
+            "steel": 11,
+            "wood": 485200,
+            "stone": 324776,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [
+              {
+                "type": "alloy_special",
+                "count": 40,
+                "id": 1790710433017
+              }
+            ],
+            "mid": [
+              {
+                "type": "archer",
+                "count": 20,
+                "id": 1790710433018
+              }
+            ],
+            "back": [
+              {
+                "type": "archer",
+                "count": 20,
+                "id": 1790710433019
+              }
+            ]
+          },
+          "defeated": 90,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "trained": {
+          "alloy_special": 14,
+          "archer": 40
+        },
+        "paid": {
+          "food": 22200,
+          "steel": 1400,
+          "wood": 3200,
+          "stone": 800
+        },
+        "seconds": 85
+      },
+      "battle91": {
+        "stage": 91,
+        "candidate": {
+          "before": 16,
+          "after": 180,
+          "units": {
+            "infantry": [
+              101,
+              79
+            ]
+          }
+        },
+        "won": true,
+        "before": {
+          "army": 125,
+          "deployed": 80
+        },
+        "after": {
+          "army": 115,
+          "deployed": 70
+        },
+        "loss": 10,
+        "enemyHp": 0,
+        "round": 2,
+        "callbacks": 12,
+        "saveSha256": "b34361257bef88cc5e349a75fe7851485314ea28b5a59d67faba1bcd3921d56e",
+        "rngEnd": 1521926548
+      }
+    },
+    {
+      "strategy": "alloyArcher",
+      "seed": 7,
+      "prep90": {
+        "before": {
+          "second": 3321219,
+          "army": 72,
+          "deployed": 27,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 40,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 204366.11278882215,
+            "steel": 23,
+            "wood": 488400,
+            "stone": 325600,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [
+              {
+                "type": "alloy_special",
+                "count": 27,
+                "id": 1790709500341
+              }
+            ],
+            "mid": [],
+            "back": []
+          },
+          "defeated": 89,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "after": {
+          "second": 3321300,
+          "army": 125,
+          "deployed": 80,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 40,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 188477.67170402248,
+            "steel": 19,
+            "wood": 485200,
+            "stone": 324776,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [
+              {
+                "type": "alloy_special",
+                "count": 40,
+                "id": 1790710433079
+              }
+            ],
+            "mid": [
+              {
+                "type": "archer",
+                "count": 20,
+                "id": 1790710433080
+              }
+            ],
+            "back": [
+              {
+                "type": "archer",
+                "count": 20,
+                "id": 1790710433081
+              }
+            ]
+          },
+          "defeated": 89,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "trained": {
+          "alloy_special": 13,
+          "archer": 40
+        },
+        "paid": {
+          "food": 20700,
+          "steel": 1300,
+          "wood": 3200,
+          "stone": 800
+        },
+        "seconds": 81
+      },
+      "battle90": {
+        "stage": 90,
+        "candidate": {
+          "before": 11,
+          "after": 165,
+          "units": {
+            "infantry": [
+              15,
+              15,
+              15
+            ],
+            "archer": [
+              15,
+              15,
+              15
+            ],
+            "cavalry_t1": [
+              15,
+              15,
+              15
+            ],
+            "mage_t1": [
+              15,
+              15
+            ]
+          }
+        },
+        "won": true,
+        "before": {
+          "army": 125,
+          "deployed": 80
+        },
+        "after": {
+          "army": 60,
+          "deployed": 15
+        },
+        "loss": 65,
+        "enemyHp": 0,
+        "round": 3,
+        "callbacks": 42,
+        "saveSha256": "d2a66d179513e7c356874a696fe6c0326c7c17d23ee5fb5e39b799659febb08a",
+        "rngEnd": 887671128
+      },
+      "prep91": {
+        "before": {
+          "second": 3321300,
+          "army": 60,
+          "deployed": 15,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 40,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 209000,
+            "steel": 19,
+            "wood": 488400,
+            "stone": 325600,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [
+              {
+                "type": "alloy_special",
+                "count": 15,
+                "id": 1790710433079
+              }
+            ],
+            "mid": [],
+            "back": []
+          },
+          "defeated": 90,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "after": {
+          "second": 3321437,
+          "army": 125,
+          "deployed": 80,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 40,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 176636.98491126098,
+            "steel": 15,
+            "wood": 485200,
+            "stone": 324776,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [
+              {
+                "type": "alloy_special",
+                "count": 40,
+                "id": 1790710433145
+              }
+            ],
+            "mid": [
+              {
+                "type": "archer",
+                "count": 20,
+                "id": 1790710433146
+              }
+            ],
+            "back": [
+              {
+                "type": "archer",
+                "count": 20,
+                "id": 1790710433147
+              }
+            ]
+          },
+          "defeated": 90,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "trained": {
+          "alloy_special": 25,
+          "archer": 40
+        },
+        "paid": {
+          "food": 38700,
+          "steel": 2500,
+          "wood": 3200,
+          "stone": 800
+        },
+        "seconds": 137
+      },
+      "battle91": {
+        "stage": 91,
+        "candidate": {
+          "before": 16,
+          "after": 180,
+          "units": {
+            "infantry": [
+              101,
+              79
+            ]
+          }
+        },
+        "won": true,
+        "before": {
+          "army": 125,
+          "deployed": 80
+        },
+        "after": {
+          "army": 110,
+          "deployed": 65
+        },
+        "loss": 15,
+        "enemyHp": 0,
+        "round": 3,
+        "callbacks": 20,
+        "saveSha256": "131192d38c10a864afb90d0a3c0715bcdebb290277cb961f71970e792b3fd132",
+        "rngEnd": 897529936
+      }
+    },
+    {
+      "strategy": "alloyArcher",
+      "seed": 9,
+      "prep90": {
+        "before": {
+          "second": 3321219,
+          "army": 72,
+          "deployed": 27,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 40,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 204366.11278882215,
+            "steel": 23,
+            "wood": 488400,
+            "stone": 325600,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [
+              {
+                "type": "alloy_special",
+                "count": 27,
+                "id": 1790709500341
+              }
+            ],
+            "mid": [],
+            "back": []
+          },
+          "defeated": 89,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "after": {
+          "second": 3321300,
+          "army": 125,
+          "deployed": 80,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 40,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 188477.67170402248,
+            "steel": 19,
+            "wood": 485200,
+            "stone": 324776,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [
+              {
+                "type": "alloy_special",
+                "count": 40,
+                "id": 1790710433212
+              }
+            ],
+            "mid": [
+              {
+                "type": "archer",
+                "count": 20,
+                "id": 1790710433213
+              }
+            ],
+            "back": [
+              {
+                "type": "archer",
+                "count": 20,
+                "id": 1790710433214
+              }
+            ]
+          },
+          "defeated": 89,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "trained": {
+          "alloy_special": 13,
+          "archer": 40
+        },
+        "paid": {
+          "food": 20700,
+          "steel": 1300,
+          "wood": 3200,
+          "stone": 800
+        },
+        "seconds": 81
+      },
+      "battle90": {
+        "stage": 90,
+        "candidate": {
+          "before": 11,
+          "after": 165,
+          "units": {
+            "infantry": [
+              15,
+              15,
+              15
+            ],
+            "archer": [
+              15,
+              15,
+              15
+            ],
+            "cavalry_t1": [
+              15,
+              15,
+              15
+            ],
+            "mage_t1": [
+              15,
+              15
+            ]
+          }
+        },
+        "won": true,
+        "before": {
+          "army": 125,
+          "deployed": 80
+        },
+        "after": {
+          "army": 49,
+          "deployed": 4
+        },
+        "loss": 76,
+        "enemyHp": 0,
+        "round": 6,
+        "callbacks": 64,
+        "saveSha256": "b883265283157a7c620f072ccbcb0a3783e130b2ab3c99795fd251498f3d6c2e",
+        "rngEnd": 3319131145
+      },
+      "prep91": {
+        "before": {
+          "second": 3321300,
+          "army": 49,
+          "deployed": 4,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 40,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 209000,
+            "steel": 19,
+            "wood": 488400,
+            "stone": 325600,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [
+              {
+                "type": "alloy_special",
+                "count": 4,
+                "id": 1790710433212
+              }
+            ],
+            "mid": [],
+            "back": []
+          },
+          "defeated": 90,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "after": {
+          "second": 3321488,
+          "army": 125,
+          "deployed": 80,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 40,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 161724.24696164025,
+            "steel": 19,
+            "wood": 485200,
+            "stone": 324776,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [
+              {
+                "type": "alloy_special",
+                "count": 40,
+                "id": 1790710433321
+              }
+            ],
+            "mid": [
+              {
+                "type": "archer",
+                "count": 20,
+                "id": 1790710433322
+              }
+            ],
+            "back": [
+              {
+                "type": "archer",
+                "count": 20,
+                "id": 1790710433323
+              }
+            ]
+          },
+          "defeated": 90,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "trained": {
+          "alloy_special": 36,
+          "archer": 40
+        },
+        "paid": {
+          "food": 55200,
+          "steel": 3600,
+          "wood": 3200,
+          "stone": 800
+        },
+        "seconds": 188
+      },
+      "battle91": {
+        "stage": 91,
+        "candidate": {
+          "before": 16,
+          "after": 180,
+          "units": {
+            "infantry": [
+              101,
+              79
+            ]
+          }
+        },
+        "won": true,
+        "before": {
+          "army": 125,
+          "deployed": 80
+        },
+        "after": {
+          "army": 111,
+          "deployed": 66
+        },
+        "loss": 14,
+        "enemyHp": 0,
+        "round": 3,
+        "callbacks": 18,
+        "saveSha256": "355615b50ba28db66bf1bae73760f4ece1441602abdbd0d38647eb47551c35ea",
+        "rngEnd": 4046050569
+      }
+    },
+    {
+      "strategy": "armorAlloy",
+      "seed": 1,
+      "prep90": {
+        "before": {
+          "second": 3321219,
+          "army": 72,
+          "deployed": 27,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 40,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 204366.11278882215,
+            "steel": 23,
+            "wood": 488400,
+            "stone": 325600,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [
+              {
+                "type": "alloy_special",
+                "count": 27,
+                "id": 1790709500341
+              }
+            ],
+            "mid": [],
+            "back": []
+          },
+          "defeated": 89,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "after": {
+          "second": 3321280,
+          "army": 85,
+          "deployed": 80,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 0,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 185681.21671422423,
+            "steel": 19,
+            "wood": 488400,
+            "stone": 325576,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [
+              {
+                "type": "armored_trooper",
+                "count": 40,
+                "id": 1790710433382
+              },
+              {
+                "type": "alloy_special",
+                "count": 40,
+                "id": 1790710433383
+              }
+            ],
+            "mid": [],
+            "back": []
+          },
+          "defeated": 89,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "trained": {
+          "armored_trooper": 0,
+          "alloy_special": 13
+        },
+        "paid": {
+          "food": 19500,
+          "steel": 1300
+        },
+        "seconds": 61
+      },
+      "battle90": {
+        "stage": 90,
+        "candidate": {
+          "before": 11,
+          "after": 165,
+          "units": {
+            "infantry": [
+              15,
+              15,
+              15
+            ],
+            "archer": [
+              15,
+              15,
+              15
+            ],
+            "cavalry_t1": [
+              15,
+              15,
+              15
+            ],
+            "mage_t1": [
+              15,
+              15
+            ]
+          }
+        },
+        "won": true,
+        "before": {
+          "army": 85,
+          "deployed": 80
+        },
+        "after": {
+          "army": 80,
+          "deployed": 75
+        },
+        "loss": 5,
+        "enemyHp": 0,
+        "round": 2,
+        "callbacks": 20,
+        "saveSha256": "4d2518161757bd2884e4489e0f6a9fd756011b447601ed866305d310e3c5dd49",
+        "rngEnd": 4114869520
+      },
+      "prep91": {
+        "before": {
+          "second": 3321280,
+          "army": 80,
+          "deployed": 75,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 0,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 209000,
+            "steel": 19,
+            "wood": 488400,
+            "stone": 325600,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [
+              {
+                "type": "armored_trooper",
+                "count": 35,
+                "id": 1790710433382
+              },
+              {
+                "type": "alloy_special",
+                "count": 40,
+                "id": 1790710433383
+              }
+            ],
+            "mid": [],
+            "back": []
+          },
+          "defeated": 90,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "after": {
+          "second": 3322002,
+          "army": 85,
+          "deployed": 80,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 0,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 196924.874269763,
+            "steel": 3,
+            "wood": 488400,
+            "stone": 325548,
+            "copper": 22.000000000842192,
+            "iron": 2492736
+          },
+          "formation": {
+            "front": [
+              {
+                "type": "armored_trooper",
+                "count": 40,
+                "id": 1790710433525
+              },
+              {
+                "type": "alloy_special",
+                "count": 40,
+                "id": 1790710433526
+              }
+            ],
+            "mid": [],
+            "back": []
+          },
+          "defeated": 90,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "trained": {
+          "armored_trooper": 5,
+          "alloy_special": 0
+        },
+        "paid": {
+          "steel": 10000,
+          "copper": 10000,
+          "iron": 10000
+        },
+        "seconds": 722
+      },
+      "battle91": {
+        "stage": 91,
+        "candidate": {
+          "before": 16,
+          "after": 180,
+          "units": {
+            "infantry": [
+              101,
+              79
+            ]
+          }
+        },
+        "won": true,
+        "before": {
+          "army": 85,
+          "deployed": 80
+        },
+        "after": {
+          "army": 83,
+          "deployed": 78
+        },
+        "loss": 2,
+        "enemyHp": 0,
+        "round": 2,
+        "callbacks": 8,
+        "saveSha256": "bb3eaf6d11d5ad176c5948078f50fc1bcde7192a4822384fa8953260bd57539c",
+        "rngEnd": 3179895053
+      }
+    },
+    {
+      "strategy": "armorAlloy",
+      "seed": 7,
+      "prep90": {
+        "before": {
+          "second": 3321219,
+          "army": 72,
+          "deployed": 27,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 40,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 204366.11278882215,
+            "steel": 23,
+            "wood": 488400,
+            "stone": 325600,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [
+              {
+                "type": "alloy_special",
+                "count": 27,
+                "id": 1790709500341
+              }
+            ],
+            "mid": [],
+            "back": []
+          },
+          "defeated": 89,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "after": {
+          "second": 3321280,
+          "army": 85,
+          "deployed": 80,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 0,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 185681.21671422423,
+            "steel": 19,
+            "wood": 488400,
+            "stone": 325576,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [
+              {
+                "type": "armored_trooper",
+                "count": 40,
+                "id": 1790710433570
+              },
+              {
+                "type": "alloy_special",
+                "count": 40,
+                "id": 1790710433571
+              }
+            ],
+            "mid": [],
+            "back": []
+          },
+          "defeated": 89,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "trained": {
+          "armored_trooper": 0,
+          "alloy_special": 13
+        },
+        "paid": {
+          "food": 19500,
+          "steel": 1300
+        },
+        "seconds": 61
+      },
+      "battle90": {
+        "stage": 90,
+        "candidate": {
+          "before": 11,
+          "after": 165,
+          "units": {
+            "infantry": [
+              15,
+              15,
+              15
+            ],
+            "archer": [
+              15,
+              15,
+              15
+            ],
+            "cavalry_t1": [
+              15,
+              15,
+              15
+            ],
+            "mage_t1": [
+              15,
+              15
+            ]
+          }
+        },
+        "won": true,
+        "before": {
+          "army": 85,
+          "deployed": 80
+        },
+        "after": {
+          "army": 75,
+          "deployed": 70
+        },
+        "loss": 10,
+        "enemyHp": 0,
+        "round": 1,
+        "callbacks": 18,
+        "saveSha256": "8199e5d41d12e6ea447d8e4ba82cc56d7b17b6a35debe3721bcd1a39fe4f5f2a",
+        "rngEnd": 3357572714
+      },
+      "prep91": {
+        "before": {
+          "second": 3321280,
+          "army": 75,
+          "deployed": 70,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 0,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 209000,
+            "steel": 19,
+            "wood": 488400,
+            "stone": 325600,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [
+              {
+                "type": "armored_trooper",
+                "count": 38,
+                "id": 1790710433570
+              },
+              {
+                "type": "alloy_special",
+                "count": 32,
+                "id": 1790710433571
+              }
+            ],
+            "mid": [],
+            "back": []
+          },
+          "defeated": 90,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "after": {
+          "second": 3321606,
+          "army": 85,
+          "deployed": 80,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 0,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 193532.4658703092,
+            "steel": 19,
+            "wood": 488400,
+            "stone": 325548,
+            "copper": 16.000000000842192,
+            "iron": 2495040
+          },
+          "formation": {
+            "front": [
+              {
+                "type": "armored_trooper",
+                "count": 40,
+                "id": 1790710433676
+              },
+              {
+                "type": "alloy_special",
+                "count": 40,
+                "id": 1790710433677
+              }
+            ],
+            "mid": [],
+            "back": []
+          },
+          "defeated": 90,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "trained": {
+          "armored_trooper": 2,
+          "alloy_special": 8
+        },
+        "paid": {
+          "food": 12000,
+          "steel": 4800,
+          "copper": 4000,
+          "iron": 4000
+        },
+        "seconds": 326
+      },
+      "battle91": {
+        "stage": 91,
+        "candidate": {
+          "before": 16,
+          "after": 180,
+          "units": {
+            "infantry": [
+              101,
+              79
+            ]
+          }
+        },
+        "won": true,
+        "before": {
+          "army": 85,
+          "deployed": 80
+        },
+        "after": {
+          "army": 85,
+          "deployed": 80
+        },
+        "loss": 0,
+        "enemyHp": 0,
+        "round": 1,
+        "callbacks": 3,
+        "saveSha256": "ff39d7386f046df70201529fe88feba975f5e0d54aff604fae650430158ff6c5",
+        "rngEnd": 2024623307
+      }
+    },
+    {
+      "strategy": "armorAlloy",
+      "seed": 9,
+      "prep90": {
+        "before": {
+          "second": 3321219,
+          "army": 72,
+          "deployed": 27,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 40,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 204366.11278882215,
+            "steel": 23,
+            "wood": 488400,
+            "stone": 325600,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [
+              {
+                "type": "alloy_special",
+                "count": 27,
+                "id": 1790709500341
+              }
+            ],
+            "mid": [],
+            "back": []
+          },
+          "defeated": 89,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "after": {
+          "second": 3321280,
+          "army": 85,
+          "deployed": 80,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 0,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 185681.21671422423,
+            "steel": 19,
+            "wood": 488400,
+            "stone": 325576,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [
+              {
+                "type": "armored_trooper",
+                "count": 40,
+                "id": 1790710433725
+              },
+              {
+                "type": "alloy_special",
+                "count": 40,
+                "id": 1790710433726
+              }
+            ],
+            "mid": [],
+            "back": []
+          },
+          "defeated": 89,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "trained": {
+          "armored_trooper": 0,
+          "alloy_special": 13
+        },
+        "paid": {
+          "food": 19500,
+          "steel": 1300
+        },
+        "seconds": 61
+      },
+      "battle90": {
+        "stage": 90,
+        "candidate": {
+          "before": 11,
+          "after": 165,
+          "units": {
+            "infantry": [
+              15,
+              15,
+              15
+            ],
+            "archer": [
+              15,
+              15,
+              15
+            ],
+            "cavalry_t1": [
+              15,
+              15,
+              15
+            ],
+            "mage_t1": [
+              15,
+              15
+            ]
+          }
+        },
+        "won": true,
+        "before": {
+          "army": 85,
+          "deployed": 80
+        },
+        "after": {
+          "army": 78,
+          "deployed": 73
+        },
+        "loss": 7,
+        "enemyHp": 0,
+        "round": 1,
+        "callbacks": 18,
+        "saveSha256": "673f72dc7403decd3dd4d4ce75f88d606ab24744be36700964d8cc936b635d4c",
+        "rngEnd": 1104338322
+      },
+      "prep91": {
+        "before": {
+          "second": 3321280,
+          "army": 78,
+          "deployed": 73,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 0,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 209000,
+            "steel": 19,
+            "wood": 488400,
+            "stone": 325600,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [
+              {
+                "type": "armored_trooper",
+                "count": 40,
+                "id": 1790710433725
+              },
+              {
+                "type": "alloy_special",
+                "count": 33,
+                "id": 1790710433726
+              }
+            ],
+            "mid": [],
+            "back": []
+          },
+          "defeated": 90,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "after": {
+          "second": 3321313,
+          "army": 85,
+          "deployed": 80,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 0,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 198868.73924582315,
+            "steel": 15,
+            "wood": 488400,
+            "stone": 325576,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [
+              {
+                "type": "armored_trooper",
+                "count": 40,
+                "id": 1790710433759
+              },
+              {
+                "type": "alloy_special",
+                "count": 40,
+                "id": 1790710433760
+              }
+            ],
+            "mid": [],
+            "back": []
+          },
+          "defeated": 90,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "trained": {
+          "armored_trooper": 0,
+          "alloy_special": 7
+        },
+        "paid": {
+          "food": 10500,
+          "steel": 700
+        },
+        "seconds": 33
+      },
+      "battle91": {
+        "stage": 91,
+        "candidate": {
+          "before": 16,
+          "after": 180,
+          "units": {
+            "infantry": [
+              101,
+              79
+            ]
+          }
+        },
+        "won": true,
+        "before": {
+          "army": 85,
+          "deployed": 80
+        },
+        "after": {
+          "army": 84,
+          "deployed": 79
+        },
+        "loss": 1,
+        "enemyHp": 0,
+        "round": 1,
+        "callbacks": 4,
+        "saveSha256": "0a9c8d5e45d14d443a54d5b8a3d28f78a222bed114df0e99fecf94be191b0f7d",
+        "rngEnd": 155257350
+      }
+    }
+  ],
+  "rushed91Summary": {
+    "unreplenishedWins": 2,
+    "of": 3,
+    "recovered": 1,
+    "attemptedRecovery": 1
+  },
+  "rushed91": [
+    {
+      "seed": 1,
+      "prep90": {
+        "before": {
+          "second": 3321219,
+          "army": 72,
+          "deployed": 27,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 40,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 204366.11278882215,
+            "steel": 23,
+            "wood": 488400,
+            "stone": 325600,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [
+              {
+                "type": "alloy_special",
+                "count": 27,
+                "id": 1790709500341
+              }
+            ],
+            "mid": [],
+            "back": []
+          },
+          "defeated": 89,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "after": {
+          "second": 3321300,
+          "army": 125,
+          "deployed": 80,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 40,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 188477.67170402248,
+            "steel": 19,
+            "wood": 485200,
+            "stone": 324776,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [
+              {
+                "type": "alloy_special",
+                "count": 40,
+                "id": 1790710433837
+              }
+            ],
+            "mid": [
+              {
+                "type": "archer",
+                "count": 20,
+                "id": 1790710433838
+              }
+            ],
+            "back": [
+              {
+                "type": "archer",
+                "count": 20,
+                "id": 1790710433839
+              }
+            ]
+          },
+          "defeated": 89,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "trained": {
+          "alloy_special": 13,
+          "archer": 40
+        },
+        "paid": {
+          "food": 20700,
+          "steel": 1300,
+          "wood": 3200,
+          "stone": 800
+        },
+        "seconds": 81
+      },
+      "battle90": {
+        "stage": 90,
+        "candidate": {
+          "before": 11,
+          "after": 165,
+          "units": {
+            "infantry": [
+              15,
+              15,
+              15
+            ],
+            "archer": [
+              15,
+              15,
+              15
+            ],
+            "cavalry_t1": [
+              15,
+              15,
+              15
+            ],
+            "mage_t1": [
+              15,
+              15
+            ]
+          }
+        },
+        "won": true,
+        "before": {
+          "army": 125,
+          "deployed": 80
+        },
+        "after": {
+          "army": 71,
+          "deployed": 26
+        },
+        "loss": 54,
+        "enemyHp": 0,
+        "round": 2,
+        "callbacks": 31,
+        "saveSha256": "b83fef8d0f6d7dffbd15af10540f4c6a7de552951e16900e4f7567122facd400",
+        "rngEnd": 3985495722
+      },
+      "unreplenished91": {
+        "stage": 91,
+        "candidate": {
+          "before": 16,
+          "after": 180,
+          "units": {
+            "infantry": [
+              101,
+              79
+            ]
+          }
+        },
+        "won": true,
+        "before": {
+          "army": 71,
+          "deployed": 26
+        },
+        "after": {
+          "army": 68,
+          "deployed": 23
+        },
+        "loss": 3,
+        "enemyHp": 0,
+        "round": 2,
+        "callbacks": 9,
+        "saveSha256": "f33943beebc632830a50656183db6d08eedce1eebcdc420a17ccb8cf149e3f66",
+        "rngEnd": 292819669
+      },
+      "recovery": null
+    },
+    {
+      "seed": 7,
+      "prep90": {
+        "before": {
+          "second": 3321219,
+          "army": 72,
+          "deployed": 27,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 40,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 204366.11278882215,
+            "steel": 23,
+            "wood": 488400,
+            "stone": 325600,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [
+              {
+                "type": "alloy_special",
+                "count": 27,
+                "id": 1790709500341
+              }
+            ],
+            "mid": [],
+            "back": []
+          },
+          "defeated": 89,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "after": {
+          "second": 3321300,
+          "army": 125,
+          "deployed": 80,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 40,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 188477.67170402248,
+            "steel": 19,
+            "wood": 485200,
+            "stone": 324776,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [
+              {
+                "type": "alloy_special",
+                "count": 40,
+                "id": 1790710433931
+              }
+            ],
+            "mid": [
+              {
+                "type": "archer",
+                "count": 20,
+                "id": 1790710433932
+              }
+            ],
+            "back": [
+              {
+                "type": "archer",
+                "count": 20,
+                "id": 1790710433933
+              }
+            ]
+          },
+          "defeated": 89,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "trained": {
+          "alloy_special": 13,
+          "archer": 40
+        },
+        "paid": {
+          "food": 20700,
+          "steel": 1300,
+          "wood": 3200,
+          "stone": 800
+        },
+        "seconds": 81
+      },
+      "battle90": {
+        "stage": 90,
+        "candidate": {
+          "before": 11,
+          "after": 165,
+          "units": {
+            "infantry": [
+              15,
+              15,
+              15
+            ],
+            "archer": [
+              15,
+              15,
+              15
+            ],
+            "cavalry_t1": [
+              15,
+              15,
+              15
+            ],
+            "mage_t1": [
+              15,
+              15
+            ]
+          }
+        },
+        "won": true,
+        "before": {
+          "army": 125,
+          "deployed": 80
+        },
+        "after": {
+          "army": 60,
+          "deployed": 15
+        },
+        "loss": 65,
+        "enemyHp": 0,
+        "round": 3,
+        "callbacks": 42,
+        "saveSha256": "e31dc3d186f3d70d43155832cc18e3e72b920205847da241628711711dd55015",
+        "rngEnd": 887671128
+      },
+      "unreplenished91": {
+        "stage": 91,
+        "candidate": {
+          "before": 16,
+          "after": 180,
+          "units": {
+            "infantry": [
+              101,
+              79
+            ]
+          }
+        },
+        "won": true,
+        "before": {
+          "army": 60,
+          "deployed": 15
+        },
+        "after": {
+          "army": 55,
+          "deployed": 10
+        },
+        "loss": 5,
+        "enemyHp": 0,
+        "round": 4,
+        "callbacks": 18,
+        "saveSha256": "fb5245b4fa29b312201fb5be0306540b7022859f5cc0c29cbb27280bb9f74f6b",
+        "rngEnd": 2375127926
+      },
+      "recovery": null
+    },
+    {
+      "seed": 9,
+      "prep90": {
+        "before": {
+          "second": 3321219,
+          "army": 72,
+          "deployed": 27,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 40,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 204366.11278882215,
+            "steel": 23,
+            "wood": 488400,
+            "stone": 325600,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [
+              {
+                "type": "alloy_special",
+                "count": 27,
+                "id": 1790709500341
+              }
+            ],
+            "mid": [],
+            "back": []
+          },
+          "defeated": 89,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "after": {
+          "second": 3321300,
+          "army": 125,
+          "deployed": 80,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 40,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 188477.67170402248,
+            "steel": 19,
+            "wood": 485200,
+            "stone": 324776,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [
+              {
+                "type": "alloy_special",
+                "count": 40,
+                "id": 1790710434031
+              }
+            ],
+            "mid": [
+              {
+                "type": "archer",
+                "count": 20,
+                "id": 1790710434032
+              }
+            ],
+            "back": [
+              {
+                "type": "archer",
+                "count": 20,
+                "id": 1790710434033
+              }
+            ]
+          },
+          "defeated": 89,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "trained": {
+          "alloy_special": 13,
+          "archer": 40
+        },
+        "paid": {
+          "food": 20700,
+          "steel": 1300,
+          "wood": 3200,
+          "stone": 800
+        },
+        "seconds": 81
+      },
+      "battle90": {
+        "stage": 90,
+        "candidate": {
+          "before": 11,
+          "after": 165,
+          "units": {
+            "infantry": [
+              15,
+              15,
+              15
+            ],
+            "archer": [
+              15,
+              15,
+              15
+            ],
+            "cavalry_t1": [
+              15,
+              15,
+              15
+            ],
+            "mage_t1": [
+              15,
+              15
+            ]
+          }
+        },
+        "won": true,
+        "before": {
+          "army": 125,
+          "deployed": 80
+        },
+        "after": {
+          "army": 49,
+          "deployed": 4
+        },
+        "loss": 76,
+        "enemyHp": 0,
+        "round": 6,
+        "callbacks": 64,
+        "saveSha256": "66fbe1abc11a0c58c2a7c31ceb26fd6a53c53d3cba0b20ea587cb93367155fb0",
+        "rngEnd": 3319131145
+      },
+      "unreplenished91": {
+        "stage": 91,
+        "candidate": {
+          "before": 16,
+          "after": 180,
+          "units": {
+            "infantry": [
+              101,
+              79
+            ]
+          }
+        },
+        "won": false,
+        "before": {
+          "army": 49,
+          "deployed": 4
+        },
+        "after": {
+          "army": 45,
+          "deployed": 0
+        },
+        "loss": 4,
+        "enemyHp": 176,
+        "round": 1,
+        "callbacks": 4,
+        "saveSha256": "9486c8e7d3a60584b37c6f1624e697829b6a1707d3fb7ed244a8e231bcd5caaa",
+        "rngEnd": 1635112902
+      },
+      "recovery": {
+        "seed": 209,
+        "prep": {
+          "before": {
+            "second": 3321300,
+            "army": 45,
+            "deployed": 0,
+            "pool": {
+              "infantry": 0,
+              "archer": 0,
+              "bronze_guard": 1,
+              "iron_spearman": 1,
+              "silver_heavy": 1,
+              "gold_cavalry": 1,
+              "alloy_special": 0,
+              "armored_trooper": 40,
+              "electro_trooper": 1
+            },
+            "res": {
+              "food": 209000,
+              "steel": 19,
+              "wood": 488400,
+              "stone": 325600,
+              "copper": 23.000000000842192,
+              "iron": 2498088
+            },
+            "formation": {
+              "front": [],
+              "mid": [],
+              "back": []
+            },
+            "defeated": 90,
+            "queue": {
+              "bronze_guard": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "iron_spearman": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "silver_heavy": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "gold_cavalry": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "alloy_special": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "armored_trooper": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "electro_trooper": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              }
+            }
+          },
+          "after": {
+            "second": 3321506,
+            "army": 125,
+            "deployed": 80,
+            "pool": {
+              "infantry": 0,
+              "archer": 0,
+              "bronze_guard": 1,
+              "iron_spearman": 1,
+              "silver_heavy": 1,
+              "gold_cavalry": 1,
+              "alloy_special": 0,
+              "armored_trooper": 40,
+              "electro_trooper": 1
+            },
+            "res": {
+              "food": 156187.59988391557,
+              "steel": 3,
+              "wood": 485200,
+              "stone": 324776,
+              "copper": 23.000000000842192,
+              "iron": 2498088
+            },
+            "formation": {
+              "front": [
+                {
+                  "type": "alloy_special",
+                  "count": 40,
+                  "id": 1790710434169
+                }
+              ],
+              "mid": [
+                {
+                  "type": "archer",
+                  "count": 20,
+                  "id": 1790710434170
+                }
+              ],
+              "back": [
+                {
+                  "type": "archer",
+                  "count": 20,
+                  "id": 1790710434171
+                }
+              ]
+            },
+            "defeated": 90,
+            "queue": {
+              "bronze_guard": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "iron_spearman": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "silver_heavy": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "gold_cavalry": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "alloy_special": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "armored_trooper": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "electro_trooper": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              }
+            }
+          },
+          "trained": {
+            "alloy_special": 40,
+            "archer": 40
+          },
+          "paid": {
+            "food": 61200,
+            "steel": 4000,
+            "wood": 3200,
+            "stone": 800
+          },
+          "seconds": 206
+        },
+        "retry": {
+          "stage": 91,
+          "candidate": {
+            "before": 16,
+            "after": 180,
+            "units": {
+              "infantry": [
+                101,
+                79
+              ]
+            }
+          },
+          "won": true,
+          "before": {
+            "army": 125,
+            "deployed": 80
+          },
+          "after": {
+            "army": 117,
+            "deployed": 72
+          },
+          "loss": 8,
+          "enemyHp": 0,
+          "round": 2,
+          "callbacks": 12,
+          "saveSha256": "1a8ed8953f04d01f88b55db0bb170c5b9cda7ce681bd2337229ce8de5554df91",
+          "rngEnd": 1568664013
+        }
+      }
+    }
+  ],
+  "rows": [
+    {
+      "strategy": "alloyArcher",
+      "seed": 1,
+      "prep": {
+        "before": {
+          "second": 3321868,
+          "army": 45,
+          "deployed": 0,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 40,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 75204.98737646191,
+            "steel": 15,
+            "wood": 486800,
+            "stone": 325176,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [],
+            "mid": [],
+            "back": []
+          },
+          "defeated": 95,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "after": {
+          "second": 3322075,
+          "army": 125,
+          "deployed": 80,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 40,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 23415.703482598274,
+            "steel": 23,
+            "wood": 483600,
+            "stone": 324776,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [
+              {
+                "type": "alloy_special",
+                "count": 40,
+                "id": 1790710431789
+              }
+            ],
+            "mid": [
+              {
+                "type": "archer",
+                "count": 20,
+                "id": 1790710431790
+              }
+            ],
+            "back": [
+              {
+                "type": "archer",
+                "count": 20,
+                "id": 1790710431791
+              }
+            ]
+          },
+          "defeated": 95,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "trained": {
+          "alloy_special": 40,
+          "archer": 40
+        },
+        "paid": {
+          "food": 61200,
+          "steel": 4000,
+          "wood": 3200,
+          "stone": 800
+        },
+        "seconds": 207
+      },
+      "first": {
+        "stage": 96,
+        "candidate": {
+          "before": 60,
+          "after": 450,
+          "units": {
+            "infantry": [
+              105,
+              75,
+              45
+            ],
+            "archer": [
+              105,
+              75,
+              45
+            ]
+          }
+        },
+        "won": false,
+        "before": {
+          "army": 125,
+          "deployed": 80
+        },
+        "after": {
+          "army": 45,
+          "deployed": 0
+        },
+        "loss": 80,
+        "enemyHp": 225,
+        "round": 4,
+        "callbacks": 36,
+        "saveSha256": "424badbb7eee0218a47159a9dc61d20beb49914f5c5e01c4700d7b8bb2d4ded3",
+        "rngEnd": 3668345198
+      }
+    },
+    {
+      "strategy": "alloyArcher",
+      "seed": 7,
+      "prep": {
+        "before": {
+          "second": 3321868,
+          "army": 45,
+          "deployed": 0,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 40,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 75204.98737646191,
+            "steel": 15,
+            "wood": 486800,
+            "stone": 325176,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [],
+            "mid": [],
+            "back": []
+          },
+          "defeated": 95,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "after": {
+          "second": 3322075,
+          "army": 125,
+          "deployed": 80,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 40,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 23415.703482598274,
+            "steel": 23,
+            "wood": 483600,
+            "stone": 324776,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [
+              {
+                "type": "alloy_special",
+                "count": 40,
+                "id": 1790710431977
+              }
+            ],
+            "mid": [
+              {
+                "type": "archer",
+                "count": 20,
+                "id": 1790710431978
+              }
+            ],
+            "back": [
+              {
+                "type": "archer",
+                "count": 20,
+                "id": 1790710431979
+              }
+            ]
+          },
+          "defeated": 95,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "trained": {
+          "alloy_special": 40,
+          "archer": 40
+        },
+        "paid": {
+          "food": 61200,
+          "steel": 4000,
+          "wood": 3200,
+          "stone": 800
+        },
+        "seconds": 207
+      },
+      "first": {
+        "stage": 96,
+        "candidate": {
+          "before": 60,
+          "after": 450,
+          "units": {
+            "infantry": [
+              105,
+              75,
+              45
+            ],
+            "archer": [
+              105,
+              75,
+              45
+            ]
+          }
+        },
+        "won": false,
+        "before": {
+          "army": 125,
+          "deployed": 80
+        },
+        "after": {
+          "army": 45,
+          "deployed": 0
+        },
+        "loss": 80,
+        "enemyHp": 102,
+        "round": 6,
+        "callbacks": 50,
+        "saveSha256": "eec3ef1677912274b44f14ad837e2163183464a57ae7ac26f204119f167fff35",
+        "rngEnd": 3922383426
+      }
+    },
+    {
+      "strategy": "alloyArcher",
+      "seed": 9,
+      "prep": {
+        "before": {
+          "second": 3321868,
+          "army": 45,
+          "deployed": 0,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 40,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 75204.98737646191,
+            "steel": 15,
+            "wood": 486800,
+            "stone": 325176,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [],
+            "mid": [],
+            "back": []
+          },
+          "defeated": 95,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "after": {
+          "second": 3322075,
+          "army": 125,
+          "deployed": 80,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 40,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 23415.703482598274,
+            "steel": 23,
+            "wood": 483600,
+            "stone": 324776,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [
+              {
+                "type": "alloy_special",
+                "count": 40,
+                "id": 1790710432164
+              }
+            ],
+            "mid": [
+              {
+                "type": "archer",
+                "count": 20,
+                "id": 1790710432165
+              }
+            ],
+            "back": [
+              {
+                "type": "archer",
+                "count": 20,
+                "id": 1790710432166
+              }
+            ]
+          },
+          "defeated": 95,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "trained": {
+          "alloy_special": 40,
+          "archer": 40
+        },
+        "paid": {
+          "food": 61200,
+          "steel": 4000,
+          "wood": 3200,
+          "stone": 800
+        },
+        "seconds": 207
+      },
+      "first": {
+        "stage": 96,
+        "candidate": {
+          "before": 60,
+          "after": 450,
+          "units": {
+            "infantry": [
+              105,
+              75,
+              45
+            ],
+            "archer": [
+              105,
+              75,
+              45
+            ]
+          }
+        },
+        "won": false,
+        "before": {
+          "army": 125,
+          "deployed": 80
+        },
+        "after": {
+          "army": 45,
+          "deployed": 0
+        },
+        "loss": 80,
+        "enemyHp": 165,
+        "round": 5,
+        "callbacks": 41,
+        "saveSha256": "ca0f1a9986f0a8c14c03ee483fa157f89ed01bd33c1707b42640aa4cc9e8d025",
+        "rngEnd": 2879605815
+      }
+    },
+    {
+      "strategy": "alloyArmorArcher",
+      "seed": 1,
+      "prep": {
+        "before": {
+          "second": 3321868,
+          "army": 45,
+          "deployed": 0,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 40,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 75204.98737646191,
+            "steel": 15,
+            "wood": 486800,
+            "stone": 325176,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [],
+            "mid": [],
+            "back": []
+          },
+          "defeated": 95,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "after": {
+          "second": 3322075,
+          "army": 125,
+          "deployed": 120,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 0,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 23415.703482598274,
+            "steel": 23,
+            "wood": 483600,
+            "stone": 324776,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [
+              {
+                "type": "alloy_special",
+                "count": 40,
+                "id": 1790710432349
+              },
+              {
+                "type": "armored_trooper",
+                "count": 40,
+                "id": 1790710432350
+              }
+            ],
+            "mid": [
+              {
+                "type": "archer",
+                "count": 20,
+                "id": 1790710432351
+              }
+            ],
+            "back": [
+              {
+                "type": "archer",
+                "count": 20,
+                "id": 1790710432352
+              }
+            ]
+          },
+          "defeated": 95,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "trained": {
+          "alloy_special": 40,
+          "armored_trooper": 0,
+          "archer": 40
+        },
+        "paid": {
+          "food": 61200,
+          "steel": 4000,
+          "wood": 3200,
+          "stone": 800
+        },
+        "seconds": 207
+      },
+      "first": {
+        "stage": 96,
+        "candidate": {
+          "before": 60,
+          "after": 450,
+          "units": {
+            "infantry": [
+              105,
+              75,
+              45
+            ],
+            "archer": [
+              105,
+              75,
+              45
+            ]
+          }
+        },
+        "won": true,
+        "before": {
+          "army": 125,
+          "deployed": 120
+        },
+        "after": {
+          "army": 97,
+          "deployed": 92
+        },
+        "loss": 28,
+        "enemyHp": 0,
+        "round": 4,
+        "callbacks": 37,
+        "saveSha256": "0eebfb811735e0e7679eb919c51ba5ca5add8757b18d0b1deaf09eb5e327fb72",
+        "rngEnd": 1453824010
+      }
+    },
+    {
+      "strategy": "alloyArmorArcher",
+      "seed": 7,
+      "prep": {
+        "before": {
+          "second": 3321868,
+          "army": 45,
+          "deployed": 0,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 40,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 75204.98737646191,
+            "steel": 15,
+            "wood": 486800,
+            "stone": 325176,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [],
+            "mid": [],
+            "back": []
+          },
+          "defeated": 95,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "after": {
+          "second": 3322075,
+          "army": 125,
+          "deployed": 120,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 0,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 23415.703482598274,
+            "steel": 23,
+            "wood": 483600,
+            "stone": 324776,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [
+              {
+                "type": "alloy_special",
+                "count": 40,
+                "id": 1790710432443
+              },
+              {
+                "type": "armored_trooper",
+                "count": 40,
+                "id": 1790710432444
+              }
+            ],
+            "mid": [
+              {
+                "type": "archer",
+                "count": 20,
+                "id": 1790710432445
+              }
+            ],
+            "back": [
+              {
+                "type": "archer",
+                "count": 20,
+                "id": 1790710432446
+              }
+            ]
+          },
+          "defeated": 95,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "trained": {
+          "alloy_special": 40,
+          "armored_trooper": 0,
+          "archer": 40
+        },
+        "paid": {
+          "food": 61200,
+          "steel": 4000,
+          "wood": 3200,
+          "stone": 800
+        },
+        "seconds": 207
+      },
+      "first": {
+        "stage": 96,
+        "candidate": {
+          "before": 60,
+          "after": 450,
+          "units": {
+            "infantry": [
+              105,
+              75,
+              45
+            ],
+            "archer": [
+              105,
+              75,
+              45
+            ]
+          }
+        },
+        "won": true,
+        "before": {
+          "army": 125,
+          "deployed": 120
+        },
+        "after": {
+          "army": 87,
+          "deployed": 82
+        },
+        "loss": 38,
+        "enemyHp": 0,
+        "round": 4,
+        "callbacks": 36,
+        "saveSha256": "0d9241a69a737b52ffa2b3aade446a9efb401763252602d47400b09e14dfc4f2",
+        "rngEnd": 2944549674
+      }
+    },
+    {
+      "strategy": "alloyArmorArcher",
+      "seed": 9,
+      "prep": {
+        "before": {
+          "second": 3321868,
+          "army": 45,
+          "deployed": 0,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 40,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 75204.98737646191,
+            "steel": 15,
+            "wood": 486800,
+            "stone": 325176,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [],
+            "mid": [],
+            "back": []
+          },
+          "defeated": 95,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "after": {
+          "second": 3322075,
+          "army": 125,
+          "deployed": 120,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 0,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 23415.703482598274,
+            "steel": 23,
+            "wood": 483600,
+            "stone": 324776,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [
+              {
+                "type": "alloy_special",
+                "count": 40,
+                "id": 1790710432539
+              },
+              {
+                "type": "armored_trooper",
+                "count": 40,
+                "id": 1790710432540
+              }
+            ],
+            "mid": [
+              {
+                "type": "archer",
+                "count": 20,
+                "id": 1790710432541
+              }
+            ],
+            "back": [
+              {
+                "type": "archer",
+                "count": 20,
+                "id": 1790710432542
+              }
+            ]
+          },
+          "defeated": 95,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "trained": {
+          "alloy_special": 40,
+          "armored_trooper": 0,
+          "archer": 40
+        },
+        "paid": {
+          "food": 61200,
+          "steel": 4000,
+          "wood": 3200,
+          "stone": 800
+        },
+        "seconds": 207
+      },
+      "first": {
+        "stage": 96,
+        "candidate": {
+          "before": 60,
+          "after": 450,
+          "units": {
+            "infantry": [
+              105,
+              75,
+              45
+            ],
+            "archer": [
+              105,
+              75,
+              45
+            ]
+          }
+        },
+        "won": true,
+        "before": {
+          "army": 125,
+          "deployed": 120
+        },
+        "after": {
+          "army": 79,
+          "deployed": 74
+        },
+        "loss": 46,
+        "enemyHp": 0,
+        "round": 4,
+        "callbacks": 31,
+        "saveSha256": "7bdf6644b3c567fdd49d6c99bb77a496a5088e7051563f3e1f0aad5d8ad1a4f2",
+        "rngEnd": 2806500162
+      }
+    },
+    {
+      "strategy": "armorArcher",
+      "seed": 1,
+      "prep": {
+        "before": {
+          "second": 3321868,
+          "army": 45,
+          "deployed": 0,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 40,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 75204.98737646191,
+            "steel": 15,
+            "wood": 486800,
+            "stone": 325176,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [],
+            "mid": [],
+            "back": []
+          },
+          "defeated": 95,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "after": {
+          "second": 3321888,
+          "army": 85,
+          "deployed": 80,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 0,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 78483.58107675961,
+            "steel": 15,
+            "wood": 483600,
+            "stone": 324376,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [
+              {
+                "type": "armored_trooper",
+                "count": 40,
+                "id": 1790710432585
+              }
+            ],
+            "mid": [
+              {
+                "type": "archer",
+                "count": 20,
+                "id": 1790710432586
+              }
+            ],
+            "back": [
+              {
+                "type": "archer",
+                "count": 20,
+                "id": 1790710432587
+              }
+            ]
+          },
+          "defeated": 95,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "trained": {
+          "armored_trooper": 0,
+          "archer": 40
+        },
+        "paid": {
+          "wood": 3200,
+          "stone": 800,
+          "food": 1200
+        },
+        "seconds": 20
+      },
+      "first": {
+        "stage": 96,
+        "candidate": {
+          "before": 60,
+          "after": 450,
+          "units": {
+            "infantry": [
+              105,
+              75,
+              45
+            ],
+            "archer": [
+              105,
+              75,
+              45
+            ]
+          }
+        },
+        "won": true,
+        "before": {
+          "army": 85,
+          "deployed": 80
+        },
+        "after": {
+          "army": 25,
+          "deployed": 20
+        },
+        "loss": 60,
+        "enemyHp": 0,
+        "round": 5,
+        "callbacks": 32,
+        "saveSha256": "0059f57ecbb4291a5a0409f3164d1ad9db47c657a3e14185b02d6754cf0bdb87",
+        "rngEnd": 3803229018
+      }
+    },
+    {
+      "strategy": "armorArcher",
+      "seed": 7,
+      "prep": {
+        "before": {
+          "second": 3321868,
+          "army": 45,
+          "deployed": 0,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 40,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 75204.98737646191,
+            "steel": 15,
+            "wood": 486800,
+            "stone": 325176,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [],
+            "mid": [],
+            "back": []
+          },
+          "defeated": 95,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "after": {
+          "second": 3321888,
+          "army": 85,
+          "deployed": 80,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 0,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 78483.58107675961,
+            "steel": 15,
+            "wood": 483600,
+            "stone": 324376,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [
+              {
+                "type": "armored_trooper",
+                "count": 40,
+                "id": 1790710432626
+              }
+            ],
+            "mid": [
+              {
+                "type": "archer",
+                "count": 20,
+                "id": 1790710432627
+              }
+            ],
+            "back": [
+              {
+                "type": "archer",
+                "count": 20,
+                "id": 1790710432628
+              }
+            ]
+          },
+          "defeated": 95,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "trained": {
+          "armored_trooper": 0,
+          "archer": 40
+        },
+        "paid": {
+          "wood": 3200,
+          "stone": 800,
+          "food": 1200
+        },
+        "seconds": 20
+      },
+      "first": {
+        "stage": 96,
+        "candidate": {
+          "before": 60,
+          "after": 450,
+          "units": {
+            "infantry": [
+              105,
+              75,
+              45
+            ],
+            "archer": [
+              105,
+              75,
+              45
+            ]
+          }
+        },
+        "won": false,
+        "before": {
+          "army": 85,
+          "deployed": 80
+        },
+        "after": {
+          "army": 5,
+          "deployed": 0
+        },
+        "loss": 80,
+        "enemyHp": 54,
+        "round": 9,
+        "callbacks": 58,
+        "saveSha256": "8f622ed2a06fc1126cd1351cd13420f74cbe813ed30ae015bb1681aaa0c525c6",
+        "rngEnd": 1964665173
+      }
+    },
+    {
+      "strategy": "armorArcher",
+      "seed": 9,
+      "prep": {
+        "before": {
+          "second": 3321868,
+          "army": 45,
+          "deployed": 0,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 40,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 75204.98737646191,
+            "steel": 15,
+            "wood": 486800,
+            "stone": 325176,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [],
+            "mid": [],
+            "back": []
+          },
+          "defeated": 95,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "after": {
+          "second": 3321888,
+          "army": 85,
+          "deployed": 80,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 0,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 78483.58107675961,
+            "steel": 15,
+            "wood": 483600,
+            "stone": 324376,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [
+              {
+                "type": "armored_trooper",
+                "count": 40,
+                "id": 1790710432669
+              }
+            ],
+            "mid": [
+              {
+                "type": "archer",
+                "count": 20,
+                "id": 1790710432670
+              }
+            ],
+            "back": [
+              {
+                "type": "archer",
+                "count": 20,
+                "id": 1790710432671
+              }
+            ]
+          },
+          "defeated": 95,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "trained": {
+          "armored_trooper": 0,
+          "archer": 40
+        },
+        "paid": {
+          "wood": 3200,
+          "stone": 800,
+          "food": 1200
+        },
+        "seconds": 20
+      },
+      "first": {
+        "stage": 96,
+        "candidate": {
+          "before": 60,
+          "after": 450,
+          "units": {
+            "infantry": [
+              105,
+              75,
+              45
+            ],
+            "archer": [
+              105,
+              75,
+              45
+            ]
+          }
+        },
+        "won": true,
+        "before": {
+          "army": 85,
+          "deployed": 80
+        },
+        "after": {
+          "army": 8,
+          "deployed": 3
+        },
+        "loss": 77,
+        "enemyHp": 0,
+        "round": 10,
+        "callbacks": 59,
+        "saveSha256": "f2f269ab46986775c4a364af8c239d5625f2fd227a94932cb23a54d94fead50e",
+        "rngEnd": 1362877647
+      }
+    },
+    {
+      "strategy": "armorAlloy",
+      "seed": 1,
+      "prep": {
+        "before": {
+          "second": 3321868,
+          "army": 45,
+          "deployed": 0,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 40,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 75204.98737646191,
+            "steel": 15,
+            "wood": 486800,
+            "stone": 325176,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [],
+            "mid": [],
+            "back": []
+          },
+          "defeated": 95,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "after": {
+          "second": 3322055,
+          "army": 85,
+          "deployed": 80,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 0,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 20619.24849280022,
+            "steel": 23,
+            "wood": 486800,
+            "stone": 325576,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [
+              {
+                "type": "armored_trooper",
+                "count": 40,
+                "id": 1790710432742
+              },
+              {
+                "type": "alloy_special",
+                "count": 40,
+                "id": 1790710432743
+              }
+            ],
+            "mid": [],
+            "back": []
+          },
+          "defeated": 95,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "trained": {
+          "armored_trooper": 0,
+          "alloy_special": 40
+        },
+        "paid": {
+          "food": 60000,
+          "steel": 4000
+        },
+        "seconds": 187
+      },
+      "first": {
+        "stage": 96,
+        "candidate": {
+          "before": 60,
+          "after": 450,
+          "units": {
+            "infantry": [
+              105,
+              75,
+              45
+            ],
+            "archer": [
+              105,
+              75,
+              45
+            ]
+          }
+        },
+        "won": true,
+        "before": {
+          "army": 85,
+          "deployed": 80
+        },
+        "after": {
+          "army": 76,
+          "deployed": 71
+        },
+        "loss": 9,
+        "enemyHp": 0,
+        "round": 2,
+        "callbacks": 13,
+        "saveSha256": "712c328f256ce7bbfc46503c73e28194af726238c5fd72cc7b50e625aab5e155",
+        "rngEnd": 1210136899
+      }
+    },
+    {
+      "strategy": "armorAlloy",
+      "seed": 7,
+      "prep": {
+        "before": {
+          "second": 3321868,
+          "army": 45,
+          "deployed": 0,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 40,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 75204.98737646191,
+            "steel": 15,
+            "wood": 486800,
+            "stone": 325176,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [],
+            "mid": [],
+            "back": []
+          },
+          "defeated": 95,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "after": {
+          "second": 3322055,
+          "army": 85,
+          "deployed": 80,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 0,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 20619.24849280022,
+            "steel": 23,
+            "wood": 486800,
+            "stone": 325576,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [
+              {
+                "type": "armored_trooper",
+                "count": 40,
+                "id": 1790710432813
+              },
+              {
+                "type": "alloy_special",
+                "count": 40,
+                "id": 1790710432814
+              }
+            ],
+            "mid": [],
+            "back": []
+          },
+          "defeated": 95,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "trained": {
+          "armored_trooper": 0,
+          "alloy_special": 40
+        },
+        "paid": {
+          "food": 60000,
+          "steel": 4000
+        },
+        "seconds": 187
+      },
+      "first": {
+        "stage": 96,
+        "candidate": {
+          "before": 60,
+          "after": 450,
+          "units": {
+            "infantry": [
+              105,
+              75,
+              45
+            ],
+            "archer": [
+              105,
+              75,
+              45
+            ]
+          }
+        },
+        "won": true,
+        "before": {
+          "army": 85,
+          "deployed": 80
+        },
+        "after": {
+          "army": 80,
+          "deployed": 75
+        },
+        "loss": 5,
+        "enemyHp": 0,
+        "round": 2,
+        "callbacks": 14,
+        "saveSha256": "a8a3a0fce855d44b45af8efce9208584b21d7e908fc4d912632038cb16f3baa8",
+        "rngEnd": 1586969996
+      }
+    },
+    {
+      "strategy": "armorAlloy",
+      "seed": 9,
+      "prep": {
+        "before": {
+          "second": 3321868,
+          "army": 45,
+          "deployed": 0,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 40,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 75204.98737646191,
+            "steel": 15,
+            "wood": 486800,
+            "stone": 325176,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [],
+            "mid": [],
+            "back": []
+          },
+          "defeated": 95,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "after": {
+          "second": 3322055,
+          "army": 85,
+          "deployed": 80,
+          "pool": {
+            "infantry": 0,
+            "archer": 0,
+            "bronze_guard": 1,
+            "iron_spearman": 1,
+            "silver_heavy": 1,
+            "gold_cavalry": 1,
+            "alloy_special": 0,
+            "armored_trooper": 0,
+            "electro_trooper": 1
+          },
+          "res": {
+            "food": 20619.24849280022,
+            "steel": 23,
+            "wood": 486800,
+            "stone": 325576,
+            "copper": 23.000000000842192,
+            "iron": 2498088
+          },
+          "formation": {
+            "front": [
+              {
+                "type": "armored_trooper",
+                "count": 40,
+                "id": 1790710432889
+              },
+              {
+                "type": "alloy_special",
+                "count": 40,
+                "id": 1790710432890
+              }
+            ],
+            "mid": [],
+            "back": []
+          },
+          "defeated": 95,
+          "queue": {
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "alloy_special": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "armored_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "electro_trooper": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        },
+        "trained": {
+          "armored_trooper": 0,
+          "alloy_special": 40
+        },
+        "paid": {
+          "food": 60000,
+          "steel": 4000
+        },
+        "seconds": 187
+      },
+      "first": {
+        "stage": 96,
+        "candidate": {
+          "before": 60,
+          "after": 450,
+          "units": {
+            "infantry": [
+              105,
+              75,
+              45
+            ],
+            "archer": [
+              105,
+              75,
+              45
+            ]
+          }
+        },
+        "won": true,
+        "before": {
+          "army": 85,
+          "deployed": 80
+        },
+        "after": {
+          "army": 75,
+          "deployed": 70
+        },
+        "loss": 10,
+        "enemyHp": 0,
+        "round": 1,
+        "callbacks": 10,
+        "saveSha256": "6b727061bd61a54dddf682f55e5f99c24a1bc8b93485d6efca97807fc8bec91b",
+        "rngEnd": 190749128
+      }
+    }
+  ]
+}

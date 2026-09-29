@@ -1,0 +1,115 @@
+{
+  "source": {
+    "file": "p393-tier3-city-star10-seed1-paid-save.json",
+    "sha256": "d407c2849e4050c0f8231d61075e735e60aed4bc8f4944f71d38d3434050af04"
+  },
+  "runtimeMathSha256": "9cb16af1e322205a2a92110758d71ac5bea0c422b04d981aab870c18a8cd2513",
+  "before": {
+    "city": 340,
+    "deed": 96805,
+    "army": 666,
+    "deployed": 620,
+    "field": 629,
+    "stars": 10,
+    "multiplier": 2,
+    "daily": {
+      "starBeast1": 1,
+      "starBeast2": 1,
+      "starBeast3": 1
+    },
+    "alert": 450,
+    "items": {
+      "origin": 60,
+      "illusion": 60,
+      "ring": 60
+    },
+    "front": [
+      {
+        "type": "star_trooper",
+        "count": 53
+      },
+      {
+        "type": "star_trooper",
+        "count": 51
+      },
+      {
+        "type": "electro_trooper",
+        "count": 55
+      },
+      {
+        "type": "electro_trooper",
+        "count": 45
+      }
+    ],
+    "mid": [
+      {
+        "type": "armored_trooper",
+        "count": 55
+      },
+      {
+        "type": "alloy_special",
+        "count": 55
+      },
+      {
+        "type": "star_trooper",
+        "count": 46
+      },
+      {
+        "type": "gold_cavalry",
+        "count": 40
+      }
+    ],
+    "back": [
+      {
+        "type": "archer",
+        "count": 55
+      },
+      {
+        "type": "archer",
+        "count": 55
+      },
+      {
+        "type": "archer",
+        "count": 55
+      },
+      {
+        "type": "archer",
+        "count": 55
+      }
+    ],
+    "resources": {
+      "food": 480699,
+      "copper": 4125.299997924994,
+      "iron": 922867,
+      "steel": 1159,
+      "medal": 1042870,
+      "tech": 13721
+    }
+  },
+  "quote": {
+    "item": "sacredRingCore",
+    "amount": 1000
+  },
+  "starArray": {
+    "ok": false,
+    "reason": "insufficient-items",
+    "cost": {
+      "item": "sacredRingCore",
+      "amount": 1000
+    }
+  },
+  "starFighter": {
+    "ok": false,
+    "reason": "insufficient-resources",
+    "cost": {
+      "tech": 100000000,
+      "medal": 1000000
+    }
+  },
+  "quantum": {
+    "ok": false,
+    "reason": "insufficient-tech"
+  },
+  "unchanged": true,
+  "reloadSha256": "d407c2849e4050c0f8231d61075e735e60aed4bc8f4944f71d38d3434050af04"
+}
