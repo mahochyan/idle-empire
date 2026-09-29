@@ -43,6 +43,7 @@ let S = {
   armsUp:defaultArmsUpState(),
   awakening:defaultAwakeningState(),
   starArray:defaultStarArrayState(),
+  steamMilitaryStars:0,
   soulRanks:defaultSoulRanks(),
   soulRealmTeam:null,
   eraStorage:{steamBasic:0,steamMetal:0,steamKnowledge:0,electricBasic:0,electricMetal:0,electricKnowledge:0,electricProduction:0,nuclearBasic:0,nuclearMetal:0,nuclearKnowledge:0,nuclearProduction:0,quantumBasic:0,quantumMetal:0,quantumKnowledge:0,quantumProduction:0},
@@ -322,6 +323,42 @@ function upgradeLockReason(key){
 function regMax(){
   const s=bldSt('barracks');
   return 5+(s.state==='idle'?s.lv*5:0);
+}
+// 母本 450021 的军队规模是全局可出战人数，不能拿它直接削减我方逐兵种训练上限。
+// 我方以聚落人口容量提供同量纲的规模底座；升星惩罚沿用母本每五星递增 50 的原值。
+function steamMilitaryFieldLoss(stars=S.steamMilitaryStars){
+  let loss=0;
+  for(let i=1;i<=stars;i++)loss+=CFG.steamMilitary.fieldLossPerFiveStars*Math.ceil(i/5);
+  return loss;
+}
+function steamMilitaryBaseFieldSize(){return CFG.steamMilitary.baseFieldSize+settlementCapacity()}
+function steamMilitaryFieldSize(stars=S.steamMilitaryStars){return steamMilitaryBaseFieldSize()-steamMilitaryFieldLoss(stars)}
+function steamMilitaryStatMultiplier(){
+  return scienceUnlocked(CFG.steamMilitary.needScience)?1+S.steamMilitaryStars*CFG.steamMilitary.attackHpPerStar:1;
+}
+function steamMilitaryActiveFieldCap(){
+  return scienceUnlocked(CFG.steamMilitary.needScience)&&S.steamMilitaryStars>0?Math.max(0,steamMilitaryFieldSize()):Infinity;
+}
+function militaryFormationCount(form){return ['front','mid','back'].reduce((n,row)=>n+(form[row]||[]).reduce((m,u)=>m+(u.count||0),0),0)}
+function steamMilitaryStarStep(direction){
+  if(_saveProtected)return{ok:false,reason:'save-protected'};
+  if(!scienceUnlocked(CFG.steamMilitary.needScience))return{ok:false,reason:'science-prerequisite'};
+  if(direction!==1&&direction!==-1)return{ok:false,reason:'invalid-direction'};
+  const old=S.steamMilitaryStars,next=old+direction;
+  if(!Number.isSafeInteger(old)||old<0||old>CFG.steamMilitary.maxStars)return{ok:false,reason:'invalid-state'};
+  if(next<0||next>CFG.steamMilitary.maxStars)return{ok:false,reason:'star-limit'};
+  if(direction>0){
+    const required=CFG.steamMilitary.firstStarFieldNeed+CFG.steamMilitary.fieldNeedPerStar*old;
+    if(steamMilitaryFieldSize()<required)return{ok:false,reason:'field-size',required,current:steamMilitaryFieldSize()};
+    const projected=steamMilitaryFieldSize(next);
+    if(projected<0||militaryFormationCount(S.formation)>projected||militaryFormationCount(S._garrisonForm)>projected)
+      return{ok:false,reason:'formation-too-large',projected};
+  }
+  S.steamMilitaryStars=next;
+  if(!save().ok){S.steamMilitaryStars=old;return{ok:false,reason:'save-failed'}}
+  if(typeof addLog==='function')addLog(`军团整编 ${next}星 · 出战攻击与生命 +${next*10}% · 军队规模 ${steamMilitaryFieldSize()}`);
+  if(typeof updateUI==='function')updateUI();
+  return{ok:true,stars:next,fieldSize:steamMilitaryFieldSize(),multiplier:steamMilitaryStatMultiplier()};
 }
 function baseUnitType(uk){
   return CFG.units[uk]?.baseUnit||uk;
@@ -656,8 +693,8 @@ function battleVitals(unitType,count,owned=false){
   const soul=owned?S.soulRanks[unitType]:null;
   // 母本先在原始HP量纲取整，再换算为我方每兵生命（100:1）。
   const soulHp=soul?soul.rank*base+Math.floor(soul.stars*base*10)/100:0;
-  const hpPerSoldier=base+bonus+soulHp+(owned?base*(awakeningTotalStars()*CFG.awakening.globalStatPerStar+
-    bloodlineUses*CFG.bloodline.hpPerUse+aegisUses*CFG.aegisElixir.hpPerUse):0);
+  const hpPerSoldier=(base+bonus+soulHp+(owned?base*(awakeningTotalStars()*CFG.awakening.globalStatPerStar+
+    bloodlineUses*CFG.bloodline.hpPerUse+aegisUses*CFG.aegisElixir.hpPerUse):0))*(owned?steamMilitaryStatMultiplier():1);
   const hp=count*hpPerSoldier;
   const pct=mageSpec(unitType)?.voidShield?.hpPct||0;
   return{hp,maxHp:hp,initialCount:count,hpPerSoldier,shield:Math.floor(hp*pct)};
@@ -912,7 +949,7 @@ function validateDevelopmentState(x,errors){
 // legacy（无 v）旧档缺字段补齐：数值逐项复刻原 load() 的 || 缺省行为（含 popAlloc {5,3,2} 的旧口径，如实保留不修正）
 function _legacyDefaults(){return{res:{wood:300,stone:300,food:300,tech:0,copper:0,iron:0,coin:0},buildings:{},pool:{},queue:{},formation:{front:[],mid:[],back:[]},townLv:1,popAlloc:{wood:5,stone:3,food:2},defeated:[],merit:0,garrisonLog:[],garrison:null,tick:0,garrisonForm:{front:[],mid:[],back:[]},townUpgrade:null,upgradedUnits:{},essence:{},sciences:[]}}
 function serializeSave(){
-  const base={v:targetSaveVersion(),ts:Date.now(),res:S.res,buildings:S.buildings,pool:S.pool,queue:S.queue,formation:S.formation,townLv:S.townLv,popAlloc:S.popAlloc,metalRecipeMode:S.metalRecipeMode,currencyRecipeMode:S.currencyRecipeMode,storageMode:S.storageMode,storageMasteryLv:S.storageMasteryLv,scholarMasteryLv:S.scholarMasteryLv,steelMasteryLv:S.steelMasteryLv,weaponForge:S.weaponForge,armsUp:S.armsUp,awakening:S.awakening,starArray:S.starArray,soulRanks:S.soulRanks,soulRealmTeam:S.soulRealmTeam,eraStorage:S.eraStorage,items:S.items,bloodline:S.bloodline,attackInfusions:S.attackInfusions,aegisInfusions:S.aegisInfusions,marketSpecial:S.marketSpecial,beastExchange:S.beastExchange,killValues:S.killValues,development:S.development,settlements:S.settlements,townPolicies:S.townPolicies,population:S.population,defeated:S.defeated,merit:S.merit,garrisonLog:S.garrisonLog,garrison:S.garrison,tick:S.tick,garrisonForm:S._garrisonForm,townUpgrade:S.townUpgrade,upgradedUnits:S.upgradedUnits,essence:S.essence,sciences:S.sciences};
+  const base={v:targetSaveVersion(),ts:Date.now(),res:S.res,buildings:S.buildings,pool:S.pool,queue:S.queue,formation:S.formation,townLv:S.townLv,popAlloc:S.popAlloc,metalRecipeMode:S.metalRecipeMode,currencyRecipeMode:S.currencyRecipeMode,storageMode:S.storageMode,storageMasteryLv:S.storageMasteryLv,scholarMasteryLv:S.scholarMasteryLv,steelMasteryLv:S.steelMasteryLv,weaponForge:S.weaponForge,armsUp:S.armsUp,awakening:S.awakening,starArray:S.starArray,steamMilitaryStars:S.steamMilitaryStars,soulRanks:S.soulRanks,soulRealmTeam:S.soulRealmTeam,eraStorage:S.eraStorage,items:S.items,bloodline:S.bloodline,attackInfusions:S.attackInfusions,aegisInfusions:S.aegisInfusions,marketSpecial:S.marketSpecial,beastExchange:S.beastExchange,killValues:S.killValues,development:S.development,settlements:S.settlements,townPolicies:S.townPolicies,population:S.population,defeated:S.defeated,merit:S.merit,garrisonLog:S.garrisonLog,garrison:S.garrison,tick:S.tick,garrisonForm:S._garrisonForm,townUpgrade:S.townUpgrade,upgradedUnits:S.upgradedUnits,essence:S.essence,sciences:S.sciences};
   if(targetSaveVersion()>=3){base.ops=S.ops||[];base.offline={...(S.offline||{pendingReport:null}),populationFoodRule:S.offline?.populationFoodRule??'all'};base.daily=S.daily||{day:null,counts:{}};}
   return base;
 }
@@ -1155,6 +1192,12 @@ function validateSave(d){
   if('development' in d||hasV&&d.v>=32)validateDevelopmentState(d.development,errors);
   if('awakening' in d)validateAwakeningState(d.awakening,errors);
   if('starArray' in d||hasV&&d.v>=33)validateStarArrayState(d.starArray,errors);
+  if('steamMilitaryStars' in d){
+    if(!_isCount(d.steamMilitaryStars)||d.steamMilitaryStars>CFG.steamMilitary.maxStars)
+      errors.push('steamMilitaryStars 非法或缺失');
+    else if(d.steamMilitaryStars>0&&(!Array.isArray(d.sciences)||!d.sciences.includes(CFG.steamMilitary.needScience)))
+      errors.push('steamMilitaryStars 缺少蒸汽军制研究');
+  }
   if('soulRanks' in d||hasV&&d.v>=33)validateSoulRanks(d.soulRanks,errors);
   if('soulRealmTeam' in d){
     const team=d.soulRealmTeam;
@@ -1371,6 +1414,8 @@ function migrateSave(d){
     for(const key of ['starOriginStone','illusionStone','sacredRingCore'])if(!(key in d.items)){d.items[key]=0;filled.push('items.'+key)}
     d.v=33;filled.push('v33');
   }
+  // v33 同版追加字段：旧主档缺键时仅在独立候选上补零，并保留迁移前原文。
+  if(!('steamMilitaryStars' in d)){d.steamMilitaryStars=0;filled.push('steamMilitaryStars')}
   for(const key of ['starFighter','starMissile'])if(!(key in d.weaponForge)){
     d.weaponForge[key]={researched:false,level:0,progress:0,equipped:false};filled.push('weaponForge.'+key);
   }
@@ -1412,7 +1457,7 @@ function migrateSave(d){
 }
 // 应用到 S：显式逐字段，不再使用 || 吞合法 0；默认对象全部独立新建
 function applySaveToS(d){
-  S.res=d.res;S.buildings=d.buildings;S.pool=d.pool;S.queue=d.queue;S.formation=d.formation;S.townLv=d.townLv;S.popAlloc=d.popAlloc;S.metalRecipeMode=d.metalRecipeMode;S.currencyRecipeMode=d.currencyRecipeMode;S.storageMode=d.storageMode;S.storageMasteryLv=d.storageMasteryLv;S.scholarMasteryLv=d.scholarMasteryLv;S.steelMasteryLv=d.steelMasteryLv;S.weaponForge=d.weaponForge;S.armsUp=d.armsUp;S.awakening=d.awakening;S.starArray=d.starArray;S.soulRanks=d.soulRanks;S.soulRealmTeam=d.soulRealmTeam;S.eraStorage=d.eraStorage;S.items=d.items;S.bloodline=d.bloodline;S.attackInfusions=d.attackInfusions;S.aegisInfusions=d.aegisInfusions;S.marketSpecial=d.marketSpecial;S.beastExchange=d.beastExchange;S.killValues=d.killValues;S.development=d.development;S.settlements=d.settlements;S.townPolicies=d.townPolicies;S.population=d.population;S.defeated=d.defeated;S.merit=d.merit;S.garrisonLog=d.garrisonLog;S.garrison=d.garrison;S.tick=d.tick;S._garrisonForm=d.garrisonForm;S.townUpgrade=d.townUpgrade;S.upgradedUnits=d.upgradedUnits;S.essence=d.essence;S.sciences=d.sciences||[];
+  S.res=d.res;S.buildings=d.buildings;S.pool=d.pool;S.queue=d.queue;S.formation=d.formation;S.townLv=d.townLv;S.popAlloc=d.popAlloc;S.metalRecipeMode=d.metalRecipeMode;S.currencyRecipeMode=d.currencyRecipeMode;S.storageMode=d.storageMode;S.storageMasteryLv=d.storageMasteryLv;S.scholarMasteryLv=d.scholarMasteryLv;S.steelMasteryLv=d.steelMasteryLv;S.weaponForge=d.weaponForge;S.armsUp=d.armsUp;S.awakening=d.awakening;S.starArray=d.starArray;S.steamMilitaryStars=d.steamMilitaryStars;S.soulRanks=d.soulRanks;S.soulRealmTeam=d.soulRealmTeam;S.eraStorage=d.eraStorage;S.items=d.items;S.bloodline=d.bloodline;S.attackInfusions=d.attackInfusions;S.aegisInfusions=d.aegisInfusions;S.marketSpecial=d.marketSpecial;S.beastExchange=d.beastExchange;S.killValues=d.killValues;S.development=d.development;S.settlements=d.settlements;S.townPolicies=d.townPolicies;S.population=d.population;S.defeated=d.defeated;S.merit=d.merit;S.garrisonLog=d.garrisonLog;S.garrison=d.garrison;S.tick=d.tick;S._garrisonForm=d.garrisonForm;S.townUpgrade=d.townUpgrade;S.upgradedUnits=d.upgradedUnits;S.essence=d.essence;S.sciences=d.sciences||[];
   S.ops=Array.isArray(d.ops)?d.ops:[];S.offline=_isObj(d.offline)?d.offline:{pendingReport:null,populationFoodRule:'all'};S.daily=(d.daily&&typeof d.daily==='object')?d.daily:{day:null,counts:{}};
   if(typeof ensureGarrisonState==='function')ensureGarrisonState();
 }
@@ -2806,6 +2851,7 @@ function eraStorageCost(key){
   if(level>=5)cost[cfg.lateMaterial||'godCrystal']=(cfg.lateMaterialBase??cfg.lateCrystalBase)*next;
   return cost;
 }
+function battleMilitaryAttack(uk){return weaponAttack(uk)*steamMilitaryStatMultiplier()}
 function starArrayKnowledgePercent(){
   const cfg=CFG.starArray,aw=S.awakening?.[cfg.unit];
   if(!scienceUnlocked(cfg.needScience)||!aw||aw.level!==cfg.awakeningLevel)return 0;
@@ -3442,6 +3488,7 @@ function confirmForm(){
   if(CFG.units[type]?.enemyOnly){toast('敌方专属兵种不能编队');return}
   if(qty<=0){toast('人数无效');return}
   if(poolAvail(type)<qty){toast('余量不足');return}
+  if(militaryFormationCount(form)+qty>steamMilitaryActiveFieldCap()){toast('超过军团整编后的军队规模上限');return}
   const target=form[row][idx];
   if(target&&target.type===type){
     if(target.count+qty>regMax()){toast(`超过上限${regMax()}人/团`);return}
@@ -3521,6 +3568,7 @@ function adjForm(which,row,idx,d){
   if(!u)return;
   const nv=u.count+d;
   if(d>0 && nv>regMax()){toast(`上限${regMax()}人/团`);return}
+  if(d>0 && militaryFormationCount(form)+d>steamMilitaryActiveFieldCap()){toast('超过军团整编后的军队规模上限');return}
   if(d>0 && poolAvail(u.type)<d){toast('余量不足');return}
   if(nv<=0){S.pool[u.type]=(S.pool[u.type]||0)+u.count;form[row].splice(idx,1);updateUI();return}
   if(d>0){S.pool[u.type]-=d;}
@@ -3549,7 +3597,7 @@ function fillFormMax(which,row,idx){
   if(!u)return;
   const avail=poolAvail(u.type);
   const cap=regMax();
-  const add=Math.min(avail, cap-u.count);
+  const add=Math.min(avail, cap-u.count,steamMilitaryActiveFieldCap()-militaryFormationCount(form));
   if(add<=0){toast('已满或余量不足');return}
   u.count+=add;
   S.pool[u.type]-=add;
@@ -3573,7 +3621,8 @@ function useLastFormation(which){
       if(newForm[row].length>=rowMax){shortage=true;break;}
       const avail=poolAvail(u.type);
       if(avail<=0){shortage=true;continue;}
-      const count=Math.min(u.count, avail, regMax());
+      const count=Math.min(u.count, avail, regMax(),steamMilitaryActiveFieldCap()-militaryFormationCount(newForm));
+      if(count<=0){shortage=true;continue}
       if(count<u.count)shortage=true;
       S.pool[u.type]-=count;
       newForm[row].push({type:u.type,count,id:nextFormationId()});
@@ -3691,6 +3740,7 @@ function openBattle(encounterKey=null,soulSlot=null){
     if(reason){toast(reason);return}
   }
   if(formCnt()===0){toast('请先配置阵容');return}
+  if(formSoldierCount()>steamMilitaryActiveFieldCap()){toast('当前阵容超过军团整编后的军队规模，请先缩编');return}
   cancelBattleRestart();stopBattleTimer();
   S.battleEncounter=encounterKey;
   B.soulSlot=encounterKey==='soulStone'?soulSlot:null;
@@ -4026,7 +4076,7 @@ function initBattleState(){
         const u=S.formation[row][originIndex];
         const cfg=CFG.units[u.type];
         B.ourUnits.push({id:uid++, fid:u.id, type:u.type, row,originRow:row,originIndex,...battleVitals(u.type,u.count,true),
-          icon:cfg.icon, name:cfg.name, tier:cfg.tier??0, spd:cfg.spd, baseSpd:cfg.spd, atk:weaponAttack(u.type), entryAtk:weaponAttack(u.type), def:weaponDefense(u.type), entryDef:weaponDefense(u.type), weaponSkills:equippedWeaponSkills(u.type), tag:cfg.tag||null});
+          icon:cfg.icon, name:cfg.name, tier:cfg.tier??0, spd:cfg.spd, baseSpd:cfg.spd, atk:battleMilitaryAttack(u.type), entryAtk:battleMilitaryAttack(u.type), def:weaponDefense(u.type), entryDef:weaponDefense(u.type), weaponSkills:equippedWeaponSkills(u.type), tag:cfg.tag||null});
       }
     }
     const rows=['front','mid','back'];
@@ -4051,7 +4101,7 @@ function initBattleState(){
         const u=S.formation[row][originIndex];
         const cfg=CFG.units[u.type];
         B.ourUnits.push({id:uid++, fid:u.id, type:u.type, row,originRow:row,originIndex,...battleVitals(u.type,u.count,true),
-          icon:cfg.icon, name:cfg.name, tier:cfg.tier??0, spd:cfg.spd, baseSpd:cfg.spd, atk:weaponAttack(u.type), entryAtk:weaponAttack(u.type), def:weaponDefense(u.type), entryDef:weaponDefense(u.type), weaponSkills:equippedWeaponSkills(u.type), tag:cfg.tag||null});
+          icon:cfg.icon, name:cfg.name, tier:cfg.tier??0, spd:cfg.spd, baseSpd:cfg.spd, atk:battleMilitaryAttack(u.type), entryAtk:battleMilitaryAttack(u.type), def:weaponDefense(u.type), entryDef:weaponDefense(u.type), weaponSkills:equippedWeaponSkills(u.type), tag:cfg.tag||null});
       }
     }
     for(const[k,counts] of Object.entries(e.units)){
@@ -5005,7 +5055,8 @@ function nextBattle(){
         if(newForm[row].length>=rowSlots(row)){shortage=true;break;}
         const avail=poolAvail(u.type);
         if(avail<=0){shortage=true;continue;}
-        const count=Math.min(u.count,avail,regMax());
+        const count=Math.min(u.count,avail,regMax(),steamMilitaryActiveFieldCap()-militaryFormationCount(newForm));
+        if(count<=0){shortage=true;continue}
         if(count<u.count)shortage=true;
         S.pool[u.type]-=count;
         newForm[row].push({type:u.type,count,id:nextFormationId()});

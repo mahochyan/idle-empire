@@ -1,0 +1,124 @@
+{
+  "batch": "P391",
+  "source": "p390-star-array-entry-paid-save.json",
+  "sourceSha256": "aa54851f4e4a12848f56cb4b98ccd0eb52e2c62a4fdc066325f037a0ba37c25a",
+  "reference": "p386-300m-paid-save.json",
+  "referenceSha256": "7f27ca4a53ba412e187ec72aeaaf6349f1bba00185ae422ac959dac8e557f5cf",
+  "runtimeSha256": {
+    "config.js": "1d46cd09d15cd9faf05cbb40a0b5e30fdf7d6ae3bcfd21550233c178378ebfd8",
+    "levels.js": "dec14783bbeb41111ae116598dff48c9a6930b2dbf7879e2265f8887d4cc9f54",
+    "math.js": "8980af2b1c87dcdc7b3bb359294d93a741947c35c5538c66b2c139b1e92238ec",
+    "garrison.js": "4d233f0529d256cd1ace2de782603fcfcbbff110032ca4cf29c5e36af30f10ff",
+    "technology.js": "c51fb05821593d9e76396ff18b0a38d78dee1db9cdc55631b78a7f223ad0a006"
+  },
+  "initial": {
+    "tick": 12295258,
+    "army": 646,
+    "deployed": 600,
+    "res": {
+      "wood": 6495,
+      "stone": 152500,
+      "food": 480699,
+      "tech": 17597,
+      "coal": 254314.75,
+      "copper": 2231.2999979251763,
+      "iron": 330163,
+      "silver": 7.3999999999995225,
+      "gold": 532.4625000000879,
+      "steel": 3324,
+      "coin": 0.7999999999992724,
+      "silverCoin": 295.99999999999983,
+      "deed": 263088,
+      "medal": 1042870,
+      "bone": 65,
+      "goldCoin": 0,
+      "hide": 115
+    },
+    "fruit": 25,
+    "core": 29,
+    "beastAlert": 100,
+    "awakening": {
+      "level": 6,
+      "stars": 7,
+      "tracks": {
+        "easy": 6,
+        "perfect": 0,
+        "extreme": 0
+      }
+    },
+    "starItems": {
+      "origin": 10,
+      "illusion": 10,
+      "ring": 10
+    }
+  },
+  "losses": {
+    "star_trooper": 12,
+    "armored_trooper": 1,
+    "electro_trooper": 13,
+    "alloy_special": 0,
+    "gold_cavalry": 0,
+    "archer": 0
+  },
+  "paidTraining": {
+    "steel": 202000,
+    "iron": 202000,
+    "copper": 202000
+  },
+  "seconds": 194,
+  "minFood": 480699,
+  "phases": {
+    "stone": 48,
+    "coal": 0,
+    "copper": 84,
+    "iron": 0,
+    "steel": 48,
+    "training": 14
+  },
+  "final": {
+    "tick": 12295452,
+    "army": 672,
+    "deployed": 626,
+    "res": {
+      "wood": 6495,
+      "stone": 1102306,
+      "food": 480699,
+      "tech": 17597,
+      "coal": 35128.75,
+      "copper": 16778.949997925003,
+      "iron": 83965,
+      "silver": 7.3999999999995225,
+      "gold": 532.4625000000879,
+      "steel": 215,
+      "coin": 0.7999999999992724,
+      "silverCoin": 295.99999999999983,
+      "deed": 263088,
+      "medal": 1042870,
+      "bone": 65,
+      "goldCoin": 0,
+      "hide": 115
+    },
+    "fruit": 25,
+    "core": 29,
+    "beastAlert": 100,
+    "awakening": {
+      "level": 6,
+      "stars": 7,
+      "tracks": {
+        "easy": 6,
+        "perfect": 0,
+        "extreme": 0
+      }
+    },
+    "starItems": {
+      "origin": 10,
+      "illusion": 10,
+      "ring": 10
+    }
+  },
+  "finalSave": {
+    "file": "p391-beast-replenished-paid-save.json",
+    "sha256": "b68e8df9510db085089430f4d60a9bee9780bec7f09ef8c55665c3c517f08d5b"
+  },
+  "scope": "Real setPopAlloc/tick/train/openFormModal/confirmForm/save/load; no inventory or game config injection."
+}

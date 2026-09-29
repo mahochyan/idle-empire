@@ -553,6 +553,7 @@ const CFG = {
     sci_alloy_age:{name:'合金时代',desc:'开放合金特种兵',cost:{tech:10000,merit:0},need:['sci_steel'],unlocks:['alloy_armory','alloy_special']},
     sci_god_domain:{name:'遗迹勘探',desc:'开放机巧遗迹挑战；须单次支付知识50000和钢5000',cost:{tech:50000,steel:5000,merit:0},need:['sci_alloy_age'],unlocks:[]},
     sci_steam_age:{name:'蒸汽时代',desc:'开放蒸汽兵坊与装甲兵；须单次支付知识100000和钢10000',cost:{tech:100000,steel:10000,merit:0},need:['sci_alloy_age'],unlocks:['steam_armory','armored_trooper']},
+    sci_steam_military:{name:'蒸汽军制',desc:'开放军团整编；一次支付知识150000。整编星级提高出战攻击与生命，同时压缩军队规模',cost:{tech:150000,merit:0},need:['sci_steam_age'],unlocks:[]},
     sci_electric_age:{name:'电力时代',desc:'开放电磁兵坊与电磁兵；须单次支付知识5000000和钢1000000',cost:{tech:5000000,steel:1000000,merit:0},need:['sci_steam_age'],unlocks:['electric_armory','electro_trooper']},
     sci_arcane_mage:{name:'奥术师',desc:'解锁奥术师；支付知识8000000和战备勋章100000',cost:{tech:8000000,medal:100000,merit:0},need:['sci_electric_age'],unlocks:['arcane_mage']},
     sci_astral_lord:{name:'星界领主',desc:'开启英魂升阶；支付知识10000000和战备勋章200000',cost:{tech:10000000,medal:200000,merit:0},need:['sci_arcane_mage'],unlocks:[]},
@@ -603,6 +604,7 @@ const CFG = {
     sci_alloy_age:{name:'合金时代',desc:'开放合金特种兵',cost:{tech:10000,merit:0},need:['sci_steel'],unlocks:['alloy_armory','alloy_special']},
     sci_god_domain:{name:'遗迹勘探',desc:'开放机巧遗迹挑战；一次支付知识50000与钢5000',cost:{tech:50000,steel:5000,merit:0},need:['sci_alloy_age'],unlocks:[]},
     sci_steam_age:{name:'蒸汽时代',desc:'开放装甲兵；一次支付知识100000与钢10000',cost:{tech:100000,steel:10000,merit:0},need:['sci_alloy_age'],unlocks:['steam_armory','armored_trooper']},
+    sci_steam_military:{name:'蒸汽军制',desc:'开放军团整编；一次支付知识150000。整编星级提高出战攻击与生命，同时压缩军队规模',cost:{tech:150000,merit:0},need:['sci_steam_age'],unlocks:[]},
     sci_electric_age:{name:'电力时代',desc:'开放电磁兵；一次支付知识5000000与钢1000000',cost:{tech:5000000,steel:1000000,merit:0},need:['sci_steam_age'],unlocks:['electric_armory','electro_trooper']},
     sci_arcane_mage:{name:'奥术师',desc:'解锁奥术师；一次支付知识8000000与战备勋章100000',cost:{tech:8000000,medal:100000,merit:0},need:['sci_electric_age'],unlocks:['arcane_mage']},
     sci_astral_lord:{name:'星界领主',desc:'开启英魂升阶；一次支付知识10000000与战备勋章200000',cost:{tech:10000000,medal:200000,merit:0},need:['sci_arcane_mage'],unlocks:[]},
@@ -671,6 +673,8 @@ const CFG = {
              freeBase:10, freePerBarracksLv:2,        // 免维护带（我方尺度）= 10 + 2×营帐等级（竞品固定 200）
              segWidths:[20,80,200], segSlopes:[1,2,4,8] },// 超出免维护带后的三档段宽与斜率（竞品段宽 100/200/500、斜率 1/2/4/8）
   tech:    { occupyPop:false, sciencesNoMerit:true, longLadder:true },               // 切片3/5/14：科技去战功（切片3 启用）、长阶梯（切片5 启用）、科技占人口
+  steamMilitary:{needScience:'sci_steam_military',maxStars:50,attackHpPerStar:0.1,baseFieldSize:5,
+    firstStarFieldNeed:210,fieldNeedPerStar:10,fieldLossPerFiveStars:50},
   passive: { needPop:false },                                                       // 切片15：被动建筑人口约束
   food:    { aligned:true,   // 切片4b（用户裁决 R5-①②，2026-09-22）：食物经济对齐 —— 铸币耗粮 5→1、食物产出 0.75→2.25；回滚＝false
              res: { food: { basePerPop: 2.25 } },

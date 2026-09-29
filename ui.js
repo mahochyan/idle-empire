@@ -1472,6 +1472,19 @@ function rTechFull(){
   }
   h+=`</div>`;
 
+  if(scienceUnlocked(CFG.steamMilitary.needScience)){
+    const stars=S.steamMilitaryStars,field=steamMilitaryFieldSize(),nextField=steamMilitaryFieldSize(stars+1);
+    const need=CFG.steamMilitary.firstStarFieldNeed+CFG.steamMilitary.fieldNeedPerStar*stars;
+    const deployed=Math.max(militaryFormationCount(S.formation),militaryFormationCount(S._garrisonForm));
+    const canUp=stars<CFG.steamMilitary.maxStars&&field>=need&&nextField>=deployed&&nextField>=0;
+    h+=`<div class="card"><h3>${pix('army','card-pix')}军团整编 · ${stars}/${CFG.steamMilitary.maxStars}星</h3>`;
+    h+=`<div class="tech-detail-intro">蒸汽军制：每星使出战攻击与生命 +10%；军队规模按每五级递增的代价缩减。已训练士兵保留在兵池。</div>`;
+    h+=`<div class="tech-detail-row"><div class="tech-detail-head"><strong>当前加成 +${stars*10}%</strong><span class="tech-detail-state">规模 ${field} 人</span></div>`;
+    h+=`<div class="tech-detail-cost">${stars<CFG.steamMilitary.maxStars?`下一星需当前规模 ≥${need}；升级后规模 ${nextField}；远征／驻军当前最大编入 ${deployed}`:'已达50星'}</div></div>`;
+    h+=`<button class="btn btn-go btn-xs" onclick="steamMilitaryStarStep(1)" ${canUp?'':'disabled'}>升1星</button> `;
+    h+=`<button class="btn btn-ghost btn-xs" onclick="steamMilitaryStarStep(-1)" ${stars>0?'':'disabled'}>降1星</button></div>`;
+  }
+
   const scholar=CFG.scholarMastery,scholarCost=scholarMasteryCost(),scholarDone=S.scholarMasteryLv>=scholar.maxLevel;
   const scholarReady=scienceUnlocked(scholar.needScience)&&scholarCost&&Object.entries(scholarCost).every(([rk,n])=>Number.isFinite(S.res[rk])&&S.res[rk]>=n);
   if(scienceUnlocked(scholar.needScience)||S.scholarMasteryLv>0){

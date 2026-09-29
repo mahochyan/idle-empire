@@ -702,7 +702,7 @@ test('A01', '短表保留原始资源科技费用，新增煤及两档独立军�
   const e = makeEnv();
   e.run('loadSaveAndApply();S.metalRecipeMode="legacy";CFG.tech.longLadder=false;S.res.tech=1000;S.res.wood=9999;S.res.stone=9999;S.res.food=9999');
   const ids = JSON.parse(e.run('JSON.stringify(Object.keys(activeSciences()))'));
-  eq(ids, ['sci_wood_store', 'sci_library', 'sci_workshop', 'sci_coal', 'sci_copper', 'sci_currency', 'sci_bronze_age', 'sci_copper_furnace', 'sci_stone_store', 'sci_institute', 'sci_iron', 'sci_iron_age', 'sci_city', 'sci_silver', 'sci_silver_store', 'sci_silver_refinery', 'sci_silver_age', 'sci_gold', 'sci_gold_store', 'sci_gold_refinery', 'sci_gold_age', 'sci_steel', 'sci_steel_store', 'sci_steel_refinery', 'sci_alloy_age', 'sci_god_domain', 'sci_steam_age', 'sci_electric_age', 'sci_arcane_mage', 'sci_astral_lord', 'sci_soul_realm', 'sci_nuclear_age', 'sci_star_beast_domain', 'sci_star_array', 'sci_quantum_age', 'sci_coin'], '短表应保留旧资源节点并接通遗迹、电力、英魂、星核、星阵与量子支线');
+  eq(ids, ['sci_wood_store', 'sci_library', 'sci_workshop', 'sci_coal', 'sci_copper', 'sci_currency', 'sci_bronze_age', 'sci_copper_furnace', 'sci_stone_store', 'sci_institute', 'sci_iron', 'sci_iron_age', 'sci_city', 'sci_silver', 'sci_silver_store', 'sci_silver_refinery', 'sci_silver_age', 'sci_gold', 'sci_gold_store', 'sci_gold_refinery', 'sci_gold_age', 'sci_steel', 'sci_steel_store', 'sci_steel_refinery', 'sci_alloy_age', 'sci_god_domain', 'sci_steam_age', 'sci_steam_military', 'sci_electric_age', 'sci_arcane_mage', 'sci_astral_lord', 'sci_soul_realm', 'sci_nuclear_age', 'sci_star_beast_domain', 'sci_star_array', 'sci_quantum_age', 'sci_coin'], '短表应保留旧资源节点并接通蒸汽军制、遗迹、电力、英魂、星核、星阵与量子支线');
   assert(e.run("activeSciences()['sci_copper'].cost.tech") === 10 && e.run("activeSciences()['sci_iron'].cost.tech") === 80 && e.run("activeSciences()['sci_coin'].cost.tech") === 200, '原始成本不符');
   assert(e.run("activeSciences()['sci_bronze_age'].cost.tech") === 1200 && e.run("activeSciences()['sci_iron_age'].cost.tech") === 2500, '两档军备研究成本不符');
   assert(JSON.parse(e.run('JSON.stringify(researchScience("sci_iron"))')).ok === false, '原始表下未研究前置应被拒');
@@ -718,16 +718,16 @@ test('A02', '长阶梯含煤、城镇化/城市化/冶银及独立军备，前�
   // 研究表拓扑校验的条件夹具；另由实付快照检验自然仓容边界。
   e.run('loadSaveAndApply();S.res.tech=8000000000;S.res.medal=12000000;S.res.steel=2000000;S.res.wood=9999;S.res.stone=9999;S.res.food=9999');
   const ids = JSON.parse(e.run('JSON.stringify(Object.keys(activeSciences()))'));
-  assert(ids.length === 43, '长阶梯应为 43 节点（含1项历史记录） actual=' + ids.length + ':' + ids.join(','));
+  assert(ids.length === 44, '长阶梯应为 44 节点（含1项历史记录） actual=' + ids.length + ':' + ids.join(','));
   const costs = ids.map(id => e.run(`activeSciences()['${id}'].cost.tech`));
-  assert(JSON.stringify(costs) === JSON.stringify([100, 200, 400, 400, 200, 300, 1200, 800, 1200, 1000, 800, 1000, 800, 1400, 1000, 1800, 1000, 2500, 2200, 3200, 2000, 3000, 4000, 6000, 3000, 5000, 7000, 9000, 4000, 8000, 10000, 50000, 100000, 5000000, 8000000, 10000000, 20000000, 100000000, 200000000, 300000000, 3000000000, 5000, 12000]), '阶梯成本不符 actual=' + JSON.stringify(costs));
+  assert(JSON.stringify(costs) === JSON.stringify([100, 200, 400, 400, 200, 300, 1200, 800, 1200, 1000, 800, 1000, 800, 1400, 1000, 1800, 1000, 2500, 2200, 3200, 2000, 3000, 4000, 6000, 3000, 5000, 7000, 9000, 4000, 8000, 10000, 50000, 100000, 150000, 5000000, 8000000, 10000000, 20000000, 100000000, 200000000, 300000000, 3000000000, 5000, 12000]), '阶梯成本不符 actual=' + JSON.stringify(costs));
   assert(e.run('activeSciences().sci_metal.legacyOnly') === true, '旧冶金术须留在已知科技表但退出新研究主线');
   assert(JSON.parse(e.run('JSON.stringify(researchScience("sci_copper"))')).ok === false, '未研究探矿术时应拒绝冶铜术');
   assert(JSON.parse(e.run('JSON.stringify(researchScience("sci_coal"))')).ok === false, '未研究探矿术时应拒绝煤研究');
   assert(JSON.parse(e.run('JSON.stringify(researchScience("sci_city"))')).ok === false, '前置未研究时应拒绝城市化');
   const currentIds = ids.filter(id => id !== 'sci_metal');
   for (const id of currentIds) assert(JSON.parse(e.run(`JSON.stringify(researchScience("${id}"))`)).ok, `按序研究 ${id} 应成功`);
-  assert(e.run('S.sciences.length') === currentIds.length, '应研完当前42项且不赠历史节点 actual=' + e.run('S.sciences.length'));
+  assert(e.run('S.sciences.length') === currentIds.length, '应研完当前43项且不赠历史节点 actual=' + e.run('S.sciences.length'));
   assert(JSON.parse(e.run('JSON.stringify(researchScience("sci_metal"))')).ok === false && !e.run('S.sciences.includes("sci_metal")'),
     '历史冶金术虽已知，但新档不得研究');
   // 解锁未被削弱

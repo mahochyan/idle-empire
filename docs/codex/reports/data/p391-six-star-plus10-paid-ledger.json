@@ -1,0 +1,450 @@
+{
+  "batch": "P391",
+  "source": "p391-steam-military-six-star-paid-save.json",
+  "sourceSha256": "6a6150b11c74f19933c235092993bebe5ebcc59404df1d809cfda031d4845bda",
+  "runtimeSha256": {
+    "config.js": "1d46cd09d15cd9faf05cbb40a0b5e30fdf7d6ae3bcfd21550233c178378ebfd8",
+    "levels.js": "dec14783bbeb41111ae116598dff48c9a6930b2dbf7879e2265f8887d4cc9f54",
+    "math.js": "8980af2b1c87dcdc7b3bb359294d93a741947c35c5538c66b2c139b1e92238ec",
+    "garrison.js": "4d233f0529d256cd1ace2de782603fcfcbbff110032ca4cf29c5e36af30f10ff",
+    "technology.js": "c51fb05821593d9e76396ff18b0a38d78dee1db9cdc55631b78a7f223ad0a006"
+  },
+  "initial": {
+    "tick": 12295458,
+    "army": 672,
+    "deployed": 626,
+    "field": 657,
+    "stars": 6,
+    "res": {
+      "wood": 6495,
+      "stone": 1102306,
+      "food": 480699,
+      "tech": 13721,
+      "coal": 35128.75,
+      "copper": 16778.949997925003,
+      "iron": 83965,
+      "silver": 7.3999999999995225,
+      "gold": 532.4625000000879,
+      "steel": 215,
+      "coin": 0.7999999999992724,
+      "silverCoin": 295.99999999999983,
+      "deed": 263088,
+      "medal": 1042870,
+      "bone": 65,
+      "goldCoin": 0,
+      "hide": 115
+    },
+    "items": {
+      "origin": 10,
+      "illusion": 10,
+      "ring": 10
+    }
+  },
+  "trainingCost": {
+    "copper": 72000,
+    "iron": 72000,
+    "steel": 72000,
+    "gold": 100,
+    "food": 1000
+  },
+  "seconds": 412,
+  "minFood": 480699,
+  "phases": {
+    "stone": 0,
+    "coal": 137,
+    "copper": 25,
+    "iron": 226,
+    "steel": 18,
+    "training": 6
+  },
+  "final": {
+    "tick": 12295870,
+    "army": 682,
+    "deployed": 636,
+    "field": 657,
+    "stars": 6,
+    "res": {
+      "wood": 6495,
+      "stone": 622442,
+      "food": 480699,
+      "tech": 13721,
+      "coal": 176179,
+      "copper": 13984.899997924964,
+      "iron": 913063,
+      "silver": 7.3999999999995225,
+      "gold": 432.46250000008786,
+      "steel": 1277,
+      "coin": 0.7999999999992724,
+      "silverCoin": 295.99999999999983,
+      "deed": 263088,
+      "medal": 1042870,
+      "bone": 65,
+      "goldCoin": 0,
+      "hide": 115
+    },
+    "items": {
+      "origin": 10,
+      "illusion": 10,
+      "ring": 10
+    }
+  },
+  "finalSave": {
+    "file": "p391-six-star-plus10-paid-save.json",
+    "sha256": "9b89d7d68c2ca1cc96e074d8f6c566dfa975159251a84e1931409ff7d162f24a"
+  },
+  "rows": [
+    {
+      "seed": 1,
+      "before": {
+        "army": 682,
+        "deployed": 636,
+        "alert": 100,
+        "ring": 10
+      },
+      "result": "lose",
+      "after": {
+        "army": 669,
+        "deployed": 623,
+        "alert": 100,
+        "ring": 10,
+        "origin": 10,
+        "illusion": 10,
+        "daily": 0
+      },
+      "enemyHpLeft": 10577,
+      "callbacks": 301,
+      "saveSha256": "f18af49d7b6df55e98a90d8ac822f23f0a22d407aaa327aa4cdf073248862d3e"
+    },
+    {
+      "seed": 2,
+      "before": {
+        "army": 682,
+        "deployed": 636,
+        "alert": 100,
+        "ring": 10
+      },
+      "result": "lose",
+      "after": {
+        "army": 668,
+        "deployed": 622,
+        "alert": 100,
+        "ring": 10,
+        "origin": 10,
+        "illusion": 10,
+        "daily": 0
+      },
+      "enemyHpLeft": 11006,
+      "callbacks": 301,
+      "saveSha256": "ed592d7c64bb0e939654a9eb0f44c69fcd6b8235ae56ea88f17d59aadff42108"
+    },
+    {
+      "seed": 3,
+      "before": {
+        "army": 682,
+        "deployed": 636,
+        "alert": 100,
+        "ring": 10
+      },
+      "result": "lose",
+      "after": {
+        "army": 665,
+        "deployed": 619,
+        "alert": 100,
+        "ring": 10,
+        "origin": 10,
+        "illusion": 10,
+        "daily": 0
+      },
+      "enemyHpLeft": 16956,
+      "callbacks": 301,
+      "saveSha256": "9499b7a949449d5afa626cffa34d44b3bb9653fc67ce7ddc2093268998c72a4c"
+    },
+    {
+      "seed": 4,
+      "before": {
+        "army": 682,
+        "deployed": 636,
+        "alert": 100,
+        "ring": 10
+      },
+      "result": "lose",
+      "after": {
+        "army": 662,
+        "deployed": 616,
+        "alert": 100,
+        "ring": 10,
+        "origin": 10,
+        "illusion": 10,
+        "daily": 0
+      },
+      "enemyHpLeft": 22632,
+      "callbacks": 301,
+      "saveSha256": "0277c8e41cfe99d695542abb699186b3882ee3c8c4003a865bcc099d6fa22721"
+    },
+    {
+      "seed": 5,
+      "before": {
+        "army": 682,
+        "deployed": 636,
+        "alert": 100,
+        "ring": 10
+      },
+      "result": "lose",
+      "after": {
+        "army": 663,
+        "deployed": 617,
+        "alert": 100,
+        "ring": 10,
+        "origin": 10,
+        "illusion": 10,
+        "daily": 0
+      },
+      "enemyHpLeft": 29736,
+      "callbacks": 301,
+      "saveSha256": "70b8abb12a4f365071f37238a91b181b16b4ca627c02404af5ec57d72d3c86d5"
+    },
+    {
+      "seed": 6,
+      "before": {
+        "army": 682,
+        "deployed": 636,
+        "alert": 100,
+        "ring": 10
+      },
+      "result": "lose",
+      "after": {
+        "army": 663,
+        "deployed": 617,
+        "alert": 100,
+        "ring": 10,
+        "origin": 10,
+        "illusion": 10,
+        "daily": 0
+      },
+      "enemyHpLeft": 19584,
+      "callbacks": 301,
+      "saveSha256": "10ed48d642bc5f370a8bda593ab97e18d34de8ed7bb020b501b45419bbcadb0a"
+    },
+    {
+      "seed": 7,
+      "before": {
+        "army": 682,
+        "deployed": 636,
+        "alert": 100,
+        "ring": 10
+      },
+      "result": "lose",
+      "after": {
+        "army": 670,
+        "deployed": 624,
+        "alert": 100,
+        "ring": 10,
+        "origin": 10,
+        "illusion": 10,
+        "daily": 0
+      },
+      "enemyHpLeft": 9708,
+      "callbacks": 301,
+      "saveSha256": "71715a313f4d8fdd98a086db5c3ce46a47f18cad6980e69c0c5b7ce3c9a0bb8c"
+    },
+    {
+      "seed": 8,
+      "before": {
+        "army": 682,
+        "deployed": 636,
+        "alert": 100,
+        "ring": 10
+      },
+      "result": "lose",
+      "after": {
+        "army": 666,
+        "deployed": 620,
+        "alert": 100,
+        "ring": 10,
+        "origin": 10,
+        "illusion": 10,
+        "daily": 0
+      },
+      "enemyHpLeft": 17341,
+      "callbacks": 301,
+      "saveSha256": "6378015332e6de67fa86114c81fd28a1ba0e03bee90905735e0499d6805b377c"
+    },
+    {
+      "seed": 9,
+      "before": {
+        "army": 682,
+        "deployed": 636,
+        "alert": 100,
+        "ring": 10
+      },
+      "result": "lose",
+      "after": {
+        "army": 671,
+        "deployed": 625,
+        "alert": 100,
+        "ring": 10,
+        "origin": 10,
+        "illusion": 10,
+        "daily": 0
+      },
+      "enemyHpLeft": 8020,
+      "callbacks": 301,
+      "saveSha256": "4dbbbf88d7e56b0920213d36c1d14abad32d14662b578ddea0fbb8f259132b84"
+    },
+    {
+      "seed": 10,
+      "before": {
+        "army": 682,
+        "deployed": 636,
+        "alert": 100,
+        "ring": 10
+      },
+      "result": "lose",
+      "after": {
+        "army": 669,
+        "deployed": 623,
+        "alert": 100,
+        "ring": 10,
+        "origin": 10,
+        "illusion": 10,
+        "daily": 0
+      },
+      "enemyHpLeft": 8934,
+      "callbacks": 301,
+      "saveSha256": "85e3c009d6872af322f7bbc9f84718676fac583d57a76fac7e559eeaebb4816d"
+    },
+    {
+      "seed": 11,
+      "before": {
+        "army": 682,
+        "deployed": 636,
+        "alert": 100,
+        "ring": 10
+      },
+      "result": "lose",
+      "after": {
+        "army": 672,
+        "deployed": 626,
+        "alert": 100,
+        "ring": 10,
+        "origin": 10,
+        "illusion": 10,
+        "daily": 0
+      },
+      "enemyHpLeft": 587,
+      "callbacks": 301,
+      "saveSha256": "cdb1b6cedd20c318f2deccf18969a093c4f01ab8c1d56ac56ca854ad350ef9d5"
+    },
+    {
+      "seed": 12,
+      "before": {
+        "army": 682,
+        "deployed": 636,
+        "alert": 100,
+        "ring": 10
+      },
+      "result": "lose",
+      "after": {
+        "army": 666,
+        "deployed": 620,
+        "alert": 100,
+        "ring": 10,
+        "origin": 10,
+        "illusion": 10,
+        "daily": 0
+      },
+      "enemyHpLeft": 19109,
+      "callbacks": 301,
+      "saveSha256": "15070ce24bf99ba46687a40424e1c0ccec303b782e13124ddaefdce291dbbd16"
+    },
+    {
+      "seed": 13,
+      "before": {
+        "army": 682,
+        "deployed": 636,
+        "alert": 100,
+        "ring": 10
+      },
+      "result": "lose",
+      "after": {
+        "army": 667,
+        "deployed": 621,
+        "alert": 100,
+        "ring": 10,
+        "origin": 10,
+        "illusion": 10,
+        "daily": 0
+      },
+      "enemyHpLeft": 10173,
+      "callbacks": 301,
+      "saveSha256": "4f1e3dbfe444d441563b2899c31e19bf7ffb2d302a6cf55b2419440e42ca7bd6"
+    },
+    {
+      "seed": 14,
+      "before": {
+        "army": 682,
+        "deployed": 636,
+        "alert": 100,
+        "ring": 10
+      },
+      "result": "lose",
+      "after": {
+        "army": 674,
+        "deployed": 628,
+        "alert": 100,
+        "ring": 10,
+        "origin": 10,
+        "illusion": 10,
+        "daily": 0
+      },
+      "enemyHpLeft": 3842,
+      "callbacks": 301,
+      "saveSha256": "c95e780094cd05360d0e4a70536a12bcd1f69278e312b0cc3f3cb523b8781c6d"
+    },
+    {
+      "seed": 15,
+      "before": {
+        "army": 682,
+        "deployed": 636,
+        "alert": 100,
+        "ring": 10
+      },
+      "result": "lose",
+      "after": {
+        "army": 670,
+        "deployed": 624,
+        "alert": 100,
+        "ring": 10,
+        "origin": 10,
+        "illusion": 10,
+        "daily": 0
+      },
+      "enemyHpLeft": 7211,
+      "callbacks": 301,
+      "saveSha256": "67210ecffb8fba1cc0ffe4d6fb3f1d379c0ccd26fd95642189b0913070452aeb"
+    },
+    {
+      "seed": 16,
+      "before": {
+        "army": 682,
+        "deployed": 636,
+        "alert": 100,
+        "ring": 10
+      },
+      "result": "lose",
+      "after": {
+        "army": 664,
+        "deployed": 618,
+        "alert": 100,
+        "ring": 10,
+        "origin": 10,
+        "illusion": 10,
+        "daily": 0
+      },
+      "enemyHpLeft": 20069,
+      "callbacks": 301,
+      "saveSha256": "a48ea41513d9a64fb9c60cd11b8484a6bccb22a31e751d0c9dc37a13a450495c"
+    }
+  ],
+  "scope": "Actual production, training, adjForm, save/load. Fixed independent battle seeds 1–16. No direct resource, formation, combat or config injection."
+}
