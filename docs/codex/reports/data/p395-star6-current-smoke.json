@@ -1,0 +1,664 @@
+{
+  "batch": "P395",
+  "runtimeSha256": {
+    "config.js": "c1e9257c1b0677c5a306a80c28e8b729b4667bc2dbd7e43e1f88bed06d97e869",
+    "levels.js": "7105cc27283ea25aa6829135b09c1da2f1b0ea5a7f1721d6bb3167e3d57c5f08",
+    "math.js": "9cb16af1e322205a2a92110758d71ac5bea0c422b04d981aab870c18a8cd2513",
+    "garrison.js": "4d233f0529d256cd1ace2de782603fcfcbbff110032ca4cf29c5e36af30f10ff",
+    "technology.js": "c51fb05821593d9e76396ff18b0a38d78dee1db9cdc55631b78a7f223ad0a006"
+  },
+  "results": [
+    {
+      "file": "p395-star6-star25-paid-save.json",
+      "sha256": "44e6910c1b7399d7e82b49a82729b25eaef653cda028a025d6e8ece37f50b869",
+      "tier": 6,
+      "pressure": {
+        "wins": 16,
+        "closestEnemyHp": 0,
+        "meanEnemyHp": 0,
+        "rows": [
+          {
+            "seed": 1,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 3,
+            "ringDelta": 100,
+            "callbacks": 289
+          },
+          {
+            "seed": 2,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 2,
+            "ringDelta": 100,
+            "callbacks": 287
+          },
+          {
+            "seed": 3,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 4,
+            "ringDelta": 100,
+            "callbacks": 288
+          },
+          {
+            "seed": 4,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 4,
+            "ringDelta": 100,
+            "callbacks": 296
+          },
+          {
+            "seed": 5,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 2,
+            "ringDelta": 100,
+            "callbacks": 296
+          },
+          {
+            "seed": 6,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 3,
+            "ringDelta": 100,
+            "callbacks": 296
+          },
+          {
+            "seed": 7,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 5,
+            "ringDelta": 100,
+            "callbacks": 296
+          },
+          {
+            "seed": 8,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 3,
+            "ringDelta": 100,
+            "callbacks": 296
+          },
+          {
+            "seed": 9,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 3,
+            "ringDelta": 100,
+            "callbacks": 296
+          },
+          {
+            "seed": 10,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 4,
+            "ringDelta": 100,
+            "callbacks": 296
+          },
+          {
+            "seed": 11,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 3,
+            "ringDelta": 100,
+            "callbacks": 288
+          },
+          {
+            "seed": 12,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 2,
+            "ringDelta": 100,
+            "callbacks": 296
+          },
+          {
+            "seed": 13,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 2,
+            "ringDelta": 100,
+            "callbacks": 296
+          },
+          {
+            "seed": 14,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 3,
+            "ringDelta": 100,
+            "callbacks": 289
+          },
+          {
+            "seed": 15,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 4,
+            "ringDelta": 100,
+            "callbacks": 289
+          },
+          {
+            "seed": 16,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 2,
+            "ringDelta": 100,
+            "callbacks": 296
+          }
+        ]
+      }
+    },
+    {
+      "file": "p395-star6-star25-after-loss-recovery-paid-save.json",
+      "sha256": "8a796b1ad09c618b578a63ad2f090b5ac2bd1f8df4e8b3ef13dc2d111247f8b1",
+      "tier": 6,
+      "pressure": {
+        "wins": 16,
+        "closestEnemyHp": 0,
+        "meanEnemyHp": 0,
+        "rows": [
+          {
+            "seed": 1,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 3,
+            "ringDelta": 100,
+            "callbacks": 289
+          },
+          {
+            "seed": 2,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 2,
+            "ringDelta": 100,
+            "callbacks": 287
+          },
+          {
+            "seed": 3,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 4,
+            "ringDelta": 100,
+            "callbacks": 288
+          },
+          {
+            "seed": 4,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 4,
+            "ringDelta": 100,
+            "callbacks": 296
+          },
+          {
+            "seed": 5,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 2,
+            "ringDelta": 100,
+            "callbacks": 296
+          },
+          {
+            "seed": 6,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 3,
+            "ringDelta": 100,
+            "callbacks": 296
+          },
+          {
+            "seed": 7,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 5,
+            "ringDelta": 100,
+            "callbacks": 296
+          },
+          {
+            "seed": 8,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 3,
+            "ringDelta": 100,
+            "callbacks": 296
+          },
+          {
+            "seed": 9,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 3,
+            "ringDelta": 100,
+            "callbacks": 296
+          },
+          {
+            "seed": 10,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 4,
+            "ringDelta": 100,
+            "callbacks": 296
+          },
+          {
+            "seed": 11,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 3,
+            "ringDelta": 100,
+            "callbacks": 288
+          },
+          {
+            "seed": 12,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 2,
+            "ringDelta": 100,
+            "callbacks": 296
+          },
+          {
+            "seed": 13,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 2,
+            "ringDelta": 100,
+            "callbacks": 296
+          },
+          {
+            "seed": 14,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 3,
+            "ringDelta": 100,
+            "callbacks": 289
+          },
+          {
+            "seed": 15,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 4,
+            "ringDelta": 100,
+            "callbacks": 289
+          },
+          {
+            "seed": 16,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 2,
+            "ringDelta": 100,
+            "callbacks": 296
+          }
+        ]
+      }
+    },
+    {
+      "file": "p395-star7-calm-paid-save.json",
+      "sha256": "297de7e1e4bd2c73907997fbb3fc365ee78ab8d26aae457f69ee4ce2b03b810d",
+      "tier": 7,
+      "pressure": {
+        "wins": 0,
+        "closestEnemyHp": 308726,
+        "meanEnemyHp": 320355.375,
+        "rows": [
+          {
+            "seed": 1,
+            "result": "lose",
+            "enemyHpLeft": 317447,
+            "enemyInitialHp": 1411764,
+            "loss": 4,
+            "ringDelta": 0,
+            "callbacks": 301
+          },
+          {
+            "seed": 2,
+            "result": "lose",
+            "enemyHpLeft": 308726,
+            "enemyInitialHp": 1411764,
+            "loss": 4,
+            "ringDelta": 0,
+            "callbacks": 301
+          },
+          {
+            "seed": 3,
+            "result": "lose",
+            "enemyHpLeft": 312843,
+            "enemyInitialHp": 1411764,
+            "loss": 6,
+            "ringDelta": 0,
+            "callbacks": 301
+          },
+          {
+            "seed": 4,
+            "result": "lose",
+            "enemyHpLeft": 325375,
+            "enemyInitialHp": 1411764,
+            "loss": 6,
+            "ringDelta": 0,
+            "callbacks": 301
+          },
+          {
+            "seed": 5,
+            "result": "lose",
+            "enemyHpLeft": 327171,
+            "enemyInitialHp": 1411764,
+            "loss": 6,
+            "ringDelta": 0,
+            "callbacks": 301
+          },
+          {
+            "seed": 6,
+            "result": "lose",
+            "enemyHpLeft": 322730,
+            "enemyInitialHp": 1411764,
+            "loss": 6,
+            "ringDelta": 0,
+            "callbacks": 301
+          },
+          {
+            "seed": 7,
+            "result": "lose",
+            "enemyHpLeft": 327113,
+            "enemyInitialHp": 1411764,
+            "loss": 5,
+            "ringDelta": 0,
+            "callbacks": 301
+          },
+          {
+            "seed": 8,
+            "result": "lose",
+            "enemyHpLeft": 322686,
+            "enemyInitialHp": 1411764,
+            "loss": 5,
+            "ringDelta": 0,
+            "callbacks": 301
+          },
+          {
+            "seed": 9,
+            "result": "lose",
+            "enemyHpLeft": 325759,
+            "enemyInitialHp": 1411764,
+            "loss": 5,
+            "ringDelta": 0,
+            "callbacks": 301
+          },
+          {
+            "seed": 10,
+            "result": "lose",
+            "enemyHpLeft": 320780,
+            "enemyInitialHp": 1411764,
+            "loss": 4,
+            "ringDelta": 0,
+            "callbacks": 301
+          },
+          {
+            "seed": 11,
+            "result": "lose",
+            "enemyHpLeft": 309538,
+            "enemyInitialHp": 1411764,
+            "loss": 3,
+            "ringDelta": 0,
+            "callbacks": 301
+          },
+          {
+            "seed": 12,
+            "result": "lose",
+            "enemyHpLeft": 327331,
+            "enemyInitialHp": 1411764,
+            "loss": 4,
+            "ringDelta": 0,
+            "callbacks": 301
+          },
+          {
+            "seed": 13,
+            "result": "lose",
+            "enemyHpLeft": 320701,
+            "enemyInitialHp": 1411764,
+            "loss": 3,
+            "ringDelta": 0,
+            "callbacks": 301
+          },
+          {
+            "seed": 14,
+            "result": "lose",
+            "enemyHpLeft": 316049,
+            "enemyInitialHp": 1411764,
+            "loss": 3,
+            "ringDelta": 0,
+            "callbacks": 301
+          },
+          {
+            "seed": 15,
+            "result": "lose",
+            "enemyHpLeft": 315741,
+            "enemyInitialHp": 1411764,
+            "loss": 6,
+            "ringDelta": 0,
+            "callbacks": 301
+          },
+          {
+            "seed": 16,
+            "result": "lose",
+            "enemyHpLeft": 325696,
+            "enemyInitialHp": 1411764,
+            "loss": 5,
+            "ringDelta": 0,
+            "callbacks": 301
+          }
+        ]
+      }
+    },
+    {
+      "file": "p395-star7-fighter-equipped-paid-save.json",
+      "sha256": "dcf21b0932e2bd640c3a37804da1fc3d685165c47b2f2f3c1c50f3ccb16d93f1",
+      "tier": 7,
+      "pressure": {
+        "wins": 0,
+        "closestEnemyHp": 289725,
+        "meanEnemyHp": 301443.625,
+        "rows": [
+          {
+            "seed": 1,
+            "result": "lose",
+            "enemyHpLeft": 298067,
+            "enemyInitialHp": 1411764,
+            "loss": 4,
+            "ringDelta": 0,
+            "callbacks": 301
+          },
+          {
+            "seed": 2,
+            "result": "lose",
+            "enemyHpLeft": 289725,
+            "enemyInitialHp": 1411764,
+            "loss": 4,
+            "ringDelta": 0,
+            "callbacks": 301
+          },
+          {
+            "seed": 3,
+            "result": "lose",
+            "enemyHpLeft": 293926,
+            "enemyInitialHp": 1411764,
+            "loss": 6,
+            "ringDelta": 0,
+            "callbacks": 301
+          },
+          {
+            "seed": 4,
+            "result": "lose",
+            "enemyHpLeft": 307379,
+            "enemyInitialHp": 1411764,
+            "loss": 6,
+            "ringDelta": 0,
+            "callbacks": 301
+          },
+          {
+            "seed": 5,
+            "result": "lose",
+            "enemyHpLeft": 308042,
+            "enemyInitialHp": 1411764,
+            "loss": 6,
+            "ringDelta": 0,
+            "callbacks": 301
+          },
+          {
+            "seed": 6,
+            "result": "lose",
+            "enemyHpLeft": 304552,
+            "enemyInitialHp": 1411764,
+            "loss": 6,
+            "ringDelta": 0,
+            "callbacks": 301
+          },
+          {
+            "seed": 7,
+            "result": "lose",
+            "enemyHpLeft": 308552,
+            "enemyInitialHp": 1411764,
+            "loss": 5,
+            "ringDelta": 0,
+            "callbacks": 301
+          },
+          {
+            "seed": 8,
+            "result": "lose",
+            "enemyHpLeft": 303342,
+            "enemyInitialHp": 1411764,
+            "loss": 5,
+            "ringDelta": 0,
+            "callbacks": 301
+          },
+          {
+            "seed": 9,
+            "result": "lose",
+            "enemyHpLeft": 306750,
+            "enemyInitialHp": 1411764,
+            "loss": 4,
+            "ringDelta": 0,
+            "callbacks": 301
+          },
+          {
+            "seed": 10,
+            "result": "lose",
+            "enemyHpLeft": 302398,
+            "enemyInitialHp": 1411764,
+            "loss": 4,
+            "ringDelta": 0,
+            "callbacks": 301
+          },
+          {
+            "seed": 11,
+            "result": "lose",
+            "enemyHpLeft": 290461,
+            "enemyInitialHp": 1411764,
+            "loss": 3,
+            "ringDelta": 0,
+            "callbacks": 301
+          },
+          {
+            "seed": 12,
+            "result": "lose",
+            "enemyHpLeft": 308186,
+            "enemyInitialHp": 1411764,
+            "loss": 4,
+            "ringDelta": 0,
+            "callbacks": 301
+          },
+          {
+            "seed": 13,
+            "result": "lose",
+            "enemyHpLeft": 301940,
+            "enemyInitialHp": 1411764,
+            "loss": 3,
+            "ringDelta": 0,
+            "callbacks": 301
+          },
+          {
+            "seed": 14,
+            "result": "lose",
+            "enemyHpLeft": 297182,
+            "enemyInitialHp": 1411764,
+            "loss": 3,
+            "ringDelta": 0,
+            "callbacks": 301
+          },
+          {
+            "seed": 15,
+            "result": "lose",
+            "enemyHpLeft": 296446,
+            "enemyInitialHp": 1411764,
+            "loss": 6,
+            "ringDelta": 0,
+            "callbacks": 301
+          },
+          {
+            "seed": 16,
+            "result": "lose",
+            "enemyHpLeft": 306150,
+            "enemyInitialHp": 1411764,
+            "loss": 5,
+            "ringDelta": 0,
+            "callbacks": 301
+          }
+        ]
+      }
+    }
+  ],
+  "summary": {
+    "cases": [
+      {
+        "file": "p395-star6-star25-paid-save.json",
+        "tier": 6,
+        "wins": 16,
+        "closest": 0
+      },
+      {
+        "file": "p395-star6-star25-after-loss-recovery-paid-save.json",
+        "tier": 6,
+        "wins": 16,
+        "closest": 0
+      },
+      {
+        "file": "p395-star7-calm-paid-save.json",
+        "tier": 7,
+        "wins": 0,
+        "closest": 308726
+      },
+      {
+        "file": "p395-star7-fighter-equipped-paid-save.json",
+        "tier": 7,
+        "wins": 0,
+        "closest": 289725
+      }
+    ]
+  }
+}

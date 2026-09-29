@@ -1,0 +1,131 @@
+{
+  "batch": "P395",
+  "source": {
+    "file": "p395-star7-calm-paid-save.json",
+    "sha256": "297de7e1e4bd2c73907997fbb3fc365ee78ab8d26aae457f69ee4ce2b03b810d"
+  },
+  "runtimeMathSha256": "9cb16af1e322205a2a92110758d71ac5bea0c422b04d981aab870c18a8cd2513",
+  "before": {
+    "city": 1090,
+    "deed": 8313,
+    "army": 672,
+    "deployed": 626,
+    "field": 629,
+    "stars": 25,
+    "multiplier": 3.5,
+    "daily": {
+      "starBeast6": 1,
+      "starBeastCalm": 1
+    },
+    "alert": 0,
+    "items": {
+      "origin": 280,
+      "illusion": 280,
+      "ring": 280
+    },
+    "front": [
+      {
+        "type": "star_trooper",
+        "count": 55
+      },
+      {
+        "type": "star_trooper",
+        "count": 54
+      },
+      {
+        "type": "electro_trooper",
+        "count": 55
+      },
+      {
+        "type": "electro_trooper",
+        "count": 46
+      }
+    ],
+    "mid": [
+      {
+        "type": "armored_trooper",
+        "count": 55
+      },
+      {
+        "type": "alloy_special",
+        "count": 55
+      },
+      {
+        "type": "star_trooper",
+        "count": 46
+      },
+      {
+        "type": "gold_cavalry",
+        "count": 40
+      }
+    ],
+    "back": [
+      {
+        "type": "archer",
+        "count": 55
+      },
+      {
+        "type": "archer",
+        "count": 55
+      },
+      {
+        "type": "archer",
+        "count": 55
+      },
+      {
+        "type": "archer",
+        "count": 55
+      }
+    ],
+    "resources": {
+      "food": 480699,
+      "copper": 401082.4299979203,
+      "iron": 566640.6000000124,
+      "steel": 504177.8000000033,
+      "medal": 6291647,
+      "tech": 13721
+    }
+  },
+  "actions": {
+    "fighter": {
+      "ok": false,
+      "reason": "insufficient-resources",
+      "cost": {
+        "tech": 100000000,
+        "medal": 1000000
+      }
+    },
+    "array": {
+      "ok": false,
+      "reason": "insufficient-items",
+      "cost": {
+        "item": "sacredRingCore",
+        "amount": 1000
+      }
+    },
+    "arms": {
+      "ok": false,
+      "reason": "insufficient-resources",
+      "cost": 4000000
+    }
+  },
+  "research": {
+    "techCap": 307340352,
+    "techRateNow": 0,
+    "steelCap": 2303565,
+    "steelRateNow": 0,
+    "ringCost": {
+      "item": "sacredRingCore",
+      "amount": 1000
+    },
+    "archerAtk": 8.112,
+    "starAtk": 256.56
+  },
+  "summary": {
+    "fighter": "insufficient-resources",
+    "array": "insufficient-items",
+    "arms": "insufficient-resources",
+    "techCap": 307340352,
+    "techRateNow": 0
+  }
+}

@@ -1,0 +1,1302 @@
+{
+  "batch": "P395",
+  "source": {
+    "file": "p395-star6-calm-paid-save.json",
+    "sha256": "ae5d8873a179c70c26fbe693db628bc01827e11e35b7e59267d2e57bb35d4b39"
+  },
+  "runtimeSha256": {
+    "config.js": "1d46cd09d15cd9faf05cbb40a0b5e30fdf7d6ae3bcfd21550233c178378ebfd8",
+    "levels.js": "dc0f73ccb179900f2a270f35ab22775d2eb7ca18caf10037480f3bc7a3359afc",
+    "math.js": "9cb16af1e322205a2a92110758d71ac5bea0c422b04d981aab870c18a8cd2513",
+    "garrison.js": "4d233f0529d256cd1ace2de782603fcfcbbff110032ca4cf29c5e36af30f10ff",
+    "technology.js": "c51fb05821593d9e76396ff18b0a38d78dee1db9cdc55631b78a7f223ad0a006"
+  },
+  "offline": [
+    {
+      "target": 18,
+      "seconds": 28800,
+      "priorDeed": 34069,
+      "afterDeed": 91093,
+      "gains": {
+        "deed": 57024,
+        "medal": 95040,
+        "bone": 380160
+      },
+      "sha256": "f392dbf79c9be4ad51ed55f48042880c523a898b094118584853303655be89df"
+    },
+    {
+      "target": 18,
+      "seconds": 28800,
+      "priorDeed": 91093,
+      "afterDeed": 148117,
+      "gains": {
+        "deed": 57024,
+        "medal": 95040,
+        "bone": 380160
+      },
+      "sha256": "b7d14dfe4ade8518329ef40472f62776f6fca3e088eaf71959bcd288e80c6cbd"
+    },
+    {
+      "target": 18,
+      "seconds": 28800,
+      "priorDeed": 148117,
+      "afterDeed": 205141,
+      "gains": {
+        "deed": 57024,
+        "medal": 95040,
+        "bone": 380160
+      },
+      "sha256": "001c6e4a494f168aba5e325eb3c598e89a8634f7a1a0f27f71ab451983e5b7f0"
+    },
+    {
+      "target": 19,
+      "seconds": 28800,
+      "priorDeed": 8192,
+      "afterDeed": 65216,
+      "gains": {
+        "deed": 57024,
+        "medal": 95040,
+        "bone": 380160
+      },
+      "sha256": "9ab08a3f3a0d321d1fd4f4d16cca93189785864b862cb1f975819c8215d7908d"
+    },
+    {
+      "target": 19,
+      "seconds": 28800,
+      "priorDeed": 65216,
+      "afterDeed": 122240,
+      "gains": {
+        "deed": 57024,
+        "medal": 95040,
+        "bone": 380160
+      },
+      "sha256": "4f42939883333ce96d2b0d67d52fbb08a20729f93dea685723fb0ed1944f6d06"
+    },
+    {
+      "target": 19,
+      "seconds": 28800,
+      "priorDeed": 122240,
+      "afterDeed": 179264,
+      "gains": {
+        "deed": 57024,
+        "medal": 95040,
+        "bone": 380160
+      },
+      "sha256": "08217839d7ee9b87273631ffa9e71f260ca377ea51a0c788a15150b5c58505b6"
+    },
+    {
+      "target": 19,
+      "seconds": 28800,
+      "priorDeed": 179264,
+      "afterDeed": 236288,
+      "gains": {
+        "deed": 57024,
+        "medal": 95040,
+        "bone": 380160
+      },
+      "sha256": "865a2a00e6dbc5994cd4135cb76e4d88ad6cf93fe24c71c5acaf6cb34a32e062"
+    },
+    {
+      "target": 20,
+      "seconds": 28800,
+      "priorDeed": 24338,
+      "afterDeed": 81362,
+      "gains": {
+        "deed": 57024,
+        "medal": 95040,
+        "bone": 380160
+      },
+      "sha256": "d3218119040802b730f228621b4ebe8fdee01e01c1a712eaf07abab3789bd5b3"
+    },
+    {
+      "target": 20,
+      "seconds": 28800,
+      "priorDeed": 81362,
+      "afterDeed": 138386,
+      "gains": {
+        "deed": 57024,
+        "medal": 95040,
+        "bone": 380160
+      },
+      "sha256": "73f70ad514b3bc0ad6369fe814a5fe08e4e40b7b6f47a759a9a1dbee7e397036"
+    },
+    {
+      "target": 20,
+      "seconds": 28800,
+      "priorDeed": 138386,
+      "afterDeed": 195410,
+      "gains": {
+        "deed": 57024,
+        "medal": 95040,
+        "bone": 380160
+      },
+      "sha256": "4accd50d923edb371f12edc7b2c445511f76c6f1b557474343a84bfca07434d4"
+    },
+    {
+      "target": 20,
+      "seconds": 28800,
+      "priorDeed": 195410,
+      "afterDeed": 252434,
+      "gains": {
+        "deed": 57024,
+        "medal": 95040,
+        "bone": 380160
+      },
+      "sha256": "5b8ff7ecb7d711f83ba28e3f161ff735ddb0ad3ab55d147a5f566490ec788875"
+    },
+    {
+      "target": 21,
+      "seconds": 28800,
+      "priorDeed": 25484,
+      "afterDeed": 85099,
+      "gains": {
+        "deed": 59615,
+        "medal": 99359,
+        "bone": 397439
+      },
+      "sha256": "b6d6313801a9a2bf7beb7485ff5b5b25f14410c8b437b692f9f411ba08daa75e"
+    },
+    {
+      "target": 21,
+      "seconds": 28800,
+      "priorDeed": 85099,
+      "afterDeed": 144714,
+      "gains": {
+        "deed": 59615,
+        "medal": 99359,
+        "bone": 397439
+      },
+      "sha256": "5c544179e662291292e1997ed4d078bafe41a04cc87a250fb09ad511b224968e"
+    },
+    {
+      "target": 21,
+      "seconds": 28800,
+      "priorDeed": 144714,
+      "afterDeed": 204329,
+      "gains": {
+        "deed": 59615,
+        "medal": 99359,
+        "bone": 397439
+      },
+      "sha256": "4edb318affb4cb90dd97bc6d79aebf0f268dfd3ddebfc525bbb844d04750d27c"
+    },
+    {
+      "target": 21,
+      "seconds": 28800,
+      "priorDeed": 204329,
+      "afterDeed": 263944,
+      "gains": {
+        "deed": 59615,
+        "medal": 99359,
+        "bone": 397439
+      },
+      "sha256": "00088233d0c6ebe20597d4bd238fe9ac23e4d650c0c87735dd1469ebe14cc93f"
+    },
+    {
+      "target": 21,
+      "seconds": 28800,
+      "priorDeed": 263944,
+      "afterDeed": 323559,
+      "gains": {
+        "deed": 59615,
+        "medal": 99359,
+        "bone": 397439
+      },
+      "sha256": "b79e4b4a09d5a31f404eb750359b116c08c8678e8553061795a2dc37ddb62995"
+    },
+    {
+      "target": 22,
+      "seconds": 28800,
+      "priorDeed": 16245,
+      "afterDeed": 75860,
+      "gains": {
+        "deed": 59615,
+        "medal": 99359,
+        "bone": 397439
+      },
+      "sha256": "dea9e9cc24a968898b9971cbf036bcaba139b7227b440770f0818caea2d60be9"
+    },
+    {
+      "target": 22,
+      "seconds": 28800,
+      "priorDeed": 75860,
+      "afterDeed": 135475,
+      "gains": {
+        "deed": 59615,
+        "medal": 99359,
+        "bone": 397439
+      },
+      "sha256": "96fb6f271c809c4b60d6be3c43a5e78454d13d289f4fb10427e947c6dee6069b"
+    },
+    {
+      "target": 22,
+      "seconds": 28800,
+      "priorDeed": 135475,
+      "afterDeed": 195090,
+      "gains": {
+        "deed": 59615,
+        "medal": 99359,
+        "bone": 397439
+      },
+      "sha256": "d742018983c4b7fb74e1f2f1a3f13bb4cf241c21b7215d2a8c3003f1710f75dc"
+    },
+    {
+      "target": 22,
+      "seconds": 28800,
+      "priorDeed": 195090,
+      "afterDeed": 254705,
+      "gains": {
+        "deed": 59615,
+        "medal": 99359,
+        "bone": 397439
+      },
+      "sha256": "ecea523327921621285ff6423df14d4ca0634bca55c5c726c1d273c26af8bd7c"
+    },
+    {
+      "target": 22,
+      "seconds": 28800,
+      "priorDeed": 254705,
+      "afterDeed": 314320,
+      "gains": {
+        "deed": 59615,
+        "medal": 99359,
+        "bone": 397439
+      },
+      "sha256": "ebbd9cb4bc50a7ff92dfacaa24f63a0b4f2529f1c89a9d35a53cf42fc7b55bf5"
+    },
+    {
+      "target": 22,
+      "seconds": 28800,
+      "priorDeed": 314320,
+      "afterDeed": 373935,
+      "gains": {
+        "deed": 59615,
+        "medal": 99359,
+        "bone": 397439
+      },
+      "sha256": "14773674b637f396b80bb6e64ff4e4e15c94bd91ea8e5d1be8aab989dc1c931c"
+    },
+    {
+      "target": 23,
+      "seconds": 28800,
+      "priorDeed": 48249,
+      "afterDeed": 107864,
+      "gains": {
+        "deed": 59615,
+        "medal": 99359,
+        "bone": 397439
+      },
+      "sha256": "e18d6671161d39989370e14e9be3f38bc3721c8540418338f63610b559f29ca8"
+    },
+    {
+      "target": 23,
+      "seconds": 28800,
+      "priorDeed": 107864,
+      "afterDeed": 167479,
+      "gains": {
+        "deed": 59615,
+        "medal": 99359,
+        "bone": 397439
+      },
+      "sha256": "fd88433e4849ab9383659a218a93cc66c6ac746ff7502af281e8926eebf20090"
+    },
+    {
+      "target": 23,
+      "seconds": 28800,
+      "priorDeed": 167479,
+      "afterDeed": 227094,
+      "gains": {
+        "deed": 59615,
+        "medal": 99359,
+        "bone": 397439
+      },
+      "sha256": "feae19fd145f8ba0bc3b7adad0b7f5b162fe4e682631cb2a82977a961311a59c"
+    },
+    {
+      "target": 23,
+      "seconds": 28800,
+      "priorDeed": 227094,
+      "afterDeed": 286709,
+      "gains": {
+        "deed": 59615,
+        "medal": 99359,
+        "bone": 397439
+      },
+      "sha256": "04cb13c2a4d1ad938f1f15dce28390f03cc62458a8d869e060334c9a68682d1d"
+    },
+    {
+      "target": 23,
+      "seconds": 28800,
+      "priorDeed": 286709,
+      "afterDeed": 346324,
+      "gains": {
+        "deed": 59615,
+        "medal": 99359,
+        "bone": 397439
+      },
+      "sha256": "11329406ca6890b09c2601c7497e58e487cef1b13cf86dc5a33d61a72a397c7d"
+    },
+    {
+      "target": 23,
+      "seconds": 28800,
+      "priorDeed": 346324,
+      "afterDeed": 405939,
+      "gains": {
+        "deed": 59615,
+        "medal": 99359,
+        "bone": 397439
+      },
+      "sha256": "64ca29acd199fc710fa2f42524048a970c71b1b845d51cd05e7a49cc0e5f8320"
+    },
+    {
+      "target": 24,
+      "seconds": 28800,
+      "priorDeed": 51375,
+      "afterDeed": 110990,
+      "gains": {
+        "deed": 59615,
+        "medal": 99359,
+        "bone": 397439
+      },
+      "sha256": "04674491807c1480c0a248eb251d07377039288880cf188691ce3b8c180dfe3c"
+    },
+    {
+      "target": 24,
+      "seconds": 28800,
+      "priorDeed": 110990,
+      "afterDeed": 170605,
+      "gains": {
+        "deed": 59615,
+        "medal": 99359,
+        "bone": 397439
+      },
+      "sha256": "b23400251b9766fbee0fe6b2cddb70529fd3e690ec626492d1b0b3941c5661f1"
+    },
+    {
+      "target": 24,
+      "seconds": 28800,
+      "priorDeed": 170605,
+      "afterDeed": 230220,
+      "gains": {
+        "deed": 59615,
+        "medal": 99359,
+        "bone": 397439
+      },
+      "sha256": "d63e4983ca96a774cf219f765894997b5ccd4f255bcf1ec7fdbe287906b6cc00"
+    },
+    {
+      "target": 24,
+      "seconds": 28800,
+      "priorDeed": 230220,
+      "afterDeed": 289835,
+      "gains": {
+        "deed": 59615,
+        "medal": 99359,
+        "bone": 397439
+      },
+      "sha256": "e42c76dbbf97e9a18cd49fcce15dac05f70992c97104f91a88abc07c5f235571"
+    },
+    {
+      "target": 24,
+      "seconds": 28800,
+      "priorDeed": 289835,
+      "afterDeed": 349450,
+      "gains": {
+        "deed": 59615,
+        "medal": 99359,
+        "bone": 397439
+      },
+      "sha256": "03dec02856d3eda97ff65517c0c41585bd9da2c0b39cdccfefa7d5d4c4e195ec"
+    },
+    {
+      "target": 24,
+      "seconds": 28800,
+      "priorDeed": 349450,
+      "afterDeed": 409065,
+      "gains": {
+        "deed": 59615,
+        "medal": 99359,
+        "bone": 397439
+      },
+      "sha256": "c01b93bf40d5839d2d095cff64031c0bf065539672d32e8e0dc535d8a0078866"
+    },
+    {
+      "target": 25,
+      "seconds": 28800,
+      "priorDeed": 36879,
+      "afterDeed": 99087,
+      "gains": {
+        "deed": 62208,
+        "medal": 103680,
+        "bone": 414720
+      },
+      "sha256": "f27bf153614d472124c487c25e0a47c7044bac216cbd72459df9b4564145a6b5"
+    },
+    {
+      "target": 25,
+      "seconds": 28800,
+      "priorDeed": 99087,
+      "afterDeed": 161295,
+      "gains": {
+        "deed": 62208,
+        "medal": 103680,
+        "bone": 414720
+      },
+      "sha256": "ee10e69fd5f23ec0edbb9d5cf54983f474baf340f8dda9903ef7b7152c52ae83"
+    },
+    {
+      "target": 25,
+      "seconds": 28800,
+      "priorDeed": 161295,
+      "afterDeed": 223503,
+      "gains": {
+        "deed": 62208,
+        "medal": 103680,
+        "bone": 414720
+      },
+      "sha256": "d2cfdc2bd429385bcb04ae2c7c3b2f9f4663c695ac2f0f3560c16a9a53ea3a71"
+    },
+    {
+      "target": 25,
+      "seconds": 28800,
+      "priorDeed": 223503,
+      "afterDeed": 285711,
+      "gains": {
+        "deed": 62208,
+        "medal": 103680,
+        "bone": 414720
+      },
+      "sha256": "4f914a041fe494fbf34f6ddda2785552e842d9ef7feab2dac07ad93f5d7b843b"
+    },
+    {
+      "target": 25,
+      "seconds": 28800,
+      "priorDeed": 285711,
+      "afterDeed": 347919,
+      "gains": {
+        "deed": 62208,
+        "medal": 103680,
+        "bone": 414720
+      },
+      "sha256": "076e7a7aef74943e4cf1fdffbbfd00e24940d6f85ee5a851c4a72734e15b7fb8"
+    },
+    {
+      "target": 25,
+      "seconds": 28800,
+      "priorDeed": 347919,
+      "afterDeed": 410127,
+      "gains": {
+        "deed": 62208,
+        "medal": 103680,
+        "bone": 414720
+      },
+      "sha256": "178faf0ed8a3b2ff2088f360efde5f97f7075414aa7b879d068b46c46e5197ac"
+    }
+  ],
+  "steps": [
+    {
+      "target": 18,
+      "city": 677,
+      "field": 627,
+      "multiplier": 2.8,
+      "cost": 196949,
+      "deed": 8192,
+      "file": "p395-star6-star18-paid-save.json",
+      "sha256": "c18b8718ad81c3eb347d7e00fe8ab78fe3825eb301fe1767e17509af8b9ae607",
+      "four": {
+        "wins": 0,
+        "closestEnemyHp": 153997,
+        "meanEnemyHp": 159803.5,
+        "rows": [
+          {
+            "seed": 1,
+            "result": "lose",
+            "enemyHpLeft": 160299,
+            "enemyInitialHp": 1058823,
+            "loss": 5,
+            "ringDelta": 0,
+            "callbacks": 301
+          },
+          {
+            "seed": 2,
+            "result": "lose",
+            "enemyHpLeft": 155052,
+            "enemyInitialHp": 1058823,
+            "loss": 6,
+            "ringDelta": 0,
+            "callbacks": 301
+          },
+          {
+            "seed": 11,
+            "result": "lose",
+            "enemyHpLeft": 153997,
+            "enemyInitialHp": 1058823,
+            "loss": 4,
+            "ringDelta": 0,
+            "callbacks": 301
+          },
+          {
+            "seed": 16,
+            "result": "lose",
+            "enemyHpLeft": 169866,
+            "enemyInitialHp": 1058823,
+            "loss": 7,
+            "ringDelta": 0,
+            "callbacks": 301
+          }
+        ]
+      },
+      "full": null
+    },
+    {
+      "target": 19,
+      "city": 727,
+      "field": 627,
+      "multiplier": 2.9000000000000004,
+      "cost": 211950,
+      "deed": 24338,
+      "file": "p395-star6-star19-paid-save.json",
+      "sha256": "d0d65ee3495e63f910721a0dcc53d95c9c67255d3db5bd2f9142fc11da0277e3",
+      "four": {
+        "wins": 0,
+        "closestEnemyHp": 125312,
+        "meanEnemyHp": 131125.5,
+        "rows": [
+          {
+            "seed": 1,
+            "result": "lose",
+            "enemyHpLeft": 131541,
+            "enemyInitialHp": 1058823,
+            "loss": 4,
+            "ringDelta": 0,
+            "callbacks": 301
+          },
+          {
+            "seed": 2,
+            "result": "lose",
+            "enemyHpLeft": 125490,
+            "enemyInitialHp": 1058823,
+            "loss": 4,
+            "ringDelta": 0,
+            "callbacks": 301
+          },
+          {
+            "seed": 11,
+            "result": "lose",
+            "enemyHpLeft": 125312,
+            "enemyInitialHp": 1058823,
+            "loss": 4,
+            "ringDelta": 0,
+            "callbacks": 301
+          },
+          {
+            "seed": 16,
+            "result": "lose",
+            "enemyHpLeft": 142159,
+            "enemyInitialHp": 1058823,
+            "loss": 7,
+            "ringDelta": 0,
+            "callbacks": 301
+          }
+        ]
+      },
+      "full": null
+    },
+    {
+      "target": 20,
+      "city": 777,
+      "field": 627,
+      "multiplier": 3,
+      "cost": 226950,
+      "deed": 25484,
+      "file": "p395-star6-star20-paid-save.json",
+      "sha256": "c5b62d26bace86212d128964f40ed57558e3a5e6905ab233ac5765d7cf8a2a18",
+      "four": {
+        "wins": 0,
+        "closestEnemyHp": 96402,
+        "meanEnemyHp": 102064,
+        "rows": [
+          {
+            "seed": 1,
+            "result": "lose",
+            "enemyHpLeft": 103732,
+            "enemyInitialHp": 1058823,
+            "loss": 4,
+            "ringDelta": 0,
+            "callbacks": 301
+          },
+          {
+            "seed": 2,
+            "result": "lose",
+            "enemyHpLeft": 96402,
+            "enemyInitialHp": 1058823,
+            "loss": 4,
+            "ringDelta": 0,
+            "callbacks": 301
+          },
+          {
+            "seed": 11,
+            "result": "lose",
+            "enemyHpLeft": 96735,
+            "enemyInitialHp": 1058823,
+            "loss": 4,
+            "ringDelta": 0,
+            "callbacks": 301
+          },
+          {
+            "seed": 16,
+            "result": "lose",
+            "enemyHpLeft": 111387,
+            "enemyInitialHp": 1058823,
+            "loss": 6,
+            "ringDelta": 0,
+            "callbacks": 301
+          }
+        ]
+      },
+      "full": null
+    },
+    {
+      "target": 21,
+      "city": 840,
+      "field": 629,
+      "multiplier": 3.1,
+      "cost": 307314,
+      "deed": 16245,
+      "file": "p395-star6-star21-paid-save.json",
+      "sha256": "fc97bb7bf151be54888672672ca3c1249a10f78ffaca597976b8e2f6a0e863c6",
+      "four": {
+        "wins": 0,
+        "closestEnemyHp": 67708,
+        "meanEnemyHp": 73613,
+        "rows": [
+          {
+            "seed": 1,
+            "result": "lose",
+            "enemyHpLeft": 75906,
+            "enemyInitialHp": 1058823,
+            "loss": 4,
+            "ringDelta": 0,
+            "callbacks": 301
+          },
+          {
+            "seed": 2,
+            "result": "lose",
+            "enemyHpLeft": 67708,
+            "enemyInitialHp": 1058823,
+            "loss": 3,
+            "ringDelta": 0,
+            "callbacks": 301
+          },
+          {
+            "seed": 11,
+            "result": "lose",
+            "enemyHpLeft": 68727,
+            "enemyInitialHp": 1058823,
+            "loss": 3,
+            "ringDelta": 0,
+            "callbacks": 301
+          },
+          {
+            "seed": 16,
+            "result": "lose",
+            "enemyHpLeft": 82111,
+            "enemyInitialHp": 1058823,
+            "loss": 5,
+            "ringDelta": 0,
+            "callbacks": 301
+          }
+        ]
+      },
+      "full": null
+    },
+    {
+      "target": 22,
+      "city": 902,
+      "field": 627,
+      "multiplier": 3.2,
+      "cost": 325686,
+      "deed": 48249,
+      "file": "p395-star6-star22-paid-save.json",
+      "sha256": "3c76c44929470daa7be10be71a359175a795a0afebbd46332c81b099dd88a144",
+      "four": {
+        "wins": 0,
+        "closestEnemyHp": 38730,
+        "meanEnemyHp": 45153.25,
+        "rows": [
+          {
+            "seed": 1,
+            "result": "lose",
+            "enemyHpLeft": 47912,
+            "enemyInitialHp": 1058823,
+            "loss": 4,
+            "ringDelta": 0,
+            "callbacks": 301
+          },
+          {
+            "seed": 2,
+            "result": "lose",
+            "enemyHpLeft": 38730,
+            "enemyInitialHp": 1058823,
+            "loss": 3,
+            "ringDelta": 0,
+            "callbacks": 301
+          },
+          {
+            "seed": 11,
+            "result": "lose",
+            "enemyHpLeft": 40703,
+            "enemyInitialHp": 1058823,
+            "loss": 3,
+            "ringDelta": 0,
+            "callbacks": 301
+          },
+          {
+            "seed": 16,
+            "result": "lose",
+            "enemyHpLeft": 53268,
+            "enemyInitialHp": 1058823,
+            "loss": 4,
+            "ringDelta": 0,
+            "callbacks": 301
+          }
+        ]
+      },
+      "full": null
+    },
+    {
+      "target": 23,
+      "city": 965,
+      "field": 629,
+      "multiplier": 3.3000000000000003,
+      "cost": 354564,
+      "deed": 51375,
+      "file": "p395-star6-star23-paid-save.json",
+      "sha256": "57643c098fa62355b1c1e044fee37a99a710ea683901b58b29791c737069241b",
+      "four": {
+        "wins": 0,
+        "closestEnemyHp": 10623,
+        "meanEnemyHp": 17049.25,
+        "rows": [
+          {
+            "seed": 1,
+            "result": "lose",
+            "enemyHpLeft": 19386,
+            "enemyInitialHp": 1058823,
+            "loss": 4,
+            "ringDelta": 0,
+            "callbacks": 301
+          },
+          {
+            "seed": 2,
+            "result": "lose",
+            "enemyHpLeft": 10623,
+            "enemyInitialHp": 1058823,
+            "loss": 3,
+            "ringDelta": 0,
+            "callbacks": 301
+          },
+          {
+            "seed": 11,
+            "result": "lose",
+            "enemyHpLeft": 12591,
+            "enemyInitialHp": 1058823,
+            "loss": 3,
+            "ringDelta": 0,
+            "callbacks": 301
+          },
+          {
+            "seed": 16,
+            "result": "lose",
+            "enemyHpLeft": 25597,
+            "enemyInitialHp": 1058823,
+            "loss": 4,
+            "ringDelta": 0,
+            "callbacks": 301
+          }
+        ]
+      },
+      "full": null
+    },
+    {
+      "target": 24,
+      "city": 1027,
+      "field": 627,
+      "multiplier": 3.4000000000000004,
+      "cost": 372186,
+      "deed": 36879,
+      "file": "p395-star6-star24-paid-save.json",
+      "sha256": "1573ff56fa0ffcbd8bae0fffadd56175473eaaa3c86ba7920bdbbc4c30ef441c",
+      "four": {
+        "wins": 4,
+        "closestEnemyHp": 0,
+        "meanEnemyHp": 0,
+        "rows": [
+          {
+            "seed": 1,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 4,
+            "ringDelta": 100,
+            "callbacks": 297
+          },
+          {
+            "seed": 2,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 3,
+            "ringDelta": 100,
+            "callbacks": 297
+          },
+          {
+            "seed": 11,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 3,
+            "ringDelta": 100,
+            "callbacks": 297
+          },
+          {
+            "seed": 16,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 2,
+            "ringDelta": 100,
+            "callbacks": 298
+          }
+        ]
+      },
+      "full": {
+        "wins": 15,
+        "closestEnemyHp": 0,
+        "meanEnemyHp": 74,
+        "rows": [
+          {
+            "seed": 1,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 4,
+            "ringDelta": 100,
+            "callbacks": 297
+          },
+          {
+            "seed": 2,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 3,
+            "ringDelta": 100,
+            "callbacks": 297
+          },
+          {
+            "seed": 3,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 5,
+            "ringDelta": 100,
+            "callbacks": 297
+          },
+          {
+            "seed": 4,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 5,
+            "ringDelta": 100,
+            "callbacks": 298
+          },
+          {
+            "seed": 5,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 2,
+            "ringDelta": 100,
+            "callbacks": 298
+          },
+          {
+            "seed": 6,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 4,
+            "ringDelta": 100,
+            "callbacks": 298
+          },
+          {
+            "seed": 7,
+            "result": "lose",
+            "enemyHpLeft": 1184,
+            "enemyInitialHp": 1058823,
+            "loss": 5,
+            "ringDelta": 0,
+            "callbacks": 301
+          },
+          {
+            "seed": 8,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 3,
+            "ringDelta": 100,
+            "callbacks": 298
+          },
+          {
+            "seed": 9,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 4,
+            "ringDelta": 100,
+            "callbacks": 299
+          },
+          {
+            "seed": 10,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 4,
+            "ringDelta": 100,
+            "callbacks": 298
+          },
+          {
+            "seed": 11,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 3,
+            "ringDelta": 100,
+            "callbacks": 297
+          },
+          {
+            "seed": 12,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 2,
+            "ringDelta": 100,
+            "callbacks": 299
+          },
+          {
+            "seed": 13,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 2,
+            "ringDelta": 100,
+            "callbacks": 298
+          },
+          {
+            "seed": 14,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 3,
+            "ringDelta": 100,
+            "callbacks": 297
+          },
+          {
+            "seed": 15,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 4,
+            "ringDelta": 100,
+            "callbacks": 297
+          },
+          {
+            "seed": 16,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 2,
+            "ringDelta": 100,
+            "callbacks": 298
+          }
+        ]
+      }
+    },
+    {
+      "target": 25,
+      "city": 1090,
+      "field": 629,
+      "multiplier": 3.5,
+      "cost": 401814,
+      "deed": 8313,
+      "file": "p395-star6-star25-paid-save.json",
+      "sha256": "44e6910c1b7399d7e82b49a82729b25eaef653cda028a025d6e8ece37f50b869",
+      "four": {
+        "wins": 4,
+        "closestEnemyHp": 0,
+        "meanEnemyHp": 0,
+        "rows": [
+          {
+            "seed": 1,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 3,
+            "ringDelta": 100,
+            "callbacks": 289
+          },
+          {
+            "seed": 2,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 2,
+            "ringDelta": 100,
+            "callbacks": 287
+          },
+          {
+            "seed": 11,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 3,
+            "ringDelta": 100,
+            "callbacks": 288
+          },
+          {
+            "seed": 16,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 2,
+            "ringDelta": 100,
+            "callbacks": 296
+          }
+        ]
+      },
+      "full": {
+        "wins": 16,
+        "closestEnemyHp": 0,
+        "meanEnemyHp": 0,
+        "rows": [
+          {
+            "seed": 1,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 3,
+            "ringDelta": 100,
+            "callbacks": 289
+          },
+          {
+            "seed": 2,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 2,
+            "ringDelta": 100,
+            "callbacks": 287
+          },
+          {
+            "seed": 3,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 4,
+            "ringDelta": 100,
+            "callbacks": 288
+          },
+          {
+            "seed": 4,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 4,
+            "ringDelta": 100,
+            "callbacks": 296
+          },
+          {
+            "seed": 5,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 2,
+            "ringDelta": 100,
+            "callbacks": 296
+          },
+          {
+            "seed": 6,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 3,
+            "ringDelta": 100,
+            "callbacks": 296
+          },
+          {
+            "seed": 7,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 5,
+            "ringDelta": 100,
+            "callbacks": 296
+          },
+          {
+            "seed": 8,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 3,
+            "ringDelta": 100,
+            "callbacks": 296
+          },
+          {
+            "seed": 9,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 3,
+            "ringDelta": 100,
+            "callbacks": 296
+          },
+          {
+            "seed": 10,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 4,
+            "ringDelta": 100,
+            "callbacks": 296
+          },
+          {
+            "seed": 11,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 3,
+            "ringDelta": 100,
+            "callbacks": 288
+          },
+          {
+            "seed": 12,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 2,
+            "ringDelta": 100,
+            "callbacks": 296
+          },
+          {
+            "seed": 13,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 2,
+            "ringDelta": 100,
+            "callbacks": 296
+          },
+          {
+            "seed": 14,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 3,
+            "ringDelta": 100,
+            "callbacks": 289
+          },
+          {
+            "seed": 15,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 4,
+            "ringDelta": 100,
+            "callbacks": 289
+          },
+          {
+            "seed": 16,
+            "result": "win",
+            "enemyHpLeft": 0,
+            "enemyInitialHp": 1058823,
+            "loss": 2,
+            "ringDelta": 100,
+            "callbacks": 296
+          }
+        ]
+      }
+    }
+  ],
+  "summary": {
+    "offlineWindows": 40,
+    "simulatedOfflineHours": 320,
+    "steps": [
+      {
+        "target": 18,
+        "city": 677,
+        "cost": 196949,
+        "deed": 8192,
+        "wins4": 0,
+        "closest": 153997
+      },
+      {
+        "target": 19,
+        "city": 727,
+        "cost": 211950,
+        "deed": 24338,
+        "wins4": 0,
+        "closest": 125312
+      },
+      {
+        "target": 20,
+        "city": 777,
+        "cost": 226950,
+        "deed": 25484,
+        "wins4": 0,
+        "closest": 96402
+      },
+      {
+        "target": 21,
+        "city": 840,
+        "cost": 307314,
+        "deed": 16245,
+        "wins4": 0,
+        "closest": 67708
+      },
+      {
+        "target": 22,
+        "city": 902,
+        "cost": 325686,
+        "deed": 48249,
+        "wins4": 0,
+        "closest": 38730
+      },
+      {
+        "target": 23,
+        "city": 965,
+        "cost": 354564,
+        "deed": 51375,
+        "wins4": 0,
+        "closest": 10623
+      },
+      {
+        "target": 24,
+        "city": 1027,
+        "cost": 372186,
+        "deed": 36879,
+        "wins4": 4,
+        "wins16": 15,
+        "closest": 0
+      },
+      {
+        "target": 25,
+        "city": 1090,
+        "cost": 401814,
+        "deed": 8313,
+        "wins4": 4,
+        "wins16": 16,
+        "closest": 0
+      }
+    ]
+  }
+}

@@ -1,0 +1,433 @@
+{
+  "source": "p395-quantum-storage-medal-combined-paid-save.json",
+  "sourceSha256": "ecf78293015e46e05e70c38916a834c7063345f8ef11cb7ac29a337b0774b75e",
+  "runtimeSha256": {
+    "config.js": "1d46cd09d15cd9faf05cbb40a0b5e30fdf7d6ae3bcfd21550233c178378ebfd8",
+    "levels.js": "dc0f73ccb179900f2a270f35ab22775d2eb7ca18caf10037480f3bc7a3359afc",
+    "math.js": "9cb16af1e322205a2a92110758d71ac5bea0c422b04d981aab870c18a8cd2513",
+    "garrison.js": "4d233f0529d256cd1ace2de782603fcfcbbff110032ca4cf29c5e36af30f10ff",
+    "technology.js": "c51fb05821593d9e76396ff18b0a38d78dee1db9cdc55631b78a7f223ad0a006",
+    "tests/progression/harness.js": "4770d17fa72cc8c87f4c8ef79678f19d63a41da895b8dd58776e5a39ce2ede2b"
+  },
+  "start": {
+    "tick": 12937430,
+    "tech": 348618782,
+    "medal": 3059598,
+    "cap": 348618782,
+    "food": 482790,
+    "crystal": 21,
+    "blood": 31,
+    "cleanser": 0,
+    "alert": 5000,
+    "army": 672,
+    "deployed": 626,
+    "steam": 31
+  },
+  "cost": {
+    "tech": 9600000,
+    "godCrystal": 320
+  },
+  "cycles": [
+    {
+      "index": 1,
+      "before": {
+        "tick": 12937430,
+        "tech": 348618782,
+        "medal": 3059598,
+        "cap": 348618782,
+        "food": 482790,
+        "crystal": 21,
+        "blood": 31,
+        "cleanser": 0,
+        "alert": 5000,
+        "army": 672,
+        "deployed": 626,
+        "steam": 31
+      },
+      "exchange": {
+        "ok": true,
+        "gained": 1,
+        "spent": 3,
+        "count": 1
+      },
+      "cleanse": {
+        "ok": true,
+        "alert": 4900,
+        "spent": 1
+      },
+      "outcome": "win",
+      "callbacks": 16,
+      "after": {
+        "tick": 12937430,
+        "tech": 348618782,
+        "medal": 3061950,
+        "cap": 348618782,
+        "food": 482790,
+        "crystal": 79,
+        "blood": 31,
+        "cleanser": 0,
+        "alert": 5000,
+        "army": 663,
+        "deployed": 617,
+        "steam": 31
+      },
+      "loss": 9,
+      "gain": 58,
+      "checkpoint": "bc6f02775627a4040342a940788a787f6ab6a3fe132c891696a82de4ebdf36eb",
+      "cooldownSeconds": 6,
+      "afterCooldown": {
+        "tick": 12937436,
+        "tech": 348618782,
+        "medal": 3061950,
+        "cap": 348618782,
+        "food": 482790,
+        "crystal": 79,
+        "blood": 31,
+        "cleanser": 0,
+        "alert": 5000,
+        "army": 663,
+        "deployed": 617,
+        "steam": 31
+      },
+      "cooldownCheckpoint": "b37d9f5e4dda6487c8df74b44b9ee648c8c4e278aa6a86bc4c8a4ec1d3c77c59"
+    },
+    {
+      "index": 2,
+      "before": {
+        "tick": 12937436,
+        "tech": 348618782,
+        "medal": 3061950,
+        "cap": 348618782,
+        "food": 482790,
+        "crystal": 79,
+        "blood": 31,
+        "cleanser": 0,
+        "alert": 5000,
+        "army": 663,
+        "deployed": 617,
+        "steam": 31
+      },
+      "exchange": {
+        "ok": true,
+        "gained": 1,
+        "spent": 3,
+        "count": 1
+      },
+      "cleanse": {
+        "ok": true,
+        "alert": 4900,
+        "spent": 1
+      },
+      "outcome": "win",
+      "callbacks": 16,
+      "after": {
+        "tick": 12937436,
+        "tech": 348618782,
+        "medal": 3064302,
+        "cap": 348618782,
+        "food": 482790,
+        "crystal": 137,
+        "blood": 31,
+        "cleanser": 0,
+        "alert": 5000,
+        "army": 641,
+        "deployed": 595,
+        "steam": 31
+      },
+      "loss": 22,
+      "gain": 58,
+      "checkpoint": "80335805bd9bcbf084d70ed3167e774eedf9afecf124c762201311da49eec3a6",
+      "cooldownSeconds": 6,
+      "afterCooldown": {
+        "tick": 12937442,
+        "tech": 348618782,
+        "medal": 3064302,
+        "cap": 348618782,
+        "food": 482790,
+        "crystal": 137,
+        "blood": 31,
+        "cleanser": 0,
+        "alert": 5000,
+        "army": 641,
+        "deployed": 595,
+        "steam": 31
+      },
+      "cooldownCheckpoint": "2d93a166eb11b62972f13277147a97f057f4390851903dbe988b510251fd1f84"
+    },
+    {
+      "index": 3,
+      "before": {
+        "tick": 12937442,
+        "tech": 348618782,
+        "medal": 3064302,
+        "cap": 348618782,
+        "food": 482790,
+        "crystal": 137,
+        "blood": 31,
+        "cleanser": 0,
+        "alert": 5000,
+        "army": 641,
+        "deployed": 595,
+        "steam": 31
+      },
+      "exchange": {
+        "ok": true,
+        "gained": 1,
+        "spent": 3,
+        "count": 1
+      },
+      "cleanse": {
+        "ok": true,
+        "alert": 4900,
+        "spent": 1
+      },
+      "outcome": "win",
+      "callbacks": 15,
+      "after": {
+        "tick": 12937442,
+        "tech": 348618782,
+        "medal": 3066654,
+        "cap": 348618782,
+        "food": 482790,
+        "crystal": 195,
+        "blood": 31,
+        "cleanser": 0,
+        "alert": 5000,
+        "army": 632,
+        "deployed": 586,
+        "steam": 31
+      },
+      "loss": 9,
+      "gain": 58,
+      "checkpoint": "076d06e3af50a6fd242725519db4f3076bf719cb3fe65597ecf6c190b8d4ca33",
+      "cooldownSeconds": 6,
+      "afterCooldown": {
+        "tick": 12937448,
+        "tech": 348618782,
+        "medal": 3066654,
+        "cap": 348618782,
+        "food": 482790,
+        "crystal": 195,
+        "blood": 31,
+        "cleanser": 0,
+        "alert": 5000,
+        "army": 632,
+        "deployed": 586,
+        "steam": 31
+      },
+      "cooldownCheckpoint": "4fbeec4c49dfb9802dbca1996f35d22ea5210ef9ec6418093a9ba6d90ffb0357"
+    },
+    {
+      "index": 4,
+      "before": {
+        "tick": 12937448,
+        "tech": 348618782,
+        "medal": 3066654,
+        "cap": 348618782,
+        "food": 482790,
+        "crystal": 195,
+        "blood": 31,
+        "cleanser": 0,
+        "alert": 5000,
+        "army": 632,
+        "deployed": 586,
+        "steam": 31
+      },
+      "exchange": {
+        "ok": true,
+        "gained": 1,
+        "spent": 3,
+        "count": 1
+      },
+      "cleanse": {
+        "ok": true,
+        "alert": 4900,
+        "spent": 1
+      },
+      "outcome": "win",
+      "callbacks": 16,
+      "after": {
+        "tick": 12937448,
+        "tech": 348618782,
+        "medal": 3069006,
+        "cap": 348618782,
+        "food": 482790,
+        "crystal": 253,
+        "blood": 31,
+        "cleanser": 0,
+        "alert": 5000,
+        "army": 603,
+        "deployed": 557,
+        "steam": 31
+      },
+      "loss": 29,
+      "gain": 58,
+      "checkpoint": "bfed38682067395ec3b50afa41011de1fc1369b5824d3e2ed87b7f6acbfcb32b",
+      "cooldownSeconds": 6,
+      "afterCooldown": {
+        "tick": 12937454,
+        "tech": 348618782,
+        "medal": 3069006,
+        "cap": 348618782,
+        "food": 482790,
+        "crystal": 253,
+        "blood": 31,
+        "cleanser": 0,
+        "alert": 5000,
+        "army": 603,
+        "deployed": 557,
+        "steam": 31
+      },
+      "cooldownCheckpoint": "8a67f05a23ac7eb5f84e1263704f14ece0330b7beaec9e78909537c846455612"
+    },
+    {
+      "index": 5,
+      "before": {
+        "tick": 12937454,
+        "tech": 348618782,
+        "medal": 3069006,
+        "cap": 348618782,
+        "food": 482790,
+        "crystal": 253,
+        "blood": 31,
+        "cleanser": 0,
+        "alert": 5000,
+        "army": 603,
+        "deployed": 557,
+        "steam": 31
+      },
+      "exchange": {
+        "ok": true,
+        "gained": 1,
+        "spent": 3,
+        "count": 1
+      },
+      "cleanse": {
+        "ok": true,
+        "alert": 4900,
+        "spent": 1
+      },
+      "outcome": "win",
+      "callbacks": 26,
+      "after": {
+        "tick": 12937454,
+        "tech": 348618782,
+        "medal": 3071358,
+        "cap": 348618782,
+        "food": 482790,
+        "crystal": 311,
+        "blood": 31,
+        "cleanser": 0,
+        "alert": 5000,
+        "army": 591,
+        "deployed": 545,
+        "steam": 31
+      },
+      "loss": 12,
+      "gain": 58,
+      "checkpoint": "418897e3d74fa24ee127539a33ad72db3f84e9fb6c0baa407b7898d3a12c0059",
+      "cooldownSeconds": 6,
+      "afterCooldown": {
+        "tick": 12937460,
+        "tech": 348618782,
+        "medal": 3071358,
+        "cap": 348618782,
+        "food": 482790,
+        "crystal": 311,
+        "blood": 31,
+        "cleanser": 0,
+        "alert": 5000,
+        "army": 591,
+        "deployed": 545,
+        "steam": 31
+      },
+      "cooldownCheckpoint": "12706f1c01acb98ec333112188126fcad70d7f46217c60801faee10cd5f065c8"
+    },
+    {
+      "index": 6,
+      "before": {
+        "tick": 12937460,
+        "tech": 348618782,
+        "medal": 3071358,
+        "cap": 348618782,
+        "food": 482790,
+        "crystal": 311,
+        "blood": 31,
+        "cleanser": 0,
+        "alert": 5000,
+        "army": 591,
+        "deployed": 545,
+        "steam": 31
+      },
+      "exchange": {
+        "ok": true,
+        "gained": 1,
+        "spent": 3,
+        "count": 1
+      },
+      "cleanse": {
+        "ok": true,
+        "alert": 4900,
+        "spent": 1
+      },
+      "outcome": "win",
+      "callbacks": 33,
+      "after": {
+        "tick": 12937460,
+        "tech": 348618782,
+        "medal": 3073710,
+        "cap": 348618782,
+        "food": 482790,
+        "crystal": 369,
+        "blood": 31,
+        "cleanser": 0,
+        "alert": 5000,
+        "army": 548,
+        "deployed": 502,
+        "steam": 31
+      },
+      "loss": 43,
+      "gain": 58,
+      "checkpoint": "5b3cdd13713c17b6badfcef1546bdb0bc09b9691fafa7ecfb1940139b76bfa20"
+    }
+  ],
+  "beforeUpgrade": {
+    "tick": 12937460,
+    "tech": 348618782,
+    "medal": 3073710,
+    "cap": 348618782,
+    "food": 482790,
+    "crystal": 369,
+    "blood": 31,
+    "cleanser": 0,
+    "alert": 5000,
+    "army": 548,
+    "deployed": 502,
+    "steam": 31
+  },
+  "upgrade": {
+    "ok": true,
+    "level": 32,
+    "cost": {
+      "tech": 9600000,
+      "godCrystal": 320
+    }
+  },
+  "final": {
+    "tick": 12937460,
+    "tech": 339018782,
+    "medal": 3073710,
+    "cap": 357121694,
+    "food": 482790,
+    "crystal": 49,
+    "blood": 31,
+    "cleanser": 0,
+    "alert": 5000,
+    "army": 548,
+    "deployed": 502,
+    "steam": 32
+  },
+  "saveFile": "p395-quantum-steam32-medal-combined-paid-save.json",
+  "saveSha256": "f66e754ae19d5d23c1c1540aec102392f79b81fc78c210c1b4dd9ea1e8fba28b",
+  "scope": "Real cleanser payments, domain battle settlement and storage upgrade; no free resources or troops."
+}

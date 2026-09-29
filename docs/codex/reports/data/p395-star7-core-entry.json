@@ -1,0 +1,117 @@
+{
+  "batch": "P395",
+  "source": {
+    "file": "p395-star7-fighter-researched-paid-save.json",
+    "sha256": "843bf590fa14159444470c528d251533370da962d6ff4b351bab18c11300a9f9"
+  },
+  "runtimeMathSha256": "9cb16af1e322205a2a92110758d71ac5bea0c422b04d981aab870c18a8cd2513",
+  "rows": [
+    {
+      "seed": 1,
+      "key": "medal",
+      "result": "win",
+      "enemyHpLeft": 0,
+      "loss": 13,
+      "coreDelta": 59,
+      "medalDelta": 2380,
+      "alertDelta": 100,
+      "after": {
+        "army": 659,
+        "core": 88,
+        "medal": 5397707,
+        "alert": 5100
+      },
+      "callbacks": 18,
+      "sha256": "40ecebf3f4a6f4419d153214f8a304bf7ad74bb965eede211e2e0c7eefba6890"
+    },
+    {
+      "seed": 2,
+      "key": "medal",
+      "result": "win",
+      "enemyHpLeft": 0,
+      "loss": 41,
+      "coreDelta": 59,
+      "medalDelta": 2380,
+      "alertDelta": 100,
+      "after": {
+        "army": 631,
+        "core": 88,
+        "medal": 5397707,
+        "alert": 5100
+      },
+      "callbacks": 18,
+      "sha256": "1705b7be80f25856a7c96c7c44073377aa1ac17d76c55910db9a5ad54b63871a"
+    },
+    {
+      "seed": 7,
+      "key": "medal",
+      "result": "win",
+      "enemyHpLeft": 0,
+      "loss": 13,
+      "coreDelta": 59,
+      "medalDelta": 2380,
+      "alertDelta": 100,
+      "after": {
+        "army": 659,
+        "core": 88,
+        "medal": 5397707,
+        "alert": 5100
+      },
+      "callbacks": 16,
+      "sha256": "31f1461d142d184d4120d5c3de8ccd0294a43b6917c44e3020d2844e4c689f5c"
+    },
+    {
+      "seed": 11,
+      "key": "medal",
+      "result": "win",
+      "enemyHpLeft": 0,
+      "loss": 11,
+      "coreDelta": 59,
+      "medalDelta": 2380,
+      "alertDelta": 100,
+      "after": {
+        "army": 661,
+        "core": 88,
+        "medal": 5397707,
+        "alert": 5100
+      },
+      "callbacks": 16,
+      "sha256": "217596a1f9b89f319a0d366f8888ed42a62dbc0da7024788c5715793d12a0349"
+    },
+    {
+      "seed": 16,
+      "key": "medal",
+      "result": "win",
+      "enemyHpLeft": 0,
+      "loss": 34,
+      "coreDelta": 59,
+      "medalDelta": 2380,
+      "alertDelta": 100,
+      "after": {
+        "army": 638,
+        "core": 88,
+        "medal": 5397707,
+        "alert": 5100
+      },
+      "callbacks": 17,
+      "sha256": "91e46b4c2a1f3e684bb2847dba79aa67443b4bda21e1568954a282cc4a59d9bd"
+    }
+  ],
+  "summary": {
+    "wins": 5,
+    "coreRewards": [
+      59,
+      59,
+      59,
+      59,
+      59
+    ],
+    "losses": [
+      13,
+      41,
+      13,
+      11,
+      34
+    ]
+  }
+}

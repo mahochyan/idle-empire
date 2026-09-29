@@ -1,0 +1,131 @@
+{
+  "unit": "online seconds",
+  "onlineSeconds": 228699,
+  "population": 26,
+  "wins": 0,
+  "techCap": 101400,
+  "steelCap": 10125,
+  "steelMastery": 20,
+  "medal": 10,
+  "bone": 64,
+  "sciences": [
+    "sci_copper_furnace",
+    "sci_stone_store",
+    "sci_institute",
+    "sci_steam_age"
+  ],
+  "firstArmoredSoldiers": 1,
+  "actions": {
+    "build": 236,
+    "allocate": 197,
+    "research": 57,
+    "settlement": 8,
+    "policy": 0,
+    "market": 68,
+    "marketFallback": 61,
+    "train": 13
+  },
+  "milestones": [
+    {
+      "label": "stone-and-research-branch",
+      "second": 23766,
+      "population": 26,
+      "techCap": 20400,
+      "steelCap": 675,
+      "food": 7500
+    },
+    {
+      "label": "knowledge-cap-ready",
+      "second": 132804,
+      "population": 26,
+      "techCap": 101400,
+      "steelCap": 675,
+      "food": 2176.000000000022
+    },
+    {
+      "label": "steel-mastery-20",
+      "second": 133712,
+      "population": 26,
+      "techCap": 101400,
+      "steelCap": 675,
+      "food": 11051.699999999782,
+      "payments": [
+        {
+          "level": 14,
+          "second": 132804,
+          "tech": 21000,
+          "medal": 420
+        },
+        {
+          "level": 15,
+          "second": 132804,
+          "tech": 22500,
+          "medal": 450
+        },
+        {
+          "level": 16,
+          "second": 132804,
+          "tech": 24000,
+          "medal": 480
+        },
+        {
+          "level": 17,
+          "second": 132804,
+          "tech": 25500,
+          "medal": 510
+        },
+        {
+          "level": 18,
+          "second": 133049,
+          "tech": 27000,
+          "medal": 540
+        },
+        {
+          "level": 19,
+          "second": 133372,
+          "tech": 28500,
+          "medal": 570
+        },
+        {
+          "level": 20,
+          "second": 133712,
+          "tech": 30000,
+          "medal": 600
+        }
+      ],
+      "remainingBone": 64
+    },
+    {
+      "label": "steel-upstream-positive",
+      "second": 136887,
+      "population": 26,
+      "techCap": 101400,
+      "steelCap": 675,
+      "food": 3079.783333332166
+    },
+    {
+      "label": "steel-cap-ready",
+      "second": 224304,
+      "population": 26,
+      "techCap": 101400,
+      "steelCap": 10125,
+      "food": 46500
+    },
+    {
+      "label": "steam-age-researched",
+      "second": 227553,
+      "population": 26,
+      "techCap": 101400,
+      "steelCap": 10125,
+      "food": 46500
+    },
+    {
+      "label": "armored-trooper-trained",
+      "second": 228699,
+      "population": 26,
+      "techCap": 101400,
+      "steelCap": 10125,
+      "food": 46497.128461538465
+    }
+  ]
+}

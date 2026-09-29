@@ -569,6 +569,7 @@ function rBuildDetailCard(key, cfg, showPrimaryAction=true){
     h+=`<div class="build-meta">${CFG.res[rk]?.name||rk}专仓：${applies?'当前上限':'切换煤链后上限'} ${metalUiNumber(current)}；每完成一级 +${cfg.storagePerLv||CFG.metalChain?.storagePerLv||0}</div>`;
     if(!applies)h+=`<div class="build-meta" style="color:#b99c6d">旧配方期间不改变铜铁上限，现为 ${metalUiNumber(resCap(rk))}</div>`;
   }
+  if(key==='iron_store')h+=`<div class="build-meta">同时每级提高基础钢容量 50；当前钢上限 ${metalUiNumber(resCap('steel'))}</div>`;
   if(cfg.buffRes&&['coal_mine','mine','smelter'].includes(key)){
     const rk=cfg.buffRes,researchDriven=rk==='coal'||S.metalRecipeMode==='coal';
     h+=`<div class="build-meta">${researchDriven?`研究「${esc(sciName(CFG.res[rk].science||cfg.needScience))}」后开放${CFG.res[rk].name}岗位；本建筑只提高产率`:`${st.lv>0?'已开放':'建成后开放'}${CFG.res[rk].name}岗位，需在主页分配村民`}</div>`;

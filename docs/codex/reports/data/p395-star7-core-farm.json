@@ -1,0 +1,161 @@
+{
+  "batch": "P395",
+  "source": {
+    "file": "p395-star7-fighter-researched-paid-save.json",
+    "sha256": "843bf590fa14159444470c528d251533370da962d6ff4b351bab18c11300a9f9"
+  },
+  "runtimeMathSha256": "9cb16af1e322205a2a92110758d71ac5bea0c422b04d981aab870c18a8cd2513",
+  "rows": [
+    {
+      "index": 1,
+      "result": {
+        "seed": 11,
+        "loss": 11,
+        "coreDelta": 59,
+        "medalDelta": 2380,
+        "alertDelta": 100,
+        "after": {
+          "army": 661,
+          "core": 88,
+          "medal": 5397707,
+          "alert": 5100
+        },
+        "file": "p395-star7-core-farm-win1-paid-save.json",
+        "sha256": "217596a1f9b89f319a0d366f8888ed42a62dbc0da7024788c5715793d12a0349"
+      },
+      "refill": {
+        "need": {
+          "star_trooper": 11,
+          "electro_trooper": 0,
+          "armored_trooper": 0,
+          "alloy_special": 0,
+          "gold_cavalry": 0,
+          "archer": 0
+        },
+        "cost": {
+          "steel": 88000,
+          "iron": 88000,
+          "copper": 88000
+        },
+        "seconds": 6,
+        "minFood": 480699,
+        "file": "p395-star7-core-farm-refill1-paid-save.json",
+        "sha256": "3fb35dff0ebcf270f82950cd28f2aa92df633244c6f33becb105ce4b32667e5b",
+        "resources": {
+          "food": 480699,
+          "copper": 313082.4299979203,
+          "iron": 478640.60000001243,
+          "steel": 416177.8000000033,
+          "medal": 5397707,
+          "tech": 207486476
+        }
+      }
+    },
+    {
+      "index": 2,
+      "result": {
+        "seed": 11,
+        "loss": 11,
+        "coreDelta": 60,
+        "medalDelta": 2408,
+        "alertDelta": 100,
+        "after": {
+          "army": 661,
+          "core": 148,
+          "medal": 5400115,
+          "alert": 5200
+        },
+        "file": "p395-star7-core-farm-win2-paid-save.json",
+        "sha256": "c84d6eb5fb8416cf6d46d80030b06173f878396bce5a07eb110f97d7a31320ae"
+      },
+      "refill": {
+        "need": {
+          "star_trooper": 11,
+          "electro_trooper": 0,
+          "armored_trooper": 0,
+          "alloy_special": 0,
+          "gold_cavalry": 0,
+          "archer": 0
+        },
+        "cost": {
+          "steel": 88000,
+          "iron": 88000,
+          "copper": 88000
+        },
+        "seconds": 6,
+        "minFood": 480699,
+        "file": "p395-star7-core-farm-refill2-paid-save.json",
+        "sha256": "1cb47277d9c189afd4365a94f85e3cadd05561bd4d4e60b394303d1a4b001933",
+        "resources": {
+          "food": 480699,
+          "copper": 225082.4299979203,
+          "iron": 390640.60000001243,
+          "steel": 328177.8000000033,
+          "medal": 5400115,
+          "tech": 207632600
+        }
+      }
+    },
+    {
+      "index": 3,
+      "result": {
+        "seed": 11,
+        "loss": 11,
+        "coreDelta": 60,
+        "medalDelta": 2436,
+        "alertDelta": 100,
+        "after": {
+          "army": 661,
+          "core": 208,
+          "medal": 5402551,
+          "alert": 5300
+        },
+        "file": "p395-star7-core-farm-win3-paid-save.json",
+        "sha256": "e5d3f309a564464af030eb908e9866f66ead33e744a62dfcce3ec25284a9ae4d"
+      },
+      "refill": {
+        "need": {
+          "star_trooper": 11,
+          "electro_trooper": 0,
+          "armored_trooper": 0,
+          "alloy_special": 0,
+          "gold_cavalry": 0,
+          "archer": 0
+        },
+        "cost": {
+          "steel": 88000,
+          "iron": 88000,
+          "copper": 88000
+        },
+        "seconds": 6,
+        "minFood": 480699,
+        "file": "p395-star7-core-farm-refill3-paid-save.json",
+        "sha256": "acd36d348514d99757d00e56d74fdea74d7a6c54e454e343d04d733f843fb65e",
+        "resources": {
+          "food": 480699,
+          "copper": 137082.4299979203,
+          "iron": 302640.60000001243,
+          "steel": 240177.8000000033,
+          "medal": 5402551,
+          "tech": 207778724
+        }
+      }
+    }
+  ],
+  "summary": {
+    "wins": 3,
+    "coreDeltas": [
+      59,
+      60,
+      60
+    ],
+    "losses": [
+      11,
+      11,
+      11
+    ],
+    "totalOnlineSec": 18,
+    "endCore": 208,
+    "endSteel": 240177.8000000033
+  }
+}

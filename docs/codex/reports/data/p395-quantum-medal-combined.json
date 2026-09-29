@@ -1,0 +1,1279 @@
+{
+  "source": "p394-quantum-material-paid-save.json",
+  "sourceSha256": "8b140b350c72b47d03663ede93b04b00ee8435370d006d3e44101c4c04a4131c",
+  "runtimeSha256": {
+    "config.js": "1d46cd09d15cd9faf05cbb40a0b5e30fdf7d6ae3bcfd21550233c178378ebfd8",
+    "levels.js": "dc0f73ccb179900f2a270f35ab22775d2eb7ca18caf10037480f3bc7a3359afc",
+    "math.js": "9cb16af1e322205a2a92110758d71ac5bea0c422b04d981aab870c18a8cd2513",
+    "garrison.js": "4d233f0529d256cd1ace2de782603fcfcbbff110032ca4cf29c5e36af30f10ff",
+    "technology.js": "c51fb05821593d9e76396ff18b0a38d78dee1db9cdc55631b78a7f223ad0a006",
+    "tests/progression/harness.js": "4770d17fa72cc8c87f4c8ef79678f19d63a41da895b8dd58776e5a39ce2ede2b"
+  },
+  "method": "Real settleOffline() in 8-hour windows on one paid P394 save; simulated clock only.",
+  "start": {
+    "tick": 12303830,
+    "tech": 23307,
+    "medal": 1063758,
+    "bone": 65,
+    "deed": 96805,
+    "food": 482790,
+    "cap": 348618782,
+    "scrollUsed": 131,
+    "storage": {
+      "steam": 31,
+      "electric": 18,
+      "nuclear": 7
+    },
+    "materials": {
+      "godCrystal": 21,
+      "guardianStone": 104,
+      "revivalLeaf": 75
+    },
+    "army": 672,
+    "deployed": 626
+  },
+  "target": {
+    "tech": 3000000000,
+    "medal": 3000000,
+    "merit": 0
+  },
+  "windows": 22,
+  "elapsedOfflineSeconds": 633600,
+  "rows": [
+    {
+      "window": 1,
+      "durationSec": 28800,
+      "before": {
+        "tick": 12303830,
+        "tech": 23307,
+        "medal": 1063758,
+        "bone": 65,
+        "deed": 96805,
+        "food": 482790,
+        "cap": 348618782,
+        "scrollUsed": 131,
+        "storage": {
+          "steam": 31,
+          "electric": 18,
+          "nuclear": 7
+        },
+        "materials": {
+          "godCrystal": 21,
+          "guardianStone": 104,
+          "revivalLeaf": 75
+        },
+        "army": 672,
+        "deployed": 626
+      },
+      "after": {
+        "tick": 12332630,
+        "tech": 348618782,
+        "medal": 1154478,
+        "bone": 362945,
+        "deed": 151237,
+        "food": 482790,
+        "cap": 348618782,
+        "scrollUsed": 131,
+        "storage": {
+          "steam": 31,
+          "electric": 18,
+          "nuclear": 7
+        },
+        "materials": {
+          "godCrystal": 21,
+          "guardianStone": 104,
+          "revivalLeaf": 75
+        },
+        "army": 672,
+        "deployed": 626
+      },
+      "gains": {
+        "tech": 348595475,
+        "deed": 54432,
+        "medal": 90720,
+        "bone": 362880
+      },
+      "saveSha256": "788c391d64acfc6115ebb6e35520fb8e42963b26fddfdb0d1820dbd70604b739",
+      "reloaded": true
+    },
+    {
+      "window": 2,
+      "durationSec": 28800,
+      "before": {
+        "tick": 12332630,
+        "tech": 348618782,
+        "medal": 1154478,
+        "bone": 362945,
+        "deed": 151237,
+        "food": 482790,
+        "cap": 348618782,
+        "scrollUsed": 131,
+        "storage": {
+          "steam": 31,
+          "electric": 18,
+          "nuclear": 7
+        },
+        "materials": {
+          "godCrystal": 21,
+          "guardianStone": 104,
+          "revivalLeaf": 75
+        },
+        "army": 672,
+        "deployed": 626
+      },
+      "after": {
+        "tick": 12361430,
+        "tech": 348618782,
+        "medal": 1245198,
+        "bone": 725825,
+        "deed": 205669,
+        "food": 482790,
+        "cap": 348618782,
+        "scrollUsed": 131,
+        "storage": {
+          "steam": 31,
+          "electric": 18,
+          "nuclear": 7
+        },
+        "materials": {
+          "godCrystal": 21,
+          "guardianStone": 104,
+          "revivalLeaf": 75
+        },
+        "army": 672,
+        "deployed": 626
+      },
+      "gains": {
+        "deed": 54432,
+        "medal": 90720,
+        "bone": 362880
+      },
+      "saveSha256": "57842fec224dc52abb3f53ceb8bd2d4c430f7756d39e469400044e330a246467",
+      "reloaded": true
+    },
+    {
+      "window": 3,
+      "durationSec": 28800,
+      "before": {
+        "tick": 12361430,
+        "tech": 348618782,
+        "medal": 1245198,
+        "bone": 725825,
+        "deed": 205669,
+        "food": 482790,
+        "cap": 348618782,
+        "scrollUsed": 131,
+        "storage": {
+          "steam": 31,
+          "electric": 18,
+          "nuclear": 7
+        },
+        "materials": {
+          "godCrystal": 21,
+          "guardianStone": 104,
+          "revivalLeaf": 75
+        },
+        "army": 672,
+        "deployed": 626
+      },
+      "after": {
+        "tick": 12390230,
+        "tech": 348618782,
+        "medal": 1335918,
+        "bone": 1088705,
+        "deed": 260101,
+        "food": 482790,
+        "cap": 348618782,
+        "scrollUsed": 131,
+        "storage": {
+          "steam": 31,
+          "electric": 18,
+          "nuclear": 7
+        },
+        "materials": {
+          "godCrystal": 21,
+          "guardianStone": 104,
+          "revivalLeaf": 75
+        },
+        "army": 672,
+        "deployed": 626
+      },
+      "gains": {
+        "deed": 54432,
+        "medal": 90720,
+        "bone": 362880
+      },
+      "saveSha256": "f1b5cf8557c7225e36ca96e67d2e4591b6641c6934711f86ed221e18b201b5ff",
+      "reloaded": true
+    },
+    {
+      "window": 4,
+      "durationSec": 28800,
+      "before": {
+        "tick": 12390230,
+        "tech": 348618782,
+        "medal": 1335918,
+        "bone": 1088705,
+        "deed": 260101,
+        "food": 482790,
+        "cap": 348618782,
+        "scrollUsed": 131,
+        "storage": {
+          "steam": 31,
+          "electric": 18,
+          "nuclear": 7
+        },
+        "materials": {
+          "godCrystal": 21,
+          "guardianStone": 104,
+          "revivalLeaf": 75
+        },
+        "army": 672,
+        "deployed": 626
+      },
+      "after": {
+        "tick": 12419030,
+        "tech": 348618782,
+        "medal": 1426638,
+        "bone": 1451585,
+        "deed": 314533,
+        "food": 482790,
+        "cap": 348618782,
+        "scrollUsed": 131,
+        "storage": {
+          "steam": 31,
+          "electric": 18,
+          "nuclear": 7
+        },
+        "materials": {
+          "godCrystal": 21,
+          "guardianStone": 104,
+          "revivalLeaf": 75
+        },
+        "army": 672,
+        "deployed": 626
+      },
+      "gains": {
+        "deed": 54432,
+        "medal": 90720,
+        "bone": 362880
+      },
+      "saveSha256": "7bcc836f105bda12c5079003144a62286ad5bce94e2af12740cb3218d00e01ee",
+      "reloaded": true
+    },
+    {
+      "window": 5,
+      "durationSec": 28800,
+      "before": {
+        "tick": 12419030,
+        "tech": 348618782,
+        "medal": 1426638,
+        "bone": 1451585,
+        "deed": 314533,
+        "food": 482790,
+        "cap": 348618782,
+        "scrollUsed": 131,
+        "storage": {
+          "steam": 31,
+          "electric": 18,
+          "nuclear": 7
+        },
+        "materials": {
+          "godCrystal": 21,
+          "guardianStone": 104,
+          "revivalLeaf": 75
+        },
+        "army": 672,
+        "deployed": 626
+      },
+      "after": {
+        "tick": 12447830,
+        "tech": 348618782,
+        "medal": 1517358,
+        "bone": 1814465,
+        "deed": 368965,
+        "food": 482790,
+        "cap": 348618782,
+        "scrollUsed": 131,
+        "storage": {
+          "steam": 31,
+          "electric": 18,
+          "nuclear": 7
+        },
+        "materials": {
+          "godCrystal": 21,
+          "guardianStone": 104,
+          "revivalLeaf": 75
+        },
+        "army": 672,
+        "deployed": 626
+      },
+      "gains": {
+        "deed": 54432,
+        "medal": 90720,
+        "bone": 362880
+      },
+      "saveSha256": "bed85996e2e6b8a279f9e4165bc82fe8187cb6625726aaa945b71d18c4caa02e",
+      "reloaded": true
+    },
+    {
+      "window": 6,
+      "durationSec": 28800,
+      "before": {
+        "tick": 12447830,
+        "tech": 348618782,
+        "medal": 1517358,
+        "bone": 1814465,
+        "deed": 368965,
+        "food": 482790,
+        "cap": 348618782,
+        "scrollUsed": 131,
+        "storage": {
+          "steam": 31,
+          "electric": 18,
+          "nuclear": 7
+        },
+        "materials": {
+          "godCrystal": 21,
+          "guardianStone": 104,
+          "revivalLeaf": 75
+        },
+        "army": 672,
+        "deployed": 626
+      },
+      "after": {
+        "tick": 12476630,
+        "tech": 348618782,
+        "medal": 1608078,
+        "bone": 2177345,
+        "deed": 423397,
+        "food": 482790,
+        "cap": 348618782,
+        "scrollUsed": 131,
+        "storage": {
+          "steam": 31,
+          "electric": 18,
+          "nuclear": 7
+        },
+        "materials": {
+          "godCrystal": 21,
+          "guardianStone": 104,
+          "revivalLeaf": 75
+        },
+        "army": 672,
+        "deployed": 626
+      },
+      "gains": {
+        "deed": 54432,
+        "medal": 90720,
+        "bone": 362880
+      },
+      "saveSha256": "5a4a391103b27bbaa43d87be8049a2f33d91be923928b2b27084fd036bd95034",
+      "reloaded": true
+    },
+    {
+      "window": 7,
+      "durationSec": 28800,
+      "before": {
+        "tick": 12476630,
+        "tech": 348618782,
+        "medal": 1608078,
+        "bone": 2177345,
+        "deed": 423397,
+        "food": 482790,
+        "cap": 348618782,
+        "scrollUsed": 131,
+        "storage": {
+          "steam": 31,
+          "electric": 18,
+          "nuclear": 7
+        },
+        "materials": {
+          "godCrystal": 21,
+          "guardianStone": 104,
+          "revivalLeaf": 75
+        },
+        "army": 672,
+        "deployed": 626
+      },
+      "after": {
+        "tick": 12505430,
+        "tech": 348618782,
+        "medal": 1698798,
+        "bone": 2540225,
+        "deed": 477829,
+        "food": 482790,
+        "cap": 348618782,
+        "scrollUsed": 131,
+        "storage": {
+          "steam": 31,
+          "electric": 18,
+          "nuclear": 7
+        },
+        "materials": {
+          "godCrystal": 21,
+          "guardianStone": 104,
+          "revivalLeaf": 75
+        },
+        "army": 672,
+        "deployed": 626
+      },
+      "gains": {
+        "deed": 54432,
+        "medal": 90720,
+        "bone": 362880
+      },
+      "saveSha256": "e6a31bf0cdb8abe1bd02d766123cee9c19583dd4d794cfc8af25eef88f2099dd",
+      "reloaded": true
+    },
+    {
+      "window": 8,
+      "durationSec": 28800,
+      "before": {
+        "tick": 12505430,
+        "tech": 348618782,
+        "medal": 1698798,
+        "bone": 2540225,
+        "deed": 477829,
+        "food": 482790,
+        "cap": 348618782,
+        "scrollUsed": 131,
+        "storage": {
+          "steam": 31,
+          "electric": 18,
+          "nuclear": 7
+        },
+        "materials": {
+          "godCrystal": 21,
+          "guardianStone": 104,
+          "revivalLeaf": 75
+        },
+        "army": 672,
+        "deployed": 626
+      },
+      "after": {
+        "tick": 12534230,
+        "tech": 348618782,
+        "medal": 1789518,
+        "bone": 2903105,
+        "deed": 532261,
+        "food": 482790,
+        "cap": 348618782,
+        "scrollUsed": 131,
+        "storage": {
+          "steam": 31,
+          "electric": 18,
+          "nuclear": 7
+        },
+        "materials": {
+          "godCrystal": 21,
+          "guardianStone": 104,
+          "revivalLeaf": 75
+        },
+        "army": 672,
+        "deployed": 626
+      },
+      "gains": {
+        "deed": 54432,
+        "medal": 90720,
+        "bone": 362880
+      },
+      "saveSha256": "10a01c4469fd6364c060e8ffcd20a29498bdd6c85c475b1179b62a859e9e28c3",
+      "reloaded": true
+    },
+    {
+      "window": 9,
+      "durationSec": 28800,
+      "before": {
+        "tick": 12534230,
+        "tech": 348618782,
+        "medal": 1789518,
+        "bone": 2903105,
+        "deed": 532261,
+        "food": 482790,
+        "cap": 348618782,
+        "scrollUsed": 131,
+        "storage": {
+          "steam": 31,
+          "electric": 18,
+          "nuclear": 7
+        },
+        "materials": {
+          "godCrystal": 21,
+          "guardianStone": 104,
+          "revivalLeaf": 75
+        },
+        "army": 672,
+        "deployed": 626
+      },
+      "after": {
+        "tick": 12563030,
+        "tech": 348618782,
+        "medal": 1880238,
+        "bone": 3265985,
+        "deed": 586693,
+        "food": 482790,
+        "cap": 348618782,
+        "scrollUsed": 131,
+        "storage": {
+          "steam": 31,
+          "electric": 18,
+          "nuclear": 7
+        },
+        "materials": {
+          "godCrystal": 21,
+          "guardianStone": 104,
+          "revivalLeaf": 75
+        },
+        "army": 672,
+        "deployed": 626
+      },
+      "gains": {
+        "deed": 54432,
+        "medal": 90720,
+        "bone": 362880
+      },
+      "saveSha256": "10eec0807a99cd482550de4fc07e56c92ded499ccd9dfb911bda85b411329159",
+      "reloaded": true
+    },
+    {
+      "window": 10,
+      "durationSec": 28800,
+      "before": {
+        "tick": 12563030,
+        "tech": 348618782,
+        "medal": 1880238,
+        "bone": 3265985,
+        "deed": 586693,
+        "food": 482790,
+        "cap": 348618782,
+        "scrollUsed": 131,
+        "storage": {
+          "steam": 31,
+          "electric": 18,
+          "nuclear": 7
+        },
+        "materials": {
+          "godCrystal": 21,
+          "guardianStone": 104,
+          "revivalLeaf": 75
+        },
+        "army": 672,
+        "deployed": 626
+      },
+      "after": {
+        "tick": 12591830,
+        "tech": 348618782,
+        "medal": 1970958,
+        "bone": 3628865,
+        "deed": 641125,
+        "food": 482790,
+        "cap": 348618782,
+        "scrollUsed": 131,
+        "storage": {
+          "steam": 31,
+          "electric": 18,
+          "nuclear": 7
+        },
+        "materials": {
+          "godCrystal": 21,
+          "guardianStone": 104,
+          "revivalLeaf": 75
+        },
+        "army": 672,
+        "deployed": 626
+      },
+      "gains": {
+        "deed": 54432,
+        "medal": 90720,
+        "bone": 362880
+      },
+      "saveSha256": "e81ce2eeca618f90e8d4411479cfab4339fb8c28778bf089d52e0e702e5ee8b4",
+      "reloaded": true
+    },
+    {
+      "window": 11,
+      "durationSec": 28800,
+      "before": {
+        "tick": 12591830,
+        "tech": 348618782,
+        "medal": 1970958,
+        "bone": 3628865,
+        "deed": 641125,
+        "food": 482790,
+        "cap": 348618782,
+        "scrollUsed": 131,
+        "storage": {
+          "steam": 31,
+          "electric": 18,
+          "nuclear": 7
+        },
+        "materials": {
+          "godCrystal": 21,
+          "guardianStone": 104,
+          "revivalLeaf": 75
+        },
+        "army": 672,
+        "deployed": 626
+      },
+      "after": {
+        "tick": 12620630,
+        "tech": 348618782,
+        "medal": 2061678,
+        "bone": 3991745,
+        "deed": 695557,
+        "food": 482790,
+        "cap": 348618782,
+        "scrollUsed": 131,
+        "storage": {
+          "steam": 31,
+          "electric": 18,
+          "nuclear": 7
+        },
+        "materials": {
+          "godCrystal": 21,
+          "guardianStone": 104,
+          "revivalLeaf": 75
+        },
+        "army": 672,
+        "deployed": 626
+      },
+      "gains": {
+        "deed": 54432,
+        "medal": 90720,
+        "bone": 362880
+      },
+      "saveSha256": "ea2aee228ef4289138f574c6a2f3d326b64ddbaf7a38340699223b968b9e242d",
+      "reloaded": true
+    },
+    {
+      "window": 12,
+      "durationSec": 28800,
+      "before": {
+        "tick": 12620630,
+        "tech": 348618782,
+        "medal": 2061678,
+        "bone": 3991745,
+        "deed": 695557,
+        "food": 482790,
+        "cap": 348618782,
+        "scrollUsed": 131,
+        "storage": {
+          "steam": 31,
+          "electric": 18,
+          "nuclear": 7
+        },
+        "materials": {
+          "godCrystal": 21,
+          "guardianStone": 104,
+          "revivalLeaf": 75
+        },
+        "army": 672,
+        "deployed": 626
+      },
+      "after": {
+        "tick": 12649430,
+        "tech": 348618782,
+        "medal": 2152398,
+        "bone": 4354625,
+        "deed": 749989,
+        "food": 482790,
+        "cap": 348618782,
+        "scrollUsed": 131,
+        "storage": {
+          "steam": 31,
+          "electric": 18,
+          "nuclear": 7
+        },
+        "materials": {
+          "godCrystal": 21,
+          "guardianStone": 104,
+          "revivalLeaf": 75
+        },
+        "army": 672,
+        "deployed": 626
+      },
+      "gains": {
+        "deed": 54432,
+        "medal": 90720,
+        "bone": 362880
+      },
+      "saveSha256": "8e932fb4c1eb6ef2595e183edf4fd6524ba9634b89607bc3fc4d75430bc1ac27",
+      "reloaded": true
+    },
+    {
+      "window": 13,
+      "durationSec": 28800,
+      "before": {
+        "tick": 12649430,
+        "tech": 348618782,
+        "medal": 2152398,
+        "bone": 4354625,
+        "deed": 749989,
+        "food": 482790,
+        "cap": 348618782,
+        "scrollUsed": 131,
+        "storage": {
+          "steam": 31,
+          "electric": 18,
+          "nuclear": 7
+        },
+        "materials": {
+          "godCrystal": 21,
+          "guardianStone": 104,
+          "revivalLeaf": 75
+        },
+        "army": 672,
+        "deployed": 626
+      },
+      "after": {
+        "tick": 12678230,
+        "tech": 348618782,
+        "medal": 2243118,
+        "bone": 4717505,
+        "deed": 804421,
+        "food": 482790,
+        "cap": 348618782,
+        "scrollUsed": 131,
+        "storage": {
+          "steam": 31,
+          "electric": 18,
+          "nuclear": 7
+        },
+        "materials": {
+          "godCrystal": 21,
+          "guardianStone": 104,
+          "revivalLeaf": 75
+        },
+        "army": 672,
+        "deployed": 626
+      },
+      "gains": {
+        "deed": 54432,
+        "medal": 90720,
+        "bone": 362880
+      },
+      "saveSha256": "93a920bf2f42c03f821e964d78f1fd37ad87c5b2ee22ffb39be9cc3c9a17e582",
+      "reloaded": true
+    },
+    {
+      "window": 14,
+      "durationSec": 28800,
+      "before": {
+        "tick": 12678230,
+        "tech": 348618782,
+        "medal": 2243118,
+        "bone": 4717505,
+        "deed": 804421,
+        "food": 482790,
+        "cap": 348618782,
+        "scrollUsed": 131,
+        "storage": {
+          "steam": 31,
+          "electric": 18,
+          "nuclear": 7
+        },
+        "materials": {
+          "godCrystal": 21,
+          "guardianStone": 104,
+          "revivalLeaf": 75
+        },
+        "army": 672,
+        "deployed": 626
+      },
+      "after": {
+        "tick": 12707030,
+        "tech": 348618782,
+        "medal": 2333838,
+        "bone": 5080385,
+        "deed": 858853,
+        "food": 482790,
+        "cap": 348618782,
+        "scrollUsed": 131,
+        "storage": {
+          "steam": 31,
+          "electric": 18,
+          "nuclear": 7
+        },
+        "materials": {
+          "godCrystal": 21,
+          "guardianStone": 104,
+          "revivalLeaf": 75
+        },
+        "army": 672,
+        "deployed": 626
+      },
+      "gains": {
+        "deed": 54432,
+        "medal": 90720,
+        "bone": 362880
+      },
+      "saveSha256": "cd1076c4b4ce888eee39ae41b845e1bc52e94105963df7763f62a3b019c9e3be",
+      "reloaded": true
+    },
+    {
+      "window": 15,
+      "durationSec": 28800,
+      "before": {
+        "tick": 12707030,
+        "tech": 348618782,
+        "medal": 2333838,
+        "bone": 5080385,
+        "deed": 858853,
+        "food": 482790,
+        "cap": 348618782,
+        "scrollUsed": 131,
+        "storage": {
+          "steam": 31,
+          "electric": 18,
+          "nuclear": 7
+        },
+        "materials": {
+          "godCrystal": 21,
+          "guardianStone": 104,
+          "revivalLeaf": 75
+        },
+        "army": 672,
+        "deployed": 626
+      },
+      "after": {
+        "tick": 12735830,
+        "tech": 348618782,
+        "medal": 2424558,
+        "bone": 5443265,
+        "deed": 913285,
+        "food": 482790,
+        "cap": 348618782,
+        "scrollUsed": 131,
+        "storage": {
+          "steam": 31,
+          "electric": 18,
+          "nuclear": 7
+        },
+        "materials": {
+          "godCrystal": 21,
+          "guardianStone": 104,
+          "revivalLeaf": 75
+        },
+        "army": 672,
+        "deployed": 626
+      },
+      "gains": {
+        "deed": 54432,
+        "medal": 90720,
+        "bone": 362880
+      },
+      "saveSha256": "3c0701c8612a3ea3a14c9d62a5e63572c15a8c7f606ed40cbde7e6e00ca994c6",
+      "reloaded": true
+    },
+    {
+      "window": 16,
+      "durationSec": 28800,
+      "before": {
+        "tick": 12735830,
+        "tech": 348618782,
+        "medal": 2424558,
+        "bone": 5443265,
+        "deed": 913285,
+        "food": 482790,
+        "cap": 348618782,
+        "scrollUsed": 131,
+        "storage": {
+          "steam": 31,
+          "electric": 18,
+          "nuclear": 7
+        },
+        "materials": {
+          "godCrystal": 21,
+          "guardianStone": 104,
+          "revivalLeaf": 75
+        },
+        "army": 672,
+        "deployed": 626
+      },
+      "after": {
+        "tick": 12764630,
+        "tech": 348618782,
+        "medal": 2515278,
+        "bone": 5806145,
+        "deed": 967717,
+        "food": 482790,
+        "cap": 348618782,
+        "scrollUsed": 131,
+        "storage": {
+          "steam": 31,
+          "electric": 18,
+          "nuclear": 7
+        },
+        "materials": {
+          "godCrystal": 21,
+          "guardianStone": 104,
+          "revivalLeaf": 75
+        },
+        "army": 672,
+        "deployed": 626
+      },
+      "gains": {
+        "deed": 54432,
+        "medal": 90720,
+        "bone": 362880
+      },
+      "saveSha256": "125d45d5b731446bfd38bd670f16916de6582391b466f3772eb576304d87c2d1",
+      "reloaded": true
+    },
+    {
+      "window": 17,
+      "durationSec": 28800,
+      "before": {
+        "tick": 12764630,
+        "tech": 348618782,
+        "medal": 2515278,
+        "bone": 5806145,
+        "deed": 967717,
+        "food": 482790,
+        "cap": 348618782,
+        "scrollUsed": 131,
+        "storage": {
+          "steam": 31,
+          "electric": 18,
+          "nuclear": 7
+        },
+        "materials": {
+          "godCrystal": 21,
+          "guardianStone": 104,
+          "revivalLeaf": 75
+        },
+        "army": 672,
+        "deployed": 626
+      },
+      "after": {
+        "tick": 12793430,
+        "tech": 348618782,
+        "medal": 2605998,
+        "bone": 6169025,
+        "deed": 999999,
+        "food": 482790,
+        "cap": 348618782,
+        "scrollUsed": 131,
+        "storage": {
+          "steam": 31,
+          "electric": 18,
+          "nuclear": 7
+        },
+        "materials": {
+          "godCrystal": 21,
+          "guardianStone": 104,
+          "revivalLeaf": 75
+        },
+        "army": 672,
+        "deployed": 626
+      },
+      "gains": {
+        "deed": 32282,
+        "medal": 90720,
+        "bone": 362880
+      },
+      "saveSha256": "bfed8d6d8f54981269b3c76ae532619541dcedabe7a4abceae0f15d5ac854ee8",
+      "reloaded": true
+    },
+    {
+      "window": 18,
+      "durationSec": 28800,
+      "before": {
+        "tick": 12793430,
+        "tech": 348618782,
+        "medal": 2605998,
+        "bone": 6169025,
+        "deed": 999999,
+        "food": 482790,
+        "cap": 348618782,
+        "scrollUsed": 131,
+        "storage": {
+          "steam": 31,
+          "electric": 18,
+          "nuclear": 7
+        },
+        "materials": {
+          "godCrystal": 21,
+          "guardianStone": 104,
+          "revivalLeaf": 75
+        },
+        "army": 672,
+        "deployed": 626
+      },
+      "after": {
+        "tick": 12822230,
+        "tech": 348618782,
+        "medal": 2696718,
+        "bone": 6531905,
+        "deed": 999999,
+        "food": 482790,
+        "cap": 348618782,
+        "scrollUsed": 131,
+        "storage": {
+          "steam": 31,
+          "electric": 18,
+          "nuclear": 7
+        },
+        "materials": {
+          "godCrystal": 21,
+          "guardianStone": 104,
+          "revivalLeaf": 75
+        },
+        "army": 672,
+        "deployed": 626
+      },
+      "gains": {
+        "medal": 90720,
+        "bone": 362880
+      },
+      "saveSha256": "2cfad2d0c9fba130ee65bc017e489b3482b05d0a6b3772c9de761ab8a68f182e",
+      "reloaded": true
+    },
+    {
+      "window": 19,
+      "durationSec": 28800,
+      "before": {
+        "tick": 12822230,
+        "tech": 348618782,
+        "medal": 2696718,
+        "bone": 6531905,
+        "deed": 999999,
+        "food": 482790,
+        "cap": 348618782,
+        "scrollUsed": 131,
+        "storage": {
+          "steam": 31,
+          "electric": 18,
+          "nuclear": 7
+        },
+        "materials": {
+          "godCrystal": 21,
+          "guardianStone": 104,
+          "revivalLeaf": 75
+        },
+        "army": 672,
+        "deployed": 626
+      },
+      "after": {
+        "tick": 12851030,
+        "tech": 348618782,
+        "medal": 2787438,
+        "bone": 6894785,
+        "deed": 999999,
+        "food": 482790,
+        "cap": 348618782,
+        "scrollUsed": 131,
+        "storage": {
+          "steam": 31,
+          "electric": 18,
+          "nuclear": 7
+        },
+        "materials": {
+          "godCrystal": 21,
+          "guardianStone": 104,
+          "revivalLeaf": 75
+        },
+        "army": 672,
+        "deployed": 626
+      },
+      "gains": {
+        "medal": 90720,
+        "bone": 362880
+      },
+      "saveSha256": "9a187b7ac4501f95af2a60bcae786de1a774ae6e226a178187b9cafe33dbe2fe",
+      "reloaded": true
+    },
+    {
+      "window": 20,
+      "durationSec": 28800,
+      "before": {
+        "tick": 12851030,
+        "tech": 348618782,
+        "medal": 2787438,
+        "bone": 6894785,
+        "deed": 999999,
+        "food": 482790,
+        "cap": 348618782,
+        "scrollUsed": 131,
+        "storage": {
+          "steam": 31,
+          "electric": 18,
+          "nuclear": 7
+        },
+        "materials": {
+          "godCrystal": 21,
+          "guardianStone": 104,
+          "revivalLeaf": 75
+        },
+        "army": 672,
+        "deployed": 626
+      },
+      "after": {
+        "tick": 12879830,
+        "tech": 348618782,
+        "medal": 2878158,
+        "bone": 7257665,
+        "deed": 999999,
+        "food": 482790,
+        "cap": 348618782,
+        "scrollUsed": 131,
+        "storage": {
+          "steam": 31,
+          "electric": 18,
+          "nuclear": 7
+        },
+        "materials": {
+          "godCrystal": 21,
+          "guardianStone": 104,
+          "revivalLeaf": 75
+        },
+        "army": 672,
+        "deployed": 626
+      },
+      "gains": {
+        "medal": 90720,
+        "bone": 362880
+      },
+      "saveSha256": "f273b0c84cacfeddd35a7128cfcdda41e5c5b7908d8b9d08546fe8fdbf2e634b",
+      "reloaded": true
+    },
+    {
+      "window": 21,
+      "durationSec": 28800,
+      "before": {
+        "tick": 12879830,
+        "tech": 348618782,
+        "medal": 2878158,
+        "bone": 7257665,
+        "deed": 999999,
+        "food": 482790,
+        "cap": 348618782,
+        "scrollUsed": 131,
+        "storage": {
+          "steam": 31,
+          "electric": 18,
+          "nuclear": 7
+        },
+        "materials": {
+          "godCrystal": 21,
+          "guardianStone": 104,
+          "revivalLeaf": 75
+        },
+        "army": 672,
+        "deployed": 626
+      },
+      "after": {
+        "tick": 12908630,
+        "tech": 348618782,
+        "medal": 2968878,
+        "bone": 7620545,
+        "deed": 999999,
+        "food": 482790,
+        "cap": 348618782,
+        "scrollUsed": 131,
+        "storage": {
+          "steam": 31,
+          "electric": 18,
+          "nuclear": 7
+        },
+        "materials": {
+          "godCrystal": 21,
+          "guardianStone": 104,
+          "revivalLeaf": 75
+        },
+        "army": 672,
+        "deployed": 626
+      },
+      "gains": {
+        "medal": 90720,
+        "bone": 362880
+      },
+      "saveSha256": "eebb542a266148c74b22c6667b5bea71a2e52574a11b7529ecdfd483b8c3ee6e",
+      "reloaded": true
+    },
+    {
+      "window": 22,
+      "durationSec": 28800,
+      "before": {
+        "tick": 12908630,
+        "tech": 348618782,
+        "medal": 2968878,
+        "bone": 7620545,
+        "deed": 999999,
+        "food": 482790,
+        "cap": 348618782,
+        "scrollUsed": 131,
+        "storage": {
+          "steam": 31,
+          "electric": 18,
+          "nuclear": 7
+        },
+        "materials": {
+          "godCrystal": 21,
+          "guardianStone": 104,
+          "revivalLeaf": 75
+        },
+        "army": 672,
+        "deployed": 626
+      },
+      "after": {
+        "tick": 12937430,
+        "tech": 348618782,
+        "medal": 3059598,
+        "bone": 7983425,
+        "deed": 999999,
+        "food": 482790,
+        "cap": 348618782,
+        "scrollUsed": 131,
+        "storage": {
+          "steam": 31,
+          "electric": 18,
+          "nuclear": 7
+        },
+        "materials": {
+          "godCrystal": 21,
+          "guardianStone": 104,
+          "revivalLeaf": 75
+        },
+        "army": 672,
+        "deployed": 626
+      },
+      "gains": {
+        "medal": 90720,
+        "bone": 362880
+      },
+      "saveSha256": "ecf78293015e46e05e70c38916a834c7063345f8ef11cb7ac29a337b0774b75e",
+      "reloaded": true
+    }
+  ],
+  "final": {
+    "tick": 12937430,
+    "tech": 348618782,
+    "medal": 3059598,
+    "bone": 7983425,
+    "deed": 999999,
+    "food": 482790,
+    "cap": 348618782,
+    "scrollUsed": 131,
+    "storage": {
+      "steam": 31,
+      "electric": 18,
+      "nuclear": 7
+    },
+    "materials": {
+      "godCrystal": 21,
+      "guardianStone": 104,
+      "revivalLeaf": 75
+    },
+    "army": 672,
+    "deployed": 626
+  },
+  "quantumAttempt": {
+    "ok": false,
+    "reason": "insufficient-tech"
+  },
+  "combinedFile": "p395-quantum-storage-medal-combined-paid-save.json",
+  "combinedSha256": "ecf78293015e46e05e70c38916a834c7063345f8ef11cb7ac29a337b0774b75e",
+  "reloaded": true
+}

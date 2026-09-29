@@ -117,18 +117,18 @@ CFG.enemies = [
   {id:88,name:'铁骑队',desc:'铁骑踏破防线',units:{"infantry":[15,11,6],"archer":[15,11,6],"cavalry_t1":[15,11,6]},reward:{"wood":8855,"stone":6764,"food":5657}},
   {id:89,name:'大法师塔',desc:'强大的魔法能量涌动',units:{"infantry":[16,12,7],"archer":[16,12,7],"cavalry_t1":[16,12,7],"mage_t1":[16,12,7]},reward:{"wood":9120,"stone":6967,"food":5827}},
   // ===== 第90关 Boss =====
-  {id:90,name:'皇家禁卫长',desc:'BOSS·帝国最强的禁卫统领',units:{"infantry":[1,1,1],"archer":[1,1,1],"cavalry_t1":[1,1,1],"mage_t1":[1,1]},boss:true,bossMult:{"atk":1.7,"def":1.55},reward:{"wood":86400,"stone":66000,"food":55200},drops:{"shield_essence":{"prob":0.9,"count":3},"spear_essence":{"prob":0.9,"count":3},"sword_essence":{"prob":0.9,"count":3}}},
+  {id:90,name:'皇家禁卫长',desc:'BOSS·帝国最强的禁卫统领',units:{"infantry":[15,15,15],"archer":[15,15,15],"cavalry_t1":[15,15,15],"mage_t1":[15,15]},boss:true,bossMult:{"atk":1.7,"def":1.55},reward:{"wood":86400,"stone":66000,"food":55200},drops:{"shield_essence":{"prob":0.9,"count":3},"spear_essence":{"prob":0.9,"count":3},"sword_essence":{"prob":0.9,"count":3}}},
 
   // ===== 第十章：最终战役 (L91-L100) =====
-  {id:91,name:'皇家步兵',desc:'零散的步兵正在巡逻',units:{"infantry":[9,7]},reward:{"wood":9000,"stone":7000,"food":5800}},
-  {id:92,name:'皇家步兵',desc:'零散的步兵正在巡逻',units:{"infantry":[10,7]},reward:{"wood":9270,"stone":7210,"food":5974}},
-  {id:93,name:'王都步兵哨位',desc:'守备步兵扼守王都大道',units:{"infantry":[11,8]},reward:{"wood":9548,"stone":7426,"food":6153}},
-  {id:94,name:'鹰眼射手',desc:'弓兵占据了有利地形',units:{"infantry":[12,9,5],"archer":[12,9,5]},reward:{"wood":9834,"stone":7649,"food":6337}},
-  {id:95,name:'鹰眼射手',desc:'弓兵占据了有利地形',units:{"infantry":[13,10,6],"archer":[13,10,6]},reward:{"wood":10129,"stone":7878,"food":6527}},
-  {id:96,name:'圣殿步弓前哨',desc:'步兵守住圣殿关道，弓手从后方掩护',units:{"infantry":[14,10,6],"archer":[14,10,6]},reward:{"wood":10433,"stone":8114,"food":6723}},
-  {id:97,name:'圣殿骑士',desc:'侍从骑士率骑队发起冲锋',units:{"infantry":[15,11,6],"archer":[15,11,6],"cavalry_t1":[15,11,6]},reward:{"wood":10746,"stone":8358,"food":6925}},
-  {id:98,name:'圣殿骑士',desc:'铁骑踏破防线',units:{"infantry":[16,12,7],"archer":[16,12,7],"cavalry_t1":[16,12,7]},reward:{"wood":11068,"stone":8609,"food":7133}},
-  {id:99,name:'奥术议会',desc:'强大的魔法能量涌动',units:{"infantry":[17,12,7],"archer":[17,12,7],"cavalry_t1":[17,12,7],"mage_t1":[17,12,7]},reward:{"wood":11400,"stone":8867,"food":7347}},
+  {id:91,name:'皇家步兵',desc:'零散的步兵正在巡逻',units:{"infantry":[101,79]},reward:{"wood":9000,"stone":7000,"food":5800}},
+  {id:92,name:'皇家步兵',desc:'零散的步兵正在巡逻',units:{"infantry":[124,86]},reward:{"wood":9270,"stone":7210,"food":5974}},
+  {id:93,name:'王都步兵哨位',desc:'守备步兵扼守王都大道',units:{"infantry":[145,105]},reward:{"wood":9548,"stone":7426,"food":6153}},
+  {id:94,name:'鹰眼射手',desc:'弓兵占据了有利地形',units:{"infantry":[69,52,29],"archer":[69,52,29]},reward:{"wood":9834,"stone":7649,"food":6337}},
+  {id:95,name:'鹰眼射手',desc:'弓兵占据了有利地形',units:{"infantry":[81,62,37],"archer":[81,62,37]},reward:{"wood":10129,"stone":7878,"food":6527}},
+  {id:96,name:'圣殿步弓前哨',desc:'步兵守住圣殿关道，弓手从后方掩护',units:{"infantry":[105,75,45],"archer":[105,75,45]},reward:{"wood":10433,"stone":8114,"food":6723}},
+  {id:97,name:'圣殿骑士',desc:'侍从骑士率骑队发起冲锋',units:{"infantry":[94,69,38],"archer":[94,69,38],"cavalry_t1":[94,69,38]},reward:{"wood":10746,"stone":8358,"food":6925}},
+  {id:98,name:'圣殿骑士',desc:'铁骑踏破防线',units:{"infantry":[122,91,53],"archer":[122,91,53],"cavalry_t1":[122,91,53]},reward:{"wood":11068,"stone":8609,"food":7133}},
+  {id:99,name:'奥术议会',desc:'强大的魔法能量涌动',units:{"infantry":[94,67,39],"archer":[94,67,39],"cavalry_t1":[94,67,39],"mage_t1":[94,67,39]},reward:{"wood":11400,"stone":8867,"food":7347}},
   // ===== 第100关 Boss =====
   {id:100,name:'万古之王',desc:'BOSS·传说中一统天下的远古帝王',units:{"infantry":[1,1,1],"archer":[1,1,1],"cavalry_t1":[1,1,1],"mage_t1":[1,1]},boss:true,needSciences:['sci_star_array','sci_quantum_age'],bossMult:{"atk":1.8,"def":1.6},reward:{"wood":108000,"stone":84000,"food":69600},drops:{"shield_essence":{"prob":0.95,"count":4},"spear_essence":{"prob":0.95,"count":4},"sword_essence":{"prob":0.95,"count":4},"bow_essence":{"prob":0.95,"count":4},"crossbow_essence":{"prob":0.95,"count":4},"blade_essence":{"prob":0.95,"count":4},"wind_essence":{"prob":0.95,"count":4},"iron_essence":{"prob":0.95,"count":4}}},
 ];

@@ -1,0 +1,211 @@
+{
+  "batch": "P395",
+  "source": {
+    "file": "p395-star7-calm-paid-save.json",
+    "sha256": "297de7e1e4bd2c73907997fbb3fc365ee78ab8d26aae457f69ee4ce2b03b810d"
+  },
+  "runtimeMathSha256": "9cb16af1e322205a2a92110758d71ac5bea0c422b04d981aab870c18a8cd2513",
+  "before": {
+    "city": 1090,
+    "deed": 8313,
+    "army": 672,
+    "deployed": 626,
+    "field": 629,
+    "stars": 25,
+    "multiplier": 3.5,
+    "daily": {
+      "starBeast6": 1,
+      "starBeastCalm": 1
+    },
+    "alert": 0,
+    "items": {
+      "origin": 280,
+      "illusion": 280,
+      "ring": 280
+    },
+    "front": [
+      {
+        "type": "star_trooper",
+        "count": 55
+      },
+      {
+        "type": "star_trooper",
+        "count": 54
+      },
+      {
+        "type": "electro_trooper",
+        "count": 55
+      },
+      {
+        "type": "electro_trooper",
+        "count": 46
+      }
+    ],
+    "mid": [
+      {
+        "type": "armored_trooper",
+        "count": 55
+      },
+      {
+        "type": "alloy_special",
+        "count": 55
+      },
+      {
+        "type": "star_trooper",
+        "count": 46
+      },
+      {
+        "type": "gold_cavalry",
+        "count": 40
+      }
+    ],
+    "back": [
+      {
+        "type": "archer",
+        "count": 55
+      },
+      {
+        "type": "archer",
+        "count": 55
+      },
+      {
+        "type": "archer",
+        "count": 55
+      },
+      {
+        "type": "archer",
+        "count": 55
+      }
+    ],
+    "resources": {
+      "food": 480699,
+      "copper": 401082.4299979203,
+      "iron": 566640.6000000124,
+      "steel": 504177.8000000033,
+      "medal": 6291647,
+      "tech": 13721
+    }
+  },
+  "rates": {
+    "tech": 24354,
+    "food": 3037.5,
+    "techCap": 307340352,
+    "needTech": 100000000,
+    "medal": 6291647,
+    "core": 29
+  },
+  "assigned": {
+    "file": "p395-star7-tech-assigned-paid-save.json",
+    "sha256": "eaa44a0152be66e7584f8ede661152bd52b1a434e6effa1a521aa7d9f11022ae"
+  },
+  "window": {
+    "seconds": 28800,
+    "gains": {
+      "tech": 307326631,
+      "deed": 62208,
+      "medal": 103680,
+      "bone": 414720
+    },
+    "after": {
+      "city": 1090,
+      "deed": 70521,
+      "army": 672,
+      "deployed": 626,
+      "field": 629,
+      "stars": 25,
+      "multiplier": 3.5,
+      "daily": {
+        "starBeast6": 1,
+        "starBeastCalm": 1
+      },
+      "alert": 0,
+      "items": {
+        "origin": 280,
+        "illusion": 280,
+        "ring": 280
+      },
+      "front": [
+        {
+          "type": "star_trooper",
+          "count": 55
+        },
+        {
+          "type": "star_trooper",
+          "count": 54
+        },
+        {
+          "type": "electro_trooper",
+          "count": 55
+        },
+        {
+          "type": "electro_trooper",
+          "count": 46
+        }
+      ],
+      "mid": [
+        {
+          "type": "armored_trooper",
+          "count": 55
+        },
+        {
+          "type": "alloy_special",
+          "count": 55
+        },
+        {
+          "type": "star_trooper",
+          "count": 46
+        },
+        {
+          "type": "gold_cavalry",
+          "count": 40
+        }
+      ],
+      "back": [
+        {
+          "type": "archer",
+          "count": 55
+        },
+        {
+          "type": "archer",
+          "count": 55
+        },
+        {
+          "type": "archer",
+          "count": 55
+        },
+        {
+          "type": "archer",
+          "count": 55
+        }
+      ],
+      "resources": {
+        "food": 480699,
+        "copper": 401082.4299979203,
+        "iron": 566640.6000000124,
+        "steel": 504177.8000000033,
+        "medal": 6395327,
+        "tech": 307340352
+      }
+    },
+    "file": "p395-star7-tech-offline-paid-save.json",
+    "sha256": "87493daf514bc54c99101693987c9d9b620245ef77231d3a750348afae41eeee"
+  },
+  "research": {
+    "action": {
+      "ok": true,
+      "cost": {
+        "tech": 100000000,
+        "medal": 1000000
+      }
+    },
+    "file": "p395-star7-fighter-researched-paid-save.json",
+    "sha256": "843bf590fa14159444470c528d251533370da962d6ff4b351bab18c11300a9f9"
+  },
+  "summary": {
+    "techRate": 24354,
+    "techGain": 307326631,
+    "researchOk": true,
+    "reason": null,
+    "core": 29
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "batch": "P395",
+  "strategy": "iron-store-before-steel-store",
+  "ironTarget": 50,
+  "sourceSha256": {
+    "config.js": "1d46cd09d15cd9faf05cbb40a0b5e30fdf7d6ae3bcfd21550233c178378ebfd8",
+    "levels.js": "dc0f73ccb179900f2a270f35ab22775d2eb7ca18caf10037480f3bc7a3359afc",
+    "math.js": "9cb16af1e322205a2a92110758d71ac5bea0c422b04d981aab870c18a8cd2513",
+    "technology.js": "c51fb05821593d9e76396ff18b0a38d78dee1db9cdc55631b78a7f223ad0a006",
+    "tools/verify/probe-next-era.js": "1b5b372d5a9ea11a6dc0ff8d6b82728bc60b4dbbea0c224077a72ffa97454927",
+    "tools/verify/probe-steam-era.js": "937a0ffe2ac6193f1fb15293b3e0c1c68bcaa24626960d672bc7c08fcf98a3da"
+  },
+  "unit": "online seconds",
+  "onlineSeconds": 191607,
+  "population": 26,
+  "wins": 0,
+  "techCap": 101400,
+  "steelCap": 10050,
+  "steelMastery": 20,
+  "medal": 10,
+  "bone": 64,
+  "sciences": [
+    "sci_copper_furnace",
+    "sci_stone_store",
+    "sci_institute",
+    "sci_steam_age"
+  ],
+  "firstArmoredSoldiers": 1,
+  "actions": {
+    "build": 260,
+    "allocate": 197,
+    "research": 57,
+    "settlement": 8,
+    "policy": 0,
+    "market": 68,
+    "marketFallback": 61,
+    "train": 13
+  },
+  "milestones": [
+    {
+      "label": "stone-and-research-branch",
+      "second": 23766,
+      "population": 26,
+      "techCap": 20400,
+      "steelCap": 675,
+      "food": 7500
+    },
+    {
+      "label": "knowledge-cap-ready",
+      "second": 132804,
+      "population": 26,
+      "techCap": 101400,
+      "steelCap": 675,
+      "food": 2176.000000000022
+    },
+    {
+      "label": "steel-mastery-20",
+      "second": 133712,
+      "population": 26,
+      "techCap": 101400,
+      "steelCap": 675,
+      "food": 11051.699999999782,
+      "payments": [
+        {
+          "level": 14,
+          "second": 132804,
+          "tech": 21000,
+          "medal": 420
+        },
+        {
+          "level": 15,
+          "second": 132804,
+          "tech": 22500,
+          "medal": 450
+        },
+        {
+          "level": 16,
+          "second": 132804,
+          "tech": 24000,
+          "medal": 480
+        },
+        {
+          "level": 17,
+          "second": 132804,
+          "tech": 25500,
+          "medal": 510
+        },
+        {
+          "level": 18,
+          "second": 133049,
+          "tech": 27000,
+          "medal": 540
+        },
+        {
+          "level": 19,
+          "second": 133372,
+          "tech": 28500,
+          "medal": 570
+        },
+        {
+          "level": 20,
+          "second": 133712,
+          "tech": 30000,
+          "medal": 600
+        }
+      ],
+      "remainingBone": 64
+    },
+    {
+      "label": "steel-upstream-positive",
+      "second": 136887,
+      "population": 26,
+      "techCap": 101400,
+      "steelCap": 675,
+      "food": 3079.783333332166
+    },
+    {
+      "label": "steel-cap-ready",
+      "second": 188062,
+      "population": 26,
+      "techCap": 101400,
+      "steelCap": 10050,
+      "food": 46500
+    },
+    {
+      "label": "steam-age-researched",
+      "second": 190461,
+      "population": 26,
+      "techCap": 101400,
+      "steelCap": 10050,
+      "food": 46500
+    },
+    {
+      "label": "armored-trooper-trained",
+      "second": 191607,
+      "population": 26,
+      "techCap": 101400,
+      "steelCap": 10050,
+      "food": 46497.128461538465
+    }
+  ]
+}

@@ -1,0 +1,351 @@
+{
+  "batch": "P395",
+  "source": {
+    "file": "p395-star6-star24-paid-save.json",
+    "sha256": "1573ff56fa0ffcbd8bae0fffadd56175473eaaa3c86ba7920bdbbc4c30ef441c"
+  },
+  "runtimeMathSha256": "9cb16af1e322205a2a92110758d71ac5bea0c422b04d981aab870c18a8cd2513",
+  "defeat": {
+    "seed": 7,
+    "tier": 6,
+    "enemyHpLeft": 1184,
+    "loss": 5,
+    "file": "p395-star6-star24-seed7-loss-paid-save.json",
+    "sha256": "a9c86786dd62b21c39a660aa1643a9dcf530b43b67d83c17f29559b38b5965f5",
+    "after": {
+      "city": 1027,
+      "deed": 36879,
+      "army": 667,
+      "deployed": 621,
+      "field": 627,
+      "stars": 24,
+      "multiplier": 3.4000000000000004,
+      "daily": {},
+      "alert": 0,
+      "items": {
+        "origin": 180,
+        "illusion": 180,
+        "ring": 180
+      },
+      "front": [
+        {
+          "type": "star_trooper",
+          "count": 52
+        },
+        {
+          "type": "star_trooper",
+          "count": 52
+        },
+        {
+          "type": "electro_trooper",
+          "count": 55
+        },
+        {
+          "type": "electro_trooper",
+          "count": 46
+        }
+      ],
+      "mid": [
+        {
+          "type": "armored_trooper",
+          "count": 55
+        },
+        {
+          "type": "alloy_special",
+          "count": 55
+        },
+        {
+          "type": "star_trooper",
+          "count": 46
+        },
+        {
+          "type": "gold_cavalry",
+          "count": 40
+        }
+      ],
+      "back": [
+        {
+          "type": "archer",
+          "count": 55
+        },
+        {
+          "type": "archer",
+          "count": 55
+        },
+        {
+          "type": "archer",
+          "count": 55
+        },
+        {
+          "type": "archer",
+          "count": 55
+        }
+      ],
+      "resources": {
+        "food": 480699,
+        "copper": 465082.4299979203,
+        "iron": 630640.6000000124,
+        "steel": 568177.8000000033,
+        "medal": 5669567,
+        "tech": 13721
+      }
+    }
+  },
+  "refill": {
+    "need": {
+      "star_trooper": 5,
+      "electro_trooper": 0,
+      "armored_trooper": 0,
+      "alloy_special": 0,
+      "gold_cavalry": 0,
+      "archer": 0
+    },
+    "cost": {
+      "steel": 40000,
+      "iron": 40000,
+      "copper": 40000
+    },
+    "seconds": 3,
+    "minFood": 480699,
+    "file": "p395-star6-star24-seed7-refilled-paid-save.json",
+    "sha256": "19b07239070715aa46df8242de9f1a64a5e93ef8d82df41f83a5ab17cf99b37c"
+  },
+  "offline": [
+    {
+      "seconds": 28800,
+      "priorDeed": 36879,
+      "afterDeed": 99087,
+      "gains": {
+        "deed": 62208,
+        "medal": 103680,
+        "bone": 414720
+      },
+      "sha256": "fa14d68c6421c31097845f4f03b2c41979dbf31a47214a0e7082f4a12155bbf8"
+    },
+    {
+      "seconds": 28800,
+      "priorDeed": 99087,
+      "afterDeed": 161295,
+      "gains": {
+        "deed": 62208,
+        "medal": 103680,
+        "bone": 414720
+      },
+      "sha256": "753fd503ed491a28b3b4c911e11922db530a324a34c06d8cdec4c8ecb07e0dab"
+    },
+    {
+      "seconds": 28800,
+      "priorDeed": 161295,
+      "afterDeed": 223503,
+      "gains": {
+        "deed": 62208,
+        "medal": 103680,
+        "bone": 414720
+      },
+      "sha256": "01ce95a27dc5deaaec52421d2e183b00c63f3d72e3f56e30514d6b7ee62a90c8"
+    },
+    {
+      "seconds": 28800,
+      "priorDeed": 223503,
+      "afterDeed": 285711,
+      "gains": {
+        "deed": 62208,
+        "medal": 103680,
+        "bone": 414720
+      },
+      "sha256": "8fff2993938e080b32ae5e352309125b305a5248d7aa5ddf1d234b3a81f04165"
+    },
+    {
+      "seconds": 28800,
+      "priorDeed": 285711,
+      "afterDeed": 347919,
+      "gains": {
+        "deed": 62208,
+        "medal": 103680,
+        "bone": 414720
+      },
+      "sha256": "517b38a5d142f08007e0207a3472062fa37510b1c3fdb637bf4979fbd5610c5a"
+    },
+    {
+      "seconds": 28800,
+      "priorDeed": 347919,
+      "afterDeed": 410127,
+      "gains": {
+        "deed": 62208,
+        "medal": 103680,
+        "bone": 414720
+      },
+      "sha256": "3d43425005d8a45f74466d05273c56f99f3c49a870e652b230d5df8ae1ebb364"
+    }
+  ],
+  "star25": {
+    "cost": 401814,
+    "city": 1090,
+    "deed": 8313,
+    "file": "p395-star6-star25-after-loss-recovery-paid-save.json",
+    "sha256": "8a796b1ad09c618b578a63ad2f090b5ac2bd1f8df4e8b3ef13dc2d111247f8b1"
+  },
+  "pressure": {
+    "wins": 16,
+    "closestEnemyHp": 0,
+    "meanEnemyHp": 0,
+    "rows": [
+      {
+        "seed": 1,
+        "result": "win",
+        "enemyHpLeft": 0,
+        "enemyInitialHp": 1058823,
+        "loss": 3,
+        "ringDelta": 100,
+        "callbacks": 289
+      },
+      {
+        "seed": 2,
+        "result": "win",
+        "enemyHpLeft": 0,
+        "enemyInitialHp": 1058823,
+        "loss": 2,
+        "ringDelta": 100,
+        "callbacks": 287
+      },
+      {
+        "seed": 3,
+        "result": "win",
+        "enemyHpLeft": 0,
+        "enemyInitialHp": 1058823,
+        "loss": 4,
+        "ringDelta": 100,
+        "callbacks": 288
+      },
+      {
+        "seed": 4,
+        "result": "win",
+        "enemyHpLeft": 0,
+        "enemyInitialHp": 1058823,
+        "loss": 4,
+        "ringDelta": 100,
+        "callbacks": 296
+      },
+      {
+        "seed": 5,
+        "result": "win",
+        "enemyHpLeft": 0,
+        "enemyInitialHp": 1058823,
+        "loss": 2,
+        "ringDelta": 100,
+        "callbacks": 296
+      },
+      {
+        "seed": 6,
+        "result": "win",
+        "enemyHpLeft": 0,
+        "enemyInitialHp": 1058823,
+        "loss": 3,
+        "ringDelta": 100,
+        "callbacks": 296
+      },
+      {
+        "seed": 7,
+        "result": "win",
+        "enemyHpLeft": 0,
+        "enemyInitialHp": 1058823,
+        "loss": 5,
+        "ringDelta": 100,
+        "callbacks": 296
+      },
+      {
+        "seed": 8,
+        "result": "win",
+        "enemyHpLeft": 0,
+        "enemyInitialHp": 1058823,
+        "loss": 3,
+        "ringDelta": 100,
+        "callbacks": 296
+      },
+      {
+        "seed": 9,
+        "result": "win",
+        "enemyHpLeft": 0,
+        "enemyInitialHp": 1058823,
+        "loss": 3,
+        "ringDelta": 100,
+        "callbacks": 296
+      },
+      {
+        "seed": 10,
+        "result": "win",
+        "enemyHpLeft": 0,
+        "enemyInitialHp": 1058823,
+        "loss": 4,
+        "ringDelta": 100,
+        "callbacks": 296
+      },
+      {
+        "seed": 11,
+        "result": "win",
+        "enemyHpLeft": 0,
+        "enemyInitialHp": 1058823,
+        "loss": 3,
+        "ringDelta": 100,
+        "callbacks": 288
+      },
+      {
+        "seed": 12,
+        "result": "win",
+        "enemyHpLeft": 0,
+        "enemyInitialHp": 1058823,
+        "loss": 2,
+        "ringDelta": 100,
+        "callbacks": 296
+      },
+      {
+        "seed": 13,
+        "result": "win",
+        "enemyHpLeft": 0,
+        "enemyInitialHp": 1058823,
+        "loss": 2,
+        "ringDelta": 100,
+        "callbacks": 296
+      },
+      {
+        "seed": 14,
+        "result": "win",
+        "enemyHpLeft": 0,
+        "enemyInitialHp": 1058823,
+        "loss": 3,
+        "ringDelta": 100,
+        "callbacks": 289
+      },
+      {
+        "seed": 15,
+        "result": "win",
+        "enemyHpLeft": 0,
+        "enemyInitialHp": 1058823,
+        "loss": 4,
+        "ringDelta": 100,
+        "callbacks": 289
+      },
+      {
+        "seed": 16,
+        "result": "win",
+        "enemyHpLeft": 0,
+        "enemyInitialHp": 1058823,
+        "loss": 2,
+        "ringDelta": 100,
+        "callbacks": 296
+      }
+    ]
+  },
+  "summary": {
+    "defeatLoss": 5,
+    "refillSec": 3,
+    "refillCost": {
+      "steel": 40000,
+      "iron": 40000,
+      "copper": 40000
+    },
+    "offlineHours": 48,
+    "star25Cost": 401814,
+    "retryWins16": 16
+  }
+}

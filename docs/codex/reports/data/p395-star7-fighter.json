@@ -1,0 +1,540 @@
+{
+  "batch": "P395",
+  "source": {
+    "file": "p395-star7-core-farm-refill3-paid-save.json",
+    "sha256": "acd36d348514d99757d00e56d74fdea74d7a6c54e454e343d04d733f843fb65e"
+  },
+  "runtimeSha256": {
+    "config.js": "c1e9257c1b0677c5a306a80c28e8b729b4667bc2dbd7e43e1f88bed06d97e869",
+    "levels.js": "7105cc27283ea25aa6829135b09c1da2f1b0ea5a7f1721d6bb3167e3d57c5f08",
+    "math.js": "9cb16af1e322205a2a92110758d71ac5bea0c422b04d981aab870c18a8cd2513",
+    "garrison.js": "4d233f0529d256cd1ace2de782603fcfcbbff110032ca4cf29c5e36af30f10ff",
+    "technology.js": "c51fb05821593d9e76396ff18b0a38d78dee1db9cdc55631b78a7f223ad0a006"
+  },
+  "before": {
+    "city": 1090,
+    "deed": 70521,
+    "army": 672,
+    "deployed": 626,
+    "field": 629,
+    "stars": 25,
+    "multiplier": 3.5,
+    "daily": {
+      "starBeast6": 1,
+      "starBeastCalm": 1
+    },
+    "alert": 0,
+    "items": {
+      "origin": 280,
+      "illusion": 280,
+      "ring": 280
+    },
+    "front": [
+      {
+        "type": "star_trooper",
+        "count": 55
+      },
+      {
+        "type": "star_trooper",
+        "count": 54
+      },
+      {
+        "type": "electro_trooper",
+        "count": 55
+      },
+      {
+        "type": "electro_trooper",
+        "count": 46
+      }
+    ],
+    "mid": [
+      {
+        "type": "armored_trooper",
+        "count": 55
+      },
+      {
+        "type": "alloy_special",
+        "count": 55
+      },
+      {
+        "type": "star_trooper",
+        "count": 46
+      },
+      {
+        "type": "gold_cavalry",
+        "count": 40
+      }
+    ],
+    "back": [
+      {
+        "type": "archer",
+        "count": 55
+      },
+      {
+        "type": "archer",
+        "count": 55
+      },
+      {
+        "type": "archer",
+        "count": 55
+      },
+      {
+        "type": "archer",
+        "count": 55
+      }
+    ],
+    "resources": {
+      "food": 480699,
+      "copper": 137082.4299979203,
+      "iron": 302640.60000001243,
+      "steel": 240177.8000000033,
+      "medal": 5402551,
+      "tech": 207778724
+    }
+  },
+  "supplyBefore": {
+    "steel": 240177.8000000033,
+    "core": 208,
+    "level": 0,
+    "progress": 0
+  },
+  "actions": [
+    {
+      "ok": true,
+      "level": 0,
+      "progress": 1,
+      "cost": {
+        "steel": 10000,
+        "godCore": 8
+      }
+    },
+    {
+      "ok": true,
+      "level": 0,
+      "progress": 2,
+      "cost": {
+        "steel": 10000,
+        "godCore": 8
+      }
+    },
+    {
+      "ok": true,
+      "level": 0,
+      "progress": 3,
+      "cost": {
+        "steel": 10000,
+        "godCore": 8
+      }
+    },
+    {
+      "ok": true,
+      "level": 0,
+      "progress": 4,
+      "cost": {
+        "steel": 10000,
+        "godCore": 8
+      }
+    },
+    {
+      "ok": true,
+      "level": 0,
+      "progress": 5,
+      "cost": {
+        "steel": 10000,
+        "godCore": 8
+      }
+    },
+    {
+      "ok": true,
+      "level": 0,
+      "progress": 6,
+      "cost": {
+        "steel": 10000,
+        "godCore": 8
+      }
+    },
+    {
+      "ok": true,
+      "level": 0,
+      "progress": 7,
+      "cost": {
+        "steel": 10000,
+        "godCore": 8
+      }
+    },
+    {
+      "ok": true,
+      "level": 0,
+      "progress": 8,
+      "cost": {
+        "steel": 10000,
+        "godCore": 8
+      }
+    },
+    {
+      "ok": true,
+      "level": 0,
+      "progress": 9,
+      "cost": {
+        "steel": 10000,
+        "godCore": 8
+      }
+    },
+    {
+      "ok": true,
+      "level": 0,
+      "progress": 10,
+      "cost": {
+        "steel": 10000,
+        "godCore": 8
+      }
+    },
+    {
+      "ok": true,
+      "level": 0,
+      "progress": 11,
+      "cost": {
+        "steel": 10000,
+        "godCore": 8
+      }
+    },
+    {
+      "ok": true,
+      "level": 0,
+      "progress": 12,
+      "cost": {
+        "steel": 10000,
+        "godCore": 8
+      }
+    },
+    {
+      "ok": true,
+      "level": 0,
+      "progress": 13,
+      "cost": {
+        "steel": 10000,
+        "godCore": 8
+      }
+    },
+    {
+      "ok": true,
+      "level": 0,
+      "progress": 14,
+      "cost": {
+        "steel": 10000,
+        "godCore": 8
+      }
+    },
+    {
+      "ok": true,
+      "level": 0,
+      "progress": 15,
+      "cost": {
+        "steel": 10000,
+        "godCore": 8
+      }
+    },
+    {
+      "ok": true,
+      "level": 0,
+      "progress": 16,
+      "cost": {
+        "steel": 10000,
+        "godCore": 8
+      }
+    },
+    {
+      "ok": true,
+      "level": 0,
+      "progress": 17,
+      "cost": {
+        "steel": 10000,
+        "godCore": 8
+      }
+    },
+    {
+      "ok": true,
+      "level": 0,
+      "progress": 18,
+      "cost": {
+        "steel": 10000,
+        "godCore": 8
+      }
+    },
+    {
+      "ok": true,
+      "level": 0,
+      "progress": 19,
+      "cost": {
+        "steel": 10000,
+        "godCore": 8
+      }
+    },
+    {
+      "ok": true,
+      "level": 1,
+      "progress": 0,
+      "cost": {
+        "steel": 10000,
+        "godCore": 8
+      }
+    }
+  ],
+  "equipped": {
+    "ok": true,
+    "equipped": true
+  },
+  "after": {
+    "city": 1090,
+    "deed": 70521,
+    "army": 672,
+    "deployed": 626,
+    "field": 629,
+    "stars": 25,
+    "multiplier": 3.5,
+    "daily": {
+      "starBeast6": 1,
+      "starBeastCalm": 1
+    },
+    "alert": 0,
+    "items": {
+      "origin": 280,
+      "illusion": 280,
+      "ring": 280
+    },
+    "front": [
+      {
+        "type": "star_trooper",
+        "count": 55
+      },
+      {
+        "type": "star_trooper",
+        "count": 54
+      },
+      {
+        "type": "electro_trooper",
+        "count": 55
+      },
+      {
+        "type": "electro_trooper",
+        "count": 46
+      }
+    ],
+    "mid": [
+      {
+        "type": "armored_trooper",
+        "count": 55
+      },
+      {
+        "type": "alloy_special",
+        "count": 55
+      },
+      {
+        "type": "star_trooper",
+        "count": 46
+      },
+      {
+        "type": "gold_cavalry",
+        "count": 40
+      }
+    ],
+    "back": [
+      {
+        "type": "archer",
+        "count": 55
+      },
+      {
+        "type": "archer",
+        "count": 55
+      },
+      {
+        "type": "archer",
+        "count": 55
+      },
+      {
+        "type": "archer",
+        "count": 55
+      }
+    ],
+    "resources": {
+      "food": 480699,
+      "copper": 137082.4299979203,
+      "iron": 302640.60000001243,
+      "steel": 40177.800000003306,
+      "medal": 5402551,
+      "tech": 207778724
+    }
+  },
+  "supplyAfter": {
+    "steel": 40177.800000003306,
+    "core": 48,
+    "level": 1,
+    "progress": 0,
+    "equipped": true
+  },
+  "active": {
+    "file": "p395-star7-fighter-equipped-paid-save.json",
+    "sha256": "dcf21b0932e2bd640c3a37804da1fc3d685165c47b2f2f3c1c50f3ccb16d93f1"
+  },
+  "pressure": {
+    "wins": 0,
+    "closestEnemyHp": 289725,
+    "meanEnemyHp": 301443.625,
+    "rows": [
+      {
+        "seed": 1,
+        "result": "lose",
+        "enemyHpLeft": 298067,
+        "enemyInitialHp": 1411764,
+        "loss": 4,
+        "ringDelta": 0,
+        "callbacks": 301
+      },
+      {
+        "seed": 2,
+        "result": "lose",
+        "enemyHpLeft": 289725,
+        "enemyInitialHp": 1411764,
+        "loss": 4,
+        "ringDelta": 0,
+        "callbacks": 301
+      },
+      {
+        "seed": 3,
+        "result": "lose",
+        "enemyHpLeft": 293926,
+        "enemyInitialHp": 1411764,
+        "loss": 6,
+        "ringDelta": 0,
+        "callbacks": 301
+      },
+      {
+        "seed": 4,
+        "result": "lose",
+        "enemyHpLeft": 307379,
+        "enemyInitialHp": 1411764,
+        "loss": 6,
+        "ringDelta": 0,
+        "callbacks": 301
+      },
+      {
+        "seed": 5,
+        "result": "lose",
+        "enemyHpLeft": 308042,
+        "enemyInitialHp": 1411764,
+        "loss": 6,
+        "ringDelta": 0,
+        "callbacks": 301
+      },
+      {
+        "seed": 6,
+        "result": "lose",
+        "enemyHpLeft": 304552,
+        "enemyInitialHp": 1411764,
+        "loss": 6,
+        "ringDelta": 0,
+        "callbacks": 301
+      },
+      {
+        "seed": 7,
+        "result": "lose",
+        "enemyHpLeft": 308552,
+        "enemyInitialHp": 1411764,
+        "loss": 5,
+        "ringDelta": 0,
+        "callbacks": 301
+      },
+      {
+        "seed": 8,
+        "result": "lose",
+        "enemyHpLeft": 303342,
+        "enemyInitialHp": 1411764,
+        "loss": 5,
+        "ringDelta": 0,
+        "callbacks": 301
+      },
+      {
+        "seed": 9,
+        "result": "lose",
+        "enemyHpLeft": 306750,
+        "enemyInitialHp": 1411764,
+        "loss": 4,
+        "ringDelta": 0,
+        "callbacks": 301
+      },
+      {
+        "seed": 10,
+        "result": "lose",
+        "enemyHpLeft": 302398,
+        "enemyInitialHp": 1411764,
+        "loss": 4,
+        "ringDelta": 0,
+        "callbacks": 301
+      },
+      {
+        "seed": 11,
+        "result": "lose",
+        "enemyHpLeft": 290461,
+        "enemyInitialHp": 1411764,
+        "loss": 3,
+        "ringDelta": 0,
+        "callbacks": 301
+      },
+      {
+        "seed": 12,
+        "result": "lose",
+        "enemyHpLeft": 308186,
+        "enemyInitialHp": 1411764,
+        "loss": 4,
+        "ringDelta": 0,
+        "callbacks": 301
+      },
+      {
+        "seed": 13,
+        "result": "lose",
+        "enemyHpLeft": 301940,
+        "enemyInitialHp": 1411764,
+        "loss": 3,
+        "ringDelta": 0,
+        "callbacks": 301
+      },
+      {
+        "seed": 14,
+        "result": "lose",
+        "enemyHpLeft": 297182,
+        "enemyInitialHp": 1411764,
+        "loss": 3,
+        "ringDelta": 0,
+        "callbacks": 301
+      },
+      {
+        "seed": 15,
+        "result": "lose",
+        "enemyHpLeft": 296446,
+        "enemyInitialHp": 1411764,
+        "loss": 6,
+        "ringDelta": 0,
+        "callbacks": 301
+      },
+      {
+        "seed": 16,
+        "result": "lose",
+        "enemyHpLeft": 306150,
+        "enemyInitialHp": 1411764,
+        "loss": 5,
+        "ringDelta": 0,
+        "callbacks": 301
+      }
+    ]
+  },
+  "summary": {
+    "steelSpent": 200000,
+    "coreSpent": 160,
+    "wins": 0,
+    "closest": 289725,
+    "lossRange": [
+      3,
+      6
+    ]
+  }
+}

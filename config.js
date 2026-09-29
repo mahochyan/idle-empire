@@ -444,7 +444,7 @@ const CFG = {
       build:{wood:160,stone:140,food:80,time:6},upBase:{wood:400,stone:350,food:250},upCostLv:1},
     copper_store:{name:'铜仓',type:'storage',storageFor:'copper',storagePerLv:200,needScience:'sci_copper',desc:'已完工每级增加铜容量200',
       build:{wood:200,stone:160,food:100,time:7},upBase:{wood:500,stone:450,food:300},upCostLv:1},
-    iron_store:{name:'铁仓',type:'storage',storageFor:'iron',storagePerLv:200,needScience:'sci_iron_warehouse',grandfatherBuiltScience:true,storageCostStep:5,desc:'铁仓研究后开放；首级消耗铁200，已完工每级增加铁容量200，旧档已建仓继续可用',
+    iron_store:{name:'铁仓',type:'storage',storageFor:'iron',storagePerLv:200,needScience:'sci_iron_warehouse',grandfatherBuiltScience:true,storageCostStep:5,desc:'铁仓研究后开放；首级消耗铁200，已完工每级增加基础铁容量200、基础钢容量50，旧档已建仓继续可用',
       build:{wood:0,stone:0,food:0,iron:200,time:8},upBase:{wood:0,stone:0,food:0,iron:200},upCostLv:1},
     silver_store:{name:'小银库',type:'storage',storageFor:'silver',storagePerLv:100,needScience:'sci_silver_store',storageCostStep:5,desc:'完工后每级增加银容量100',
       build:{silver:150,time:8},upBase:{silver:150},upCostLv:1},
