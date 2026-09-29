@@ -1,0 +1,1060 @@
+{
+  "baselineHead": "ba112c4224c13b8898a525abe5c559377a9fca52",
+  "loadStatus": "ok",
+  "source": "docs/codex/reports/data/p402-high-scroll-natural-save.json",
+  "sourceSha256": "a33804f0a3b809fe78c9b081d77ba3220732b8a8175e5d7fd5850ef11018dd50",
+  "seed": 402,
+  "rngContinuesFrom": 3220121357,
+  "random": "same xorshift32 stream, no seed search",
+  "policy": "20 more real refreshes at most; buy affordable I-scroll offers then highest affordable II–V; no further hunt or recruitment",
+  "units": "game resources and items; tick and onlineSeconds in seconds; clockMs in milliseconds",
+  "start": {
+    "tick": 14770567,
+    "clockMs": 1793244501000,
+    "army": 533,
+    "knowledgeCap": 5129430221,
+    "market": {
+      "level": 79,
+      "charges": 0,
+      "refreshClock": 1200,
+      "usedTiers": {
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0
+      }
+    },
+    "scrolls": {
+      "1": 2,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0
+    },
+    "materials": {
+      "boarHeart": 20,
+      "bullHorn": 66,
+      "snakeGall": 29,
+      "tigerPelt": 38,
+      "turtleShell": 216,
+      "wyrmSinew": 47
+    },
+    "offers": {
+      "heart": 0,
+      "heartQuality": 100,
+      "wild": {
+        "bullHorn": {
+          "count": 0,
+          "quality": 100
+        },
+        "snakeGall": {
+          "count": 0,
+          "quality": 100
+        },
+        "tigerPelt": {
+          "count": 0,
+          "quality": 100
+        },
+        "turtleShell": {
+          "count": 0,
+          "quality": 100
+        },
+        "wyrmSinew": {
+          "count": 0,
+          "quality": 100
+        }
+      },
+      "tiers": {
+        "2": {
+          "count": 0,
+          "quality": 100
+        },
+        "3": {
+          "count": 0,
+          "quality": 100
+        },
+        "4": {
+          "count": 1,
+          "quality": 100
+        },
+        "5": {
+          "count": 2,
+          "quality": 80
+        }
+      }
+    },
+    "rng": 3220121357,
+    "draws": 0
+  },
+  "refreshes": 4,
+  "onlineSeconds": 4800,
+  "acquired": true,
+  "ledger": [
+    {
+      "refresh": 1,
+      "waitSeconds": 1200,
+      "before": {
+        "tick": 14771767,
+        "clockMs": 1793245701000,
+        "army": 533,
+        "knowledgeCap": 5129430221,
+        "market": {
+          "level": 79,
+          "charges": 1,
+          "refreshClock": 1200,
+          "usedTiers": {
+            "2": 0,
+            "3": 0,
+            "4": 0,
+            "5": 0
+          }
+        },
+        "scrolls": {
+          "1": 2,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 0
+        },
+        "materials": {
+          "boarHeart": 20,
+          "bullHorn": 66,
+          "snakeGall": 29,
+          "tigerPelt": 38,
+          "turtleShell": 216,
+          "wyrmSinew": 47
+        },
+        "offers": {
+          "heart": 0,
+          "heartQuality": 100,
+          "wild": {
+            "bullHorn": {
+              "count": 0,
+              "quality": 100
+            },
+            "snakeGall": {
+              "count": 0,
+              "quality": 100
+            },
+            "tigerPelt": {
+              "count": 0,
+              "quality": 100
+            },
+            "turtleShell": {
+              "count": 0,
+              "quality": 100
+            },
+            "wyrmSinew": {
+              "count": 0,
+              "quality": 100
+            }
+          },
+          "tiers": {
+            "2": {
+              "count": 0,
+              "quality": 100
+            },
+            "3": {
+              "count": 0,
+              "quality": 100
+            },
+            "4": {
+              "count": 1,
+              "quality": 100
+            },
+            "5": {
+              "count": 2,
+              "quality": 80
+            }
+          }
+        },
+        "rng": 3453870905,
+        "draws": 10
+      },
+      "offers": {
+        "heart": 1,
+        "heartQuality": 80,
+        "wild": {
+          "bullHorn": {
+            "count": 0,
+            "quality": 100
+          },
+          "snakeGall": {
+            "count": 0,
+            "quality": 100
+          },
+          "tigerPelt": {
+            "count": 1,
+            "quality": 100
+          },
+          "turtleShell": {
+            "count": 0,
+            "quality": 100
+          },
+          "wyrmSinew": {
+            "count": 0,
+            "quality": 100
+          }
+        },
+        "tiers": {
+          "2": {
+            "count": 0,
+            "quality": 100
+          },
+          "3": {
+            "count": 0,
+            "quality": 100
+          },
+          "4": {
+            "count": 1,
+            "quality": 80
+          },
+          "5": {
+            "count": 1,
+            "quality": 100
+          }
+        }
+      },
+      "purchases": [],
+      "after": {
+        "tick": 14771767,
+        "clockMs": 1793245701000,
+        "army": 533,
+        "knowledgeCap": 5129430221,
+        "market": {
+          "level": 79,
+          "charges": 0,
+          "refreshClock": 1200,
+          "usedTiers": {
+            "2": 0,
+            "3": 0,
+            "4": 0,
+            "5": 0
+          }
+        },
+        "scrolls": {
+          "1": 2,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 0
+        },
+        "materials": {
+          "boarHeart": 20,
+          "bullHorn": 66,
+          "snakeGall": 29,
+          "tigerPelt": 38,
+          "turtleShell": 216,
+          "wyrmSinew": 47
+        },
+        "offers": {
+          "heart": 1,
+          "heartQuality": 80,
+          "wild": {
+            "bullHorn": {
+              "count": 0,
+              "quality": 100
+            },
+            "snakeGall": {
+              "count": 0,
+              "quality": 100
+            },
+            "tigerPelt": {
+              "count": 1,
+              "quality": 100
+            },
+            "turtleShell": {
+              "count": 0,
+              "quality": 100
+            },
+            "wyrmSinew": {
+              "count": 0,
+              "quality": 100
+            }
+          },
+          "tiers": {
+            "2": {
+              "count": 0,
+              "quality": 100
+            },
+            "3": {
+              "count": 0,
+              "quality": 100
+            },
+            "4": {
+              "count": 1,
+              "quality": 80
+            },
+            "5": {
+              "count": 1,
+              "quality": 100
+            }
+          }
+        },
+        "rng": 751759902,
+        "draws": 36
+      }
+    },
+    {
+      "refresh": 2,
+      "waitSeconds": 1200,
+      "before": {
+        "tick": 14772967,
+        "clockMs": 1793246901000,
+        "army": 533,
+        "knowledgeCap": 5129430221,
+        "market": {
+          "level": 79,
+          "charges": 1,
+          "refreshClock": 1200,
+          "usedTiers": {
+            "2": 0,
+            "3": 0,
+            "4": 0,
+            "5": 0
+          }
+        },
+        "scrolls": {
+          "1": 2,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 0
+        },
+        "materials": {
+          "boarHeart": 20,
+          "bullHorn": 66,
+          "snakeGall": 29,
+          "tigerPelt": 38,
+          "turtleShell": 216,
+          "wyrmSinew": 47
+        },
+        "offers": {
+          "heart": 1,
+          "heartQuality": 80,
+          "wild": {
+            "bullHorn": {
+              "count": 0,
+              "quality": 100
+            },
+            "snakeGall": {
+              "count": 0,
+              "quality": 100
+            },
+            "tigerPelt": {
+              "count": 1,
+              "quality": 100
+            },
+            "turtleShell": {
+              "count": 0,
+              "quality": 100
+            },
+            "wyrmSinew": {
+              "count": 0,
+              "quality": 100
+            }
+          },
+          "tiers": {
+            "2": {
+              "count": 0,
+              "quality": 100
+            },
+            "3": {
+              "count": 0,
+              "quality": 100
+            },
+            "4": {
+              "count": 1,
+              "quality": 80
+            },
+            "5": {
+              "count": 1,
+              "quality": 100
+            }
+          }
+        },
+        "rng": 2484352896,
+        "draws": 46
+      },
+      "offers": {
+        "heart": 0,
+        "heartQuality": 100,
+        "wild": {
+          "bullHorn": {
+            "count": 0,
+            "quality": 100
+          },
+          "snakeGall": {
+            "count": 0,
+            "quality": 100
+          },
+          "tigerPelt": {
+            "count": 0,
+            "quality": 100
+          },
+          "turtleShell": {
+            "count": 0,
+            "quality": 100
+          },
+          "wyrmSinew": {
+            "count": 1,
+            "quality": 50
+          }
+        },
+        "tiers": {
+          "2": {
+            "count": 1,
+            "quality": 80
+          },
+          "3": {
+            "count": 0,
+            "quality": 100
+          },
+          "4": {
+            "count": 0,
+            "quality": 100
+          },
+          "5": {
+            "count": 0,
+            "quality": 100
+          }
+        }
+      },
+      "purchases": [],
+      "after": {
+        "tick": 14772967,
+        "clockMs": 1793246901000,
+        "army": 533,
+        "knowledgeCap": 5129430221,
+        "market": {
+          "level": 79,
+          "charges": 0,
+          "refreshClock": 1200,
+          "usedTiers": {
+            "2": 0,
+            "3": 0,
+            "4": 0,
+            "5": 0
+          }
+        },
+        "scrolls": {
+          "1": 2,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 0
+        },
+        "materials": {
+          "boarHeart": 20,
+          "bullHorn": 66,
+          "snakeGall": 29,
+          "tigerPelt": 38,
+          "turtleShell": 216,
+          "wyrmSinew": 47
+        },
+        "offers": {
+          "heart": 0,
+          "heartQuality": 100,
+          "wild": {
+            "bullHorn": {
+              "count": 0,
+              "quality": 100
+            },
+            "snakeGall": {
+              "count": 0,
+              "quality": 100
+            },
+            "tigerPelt": {
+              "count": 0,
+              "quality": 100
+            },
+            "turtleShell": {
+              "count": 0,
+              "quality": 100
+            },
+            "wyrmSinew": {
+              "count": 1,
+              "quality": 50
+            }
+          },
+          "tiers": {
+            "2": {
+              "count": 1,
+              "quality": 80
+            },
+            "3": {
+              "count": 0,
+              "quality": 100
+            },
+            "4": {
+              "count": 0,
+              "quality": 100
+            },
+            "5": {
+              "count": 0,
+              "quality": 100
+            }
+          }
+        },
+        "rng": 4057909244,
+        "draws": 66
+      }
+    },
+    {
+      "refresh": 3,
+      "waitSeconds": 1200,
+      "before": {
+        "tick": 14774167,
+        "clockMs": 1793248101000,
+        "army": 533,
+        "knowledgeCap": 5129430221,
+        "market": {
+          "level": 79,
+          "charges": 1,
+          "refreshClock": 1200,
+          "usedTiers": {
+            "2": 0,
+            "3": 0,
+            "4": 0,
+            "5": 0
+          }
+        },
+        "scrolls": {
+          "1": 2,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 0
+        },
+        "materials": {
+          "boarHeart": 20,
+          "bullHorn": 66,
+          "snakeGall": 29,
+          "tigerPelt": 38,
+          "turtleShell": 216,
+          "wyrmSinew": 47
+        },
+        "offers": {
+          "heart": 0,
+          "heartQuality": 100,
+          "wild": {
+            "bullHorn": {
+              "count": 0,
+              "quality": 100
+            },
+            "snakeGall": {
+              "count": 0,
+              "quality": 100
+            },
+            "tigerPelt": {
+              "count": 0,
+              "quality": 100
+            },
+            "turtleShell": {
+              "count": 0,
+              "quality": 100
+            },
+            "wyrmSinew": {
+              "count": 1,
+              "quality": 50
+            }
+          },
+          "tiers": {
+            "2": {
+              "count": 1,
+              "quality": 80
+            },
+            "3": {
+              "count": 0,
+              "quality": 100
+            },
+            "4": {
+              "count": 0,
+              "quality": 100
+            },
+            "5": {
+              "count": 0,
+              "quality": 100
+            }
+          }
+        },
+        "rng": 3405443083,
+        "draws": 76
+      },
+      "offers": {
+        "heart": 0,
+        "heartQuality": 100,
+        "wild": {
+          "bullHorn": {
+            "count": 0,
+            "quality": 100
+          },
+          "snakeGall": {
+            "count": 0,
+            "quality": 100
+          },
+          "tigerPelt": {
+            "count": 1,
+            "quality": 80
+          },
+          "turtleShell": {
+            "count": 0,
+            "quality": 100
+          },
+          "wyrmSinew": {
+            "count": 0,
+            "quality": 100
+          }
+        },
+        "tiers": {
+          "2": {
+            "count": 0,
+            "quality": 100
+          },
+          "3": {
+            "count": 0,
+            "quality": 100
+          },
+          "4": {
+            "count": 0,
+            "quality": 100
+          },
+          "5": {
+            "count": 0,
+            "quality": 100
+          }
+        }
+      },
+      "purchases": [],
+      "after": {
+        "tick": 14774167,
+        "clockMs": 1793248101000,
+        "army": 533,
+        "knowledgeCap": 5129430221,
+        "market": {
+          "level": 79,
+          "charges": 0,
+          "refreshClock": 1200,
+          "usedTiers": {
+            "2": 0,
+            "3": 0,
+            "4": 0,
+            "5": 0
+          }
+        },
+        "scrolls": {
+          "1": 2,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 0
+        },
+        "materials": {
+          "boarHeart": 20,
+          "bullHorn": 66,
+          "snakeGall": 29,
+          "tigerPelt": 38,
+          "turtleShell": 216,
+          "wyrmSinew": 47
+        },
+        "offers": {
+          "heart": 0,
+          "heartQuality": 100,
+          "wild": {
+            "bullHorn": {
+              "count": 0,
+              "quality": 100
+            },
+            "snakeGall": {
+              "count": 0,
+              "quality": 100
+            },
+            "tigerPelt": {
+              "count": 1,
+              "quality": 80
+            },
+            "turtleShell": {
+              "count": 0,
+              "quality": 100
+            },
+            "wyrmSinew": {
+              "count": 0,
+              "quality": 100
+            }
+          },
+          "tiers": {
+            "2": {
+              "count": 0,
+              "quality": 100
+            },
+            "3": {
+              "count": 0,
+              "quality": 100
+            },
+            "4": {
+              "count": 0,
+              "quality": 100
+            },
+            "5": {
+              "count": 0,
+              "quality": 100
+            }
+          }
+        },
+        "rng": 3430536660,
+        "draws": 96
+      }
+    },
+    {
+      "refresh": 4,
+      "waitSeconds": 1200,
+      "before": {
+        "tick": 14775367,
+        "clockMs": 1793249301000,
+        "army": 533,
+        "knowledgeCap": 5129430221,
+        "market": {
+          "level": 79,
+          "charges": 1,
+          "refreshClock": 1200,
+          "usedTiers": {
+            "2": 0,
+            "3": 0,
+            "4": 0,
+            "5": 0
+          }
+        },
+        "scrolls": {
+          "1": 2,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 0
+        },
+        "materials": {
+          "boarHeart": 20,
+          "bullHorn": 66,
+          "snakeGall": 29,
+          "tigerPelt": 38,
+          "turtleShell": 216,
+          "wyrmSinew": 47
+        },
+        "offers": {
+          "heart": 0,
+          "heartQuality": 100,
+          "wild": {
+            "bullHorn": {
+              "count": 0,
+              "quality": 100
+            },
+            "snakeGall": {
+              "count": 0,
+              "quality": 100
+            },
+            "tigerPelt": {
+              "count": 1,
+              "quality": 80
+            },
+            "turtleShell": {
+              "count": 0,
+              "quality": 100
+            },
+            "wyrmSinew": {
+              "count": 0,
+              "quality": 100
+            }
+          },
+          "tiers": {
+            "2": {
+              "count": 0,
+              "quality": 100
+            },
+            "3": {
+              "count": 0,
+              "quality": 100
+            },
+            "4": {
+              "count": 0,
+              "quality": 100
+            },
+            "5": {
+              "count": 0,
+              "quality": 100
+            }
+          }
+        },
+        "rng": 4193061394,
+        "draws": 106
+      },
+      "offers": {
+        "heart": 0,
+        "heartQuality": 100,
+        "wild": {
+          "bullHorn": {
+            "count": 0,
+            "quality": 100
+          },
+          "snakeGall": {
+            "count": 0,
+            "quality": 100
+          },
+          "tigerPelt": {
+            "count": 0,
+            "quality": 100
+          },
+          "turtleShell": {
+            "count": 0,
+            "quality": 100
+          },
+          "wyrmSinew": {
+            "count": 0,
+            "quality": 100
+          }
+        },
+        "tiers": {
+          "2": {
+            "count": 0,
+            "quality": 100
+          },
+          "3": {
+            "count": 1,
+            "quality": 50
+          },
+          "4": {
+            "count": 0,
+            "quality": 100
+          },
+          "5": {
+            "count": 0,
+            "quality": 100
+          }
+        }
+      },
+      "purchases": [
+        {
+          "kind": "tier",
+          "tier": 3,
+          "unitCost": 2,
+          "action": {
+            "ok": true,
+            "tier": 3,
+            "cost": 2,
+            "unitCost": 2,
+            "scrollGain": 1
+          }
+        },
+        {
+          "kind": "use",
+          "tier": 3,
+          "action": {
+            "ok": true,
+            "tier": 3,
+            "used": 1
+          }
+        }
+      ],
+      "after": {
+        "tick": 14775367,
+        "clockMs": 1793249301000,
+        "army": 533,
+        "knowledgeCap": 5173459665,
+        "market": {
+          "level": 79,
+          "charges": 0,
+          "refreshClock": 1200,
+          "usedTiers": {
+            "2": 0,
+            "3": 1,
+            "4": 0,
+            "5": 0
+          }
+        },
+        "scrolls": {
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 0
+        },
+        "materials": {
+          "boarHeart": 20,
+          "bullHorn": 66,
+          "snakeGall": 29,
+          "tigerPelt": 38,
+          "turtleShell": 216,
+          "wyrmSinew": 47
+        },
+        "offers": {
+          "heart": 0,
+          "heartQuality": 100,
+          "wild": {
+            "bullHorn": {
+              "count": 0,
+              "quality": 100
+            },
+            "snakeGall": {
+              "count": 0,
+              "quality": 100
+            },
+            "tigerPelt": {
+              "count": 0,
+              "quality": 100
+            },
+            "turtleShell": {
+              "count": 0,
+              "quality": 100
+            },
+            "wyrmSinew": {
+              "count": 0,
+              "quality": 100
+            }
+          },
+          "tiers": {
+            "2": {
+              "count": 0,
+              "quality": 100
+            },
+            "3": {
+              "count": 0,
+              "quality": 50
+            },
+            "4": {
+              "count": 0,
+              "quality": 100
+            },
+            "5": {
+              "count": 0,
+              "quality": 100
+            }
+          }
+        },
+        "rng": 3865500313,
+        "draws": 123
+      }
+    }
+  ],
+  "final": {
+    "tick": 14775367,
+    "clockMs": 1793249301000,
+    "army": 533,
+    "knowledgeCap": 5173459665,
+    "market": {
+      "level": 79,
+      "charges": 0,
+      "refreshClock": 1200,
+      "usedTiers": {
+        "2": 0,
+        "3": 1,
+        "4": 0,
+        "5": 0
+      }
+    },
+    "scrolls": {
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0
+    },
+    "materials": {
+      "boarHeart": 20,
+      "bullHorn": 66,
+      "snakeGall": 29,
+      "tigerPelt": 38,
+      "turtleShell": 216,
+      "wyrmSinew": 47
+    },
+    "offers": {
+      "heart": 0,
+      "heartQuality": 100,
+      "wild": {
+        "bullHorn": {
+          "count": 0,
+          "quality": 100
+        },
+        "snakeGall": {
+          "count": 0,
+          "quality": 100
+        },
+        "tigerPelt": {
+          "count": 0,
+          "quality": 100
+        },
+        "turtleShell": {
+          "count": 0,
+          "quality": 100
+        },
+        "wyrmSinew": {
+          "count": 0,
+          "quality": 100
+        }
+      },
+      "tiers": {
+        "2": {
+          "count": 0,
+          "quality": 100
+        },
+        "3": {
+          "count": 0,
+          "quality": 50
+        },
+        "4": {
+          "count": 0,
+          "quality": 100
+        },
+        "5": {
+          "count": 0,
+          "quality": 100
+        }
+      }
+    },
+    "rng": 3865500313,
+    "draws": 123
+  },
+  "gate": {
+    "before": {
+      "knowledge": 239750977.24032307,
+      "knowledgeCap": 5173459665,
+      "revivalLeaf": 138,
+      "quantumKnowledgeLevel": 7,
+      "nextCost": {
+        "tech": 4000000000,
+        "revivalLeaf": 4800
+      },
+      "techRate": 24354
+    },
+    "attempt": {
+      "ok": false,
+      "reason": "insufficient-resources",
+      "cost": {
+        "tech": 4000000000,
+        "revivalLeaf": 4800
+      }
+    },
+    "after": {
+      "knowledge": 239750977.24032307,
+      "knowledgeCap": 5173459665,
+      "revivalLeaf": 138,
+      "quantumKnowledgeLevel": 7
+    }
+  },
+  "nextLeafEncounter": {
+    "killValue": 4100,
+    "nextKillValue": 4200,
+    "units": {
+      "revival_god": [
+        2574
+      ]
+    },
+    "bossMult": {
+      "atk": 18.299999999999997,
+      "def": 18.299999999999997
+    },
+    "reward": {
+      "revivalLeaf": 106,
+      "sacredBlood": 3
+    }
+  },
+  "finalSaveSha256": "b615a8158c53eaa1c2b0603f619fe17dcdaa86980b8967e647c0abd83340aa6c",
+  "reloaded": true
+}

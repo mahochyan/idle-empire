@@ -574,6 +574,7 @@ const CFG = {
     sci_star_array:{name:'星辉圣阵',desc:'开放星辉圣阵槽位与秘典知识仓刻印；须单次支付知识300000000和战备勋章2000000',cost:{tech:300000000,medal:2000000,merit:0},need:['sci_star_beast_domain'],unlocks:[]},
     sci_quantum_age:{name:'星界量子时代',desc:'开放星界仓储、生产科技与星界构装卫士；须单次支付知识3000000000和战备勋章3000000',cost:{tech:3000000000,medal:3000000,merit:0},need:['sci_nuclear_age'],unlocks:['quantum_trooper']},
     sci_astral_armament:{name:'星界圣痕兵装',desc:'开放逐兵种的圣痕攻击与生命强化；一次支付知识5000000000和战备勋章5000000',cost:{tech:5000000000,medal:5000000,merit:0},need:['sci_quantum_age'],unlocks:[]},
+    sci_astral_engine:{name:'星界时序引擎',desc:'开放战斗100倍速并保存所选倍速；一次支付知识100000000000和战备勋章30000000',cost:{tech:100000000000,medal:30000000,merit:0},need:['sci_astral_armament'],unlocks:[]},
     sci_coin:{name:'货币铸造',desc:'解锁铸币厂与高级兑换',cost:{tech:200,merit:30},need:['sci_iron'],unlocks:['mint']}
   },
 
@@ -626,6 +627,7 @@ const CFG = {
     sci_star_array:{name:'星辉圣阵',desc:'开放星辉圣阵槽位与秘典知识仓刻印；一次支付知识300000000与战备勋章2000000',cost:{tech:300000000,medal:2000000,merit:0},need:['sci_star_beast_domain'],unlocks:[]},
     sci_quantum_age:{name:'星界量子时代',desc:'开放星界仓储、生产科技与星界构装卫士；一次支付知识3000000000与战备勋章3000000',cost:{tech:3000000000,medal:3000000,merit:0},need:['sci_nuclear_age'],unlocks:['quantum_trooper']},
     sci_astral_armament:{name:'星界圣痕兵装',desc:'开放逐兵种的圣痕攻击与生命强化；一次支付知识5000000000与战备勋章5000000',cost:{tech:5000000000,medal:5000000,merit:0},need:['sci_quantum_age'],unlocks:[]},
+    sci_astral_engine:{name:'星界时序引擎',desc:'开放战斗100倍速并保存所选倍速；一次支付知识100000000000与战备勋章30000000',cost:{tech:100000000000,medal:30000000,merit:0},need:['sci_astral_armament'],unlocks:[]},
     sci_mint:{name:'铸币术',desc:'铸造工艺基础',cost:{tech:5000,merit:0},need:['sci_iron'],unlocks:[]},
     sci_coin:{name:'货币铸造',desc:'解锁铸币厂与高级兑换',cost:{tech:12000,merit:0},need:['sci_mint'],unlocks:['mint']}
   },

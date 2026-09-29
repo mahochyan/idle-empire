@@ -2091,6 +2091,7 @@ updateVisualThemeControls();
 // ==================== init ====================
 injectPixelIcons();
 load();
+syncBattleSpeedButtons();
 settleOffline();   // 切片11：启动加载成功后结算一次离线收益（幂等：同 ts 只结一次）
 document.addEventListener('visibilitychange',()=>{ if(!document.hidden) settleOffline(); });  // 回前台再结算一次
 if(S.defeated.length<CFG.enemies.length&&S.selEnemy===null)S.selEnemy=S.defeated.length;

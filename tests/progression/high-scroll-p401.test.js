@@ -20,7 +20,7 @@ const snap=e=>JSON.parse(e.run('JSON.stringify({items:S.items,beastExchange:S.be
 
 check('四阶源费用、等级、权重、库存与加法倍率对应实装配置',()=>{
   const e=environment();
-  assert.equal(e.run('SAVE_VERSION'),35);
+  assert.equal(e.run('SAVE_VERSION'),36);
   for(const {tier,shop,item,level,cost,weight,bonus} of tiers){
     const src=source[shop],pill=source[item],cfg=e.run(`CFG.beastExchange.highScrollTrades[${tier}]`);
     assert.deepEqual(src['exchangeShop:Need'],[180016,cost]);
@@ -157,7 +157,7 @@ check('v34候选迁移先留原文，旧库存/零值不损失，新四阶默认
     assert.equal(e.run(`S.beastExchange.tierOffers[${tier}].count`),0);
     assert.equal(e.run(`S.beastExchange.tierOffers[${tier}].quality`),100);
   }
-  const saved=e.store.get('rts_save');assert.equal(JSON.parse(saved).v,35);
+  const saved=e.store.get('rts_save');assert.equal(JSON.parse(saved).v,36);
   const reload=environment({rts_save:saved});assert.equal(reload.run('loadSaveAndApply().status'),'ok');
   assert.equal(reload.run('S.items.storageScroll'),7);
   assert.equal(reload.run('S.res.medal'),4321);
@@ -173,9 +173,9 @@ check('v34候选迁移先留原文，旧库存/零值不损失，新四阶默认
   }
 });
 
-check('v35密卷损坏字段与v36未来档均拒载，tick和save不覆盖原文',()=>{
+check('v36密卷损坏字段与v37未来档均拒载，tick和save不覆盖原文',()=>{
   const seed=environment();assert.equal(seed.run('save().ok'),true);
-  const valid=JSON.parse(seed.store.get('rts_save'));assert.equal(valid.v,35);
+  const valid=JSON.parse(seed.store.get('rts_save'));assert.equal(valid.v,36);
   const cases=[
     {mutate:d=>delete d.items.storageScroll2,status:'invalid'},
     {mutate:d=>d.items.storageScroll3=-1,status:'invalid'},
@@ -185,7 +185,7 @@ check('v35密卷损坏字段与v36未来档均拒载，tick和save不覆盖原�
     {mutate:d=>d.beastExchange.tierOffers[6]={count:1,quality:100},status:'invalid'},
     {mutate:d=>{d.beastExchange.level=60;d.beastExchange.heartOffers=7;
       d.beastExchange.tierOffers[2].count=7;d.beastExchange.medalOffers=1},status:'invalid'},
-    {mutate:d=>d.v=36,status:'future'}
+    {mutate:d=>d.v=37,status:'future'}
   ];
   for(const {mutate,status} of cases){
     const d=structuredClone(valid);mutate(d);const raw=JSON.stringify(d),bad=environment({rts_save:raw});

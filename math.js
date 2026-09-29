@@ -888,7 +888,7 @@ function isAttackMiss(attacker,defender){
 // key 布局：rts_save 主档 | rts_save_backup_1/_2 最近有效备份（轮转） | rts_save_premigration 覆盖前原始副本（仅迁移/导入/恢复时写）
 // 写回单点 writeRawKey；自动保存入口 save() 在保护模式下无条件跳过（坏档/未来版本不会被静默覆盖成新档）。
 // 单位约定：ts=毫秒时间戳，tick=秒，population.growthClock=0..9 个在线秒。
-const SAVE_KEY='rts_save',SAVE_VERSION=35,BACKUP_KEYS=['rts_save_backup_1','rts_save_backup_2'],PRE_MIGRATION_KEY='rts_save_premigration';
+const SAVE_KEY='rts_save',SAVE_VERSION=36,BACKUP_KEYS=['rts_save_backup_1','rts_save_backup_2'],PRE_MIGRATION_KEY='rts_save_premigration';
 const SAVE_V3_KEYS=['ops','offline','daily'];
 let _loadedTs=null;   // 切片11：本次加载的存档 ts（离线结算基准；新档为 null → 不结算）
 let _offlineSettledFor=null;   // 切片11：已结算过的离线窗口 ts（幂等）
@@ -964,7 +964,7 @@ function validateDevelopmentState(x,errors){
 // legacy（无 v）旧档缺字段补齐：数值逐项复刻原 load() 的 || 缺省行为（含 popAlloc {5,3,2} 的旧口径，如实保留不修正）
 function _legacyDefaults(){return{res:{wood:300,stone:300,food:300,tech:0,copper:0,iron:0,coin:0},buildings:{},pool:{},queue:{},formation:{front:[],mid:[],back:[]},townLv:1,popAlloc:{wood:5,stone:3,food:2},defeated:[],merit:0,garrisonLog:[],garrison:null,tick:0,garrisonForm:{front:[],mid:[],back:[]},townUpgrade:null,upgradedUnits:{},essence:{},sciences:[]}}
 function serializeSave(){
-  const base={v:targetSaveVersion(),ts:Date.now(),res:S.res,buildings:S.buildings,pool:S.pool,queue:S.queue,formation:S.formation,townLv:S.townLv,popAlloc:S.popAlloc,metalRecipeMode:S.metalRecipeMode,currencyRecipeMode:S.currencyRecipeMode,storageMode:S.storageMode,storageMasteryLv:S.storageMasteryLv,scholarMasteryLv:S.scholarMasteryLv,steelMasteryLv:S.steelMasteryLv,weaponForge:S.weaponForge,armsUp:S.armsUp,awakening:S.awakening,starArray:S.starArray,steamMilitaryStars:S.steamMilitaryStars,soulRanks:S.soulRanks,soulRealmTeam:S.soulRealmTeam,eraStorage:S.eraStorage,items:S.items,bloodline:S.bloodline,attackInfusions:S.attackInfusions,aegisInfusions:S.aegisInfusions,marketSpecial:S.marketSpecial,beastExchange:S.beastExchange,killValues:S.killValues,development:S.development,settlements:S.settlements,townPolicies:S.townPolicies,population:S.population,defeated:S.defeated,merit:S.merit,garrisonLog:S.garrisonLog,garrison:S.garrison,tick:S.tick,garrisonForm:S._garrisonForm,townUpgrade:S.townUpgrade,upgradedUnits:S.upgradedUnits,essence:S.essence,sciences:S.sciences};
+  const base={v:targetSaveVersion(),ts:Date.now(),res:S.res,buildings:S.buildings,pool:S.pool,queue:S.queue,formation:S.formation,townLv:S.townLv,popAlloc:S.popAlloc,metalRecipeMode:S.metalRecipeMode,currencyRecipeMode:S.currencyRecipeMode,storageMode:S.storageMode,storageMasteryLv:S.storageMasteryLv,scholarMasteryLv:S.scholarMasteryLv,steelMasteryLv:S.steelMasteryLv,weaponForge:S.weaponForge,armsUp:S.armsUp,awakening:S.awakening,starArray:S.starArray,steamMilitaryStars:S.steamMilitaryStars,soulRanks:S.soulRanks,soulRealmTeam:S.soulRealmTeam,eraStorage:S.eraStorage,items:S.items,bloodline:S.bloodline,attackInfusions:S.attackInfusions,aegisInfusions:S.aegisInfusions,marketSpecial:S.marketSpecial,beastExchange:S.beastExchange,killValues:S.killValues,development:S.development,settlements:S.settlements,townPolicies:S.townPolicies,population:S.population,defeated:S.defeated,merit:S.merit,garrisonLog:S.garrisonLog,garrison:S.garrison,tick:S.tick,garrisonForm:S._garrisonForm,townUpgrade:S.townUpgrade,upgradedUnits:S.upgradedUnits,essence:S.essence,sciences:S.sciences,battleSpeed:S.battleSpeed};
   base.quantumArmament=S.quantumArmament;
   if(targetSaveVersion()>=3){base.ops=S.ops||[];base.offline={...(S.offline||{pendingReport:null}),populationFoodRule:S.offline?.populationFoodRule??'all'};base.daily=S.daily||{day:null,counts:{}};}
   return base;
@@ -1281,6 +1281,11 @@ function validateSave(d){
   }
   // sciences（IE-008 资源科技，上线后追加字段）：存在才校验，缺键由迁移补齐（兼容已在线的 v2 旧档）
   if('sciences' in d){if(!Array.isArray(d.sciences))errors.push('sciences 不是数组');else for(const s of d.sciences){if(!sciIdKnown(s))errors.push('sciences: 未知科技 '+s)}}
+  if(hasV&&d.v>=36||'battleSpeed' in d){
+    if(![1,2,4,100].includes(d.battleSpeed))errors.push('battleSpeed 非法或缺失');
+    else if(d.battleSpeed===100&&(!Array.isArray(d.sciences)||!d.sciences.includes('sci_astral_engine')))
+      errors.push('battleSpeed 100 缺少星界时序引擎研究');
+  }
   return{ok:errors.length===0,future:false,errors};
 }
 // 迁移只操作 JSON.parse 得到的独立候选对象；旧人口按当时版本口径还原，不回收分配。
@@ -1498,6 +1503,10 @@ function migrateSave(d){
     }
     d.v=35;filled.push('v35');
   }
+  if(sourceVersion<36){
+    if(!('battleSpeed' in d)){d.battleSpeed=CFG.defaultBattleSpeed||2;filled.push('battleSpeed')}
+    d.v=36;filled.push('v36');
+  }
   // v33 同版追加字段：旧主档缺键时仅在独立候选上补零，并保留迁移前原文。
   if(!('steamMilitaryStars' in d)){d.steamMilitaryStars=0;filled.push('steamMilitaryStars')}
   for(const key of ['starFighter','starMissile'])if(!(key in d.weaponForge)){
@@ -1541,7 +1550,7 @@ function migrateSave(d){
 }
 // 应用到 S：显式逐字段，不再使用 || 吞合法 0；默认对象全部独立新建
 function applySaveToS(d){
-  S.res=d.res;S.buildings=d.buildings;S.pool=d.pool;S.queue=d.queue;S.formation=d.formation;S.townLv=d.townLv;S.popAlloc=d.popAlloc;S.metalRecipeMode=d.metalRecipeMode;S.currencyRecipeMode=d.currencyRecipeMode;S.storageMode=d.storageMode;S.storageMasteryLv=d.storageMasteryLv;S.scholarMasteryLv=d.scholarMasteryLv;S.steelMasteryLv=d.steelMasteryLv;S.weaponForge=d.weaponForge;S.armsUp=d.armsUp;S.awakening=d.awakening;S.starArray=d.starArray;S.steamMilitaryStars=d.steamMilitaryStars;S.soulRanks=d.soulRanks;S.soulRealmTeam=d.soulRealmTeam;S.eraStorage=d.eraStorage;S.items=d.items;S.bloodline=d.bloodline;S.attackInfusions=d.attackInfusions;S.aegisInfusions=d.aegisInfusions;S.marketSpecial=d.marketSpecial;S.beastExchange=d.beastExchange;S.killValues=d.killValues;S.development=d.development;S.settlements=d.settlements;S.townPolicies=d.townPolicies;S.population=d.population;S.defeated=d.defeated;S.merit=d.merit;S.garrisonLog=d.garrisonLog;S.garrison=d.garrison;S.tick=d.tick;S._garrisonForm=d.garrisonForm;S.townUpgrade=d.townUpgrade;S.upgradedUnits=d.upgradedUnits;S.essence=d.essence;S.sciences=d.sciences||[];
+  S.res=d.res;S.buildings=d.buildings;S.pool=d.pool;S.queue=d.queue;S.formation=d.formation;S.townLv=d.townLv;S.popAlloc=d.popAlloc;S.metalRecipeMode=d.metalRecipeMode;S.currencyRecipeMode=d.currencyRecipeMode;S.storageMode=d.storageMode;S.storageMasteryLv=d.storageMasteryLv;S.scholarMasteryLv=d.scholarMasteryLv;S.steelMasteryLv=d.steelMasteryLv;S.weaponForge=d.weaponForge;S.armsUp=d.armsUp;S.awakening=d.awakening;S.starArray=d.starArray;S.steamMilitaryStars=d.steamMilitaryStars;S.soulRanks=d.soulRanks;S.soulRealmTeam=d.soulRealmTeam;S.eraStorage=d.eraStorage;S.items=d.items;S.bloodline=d.bloodline;S.attackInfusions=d.attackInfusions;S.aegisInfusions=d.aegisInfusions;S.marketSpecial=d.marketSpecial;S.beastExchange=d.beastExchange;S.killValues=d.killValues;S.development=d.development;S.settlements=d.settlements;S.townPolicies=d.townPolicies;S.population=d.population;S.defeated=d.defeated;S.merit=d.merit;S.garrisonLog=d.garrisonLog;S.garrison=d.garrison;S.tick=d.tick;S._garrisonForm=d.garrisonForm;S.townUpgrade=d.townUpgrade;S.upgradedUnits=d.upgradedUnits;S.essence=d.essence;S.sciences=d.sciences||[];S.battleSpeed=d.battleSpeed;
   S.quantumArmament=d.quantumArmament;
   S.ops=Array.isArray(d.ops)?d.ops:[];S.offline=_isObj(d.offline)?d.offline:{pendingReport:null,populationFoodRule:'all'};S.daily=(d.daily&&typeof d.daily==='object')?d.daily:{day:null,counts:{}};
   if(typeof ensureGarrisonState==='function')ensureGarrisonState();
@@ -2666,6 +2675,7 @@ function researchScience(id){
   }
   if(typeof logDiag==='function')logDiag('science',id);
   if(typeof addLog==='function')addLog('研究完成：「'+sc.name+'」');
+  if(id==='sci_astral_engine')syncBattleSpeedButtons();
   if(typeof updateUI==='function')updateUI();
   return{ok:true};
 }
@@ -3894,6 +3904,7 @@ function openTraining(){
   document.getElementById('battle-result').style.display='none';
   document.getElementById('battle-msg').innerHTML='';
   setBattleLogOpen(false);
+  syncBattleSpeedButtons();
   initBattleState();
   drawBattleField();
   bmsg('训练开始！训练场×9 各100HP','#f0d060');
@@ -3940,6 +3951,7 @@ function openBattle(encounterKey=null,soulSlot=null){
   document.getElementById('battle-result').style.display='none';
   document.getElementById('battle-msg').innerHTML='';
   setBattleLogOpen(false);
+  syncBattleSpeedButtons();
   initBattleState();
   drawBattleField();
   bmsg('战斗开始！','#f0d060');
@@ -5307,13 +5319,41 @@ function exitBattle(){
   updateUI();
 }
 
-// 速度按钮
-document.getElementById('battle-speed').addEventListener('click',e=>{
-  if(e.target.classList.contains('btn-speed')){
-    document.querySelectorAll('#battle-speed .btn-speed').forEach(b=>b.classList.remove('on'));
-    e.target.classList.add('on');
-    S.battleSpeed=parseInt(e.target.dataset.spd);
+// 100 倍速是付费研究的实际效果；按钮可见性和动作权限分别校验。
+function battleSpeedAllowed(speed){return [1,2,4].includes(speed)||speed===100&&scienceUnlocked('sci_astral_engine')}
+function syncBattleSpeedButtons(){
+  const host=document.getElementById('battle-speed');
+  if(!host||typeof host.querySelectorAll!=='function')return;
+  for(const button of host.querySelectorAll('.btn-speed')){
+    const speed=Number(button.dataset.spd);
+    button.hidden=!battleSpeedAllowed(speed);
+    button.classList.toggle('on',speed===S.battleSpeed&&!button.hidden);
   }
+}
+function setBattleSpeed(speed){
+  if(saveProtected()){syncBattleSpeedButtons();return{ok:false,reason:'save-protected'}}
+  if(![1,2,4,100].includes(speed)){syncBattleSpeedButtons();return{ok:false,reason:'invalid-speed'}}
+  if(!battleSpeedAllowed(speed)){syncBattleSpeedButtons();return{ok:false,reason:'science-prerequisite'}}
+  if(S.battleSpeed===speed){syncBattleSpeedButtons();return{ok:true,repeat:true}}
+  const oldSpeed=S.battleSpeed;
+  S.battleSpeed=speed;
+  const written=save();
+  if(!written.ok){
+    S.battleSpeed=oldSpeed;
+    syncBattleSpeedButtons();
+    if(typeof toast==='function')toast('保存失败，倍速未切换');
+    return{ok:false,reason:'save-failed'};
+  }
+  syncBattleSpeedButtons();
+  if(S.battleActive)updateBattleVisual();
+  return{ok:true,speed};
+}
+document.getElementById('battle-speed').addEventListener('click',e=>{
+  const button=e.target.closest('.btn-speed');
+  if(!button||!e.currentTarget.contains(button))return;
+  const speed=Number(button.dataset.spd);
+  const result=setBattleSpeed(speed);
+  if(!result.ok&&result.reason==='science-prerequisite'&&typeof toast==='function')toast('需先研究「'+sciName('sci_astral_engine')+'」');
 });
 
 document.getElementById('battle-log-toggle').addEventListener('click',toggleBattleLog);

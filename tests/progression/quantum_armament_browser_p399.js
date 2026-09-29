@@ -81,7 +81,7 @@ async function main(){
   await send('Runtime.enable');await send('Page.enable');
   await send('Emulation.setDeviceMetricsOverride',{width:360,height:800,deviceScaleFactor:1,mobile:true});
   await send('Page.reload',{ignoreCache:true});
-  check('fresh v35 app loads',await ready());
+  check('fresh v36 app loads',await ready());
   const fresh=await evalJs(`(()=>{S.page='tech';updateUI();save();const main=document.getElementById('main');
     return{version:JSON.parse(localStorage.getItem('rts_save')).v,lockedCard:main.textContent.includes('星界圣痕兵装'),
       rankCard:[...main.querySelectorAll('h3')].some(h=>h.textContent.includes('星界圣痕兵装')),
@@ -91,7 +91,7 @@ async function main(){
 
   await evalJs(`localStorage.setItem('rts_save',${JSON.stringify(raw)});'seeded'`);
   await send('Page.reload',{ignoreCache:true});
-  check('paid v33 save reloads through v35 migration',await ready());
+  check('paid v33 save reloads through v36 migration',await ready());
   const migrated=await evalJs(`(()=>{S.page='tech';updateUI();const main=document.getElementById('main');
     const saved=JSON.parse(localStorage.getItem('rts_save'));
     return{version:saved.v,premigration:localStorage.getItem('rts_save_premigration'),protected:saveProtected(),

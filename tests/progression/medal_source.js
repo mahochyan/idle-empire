@@ -92,7 +92,7 @@ check('逃跑、战败、伪胜、写档失败均不发勋章；历史超仓不�
   assert.equal(high.run('S.killValues.godSlaughter'),100);
 });
 
-check('v16候选迁移保留原文、旧战功与超仓；损坏v35/未来v36/备份失败只读',()=>{
+check('v16候选迁移保留原文、旧战功与超仓；损坏v36/未来v37/备份失败只读',()=>{
   const seed=environment();
   seed.run('S.res.medal=123;S.merit=789;S.res.steel=1234567;S.population.current=102;save()');
   const old=JSON.parse(seed.store.get('rts_save'));
@@ -105,11 +105,11 @@ check('v16候选迁移保留原文、旧战功与超仓；损坏v35/未来v36/�
   assert.equal(e.run('S.res.steel'),1234567);
   assert.equal(e.run('S.population.current'),102);
   assert.equal(e.run('S.killValues.godSlaughter'),0);
-  assert.equal(JSON.parse(e.store.get('rts_save')).v,35);
-  for(const mutate of [d=>delete d.res.medal,d=>{d.res.medal=-1},d=>delete d.killValues.godSlaughter,d=>{d.killValues.godSlaughter=Infinity},d=>{d.v=36}]){
+  assert.equal(JSON.parse(e.store.get('rts_save')).v,36);
+  for(const mutate of [d=>delete d.res.medal,d=>{d.res.medal=-1},d=>delete d.killValues.godSlaughter,d=>{d.killValues.godSlaughter=Infinity},d=>{d.v=37}]){
     const invalid=JSON.parse(e.store.get('rts_save'));mutate(invalid);
     const text=JSON.stringify(invalid),x=environment({rts_save:text});
-    assert.equal(x.run('loadSaveAndApply().status'),invalid.v===36?'future':'invalid');
+    assert.equal(x.run('loadSaveAndApply().status'),invalid.v===37?'future':'invalid');
     assert.equal(x.run('saveProtected()'),true);
     x.run('tick();save()');
     assert.equal(x.store.get('rts_save'),text);

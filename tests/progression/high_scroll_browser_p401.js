@@ -125,8 +125,8 @@ async function clickOnclick(value){
   const fixtureText=JSON.stringify(fixture);
   await evalJs(`localStorage.setItem('rts_save',${JSON.stringify(fixtureText)})`);
   await send('Page.reload',{ignoreCache:true});
-  check('v34 档真实页面迁移到 v35',
-    await ready('typeof S!=="undefined"&&JSON.parse(localStorage.getItem("rts_save"))?.v===35'),true);
+  check('v34 档真实页面迁移到 v36',
+    await ready('typeof S!=="undefined"&&JSON.parse(localStorage.getItem("rts_save"))?.v===36'),true);
   check('迁移前原文独立保留',
     await evalJs(`localStorage.getItem('rts_save_premigration')===${JSON.stringify(fixtureText)}`),true);
   check('迁移前常规备份保留原文',
@@ -206,7 +206,7 @@ async function clickOnclick(value){
     Object.fromEntries(sourceFiles.map(file=>[file,sha(file)])),sourceBefore);
   const result={batch:'P401',test:'Edge high-tier scroll UI and v34 migration',
     baselineSave:fixturePath,baselineVersion:34,fixtureSha256:crypto.createHash('sha256')
-      .update(fixtureText).digest('hex'),runtimeSaveVersion:35,
+      .update(fixtureText).digest('hex'),runtimeSaveVersion:36,
     viewports:[320,390],sourceSha256:sourceBefore,checks,passed,exceptions,
     final:await evalJs(`({v:JSON.parse(localStorage.getItem('rts_save')).v,
       level:S.beastExchange.level,first:S.items.storageScroll,

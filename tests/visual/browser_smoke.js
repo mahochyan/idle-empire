@@ -649,7 +649,8 @@ async function shot(name){
       const count=side=>side.reduce((n,unit)=>n+unit.count,0);
       const controls=[...document.querySelectorAll('#battle-speed .btn-speed'),
         document.getElementById('battle-log-toggle'),
-        ...document.querySelectorAll('#battle-top button[onclick*="fleeBattle"]')];
+        ...document.querySelectorAll('#battle-top button[onclick*="fleeBattle"]')]
+        .filter(el=>el&&el.getClientRects().length&&getComputedStyle(el).visibility!=='hidden');
       const sizes=controls.map(el=>{const r=el.getBoundingClientRect();return {w:r.width,h:r.height,left:r.left,right:r.right};});
       const er=enemy?.getBoundingClientRect(),ar=ally?.getBoundingClientRect();
       return {enemyLeft:!!er&&!!ar&&er.right<ar.left,

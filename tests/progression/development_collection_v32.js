@@ -51,7 +51,7 @@ test('v32 严格校验点位和区域，合法 0、500 级与已得点位往返'
     bad.run('tick();save()');
     assert.equal(bad.store.get('rts_save'),JSON.stringify(d));
   }
-  const future=JSON.parse(raw);future.v=36;
+  const future=JSON.parse(raw);future.v=37;
   const badFuture=environment({rts_save:JSON.stringify(future)});
   assert.equal(badFuture.run('loadSaveAndApply().status'),'future');
   badFuture.run('tick();save()');
@@ -80,7 +80,7 @@ test('导入 v31 升 v32 后才加载；坏点位或未来版导入不改主档/
   const current=e.store.get('rts_save'),before=state(e);
   const bad=JSON.parse(current);bad.development.border.sites.silver={level:1,wins:0};
   assert.equal(e.run('commitSaveData('+JSON.stringify(JSON.stringify(bad))+').ok'),false);
-  const future=JSON.parse(current);future.v=36;
+  const future=JSON.parse(current);future.v=37;
   assert.equal(e.run('commitSaveData('+JSON.stringify(JSON.stringify(future))+').ok'),false);
   assert.equal(e.store.get('rts_save'),current);assert.deepEqual(state(e),before);
   const old=JSON.parse(current);old.v=31;delete old.development;old.res.wood=543;

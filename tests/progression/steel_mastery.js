@@ -34,7 +34,7 @@ check('研究动作检查冶钢前置、逐级付款、满级和缺勋章',()=>{
   assert.equal(e.run('S.res.tech'),18500);
   assert.equal(e.run('S.res.medal'),0);
   const saved=JSON.parse(e.store.get('rts_save'));
-  assert.equal(saved.v,35);
+  assert.equal(saved.v,36);
   assert.equal(saved.steelMasteryLv,6);
   e.run('S.steelMasteryLv=20');
   assert.equal(e.run('upgradeSteelMastery().reason'),'max-level');
@@ -63,16 +63,16 @@ check('v20独立候选迁移保留合法0、超仓资源、人口与兵力',()=>
   assert.equal(e.run('S.res.steel'),999999);
   assert.equal(e.run('S.population.current'),7);
   assert.equal(e.run('S.pool.infantry'),4);
-  assert.equal(JSON.parse(e.store.get('rts_save')).v,35);
+  assert.equal(JSON.parse(e.store.get('rts_save')).v,36);
 });
 
 check('无效新等级与未来档只读，主档或保护副本写入失败不扣费',()=>{
   const seed=environment();seed.run('save()');
   const valid=JSON.parse(seed.store.get('rts_save'));
-  for(const mutate of [d=>delete d.steelMasteryLv,d=>d.steelMasteryLv=-1,d=>d.steelMasteryLv=21,d=>d.steelMasteryLv=1.5,d=>d.v=36]){
+  for(const mutate of [d=>delete d.steelMasteryLv,d=>d.steelMasteryLv=-1,d=>d.steelMasteryLv=21,d=>d.steelMasteryLv=1.5,d=>d.v=37]){
     const d=structuredClone(valid);mutate(d);
     const raw=JSON.stringify(d),e=environment({rts_save:raw});
-    assert.equal(e.run('loadSaveAndApply().status'),d.v===36?'future':'invalid');
+    assert.equal(e.run('loadSaveAndApply().status'),d.v===37?'future':'invalid');
     e.run('tick()');assert.equal(e.store.get('rts_save'),raw);
   }
   const e=environment();e.run("S.sciences=['sci_steel'];S.res.tech=1500;save()");

@@ -135,9 +135,9 @@ check('旧v32同版迁移保原文与合法0，坏档／未来档只读',()=>{
   assert.equal(e.run('S.beastExchange.hideOffers[290001].count'),0);
   const valid=JSON.parse(e.store.get('rts_save'));
   for(const mutate of [d=>d.res.hide=-1,d=>d.res.hide=0.5,d=>d.beastExchange.hideOffers[290001].count=-1,
-    d=>d.beastExchange.hideOffers[290001].quality=42,d=>delete d.beastExchange.hideOffers[290001],d=>d.v=36]){
+    d=>d.beastExchange.hideOffers[290001].quality=42,d=>delete d.beastExchange.hideOffers[290001],d=>d.v=37]){
     const d=structuredClone(valid);mutate(d);const text=JSON.stringify(d),bad=environment({rts_save:text});
-    assert.equal(bad.run('loadSaveAndApply().status'),d.v===36?'future':'invalid');
+    assert.equal(bad.run('loadSaveAndApply().status'),d.v===37?'future':'invalid');
     bad.run('tick();save()');assert.equal(bad.store.get('rts_save'),text);
   }
 });

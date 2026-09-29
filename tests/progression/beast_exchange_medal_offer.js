@@ -72,9 +72,9 @@ check('v32旧档候选补零、原文保护；坏值和未来版拒载不覆盖'
   assert.equal(e.run('S.res.medal'),944);assert.equal(e.run('S.beastExchange.medalOffers'),0);
   const valid=JSON.parse(e.store.get('rts_save'));
   for(const mutate of [d=>d.beastExchange.medalOffers=-1,d=>d.beastExchange.medalOffers=15,
-    d=>d.beastExchange.medalOffers=1,d=>d.v=36]){
+    d=>d.beastExchange.medalOffers=1,d=>d.v=37]){
     const d=structuredClone(valid);mutate(d);const text=JSON.stringify(d),bad=environment({rts_save:text});
-    assert.equal(bad.run('loadSaveAndApply().status'),d.v===36?'future':'invalid');
+    assert.equal(bad.run('loadSaveAndApply().status'),d.v===37?'future':'invalid');
     bad.run('tick();save()');assert.equal(bad.store.get('rts_save'),text);
   }
   const p338=fs.readFileSync(path.join(__dirname,'../../docs/codex/reports/data/p338-soul-production-knowledge-restored-save.json'),'utf8');

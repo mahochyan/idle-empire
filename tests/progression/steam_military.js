@@ -20,7 +20,7 @@ check('P390 v33 实付档迁移后六秒知识产出能支付蒸汽军制，原�
   assert.equal(e.run('S.res.tech'),before-150000);
   assert.equal(e.run("researchScience('sci_steam_military').repeat"),true);
   const saved=JSON.parse(e.store.get('rts_save'));
-  assert.equal(saved.v,35);
+  assert.equal(saved.v,36);
   assert.equal(saved.steamMilitaryStars,0);
   assert.equal(saved.sciences.filter(id=>id==='sci_steam_military').length,1);
   const reload=environment({rts_save:e.store.get('rts_save')});
@@ -78,10 +78,10 @@ check('新档、无前置、越界、坏档与写档失败均安全',()=>{
   assert.equal(fresh.run('steamMilitaryStarStep(1).reason'),'science-prerequisite');
   fresh.run('save()');
   const stable=fresh.store.get('rts_save');
-  for(const mutate of [d=>{d.steamMilitaryStars=-1},d=>{d.steamMilitaryStars=51},d=>{d.steamMilitaryStars=1},d=>{d.v=36}]){
+  for(const mutate of [d=>{d.steamMilitaryStars=-1},d=>{d.steamMilitaryStars=51},d=>{d.steamMilitaryStars=1},d=>{d.v=37}]){
     const d=JSON.parse(stable);mutate(d);
     const raw=JSON.stringify(d),bad=environment({rts_save:raw});
-    assert.equal(bad.run('loadSaveAndApply().status'),d.v===36?'future':'invalid');
+    assert.equal(bad.run('loadSaveAndApply().status'),d.v===37?'future':'invalid');
     bad.run('tick();save()');
     assert.equal(bad.store.get('rts_save'),raw);
   }

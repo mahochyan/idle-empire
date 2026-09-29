@@ -90,7 +90,7 @@ check('合金特种兵须研究和兵坊，逐兵扣食物1500钢100，可入远
   assert.ok(Number.isFinite(e.run("calcGarrisonDmg(buildGarrisonUnitsFromForm()[0],buildGarrisonEnemyUnits({units:{infantry:[3]}})[0])")));
 });
 
-check('v10迁移补钢与钢工0，旧超仓金铁人口保留；坏v35未来v36保护原文',()=>{
+check('v10迁移补钢与钢工0，旧超仓金铁人口保留；坏v36未来v37保护原文',()=>{
   const seed=environment();
   const raw=seed.run("(()=>{S.res.gold=501;S.res.iron=801;S.population.current=8;S.popAlloc.gold=1;S.pool.gold_cavalry=2;S.sciences=['sci_gold_age'];S.currencyRecipeMode='legacy';const d=serializeSave();d.v=10;delete d.res.steel;delete d.popAlloc.steel;return JSON.stringify(d)})()");
   const e=environment({rts_save:raw});
@@ -105,17 +105,17 @@ check('v10迁移补钢与钢工0，旧超仓金铁人口保留；坏v35未来v36
   assert.equal(e.run('S.res.steel'),0);
   assert.equal(e.run('S.popAlloc.steel'),0);
   const d=JSON.parse(e.store.get('rts_save'));
-  assert.equal(d.v,35);
+  assert.equal(d.v,36);
   assert.equal(d.res.steel,0);
   assert.equal(d.popAlloc.steel,0);
   const blocked=environment({rts_save:raw});
   blocked.run("localStorage.setItem=(key)=>{if(key==='rts_save_premigration')throw Error('quota')}");
   assert.equal(blocked.run('loadSaveAndApply().status'),'migrated_readonly');
   assert.equal(blocked.store.get('rts_save'),raw);
-  for(const mutate of [x=>delete x.res.steel,x=>{x.popAlloc.steel=-1},x=>{x.v=36}]){
+  for(const mutate of [x=>delete x.res.steel,x=>{x.popAlloc.steel=-1},x=>{x.v=37}]){
     const copy=structuredClone(d);mutate(copy);
     const text=JSON.stringify(copy),bad=environment({rts_save:text});
-    assert.equal(bad.run('loadSaveAndApply().status'),copy.v===36?'future':'invalid');
+    assert.equal(bad.run('loadSaveAndApply().status'),copy.v===37?'future':'invalid');
     bad.run('tick()');
     assert.equal(bad.store.get('rts_save'),text);
   }

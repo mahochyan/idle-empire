@@ -74,7 +74,7 @@ check('v7 原始档迁移为旧食物铸币配方，合法0、已有工人和超
 check('v32 无模式、非法模式与未来 v33 拒载，tick 不覆盖原文',()=>{
   const seed=environment();
   const base=JSON.parse(seed.run('JSON.stringify(serializeSave())'));
-  [d=>delete d.currencyRecipeMode,d=>{d.currencyRecipeMode='wrong'},d=>{d.v=36}].forEach((mutate,i)=>{
+  [d=>delete d.currencyRecipeMode,d=>{d.currencyRecipeMode='wrong'},d=>{d.v=37}].forEach((mutate,i)=>{
     const d=structuredClone(base);mutate(d);
     const raw=JSON.stringify(d),e=environment({rts_save:raw});
     assert.equal(e.run('loadSaveAndApply().status'),i===2?'future':'invalid');

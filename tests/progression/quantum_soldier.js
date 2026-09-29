@@ -97,9 +97,9 @@ check('既有v32实付档候选迁移先保原文，坏兵装值与未来版本�
   assert.equal(e.run('S.armsUp.quantum_trooper.hp.progress'),0);
   const migrated=e.store.get('rts_save');
   assert.equal(environment({rts_save:migrated}).run('loadSaveAndApply().status'),'ok');
-  for(const mutate of [d=>d.armsUp.quantum_trooper.hp.progress=1000,d=>d.armsUp.quantum_trooper.def.stars=-1,d=>d.v=36]){
+  for(const mutate of [d=>d.armsUp.quantum_trooper.hp.progress=1000,d=>d.armsUp.quantum_trooper.def.stars=-1,d=>d.v=37]){
     const d=JSON.parse(migrated);mutate(d);const text=JSON.stringify(d),bad=environment({rts_save:text});
-    assert.equal(bad.run('loadSaveAndApply().status'),d.v===36?'future':'invalid');
+    assert.equal(bad.run('loadSaveAndApply().status'),d.v===37?'future':'invalid');
     bad.run('tick();save()');assert.equal(bad.store.get('rts_save'),text);
   }
   const blocked=environment({rts_save:raw});

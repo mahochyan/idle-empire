@@ -158,6 +158,7 @@ body{
   border:1px solid #333;color:#888;cursor:pointer;
 }
 .btn-speed.on{background:#f0d060;color:#1a1a24;border-color:#f0d060;font-weight:bold}
+.btn-speed[hidden]{display:none}
 
 /* ===== 兵种行 ===== */
 .unit-row{
@@ -1639,6 +1640,7 @@ body{
         <button class="btn-speed on" data-spd="1">1x</button>
         <button class="btn-speed" data-spd="2">2x</button>
         <button class="btn-speed" data-spd="4">4x</button>
+        <button class="btn-speed" data-spd="100" hidden>100x</button>
       </div>
       <button id="battle-log-toggle" class="btn btn-ghost btn-sm" type="button" aria-expanded="false">日志</button>
       <button class="btn btn-ghost btn-sm" onclick="fleeBattle()">撤退</button>
@@ -1664,7 +1666,7 @@ body{
      从根上杜绝“看不到更新”。file:// 本地打开不带查询串，行为与静态标签完全一致（document.write 同步顺序加载）。 -->
 <script>
 (function(){
-  var V='35';
+  var V='36';
   var q=(location.protocol==='http:'||location.protocol==='https:')?('?v='+V):'';
   var files=['config.js','levels.js','sprites.js','math.js','garrison.js','technology.js','ui.js'];
   window.APP_VERSION=V;               // 供发布校验/自检读取（切片16 D1）

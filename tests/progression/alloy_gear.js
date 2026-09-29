@@ -86,10 +86,10 @@ check('v21旧档安全迁移，缺键、未来档和写档失败受保护',()=>{
   assert.equal(blocked.store.get('rts_save'),legacy);
   const valid=JSON.parse(e.store.get('rts_save'));
   1332;
-  for(const change of [d=>delete d.weaponForge.alloySword,d=>d.weaponForge.alloyArmor.level=4,d=>{d.weaponForge.alloyArmor.researched=true},d=>d.v=36]){
+  for(const change of [d=>delete d.weaponForge.alloySword,d=>d.weaponForge.alloyArmor.level=4,d=>{d.weaponForge.alloyArmor.researched=true},d=>d.v=37]){
     const d=structuredClone(valid);change(d);
     const text=JSON.stringify(d),bad=environment({rts_save:text});
-    assert.equal(bad.run('loadSaveAndApply().status'),d.v===36?'future':'invalid');
+    assert.equal(bad.run('loadSaveAndApply().status'),d.v===37?'future':'invalid');
     bad.run('tick()');assert.equal(bad.store.get('rts_save'),text);
   }
   const paid=environment();
