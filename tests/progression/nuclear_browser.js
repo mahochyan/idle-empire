@@ -41,7 +41,7 @@ function check(name,actual,expected){assert.deepEqual(actual,expected,name);pass
   };
   await send('Runtime.enable');await send('Page.enable');
   await send('Emulation.setDeviceMetricsOverride',{width:360,height:800,deviceScaleFactor:1,mobile:true});await sleep(900);
-  check('v26 scripts keep dependency order',await evalJs("[window.APP_VERSION,...window.APP_SCRIPTS]"),['26','config.js','levels.js','sprites.js','math.js','garrison.js','technology.js','ui.js']);
+  check('v27 scripts keep dependency order',await evalJs("[window.APP_VERSION,...window.APP_SCRIPTS]"),['27','config.js','levels.js','sprites.js','math.js','garrison.js','technology.js','ui.js']);
   const locked=await evalJs("(()=>{S.sciences.push('sci_steam_age','sci_electric_age');S.buildings.electric_armory={lv:1,state:'idle'};S.page='barracks';updateUI();return {text:document.getElementById('main').textContent,overflow:document.documentElement.scrollWidth>innerWidth,portrait:document.querySelector(\".unit-portrait-mini[src*='star_trooper']\")?.getAttribute('src')||''}})()");
   check('unresearched star unit stays hidden',locked.text.includes('星际先遣兵'),false);
   check('unresearched star portrait stays hidden',locked.portrait,'');

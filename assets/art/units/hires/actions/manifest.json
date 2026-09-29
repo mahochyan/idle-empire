@@ -1,9 +1,10 @@
 {
-  "version": 5,
+  "version": 6,
   "runtimeSampleEnabled": true,
   "runtimeUnits": [
     "infantry",
     "infantry_t1",
+    "infantry_shield",
     "star_trooper",
     "archer",
     "archer_t1",
@@ -614,6 +615,308 @@
             ],
             "scale": 0.61462,
             "baselineY": 477
+          }
+        ]
+      }
+    },
+    "infantry_shield": {
+      "attack": {
+        "path": "./assets/art/units/hires/actions/infantry_shield-attack.png",
+        "compactPath": "./assets/art/units/hires/actions/compact/infantry_shield-attack.png",
+        "compactFrameWidth": 256,
+        "compactFrameHeight": 256,
+        "compactResampling": "nearest",
+        "frameWidth": 512,
+        "frameHeight": 512,
+        "frames": 4,
+        "order": [
+          "idle",
+          "windup_or_jolt",
+          "contact_or_fall",
+          "recover_or_prone"
+        ],
+        "suggestedFrameDurationMs": [
+          60,
+          90,
+          105,
+          100
+        ],
+        "loop": false,
+        "facing": "right",
+        "source": "source/generated/units/actions/infantry_shield-attack-master-v3.png",
+        "sourceSize": [
+          2172,
+          724
+        ],
+        "sourceSeamsX": [
+          724,
+          1448
+        ],
+        "frameAudit": [
+          {
+            "bounds": [
+              36,
+              10,
+              478,
+              501
+            ],
+            "sourceBounds": [
+              36,
+              10,
+              478,
+              501
+            ],
+            "scale": 1.0,
+            "baselineY": 501,
+            "pixelIdenticalToIdle": true
+          },
+          {
+            "bounds": [
+              29,
+              36,
+              504,
+              501
+            ],
+            "sourceBounds": [
+              66,
+              128,
+              594,
+              645
+            ],
+            "scale": 0.9,
+            "baselineY": 501
+          },
+          {
+            "bounds": [
+              8,
+              113,
+              504,
+              501
+            ],
+            "sourceBounds": [
+              84,
+              167,
+              692,
+              642
+            ],
+            "scale": 0.81579,
+            "baselineY": 501
+          },
+          {
+            "bounds": [
+              40,
+              59,
+              504,
+              501
+            ],
+            "sourceBounds": [
+              76,
+              157,
+              591,
+              648
+            ],
+            "scale": 0.9,
+            "baselineY": 501
+          }
+        ]
+      },
+      "hit": {
+        "path": "./assets/art/units/hires/actions/infantry_shield-hit.png",
+        "compactPath": "./assets/art/units/hires/actions/compact/infantry_shield-hit.png",
+        "compactFrameWidth": 256,
+        "compactFrameHeight": 256,
+        "compactResampling": "nearest",
+        "frameWidth": 512,
+        "frameHeight": 512,
+        "frames": 4,
+        "order": [
+          "idle",
+          "windup_or_jolt",
+          "contact_or_fall",
+          "recover_or_prone"
+        ],
+        "suggestedFrameDurationMs": [
+          45,
+          110,
+          130,
+          95
+        ],
+        "loop": false,
+        "facing": "right",
+        "source": "source/generated/units/actions/infantry_shield-hit-master-v2.png",
+        "sourceSize": [
+          2172,
+          724
+        ],
+        "sourceSeamsX": [
+          724,
+          1448
+        ],
+        "frameAudit": [
+          {
+            "bounds": [
+              36,
+              10,
+              478,
+              501
+            ],
+            "sourceBounds": [
+              36,
+              10,
+              478,
+              501
+            ],
+            "scale": 1.0,
+            "baselineY": 501,
+            "pixelIdenticalToIdle": true
+          },
+          {
+            "bounds": [
+              8,
+              50,
+              504,
+              501
+            ],
+            "sourceBounds": [
+              34,
+              92,
+              673,
+              673
+            ],
+            "scale": 0.77621,
+            "baselineY": 501
+          },
+          {
+            "bounds": [
+              8,
+              84,
+              504,
+              501
+            ],
+            "sourceBounds": [
+              56,
+              112,
+              724,
+              673
+            ],
+            "scale": 0.74251,
+            "baselineY": 501
+          },
+          {
+            "bounds": [
+              9,
+              21,
+              504,
+              501
+            ],
+            "sourceBounds": [
+              74,
+              89,
+              680,
+              677
+            ],
+            "scale": 0.81633,
+            "baselineY": 501
+          }
+        ]
+      },
+      "death": {
+        "path": "./assets/art/units/hires/actions/infantry_shield-death.png",
+        "compactPath": "./assets/art/units/hires/actions/compact/infantry_shield-death.png",
+        "compactFrameWidth": 256,
+        "compactFrameHeight": 256,
+        "compactResampling": "nearest",
+        "frameWidth": 512,
+        "frameHeight": 512,
+        "frames": 4,
+        "order": [
+          "idle",
+          "windup_or_jolt",
+          "contact_or_fall",
+          "recover_or_prone"
+        ],
+        "suggestedFrameDurationMs": [
+          50,
+          135,
+          170,
+          280
+        ],
+        "loop": false,
+        "facing": "right",
+        "source": "source/generated/units/actions/infantry_shield-death-master-v2.png",
+        "sourceSize": [
+          2172,
+          724
+        ],
+        "sourceSeamsX": [
+          724,
+          1415
+        ],
+        "frameAudit": [
+          {
+            "bounds": [
+              36,
+              10,
+              478,
+              501
+            ],
+            "sourceBounds": [
+              36,
+              10,
+              478,
+              501
+            ],
+            "scale": 1.0,
+            "baselineY": 501,
+            "pixelIdenticalToIdle": true
+          },
+          {
+            "bounds": [
+              8,
+              71,
+              504,
+              501
+            ],
+            "sourceBounds": [
+              43,
+              95,
+              653,
+              624
+            ],
+            "scale": 0.81311,
+            "baselineY": 501
+          },
+          {
+            "bounds": [
+              13,
+              97,
+              504,
+              501
+            ],
+            "sourceBounds": [
+              57,
+              176,
+              603,
+              625
+            ],
+            "scale": 0.9,
+            "baselineY": 501
+          },
+          {
+            "bounds": [
+              8,
+              317,
+              504,
+              501
+            ],
+            "sourceBounds": [
+              1,
+              374,
+              738,
+              647
+            ],
+            "scale": 0.673,
+            "baselineY": 501
           }
         ]
       }

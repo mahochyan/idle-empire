@@ -1564,7 +1564,7 @@ body{
   #phone{max-height:100dvh}
 }
 </style>
-<link rel="stylesheet" href="visual.css?v=26">
+<link rel="stylesheet" href="visual.css?v=27">
 </head>
 <body>
 
@@ -1657,14 +1657,14 @@ body{
 <!-- 渲染脚本是独立的只读视图层；原有业务脚本依赖顺序保持不变。 -->
 <script src="assets/hd2d/three.min.js"></script>
 <script src="assets/art/vfx/unit-vfx-profiles.js"></script>
-<script src="hd2d.js?v=26"></script>
+<script src="hd2d.js?v=27"></script>
 
 <!-- 缓存版本号：每次上线发布新代码时把 V 数字 +1（纪律见 docs/codex/plan/发布检查清单.md）。
      GitHub Pages CDN 按 URL 缓存 JS（旧缓存可能超过 10 分钟），带 ?v= 的新 URL 强制 CDN 回源，
      从根上杜绝“看不到更新”。file:// 本地打开不带查询串，行为与静态标签完全一致（document.write 同步顺序加载）。 -->
 <script>
 (function(){
-  var V='26';
+  var V='27';
   var q=(location.protocol==='http:'||location.protocol==='https:')?('?v='+V):'';
   var files=['config.js','levels.js','sprites.js','math.js','garrison.js','technology.js','ui.js'];
   window.APP_VERSION=V;               // 供发布校验/自检读取（切片16 D1）

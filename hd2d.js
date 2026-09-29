@@ -41,7 +41,7 @@
     'wild_boar','wild_bull','wild_snake','wild_tiger','wild_turtle','wild_wyrm'
   ]);
   const hiresActionTypes=new Set([
-    'infantry','infantry_t1','archer','archer_t1','archer_crossbow','star_trooper','cavalry_t1','gold_cavalry'
+    'infantry','infantry_t1','infantry_shield','archer','archer_t1','archer_crossbow','star_trooper','cavalry_t1','gold_cavalry'
   ]);
   // Authored helmet/hood anchors for frames whose raised weapon sits higher
   // than the face. Other frames use measured alpha bounds.

@@ -1,6 +1,6 @@
 'use strict';
-// Targeted real-Edge decode and action smoke for the new archer_t1 sprite sheets.
-// Run: node tests/visual/archer_t1_actions_browser.js
+// Targeted real-Edge decode and action smoke for one high-res action unit.
+// Run: node tests/visual/archer_t1_actions_browser.js [unit_id]
 const {spawn,spawnSync}=require('node:child_process');
 const fs=require('node:fs');
 const http=require('node:http');
@@ -8,6 +8,9 @@ const os=require('node:os');
 const path=require('node:path');
 
 const root=path.resolve(__dirname,'../..');
+const unitType=process.argv[2]||'archer_t1';
+if(!/^[a-z0-9_]+$/.test(unitType))throw Error('Invalid unit id');
+const unitSlug=unitType.replaceAll('_','-');
 const edge=[
   'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe',
   'C:\\Program Files\\Microsoft\\Edge\\Application\\msedge.exe'
@@ -27,7 +30,7 @@ const server=http.createServer((req,res)=>{
   });
 });
 const tempRoot=fs.realpathSync(os.tmpdir());
-const profile=fs.mkdtempSync(path.join(tempRoot,'archer-action-cdp-'));
+const profile=fs.mkdtempSync(path.join(tempRoot,'unit-action-cdp-'));
 if(!path.resolve(profile).startsWith(tempRoot+path.sep))throw Error('profile outside temp');
 const previewDir=path.join(root,'hd2d-previews');
 const sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms));
@@ -65,7 +68,7 @@ async function waitReady(){
 async function waitPortrait(){
   for(let i=0;i<100;i++){
     const state=await evalJs(`(()=>{const unit=HD2D.status().battle.layout.find(item=>
-      item.type==='archer_t1'&&item.side==='allies');
+      item.type===${JSON.stringify(unitType)}&&item.side==='allies');
       return unit?{portraitReady:unit.portraitReady,actionsReady:unit.portraitActionsReady,
         cell:unit.portraitActionCellPx}:null;})()`);
     if(state?.portraitReady&&state?.actionsReady)return state;
@@ -123,7 +126,8 @@ async function runFixture({width,height,allies,enemies,epoch}){
   })()`);
   check('Battle stage visible',visible);
   const sparse=await runFixture({width:390,height:844,
-    allies:[['archer_t1',70001,'back']],enemies:[['infantry',70002,'front']],epoch:90001});
+    allies:[[unitType,70001,unitType==='archer_t1'?'back':'front']],
+    enemies:[['infantry',70002,'front']],epoch:90001});
   check('390px sparse portrait and all action atlases decode at 512px',
     sparse.start.mounted&&sparse.ready?.cell===512,sparse);
   for(const kind of ['attack','hit','death']){
@@ -141,12 +145,12 @@ async function runFixture({width,height,allies,enemies,epoch}){
       seen.action===kind&&seen.ready&&seen.frames===4&&seen.facing==='left',seen);
     if(kind==='attack'){
       await sleep(310);
-      const file=await shot('qa-archer-t1-attack-sparse-390');
+      const file=await shot(`qa-${unitSlug}-attack-sparse-390`);
       check('Sparse attack screenshot saved',fs.statSync(file).size>10000,file);
     }else await sleep(75);
   }
   const rows=['front','mid','back'];
-  const allies=Array.from({length:12},(_,i)=>[i===0?'archer_t1':'infantry',71000+i,rows[Math.floor(i/4)]]);
+  const allies=Array.from({length:12},(_,i)=>[i===0?unitType:'infantry',71000+i,rows[Math.floor(i/4)]]);
   const enemies=Array.from({length:12},(_,i)=>['infantry',72000+i,rows[Math.floor(i/4)]]);
   const full=await runFixture({width:320,height:568,allies,enemies,epoch:90002});
   check('320px full formation loads 256px action cells',full.start.mounted&&
@@ -163,11 +167,11 @@ async function runFixture({width,height,allies,enemies,epoch}){
     fullAction.accepted&&fullAction.action==='attack'&&fullAction.ready&&
     fullAction.frames===4&&fullAction.cell===256&&!fullAction.overflow,fullAction);
   await sleep(310);
-  const fullShot=await shot('qa-archer-t1-attack-full-320');
+  const fullShot=await shot(`qa-${unitSlug}-attack-full-320`);
   check('Full formation attack screenshot saved',fs.statSync(fullShot).size>10000,fullShot);
   check('Required HTTP art returned no 404',missing.size===0,[...missing]);
   const failed=checks.filter(item=>!item.ok);
-  console.log(JSON.stringify({passed:checks.length-failed.length,failed:failed.length,checks,
+  console.log(JSON.stringify({unitType,passed:checks.length-failed.length,failed:failed.length,checks,
     environment:'Node + Edge headless CDP; emulated CSS viewports, not Android hardware'},null,2));
   process.exitCode=failed.length?1:0;
 })().catch(error=>{console.error('ARCHER_ACTION_BROWSER_ERROR',error.stack||error);process.exitCode=2;})
