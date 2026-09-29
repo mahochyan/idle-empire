@@ -1,0 +1,284 @@
+{
+  "batch": "P379",
+  "source": {
+    "file": "p363-crystal-steam24-paid-save.json",
+    "sha256": "e91a2e241a07a58409501ffa0ab0d30766a7d0ed15594159368ed2df72e6fb9c"
+  },
+  "targetByType": {
+    "star_trooper": 155,
+    "armored_trooper": 55,
+    "electro_trooper": 101,
+    "alloy_special": 55,
+    "gold_cavalry": 40,
+    "archer": 220
+  },
+  "battle": {
+    "fixedSeed": 1,
+    "selection": "fixed in probe source before running; no pilot or winner selection",
+    "enemy": {
+      "hp": 3700,
+      "atk": 112,
+      "def": 825
+    },
+    "remainingEnemyHp": 865,
+    "callbacks": 200,
+    "result": "lose",
+    "initial": {
+      "tick": 12235251,
+      "army": 672,
+      "deployed": 626,
+      "queue": 0,
+      "resources": {
+        "food": 480699,
+        "wood": 24095,
+        "stone": 459972,
+        "coal": 91278.25,
+        "copper": 41.949997952382546,
+        "iron": 331965,
+        "steel": 1155,
+        "gold": 67.56250000008686,
+        "tech": 246355790
+      },
+      "caps": {
+        "food": 480699,
+        "wood": 2732400,
+        "stone": 1821599,
+        "coal": 672980,
+        "copper": 3468629,
+        "iron": 5745630,
+        "steel": 2303565
+      },
+      "crystal": 9,
+      "alert": 5500,
+      "medal": 3973196,
+      "sciences": 38,
+      "stage99": true,
+      "stage100": false
+    },
+    "settled": {
+      "tick": 12235251,
+      "army": 46,
+      "deployed": 0,
+      "queue": 0,
+      "resources": {
+        "food": 480699,
+        "wood": 24095,
+        "stone": 459972,
+        "coal": 91278.25,
+        "copper": 41.949997952382546,
+        "iron": 331965,
+        "steel": 1155,
+        "gold": 67.56250000008686,
+        "tech": 246355790
+      },
+      "caps": {
+        "food": 480699,
+        "wood": 2732400,
+        "stone": 1821599,
+        "coal": 672980,
+        "copper": 3468629,
+        "iron": 5745630,
+        "steel": 2303565
+      },
+      "crystal": 9,
+      "alert": 5500,
+      "medal": 3973196,
+      "sciences": 38,
+      "stage99": true,
+      "stage100": false
+    },
+    "loss": 626,
+    "crystalDelta": 0,
+    "battleSave": {
+      "file": "p379-unselected-battle-settled-save.json",
+      "sha256": "5bc31a38f0f291a2859ad125ce038f8eb108ffe3ad2f4b000854fb1bbf2aede1",
+      "state": {
+        "tick": 12235251,
+        "army": 46,
+        "deployed": 0,
+        "queue": 0,
+        "resources": {
+          "food": 480699,
+          "wood": 24095,
+          "stone": 459972,
+          "coal": 91278.25,
+          "copper": 41.949997952382546,
+          "iron": 331965,
+          "steel": 1155,
+          "gold": 67.56250000008686,
+          "tech": 246355790
+        },
+        "caps": {
+          "food": 480699,
+          "wood": 2732400,
+          "stone": 1821599,
+          "coal": 672980,
+          "copper": 3468629,
+          "iron": 5745630,
+          "steel": 2303565
+        },
+        "crystal": 9,
+        "alert": 5500,
+        "medal": 3973196,
+        "sciences": 38,
+        "stage99": true,
+        "stage100": false
+      }
+    }
+  },
+  "recovery": {
+    "before": {
+      "tick": 12235251,
+      "army": 46,
+      "deployed": 0,
+      "queue": 0,
+      "resources": {
+        "food": 480699,
+        "wood": 24095,
+        "stone": 459972,
+        "coal": 91278.25,
+        "copper": 41.949997952382546,
+        "iron": 331965,
+        "steel": 1155,
+        "gold": 67.56250000008686,
+        "tech": 246355790
+      },
+      "caps": {
+        "food": 480699,
+        "wood": 2732400,
+        "stone": 1821599,
+        "coal": 672980,
+        "copper": 3468629,
+        "iron": 5745630,
+        "steel": 2303565
+      },
+      "crystal": 9,
+      "alert": 5500,
+      "medal": 3973196,
+      "sciences": 38,
+      "stage99": true,
+      "stage100": false
+    },
+    "after": {
+      "tick": 12239114,
+      "army": 672,
+      "deployed": 626,
+      "queue": 0,
+      "resources": {
+        "food": 464575.7438464984,
+        "wood": 6495,
+        "stone": 325684,
+        "coal": 405399.75,
+        "copper": 821.0999979352346,
+        "iron": 1001284,
+        "steel": 1102,
+        "gold": 532.4625000000879,
+        "tech": 254027300
+      },
+      "caps": {
+        "food": 480699,
+        "wood": 2732400,
+        "stone": 1821599,
+        "coal": 672980,
+        "copper": 3468629,
+        "iron": 5745630,
+        "steel": 2303565
+      },
+      "crystal": 9,
+      "alert": 5500,
+      "medal": 3973196,
+      "sciences": 38,
+      "stage99": true,
+      "stage100": false
+    },
+    "shortages": {
+      "archer": 220,
+      "star_trooper": 155,
+      "armored_trooper": 55,
+      "electro_trooper": 101,
+      "alloy_special": 55,
+      "gold_cavalry": 40
+    },
+    "trained": 626,
+    "expectedPaid": {
+      "food": 129100,
+      "stone": 4400,
+      "wood": 17600,
+      "steel": 2163500,
+      "iron": 2158000,
+      "copper": 2158000,
+      "gold": 4000
+    },
+    "actualPaid": {
+      "wood": 17600,
+      "stone": 4400,
+      "food": 129100,
+      "copper": 2158000,
+      "iron": 2158000,
+      "steel": 2163500,
+      "gold": 4000
+    },
+    "onlineSeconds": 3863,
+    "phases": {
+      "food": 0,
+      "wood": 0,
+      "stone": 147,
+      "coal": 1078,
+      "copper": 967,
+      "iron": 815,
+      "steel": 533,
+      "gold": 8,
+      "tech": 0,
+      "training": 315
+    },
+    "minFood": 452340.143637815,
+    "minCoal": 18329,
+    "minSteel": 1102
+  },
+  "recoveredSave": {
+    "file": "p379-unselected-battle-recovered-save.json",
+    "sha256": "9914b6fbd6dd79277661a6bba68a61a7f4642acc9d7033535da3b993d41daf4f",
+    "state": {
+      "tick": 12239114,
+      "army": 672,
+      "deployed": 626,
+      "queue": 0,
+      "resources": {
+        "food": 464575.7438464984,
+        "wood": 6495,
+        "stone": 325684,
+        "coal": 405399.75,
+        "copper": 821.0999979352346,
+        "iron": 1001284,
+        "steel": 1102,
+        "gold": 532.4625000000879,
+        "tech": 254027300
+      },
+      "caps": {
+        "food": 480699,
+        "wood": 2732400,
+        "stone": 1821599,
+        "coal": 672980,
+        "copper": 3468629,
+        "iron": 5745630,
+        "steel": 2303565
+      },
+      "crystal": 9,
+      "alert": 5500,
+      "medal": 3973196,
+      "sciences": 38,
+      "stage99": true,
+      "stage100": false
+    }
+  },
+  "sourceHashes": {
+    "config.js": "8e40ccc41ab96156db291ce74560981d875b304703fffb89c4139d5e23001675",
+    "levels.js": "023aedddb3031d155a44aed6d648e8476b9ddb078893eb0d0f5a74627790b681",
+    "math.js": "8f9ecadc7c471b5243cfa504a84d568f933517ca2b72733bcfddf7e0fb751a3a",
+    "garrison.js": "762da86c67c0bfb1ef0c5a519a7fad57a8f8e4f7ad6c5045f4736c2b650739a9",
+    "technology.js": "ab7d28656c29999eab107832e79ea6551f01b2bb230d1557f092a747fe5b5511",
+    "tests/progression/harness.js": "4770d17fa72cc8c87f4c8ef79678f19d63a41da895b8dd58776e5a39ce2ede2b",
+    "tools/verify/probe-material-continuity-p379.js": "9baad18afef45e4736d58e88b0821ae4d8788bb5ab42f99104ea2c476648e0ed"
+  },
+  "scope": "One fixed unselected RNG stream, real high-alert material battle, legal production/training recovery and reload. No offline simulation or player save touched."
+}

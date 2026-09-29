@@ -1,0 +1,99 @@
+{
+  "sourceFile": "docs/codex/reports/data/p338-soul-production-knowledge-restored-save.json",
+  "sourceSha256": "8d59afb7bb969bf175c6ca9e575e643052c6603e4853756bb2afaf239c6faf92",
+  "seed": 1,
+  "unit": "one real battle, resources, soldiers, exchange transactions, refresh charges",
+  "opening": {
+    "army": 672,
+    "deployed": 626,
+    "hide": 0,
+    "bone": 39,
+    "level": 30,
+    "progress": 165,
+    "charges": 5,
+    "alert": 3910,
+    "rng": 1
+  },
+  "battleResult": "win",
+  "callbacks": 12,
+  "afterBattle": {
+    "army": 498,
+    "deployed": 452,
+    "hide": 88,
+    "bone": 705,
+    "level": 30,
+    "progress": 165,
+    "charges": 5,
+    "alert": 3920,
+    "rng": 3066322605
+  },
+  "upgrade": {
+    "ok": true,
+    "level": 31
+  },
+  "refreshes": [
+    {
+      "i": 1,
+      "offers": [],
+      "charges": 4,
+      "eligible": null
+    },
+    {
+      "i": 2,
+      "offers": [],
+      "charges": 3,
+      "eligible": null
+    },
+    {
+      "i": 3,
+      "offers": [],
+      "charges": 2,
+      "eligible": null
+    },
+    {
+      "i": 4,
+      "offers": [],
+      "charges": 1,
+      "eligible": null
+    },
+    {
+      "i": 5,
+      "offers": [
+        {
+          "id": "290011",
+          "count": 1,
+          "quality": 100,
+          "cost": 70,
+          "get": "wood",
+          "gain": 4200
+        }
+      ],
+      "charges": 0,
+      "eligible": "290011"
+    }
+  ],
+  "purchase": {
+    "ok": true,
+    "id": 290011,
+    "hideCost": 70,
+    "get": "wood",
+    "gain": 4200
+  },
+  "final": {
+    "army": 498,
+    "deployed": 452,
+    "hide": 18,
+    "bone": 705,
+    "level": 31,
+    "progress": 1,
+    "charges": 0,
+    "alert": 3920,
+    "rng": 1696915948
+  },
+  "saveFile": "docs/codex/reports/data/p342-hide-paid-seed1-save.json",
+  "saveSha256": "ca734f8b6dfa88dc22a0ec7a7367800fb4422a27b55c594444e08b27fc6806e8",
+  "limits": [
+    "One selected deterministic battle stream from a historically paid late-game checkpoint, not a fresh-game progression or player win rate.",
+    "No soldier replenishment or online calendar advancement; refreshes spend stored charges only."
+  ]
+}

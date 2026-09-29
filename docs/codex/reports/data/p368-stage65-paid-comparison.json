@@ -1,0 +1,5082 @@
+{
+  "batch": "P368",
+  "unit": "online seconds; soldiers; configured resource units",
+  "source": {
+    "file": "p368-stage64-natural-paid-save.json",
+    "sha256": "bb487a05eaf76e123067b4ffd9efac11bb1c35c9db5835f5ac0e4ff4eca83f18",
+    "route": "P100 paid zero-win snapshot -> P97 real stages 1-64, fixed seed 9",
+    "after64": {
+      "tick": 3320936,
+      "defeated": 64,
+      "army": 113,
+      "deployed": 68,
+      "food": 172192.01613073406,
+      "steel": 19
+    }
+  },
+  "paidEntry": {
+    "file": "p368-stage65-entry-paid-save.json",
+    "sha256": "7838551aeab18d3706cde0e9f26564279af8558968d7579e66a6dead9e326cc9",
+    "firstRecovery": {
+      "seconds": 6,
+      "alloy": {
+        "count": 0,
+        "seconds": 0
+      },
+      "archer": {
+        "count": 12,
+        "seconds": 6
+      },
+      "paidCosts": {
+        "wood": 960,
+        "stone": 240,
+        "food": 360
+      },
+      "beforeArmy": 113,
+      "afterArmy": 125,
+      "foodBefore": 172192.01613073406,
+      "foodAfter": 173003.5636344387,
+      "steelBefore": 19,
+      "steelAfter": 19
+    },
+    "campSeconds": [
+      5,
+      20,
+      45,
+      90
+    ],
+    "tick": 3321102,
+    "army": 125,
+    "deployed": 80,
+    "preGate": "需击败第65关「神射营」"
+  },
+  "sourceHashes": {
+    "config.js": "8e40ccc41ab96156db291ce74560981d875b304703fffb89c4139d5e23001675",
+    "levels.js": "9ef3e47bae99242e70970fc9c0f86912301aabdb6ed4fef9e4e18250293c1cc1",
+    "math.js": "78198ddc987ef40209359ce60cdc25c30fa90994b14b0fdbf7f4dae1bd0b93b3",
+    "garrison.js": "762da86c67c0bfb1ef0c5a519a7fad57a8f8e4f7ad6c5045f4736c2b650739a9",
+    "technology.js": "ab7d28656c29999eab107832e79ea6551f01b2bb230d1557f092a747fe5b5511",
+    "tests/progression/harness.js": "4770d17fa72cc8c87f4c8ef79678f19d63a41da895b8dd58776e5a39ce2ede2b",
+    "tools/verify/probe-stage65-paid-p368.js": "8528ed47a65ff5a3c5cf60a9ae424655545c693612cca874057a6acb25285cb8"
+  },
+  "summary": {
+    "live6": {
+      "firstWins": 32,
+      "of": 32,
+      "winLossMin": 0,
+      "winLossMedian": 1,
+      "winLossMax": 6,
+      "t4Paid": 32,
+      "recovered": 32,
+      "nextStageWins": 32,
+      "blocked": []
+    },
+    "candidate48": {
+      "firstWins": 32,
+      "of": 32,
+      "winLossMin": 0,
+      "winLossMedian": 2,
+      "winLossMax": 11,
+      "t4Paid": 32,
+      "recovered": 32,
+      "nextStageWins": 32,
+      "blocked": []
+    }
+  },
+  "rows": [
+    {
+      "variant": "live6",
+      "seed": 1,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 2,
+        "callbacks": 13,
+        "enemies": {
+          "groups": 6,
+          "people": 6
+        },
+        "beforeArmy": 125,
+        "afterArmy": 125,
+        "loss": 0,
+        "beforeDeployed": 80,
+        "afterDeployed": 80,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 0,
+        "alloy": {
+          "count": 0,
+          "seconds": 0
+        },
+        "archer": {
+          "count": 0,
+          "seconds": 0
+        },
+        "paidCosts": {},
+        "beforeArmy": 125,
+        "afterArmy": 125,
+        "foodBefore": 208932.48683444553,
+        "foodAfter": 208932.48683444553,
+        "steelBefore": 19,
+        "steelAfter": 19
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 2,
+        "callbacks": 14,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 123,
+        "loss": 2,
+        "beforeDeployed": 80,
+        "afterDeployed": 78,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 123
+    },
+    {
+      "variant": "live6",
+      "seed": 2,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 2,
+        "callbacks": 13,
+        "enemies": {
+          "groups": 6,
+          "people": 6
+        },
+        "beforeArmy": 125,
+        "afterArmy": 123,
+        "loss": 2,
+        "beforeDeployed": 80,
+        "afterDeployed": 78,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 1,
+        "alloy": {
+          "count": 0,
+          "seconds": 0
+        },
+        "archer": {
+          "count": 2,
+          "seconds": 1
+        },
+        "paidCosts": {
+          "wood": 160,
+          "stone": 40,
+          "food": 60
+        },
+        "beforeArmy": 123,
+        "afterArmy": 125,
+        "foodBefore": 209066.29257102942,
+        "foodAfter": 209199.62801102945,
+        "steelBefore": 19,
+        "steelAfter": 19
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 3,
+        "callbacks": 23,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 110,
+        "loss": 15,
+        "beforeDeployed": 80,
+        "afterDeployed": 65,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 110
+    },
+    {
+      "variant": "live6",
+      "seed": 3,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 2,
+        "callbacks": 14,
+        "enemies": {
+          "groups": 6,
+          "people": 6
+        },
+        "beforeArmy": 125,
+        "afterArmy": 123,
+        "loss": 2,
+        "beforeDeployed": 80,
+        "afterDeployed": 78,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 9,
+        "alloy": {
+          "count": 2,
+          "seconds": 1
+        },
+        "archer": {
+          "count": 0,
+          "seconds": 0
+        },
+        "paidCosts": {
+          "food": 3000,
+          "steel": 200
+        },
+        "beforeArmy": 123,
+        "afterArmy": 125,
+        "foodBefore": 209135.75598566307,
+        "foodAfter": 206067.72622241103,
+        "steelBefore": 19,
+        "steelAfter": 11
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 2,
+        "callbacks": 17,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 124,
+        "loss": 1,
+        "beforeDeployed": 80,
+        "afterDeployed": 79,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 124
+    },
+    {
+      "variant": "live6",
+      "seed": 4,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 2,
+        "callbacks": 14,
+        "enemies": {
+          "groups": 6,
+          "people": 6
+        },
+        "beforeArmy": 125,
+        "afterArmy": 119,
+        "loss": 6,
+        "beforeDeployed": 80,
+        "afterDeployed": 74,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 8,
+        "alloy": {
+          "count": 1,
+          "seconds": 1
+        },
+        "archer": {
+          "count": 5,
+          "seconds": 3
+        },
+        "paidCosts": {
+          "food": 1650,
+          "steel": 100,
+          "wood": 400,
+          "stone": 100
+        },
+        "beforeArmy": 119,
+        "afterArmy": 125,
+        "foodBefore": 209242.80546301373,
+        "foodAfter": 208243.2661080451,
+        "steelBefore": 19,
+        "steelAfter": 15
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 2,
+        "callbacks": 18,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 117,
+        "loss": 8,
+        "beforeDeployed": 80,
+        "afterDeployed": 72,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 117
+    },
+    {
+      "variant": "live6",
+      "seed": 5,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 1,
+        "callbacks": 10,
+        "enemies": {
+          "groups": 6,
+          "people": 6
+        },
+        "beforeArmy": 125,
+        "afterArmy": 125,
+        "loss": 0,
+        "beforeDeployed": 80,
+        "afterDeployed": 80,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 0,
+        "alloy": {
+          "count": 0,
+          "seconds": 0
+        },
+        "archer": {
+          "count": 0,
+          "seconds": 0
+        },
+        "paidCosts": {},
+        "beforeArmy": 125,
+        "afterArmy": 125,
+        "foodBefore": 208932.48683444553,
+        "foodAfter": 208932.48683444553,
+        "steelBefore": 19,
+        "steelAfter": 19
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 2,
+        "callbacks": 15,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 116,
+        "loss": 9,
+        "beforeDeployed": 80,
+        "afterDeployed": 71,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 116
+    },
+    {
+      "variant": "live6",
+      "seed": 6,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 1,
+        "callbacks": 10,
+        "enemies": {
+          "groups": 6,
+          "people": 6
+        },
+        "beforeArmy": 125,
+        "afterArmy": 125,
+        "loss": 0,
+        "beforeDeployed": 80,
+        "afterDeployed": 80,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 0,
+        "alloy": {
+          "count": 0,
+          "seconds": 0
+        },
+        "archer": {
+          "count": 0,
+          "seconds": 0
+        },
+        "paidCosts": {},
+        "beforeArmy": 125,
+        "afterArmy": 125,
+        "foodBefore": 208932.48683444553,
+        "foodAfter": 208932.48683444553,
+        "steelBefore": 19,
+        "steelAfter": 19
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 2,
+        "callbacks": 14,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 120,
+        "loss": 5,
+        "beforeDeployed": 80,
+        "afterDeployed": 75,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 120
+    },
+    {
+      "variant": "live6",
+      "seed": 7,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 2,
+        "callbacks": 13,
+        "enemies": {
+          "groups": 6,
+          "people": 6
+        },
+        "beforeArmy": 125,
+        "afterArmy": 124,
+        "loss": 1,
+        "beforeDeployed": 80,
+        "afterDeployed": 79,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 5,
+        "alloy": {
+          "count": 1,
+          "seconds": 1
+        },
+        "archer": {
+          "count": 0,
+          "seconds": 0
+        },
+        "paidCosts": {
+          "food": 1500,
+          "steel": 100
+        },
+        "beforeArmy": 124,
+        "afterArmy": 125,
+        "foodBefore": 209066.0404860564,
+        "foodAfter": 207626.3694744435,
+        "steelBefore": 19,
+        "steelAfter": 15
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 2,
+        "callbacks": 15,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 107,
+        "loss": 18,
+        "beforeDeployed": 80,
+        "afterDeployed": 62,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 107
+    },
+    {
+      "variant": "live6",
+      "seed": 8,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 1,
+        "callbacks": 10,
+        "enemies": {
+          "groups": 6,
+          "people": 6
+        },
+        "beforeArmy": 125,
+        "afterArmy": 124,
+        "loss": 1,
+        "beforeDeployed": 80,
+        "afterDeployed": 79,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 1,
+        "alloy": {
+          "count": 0,
+          "seconds": 0
+        },
+        "archer": {
+          "count": 1,
+          "seconds": 1
+        },
+        "paidCosts": {
+          "wood": 80,
+          "stone": 20,
+          "food": 30
+        },
+        "beforeArmy": 124,
+        "afterArmy": 125,
+        "foodBefore": 209031.20177637998,
+        "foodAfter": 209194.53721638,
+        "steelBefore": 19,
+        "steelAfter": 19
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 2,
+        "callbacks": 15,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 124,
+        "loss": 1,
+        "beforeDeployed": 80,
+        "afterDeployed": 79,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 124
+    },
+    {
+      "variant": "live6",
+      "seed": 9,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 1,
+        "callbacks": 10,
+        "enemies": {
+          "groups": 6,
+          "people": 6
+        },
+        "beforeArmy": 125,
+        "afterArmy": 124,
+        "loss": 1,
+        "beforeDeployed": 80,
+        "afterDeployed": 79,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 5,
+        "alloy": {
+          "count": 1,
+          "seconds": 1
+        },
+        "archer": {
+          "count": 0,
+          "seconds": 0
+        },
+        "paidCosts": {
+          "food": 1500,
+          "steel": 100
+        },
+        "beforeArmy": 124,
+        "afterArmy": 125,
+        "foodBefore": 209066.0404860564,
+        "foodAfter": 207626.3694744435,
+        "steelBefore": 19,
+        "steelAfter": 15
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 2,
+        "callbacks": 15,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 123,
+        "loss": 2,
+        "beforeDeployed": 80,
+        "afterDeployed": 78,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 123
+    },
+    {
+      "variant": "live6",
+      "seed": 10,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 1,
+        "callbacks": 11,
+        "enemies": {
+          "groups": 6,
+          "people": 6
+        },
+        "beforeArmy": 125,
+        "afterArmy": 124,
+        "loss": 1,
+        "beforeDeployed": 80,
+        "afterDeployed": 79,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 5,
+        "alloy": {
+          "count": 1,
+          "seconds": 1
+        },
+        "archer": {
+          "count": 0,
+          "seconds": 0
+        },
+        "paidCosts": {
+          "food": 1500,
+          "steel": 100
+        },
+        "beforeArmy": 124,
+        "afterArmy": 125,
+        "foodBefore": 209066.0404860564,
+        "foodAfter": 207626.3694744435,
+        "steelBefore": 19,
+        "steelAfter": 15
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 2,
+        "callbacks": 13,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 124,
+        "loss": 1,
+        "beforeDeployed": 80,
+        "afterDeployed": 79,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 124
+    },
+    {
+      "variant": "live6",
+      "seed": 11,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 2,
+        "callbacks": 14,
+        "enemies": {
+          "groups": 6,
+          "people": 6
+        },
+        "beforeArmy": 125,
+        "afterArmy": 125,
+        "loss": 0,
+        "beforeDeployed": 80,
+        "afterDeployed": 80,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 0,
+        "alloy": {
+          "count": 0,
+          "seconds": 0
+        },
+        "archer": {
+          "count": 0,
+          "seconds": 0
+        },
+        "paidCosts": {},
+        "beforeArmy": 125,
+        "afterArmy": 125,
+        "foodBefore": 208932.48683444553,
+        "foodAfter": 208932.48683444553,
+        "steelBefore": 19,
+        "steelAfter": 19
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 2,
+        "callbacks": 14,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 123,
+        "loss": 2,
+        "beforeDeployed": 80,
+        "afterDeployed": 78,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 123
+    },
+    {
+      "variant": "live6",
+      "seed": 12,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 2,
+        "callbacks": 14,
+        "enemies": {
+          "groups": 6,
+          "people": 6
+        },
+        "beforeArmy": 125,
+        "afterArmy": 124,
+        "loss": 1,
+        "beforeDeployed": 80,
+        "afterDeployed": 79,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 1,
+        "alloy": {
+          "count": 0,
+          "seconds": 0
+        },
+        "archer": {
+          "count": 1,
+          "seconds": 1
+        },
+        "paidCosts": {
+          "wood": 80,
+          "stone": 20,
+          "food": 30
+        },
+        "beforeArmy": 124,
+        "afterArmy": 125,
+        "foodBefore": 209031.20177637998,
+        "foodAfter": 209194.53721638,
+        "steelBefore": 19,
+        "steelAfter": 19
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 2,
+        "callbacks": 17,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 122,
+        "loss": 3,
+        "beforeDeployed": 80,
+        "afterDeployed": 77,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 122
+    },
+    {
+      "variant": "live6",
+      "seed": 13,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 1,
+        "callbacks": 10,
+        "enemies": {
+          "groups": 6,
+          "people": 6
+        },
+        "beforeArmy": 125,
+        "afterArmy": 124,
+        "loss": 1,
+        "beforeDeployed": 80,
+        "afterDeployed": 79,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 5,
+        "alloy": {
+          "count": 1,
+          "seconds": 1
+        },
+        "archer": {
+          "count": 0,
+          "seconds": 0
+        },
+        "paidCosts": {
+          "food": 1500,
+          "steel": 100
+        },
+        "beforeArmy": 124,
+        "afterArmy": 125,
+        "foodBefore": 209066.0404860564,
+        "foodAfter": 207626.3694744435,
+        "steelBefore": 19,
+        "steelAfter": 15
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 1,
+        "callbacks": 9,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 124,
+        "loss": 1,
+        "beforeDeployed": 80,
+        "afterDeployed": 79,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 124
+    },
+    {
+      "variant": "live6",
+      "seed": 14,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 2,
+        "callbacks": 14,
+        "enemies": {
+          "groups": 6,
+          "people": 6
+        },
+        "beforeArmy": 125,
+        "afterArmy": 120,
+        "loss": 5,
+        "beforeDeployed": 80,
+        "afterDeployed": 75,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 7,
+        "alloy": {
+          "count": 1,
+          "seconds": 1
+        },
+        "archer": {
+          "count": 4,
+          "seconds": 2
+        },
+        "paidCosts": {
+          "food": 1620,
+          "steel": 100,
+          "wood": 320,
+          "stone": 80
+        },
+        "beforeArmy": 120,
+        "afterArmy": 125,
+        "foodBefore": 209207.07403444432,
+        "foodAfter": 208041.59454627128,
+        "steelBefore": 19,
+        "steelAfter": 15
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 2,
+        "callbacks": 14,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 120,
+        "loss": 5,
+        "beforeDeployed": 80,
+        "afterDeployed": 75,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 120
+    },
+    {
+      "variant": "live6",
+      "seed": 15,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 2,
+        "callbacks": 14,
+        "enemies": {
+          "groups": 6,
+          "people": 6
+        },
+        "beforeArmy": 125,
+        "afterArmy": 125,
+        "loss": 0,
+        "beforeDeployed": 80,
+        "afterDeployed": 80,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 0,
+        "alloy": {
+          "count": 0,
+          "seconds": 0
+        },
+        "archer": {
+          "count": 0,
+          "seconds": 0
+        },
+        "paidCosts": {},
+        "beforeArmy": 125,
+        "afterArmy": 125,
+        "foodBefore": 208932.48683444553,
+        "foodAfter": 208932.48683444553,
+        "steelBefore": 19,
+        "steelAfter": 19
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 2,
+        "callbacks": 16,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 110,
+        "loss": 15,
+        "beforeDeployed": 80,
+        "afterDeployed": 65,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 110
+    },
+    {
+      "variant": "live6",
+      "seed": 16,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 1,
+        "callbacks": 10,
+        "enemies": {
+          "groups": 6,
+          "people": 6
+        },
+        "beforeArmy": 125,
+        "afterArmy": 125,
+        "loss": 0,
+        "beforeDeployed": 80,
+        "afterDeployed": 80,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 0,
+        "alloy": {
+          "count": 0,
+          "seconds": 0
+        },
+        "archer": {
+          "count": 0,
+          "seconds": 0
+        },
+        "paidCosts": {},
+        "beforeArmy": 125,
+        "afterArmy": 125,
+        "foodBefore": 208932.48683444553,
+        "foodAfter": 208932.48683444553,
+        "steelBefore": 19,
+        "steelAfter": 19
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 1,
+        "callbacks": 10,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 125,
+        "loss": 0,
+        "beforeDeployed": 80,
+        "afterDeployed": 80,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 125
+    },
+    {
+      "variant": "live6",
+      "seed": 17,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 1,
+        "callbacks": 10,
+        "enemies": {
+          "groups": 6,
+          "people": 6
+        },
+        "beforeArmy": 125,
+        "afterArmy": 125,
+        "loss": 0,
+        "beforeDeployed": 80,
+        "afterDeployed": 80,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 0,
+        "alloy": {
+          "count": 0,
+          "seconds": 0
+        },
+        "archer": {
+          "count": 0,
+          "seconds": 0
+        },
+        "paidCosts": {},
+        "beforeArmy": 125,
+        "afterArmy": 125,
+        "foodBefore": 208932.48683444553,
+        "foodAfter": 208932.48683444553,
+        "steelBefore": 19,
+        "steelAfter": 19
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 3,
+        "callbacks": 24,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 122,
+        "loss": 3,
+        "beforeDeployed": 80,
+        "afterDeployed": 77,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 122
+    },
+    {
+      "variant": "live6",
+      "seed": 18,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 1,
+        "callbacks": 10,
+        "enemies": {
+          "groups": 6,
+          "people": 6
+        },
+        "beforeArmy": 125,
+        "afterArmy": 125,
+        "loss": 0,
+        "beforeDeployed": 80,
+        "afterDeployed": 80,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 0,
+        "alloy": {
+          "count": 0,
+          "seconds": 0
+        },
+        "archer": {
+          "count": 0,
+          "seconds": 0
+        },
+        "paidCosts": {},
+        "beforeArmy": 125,
+        "afterArmy": 125,
+        "foodBefore": 208932.48683444553,
+        "foodAfter": 208932.48683444553,
+        "steelBefore": 19,
+        "steelAfter": 19
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 3,
+        "callbacks": 21,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 114,
+        "loss": 11,
+        "beforeDeployed": 80,
+        "afterDeployed": 69,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 114
+    },
+    {
+      "variant": "live6",
+      "seed": 19,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 1,
+        "callbacks": 10,
+        "enemies": {
+          "groups": 6,
+          "people": 6
+        },
+        "beforeArmy": 125,
+        "afterArmy": 125,
+        "loss": 0,
+        "beforeDeployed": 80,
+        "afterDeployed": 80,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 0,
+        "alloy": {
+          "count": 0,
+          "seconds": 0
+        },
+        "archer": {
+          "count": 0,
+          "seconds": 0
+        },
+        "paidCosts": {},
+        "beforeArmy": 125,
+        "afterArmy": 125,
+        "foodBefore": 208932.48683444553,
+        "foodAfter": 208932.48683444553,
+        "steelBefore": 19,
+        "steelAfter": 19
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 3,
+        "callbacks": 22,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 116,
+        "loss": 9,
+        "beforeDeployed": 80,
+        "afterDeployed": 71,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 116
+    },
+    {
+      "variant": "live6",
+      "seed": 20,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 2,
+        "callbacks": 14,
+        "enemies": {
+          "groups": 6,
+          "people": 6
+        },
+        "beforeArmy": 125,
+        "afterArmy": 124,
+        "loss": 1,
+        "beforeDeployed": 80,
+        "afterDeployed": 79,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 1,
+        "alloy": {
+          "count": 0,
+          "seconds": 0
+        },
+        "archer": {
+          "count": 1,
+          "seconds": 1
+        },
+        "paidCosts": {
+          "wood": 80,
+          "stone": 20,
+          "food": 30
+        },
+        "beforeArmy": 124,
+        "afterArmy": 125,
+        "foodBefore": 209031.20177637998,
+        "foodAfter": 209194.53721638,
+        "steelBefore": 19,
+        "steelAfter": 19
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 2,
+        "callbacks": 13,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 123,
+        "loss": 2,
+        "beforeDeployed": 80,
+        "afterDeployed": 78,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 123
+    },
+    {
+      "variant": "live6",
+      "seed": 21,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 2,
+        "callbacks": 12,
+        "enemies": {
+          "groups": 6,
+          "people": 6
+        },
+        "beforeArmy": 125,
+        "afterArmy": 123,
+        "loss": 2,
+        "beforeDeployed": 80,
+        "afterDeployed": 78,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 1,
+        "alloy": {
+          "count": 0,
+          "seconds": 0
+        },
+        "archer": {
+          "count": 2,
+          "seconds": 1
+        },
+        "paidCosts": {
+          "wood": 160,
+          "stone": 40,
+          "food": 60
+        },
+        "beforeArmy": 123,
+        "afterArmy": 125,
+        "foodBefore": 209066.29257102942,
+        "foodAfter": 209199.62801102945,
+        "steelBefore": 19,
+        "steelAfter": 19
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 1,
+        "callbacks": 10,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 125,
+        "loss": 0,
+        "beforeDeployed": 80,
+        "afterDeployed": 80,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 125
+    },
+    {
+      "variant": "live6",
+      "seed": 22,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 2,
+        "callbacks": 16,
+        "enemies": {
+          "groups": 6,
+          "people": 6
+        },
+        "beforeArmy": 125,
+        "afterArmy": 123,
+        "loss": 2,
+        "beforeDeployed": 80,
+        "afterDeployed": 78,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 9,
+        "alloy": {
+          "count": 2,
+          "seconds": 1
+        },
+        "archer": {
+          "count": 0,
+          "seconds": 0
+        },
+        "paidCosts": {
+          "food": 3000,
+          "steel": 200
+        },
+        "beforeArmy": 123,
+        "afterArmy": 125,
+        "foodBefore": 209135.75598566307,
+        "foodAfter": 206067.72622241103,
+        "steelBefore": 19,
+        "steelAfter": 11
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 2,
+        "callbacks": 18,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 118,
+        "loss": 7,
+        "beforeDeployed": 80,
+        "afterDeployed": 73,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 118
+    },
+    {
+      "variant": "live6",
+      "seed": 23,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 2,
+        "callbacks": 14,
+        "enemies": {
+          "groups": 6,
+          "people": 6
+        },
+        "beforeArmy": 125,
+        "afterArmy": 123,
+        "loss": 2,
+        "beforeDeployed": 80,
+        "afterDeployed": 78,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 6,
+        "alloy": {
+          "count": 1,
+          "seconds": 1
+        },
+        "archer": {
+          "count": 1,
+          "seconds": 1
+        },
+        "paidCosts": {
+          "food": 1530,
+          "steel": 100,
+          "wood": 80,
+          "stone": 20
+        },
+        "beforeArmy": 123,
+        "afterArmy": 125,
+        "foodBefore": 209101.02427834625,
+        "foodAfter": 207826.67745765916,
+        "steelBefore": 19,
+        "steelAfter": 15
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 2,
+        "callbacks": 15,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 123,
+        "loss": 2,
+        "beforeDeployed": 80,
+        "afterDeployed": 78,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 123
+    },
+    {
+      "variant": "live6",
+      "seed": 24,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 2,
+        "callbacks": 14,
+        "enemies": {
+          "groups": 6,
+          "people": 6
+        },
+        "beforeArmy": 125,
+        "afterArmy": 124,
+        "loss": 1,
+        "beforeDeployed": 80,
+        "afterDeployed": 79,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 1,
+        "alloy": {
+          "count": 0,
+          "seconds": 0
+        },
+        "archer": {
+          "count": 1,
+          "seconds": 1
+        },
+        "paidCosts": {
+          "wood": 80,
+          "stone": 20,
+          "food": 30
+        },
+        "beforeArmy": 124,
+        "afterArmy": 125,
+        "foodBefore": 209031.20177637998,
+        "foodAfter": 209194.53721638,
+        "steelBefore": 19,
+        "steelAfter": 19
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 3,
+        "callbacks": 21,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 114,
+        "loss": 11,
+        "beforeDeployed": 80,
+        "afterDeployed": 69,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 114
+    },
+    {
+      "variant": "live6",
+      "seed": 25,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 1,
+        "callbacks": 10,
+        "enemies": {
+          "groups": 6,
+          "people": 6
+        },
+        "beforeArmy": 125,
+        "afterArmy": 124,
+        "loss": 1,
+        "beforeDeployed": 80,
+        "afterDeployed": 79,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 1,
+        "alloy": {
+          "count": 0,
+          "seconds": 0
+        },
+        "archer": {
+          "count": 1,
+          "seconds": 1
+        },
+        "paidCosts": {
+          "wood": 80,
+          "stone": 20,
+          "food": 30
+        },
+        "beforeArmy": 124,
+        "afterArmy": 125,
+        "foodBefore": 209031.20177637998,
+        "foodAfter": 209194.53721638,
+        "steelBefore": 19,
+        "steelAfter": 19
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 2,
+        "callbacks": 13,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 122,
+        "loss": 3,
+        "beforeDeployed": 80,
+        "afterDeployed": 77,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 122
+    },
+    {
+      "variant": "live6",
+      "seed": 26,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 2,
+        "callbacks": 13,
+        "enemies": {
+          "groups": 6,
+          "people": 6
+        },
+        "beforeArmy": 125,
+        "afterArmy": 123,
+        "loss": 2,
+        "beforeDeployed": 80,
+        "afterDeployed": 78,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 1,
+        "alloy": {
+          "count": 0,
+          "seconds": 0
+        },
+        "archer": {
+          "count": 2,
+          "seconds": 1
+        },
+        "paidCosts": {
+          "wood": 160,
+          "stone": 40,
+          "food": 60
+        },
+        "beforeArmy": 123,
+        "afterArmy": 125,
+        "foodBefore": 209066.29257102942,
+        "foodAfter": 209199.62801102945,
+        "steelBefore": 19,
+        "steelAfter": 19
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 1,
+        "callbacks": 10,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 124,
+        "loss": 1,
+        "beforeDeployed": 80,
+        "afterDeployed": 79,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 124
+    },
+    {
+      "variant": "live6",
+      "seed": 27,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 2,
+        "callbacks": 13,
+        "enemies": {
+          "groups": 6,
+          "people": 6
+        },
+        "beforeArmy": 125,
+        "afterArmy": 120,
+        "loss": 5,
+        "beforeDeployed": 80,
+        "afterDeployed": 75,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 3,
+        "alloy": {
+          "count": 0,
+          "seconds": 0
+        },
+        "archer": {
+          "count": 5,
+          "seconds": 3
+        },
+        "paidCosts": {
+          "wood": 400,
+          "stone": 100,
+          "food": 150
+        },
+        "beforeArmy": 120,
+        "afterArmy": 125,
+        "foodBefore": 209172.67403444255,
+        "foodAfter": 209604.91196518825,
+        "steelBefore": 19,
+        "steelAfter": 19
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 3,
+        "callbacks": 25,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 121,
+        "loss": 4,
+        "beforeDeployed": 80,
+        "afterDeployed": 76,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 121
+    },
+    {
+      "variant": "live6",
+      "seed": 28,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 2,
+        "callbacks": 14,
+        "enemies": {
+          "groups": 6,
+          "people": 6
+        },
+        "beforeArmy": 125,
+        "afterArmy": 120,
+        "loss": 5,
+        "beforeDeployed": 80,
+        "afterDeployed": 75,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 7,
+        "alloy": {
+          "count": 1,
+          "seconds": 1
+        },
+        "archer": {
+          "count": 4,
+          "seconds": 2
+        },
+        "paidCosts": {
+          "food": 1620,
+          "steel": 100,
+          "wood": 320,
+          "stone": 80
+        },
+        "beforeArmy": 120,
+        "afterArmy": 125,
+        "foodBefore": 209207.07403444432,
+        "foodAfter": 208041.59454627128,
+        "steelBefore": 19,
+        "steelAfter": 15
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 2,
+        "callbacks": 13,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 124,
+        "loss": 1,
+        "beforeDeployed": 80,
+        "afterDeployed": 79,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 124
+    },
+    {
+      "variant": "live6",
+      "seed": 29,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 1,
+        "callbacks": 9,
+        "enemies": {
+          "groups": 6,
+          "people": 6
+        },
+        "beforeArmy": 125,
+        "afterArmy": 125,
+        "loss": 0,
+        "beforeDeployed": 80,
+        "afterDeployed": 80,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 0,
+        "alloy": {
+          "count": 0,
+          "seconds": 0
+        },
+        "archer": {
+          "count": 0,
+          "seconds": 0
+        },
+        "paidCosts": {},
+        "beforeArmy": 125,
+        "afterArmy": 125,
+        "foodBefore": 208932.48683444553,
+        "foodAfter": 208932.48683444553,
+        "steelBefore": 19,
+        "steelAfter": 19
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 1,
+        "callbacks": 10,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 121,
+        "loss": 4,
+        "beforeDeployed": 80,
+        "afterDeployed": 76,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 121
+    },
+    {
+      "variant": "live6",
+      "seed": 30,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 1,
+        "callbacks": 10,
+        "enemies": {
+          "groups": 6,
+          "people": 6
+        },
+        "beforeArmy": 125,
+        "afterArmy": 125,
+        "loss": 0,
+        "beforeDeployed": 80,
+        "afterDeployed": 80,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 0,
+        "alloy": {
+          "count": 0,
+          "seconds": 0
+        },
+        "archer": {
+          "count": 0,
+          "seconds": 0
+        },
+        "paidCosts": {},
+        "beforeArmy": 125,
+        "afterArmy": 125,
+        "foodBefore": 208932.48683444553,
+        "foodAfter": 208932.48683444553,
+        "steelBefore": 19,
+        "steelAfter": 19
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 2,
+        "callbacks": 15,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 124,
+        "loss": 1,
+        "beforeDeployed": 80,
+        "afterDeployed": 79,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 124
+    },
+    {
+      "variant": "live6",
+      "seed": 31,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 2,
+        "callbacks": 16,
+        "enemies": {
+          "groups": 6,
+          "people": 6
+        },
+        "beforeArmy": 125,
+        "afterArmy": 124,
+        "loss": 1,
+        "beforeDeployed": 80,
+        "afterDeployed": 79,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 5,
+        "alloy": {
+          "count": 1,
+          "seconds": 1
+        },
+        "archer": {
+          "count": 0,
+          "seconds": 0
+        },
+        "paidCosts": {
+          "food": 1500,
+          "steel": 100
+        },
+        "beforeArmy": 124,
+        "afterArmy": 125,
+        "foodBefore": 209066.0404860564,
+        "foodAfter": 207626.3694744435,
+        "steelBefore": 19,
+        "steelAfter": 15
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 3,
+        "callbacks": 24,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 123,
+        "loss": 2,
+        "beforeDeployed": 80,
+        "afterDeployed": 78,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 123
+    },
+    {
+      "variant": "live6",
+      "seed": 32,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 2,
+        "callbacks": 13,
+        "enemies": {
+          "groups": 6,
+          "people": 6
+        },
+        "beforeArmy": 125,
+        "afterArmy": 122,
+        "loss": 3,
+        "beforeDeployed": 80,
+        "afterDeployed": 77,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 2,
+        "alloy": {
+          "count": 0,
+          "seconds": 0
+        },
+        "archer": {
+          "count": 3,
+          "seconds": 2
+        },
+        "paidCosts": {
+          "wood": 240,
+          "stone": 60,
+          "food": 90
+        },
+        "beforeArmy": 122,
+        "afterArmy": 125,
+        "foodBefore": 209101.56518198646,
+        "foodAfter": 209399.05868650263,
+        "steelBefore": 19,
+        "steelAfter": 19
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 2,
+        "callbacks": 16,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 123,
+        "loss": 2,
+        "beforeDeployed": 80,
+        "afterDeployed": 78,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 123
+    },
+    {
+      "variant": "candidate48",
+      "seed": 1,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 2,
+        "callbacks": 15,
+        "enemies": {
+          "groups": 6,
+          "people": 48
+        },
+        "beforeArmy": 125,
+        "afterArmy": 124,
+        "loss": 1,
+        "beforeDeployed": 80,
+        "afterDeployed": 79,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 5,
+        "alloy": {
+          "count": 1,
+          "seconds": 1
+        },
+        "archer": {
+          "count": 0,
+          "seconds": 0
+        },
+        "paidCosts": {
+          "food": 1500,
+          "steel": 100
+        },
+        "beforeArmy": 124,
+        "afterArmy": 125,
+        "foodBefore": 209066.0404860564,
+        "foodAfter": 207626.3694744435,
+        "steelBefore": 19,
+        "steelAfter": 15
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 2,
+        "callbacks": 17,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 110,
+        "loss": 15,
+        "beforeDeployed": 80,
+        "afterDeployed": 65,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 110
+    },
+    {
+      "variant": "candidate48",
+      "seed": 2,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 2,
+        "callbacks": 16,
+        "enemies": {
+          "groups": 6,
+          "people": 48
+        },
+        "beforeArmy": 125,
+        "afterArmy": 119,
+        "loss": 6,
+        "beforeDeployed": 80,
+        "afterDeployed": 74,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 3,
+        "alloy": {
+          "count": 0,
+          "seconds": 0
+        },
+        "archer": {
+          "count": 6,
+          "seconds": 3
+        },
+        "paidCosts": {
+          "wood": 480,
+          "stone": 120,
+          "food": 180
+        },
+        "beforeArmy": 119,
+        "afterArmy": 125,
+        "foodBefore": 209208.51974872852,
+        "foodAfter": 209611.3455938888,
+        "steelBefore": 19,
+        "steelAfter": 19
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 3,
+        "callbacks": 20,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 119,
+        "loss": 6,
+        "beforeDeployed": 80,
+        "afterDeployed": 74,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 119
+    },
+    {
+      "variant": "candidate48",
+      "seed": 3,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 2,
+        "callbacks": 17,
+        "enemies": {
+          "groups": 6,
+          "people": 48
+        },
+        "beforeArmy": 125,
+        "afterArmy": 123,
+        "loss": 2,
+        "beforeDeployed": 80,
+        "afterDeployed": 78,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 9,
+        "alloy": {
+          "count": 2,
+          "seconds": 1
+        },
+        "archer": {
+          "count": 0,
+          "seconds": 0
+        },
+        "paidCosts": {
+          "food": 3000,
+          "steel": 200
+        },
+        "beforeArmy": 123,
+        "afterArmy": 125,
+        "foodBefore": 209135.75598566307,
+        "foodAfter": 206067.72622241103,
+        "steelBefore": 19,
+        "steelAfter": 11
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 2,
+        "callbacks": 17,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 124,
+        "loss": 1,
+        "beforeDeployed": 80,
+        "afterDeployed": 79,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 124
+    },
+    {
+      "variant": "candidate48",
+      "seed": 4,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 2,
+        "callbacks": 14,
+        "enemies": {
+          "groups": 6,
+          "people": 48
+        },
+        "beforeArmy": 125,
+        "afterArmy": 114,
+        "loss": 11,
+        "beforeDeployed": 80,
+        "afterDeployed": 69,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 10,
+        "alloy": {
+          "count": 1,
+          "seconds": 1
+        },
+        "archer": {
+          "count": 10,
+          "seconds": 5
+        },
+        "paidCosts": {
+          "food": 1800,
+          "steel": 100,
+          "wood": 800,
+          "stone": 200
+        },
+        "beforeArmy": 114,
+        "afterArmy": 125,
+        "foodBefore": 209424.5498239177,
+        "foodAfter": 208675.04118727148,
+        "steelBefore": 19,
+        "steelAfter": 15
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 2,
+        "callbacks": 18,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 117,
+        "loss": 8,
+        "beforeDeployed": 80,
+        "afterDeployed": 72,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 117
+    },
+    {
+      "variant": "candidate48",
+      "seed": 5,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 2,
+        "callbacks": 18,
+        "enemies": {
+          "groups": 6,
+          "people": 48
+        },
+        "beforeArmy": 125,
+        "afterArmy": 117,
+        "loss": 8,
+        "beforeDeployed": 80,
+        "afterDeployed": 72,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 4,
+        "alloy": {
+          "count": 0,
+          "seconds": 0
+        },
+        "archer": {
+          "count": 8,
+          "seconds": 4
+        },
+        "paidCosts": {
+          "wood": 640,
+          "stone": 160,
+          "food": 240
+        },
+        "beforeArmy": 117,
+        "afterArmy": 125,
+        "foodBefore": 209280.81864982707,
+        "foodAfter": 209819.28020927307,
+        "steelBefore": 19,
+        "steelAfter": 19
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 2,
+        "callbacks": 13,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 125,
+        "loss": 0,
+        "beforeDeployed": 80,
+        "afterDeployed": 80,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 125
+    },
+    {
+      "variant": "candidate48",
+      "seed": 6,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 1,
+        "callbacks": 10,
+        "enemies": {
+          "groups": 6,
+          "people": 48
+        },
+        "beforeArmy": 125,
+        "afterArmy": 124,
+        "loss": 1,
+        "beforeDeployed": 80,
+        "afterDeployed": 79,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 5,
+        "alloy": {
+          "count": 1,
+          "seconds": 1
+        },
+        "archer": {
+          "count": 0,
+          "seconds": 0
+        },
+        "paidCosts": {
+          "food": 1500,
+          "steel": 100
+        },
+        "beforeArmy": 124,
+        "afterArmy": 125,
+        "foodBefore": 209066.0404860564,
+        "foodAfter": 207626.3694744435,
+        "steelBefore": 19,
+        "steelAfter": 15
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 2,
+        "callbacks": 14,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 120,
+        "loss": 5,
+        "beforeDeployed": 80,
+        "afterDeployed": 75,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 120
+    },
+    {
+      "variant": "candidate48",
+      "seed": 7,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 3,
+        "callbacks": 22,
+        "enemies": {
+          "groups": 6,
+          "people": 48
+        },
+        "beforeArmy": 125,
+        "afterArmy": 122,
+        "loss": 3,
+        "beforeDeployed": 80,
+        "afterDeployed": 77,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 14,
+        "alloy": {
+          "count": 3,
+          "seconds": 2
+        },
+        "archer": {
+          "count": 0,
+          "seconds": 0
+        },
+        "paidCosts": {
+          "food": 4500,
+          "steel": 300
+        },
+        "beforeArmy": 122,
+        "afterArmy": 125,
+        "foodBefore": 209205.43403444442,
+        "foodAfter": 204708.13786154127,
+        "steelBefore": 19,
+        "steelAfter": 7
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 2,
+        "callbacks": 14,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 123,
+        "loss": 2,
+        "beforeDeployed": 80,
+        "afterDeployed": 78,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 123
+    },
+    {
+      "variant": "candidate48",
+      "seed": 8,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 2,
+        "callbacks": 13,
+        "enemies": {
+          "groups": 6,
+          "people": 48
+        },
+        "beforeArmy": 125,
+        "afterArmy": 121,
+        "loss": 4,
+        "beforeDeployed": 80,
+        "afterDeployed": 76,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 7,
+        "alloy": {
+          "count": 1,
+          "seconds": 1
+        },
+        "archer": {
+          "count": 3,
+          "seconds": 2
+        },
+        "paidCosts": {
+          "food": 1590,
+          "steel": 100,
+          "wood": 240,
+          "stone": 60
+        },
+        "beforeArmy": 121,
+        "afterArmy": 125,
+        "foodBefore": 209171.5365137833,
+        "foodAfter": 208034.28452717364,
+        "steelBefore": 19,
+        "steelAfter": 15
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 2,
+        "callbacks": 16,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 119,
+        "loss": 6,
+        "beforeDeployed": 80,
+        "afterDeployed": 74,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 119
+    },
+    {
+      "variant": "candidate48",
+      "seed": 9,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 1,
+        "callbacks": 10,
+        "enemies": {
+          "groups": 6,
+          "people": 48
+        },
+        "beforeArmy": 125,
+        "afterArmy": 124,
+        "loss": 1,
+        "beforeDeployed": 80,
+        "afterDeployed": 79,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 5,
+        "alloy": {
+          "count": 1,
+          "seconds": 1
+        },
+        "archer": {
+          "count": 0,
+          "seconds": 0
+        },
+        "paidCosts": {
+          "food": 1500,
+          "steel": 100
+        },
+        "beforeArmy": 124,
+        "afterArmy": 125,
+        "foodBefore": 209066.0404860564,
+        "foodAfter": 207626.3694744435,
+        "steelBefore": 19,
+        "steelAfter": 15
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 2,
+        "callbacks": 15,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 123,
+        "loss": 2,
+        "beforeDeployed": 80,
+        "afterDeployed": 78,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 123
+    },
+    {
+      "variant": "candidate48",
+      "seed": 10,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 1,
+        "callbacks": 11,
+        "enemies": {
+          "groups": 6,
+          "people": 48
+        },
+        "beforeArmy": 125,
+        "afterArmy": 124,
+        "loss": 1,
+        "beforeDeployed": 80,
+        "afterDeployed": 79,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 5,
+        "alloy": {
+          "count": 1,
+          "seconds": 1
+        },
+        "archer": {
+          "count": 0,
+          "seconds": 0
+        },
+        "paidCosts": {
+          "food": 1500,
+          "steel": 100
+        },
+        "beforeArmy": 124,
+        "afterArmy": 125,
+        "foodBefore": 209066.0404860564,
+        "foodAfter": 207626.3694744435,
+        "steelBefore": 19,
+        "steelAfter": 15
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 2,
+        "callbacks": 13,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 124,
+        "loss": 1,
+        "beforeDeployed": 80,
+        "afterDeployed": 79,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 124
+    },
+    {
+      "variant": "candidate48",
+      "seed": 11,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 2,
+        "callbacks": 14,
+        "enemies": {
+          "groups": 6,
+          "people": 48
+        },
+        "beforeArmy": 125,
+        "afterArmy": 124,
+        "loss": 1,
+        "beforeDeployed": 80,
+        "afterDeployed": 79,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 5,
+        "alloy": {
+          "count": 1,
+          "seconds": 1
+        },
+        "archer": {
+          "count": 0,
+          "seconds": 0
+        },
+        "paidCosts": {
+          "food": 1500,
+          "steel": 100
+        },
+        "beforeArmy": 124,
+        "afterArmy": 125,
+        "foodBefore": 209066.0404860564,
+        "foodAfter": 207626.3694744435,
+        "steelBefore": 19,
+        "steelAfter": 15
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 2,
+        "callbacks": 14,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 123,
+        "loss": 2,
+        "beforeDeployed": 80,
+        "afterDeployed": 78,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 123
+    },
+    {
+      "variant": "candidate48",
+      "seed": 12,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 2,
+        "callbacks": 14,
+        "enemies": {
+          "groups": 6,
+          "people": 48
+        },
+        "beforeArmy": 125,
+        "afterArmy": 121,
+        "loss": 4,
+        "beforeDeployed": 80,
+        "afterDeployed": 76,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 2,
+        "alloy": {
+          "count": 0,
+          "seconds": 0
+        },
+        "archer": {
+          "count": 4,
+          "seconds": 2
+        },
+        "paidCosts": {
+          "wood": 320,
+          "stone": 80,
+          "food": 120
+        },
+        "beforeArmy": 121,
+        "afterArmy": 125,
+        "foodBefore": 209137.0241170875,
+        "foodAfter": 209404.81004489242,
+        "steelBefore": 19,
+        "steelAfter": 19
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 2,
+        "callbacks": 17,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 122,
+        "loss": 3,
+        "beforeDeployed": 80,
+        "afterDeployed": 77,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 122
+    },
+    {
+      "variant": "candidate48",
+      "seed": 13,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 2,
+        "callbacks": 13,
+        "enemies": {
+          "groups": 6,
+          "people": 48
+        },
+        "beforeArmy": 125,
+        "afterArmy": 121,
+        "loss": 4,
+        "beforeDeployed": 80,
+        "afterDeployed": 76,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 7,
+        "alloy": {
+          "count": 1,
+          "seconds": 1
+        },
+        "archer": {
+          "count": 3,
+          "seconds": 2
+        },
+        "paidCosts": {
+          "food": 1590,
+          "steel": 100,
+          "wood": 240,
+          "stone": 60
+        },
+        "beforeArmy": 121,
+        "afterArmy": 125,
+        "foodBefore": 209171.5365137833,
+        "foodAfter": 208034.28452717364,
+        "steelBefore": 19,
+        "steelAfter": 15
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 2,
+        "callbacks": 18,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 116,
+        "loss": 9,
+        "beforeDeployed": 80,
+        "afterDeployed": 71,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 116
+    },
+    {
+      "variant": "candidate48",
+      "seed": 14,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 2,
+        "callbacks": 14,
+        "enemies": {
+          "groups": 6,
+          "people": 48
+        },
+        "beforeArmy": 125,
+        "afterArmy": 114,
+        "loss": 11,
+        "beforeDeployed": 80,
+        "afterDeployed": 69,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 10,
+        "alloy": {
+          "count": 1,
+          "seconds": 1
+        },
+        "archer": {
+          "count": 10,
+          "seconds": 5
+        },
+        "paidCosts": {
+          "food": 1800,
+          "steel": 100,
+          "wood": 800,
+          "stone": 200
+        },
+        "beforeArmy": 114,
+        "afterArmy": 125,
+        "foodBefore": 209424.5498239177,
+        "foodAfter": 208675.04118727148,
+        "steelBefore": 19,
+        "steelAfter": 15
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 2,
+        "callbacks": 14,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 120,
+        "loss": 5,
+        "beforeDeployed": 80,
+        "afterDeployed": 75,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 120
+    },
+    {
+      "variant": "candidate48",
+      "seed": 15,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 2,
+        "callbacks": 14,
+        "enemies": {
+          "groups": 6,
+          "people": 48
+        },
+        "beforeArmy": 125,
+        "afterArmy": 125,
+        "loss": 0,
+        "beforeDeployed": 80,
+        "afterDeployed": 80,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 0,
+        "alloy": {
+          "count": 0,
+          "seconds": 0
+        },
+        "archer": {
+          "count": 0,
+          "seconds": 0
+        },
+        "paidCosts": {},
+        "beforeArmy": 125,
+        "afterArmy": 125,
+        "foodBefore": 208932.48683444553,
+        "foodAfter": 208932.48683444553,
+        "steelBefore": 19,
+        "steelAfter": 19
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 2,
+        "callbacks": 16,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 110,
+        "loss": 15,
+        "beforeDeployed": 80,
+        "afterDeployed": 65,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 110
+    },
+    {
+      "variant": "candidate48",
+      "seed": 16,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 2,
+        "callbacks": 13,
+        "enemies": {
+          "groups": 6,
+          "people": 48
+        },
+        "beforeArmy": 125,
+        "afterArmy": 118,
+        "loss": 7,
+        "beforeDeployed": 80,
+        "afterDeployed": 73,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 4,
+        "alloy": {
+          "count": 0,
+          "seconds": 0
+        },
+        "archer": {
+          "count": 7,
+          "seconds": 4
+        },
+        "paidCosts": {
+          "wood": 560,
+          "stone": 140,
+          "food": 210
+        },
+        "beforeArmy": 118,
+        "afterArmy": 125,
+        "foodBefore": 209244.56623783548,
+        "foodAfter": 209812.14116858118,
+        "steelBefore": 19,
+        "steelAfter": 19
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 3,
+        "callbacks": 22,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 117,
+        "loss": 8,
+        "beforeDeployed": 80,
+        "afterDeployed": 72,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 117
+    },
+    {
+      "variant": "candidate48",
+      "seed": 17,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 1,
+        "callbacks": 10,
+        "enemies": {
+          "groups": 6,
+          "people": 48
+        },
+        "beforeArmy": 125,
+        "afterArmy": 125,
+        "loss": 0,
+        "beforeDeployed": 80,
+        "afterDeployed": 80,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 0,
+        "alloy": {
+          "count": 0,
+          "seconds": 0
+        },
+        "archer": {
+          "count": 0,
+          "seconds": 0
+        },
+        "paidCosts": {},
+        "beforeArmy": 125,
+        "afterArmy": 125,
+        "foodBefore": 208932.48683444553,
+        "foodAfter": 208932.48683444553,
+        "steelBefore": 19,
+        "steelAfter": 19
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 3,
+        "callbacks": 24,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 122,
+        "loss": 3,
+        "beforeDeployed": 80,
+        "afterDeployed": 77,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 122
+    },
+    {
+      "variant": "candidate48",
+      "seed": 18,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 2,
+        "callbacks": 18,
+        "enemies": {
+          "groups": 6,
+          "people": 48
+        },
+        "beforeArmy": 125,
+        "afterArmy": 123,
+        "loss": 2,
+        "beforeDeployed": 80,
+        "afterDeployed": 78,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 9,
+        "alloy": {
+          "count": 2,
+          "seconds": 1
+        },
+        "archer": {
+          "count": 0,
+          "seconds": 0
+        },
+        "paidCosts": {
+          "food": 3000,
+          "steel": 200
+        },
+        "beforeArmy": 123,
+        "afterArmy": 125,
+        "foodBefore": 209135.75598566307,
+        "foodAfter": 206067.72622241103,
+        "steelBefore": 19,
+        "steelAfter": 11
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 3,
+        "callbacks": 25,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 112,
+        "loss": 13,
+        "beforeDeployed": 80,
+        "afterDeployed": 67,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 112
+    },
+    {
+      "variant": "candidate48",
+      "seed": 19,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 1,
+        "callbacks": 10,
+        "enemies": {
+          "groups": 6,
+          "people": 48
+        },
+        "beforeArmy": 125,
+        "afterArmy": 125,
+        "loss": 0,
+        "beforeDeployed": 80,
+        "afterDeployed": 80,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 0,
+        "alloy": {
+          "count": 0,
+          "seconds": 0
+        },
+        "archer": {
+          "count": 0,
+          "seconds": 0
+        },
+        "paidCosts": {},
+        "beforeArmy": 125,
+        "afterArmy": 125,
+        "foodBefore": 208932.48683444553,
+        "foodAfter": 208932.48683444553,
+        "steelBefore": 19,
+        "steelAfter": 19
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 3,
+        "callbacks": 22,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 116,
+        "loss": 9,
+        "beforeDeployed": 80,
+        "afterDeployed": 71,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 116
+    },
+    {
+      "variant": "candidate48",
+      "seed": 20,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 2,
+        "callbacks": 16,
+        "enemies": {
+          "groups": 6,
+          "people": 48
+        },
+        "beforeArmy": 125,
+        "afterArmy": 120,
+        "loss": 5,
+        "beforeDeployed": 80,
+        "afterDeployed": 75,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 3,
+        "alloy": {
+          "count": 0,
+          "seconds": 0
+        },
+        "archer": {
+          "count": 5,
+          "seconds": 3
+        },
+        "paidCosts": {
+          "wood": 400,
+          "stone": 100,
+          "food": 150
+        },
+        "beforeArmy": 120,
+        "afterArmy": 125,
+        "foodBefore": 209172.67403444255,
+        "foodAfter": 209604.91196518825,
+        "steelBefore": 19,
+        "steelAfter": 19
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 2,
+        "callbacks": 15,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 123,
+        "loss": 2,
+        "beforeDeployed": 80,
+        "afterDeployed": 78,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 123
+    },
+    {
+      "variant": "candidate48",
+      "seed": 21,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 2,
+        "callbacks": 13,
+        "enemies": {
+          "groups": 6,
+          "people": 48
+        },
+        "beforeArmy": 125,
+        "afterArmy": 121,
+        "loss": 4,
+        "beforeDeployed": 80,
+        "afterDeployed": 76,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 7,
+        "alloy": {
+          "count": 1,
+          "seconds": 1
+        },
+        "archer": {
+          "count": 3,
+          "seconds": 2
+        },
+        "paidCosts": {
+          "food": 1590,
+          "steel": 100,
+          "wood": 240,
+          "stone": 60
+        },
+        "beforeArmy": 121,
+        "afterArmy": 125,
+        "foodBefore": 209171.5365137833,
+        "foodAfter": 208034.28452717364,
+        "steelBefore": 19,
+        "steelAfter": 15
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 2,
+        "callbacks": 17,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 117,
+        "loss": 8,
+        "beforeDeployed": 80,
+        "afterDeployed": 72,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 117
+    },
+    {
+      "variant": "candidate48",
+      "seed": 22,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 2,
+        "callbacks": 16,
+        "enemies": {
+          "groups": 6,
+          "people": 48
+        },
+        "beforeArmy": 125,
+        "afterArmy": 123,
+        "loss": 2,
+        "beforeDeployed": 80,
+        "afterDeployed": 78,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 9,
+        "alloy": {
+          "count": 2,
+          "seconds": 1
+        },
+        "archer": {
+          "count": 0,
+          "seconds": 0
+        },
+        "paidCosts": {
+          "food": 3000,
+          "steel": 200
+        },
+        "beforeArmy": 123,
+        "afterArmy": 125,
+        "foodBefore": 209135.75598566307,
+        "foodAfter": 206067.72622241103,
+        "steelBefore": 19,
+        "steelAfter": 11
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 2,
+        "callbacks": 18,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 118,
+        "loss": 7,
+        "beforeDeployed": 80,
+        "afterDeployed": 73,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 118
+    },
+    {
+      "variant": "candidate48",
+      "seed": 23,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 2,
+        "callbacks": 18,
+        "enemies": {
+          "groups": 6,
+          "people": 48
+        },
+        "beforeArmy": 125,
+        "afterArmy": 118,
+        "loss": 7,
+        "beforeDeployed": 80,
+        "afterDeployed": 73,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 8,
+        "alloy": {
+          "count": 1,
+          "seconds": 1
+        },
+        "archer": {
+          "count": 6,
+          "seconds": 3
+        },
+        "paidCosts": {
+          "food": 1680,
+          "steel": 100,
+          "wood": 480,
+          "stone": 120
+        },
+        "beforeArmy": 118,
+        "afterArmy": 125,
+        "foodBefore": 209278.73572936028,
+        "foodAfter": 208251.28067863683,
+        "steelBefore": 19,
+        "steelAfter": 15
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 3,
+        "callbacks": 22,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 116,
+        "loss": 9,
+        "beforeDeployed": 80,
+        "afterDeployed": 71,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 116
+    },
+    {
+      "variant": "candidate48",
+      "seed": 24,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 2,
+        "callbacks": 14,
+        "enemies": {
+          "groups": 6,
+          "people": 48
+        },
+        "beforeArmy": 125,
+        "afterArmy": 124,
+        "loss": 1,
+        "beforeDeployed": 80,
+        "afterDeployed": 79,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 1,
+        "alloy": {
+          "count": 0,
+          "seconds": 0
+        },
+        "archer": {
+          "count": 1,
+          "seconds": 1
+        },
+        "paidCosts": {
+          "wood": 80,
+          "stone": 20,
+          "food": 30
+        },
+        "beforeArmy": 124,
+        "afterArmy": 125,
+        "foodBefore": 209031.20177637998,
+        "foodAfter": 209194.53721638,
+        "steelBefore": 19,
+        "steelAfter": 19
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 3,
+        "callbacks": 21,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 114,
+        "loss": 11,
+        "beforeDeployed": 80,
+        "afterDeployed": 69,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 114
+    },
+    {
+      "variant": "candidate48",
+      "seed": 25,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 2,
+        "callbacks": 15,
+        "enemies": {
+          "groups": 6,
+          "people": 48
+        },
+        "beforeArmy": 125,
+        "afterArmy": 124,
+        "loss": 1,
+        "beforeDeployed": 80,
+        "afterDeployed": 79,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 1,
+        "alloy": {
+          "count": 0,
+          "seconds": 0
+        },
+        "archer": {
+          "count": 1,
+          "seconds": 1
+        },
+        "paidCosts": {
+          "wood": 80,
+          "stone": 20,
+          "food": 30
+        },
+        "beforeArmy": 124,
+        "afterArmy": 125,
+        "foodBefore": 209031.20177637998,
+        "foodAfter": 209194.53721638,
+        "steelBefore": 19,
+        "steelAfter": 19
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 2,
+        "callbacks": 16,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 123,
+        "loss": 2,
+        "beforeDeployed": 80,
+        "afterDeployed": 78,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 123
+    },
+    {
+      "variant": "candidate48",
+      "seed": 26,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 2,
+        "callbacks": 13,
+        "enemies": {
+          "groups": 6,
+          "people": 48
+        },
+        "beforeArmy": 125,
+        "afterArmy": 118,
+        "loss": 7,
+        "beforeDeployed": 80,
+        "afterDeployed": 73,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 4,
+        "alloy": {
+          "count": 0,
+          "seconds": 0
+        },
+        "archer": {
+          "count": 7,
+          "seconds": 4
+        },
+        "paidCosts": {
+          "wood": 560,
+          "stone": 140,
+          "food": 210
+        },
+        "beforeArmy": 118,
+        "afterArmy": 125,
+        "foodBefore": 209244.56623783548,
+        "foodAfter": 209812.14116858118,
+        "steelBefore": 19,
+        "steelAfter": 19
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 1,
+        "callbacks": 10,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 124,
+        "loss": 1,
+        "beforeDeployed": 80,
+        "afterDeployed": 79,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 124
+    },
+    {
+      "variant": "candidate48",
+      "seed": 27,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 2,
+        "callbacks": 13,
+        "enemies": {
+          "groups": 6,
+          "people": 48
+        },
+        "beforeArmy": 125,
+        "afterArmy": 119,
+        "loss": 6,
+        "beforeDeployed": 80,
+        "afterDeployed": 74,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 3,
+        "alloy": {
+          "count": 0,
+          "seconds": 0
+        },
+        "archer": {
+          "count": 6,
+          "seconds": 3
+        },
+        "paidCosts": {
+          "wood": 480,
+          "stone": 120,
+          "food": 180
+        },
+        "beforeArmy": 119,
+        "afterArmy": 125,
+        "foodBefore": 209208.51974872852,
+        "foodAfter": 209611.3455938888,
+        "steelBefore": 19,
+        "steelAfter": 19
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 3,
+        "callbacks": 25,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 121,
+        "loss": 4,
+        "beforeDeployed": 80,
+        "afterDeployed": 76,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 121
+    },
+    {
+      "variant": "candidate48",
+      "seed": 28,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 2,
+        "callbacks": 14,
+        "enemies": {
+          "groups": 6,
+          "people": 48
+        },
+        "beforeArmy": 125,
+        "afterArmy": 118,
+        "loss": 7,
+        "beforeDeployed": 80,
+        "afterDeployed": 73,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 8,
+        "alloy": {
+          "count": 1,
+          "seconds": 1
+        },
+        "archer": {
+          "count": 6,
+          "seconds": 3
+        },
+        "paidCosts": {
+          "food": 1680,
+          "steel": 100,
+          "wood": 480,
+          "stone": 120
+        },
+        "beforeArmy": 118,
+        "afterArmy": 125,
+        "foodBefore": 209278.73572936028,
+        "foodAfter": 208251.28067863683,
+        "steelBefore": 19,
+        "steelAfter": 15
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 2,
+        "callbacks": 13,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 124,
+        "loss": 1,
+        "beforeDeployed": 80,
+        "afterDeployed": 79,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 124
+    },
+    {
+      "variant": "candidate48",
+      "seed": 29,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 2,
+        "callbacks": 12,
+        "enemies": {
+          "groups": 6,
+          "people": 48
+        },
+        "beforeArmy": 125,
+        "afterArmy": 124,
+        "loss": 1,
+        "beforeDeployed": 80,
+        "afterDeployed": 79,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 5,
+        "alloy": {
+          "count": 1,
+          "seconds": 1
+        },
+        "archer": {
+          "count": 0,
+          "seconds": 0
+        },
+        "paidCosts": {
+          "food": 1500,
+          "steel": 100
+        },
+        "beforeArmy": 124,
+        "afterArmy": 125,
+        "foodBefore": 209066.0404860564,
+        "foodAfter": 207626.3694744435,
+        "steelBefore": 19,
+        "steelAfter": 15
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 2,
+        "callbacks": 17,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 105,
+        "loss": 20,
+        "beforeDeployed": 80,
+        "afterDeployed": 60,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 105
+    },
+    {
+      "variant": "candidate48",
+      "seed": 30,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 2,
+        "callbacks": 13,
+        "enemies": {
+          "groups": 6,
+          "people": 48
+        },
+        "beforeArmy": 125,
+        "afterArmy": 124,
+        "loss": 1,
+        "beforeDeployed": 80,
+        "afterDeployed": 79,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 5,
+        "alloy": {
+          "count": 1,
+          "seconds": 1
+        },
+        "archer": {
+          "count": 0,
+          "seconds": 0
+        },
+        "paidCosts": {
+          "food": 1500,
+          "steel": 100
+        },
+        "beforeArmy": 124,
+        "afterArmy": 125,
+        "foodBefore": 209066.0404860564,
+        "foodAfter": 207626.3694744435,
+        "steelBefore": 19,
+        "steelAfter": 15
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 1,
+        "callbacks": 9,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 120,
+        "loss": 5,
+        "beforeDeployed": 80,
+        "afterDeployed": 75,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 120
+    },
+    {
+      "variant": "candidate48",
+      "seed": 31,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 2,
+        "callbacks": 16,
+        "enemies": {
+          "groups": 6,
+          "people": 48
+        },
+        "beforeArmy": 125,
+        "afterArmy": 123,
+        "loss": 2,
+        "beforeDeployed": 80,
+        "afterDeployed": 78,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 9,
+        "alloy": {
+          "count": 2,
+          "seconds": 1
+        },
+        "archer": {
+          "count": 0,
+          "seconds": 0
+        },
+        "paidCosts": {
+          "food": 3000,
+          "steel": 200
+        },
+        "beforeArmy": 123,
+        "afterArmy": 125,
+        "foodBefore": 209135.75598566307,
+        "foodAfter": 206067.72622241103,
+        "steelBefore": 19,
+        "steelAfter": 11
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 3,
+        "callbacks": 24,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 123,
+        "loss": 2,
+        "beforeDeployed": 80,
+        "afterDeployed": 78,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 123
+    },
+    {
+      "variant": "candidate48",
+      "seed": 32,
+      "first": {
+        "stage": 65,
+        "won": true,
+        "round": 2,
+        "callbacks": 17,
+        "enemies": {
+          "groups": 6,
+          "people": 48
+        },
+        "beforeArmy": 125,
+        "afterArmy": 115,
+        "loss": 10,
+        "beforeDeployed": 80,
+        "afterDeployed": 70,
+        "reward": {
+          "wood": 5030,
+          "stone": 3860,
+          "food": 3275
+        }
+      },
+      "gate": "",
+      "t4": {
+        "cost": {
+          "wood": 20000,
+          "stone": 20000,
+          "food": 15000,
+          "time": 120
+        },
+        "seconds": 120,
+        "woodPaid": 20000,
+        "stonePaid": 20000
+      },
+      "recovery": {
+        "seconds": 10,
+        "alloy": {
+          "count": 1,
+          "seconds": 1
+        },
+        "archer": {
+          "count": 9,
+          "seconds": 5
+        },
+        "paidCosts": {
+          "food": 1770,
+          "steel": 100,
+          "wood": 720,
+          "stone": 180
+        },
+        "beforeArmy": 115,
+        "afterArmy": 125,
+        "foodBefore": 209387.77142574757,
+        "foodAfter": 208665.5424401972,
+        "steelBefore": 19,
+        "steelAfter": 15
+      },
+      "next": {
+        "stage": 66,
+        "won": true,
+        "round": 1,
+        "callbacks": 10,
+        "enemies": {
+          "groups": 6,
+          "people": 52
+        },
+        "beforeArmy": 125,
+        "afterArmy": 125,
+        "loss": 0,
+        "beforeDeployed": 80,
+        "afterDeployed": 80,
+        "reward": {
+          "wood": 5231,
+          "stone": 4014,
+          "food": 3406
+        }
+      },
+      "finalArmy": 125
+    }
+  ],
+  "scope": "Both variants use the same legally paid stage-64 checkpoint and current combat/actions. Candidate only rewrites stage-65 enemy counts in isolated VM. Fixed streams are diagnostics, not player win rates. Garrison is disabled in the Node harness."
+}

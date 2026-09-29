@@ -42,21 +42,57 @@ check('未上架不能兑换；刷新抽中的份数、折扣、扣费和重载�
   assert.equal(reload.run('S.items.boarHeart'),460);
 });
 
-check('在线秒先恢复次数，满次数后自动刷新；离线推进不偷刷',()=>{
+check('在线与离线秒先恢复次数，满次数后自动刷新',()=>{
   const e=environment();
-  e.run('S.beastExchange.level=30;S.beastExchange.heartOffers=2;S.beastExchange.refreshCharges=4;S.beastExchange.refreshClock=1;Math.random=()=>0');
+  e.run('S.population.current=0;S.beastExchange.level=30;S.beastExchange.heartOffers=2;S.beastExchange.refreshCharges=4;S.beastExchange.refreshClock=1;Math.random=()=>0');
   e.run('tick()');
   assert.equal(e.run('S.beastExchange.refreshCharges'),5);
   assert.equal(e.run('S.beastExchange.heartOffers'),2);
   assert.equal(e.run('S.beastExchange.refreshClock'),1200);
   e.run('S.battleActive=true;tick();S.battleActive=false');
   assert.equal(e.run('S.beastExchange.refreshClock'),1199);
-  const before=e.run('S.beastExchange.refreshClock');
-  e.run('offlineAdvanceSec(1200,0.6,"all")');
-  assert.equal(e.run('S.beastExchange.refreshClock'),before);
-  e.run('S.beastExchange.refreshClock=1;tick()');
+  const result=e.run('offlineAdvanceSec(1199,0.6,"all")');
+  assert.equal(result.elapsed,1199);
+  assert.equal(e.run('S.beastExchange.refreshClock'),1200);
   assert.equal(e.run('S.beastExchange.heartOffers'),11);
   assert.equal(e.run('S.beastExchange.refreshCharges'),5);
+});
+
+check('离线未满次数只恢复次数，断粮秒不推进刷新',()=>{
+  const e=environment();
+  e.run('S.population.current=0;S.beastExchange.level=30;S.beastExchange.heartOffers=2;S.beastExchange.refreshCharges=3;S.beastExchange.refreshClock=1;Math.random=()=>0');
+  const paid=e.run('offlineAdvanceSec(1,0.6,"all")');
+  assert.equal(paid.elapsed,1);
+  assert.equal(e.run('S.beastExchange.refreshCharges'),4);
+  assert.equal(e.run('S.beastExchange.refreshClock'),1200);
+  assert.equal(e.run('S.beastExchange.heartOffers'),2);
+  e.run('S.population.current=10;for(const key of Object.keys(S.popAlloc))S.popAlloc[key]=0;S.res.food=0;S.beastExchange.refreshClock=1');
+  const before=e.run('JSON.stringify(S.beastExchange)');
+  const clamped=e.run('offlineAdvanceSec(1,0.6,"all")');
+  assert.equal(clamped.elapsed,0);
+  assert.equal(clamped.foodClamped,true);
+  assert.equal(e.run('JSON.stringify(S.beastExchange)'),before);
+});
+
+check('离线刷新写档失败回滚，重试只结算一次且重载保留货位',()=>{
+  const e=environment();
+  e.run('S.population.current=0;S.beastExchange.level=30;S.beastExchange.heartOffers=2;S.beastExchange.refreshCharges=5;S.beastExchange.refreshClock=1;Math.random=()=>0;save();_loadedTs=Date.now()-121000');
+  const raw=e.store.get('rts_save'),before=e.run('JSON.stringify(S.beastExchange)');
+  e.run("globalThis.originalSetItem=localStorage.setItem;localStorage.setItem=(key,value)=>{if(key==='rts_save')throw Error('quota');return originalSetItem(key,value)}");
+  assert.equal(e.run('settleOffline().reason'),'save-failed');
+  assert.equal(e.run('JSON.stringify(S.beastExchange)'),before);
+  assert.equal(e.store.get('rts_save'),raw);
+  e.run('localStorage.setItem=originalSetItem');
+  assert.equal(e.run('settleOffline().ok'),true);
+  assert.equal(e.run('S.beastExchange.heartOffers'),11);
+  assert.equal(e.run('S.beastExchange.refreshCharges'),5);
+  const saved=e.store.get('rts_save');
+  assert.equal(JSON.parse(saved).beastExchange.heartOffers,11);
+  assert.equal(e.run('settleOffline().repeat'),true);
+  assert.equal(e.store.get('rts_save'),saved);
+  const reload=environment({rts_save:saved});
+  assert.equal(reload.run('loadSaveAndApply().status'),'ok');
+  assert.equal(reload.run('S.beastExchange.heartOffers'),11);
 });
 
 check('刷新保存失败回滚库存和次数，v32非法刷新字段拒载',()=>{
@@ -91,4 +127,4 @@ check('v27迁移保已用图纸和兽心，先备原文；未来v33只读',()=>{
   bad.run('tick();save()');assert.equal(bad.store.get('rts_save'),text);
 });
 
-console.log(`beast exchange refresh: ${passed}/5`);
+console.log(`beast exchange refresh: ${passed}/7`);

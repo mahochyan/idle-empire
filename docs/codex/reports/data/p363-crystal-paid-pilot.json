@@ -1,0 +1,4255 @@
+{
+  "batch": "P363",
+  "kind": "paid restoration and independent current-alert god-crystal trials",
+  "sourceName": "p359-quantum-stock-cap-paid-save.json",
+  "sourceSha256": "600a951a3612bbd7965fd1e208024dd7b0224f47013da7542ab1c38d6ffd9199",
+  "rosterName": "p329-soul-refreshed-save.json",
+  "rosterSha256": "9c0e33ebca8ebd4874fbbe5aa4c64d87972040e61a6abbed629e999b056a9ebd",
+  "sourceHashes": [
+    {
+      "file": "config.js",
+      "sha256": "8e40ccc41ab96156db291ce74560981d875b304703fffb89c4139d5e23001675"
+    },
+    {
+      "file": "levels.js",
+      "sha256": "9ef3e47bae99242e70970fc9c0f86912301aabdb6ed4fef9e4e18250293c1cc1"
+    },
+    {
+      "file": "math.js",
+      "sha256": "dc0bcdee534853368cb3c576e6020e1c85ab7be00052241136605897e91b0c95"
+    },
+    {
+      "file": "garrison.js",
+      "sha256": "762da86c67c0bfb1ef0c5a519a7fad57a8f8e4f7ad6c5045f4736c2b650739a9"
+    },
+    {
+      "file": "technology.js",
+      "sha256": "9cfda541f49011a676674fb2740b12af63812542a1ce872dcafc57eb4330bf98"
+    },
+    {
+      "file": "tests/progression/harness.js",
+      "sha256": "4770d17fa72cc8c87f4c8ef79678f19d63a41da895b8dd58776e5a39ce2ede2b"
+    },
+    {
+      "file": "tools/verify/probe-quantum-crystal-recovery-p363.js",
+      "sha256": "7ed142e36db650b171d6d3d8a0b6c41aea8c0a353271f32470df831a84f26ac5"
+    }
+  ],
+  "initial": {
+    "tick": 12225395,
+    "army": 101,
+    "deployed": 55,
+    "queue": 0,
+    "food": 480699,
+    "tech": 253555790,
+    "techCap": 253555790,
+    "medal": 3965804,
+    "crystal": 66,
+    "alert": 5200,
+    "blood": 3,
+    "cleanser": 0,
+    "steam": 23,
+    "quantum": false
+  },
+  "restoration": {
+    "before": {
+      "tick": 12225395,
+      "army": 101,
+      "deployed": 55,
+      "queue": 0,
+      "food": 480699,
+      "tech": 253555790,
+      "techCap": 253555790,
+      "medal": 3965804,
+      "crystal": 66,
+      "alert": 5200,
+      "blood": 3,
+      "cleanser": 0,
+      "steam": 23,
+      "quantum": false
+    },
+    "beforeStock": {
+      "food": 480699,
+      "wood": 764,
+      "stone": 741088,
+      "coal": 407091,
+      "copper": 1283.2999979812885,
+      "iron": 1000303,
+      "steel": 2599,
+      "gold": 160.77500000008604
+    },
+    "shortages": {
+      "star_trooper": 155,
+      "armored_trooper": 55,
+      "electro_trooper": 101,
+      "alloy_special": 55,
+      "gold_cavalry": 40,
+      "archer": 165
+    },
+    "trained": 571,
+    "expected": {
+      "steel": 2163500,
+      "iron": 2158000,
+      "copper": 2158000,
+      "food": 127450,
+      "gold": 4000,
+      "stone": 3300,
+      "wood": 13200
+    },
+    "actual": {
+      "steel": 2163500,
+      "iron": 2158000,
+      "copper": 2158000,
+      "food": 127450,
+      "gold": 4000,
+      "stone": 3300,
+      "wood": 13200
+    },
+    "after": {
+      "tick": 12228825,
+      "army": 672,
+      "deployed": 626,
+      "queue": 0,
+      "food": 480699,
+      "tech": 253555790,
+      "techCap": 253555790,
+      "medal": 3965804,
+      "crystal": 66,
+      "alert": 5200,
+      "blood": 3,
+      "cleanser": 0,
+      "steam": 23,
+      "quantum": false
+    },
+    "afterStock": {
+      "food": 480699,
+      "wood": 24095,
+      "stone": 907364,
+      "coal": 137280.25,
+      "copper": 2062.4499979641987,
+      "iron": 999887,
+      "steel": 2546,
+      "gold": 67.56250000008686
+    },
+    "seconds": 3430
+  },
+  "onlineSeconds": 3430,
+  "phases": {
+    "food": 0,
+    "wood": 1,
+    "stone": 147,
+    "coal": 837,
+    "copper": 967,
+    "iron": 650,
+    "steel": 533,
+    "gold": 7,
+    "tech": 0,
+    "training": 288
+  },
+  "minFood": 459448.1692368207,
+  "rosterSaveFile": "p363-full-roster-paid-save.json",
+  "rosterSaveSha256": "5fc566d646038cb7e5cee429577bb5f71df7635393e821f85b2babfcbc4cf9f4",
+  "summary": {
+    "tested": 256,
+    "wins": 19,
+    "firstWinSeed": 35
+  },
+  "trials": [
+    {
+      "seed": 1,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 233
+    },
+    {
+      "seed": 2,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 217
+    },
+    {
+      "seed": 3,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 218
+    },
+    {
+      "seed": 4,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 212
+    },
+    {
+      "seed": 5,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 224
+    },
+    {
+      "seed": 6,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 214
+    },
+    {
+      "seed": 7,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 215
+    },
+    {
+      "seed": 8,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 219
+    },
+    {
+      "seed": 9,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 230
+    },
+    {
+      "seed": 10,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 218
+    },
+    {
+      "seed": 11,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 222
+    },
+    {
+      "seed": 12,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 202
+    },
+    {
+      "seed": 13,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 212
+    },
+    {
+      "seed": 14,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 212
+    },
+    {
+      "seed": 15,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 212
+    },
+    {
+      "seed": 16,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 224
+    },
+    {
+      "seed": 17,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 224
+    },
+    {
+      "seed": 18,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 231
+    },
+    {
+      "seed": 19,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 212
+    },
+    {
+      "seed": 20,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 226
+    },
+    {
+      "seed": 21,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 211
+    },
+    {
+      "seed": 22,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 210
+    },
+    {
+      "seed": 23,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 220
+    },
+    {
+      "seed": 24,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 212
+    },
+    {
+      "seed": 25,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 212
+    },
+    {
+      "seed": 26,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 217
+    },
+    {
+      "seed": 27,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 209
+    },
+    {
+      "seed": 28,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 217
+    },
+    {
+      "seed": 29,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 218
+    },
+    {
+      "seed": 30,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 213
+    },
+    {
+      "seed": 31,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 222
+    },
+    {
+      "seed": 32,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 218
+    },
+    {
+      "seed": 33,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 215
+    },
+    {
+      "seed": 34,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 211
+    },
+    {
+      "seed": 35,
+      "result": "win",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 288,
+        "deployed": 242,
+        "crystal": 126,
+        "alert": 5300
+      },
+      "callbacks": 198
+    },
+    {
+      "seed": 36,
+      "result": "win",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 367,
+        "deployed": 321,
+        "crystal": 126,
+        "alert": 5300
+      },
+      "callbacks": 168
+    },
+    {
+      "seed": 37,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 221
+    },
+    {
+      "seed": 38,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 213
+    },
+    {
+      "seed": 39,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 222
+    },
+    {
+      "seed": 40,
+      "result": "win",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 380,
+        "deployed": 334,
+        "crystal": 126,
+        "alert": 5300
+      },
+      "callbacks": 178
+    },
+    {
+      "seed": 41,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 206
+    },
+    {
+      "seed": 42,
+      "result": "win",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 358,
+        "deployed": 312,
+        "crystal": 126,
+        "alert": 5300
+      },
+      "callbacks": 189
+    },
+    {
+      "seed": 43,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 219
+    },
+    {
+      "seed": 44,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 197
+    },
+    {
+      "seed": 45,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 235
+    },
+    {
+      "seed": 46,
+      "result": "win",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 316,
+        "deployed": 270,
+        "crystal": 126,
+        "alert": 5300
+      },
+      "callbacks": 172
+    },
+    {
+      "seed": 47,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 216
+    },
+    {
+      "seed": 48,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 228
+    },
+    {
+      "seed": 49,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 222
+    },
+    {
+      "seed": 50,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 205
+    },
+    {
+      "seed": 51,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 217
+    },
+    {
+      "seed": 52,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 217
+    },
+    {
+      "seed": 53,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 217
+    },
+    {
+      "seed": 54,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 216
+    },
+    {
+      "seed": 55,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 227
+    },
+    {
+      "seed": 56,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 214
+    },
+    {
+      "seed": 57,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 242
+    },
+    {
+      "seed": 58,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 200
+    },
+    {
+      "seed": 59,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 204
+    },
+    {
+      "seed": 60,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 218
+    },
+    {
+      "seed": 61,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 200
+    },
+    {
+      "seed": 62,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 219
+    },
+    {
+      "seed": 63,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 213
+    },
+    {
+      "seed": 64,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 224
+    },
+    {
+      "seed": 65,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 215
+    },
+    {
+      "seed": 66,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 220
+    },
+    {
+      "seed": 67,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 208
+    },
+    {
+      "seed": 68,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 210
+    },
+    {
+      "seed": 69,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 227
+    },
+    {
+      "seed": 70,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 219
+    },
+    {
+      "seed": 71,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 219
+    },
+    {
+      "seed": 72,
+      "result": "win",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 413,
+        "deployed": 367,
+        "crystal": 126,
+        "alert": 5300
+      },
+      "callbacks": 155
+    },
+    {
+      "seed": 73,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 216
+    },
+    {
+      "seed": 74,
+      "result": "win",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 367,
+        "deployed": 321,
+        "crystal": 126,
+        "alert": 5300
+      },
+      "callbacks": 171
+    },
+    {
+      "seed": 75,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 218
+    },
+    {
+      "seed": 76,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 199
+    },
+    {
+      "seed": 77,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 221
+    },
+    {
+      "seed": 78,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 224
+    },
+    {
+      "seed": 79,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 216
+    },
+    {
+      "seed": 80,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 221
+    },
+    {
+      "seed": 81,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 219
+    },
+    {
+      "seed": 82,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 218
+    },
+    {
+      "seed": 83,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 220
+    },
+    {
+      "seed": 84,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 208
+    },
+    {
+      "seed": 85,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 209
+    },
+    {
+      "seed": 86,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 220
+    },
+    {
+      "seed": 87,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 209
+    },
+    {
+      "seed": 88,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 220
+    },
+    {
+      "seed": 89,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 215
+    },
+    {
+      "seed": 90,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 211
+    },
+    {
+      "seed": 91,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 220
+    },
+    {
+      "seed": 92,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 204
+    },
+    {
+      "seed": 93,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 235
+    },
+    {
+      "seed": 94,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 217
+    },
+    {
+      "seed": 95,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 226
+    },
+    {
+      "seed": 96,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 223
+    },
+    {
+      "seed": 97,
+      "result": "win",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 407,
+        "deployed": 361,
+        "crystal": 126,
+        "alert": 5300
+      },
+      "callbacks": 168
+    },
+    {
+      "seed": 98,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 203
+    },
+    {
+      "seed": 99,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 236
+    },
+    {
+      "seed": 100,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 213
+    },
+    {
+      "seed": 101,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 224
+    },
+    {
+      "seed": 102,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 220
+    },
+    {
+      "seed": 103,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 209
+    },
+    {
+      "seed": 104,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 222
+    },
+    {
+      "seed": 105,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 212
+    },
+    {
+      "seed": 106,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 214
+    },
+    {
+      "seed": 107,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 213
+    },
+    {
+      "seed": 108,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 215
+    },
+    {
+      "seed": 109,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 213
+    },
+    {
+      "seed": 110,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 202
+    },
+    {
+      "seed": 111,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 208
+    },
+    {
+      "seed": 112,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 220
+    },
+    {
+      "seed": 113,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 220
+    },
+    {
+      "seed": 114,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 224
+    },
+    {
+      "seed": 115,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 223
+    },
+    {
+      "seed": 116,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 216
+    },
+    {
+      "seed": 117,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 218
+    },
+    {
+      "seed": 118,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 214
+    },
+    {
+      "seed": 119,
+      "result": "win",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 394,
+        "deployed": 348,
+        "crystal": 126,
+        "alert": 5300
+      },
+      "callbacks": 174
+    },
+    {
+      "seed": 120,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 205
+    },
+    {
+      "seed": 121,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 212
+    },
+    {
+      "seed": 122,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 224
+    },
+    {
+      "seed": 123,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 219
+    },
+    {
+      "seed": 124,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 204
+    },
+    {
+      "seed": 125,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 219
+    },
+    {
+      "seed": 126,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 217
+    },
+    {
+      "seed": 127,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 219
+    },
+    {
+      "seed": 128,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 215
+    },
+    {
+      "seed": 129,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 212
+    },
+    {
+      "seed": 130,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 220
+    },
+    {
+      "seed": 131,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 239
+    },
+    {
+      "seed": 132,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 213
+    },
+    {
+      "seed": 133,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 220
+    },
+    {
+      "seed": 134,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 226
+    },
+    {
+      "seed": 135,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 208
+    },
+    {
+      "seed": 136,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 211
+    },
+    {
+      "seed": 137,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 218
+    },
+    {
+      "seed": 138,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 202
+    },
+    {
+      "seed": 139,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 206
+    },
+    {
+      "seed": 140,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 213
+    },
+    {
+      "seed": 141,
+      "result": "win",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 312,
+        "deployed": 266,
+        "crystal": 126,
+        "alert": 5300
+      },
+      "callbacks": 199
+    },
+    {
+      "seed": 142,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 214
+    },
+    {
+      "seed": 143,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 218
+    },
+    {
+      "seed": 144,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 225
+    },
+    {
+      "seed": 145,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 216
+    },
+    {
+      "seed": 146,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 225
+    },
+    {
+      "seed": 147,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 204
+    },
+    {
+      "seed": 148,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 205
+    },
+    {
+      "seed": 149,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 211
+    },
+    {
+      "seed": 150,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 227
+    },
+    {
+      "seed": 151,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 223
+    },
+    {
+      "seed": 152,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 220
+    },
+    {
+      "seed": 153,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 218
+    },
+    {
+      "seed": 154,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 224
+    },
+    {
+      "seed": 155,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 229
+    },
+    {
+      "seed": 156,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 213
+    },
+    {
+      "seed": 157,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 203
+    },
+    {
+      "seed": 158,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 234
+    },
+    {
+      "seed": 159,
+      "result": "win",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 439,
+        "deployed": 393,
+        "crystal": 126,
+        "alert": 5300
+      },
+      "callbacks": 164
+    },
+    {
+      "seed": 160,
+      "result": "win",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 439,
+        "deployed": 393,
+        "crystal": 126,
+        "alert": 5300
+      },
+      "callbacks": 157
+    },
+    {
+      "seed": 161,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 203
+    },
+    {
+      "seed": 162,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 223
+    },
+    {
+      "seed": 163,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 218
+    },
+    {
+      "seed": 164,
+      "result": "win",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 348,
+        "deployed": 302,
+        "crystal": 126,
+        "alert": 5300
+      },
+      "callbacks": 194
+    },
+    {
+      "seed": 165,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 208
+    },
+    {
+      "seed": 166,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 229
+    },
+    {
+      "seed": 167,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 225
+    },
+    {
+      "seed": 168,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 219
+    },
+    {
+      "seed": 169,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 227
+    },
+    {
+      "seed": 170,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 212
+    },
+    {
+      "seed": 171,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 220
+    },
+    {
+      "seed": 172,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 224
+    },
+    {
+      "seed": 173,
+      "result": "win",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 400,
+        "deployed": 354,
+        "crystal": 126,
+        "alert": 5300
+      },
+      "callbacks": 145
+    },
+    {
+      "seed": 174,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 217
+    },
+    {
+      "seed": 175,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 224
+    },
+    {
+      "seed": 176,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 221
+    },
+    {
+      "seed": 177,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 225
+    },
+    {
+      "seed": 178,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 210
+    },
+    {
+      "seed": 179,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 221
+    },
+    {
+      "seed": 180,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 220
+    },
+    {
+      "seed": 181,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 225
+    },
+    {
+      "seed": 182,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 213
+    },
+    {
+      "seed": 183,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 214
+    },
+    {
+      "seed": 184,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 227
+    },
+    {
+      "seed": 185,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 213
+    },
+    {
+      "seed": 186,
+      "result": "win",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 427,
+        "deployed": 381,
+        "crystal": 126,
+        "alert": 5300
+      },
+      "callbacks": 149
+    },
+    {
+      "seed": 187,
+      "result": "win",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 413,
+        "deployed": 367,
+        "crystal": 126,
+        "alert": 5300
+      },
+      "callbacks": 160
+    },
+    {
+      "seed": 188,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 227
+    },
+    {
+      "seed": 189,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 221
+    },
+    {
+      "seed": 190,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 226
+    },
+    {
+      "seed": 191,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 217
+    },
+    {
+      "seed": 192,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 207
+    },
+    {
+      "seed": 193,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 216
+    },
+    {
+      "seed": 194,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 222
+    },
+    {
+      "seed": 195,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 225
+    },
+    {
+      "seed": 196,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 221
+    },
+    {
+      "seed": 197,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 225
+    },
+    {
+      "seed": 198,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 219
+    },
+    {
+      "seed": 199,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 218
+    },
+    {
+      "seed": 200,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 214
+    },
+    {
+      "seed": 201,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 216
+    },
+    {
+      "seed": 202,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 218
+    },
+    {
+      "seed": 203,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 226
+    },
+    {
+      "seed": 204,
+      "result": "win",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 372,
+        "deployed": 326,
+        "crystal": 126,
+        "alert": 5300
+      },
+      "callbacks": 165
+    },
+    {
+      "seed": 205,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 221
+    },
+    {
+      "seed": 206,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 218
+    },
+    {
+      "seed": 207,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 224
+    },
+    {
+      "seed": 208,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 223
+    },
+    {
+      "seed": 209,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 216
+    },
+    {
+      "seed": 210,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 218
+    },
+    {
+      "seed": 211,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 205
+    },
+    {
+      "seed": 212,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 213
+    },
+    {
+      "seed": 213,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 212
+    },
+    {
+      "seed": 214,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 217
+    },
+    {
+      "seed": 215,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 210
+    },
+    {
+      "seed": 216,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 213
+    },
+    {
+      "seed": 217,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 221
+    },
+    {
+      "seed": 218,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 212
+    },
+    {
+      "seed": 219,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 207
+    },
+    {
+      "seed": 220,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 195
+    },
+    {
+      "seed": 221,
+      "result": "win",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 266,
+        "deployed": 220,
+        "crystal": 126,
+        "alert": 5300
+      },
+      "callbacks": 203
+    },
+    {
+      "seed": 222,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 218
+    },
+    {
+      "seed": 223,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 223
+    },
+    {
+      "seed": 224,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 216
+    },
+    {
+      "seed": 225,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 225
+    },
+    {
+      "seed": 226,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 212
+    },
+    {
+      "seed": 227,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 221
+    },
+    {
+      "seed": 228,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 216
+    },
+    {
+      "seed": 229,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 222
+    },
+    {
+      "seed": 230,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 218
+    },
+    {
+      "seed": 231,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 217
+    },
+    {
+      "seed": 232,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 217
+    },
+    {
+      "seed": 233,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 220
+    },
+    {
+      "seed": 234,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 232
+    },
+    {
+      "seed": 235,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 224
+    },
+    {
+      "seed": 236,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 215
+    },
+    {
+      "seed": 237,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 213
+    },
+    {
+      "seed": 238,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 216
+    },
+    {
+      "seed": 239,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 223
+    },
+    {
+      "seed": 240,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 210
+    },
+    {
+      "seed": 241,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 223
+    },
+    {
+      "seed": 242,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 224
+    },
+    {
+      "seed": 243,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 223
+    },
+    {
+      "seed": 244,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 218
+    },
+    {
+      "seed": 245,
+      "result": "win",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 355,
+        "deployed": 309,
+        "crystal": 126,
+        "alert": 5300
+      },
+      "callbacks": 178
+    },
+    {
+      "seed": 246,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 204
+    },
+    {
+      "seed": 247,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 222
+    },
+    {
+      "seed": 248,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 216
+    },
+    {
+      "seed": 249,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 214
+    },
+    {
+      "seed": 250,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 215
+    },
+    {
+      "seed": 251,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 199
+    },
+    {
+      "seed": 252,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 217
+    },
+    {
+      "seed": 253,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 224
+    },
+    {
+      "seed": 254,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 201
+    },
+    {
+      "seed": 255,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 210
+    },
+    {
+      "seed": 256,
+      "result": "lose",
+      "enemy": {
+        "hp": 3520,
+        "atk": 108,
+        "def": 792
+      },
+      "after": {
+        "army": 46,
+        "deployed": 0,
+        "crystal": 66,
+        "alert": 5200
+      },
+      "callbacks": 213
+    }
+  ]
+}

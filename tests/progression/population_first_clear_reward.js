@@ -36,6 +36,8 @@ check('第3关首胜获得6地契并保存，战利品名称符合开拓主题',
   assert.equal(e.run('CFG.enemies[2].firstClearReward.deed'),6);
   assert.equal(e.run('CFG.enemies.filter(x=>x.firstClearReward).length'),1);
   e.run(`
+    // 本用例只验证第3关首胜奖励；前两关胜场是合法入口夹具，不证明自然通关。
+    S.defeated=[1,2];
     S.selEnemy=2;
     S.formation={front:[{type:'infantry',count:12,id:101}],mid:[],back:[]};
     openBattle();
@@ -48,7 +50,7 @@ check('第3关首胜获得6地契并保存，战利品名称符合开拓主题',
   const saved=JSON.parse(e.store.get('rts_save'));
   assert.equal(saved.v,32);
   assert.equal(saved.res.deed,36);
-  assert.deepEqual(saved.defeated,[3]);
+  assert.deepEqual(saved.defeated,[1,2,3]);
 });
 
 check('重复结算、复战及重载旧胜场均不重领',()=>{

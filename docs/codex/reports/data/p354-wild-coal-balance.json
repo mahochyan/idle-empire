@@ -1,0 +1,3620 @@
+{
+  "batch": "P354",
+  "date": "2026-09-29",
+  "unit": "seconds, resources, soldiers",
+  "fixtureFile": "docs/codex/reports/data/p352-birth-deed-five-policy-optimal-base-workers-two-window-second-logout-save.json",
+  "fixtureSha256": "61c40aa04c38fa91fe19a297570dc348a8ebdf6033b4e55ea1c0dad3747d5154",
+  "codeHashes": {
+    "config": "8e40ccc41ab96156db291ce74560981d875b304703fffb89c4139d5e23001675",
+    "math": "dc0bcdee534853368cb3c576e6020e1c85ab7be00052241136605897e91b0c95"
+  },
+  "reference": {
+    "p352BaseProduced": 345,
+    "p352AllProduced": 382
+  },
+  "outcomes": [
+    {
+      "name": "p352-base-1002",
+      "workers": {
+        "food": 100,
+        "copper": 300,
+        "iron": 300,
+        "steel": 302
+      },
+      "allocation": {
+        "wood": 0,
+        "stone": 0,
+        "food": 100,
+        "coal": 0,
+        "copper": 300,
+        "iron": 300,
+        "silver": 0,
+        "gold": 0,
+        "steel": 302,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "workerCount": 1002,
+      "startStock": {
+        "food": 398912.153064887,
+        "wood": 19345,
+        "stone": 1005329.9999999979,
+        "coal": 349751.50000000047,
+        "copper": 1086.9999984193128,
+        "iron": 125489.00000001118,
+        "steel": 68.00000000256114,
+        "gold": 258.63750000006894
+      },
+      "logoutSaveSha256": "61c40aa04c38fa91fe19a297570dc348a8ebdf6033b4e55ea1c0dad3747d5154",
+      "result": {
+        "ok": true,
+        "durationSec": 14400,
+        "gains": {
+          "wood": -17600,
+          "stone": -441300.79999997746,
+          "food": 2367.846935113019,
+          "coal": -349600.80000000313,
+          "copper": 2067.5,
+          "iron": 91149.19999999477,
+          "gold": -200,
+          "steel": 175153.5999999985,
+          "deed": 4536,
+          "medal": 7560,
+          "bone": 30240
+        },
+        "truncated": false
+      },
+      "produced": 345,
+      "queueCount": 281,
+      "queue": {
+        "gold_cavalry": {
+          "count": 38,
+          "reason": "资源不足，暂停生产"
+        },
+        "electro_trooper": {
+          "count": 88,
+          "reason": "资源不足，暂停生产"
+        },
+        "star_trooper": {
+          "count": 155,
+          "reason": "资源不足，暂停生产"
+        }
+      },
+      "army": 391,
+      "stock": {
+        "food": 401280,
+        "wood": 1745,
+        "stone": 564029.2000000204,
+        "coal": 150.6999999973109,
+        "copper": 3154.4999984193128,
+        "iron": 216638.20000000595,
+        "steel": 175221.60000000105,
+        "gold": 58.63750000006894
+      },
+      "trainingPaid": {
+        "food": 91100,
+        "gold": 200,
+        "wood": 17600,
+        "stone": 4400,
+        "steel": 219500,
+        "copper": 214000,
+        "iron": 214000
+      },
+      "settledSaveSha256": "294088d45c957d97301fc0e6073f39651ee0c2f80df902a52588571c00a77513",
+      "foodClamped": false
+    },
+    {
+      "name": "p352-all-no-coal",
+      "workers": {
+        "food": 100,
+        "copper": 330,
+        "iron": 330,
+        "steel": 302,
+        "gold": 60
+      },
+      "allocation": {
+        "wood": 0,
+        "stone": 0,
+        "food": 100,
+        "coal": 0,
+        "copper": 330,
+        "iron": 330,
+        "silver": 0,
+        "gold": 60,
+        "steel": 302,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "workerCount": 1122,
+      "startStock": {
+        "food": 398912.153064887,
+        "wood": 19345,
+        "stone": 1005329.9999999979,
+        "coal": 349751.50000000047,
+        "copper": 1086.9999984193128,
+        "iron": 125489.00000001118,
+        "steel": 68.00000000256114,
+        "gold": 258.63750000006894
+      },
+      "logoutSaveSha256": "8f64969262938edb7f67739b4a6f4904d031425961289199444cdf8df5eb10ef",
+      "result": {
+        "ok": true,
+        "durationSec": 14400,
+        "gains": {
+          "wood": -17600,
+          "stone": -455097.19999997993,
+          "food": 2367.846935113019,
+          "coal": -349735.2000000028,
+          "copper": 5211.550000000074,
+          "iron": 99923.79999999527,
+          "gold": 5667.349999999981,
+          "steel": 139937.39999999898,
+          "deed": 4536,
+          "medal": 7560,
+          "bone": 30240
+        },
+        "truncated": false
+      },
+      "produced": 382,
+      "queueCount": 244,
+      "queue": {
+        "electro_trooper": {
+          "count": 89,
+          "reason": "资源不足，暂停生产"
+        },
+        "star_trooper": {
+          "count": 155,
+          "reason": "资源不足，暂停生产"
+        }
+      },
+      "army": 428,
+      "stock": {
+        "food": 401280,
+        "wood": 1745,
+        "stone": 550232.800000018,
+        "coal": 16.299999997664884,
+        "copper": 6298.549998419387,
+        "iron": 225412.80000000645,
+        "steel": 140005.40000000154,
+        "gold": 5925.98750000005
+      },
+      "trainingPaid": {
+        "food": 129100,
+        "gold": 4000,
+        "wood": 17600,
+        "stone": 4400,
+        "steel": 211500,
+        "copper": 206000,
+        "iron": 206000
+      },
+      "settledSaveSha256": "2474a380b068f2d197c8f7f75b41cc6ab298c4567b11db51b3f8afaf913ddc95",
+      "foodClamped": false
+    },
+    {
+      "name": "coal-5-gold-60",
+      "workers": {
+        "food": 100,
+        "copper": 327,
+        "iron": 328,
+        "steel": 302,
+        "coal": 5,
+        "gold": 60
+      },
+      "allocation": {
+        "wood": 0,
+        "stone": 0,
+        "food": 100,
+        "coal": 5,
+        "copper": 327,
+        "iron": 328,
+        "silver": 0,
+        "gold": 60,
+        "steel": 302,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "workerCount": 1122,
+      "startStock": {
+        "food": 398912.153064887,
+        "wood": 19345,
+        "stone": 1005329.9999999979,
+        "coal": 349751.50000000047,
+        "copper": 1086.9999984193128,
+        "iron": 125489.00000001118,
+        "steel": 68.00000000256114,
+        "gold": 258.63750000006894
+      },
+      "logoutSaveSha256": "9570f6132bd7f2f2c048bf15421ab8533d0f1df12979725aa167c862f821e552",
+      "result": {
+        "ok": true,
+        "durationSec": 14400,
+        "gains": {
+          "wood": -17600,
+          "stone": -743674.3999999795,
+          "food": 2367.846935113019,
+          "coal": -349742.4000000012,
+          "copper": -823.7949999999564,
+          "iron": 96117.19999999774,
+          "gold": 93230.37499999572,
+          "steel": 138460.5999999989,
+          "deed": 4536,
+          "medal": 7560,
+          "bone": 30240
+        },
+        "truncated": false
+      },
+      "produced": 383,
+      "queueCount": 243,
+      "queue": {
+        "electro_trooper": {
+          "count": 88,
+          "reason": "资源不足，暂停生产"
+        },
+        "star_trooper": {
+          "count": 155,
+          "reason": "资源不足，暂停生产"
+        }
+      },
+      "army": 429,
+      "stock": {
+        "food": 401280,
+        "wood": 1745,
+        "stone": 261655.60000001837,
+        "coal": 9.09999999925813,
+        "copper": 263.20499841935634,
+        "iron": 221606.20000000892,
+        "steel": 138528.60000000146,
+        "gold": 93489.01249999579
+      },
+      "trainingPaid": {
+        "food": 129100,
+        "gold": 4000,
+        "wood": 17600,
+        "stone": 4400,
+        "steel": 219500,
+        "copper": 214000,
+        "iron": 214000
+      },
+      "settledSaveSha256": "091c024c64d869e323b48b95d1b5268a8ae88a04820f976746056bf72c377c88",
+      "foodClamped": false
+    },
+    {
+      "name": "coal-10-gold-60",
+      "workers": {
+        "food": 100,
+        "copper": 325,
+        "iron": 325,
+        "steel": 302,
+        "coal": 10,
+        "gold": 60
+      },
+      "allocation": {
+        "wood": 0,
+        "stone": 0,
+        "food": 100,
+        "coal": 10,
+        "copper": 325,
+        "iron": 325,
+        "silver": 0,
+        "gold": 60,
+        "steel": 302,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "workerCount": 1122,
+      "startStock": {
+        "food": 398912.153064887,
+        "wood": 19345,
+        "stone": 1005329.9999999979,
+        "coal": 349751.50000000047,
+        "copper": 1086.9999984193128,
+        "iron": 125489.00000001118,
+        "steel": 68.00000000256114,
+        "gold": 258.63750000006894
+      },
+      "logoutSaveSha256": "33a7d279184bf7b5ede6915cb5835bc1bf64f314a369b2f8ff54ba2cb3c6cc76",
+      "result": {
+        "ok": true,
+        "durationSec": 14400,
+        "gains": {
+          "wood": -17600,
+          "stone": -1005262.3999999792,
+          "food": 2367.846935113019,
+          "coal": -336494.4000000029,
+          "copper": 1733.3750000000405,
+          "iron": 98123.59999999515,
+          "gold": 172596.19999997498,
+          "steel": 144983.79999999885,
+          "deed": 4536,
+          "medal": 7560,
+          "bone": 30240
+        },
+        "truncated": false
+      },
+      "produced": 383,
+      "queueCount": 243,
+      "queue": {
+        "electro_trooper": {
+          "count": 88,
+          "reason": "资源不足，暂停生产"
+        },
+        "star_trooper": {
+          "count": 155,
+          "reason": "资源不足，暂停生产"
+        }
+      },
+      "army": 429,
+      "stock": {
+        "food": 401280,
+        "wood": 1745,
+        "stone": 67.60000001871958,
+        "coal": 13257.099999997563,
+        "copper": 2820.3749984193532,
+        "iron": 223612.60000000632,
+        "steel": 145051.8000000014,
+        "gold": 172854.83749997505
+      },
+      "trainingPaid": {
+        "food": 129100,
+        "gold": 4000,
+        "wood": 17600,
+        "stone": 4400,
+        "steel": 219500,
+        "copper": 214000,
+        "iron": 214000
+      },
+      "settledSaveSha256": "282e49c607670f51dd9792a66304ced9a0fc3fdeb4561c0ba80678633f0bd017",
+      "foodClamped": false
+    },
+    {
+      "name": "coal-20-gold-60",
+      "workers": {
+        "food": 100,
+        "copper": 320,
+        "iron": 320,
+        "steel": 302,
+        "coal": 20,
+        "gold": 60
+      },
+      "allocation": {
+        "wood": 0,
+        "stone": 0,
+        "food": 100,
+        "coal": 20,
+        "copper": 320,
+        "iron": 320,
+        "silver": 0,
+        "gold": 60,
+        "steel": 302,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "workerCount": 1122,
+      "startStock": {
+        "food": 398912.153064887,
+        "wood": 19345,
+        "stone": 1005329.9999999979,
+        "coal": 349751.50000000047,
+        "copper": 1086.9999984193128,
+        "iron": 125489.00000001118,
+        "steel": 68.00000000256114,
+        "gold": 258.63750000006894
+      },
+      "logoutSaveSha256": "59f99170997b7b04009090dd034f7a9a36dd23adcd40b2b3871f2b1121c6b61f",
+      "result": {
+        "ok": true,
+        "durationSec": 14400,
+        "gains": {
+          "wood": -17600,
+          "stone": -1005276.7999999784,
+          "food": 2367.846935113019,
+          "coal": -48556.800000003015,
+          "copper": -1032.000000000021,
+          "iron": 257251.19999999495,
+          "gold": 146935.3999999817,
+          "steel": 150845.5999999987,
+          "deed": 4536,
+          "medal": 7560,
+          "bone": 30240
+        },
+        "truncated": false
+      },
+      "produced": 384,
+      "queueCount": 242,
+      "queue": {
+        "electro_trooper": {
+          "count": 87,
+          "reason": "资源不足，暂停生产"
+        },
+        "star_trooper": {
+          "count": 155,
+          "reason": "资源不足，暂停生产"
+        }
+      },
+      "army": 430,
+      "stock": {
+        "food": 401280,
+        "wood": 1745,
+        "stone": 53.20000001951121,
+        "coal": 301194.69999999745,
+        "copper": 54.99999841929184,
+        "iron": 382740.2000000061,
+        "steel": 150913.60000000126,
+        "gold": 147194.03749998176
+      },
+      "trainingPaid": {
+        "food": 129100,
+        "gold": 4000,
+        "wood": 17600,
+        "stone": 4400,
+        "steel": 227500,
+        "copper": 222000,
+        "iron": 222000
+      },
+      "settledSaveSha256": "3f1f2cf9c30a15da2b9d158305e6bd362c8742e62d576392a2c03154aa0f13d7",
+      "foodClamped": false
+    },
+    {
+      "name": "coal-30-gold-60",
+      "workers": {
+        "food": 100,
+        "copper": 315,
+        "iron": 315,
+        "steel": 302,
+        "coal": 30,
+        "gold": 60
+      },
+      "allocation": {
+        "wood": 0,
+        "stone": 0,
+        "food": 100,
+        "coal": 30,
+        "copper": 315,
+        "iron": 315,
+        "silver": 0,
+        "gold": 60,
+        "steel": 302,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "workerCount": 1122,
+      "startStock": {
+        "food": 398912.153064887,
+        "wood": 19345,
+        "stone": 1005329.9999999979,
+        "coal": 349751.50000000047,
+        "copper": 1086.9999984193128,
+        "iron": 125489.00000001118,
+        "steel": 68.00000000256114,
+        "gold": 258.63750000006894
+      },
+      "logoutSaveSha256": "3efdf2783d483b8fb8b5de5d5f1ad4808a2bc872ded59060b1cbce9e6d8c8779",
+      "result": {
+        "ok": true,
+        "durationSec": 14400,
+        "gains": {
+          "wood": -17600,
+          "stone": -1005275.5999999782,
+          "food": 2367.846935113019,
+          "coal": 212040.49999999953,
+          "copper": 4403.09999999996,
+          "iron": 682163.3999999948,
+          "gold": 85612.32499999771,
+          "steel": 166338.1999999986,
+          "deed": 4536,
+          "medal": 7560,
+          "bone": 30240
+        },
+        "truncated": false
+      },
+      "produced": 384,
+      "queueCount": 242,
+      "queue": {
+        "electro_trooper": {
+          "count": 87,
+          "reason": "资源不足，暂停生产"
+        },
+        "star_trooper": {
+          "count": 155,
+          "reason": "资源不足，暂停生产"
+        }
+      },
+      "army": 430,
+      "stock": {
+        "food": 401280,
+        "wood": 1745,
+        "stone": 54.40000001975568,
+        "coal": 561792,
+        "copper": 5490.099998419273,
+        "iron": 807652.400000006,
+        "steel": 166406.20000000115,
+        "gold": 85870.96249999778
+      },
+      "trainingPaid": {
+        "food": 129100,
+        "gold": 4000,
+        "wood": 17600,
+        "stone": 4400,
+        "steel": 227500,
+        "copper": 222000,
+        "iron": 222000
+      },
+      "settledSaveSha256": "5297b266c4803e7694e9f50a08d3fa43e63b94f1633ebdd7321e0e3f47deda06",
+      "foodClamped": false
+    },
+    {
+      "name": "coal-40-gold-60",
+      "workers": {
+        "food": 100,
+        "copper": 310,
+        "iron": 310,
+        "steel": 302,
+        "coal": 40,
+        "gold": 60
+      },
+      "allocation": {
+        "wood": 0,
+        "stone": 0,
+        "food": 100,
+        "coal": 40,
+        "copper": 310,
+        "iron": 310,
+        "silver": 0,
+        "gold": 60,
+        "steel": 302,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "workerCount": 1122,
+      "startStock": {
+        "food": 398912.153064887,
+        "wood": 19345,
+        "stone": 1005329.9999999979,
+        "coal": 349751.50000000047,
+        "copper": 1086.9999984193128,
+        "iron": 125489.00000001118,
+        "steel": 68.00000000256114,
+        "gold": 258.63750000006894
+      },
+      "logoutSaveSha256": "b14bbbbf0c25ef4ed40bac28e8f9bd5a37a93e8eec5dc7347a0723062551ac6c",
+      "result": {
+        "ok": true,
+        "durationSec": 14400,
+        "gains": {
+          "wood": -17600,
+          "stone": -1005323.5999999781,
+          "food": 2367.846935113019,
+          "coal": 212040.49999999953,
+          "copper": 2016.4000000000187,
+          "iron": 873255.3999999946,
+          "gold": 55229.22500000236,
+          "steel": 174646.19999999844,
+          "deed": 4536,
+          "medal": 7560,
+          "bone": 30240
+        },
+        "truncated": false
+      },
+      "produced": 385,
+      "queueCount": 241,
+      "queue": {
+        "electro_trooper": {
+          "count": 86,
+          "reason": "资源不足，暂停生产"
+        },
+        "star_trooper": {
+          "count": 155,
+          "reason": "资源不足，暂停生产"
+        }
+      },
+      "army": 431,
+      "stock": {
+        "food": 401280,
+        "wood": 1745,
+        "stone": 6.400000019813888,
+        "coal": 561792,
+        "copper": 3103.3999984193315,
+        "iron": 998744.4000000057,
+        "steel": 174714.200000001,
+        "gold": 55487.86250000243
+      },
+      "trainingPaid": {
+        "food": 129100,
+        "gold": 4000,
+        "wood": 17600,
+        "stone": 4400,
+        "steel": 235500,
+        "copper": 230000,
+        "iron": 230000
+      },
+      "settledSaveSha256": "07d17519d225f5cc0dee6de9250bdc7a021532d7a7a76ba2e7223066b403c330",
+      "foodClamped": false
+    },
+    {
+      "name": "coal-120-no-gold",
+      "workers": {
+        "food": 100,
+        "copper": 300,
+        "iron": 300,
+        "steel": 302,
+        "coal": 120
+      },
+      "allocation": {
+        "wood": 0,
+        "stone": 0,
+        "food": 100,
+        "coal": 120,
+        "copper": 300,
+        "iron": 300,
+        "silver": 0,
+        "gold": 0,
+        "steel": 302,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "workerCount": 1122,
+      "startStock": {
+        "food": 398912.153064887,
+        "wood": 19345,
+        "stone": 1005329.9999999979,
+        "coal": 349751.50000000047,
+        "copper": 1086.9999984193128,
+        "iron": 125489.00000001118,
+        "steel": 68.00000000256114,
+        "gold": 258.63750000006894
+      },
+      "logoutSaveSha256": "0e5f81ce9789e0c32d6440fff7bad547c8a064080152b8b46b0835c50dac7fdb",
+      "result": {
+        "ok": true,
+        "durationSec": 14400,
+        "gains": {
+          "wood": -17600,
+          "stone": -1005177.1999999778,
+          "food": 2367.846935113019,
+          "coal": 212040.49999999953,
+          "copper": 4012,
+          "iron": 489422.7999999919,
+          "gold": -200,
+          "steel": 120557.39999999752,
+          "deed": 4536,
+          "medal": 7560,
+          "bone": 30240
+        },
+        "truncated": false
+      },
+      "produced": 377,
+      "queueCount": 249,
+      "queue": {
+        "gold_cavalry": {
+          "count": 38,
+          "reason": "资源不足，暂停生产"
+        },
+        "electro_trooper": {
+          "count": 56,
+          "reason": "资源不足，暂停生产"
+        },
+        "star_trooper": {
+          "count": 155,
+          "reason": "资源不足，暂停生产"
+        }
+      },
+      "army": 423,
+      "stock": {
+        "food": 401280,
+        "wood": 1745,
+        "stone": 152.8000000201282,
+        "coal": 561792,
+        "copper": 5098.999998419313,
+        "iron": 614911.8000000031,
+        "steel": 120625.40000000008,
+        "gold": 58.63750000006894
+      },
+      "trainingPaid": {
+        "food": 91100,
+        "gold": 200,
+        "wood": 17600,
+        "stone": 4400,
+        "steel": 475500,
+        "copper": 470000,
+        "iron": 470000
+      },
+      "settledSaveSha256": "4e35cb04ae134abe3c40179bf44ca1b06dcc35d08cc10408b25dc384020c8418",
+      "foodClamped": false
+    },
+    {
+      "name": "coal-60-gold-60",
+      "workers": {
+        "food": 100,
+        "copper": 300,
+        "iron": 300,
+        "steel": 302,
+        "coal": 60,
+        "gold": 60
+      },
+      "allocation": {
+        "wood": 0,
+        "stone": 0,
+        "food": 100,
+        "coal": 60,
+        "copper": 300,
+        "iron": 300,
+        "silver": 0,
+        "gold": 60,
+        "steel": 302,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "workerCount": 1122,
+      "startStock": {
+        "food": 398912.153064887,
+        "wood": 19345,
+        "stone": 1005329.9999999979,
+        "coal": 349751.50000000047,
+        "copper": 1086.9999984193128,
+        "iron": 125489.00000001118,
+        "steel": 68.00000000256114,
+        "gold": 258.63750000006894
+      },
+      "logoutSaveSha256": "64d7c65addad18672faa71e6b2c9120436b922179b5313d4d0fabaaae4ebfb51",
+      "result": {
+        "ok": true,
+        "durationSec": 14400,
+        "gains": {
+          "wood": -17600,
+          "stone": -1005283.9999999779,
+          "food": 2367.846935113019,
+          "coal": 212040.49999999953,
+          "copper": -975,
+          "iron": 875819.999999994,
+          "gold": 45606.425000001735,
+          "steel": 196969.9999999981,
+          "deed": 4536,
+          "medal": 7560,
+          "bone": 30240
+        },
+        "truncated": false
+      },
+      "produced": 387,
+      "queueCount": 239,
+      "queue": {
+        "electro_trooper": {
+          "count": 84,
+          "reason": "资源不足，暂停生产"
+        },
+        "star_trooper": {
+          "count": 155,
+          "reason": "资源不足，暂停生产"
+        }
+      },
+      "army": 433,
+      "stock": {
+        "food": 401280,
+        "wood": 1745,
+        "stone": 46.00000001996523,
+        "coal": 561792,
+        "copper": 111.99999841931276,
+        "iron": 1001309.0000000051,
+        "steel": 197038.00000000067,
+        "gold": 45865.062500001804
+      },
+      "trainingPaid": {
+        "food": 129100,
+        "gold": 4000,
+        "wood": 17600,
+        "stone": 4400,
+        "steel": 251500,
+        "copper": 246000,
+        "iron": 246000
+      },
+      "settledSaveSha256": "53c250475a270bc49323bbecc9bc13007c0a7bcc36b84672088fdadb5464a0ed",
+      "foodClamped": false
+    },
+    {
+      "name": "coal-80-gold-40",
+      "workers": {
+        "food": 100,
+        "copper": 300,
+        "iron": 300,
+        "steel": 302,
+        "coal": 80,
+        "gold": 40
+      },
+      "allocation": {
+        "wood": 0,
+        "stone": 0,
+        "food": 100,
+        "coal": 80,
+        "copper": 300,
+        "iron": 300,
+        "silver": 0,
+        "gold": 40,
+        "steel": 302,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "workerCount": 1122,
+      "startStock": {
+        "food": 398912.153064887,
+        "wood": 19345,
+        "stone": 1005329.9999999979,
+        "coal": 349751.50000000047,
+        "copper": 1086.9999984193128,
+        "iron": 125489.00000001118,
+        "steel": 68.00000000256114,
+        "gold": 258.63750000006894
+      },
+      "logoutSaveSha256": "6d0b15340ad500c493f2b0b1fcb003912148ffa2579b086446c2bd2541f7b5a3",
+      "result": {
+        "ok": true,
+        "durationSec": 14400,
+        "gains": {
+          "wood": -17600,
+          "stone": -1005306.7999999777,
+          "food": 2367.846935113019,
+          "coal": 212040.49999999953,
+          "copper": 5300,
+          "iron": 962721.1999999934,
+          "gold": 21928.099999999715,
+          "steel": 220924.59999999782,
+          "deed": 4536,
+          "medal": 7560,
+          "bone": 30240
+        },
+        "truncated": false
+      },
+      "produced": 389,
+      "queueCount": 237,
+      "queue": {
+        "electro_trooper": {
+          "count": 82,
+          "reason": "资源不足，暂停生产"
+        },
+        "star_trooper": {
+          "count": 155,
+          "reason": "资源不足，暂停生产"
+        }
+      },
+      "army": 435,
+      "stock": {
+        "food": 401280,
+        "wood": 1745,
+        "stone": 23.200000020151492,
+        "coal": 561792,
+        "copper": 6386.999998419313,
+        "iron": 1088210.2000000046,
+        "steel": 220992.60000000038,
+        "gold": 22186.737499999785
+      },
+      "trainingPaid": {
+        "food": 129100,
+        "gold": 4000,
+        "wood": 17600,
+        "stone": 4400,
+        "steel": 267500,
+        "copper": 262000,
+        "iron": 262000
+      },
+      "settledSaveSha256": "210935e9b2252cc9794a9e7bac9993a563f9f9c5801a27dfa1d689851d0035b6",
+      "foodClamped": false
+    },
+    {
+      "name": "coal-100-gold-40",
+      "workers": {
+        "food": 100,
+        "copper": 290,
+        "iron": 290,
+        "steel": 302,
+        "coal": 100,
+        "gold": 40
+      },
+      "allocation": {
+        "wood": 0,
+        "stone": 0,
+        "food": 100,
+        "coal": 100,
+        "copper": 290,
+        "iron": 290,
+        "silver": 0,
+        "gold": 40,
+        "steel": 302,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "workerCount": 1122,
+      "startStock": {
+        "food": 398912.153064887,
+        "wood": 19345,
+        "stone": 1005329.9999999979,
+        "coal": 349751.50000000047,
+        "copper": 1086.9999984193128,
+        "iron": 125489.00000001118,
+        "steel": 68.00000000256114,
+        "gold": 258.63750000006894
+      },
+      "logoutSaveSha256": "a6aff9a0e803e5bf3159b5b830dc2ef1f684967a5f3b1440827aedc2fc248b13",
+      "result": {
+        "ok": true,
+        "durationSec": 14400,
+        "gains": {
+          "wood": -17600,
+          "stone": -1005291.1999999778,
+          "food": 2367.846935113019,
+          "coal": 212040.49999999953,
+          "copper": 6163.049999999925,
+          "iron": 845950.7999999927,
+          "gold": 19938.19999999991,
+          "steel": 243556.39999999737,
+          "deed": 4536,
+          "medal": 7560,
+          "bone": 30240
+        },
+        "truncated": false
+      },
+      "produced": 393,
+      "queueCount": 233,
+      "queue": {
+        "electro_trooper": {
+          "count": 78,
+          "reason": "资源不足，暂停生产"
+        },
+        "star_trooper": {
+          "count": 155,
+          "reason": "资源不足，暂停生产"
+        }
+      },
+      "army": 439,
+      "stock": {
+        "food": 401280,
+        "wood": 1745,
+        "stone": 38.80000002012821,
+        "coal": 561792,
+        "copper": 7250.049998419237,
+        "iron": 971439.8000000039,
+        "steel": 243624.39999999994,
+        "gold": 20196.83749999998
+      },
+      "trainingPaid": {
+        "food": 129100,
+        "gold": 4000,
+        "wood": 17600,
+        "stone": 4400,
+        "steel": 299500,
+        "copper": 294000,
+        "iron": 294000
+      },
+      "settledSaveSha256": "9126cabcde0a9d7507c96f2cf99c5b51618462eeb9bac971df2933ba3c61d8d7",
+      "foodClamped": false
+    },
+    {
+      "name": "coal-120-gold-60",
+      "workers": {
+        "food": 100,
+        "copper": 280,
+        "iron": 280,
+        "steel": 282,
+        "coal": 120,
+        "gold": 60
+      },
+      "allocation": {
+        "wood": 0,
+        "stone": 0,
+        "food": 100,
+        "coal": 120,
+        "copper": 280,
+        "iron": 280,
+        "silver": 0,
+        "gold": 60,
+        "steel": 282,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "workerCount": 1122,
+      "startStock": {
+        "food": 398912.153064887,
+        "wood": 19345,
+        "stone": 1005329.9999999979,
+        "coal": 349751.50000000047,
+        "copper": 1086.9999984193128,
+        "iron": 125489.00000001118,
+        "steel": 68.00000000256114,
+        "gold": 258.63750000006894
+      },
+      "logoutSaveSha256": "6abbf7bbf44017e1e04e2f02ddfb5f9ccab63893968add3fcbb6d489e3563cf4",
+      "result": {
+        "ok": true,
+        "durationSec": 14400,
+        "gains": {
+          "wood": -17600,
+          "stone": -1005307.9999999783,
+          "food": 2367.846935113019,
+          "coal": 212040.49999999953,
+          "copper": 2315.6000000000868,
+          "iron": 471067.9999999916,
+          "gold": 26271.72500000047,
+          "steel": 159549.99999999703,
+          "deed": 4536,
+          "medal": 7560,
+          "bone": 30240
+        },
+        "truncated": false
+      },
+      "produced": 407,
+      "queueCount": 219,
+      "queue": {
+        "electro_trooper": {
+          "count": 64,
+          "reason": "资源不足，暂停生产"
+        },
+        "star_trooper": {
+          "count": 155,
+          "reason": "资源不足，暂停生产"
+        }
+      },
+      "army": 453,
+      "stock": {
+        "food": 401280,
+        "wood": 1745,
+        "stone": 22.000000019499566,
+        "coal": 561792,
+        "copper": 3402.5999984193995,
+        "iron": 596557.0000000028,
+        "steel": 159617.9999999996,
+        "gold": 26530.36250000054
+      },
+      "trainingPaid": {
+        "food": 129100,
+        "gold": 4000,
+        "wood": 17600,
+        "stone": 4400,
+        "steel": 411500,
+        "copper": 406000,
+        "iron": 406000
+      },
+      "settledSaveSha256": "25262e17c3f6108e7be4dbb688c625622d66633a52208370a7533327d165aa78",
+      "foodClamped": false
+    },
+    {
+      "name": "coal-180-no-gold",
+      "workers": {
+        "food": 100,
+        "copper": 280,
+        "iron": 280,
+        "steel": 282,
+        "coal": 180
+      },
+      "allocation": {
+        "wood": 0,
+        "stone": 0,
+        "food": 100,
+        "coal": 180,
+        "copper": 280,
+        "iron": 280,
+        "silver": 0,
+        "gold": 0,
+        "steel": 282,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "workerCount": 1122,
+      "startStock": {
+        "food": 398912.153064887,
+        "wood": 19345,
+        "stone": 1005329.9999999979,
+        "coal": 349751.50000000047,
+        "copper": 1086.9999984193128,
+        "iron": 125489.00000001118,
+        "steel": 68.00000000256114,
+        "gold": 258.63750000006894
+      },
+      "logoutSaveSha256": "007c59a798bca3143f1c34c54a5ab88d9870dcf04b83f3bbbc142569085af3b6",
+      "result": {
+        "ok": true,
+        "durationSec": 14400,
+        "gains": {
+          "wood": -17600,
+          "stone": -1005191.5999999788,
+          "food": 2367.846935113019,
+          "coal": 212040.49999999953,
+          "copper": 3413.20000000012,
+          "iron": 162720.39999998722,
+          "gold": -200,
+          "steel": 339166.20000000554,
+          "deed": 4536,
+          "medal": 7560,
+          "bone": 30240
+        },
+        "truncated": false
+      },
+      "produced": 383,
+      "queueCount": 243,
+      "queue": {
+        "gold_cavalry": {
+          "count": 38,
+          "reason": "资源不足，暂停生产"
+        },
+        "electro_trooper": {
+          "count": 50,
+          "reason": "资源不足，暂停生产"
+        },
+        "star_trooper": {
+          "count": 155,
+          "reason": "资源不足，暂停生产"
+        }
+      },
+      "army": 429,
+      "stock": {
+        "food": 401280,
+        "wood": 1745,
+        "stone": 138.40000001909794,
+        "coal": 561792,
+        "copper": 4500.199998419433,
+        "iron": 288209.3999999984,
+        "steel": 339234.2000000081,
+        "gold": 58.63750000006894
+      },
+      "trainingPaid": {
+        "food": 91100,
+        "gold": 200,
+        "wood": 17600,
+        "stone": 4400,
+        "steel": 523500,
+        "copper": 518000,
+        "iron": 518000
+      },
+      "settledSaveSha256": "202b15b0ed6b399e4c47a4e0557db144b41a67ad57a847567c8deefd45136c75",
+      "foodClamped": false
+    },
+    {
+      "name": "stone-100-coal-20-gold-60",
+      "workers": {
+        "food": 100,
+        "stone": 100,
+        "coal": 20,
+        "copper": 280,
+        "iron": 280,
+        "steel": 282,
+        "gold": 60
+      },
+      "allocation": {
+        "wood": 0,
+        "stone": 100,
+        "food": 100,
+        "coal": 20,
+        "copper": 280,
+        "iron": 280,
+        "silver": 0,
+        "gold": 60,
+        "steel": 282,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "workerCount": 1122,
+      "startStock": {
+        "food": 398912.153064887,
+        "wood": 19345,
+        "stone": 1005329.9999999979,
+        "coal": 349751.50000000047,
+        "copper": 1086.9999984193128,
+        "iron": 125489.00000001118,
+        "steel": 68.00000000256114,
+        "gold": 258.63750000006894
+      },
+      "logoutSaveSha256": "b9d7d42afc0b69d72c057fc4b6175a12323fe306c58fcc21bbe80a57550f2b68",
+      "result": {
+        "ok": true,
+        "durationSec": 14400,
+        "gains": {
+          "wood": -17600,
+          "stone": 515310.0000000021,
+          "food": 2367.846935113019,
+          "coal": -349626.2464646784,
+          "copper": 3463.4000000000296,
+          "iron": 559348.3999999943,
+          "gold": 291197.36249999993,
+          "steel": 178712.19999999835,
+          "deed": 4536,
+          "medal": 7560,
+          "bone": 30240
+        },
+        "truncated": false
+      },
+      "produced": 383,
+      "queueCount": 243,
+      "queue": {
+        "electro_trooper": {
+          "count": 88,
+          "reason": "资源不足，暂停生产"
+        },
+        "star_trooper": {
+          "count": 155,
+          "reason": "资源不足，暂停生产"
+        }
+      },
+      "army": 429,
+      "stock": {
+        "food": 401280,
+        "wood": 1745,
+        "stone": 1520640,
+        "coal": 125.25353532209348,
+        "copper": 4550.399998419342,
+        "iron": 684837.4000000055,
+        "steel": 178780.2000000009,
+        "gold": 291456
+      },
+      "trainingPaid": {
+        "food": 129100,
+        "gold": 4000,
+        "wood": 17600,
+        "stone": 4400,
+        "steel": 219500,
+        "copper": 214000,
+        "iron": 214000
+      },
+      "settledSaveSha256": "a33dcd6a0609dcaab69ec976f0f523b88cd1307db34de155af66ed20e1d9f504",
+      "foodClamped": false
+    },
+    {
+      "name": "stone-120-coal-20-gold-40",
+      "workers": {
+        "food": 100,
+        "stone": 120,
+        "coal": 20,
+        "copper": 280,
+        "iron": 280,
+        "steel": 282,
+        "gold": 40
+      },
+      "allocation": {
+        "wood": 0,
+        "stone": 120,
+        "food": 100,
+        "coal": 20,
+        "copper": 280,
+        "iron": 280,
+        "silver": 0,
+        "gold": 40,
+        "steel": 282,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "workerCount": 1122,
+      "startStock": {
+        "food": 398912.153064887,
+        "wood": 19345,
+        "stone": 1005329.9999999979,
+        "coal": 349751.50000000047,
+        "copper": 1086.9999984193128,
+        "iron": 125489.00000001118,
+        "steel": 68.00000000256114,
+        "gold": 258.63750000006894
+      },
+      "logoutSaveSha256": "8e541e1eb00537fb9c406d9d5eff3f66ba33d3d96c369b2d838e1b6140015463",
+      "result": {
+        "ok": true,
+        "durationSec": 14400,
+        "gains": {
+          "wood": -17600,
+          "stone": 515262.0000000021,
+          "food": 2367.846935113019,
+          "coal": -349694.40000000346,
+          "copper": -378.59999999996876,
+          "iron": 1291461.5999999943,
+          "gold": 186243.35000004288,
+          "steel": 177564.7999999983,
+          "deed": 4536,
+          "medal": 7560,
+          "bone": 30240
+        },
+        "truncated": false
+      },
+      "produced": 384,
+      "queueCount": 242,
+      "queue": {
+        "electro_trooper": {
+          "count": 87,
+          "reason": "资源不足，暂停生产"
+        },
+        "star_trooper": {
+          "count": 155,
+          "reason": "资源不足，暂停生产"
+        }
+      },
+      "army": 430,
+      "stock": {
+        "food": 401280,
+        "wood": 1745,
+        "stone": 1520592,
+        "coal": 57.09999999699659,
+        "copper": 708.399998419344,
+        "iron": 1416950.6000000054,
+        "steel": 177632.80000000086,
+        "gold": 186501.98750004295
+      },
+      "trainingPaid": {
+        "food": 129100,
+        "gold": 4000,
+        "wood": 17600,
+        "stone": 4400,
+        "steel": 227500,
+        "copper": 222000,
+        "iron": 222000
+      },
+      "settledSaveSha256": "1e61e28bfe25512f988673a2e47172fb6d71e5a06e89277b200e93d8c667e914",
+      "foodClamped": false
+    },
+    {
+      "name": "stone-160-coal-20-gold-40",
+      "workers": {
+        "food": 100,
+        "stone": 160,
+        "coal": 20,
+        "copper": 260,
+        "iron": 260,
+        "steel": 282,
+        "gold": 40
+      },
+      "allocation": {
+        "wood": 0,
+        "stone": 160,
+        "food": 100,
+        "coal": 20,
+        "copper": 260,
+        "iron": 260,
+        "silver": 0,
+        "gold": 40,
+        "steel": 282,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "workerCount": 1122,
+      "startStock": {
+        "food": 398912.153064887,
+        "wood": 19345,
+        "stone": 1005329.9999999979,
+        "coal": 349751.50000000047,
+        "copper": 1086.9999984193128,
+        "iron": 125489.00000001118,
+        "steel": 68.00000000256114,
+        "gold": 258.63750000006894
+      },
+      "logoutSaveSha256": "b2cb5d1e3a4a14f09bf70a6196fb096fc2c2e613fb3b203e26cca0c5fa2b2fa4",
+      "result": {
+        "ok": true,
+        "durationSec": 14400,
+        "gains": {
+          "wood": -17600,
+          "stone": 515262.0000000021,
+          "food": 2367.846935113019,
+          "coal": -349683.60000000364,
+          "copper": 3760.4000000000133,
+          "iron": 1299724.3999999939,
+          "gold": 184164.35000004206,
+          "steel": 209168.199999998,
+          "deed": 4536,
+          "medal": 7560,
+          "bone": 30240
+        },
+        "truncated": false
+      },
+      "produced": 383,
+      "queueCount": 243,
+      "queue": {
+        "electro_trooper": {
+          "count": 88,
+          "reason": "资源不足，暂停生产"
+        },
+        "star_trooper": {
+          "count": 155,
+          "reason": "资源不足，暂停生产"
+        }
+      },
+      "army": 429,
+      "stock": {
+        "food": 401280,
+        "wood": 1745,
+        "stone": 1520592,
+        "coal": 67.89999999680032,
+        "copper": 4847.399998419326,
+        "iron": 1425213.400000005,
+        "steel": 209236.20000000056,
+        "gold": 184422.98750004213
+      },
+      "trainingPaid": {
+        "food": 129100,
+        "gold": 4000,
+        "wood": 17600,
+        "stone": 4400,
+        "steel": 219500,
+        "copper": 214000,
+        "iron": 214000
+      },
+      "settledSaveSha256": "bd744ab095320e4ac3f8c0fd9fe556ed13266b0c6a1ed5294145822ef34ac13f",
+      "foodClamped": false
+    },
+    {
+      "name": "stone-200-coal-20-gold-40",
+      "workers": {
+        "food": 100,
+        "stone": 200,
+        "coal": 20,
+        "copper": 250,
+        "iron": 250,
+        "steel": 262,
+        "gold": 40
+      },
+      "allocation": {
+        "wood": 0,
+        "stone": 200,
+        "food": 100,
+        "coal": 20,
+        "copper": 250,
+        "iron": 250,
+        "silver": 0,
+        "gold": 40,
+        "steel": 262,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "workerCount": 1122,
+      "startStock": {
+        "food": 398912.153064887,
+        "wood": 19345,
+        "stone": 1005329.9999999979,
+        "coal": 349751.50000000047,
+        "copper": 1086.9999984193128,
+        "iron": 125489.00000001118,
+        "steel": 68.00000000256114,
+        "gold": 258.63750000006894
+      },
+      "logoutSaveSha256": "76af4b52d598a56aceda92801b1b0ebc2322174f3fb44ae7c29285bb13e7bce2",
+      "result": {
+        "ok": true,
+        "durationSec": 14400,
+        "gains": {
+          "wood": -17600,
+          "stone": 515262.0000000021,
+          "food": 2367.846935113019,
+          "coal": -349670.40000000386,
+          "copper": 5780,
+          "iron": 1312937.5999999936,
+          "gold": 182991.2000000416,
+          "steel": 199280.79999999798,
+          "deed": 4536,
+          "medal": 7560,
+          "bone": 30240
+        },
+        "truncated": false
+      },
+      "produced": 383,
+      "queueCount": 243,
+      "queue": {
+        "electro_trooper": {
+          "count": 88,
+          "reason": "资源不足，暂停生产"
+        },
+        "star_trooper": {
+          "count": 155,
+          "reason": "资源不足，暂停生产"
+        }
+      },
+      "army": 429,
+      "stock": {
+        "food": 401280,
+        "wood": 1745,
+        "stone": 1520592,
+        "coal": 81.09999999661255,
+        "copper": 6866.999998419313,
+        "iron": 1438426.6000000047,
+        "steel": 199348.80000000054,
+        "gold": 183249.83750004167
+      },
+      "trainingPaid": {
+        "food": 129100,
+        "gold": 4000,
+        "wood": 17600,
+        "stone": 4400,
+        "steel": 219500,
+        "copper": 214000,
+        "iron": 214000
+      },
+      "settledSaveSha256": "9b473f1a1f8b28ac21786518e7a490142e63519d60f0d666135d91dc39c25639",
+      "foodClamped": false
+    },
+    {
+      "name": "stone-120-coal-10-gold-40",
+      "workers": {
+        "food": 100,
+        "stone": 120,
+        "coal": 10,
+        "copper": 285,
+        "iron": 285,
+        "steel": 282,
+        "gold": 40
+      },
+      "allocation": {
+        "wood": 0,
+        "stone": 120,
+        "food": 100,
+        "coal": 10,
+        "copper": 285,
+        "iron": 285,
+        "silver": 0,
+        "gold": 40,
+        "steel": 282,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "workerCount": 1122,
+      "startStock": {
+        "food": 398912.153064887,
+        "wood": 19345,
+        "stone": 1005329.9999999979,
+        "coal": 349751.50000000047,
+        "copper": 1086.9999984193128,
+        "iron": 125489.00000001118,
+        "steel": 68.00000000256114,
+        "gold": 258.63750000006894
+      },
+      "logoutSaveSha256": "d39043ac1f14e3165c3d2b7e560d886e938413c030a6b1e7f6294558c3fd3dce",
+      "result": {
+        "ok": true,
+        "durationSec": 14400,
+        "gains": {
+          "wood": -17600,
+          "stone": 515262.0000000021,
+          "food": 2367.846935113019,
+          "coal": -349744.8000000033,
+          "copper": 1844.7500000000136,
+          "iron": 92322.19999999448,
+          "gold": 177660.0500000395,
+          "steel": 168052.59999999846,
+          "deed": 4536,
+          "medal": 7560,
+          "bone": 30240
+        },
+        "truncated": false
+      },
+      "produced": 383,
+      "queueCount": 243,
+      "queue": {
+        "electro_trooper": {
+          "count": 88,
+          "reason": "资源不足，暂停生产"
+        },
+        "star_trooper": {
+          "count": 155,
+          "reason": "资源不足，暂停生产"
+        }
+      },
+      "army": 429,
+      "stock": {
+        "food": 401280,
+        "wood": 1745,
+        "stone": 1520592,
+        "coal": 6.699999997158784,
+        "copper": 2931.7499984193264,
+        "iron": 217811.20000000566,
+        "steel": 168120.60000000102,
+        "gold": 177918.68750003958
+      },
+      "trainingPaid": {
+        "food": 129100,
+        "gold": 4000,
+        "wood": 17600,
+        "stone": 4400,
+        "steel": 219500,
+        "copper": 214000,
+        "iron": 214000
+      },
+      "settledSaveSha256": "4e4604fd37349795b11edc619eb21238b7b808db4a3d78e8b96a8742d447bd84",
+      "foodClamped": false
+    },
+    {
+      "name": "stone-200-coal-10-gold-40",
+      "workers": {
+        "food": 100,
+        "stone": 200,
+        "coal": 10,
+        "copper": 260,
+        "iron": 260,
+        "steel": 252,
+        "gold": 40
+      },
+      "allocation": {
+        "wood": 0,
+        "stone": 200,
+        "food": 100,
+        "coal": 10,
+        "copper": 260,
+        "iron": 260,
+        "silver": 0,
+        "gold": 40,
+        "steel": 252,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "workerCount": 1122,
+      "startStock": {
+        "food": 398912.153064887,
+        "wood": 19345,
+        "stone": 1005329.9999999979,
+        "coal": 349751.50000000047,
+        "copper": 1086.9999984193128,
+        "iron": 125489.00000001118,
+        "steel": 68.00000000256114,
+        "gold": 258.63750000006894
+      },
+      "logoutSaveSha256": "a3dfa4e635372f01cef0d94d292777aebfdb4a3ec180e2d7f9f3853aa4351f5b",
+      "result": {
+        "ok": true,
+        "durationSec": 14400,
+        "gains": {
+          "wood": -17600,
+          "stone": 515262.0000000021,
+          "food": 2367.846935113019,
+          "coal": -349735.2000000037,
+          "copper": 2602.1000000000126,
+          "iron": 95700.79999999393,
+          "gold": 177793.70000003956,
+          "steel": 162204.39999999836,
+          "deed": 4536,
+          "medal": 7560,
+          "bone": 30240
+        },
+        "truncated": false
+      },
+      "produced": 383,
+      "queueCount": 243,
+      "queue": {
+        "electro_trooper": {
+          "count": 88,
+          "reason": "资源不足，暂停生产"
+        },
+        "star_trooper": {
+          "count": 155,
+          "reason": "资源不足，暂停生产"
+        }
+      },
+      "army": 429,
+      "stock": {
+        "food": 401280,
+        "wood": 1745,
+        "stone": 1520592,
+        "coal": 16.29999999680905,
+        "copper": 3689.0999984193254,
+        "iron": 221189.8000000051,
+        "steel": 162272.40000000093,
+        "gold": 178052.33750003963
+      },
+      "trainingPaid": {
+        "food": 129100,
+        "gold": 4000,
+        "wood": 17600,
+        "stone": 4400,
+        "steel": 219500,
+        "copper": 214000,
+        "iron": 214000
+      },
+      "settledSaveSha256": "5ae1fe5baffcb66b5f541a9f3738c72fcfbcad65821c8b57a7e94aa7926c04ef",
+      "foodClamped": false
+    },
+    {
+      "name": "stone-180-coal-30-gold-40",
+      "workers": {
+        "food": 100,
+        "stone": 180,
+        "coal": 30,
+        "copper": 260,
+        "iron": 260,
+        "steel": 252,
+        "gold": 40
+      },
+      "allocation": {
+        "wood": 0,
+        "stone": 180,
+        "food": 100,
+        "coal": 30,
+        "copper": 260,
+        "iron": 260,
+        "silver": 0,
+        "gold": 40,
+        "steel": 252,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "workerCount": 1122,
+      "startStock": {
+        "food": 398912.153064887,
+        "wood": 19345,
+        "stone": 1005329.9999999979,
+        "coal": 349751.50000000047,
+        "copper": 1086.9999984193128,
+        "iron": 125489.00000001118,
+        "steel": 68.00000000256114,
+        "gold": 258.63750000006894
+      },
+      "logoutSaveSha256": "0c2a6c981e2344a2db65c19c5c922bc9fdfb9ece20ef376e86ff54204e0501f9",
+      "result": {
+        "ok": true,
+        "durationSec": 14400,
+        "gains": {
+          "wood": -17600,
+          "stone": 515262.0000000021,
+          "food": 2367.846935113019,
+          "coal": -349620.0000000039,
+          "copper": 2046.100000000018,
+          "iron": 2521677.9999999935,
+          "gold": 190624.1000000446,
+          "steel": 172739.99999999814,
+          "deed": 4536,
+          "medal": 7560,
+          "bone": 30240
+        },
+        "truncated": false
+      },
+      "produced": 385,
+      "queueCount": 241,
+      "queue": {
+        "electro_trooper": {
+          "count": 86,
+          "reason": "资源不足，暂停生产"
+        },
+        "star_trooper": {
+          "count": 155,
+          "reason": "资源不足，暂停生产"
+        }
+      },
+      "army": 431,
+      "stock": {
+        "food": 401280,
+        "wood": 1745,
+        "stone": 1520592,
+        "coal": 131.4999999965633,
+        "copper": 3133.099998419331,
+        "iron": 2647167.0000000047,
+        "steel": 172808.0000000007,
+        "gold": 190882.73750004466
+      },
+      "trainingPaid": {
+        "food": 129100,
+        "gold": 4000,
+        "wood": 17600,
+        "stone": 4400,
+        "steel": 235500,
+        "copper": 230000,
+        "iron": 230000
+      },
+      "settledSaveSha256": "0054f465d0de16cf8def0ae469f84aec4815bd99e7366ad63e43bbef6c375a29",
+      "foodClamped": false
+    },
+    {
+      "name": "stone-250-coal-10-gold-40",
+      "workers": {
+        "food": 100,
+        "stone": 250,
+        "coal": 10,
+        "copper": 240,
+        "iron": 240,
+        "steel": 242,
+        "gold": 40
+      },
+      "allocation": {
+        "wood": 0,
+        "stone": 250,
+        "food": 100,
+        "coal": 10,
+        "copper": 240,
+        "iron": 240,
+        "silver": 0,
+        "gold": 40,
+        "steel": 242,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "workerCount": 1122,
+      "startStock": {
+        "food": 398912.153064887,
+        "wood": 19345,
+        "stone": 1005329.9999999979,
+        "coal": 349751.50000000047,
+        "copper": 1086.9999984193128,
+        "iron": 125489.00000001118,
+        "steel": 68.00000000256114,
+        "gold": 258.63750000006894
+      },
+      "logoutSaveSha256": "664fc70baca980daf9e8a812d2c61cd524fb12ebf97ea2aa12e45606d08df6e6",
+      "result": {
+        "ok": true,
+        "durationSec": 14400,
+        "gains": {
+          "wood": -17600,
+          "stone": 515310.0000000021,
+          "food": 2367.846935113019,
+          "coal": -349730.4000000039,
+          "copper": 552.7999999999588,
+          "iron": 88685.59999999346,
+          "gold": 177823.40000003958,
+          "steel": 173846.79999999813,
+          "deed": 4536,
+          "medal": 7560,
+          "bone": 30240
+        },
+        "truncated": false
+      },
+      "produced": 383,
+      "queueCount": 243,
+      "queue": {
+        "electro_trooper": {
+          "count": 88,
+          "reason": "资源不足，暂停生产"
+        },
+        "star_trooper": {
+          "count": 155,
+          "reason": "资源不足，暂停生产"
+        }
+      },
+      "army": 429,
+      "stock": {
+        "food": 401280,
+        "wood": 1745,
+        "stone": 1520640,
+        "coal": 21.099999996551617,
+        "copper": 1639.7999984192716,
+        "iron": 214174.60000000463,
+        "steel": 173914.8000000007,
+        "gold": 178082.03750003965
+      },
+      "trainingPaid": {
+        "food": 129100,
+        "gold": 4000,
+        "wood": 17600,
+        "stone": 4400,
+        "steel": 219500,
+        "copper": 214000,
+        "iron": 214000
+      },
+      "settledSaveSha256": "46a91c7e56fb34854feee9cfe9db486ee275d529a325ffed046e8f26f58c7e68",
+      "foodClamped": false
+    },
+    {
+      "name": "stone-80-coal-80-copper-330",
+      "workers": {
+        "food": 100,
+        "stone": 80,
+        "coal": 80,
+        "copper": 330,
+        "iron": 250,
+        "steel": 242,
+        "gold": 40
+      },
+      "allocation": {
+        "wood": 0,
+        "stone": 80,
+        "food": 100,
+        "coal": 80,
+        "copper": 330,
+        "iron": 250,
+        "silver": 0,
+        "gold": 40,
+        "steel": 242,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "workerCount": 1122,
+      "startStock": {
+        "food": 398912.153064887,
+        "wood": 19345,
+        "stone": 1005329.9999999979,
+        "coal": 349751.50000000047,
+        "copper": 1086.9999984193128,
+        "iron": 125489.00000001118,
+        "steel": 68.00000000256114,
+        "gold": 258.63750000006894
+      },
+      "logoutSaveSha256": "ae055473e3393c92a9afff6d9160e730ec7ff510f8309e19daaf07051d984d85",
+      "result": {
+        "ok": true,
+        "durationSec": 14400,
+        "gains": {
+          "wood": -17600,
+          "stone": 514866.0000000021,
+          "food": 2367.846935113019,
+          "coal": -349732.27160511416,
+          "copper": 3977.9500000002263,
+          "iron": 4670862.999999989,
+          "gold": 154226.75000003033,
+          "steel": 1922907.9999999974,
+          "deed": 4536,
+          "medal": 7560,
+          "bone": 30240
+        },
+        "truncated": false
+      },
+      "produced": 439,
+      "queueCount": 187,
+      "queue": {
+        "electro_trooper": {
+          "count": 32,
+          "reason": "资源不足，暂停生产"
+        },
+        "star_trooper": {
+          "count": 155,
+          "reason": "资源不足，暂停生产"
+        }
+      },
+      "army": 485,
+      "stock": {
+        "food": 401280,
+        "wood": 1745,
+        "stone": 1520196,
+        "coal": 19.228394886332808,
+        "copper": 5064.949998419539,
+        "iron": 4796352,
+        "steel": 1922976,
+        "gold": 154485.3875000304
+      },
+      "trainingPaid": {
+        "food": 129100,
+        "gold": 4000,
+        "wood": 17600,
+        "stone": 4400,
+        "steel": 667500,
+        "copper": 662000,
+        "iron": 662000
+      },
+      "settledSaveSha256": "5dcbdab2a1479a8d3f000706e3788d716bc14d72876d03cdf45d4564b13856a4",
+      "foodClamped": false
+    },
+    {
+      "name": "stone-80-coal-120-copper-310",
+      "workers": {
+        "food": 100,
+        "stone": 80,
+        "coal": 120,
+        "copper": 310,
+        "iron": 240,
+        "steel": 232,
+        "gold": 40
+      },
+      "allocation": {
+        "wood": 0,
+        "stone": 80,
+        "food": 100,
+        "coal": 120,
+        "copper": 310,
+        "iron": 240,
+        "silver": 0,
+        "gold": 40,
+        "steel": 232,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "workerCount": 1122,
+      "startStock": {
+        "food": 398912.153064887,
+        "wood": 19345,
+        "stone": 1005329.9999999979,
+        "coal": 349751.50000000047,
+        "copper": 1086.9999984193128,
+        "iron": 125489.00000001118,
+        "steel": 68.00000000256114,
+        "gold": 258.63750000006894
+      },
+      "logoutSaveSha256": "4e00b21179aab7629450bf6cda89d717cf6141789bcd9de99393a1e7b8fdfc55",
+      "result": {
+        "ok": true,
+        "durationSec": 14400,
+        "gains": {
+          "wood": -17600,
+          "stone": 515262.0000000021,
+          "food": 2367.846935113019,
+          "coal": -349457.70370387315,
+          "copper": 6853.250000000451,
+          "iron": 4670862.999999989,
+          "gold": 191218.10000004483,
+          "steel": 1922907.9999999974,
+          "deed": 4536,
+          "medal": 7560,
+          "bone": 30240
+        },
+        "truncated": false
+      },
+      "produced": 545,
+      "queueCount": 81,
+      "queue": {
+        "star_trooper": {
+          "count": 81,
+          "reason": "资源不足，暂停生产"
+        }
+      },
+      "army": 591,
+      "stock": {
+        "food": 401280,
+        "wood": 1745,
+        "stone": 1520592,
+        "coal": 293.79629612730264,
+        "copper": 7940.249998419764,
+        "iron": 4796352,
+        "steel": 1922976,
+        "gold": 191476.7375000449
+      },
+      "trainingPaid": {
+        "food": 129100,
+        "gold": 4000,
+        "wood": 17600,
+        "stone": 4400,
+        "steel": 1515500,
+        "copper": 1510000,
+        "iron": 1510000
+      },
+      "settledSaveSha256": "249efb932504e5fcc1e12075d4784edcb0b8a10dc1cd6d53c98eba2972cee1f6",
+      "foodClamped": false
+    },
+    {
+      "name": "stone-100-coal-100-copper-320",
+      "workers": {
+        "food": 100,
+        "stone": 100,
+        "coal": 100,
+        "copper": 320,
+        "iron": 230,
+        "steel": 232,
+        "gold": 40
+      },
+      "allocation": {
+        "wood": 0,
+        "stone": 100,
+        "food": 100,
+        "coal": 100,
+        "copper": 320,
+        "iron": 230,
+        "silver": 0,
+        "gold": 40,
+        "steel": 232,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "workerCount": 1122,
+      "startStock": {
+        "food": 398912.153064887,
+        "wood": 19345,
+        "stone": 1005329.9999999979,
+        "coal": 349751.50000000047,
+        "copper": 1086.9999984193128,
+        "iron": 125489.00000001118,
+        "steel": 68.00000000256114,
+        "gold": 258.63750000006894
+      },
+      "logoutSaveSha256": "1662e2b32a3e0073268d38f86599726d0132a3d9075907f9fcb4f5dff39fa4dc",
+      "result": {
+        "ok": true,
+        "durationSec": 14400,
+        "gains": {
+          "wood": -17600,
+          "stone": 514926.0000000021,
+          "food": 2367.846935113019,
+          "coal": -349740.51851868356,
+          "copper": 4270.399999999764,
+          "iron": 4670862.999999989,
+          "gold": 199162.85000004794,
+          "steel": 1922907.9999999974,
+          "deed": 4536,
+          "medal": 7560,
+          "bone": 30240
+        },
+        "truncated": false
+      },
+      "produced": 488,
+      "queueCount": 138,
+      "queue": {
+        "star_trooper": {
+          "count": 138,
+          "reason": "资源不足，暂停生产"
+        }
+      },
+      "army": 534,
+      "stock": {
+        "food": 401280,
+        "wood": 1745,
+        "stone": 1520256,
+        "coal": 10.981481316883901,
+        "copper": 5357.399998419077,
+        "iron": 4796352,
+        "steel": 1922976,
+        "gold": 199421.487500048
+      },
+      "trainingPaid": {
+        "food": 129100,
+        "gold": 4000,
+        "wood": 17600,
+        "stone": 4400,
+        "steel": 1059500,
+        "copper": 1054000,
+        "iron": 1054000
+      },
+      "settledSaveSha256": "bcc1eec617f89b63a64baf64173aeac512a864f44f60dfbb9264664b6575c8c2",
+      "foodClamped": false
+    },
+    {
+      "name": "stone-80-coal-160-copper-300",
+      "workers": {
+        "food": 100,
+        "stone": 80,
+        "coal": 160,
+        "copper": 300,
+        "iron": 220,
+        "steel": 222,
+        "gold": 40
+      },
+      "allocation": {
+        "wood": 0,
+        "stone": 80,
+        "food": 100,
+        "coal": 160,
+        "copper": 300,
+        "iron": 220,
+        "silver": 0,
+        "gold": 40,
+        "steel": 222,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "workerCount": 1122,
+      "startStock": {
+        "food": 398912.153064887,
+        "wood": 19345,
+        "stone": 1005329.9999999979,
+        "coal": 349751.50000000047,
+        "copper": 1086.9999984193128,
+        "iron": 125489.00000001118,
+        "steel": 68.00000000256114,
+        "gold": 258.63750000006894
+      },
+      "logoutSaveSha256": "8da6220ae62132af0be4ecc630f865132cc1986d4ce7646fb87186b48aadbdfe",
+      "result": {
+        "ok": true,
+        "durationSec": 14400,
+        "gains": {
+          "wood": -17600,
+          "stone": 514998.0000000021,
+          "food": 2367.846935113019,
+          "coal": -349574.6666666851,
+          "copper": 1161866,
+          "iron": 2414747.33333332,
+          "gold": 123710.00000001836,
+          "steel": 1922907.9999999974,
+          "deed": 4536,
+          "medal": 7560,
+          "bone": 30240
+        },
+        "truncated": false
+      },
+      "produced": 626,
+      "queueCount": 0,
+      "queue": {},
+      "army": 672,
+      "stock": {
+        "food": 401280,
+        "wood": 1745,
+        "stone": 1520328,
+        "coal": 176.83333331538051,
+        "copper": 1162952.9999984193,
+        "iron": 2540236.333333331,
+        "steel": 1922976,
+        "gold": 123968.63750001843
+      },
+      "trainingPaid": {
+        "food": 129100,
+        "gold": 4000,
+        "wood": 17600,
+        "stone": 4400,
+        "steel": 2163500,
+        "copper": 2158000,
+        "iron": 2158000
+      },
+      "settledSaveSha256": "6bbf61dfc2ea7c6f25efe473a44a5d1b6a30641bb91c4bf53796ad87723eaaf6",
+      "foodClamped": false
+    },
+    {
+      "name": "stone-120-coal-120-copper-320",
+      "workers": {
+        "food": 100,
+        "stone": 120,
+        "coal": 120,
+        "copper": 320,
+        "iron": 220,
+        "steel": 202,
+        "gold": 40
+      },
+      "allocation": {
+        "wood": 0,
+        "stone": 120,
+        "food": 100,
+        "coal": 120,
+        "copper": 320,
+        "iron": 220,
+        "silver": 0,
+        "gold": 40,
+        "steel": 202,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "workerCount": 1122,
+      "startStock": {
+        "food": 398912.153064887,
+        "wood": 19345,
+        "stone": 1005329.9999999979,
+        "coal": 349751.50000000047,
+        "copper": 1086.9999984193128,
+        "iron": 125489.00000001118,
+        "steel": 68.00000000256114,
+        "gold": 258.63750000006894
+      },
+      "logoutSaveSha256": "4662dd7ba914783dd062291e79ab01dd3b11df96d91871bfdc1655afe0bfdb22",
+      "result": {
+        "ok": true,
+        "durationSec": 14400,
+        "gains": {
+          "wood": -17600,
+          "stone": 515262.0000000021,
+          "food": 2367.846935113019,
+          "coal": -349416.4691359716,
+          "copper": 5731.199999999644,
+          "iron": 4670862.999999989,
+          "gold": 204642.5000000501,
+          "steel": 1922907.9999999974,
+          "deed": 4536,
+          "medal": 7560,
+          "bone": 30240
+        },
+        "truncated": false
+      },
+      "produced": 543,
+      "queueCount": 83,
+      "queue": {
+        "star_trooper": {
+          "count": 83,
+          "reason": "资源不足，暂停生产"
+        }
+      },
+      "army": 589,
+      "stock": {
+        "food": 401280,
+        "wood": 1745,
+        "stone": 1520592,
+        "coal": 335.03086402882184,
+        "copper": 6818.199998418957,
+        "iron": 4796352,
+        "steel": 1922976,
+        "gold": 204901.13750005016
+      },
+      "trainingPaid": {
+        "food": 129100,
+        "gold": 4000,
+        "wood": 17600,
+        "stone": 4400,
+        "steel": 1499500,
+        "copper": 1494000,
+        "iron": 1494000
+      },
+      "settledSaveSha256": "6714cee0351763302a40ff09d40fa444d1c907b73a8f8bb67b9208ff6aa6ef6e",
+      "foodClamped": false
+    },
+    {
+      "name": "stone-100-coal-80-copper-350-gold-10",
+      "workers": {
+        "food": 100,
+        "stone": 100,
+        "coal": 80,
+        "copper": 350,
+        "iron": 240,
+        "steel": 242,
+        "gold": 10
+      },
+      "allocation": {
+        "wood": 0,
+        "stone": 100,
+        "food": 100,
+        "coal": 80,
+        "copper": 350,
+        "iron": 240,
+        "silver": 0,
+        "gold": 10,
+        "steel": 242,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "workerCount": 1122,
+      "startStock": {
+        "food": 398912.153064887,
+        "wood": 19345,
+        "stone": 1005329.9999999979,
+        "coal": 349751.50000000047,
+        "copper": 1086.9999984193128,
+        "iron": 125489.00000001118,
+        "steel": 68.00000000256114,
+        "gold": 258.63750000006894
+      },
+      "logoutSaveSha256": "93f9a1da42a0514c608c7bc7cbcff09ccb18f9b82de728d453f6f9c6b0708b69",
+      "result": {
+        "ok": true,
+        "durationSec": 14400,
+        "gains": {
+          "wood": -17600,
+          "stone": 515010.0000000021,
+          "food": 2367.846935113019,
+          "coal": -349726.14814832027,
+          "copper": -703.4999999998872,
+          "iron": 4663510.999999989,
+          "gold": 49363.475000011895,
+          "steel": 1914907.9999999974,
+          "deed": 4536,
+          "medal": 7560,
+          "bone": 30240
+        },
+        "truncated": false
+      },
+      "produced": 456,
+      "queueCount": 170,
+      "queue": {
+        "electro_trooper": {
+          "count": 15,
+          "reason": ""
+        },
+        "star_trooper": {
+          "count": 155,
+          "reason": "资源不足，暂停生产"
+        }
+      },
+      "army": 502,
+      "stock": {
+        "food": 401280,
+        "wood": 1745,
+        "stone": 1520340,
+        "coal": 25.35185168020257,
+        "copper": 383.49999841942554,
+        "iron": 4789000,
+        "steel": 1914976,
+        "gold": 49622.112500011965
+      },
+      "trainingPaid": {
+        "food": 129100,
+        "gold": 4000,
+        "wood": 17600,
+        "stone": 4400,
+        "steel": 803500,
+        "copper": 798000,
+        "iron": 798000
+      },
+      "settledSaveSha256": "444225a4a590ee6b5a852e73f3bfd3e75efb04e190d20da3f7b5fb6f114dba53",
+      "foodClamped": false
+    },
+    {
+      "name": "stone-100-coal-120-copper-342-gold-10",
+      "workers": {
+        "food": 100,
+        "stone": 100,
+        "coal": 120,
+        "copper": 342,
+        "iron": 230,
+        "steel": 220,
+        "gold": 10
+      },
+      "allocation": {
+        "wood": 0,
+        "stone": 100,
+        "food": 100,
+        "coal": 120,
+        "copper": 342,
+        "iron": 230,
+        "silver": 0,
+        "gold": 10,
+        "steel": 220,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "workerCount": 1122,
+      "startStock": {
+        "food": 398912.153064887,
+        "wood": 19345,
+        "stone": 1005329.9999999979,
+        "coal": 349751.50000000047,
+        "copper": 1086.9999984193128,
+        "iron": 125489.00000001118,
+        "steel": 68.00000000256114,
+        "gold": 258.63750000006894
+      },
+      "logoutSaveSha256": "66551a12ce2bf6026265785b41d99612f7fc6bfa5c0a993ebf68f8129c93d894",
+      "result": {
+        "ok": true,
+        "durationSec": 14400,
+        "gains": {
+          "wood": -17600,
+          "stone": 515022.0000000021,
+          "food": 2367.846935113019,
+          "coal": -349644.8839506236,
+          "copper": -761.4200000000728,
+          "iron": 4663483.999999989,
+          "gold": 49278.08750001186,
+          "steel": 1914907.9999999974,
+          "deed": 4536,
+          "medal": 7560,
+          "bone": 30240
+        },
+        "truncated": false
+      },
+      "produced": 568,
+      "queueCount": 58,
+      "queue": {
+        "star_trooper": {
+          "count": 58,
+          "reason": ""
+        }
+      },
+      "army": 614,
+      "stock": {
+        "food": 401280,
+        "wood": 1745,
+        "stone": 1520352,
+        "coal": 106.61604937682,
+        "copper": 325.5799984192399,
+        "iron": 4788973,
+        "steel": 1914976,
+        "gold": 49536.72500001193
+      },
+      "trainingPaid": {
+        "food": 129100,
+        "gold": 4000,
+        "wood": 17600,
+        "stone": 4400,
+        "steel": 1699500,
+        "copper": 1694000,
+        "iron": 1694000
+      },
+      "settledSaveSha256": "ec8b97312cfb8e8ef847436c1d5435b5aa90d443b6ec128982997e86363f2c37",
+      "foodClamped": false
+    },
+    {
+      "name": "stone-100-coal-140-copper-322-gold-10",
+      "workers": {
+        "food": 100,
+        "stone": 100,
+        "coal": 140,
+        "copper": 322,
+        "iron": 230,
+        "steel": 220,
+        "gold": 10
+      },
+      "allocation": {
+        "wood": 0,
+        "stone": 100,
+        "food": 100,
+        "coal": 140,
+        "copper": 322,
+        "iron": 230,
+        "silver": 0,
+        "gold": 10,
+        "steel": 220,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "workerCount": 1122,
+      "startStock": {
+        "food": 398912.153064887,
+        "wood": 19345,
+        "stone": 1005329.9999999979,
+        "coal": 349751.50000000047,
+        "copper": 1086.9999984193128,
+        "iron": 125489.00000001118,
+        "steel": 68.00000000256114,
+        "gold": 258.63750000006894
+      },
+      "logoutSaveSha256": "20fda8465b6c8231a6ecea163cf95ae3b2c775a53ea368fbb11af0ef5069bc25",
+      "result": {
+        "ok": true,
+        "durationSec": 14400,
+        "gains": {
+          "wood": -17600,
+          "stone": 514923.6000000022,
+          "food": 2367.846935113019,
+          "coal": -349746.2666666685,
+          "copper": 382995.37999999925,
+          "iron": 3178064.3333333093,
+          "gold": 47440.40000001114,
+          "steel": 1922907.9999999974,
+          "deed": 4536,
+          "medal": 7560,
+          "bone": 30240
+        },
+        "truncated": false
+      },
+      "produced": 626,
+      "queueCount": 0,
+      "queue": {},
+      "army": 672,
+      "stock": {
+        "food": 401280,
+        "wood": 1745,
+        "stone": 1520253.6,
+        "coal": 5.2333333319393205,
+        "copper": 384082.37999841856,
+        "iron": 3303553.3333333205,
+        "steel": 1922976,
+        "gold": 47699.03750001121
+      },
+      "trainingPaid": {
+        "food": 129100,
+        "gold": 4000,
+        "wood": 17600,
+        "stone": 4400,
+        "steel": 2163500,
+        "copper": 2158000,
+        "iron": 2158000
+      },
+      "settledSaveSha256": "749ef8ae0a6b5ab668ea0a84187a1f003459364893acfb8f7da18ef7d2b77a92",
+      "foodClamped": false
+    },
+    {
+      "name": "stone-120-coal-120-copper-322-gold-10",
+      "workers": {
+        "food": 100,
+        "stone": 120,
+        "coal": 120,
+        "copper": 322,
+        "iron": 230,
+        "steel": 220,
+        "gold": 10
+      },
+      "allocation": {
+        "wood": 0,
+        "stone": 120,
+        "food": 100,
+        "coal": 120,
+        "copper": 322,
+        "iron": 230,
+        "silver": 0,
+        "gold": 10,
+        "steel": 220,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "workerCount": 1122,
+      "startStock": {
+        "food": 398912.153064887,
+        "wood": 19345,
+        "stone": 1005329.9999999979,
+        "coal": 349751.50000000047,
+        "copper": 1086.9999984193128,
+        "iron": 125489.00000001118,
+        "steel": 68.00000000256114,
+        "gold": 258.63750000006894
+      },
+      "logoutSaveSha256": "155b9aff07fc46d90f90c4c5b6a4e676368c3469e515068e8b085e1d65c682d3",
+      "result": {
+        "ok": true,
+        "durationSec": 14400,
+        "gains": {
+          "wood": -17600,
+          "stone": 515022.0000000021,
+          "food": 2367.846935113019,
+          "coal": -349622.08395062375,
+          "copper": -321.8599999997714,
+          "iron": 4665571.999999989,
+          "gold": 48457.62500001154,
+          "steel": 1916689.9999999974,
+          "deed": 4536,
+          "medal": 7560,
+          "bone": 30240
+        },
+        "truncated": false
+      },
+      "produced": 568,
+      "queueCount": 58,
+      "queue": {
+        "star_trooper": {
+          "count": 58,
+          "reason": "资源不足，暂停生产"
+        }
+      },
+      "army": 614,
+      "stock": {
+        "food": 401280,
+        "wood": 1745,
+        "stone": 1520352,
+        "coal": 129.41604937671048,
+        "copper": 765.1399984195414,
+        "iron": 4791061,
+        "steel": 1916758,
+        "gold": 48716.26250001161
+      },
+      "trainingPaid": {
+        "food": 129100,
+        "gold": 4000,
+        "wood": 17600,
+        "stone": 4400,
+        "steel": 1699500,
+        "copper": 1694000,
+        "iron": 1694000
+      },
+      "settledSaveSha256": "1105e71efc2567943f625f550a65bf1f57c9911eadd717b36c46079e75c58dce",
+      "foodClamped": false
+    },
+    {
+      "name": "stone-80-coal-140-copper-342-gold-10",
+      "workers": {
+        "food": 100,
+        "stone": 80,
+        "coal": 140,
+        "copper": 342,
+        "iron": 230,
+        "steel": 220,
+        "gold": 10
+      },
+      "allocation": {
+        "wood": 0,
+        "stone": 80,
+        "food": 100,
+        "coal": 140,
+        "copper": 342,
+        "iron": 230,
+        "silver": 0,
+        "gold": 10,
+        "steel": 220,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "workerCount": 1122,
+      "startStock": {
+        "food": 398912.153064887,
+        "wood": 19345,
+        "stone": 1005329.9999999979,
+        "coal": 349751.50000000047,
+        "copper": 1086.9999984193128,
+        "iron": 125489.00000001118,
+        "steel": 68.00000000256114,
+        "gold": 258.63750000006894
+      },
+      "logoutSaveSha256": "e9f87464e78b466b9963c8df82191d96e559d4d5f158fb826a563bf14c63e883",
+      "result": {
+        "ok": true,
+        "durationSec": 14400,
+        "gains": {
+          "wood": -17600,
+          "stone": 515022.0000000021,
+          "food": 2367.846935113019,
+          "coal": -349485.8666666684,
+          "copper": 314311.15999999776,
+          "iron": 3424601.3333333065,
+          "gold": 47722.55000001125,
+          "steel": 1922907.9999999974,
+          "deed": 4536,
+          "medal": 7560,
+          "bone": 30240
+        },
+        "truncated": false
+      },
+      "produced": 626,
+      "queueCount": 0,
+      "queue": {},
+      "army": 672,
+      "stock": {
+        "food": 401280,
+        "wood": 1745,
+        "stone": 1520352,
+        "coal": 265.63333333206083,
+        "copper": 315398.1599984171,
+        "iron": 3550090.3333333177,
+        "steel": 1922976,
+        "gold": 47981.18750001132
+      },
+      "trainingPaid": {
+        "food": 129100,
+        "gold": 4000,
+        "wood": 17600,
+        "stone": 4400,
+        "steel": 2163500,
+        "copper": 2158000,
+        "iron": 2158000
+      },
+      "settledSaveSha256": "61cca651047f11bd527cbbc2fcc76ef00cbef72684ada52cc7983ec035db67c1",
+      "foodClamped": false
+    },
+    {
+      "name": "stone-80-coal-180-copper-330-gold-10",
+      "workers": {
+        "food": 100,
+        "stone": 80,
+        "coal": 180,
+        "copper": 330,
+        "iron": 200,
+        "steel": 222,
+        "gold": 10
+      },
+      "allocation": {
+        "wood": 0,
+        "stone": 80,
+        "food": 100,
+        "coal": 180,
+        "copper": 330,
+        "iron": 200,
+        "silver": 0,
+        "gold": 10,
+        "steel": 222,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "workerCount": 1122,
+      "startStock": {
+        "food": 398912.153064887,
+        "wood": 19345,
+        "stone": 1005329.9999999979,
+        "coal": 349751.50000000047,
+        "copper": 1086.9999984193128,
+        "iron": 125489.00000001118,
+        "steel": 68.00000000256114,
+        "gold": 258.63750000006894
+      },
+      "logoutSaveSha256": "da5b10846a5fa826e834aa54bdc7818624fc4801759ddff517a45ed45d37c342",
+      "result": {
+        "ok": true,
+        "durationSec": 14400,
+        "gains": {
+          "wood": -17600,
+          "stone": 514924.80000000214,
+          "food": 2367.846935113019,
+          "coal": -299056.00000157376,
+          "copper": 2894465.0000015805,
+          "iron": 74306.00000000244,
+          "gold": 47072.862500011,
+          "steel": 1100233.0000000622,
+          "deed": 4536,
+          "medal": 7560,
+          "bone": 30240
+        },
+        "truncated": false
+      },
+      "produced": 626,
+      "queueCount": 0,
+      "queue": {},
+      "army": 672,
+      "stock": {
+        "food": 401280,
+        "wood": 1745,
+        "stone": 1520254.8,
+        "coal": 50695.499998426705,
+        "copper": 2895552,
+        "iron": 199795.00000001362,
+        "steel": 1100301.0000000647,
+        "gold": 47331.50000001107
+      },
+      "trainingPaid": {
+        "food": 129100,
+        "gold": 4000,
+        "wood": 17600,
+        "stone": 4400,
+        "steel": 2163500,
+        "copper": 2158000,
+        "iron": 2158000
+      },
+      "settledSaveSha256": "037057fcd820cd629aae826f055141c6c4283b381391c9a7e99153d7ee4160b9",
+      "foodClamped": false
+    },
+    {
+      "name": "stone-80-coal-200-copper-310-gold-10",
+      "workers": {
+        "food": 100,
+        "stone": 80,
+        "coal": 200,
+        "copper": 310,
+        "iron": 200,
+        "steel": 222,
+        "gold": 10
+      },
+      "allocation": {
+        "wood": 0,
+        "stone": 80,
+        "food": 100,
+        "coal": 200,
+        "copper": 310,
+        "iron": 200,
+        "silver": 0,
+        "gold": 10,
+        "steel": 222,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "workerCount": 1122,
+      "startStock": {
+        "food": 398912.153064887,
+        "wood": 19345,
+        "stone": 1005329.9999999979,
+        "coal": 349751.50000000047,
+        "copper": 1086.9999984193128,
+        "iron": 125489.00000001118,
+        "steel": 68.00000000256114,
+        "gold": 258.63750000006894
+      },
+      "logoutSaveSha256": "df62b746dad9cfede57535e505ebb6c8cc1a9d48fa3a170246d775a4d597df3d",
+      "result": {
+        "ok": true,
+        "durationSec": 14400,
+        "gains": {
+          "wood": -17600,
+          "stone": 514924.80000000214,
+          "food": 2367.846935113019,
+          "coal": -37144.00000083173,
+          "copper": 2894465.0000015805,
+          "iron": 1282988.0000002007,
+          "gold": 47945.30000001134,
+          "steel": 1289043.9999999853,
+          "deed": 4536,
+          "medal": 7560,
+          "bone": 30240
+        },
+        "truncated": false
+      },
+      "produced": 626,
+      "queueCount": 0,
+      "queue": {},
+      "army": 672,
+      "stock": {
+        "food": 401280,
+        "wood": 1745,
+        "stone": 1520254.8,
+        "coal": 312607.49999916874,
+        "copper": 2895552,
+        "iron": 1408477.0000002119,
+        "steel": 1289111.999999988,
+        "gold": 48203.93750001141
+      },
+      "trainingPaid": {
+        "food": 129100,
+        "gold": 4000,
+        "wood": 17600,
+        "stone": 4400,
+        "steel": 2163500,
+        "copper": 2158000,
+        "iron": 2158000
+      },
+      "settledSaveSha256": "bde33a2e7d408aa0cd5b6f43525f36b11d72265dc3db5405248167e298e6bb3a",
+      "foodClamped": false
+    },
+    {
+      "name": "stone-80-coal-220-copper-290-gold-10",
+      "workers": {
+        "food": 100,
+        "stone": 80,
+        "coal": 220,
+        "copper": 290,
+        "iron": 200,
+        "steel": 222,
+        "gold": 10
+      },
+      "allocation": {
+        "wood": 0,
+        "stone": 80,
+        "food": 100,
+        "coal": 220,
+        "copper": 290,
+        "iron": 200,
+        "silver": 0,
+        "gold": 10,
+        "steel": 222,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "workerCount": 1122,
+      "startStock": {
+        "food": 398912.153064887,
+        "wood": 19345,
+        "stone": 1005329.9999999979,
+        "coal": 349751.50000000047,
+        "copper": 1086.9999984193128,
+        "iron": 125489.00000001118,
+        "steel": 68.00000000256114,
+        "gold": 258.63750000006894
+      },
+      "logoutSaveSha256": "781c58d92916a75d3873a09047ea2353efb2972f0abaafd1bc2686a53bebb5b3",
+      "result": {
+        "ok": true,
+        "durationSec": 14400,
+        "gains": {
+          "wood": -17600,
+          "stone": 514924.80000000214,
+          "food": 2367.846935113019,
+          "coal": 20506.39999825484,
+          "copper": 2894465.0000015805,
+          "iron": 3770206.399999366,
+          "gold": 47455.25000001115,
+          "steel": 1191941.2000000137,
+          "deed": 4536,
+          "medal": 7560,
+          "bone": 30240
+        },
+        "truncated": false
+      },
+      "produced": 626,
+      "queueCount": 0,
+      "queue": {},
+      "army": 672,
+      "stock": {
+        "food": 401280,
+        "wood": 1745,
+        "stone": 1520254.8,
+        "coal": 370257.8999982553,
+        "copper": 2895552,
+        "iron": 3895695.3999993773,
+        "steel": 1192009.2000000163,
+        "gold": 47713.88750001122
+      },
+      "trainingPaid": {
+        "food": 129100,
+        "gold": 4000,
+        "wood": 17600,
+        "stone": 4400,
+        "steel": 2163500,
+        "copper": 2158000,
+        "iron": 2158000
+      },
+      "settledSaveSha256": "7bd7433a66958e06a78d10a93b7ef83dc28e31298f596daac8e2f82b66750f1d",
+      "foodClamped": false
+    },
+    {
+      "name": "stone-100-coal-180-copper-310-gold-10",
+      "workers": {
+        "food": 100,
+        "stone": 100,
+        "coal": 180,
+        "copper": 310,
+        "iron": 200,
+        "steel": 222,
+        "gold": 10
+      },
+      "allocation": {
+        "wood": 0,
+        "stone": 100,
+        "food": 100,
+        "coal": 180,
+        "copper": 310,
+        "iron": 200,
+        "silver": 0,
+        "gold": 10,
+        "steel": 222,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "workerCount": 1122,
+      "startStock": {
+        "food": 398912.153064887,
+        "wood": 19345,
+        "stone": 1005329.9999999979,
+        "coal": 349751.50000000047,
+        "copper": 1086.9999984193128,
+        "iron": 125489.00000001118,
+        "steel": 68.00000000256114,
+        "gold": 258.63750000006894
+      },
+      "logoutSaveSha256": "99b17816259f0cf8bc1a838753ed4932f5127ca8110a80215106b4c16e2c9d68",
+      "result": {
+        "ok": true,
+        "durationSec": 14400,
+        "gains": {
+          "wood": -17600,
+          "stone": 514924.80000000214,
+          "food": 2367.846935113019,
+          "coal": -293148.4000007979,
+          "copper": 2894465.0000015805,
+          "iron": 96449.6000000023,
+          "gold": 47726.26250001125,
+          "steel": 1056476.800000068,
+          "deed": 4536,
+          "medal": 7560,
+          "bone": 30240
+        },
+        "truncated": false
+      },
+      "produced": 626,
+      "queueCount": 0,
+      "queue": {},
+      "army": 672,
+      "stock": {
+        "food": 401280,
+        "wood": 1745,
+        "stone": 1520254.8,
+        "coal": 56603.099999202575,
+        "copper": 2895552,
+        "iron": 221938.60000001348,
+        "steel": 1056544.8000000706,
+        "gold": 47984.90000001132
+      },
+      "trainingPaid": {
+        "food": 129100,
+        "gold": 4000,
+        "wood": 17600,
+        "stone": 4400,
+        "steel": 2163500,
+        "copper": 2158000,
+        "iron": 2158000
+      },
+      "settledSaveSha256": "cafe7b3a81531eae780abf40fdea4e55a893d43163d3506c5535e35bd10d11ac",
+      "foodClamped": false
+    },
+    {
+      "name": "stone-60-coal-180-copper-350-gold-10",
+      "workers": {
+        "food": 100,
+        "stone": 60,
+        "coal": 180,
+        "copper": 350,
+        "iron": 200,
+        "steel": 222,
+        "gold": 10
+      },
+      "allocation": {
+        "wood": 0,
+        "stone": 60,
+        "food": 100,
+        "coal": 180,
+        "copper": 350,
+        "iron": 200,
+        "silver": 0,
+        "gold": 10,
+        "steel": 222,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "workerCount": 1122,
+      "startStock": {
+        "food": 398912.153064887,
+        "wood": 19345,
+        "stone": 1005329.9999999979,
+        "coal": 349751.50000000047,
+        "copper": 1086.9999984193128,
+        "iron": 125489.00000001118,
+        "steel": 68.00000000256114,
+        "gold": 258.63750000006894
+      },
+      "logoutSaveSha256": "f5fb57a278c4516b93eb565f72053601a7efc2db8760518bc0cdfa5f4c63f274",
+      "result": {
+        "ok": true,
+        "durationSec": 14400,
+        "gains": {
+          "wood": -17600,
+          "stone": 514878.0000000021,
+          "food": 2367.846935113019,
+          "coal": -349741.2000000072,
+          "copper": 2787421.25,
+          "iron": 281172.7999999956,
+          "gold": 48008.41250001136,
+          "steel": 1430502.4000000125,
+          "deed": 4536,
+          "medal": 7560,
+          "bone": 30240
+        },
+        "truncated": false
+      },
+      "produced": 626,
+      "queueCount": 0,
+      "queue": {},
+      "army": 672,
+      "stock": {
+        "food": 401280,
+        "wood": 1745,
+        "stone": 1520208,
+        "coal": 10.299999993306812,
+        "copper": 2788508.2499984195,
+        "iron": 406661.8000000068,
+        "steel": 1430570.400000015,
+        "gold": 48267.05000001143
+      },
+      "trainingPaid": {
+        "food": 129100,
+        "gold": 4000,
+        "wood": 17600,
+        "stone": 4400,
+        "steel": 2163500,
+        "copper": 2158000,
+        "iron": 2158000
+      },
+      "settledSaveSha256": "58ce424d05b02bb6027b87a6cf321cd92f9e3d38bbb450120ea7214a99c8de8f",
+      "foodClamped": false
+    },
+    {
+      "name": "stone-80-coal-240-copper-280-gold-10",
+      "workers": {
+        "food": 100,
+        "stone": 80,
+        "coal": 240,
+        "copper": 280,
+        "iron": 190,
+        "steel": 222,
+        "gold": 10
+      },
+      "allocation": {
+        "wood": 0,
+        "stone": 80,
+        "food": 100,
+        "coal": 240,
+        "copper": 280,
+        "iron": 190,
+        "silver": 0,
+        "gold": 10,
+        "steel": 222,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "workerCount": 1122,
+      "startStock": {
+        "food": 398912.153064887,
+        "wood": 19345,
+        "stone": 1005329.9999999979,
+        "coal": 349751.50000000047,
+        "copper": 1086.9999984193128,
+        "iron": 125489.00000001118,
+        "steel": 68.00000000256114,
+        "gold": 258.63750000006894
+      },
+      "logoutSaveSha256": "2f938df743f41d522b302ef366b4b730855dfeca1eaed283fe803d1f9323210c",
+      "result": {
+        "ok": true,
+        "durationSec": 14400,
+        "gains": {
+          "wood": -17600,
+          "stone": 515070.0000000021,
+          "food": 2367.846935113019,
+          "coal": 211920.49999999953,
+          "copper": 2894465.0000015805,
+          "iron": 4321109.333332969,
+          "gold": 49460.00000001193,
+          "steel": 1922907.9999999974,
+          "deed": 4536,
+          "medal": 7560,
+          "bone": 30240
+        },
+        "truncated": false
+      },
+      "produced": 626,
+      "queueCount": 0,
+      "queue": {},
+      "army": 672,
+      "stock": {
+        "food": 401280,
+        "wood": 1745,
+        "stone": 1520400,
+        "coal": 561672,
+        "copper": 2895552,
+        "iron": 4446598.33333298,
+        "steel": 1922976,
+        "gold": 49718.637500012
+      },
+      "trainingPaid": {
+        "food": 129100,
+        "gold": 4000,
+        "wood": 17600,
+        "stone": 4400,
+        "steel": 2163500,
+        "copper": 2158000,
+        "iron": 2158000
+      },
+      "settledSaveSha256": "9d11e87481b069c376e8a49b42fa97b9570843ca9d8ddfe384ded3f8daf4f3ee",
+      "foodClamped": false
+    },
+    {
+      "name": "wood-5-stone-80-coal-235",
+      "workers": {
+        "food": 100,
+        "wood": 5,
+        "stone": 80,
+        "coal": 235,
+        "copper": 280,
+        "iron": 190,
+        "steel": 222,
+        "gold": 10
+      },
+      "allocation": {
+        "wood": 5,
+        "stone": 80,
+        "food": 100,
+        "coal": 235,
+        "copper": 280,
+        "iron": 190,
+        "silver": 0,
+        "gold": 10,
+        "steel": 222,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "workerCount": 1122,
+      "startStock": {
+        "food": 398912.153064887,
+        "wood": 19345,
+        "stone": 1005329.9999999979,
+        "coal": 349751.50000000047,
+        "copper": 1086.9999984193128,
+        "iron": 125489.00000001118,
+        "steel": 68.00000000256114,
+        "gold": 258.63750000006894
+      },
+      "logoutSaveSha256": "a1ea2ca9f2f74c1688545a74a5ed1f40ea5f549d97d3aa16a35120286db566f1",
+      "result": {
+        "ok": true,
+        "durationSec": 14400,
+        "gains": {
+          "wood": 1732000,
+          "stone": 514936.80000000214,
+          "food": 2367.846935113019,
+          "coal": 151091.59999852977,
+          "copper": 2894465.0000015805,
+          "iron": 4338491.599999526,
+          "gold": 49460.00000001193,
+          "steel": 1844687.79999994,
+          "deed": 4536,
+          "medal": 7560,
+          "bone": 30240
+        },
+        "truncated": false
+      },
+      "produced": 626,
+      "queueCount": 0,
+      "queue": {},
+      "army": 672,
+      "stock": {
+        "food": 401280,
+        "wood": 1751345,
+        "stone": 1520266.8,
+        "coal": 500843.09999853023,
+        "copper": 2895552,
+        "iron": 4463980.599999537,
+        "steel": 1844755.7999999425,
+        "gold": 49718.637500012
+      },
+      "trainingPaid": {
+        "food": 129100,
+        "gold": 4000,
+        "wood": 17600,
+        "stone": 4400,
+        "steel": 2163500,
+        "copper": 2158000,
+        "iron": 2158000
+      },
+      "settledSaveSha256": "8727dcc7934d728ca9c5f876c0b6fb8a3d0133bc31f34649564c6cdf258359cf",
+      "foodClamped": false
+    },
+    {
+      "name": "wood-10-stone-80-coal-230",
+      "workers": {
+        "food": 100,
+        "wood": 10,
+        "stone": 80,
+        "coal": 230,
+        "copper": 280,
+        "iron": 190,
+        "steel": 222,
+        "gold": 10
+      },
+      "allocation": {
+        "wood": 10,
+        "stone": 80,
+        "food": 100,
+        "coal": 230,
+        "copper": 280,
+        "iron": 190,
+        "silver": 0,
+        "gold": 10,
+        "steel": 222,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "workerCount": 1122,
+      "startStock": {
+        "food": 398912.153064887,
+        "wood": 19345,
+        "stone": 1005329.9999999979,
+        "coal": 349751.50000000047,
+        "copper": 1086.9999984193128,
+        "iron": 125489.00000001118,
+        "steel": 68.00000000256114,
+        "gold": 258.63750000006894
+      },
+      "logoutSaveSha256": "f15d9317bf5ad6e38142ccc7e9ceaf8b6b1e2dbf3da294afc988941c5097fefa",
+      "result": {
+        "ok": true,
+        "durationSec": 14400,
+        "gains": {
+          "wood": 2261615,
+          "stone": 514936.80000000214,
+          "food": 2367.846935113019,
+          "coal": 119976.79999849043,
+          "copper": 2894465.0000015805,
+          "iron": 4453176.799999538,
+          "gold": 49460.00000001193,
+          "steel": 1328604.4000000125,
+          "deed": 4536,
+          "medal": 7560,
+          "bone": 30240
+        },
+        "truncated": false
+      },
+      "produced": 626,
+      "queueCount": 0,
+      "queue": {},
+      "army": 672,
+      "stock": {
+        "food": 401280,
+        "wood": 2280960,
+        "stone": 1520266.8,
+        "coal": 469728.2999984909,
+        "copper": 2895552,
+        "iron": 4578665.799999549,
+        "steel": 1328672.400000015,
+        "gold": 49718.637500012
+      },
+      "trainingPaid": {
+        "food": 129100,
+        "gold": 4000,
+        "wood": 17600,
+        "stone": 4400,
+        "steel": 2163500,
+        "copper": 2158000,
+        "iron": 2158000
+      },
+      "settledSaveSha256": "cf83d60d8a9d6ba04e83f9c81c6885781dff4b87a1cee24ff60c7f63f803c886",
+      "foodClamped": false
+    },
+    {
+      "name": "wood-20-stone-80-coal-220",
+      "workers": {
+        "food": 100,
+        "wood": 20,
+        "stone": 80,
+        "coal": 220,
+        "copper": 280,
+        "iron": 190,
+        "steel": 222,
+        "gold": 10
+      },
+      "allocation": {
+        "wood": 20,
+        "stone": 80,
+        "food": 100,
+        "coal": 220,
+        "copper": 280,
+        "iron": 190,
+        "silver": 0,
+        "gold": 10,
+        "steel": 222,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "workerCount": 1122,
+      "startStock": {
+        "food": 398912.153064887,
+        "wood": 19345,
+        "stone": 1005329.9999999979,
+        "coal": 349751.50000000047,
+        "copper": 1086.9999984193128,
+        "iron": 125489.00000001118,
+        "steel": 68.00000000256114,
+        "gold": 258.63750000006894
+      },
+      "logoutSaveSha256": "8bd28d6367ade1e3aa5c7b3cd0559c7ee2e4f95eddbf302891a0058f534f2106",
+      "result": {
+        "ok": true,
+        "durationSec": 14400,
+        "gains": {
+          "wood": 2261615,
+          "stone": 514936.80000000214,
+          "food": 2367.846935113019,
+          "coal": -15126.400001713191,
+          "copper": 2894465.0000015805,
+          "iron": 4134128.599999463,
+          "gold": 44243.93750000989,
+          "steel": 1044488.8000000457,
+          "deed": 4536,
+          "medal": 7560,
+          "bone": 30240
+        },
+        "truncated": false
+      },
+      "produced": 626,
+      "queueCount": 0,
+      "queue": {},
+      "army": 672,
+      "stock": {
+        "food": 401280,
+        "wood": 2280960,
+        "stone": 1520266.8,
+        "coal": 334625.0999982873,
+        "copper": 2895552,
+        "iron": 4259617.599999474,
+        "steel": 1044556.8000000482,
+        "gold": 44502.57500000996
+      },
+      "trainingPaid": {
+        "food": 129100,
+        "gold": 4000,
+        "wood": 17600,
+        "stone": 4400,
+        "steel": 2163500,
+        "copper": 2158000,
+        "iron": 2158000
+      },
+      "settledSaveSha256": "9b7d0e77b264c320cdfae4e07f0a980e81c00bc672fe04d96f882fc32581305b",
+      "foodClamped": false
+    },
+    {
+      "name": "wood-40-stone-80-coal-200",
+      "workers": {
+        "food": 100,
+        "wood": 40,
+        "stone": 80,
+        "coal": 200,
+        "copper": 280,
+        "iron": 190,
+        "steel": 222,
+        "gold": 10
+      },
+      "allocation": {
+        "wood": 40,
+        "stone": 80,
+        "food": 100,
+        "coal": 200,
+        "copper": 280,
+        "iron": 190,
+        "silver": 0,
+        "gold": 10,
+        "steel": 222,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "workerCount": 1122,
+      "startStock": {
+        "food": 398912.153064887,
+        "wood": 19345,
+        "stone": 1005329.9999999979,
+        "coal": 349751.50000000047,
+        "copper": 1086.9999984193128,
+        "iron": 125489.00000001118,
+        "steel": 68.00000000256114,
+        "gold": 258.63750000006894
+      },
+      "logoutSaveSha256": "9986380ac8de31be98a94a3ae0fb141f5ef1429be4c395c991e7b27deab31a9d",
+      "result": {
+        "ok": true,
+        "durationSec": 14400,
+        "gains": {
+          "wood": 2261615,
+          "stone": 514936.80000000214,
+          "food": 2367.846935113019,
+          "coal": -153310.00000181625,
+          "copper": 2894465.0000015805,
+          "iron": 2431873.999999863,
+          "gold": 47473.812500011154,
+          "steel": 779554.0000000228,
+          "deed": 4536,
+          "medal": 7560,
+          "bone": 30240
+        },
+        "truncated": false
+      },
+      "produced": 626,
+      "queueCount": 0,
+      "queue": {},
+      "army": 672,
+      "stock": {
+        "food": 401280,
+        "wood": 2280960,
+        "stone": 1520266.8,
+        "coal": 196441.4999981842,
+        "copper": 2895552,
+        "iron": 2557362.9999998743,
+        "steel": 779622.0000000254,
+        "gold": 47732.450000011224
+      },
+      "trainingPaid": {
+        "food": 129100,
+        "gold": 4000,
+        "wood": 17600,
+        "stone": 4400,
+        "steel": 2163500,
+        "copper": 2158000,
+        "iron": 2158000
+      },
+      "settledSaveSha256": "befb43d5ca37495548dfac689469d205ec30bb66b7b74b9f96f6aa251caa40c3",
+      "foodClamped": false
+    }
+  ],
+  "selected": {
+    "name": "wood-5-stone-80-coal-235",
+    "saveFile": "docs/codex/reports/data/p354-wood-5-coal-235-full-queue-4h-save.json",
+    "saveSha256": "8727dcc7934d728ca9c5f876c0b6fb8a3d0133bc31f34649564c6cdf258359cf"
+  },
+  "limits": [
+    "One P352 paid five-birth-policy save, one four-hour offline window, deterministic market RNG.",
+    "Only workers are reassigned with shipped actions; no new resource, population, research, or queue is injected.",
+    "Stone-and-coal balance in one window is not proof of sustainable multi-window growth; the queue and source stock change.",
+    "VM localStorage and DOM do not prove browser or Android behavior."
+  ]
+}

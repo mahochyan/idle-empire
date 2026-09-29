@@ -1632,6 +1632,7 @@ function settleOffline(){
   const beforeRes={...S.res};
   const adv=offlineAdvanceSec(delta,ratio,legacyPending?'legacy-pending':'all');
   const secs=adv.elapsed,foodClamped=adv.foodClamped;
+  applyBeastExchangeOfflineReward(secs);
   const gains={};
   for(const rk of Object.keys(CFG.res)){
     const d=(S.res[rk]||0)-(beforeRes[rk]||0);
@@ -1696,6 +1697,7 @@ function offlineAdvanceSec(secs,ratio=1,populationFoodRule='all'){
     S.res=next;
     S.development=candidate.development;
     S.tick++;
+    advanceBeastExchangeSecond();
     advanceMarketSpecialSecond();
     elapsed++;
     if(o.advance){
@@ -2145,6 +2147,18 @@ function advanceBeastExchangeSecond(){
   x.refreshClock=cfg.refreshSeconds;
   if(x.refreshCharges<cfg.maxRefreshCharges)x.refreshCharges++;
   else rollBeastHeartOffers();
+}
+function applyBeastExchangeOfflineReward(secs){
+  const cfg=CFG.beastExchange.offlineReward;
+  if(secs<cfg.minSeconds)return;
+  const tier=Math.min(cfg.maxTier,Math.floor((S.beastExchange.level-cfg.levelOffset)/cfg.levelsPerTier));
+  if(tier<=0)return;
+  const populationMult=1+cfg.populationBonus*Math.floor(maxPop()/cfg.populationStep);
+  for(const [rk,perSecond] of Object.entries(cfg.rates)){
+    const before=S.res[rk],cap=resCap(rk);
+    // 历史存档可能已有超仓库存；新收益不能把旧库存反向裁掉。
+    if(before<cap)S.res[rk]=Math.min(cap,before+Math.floor(perSecond*secs*tier*populationMult));
+  }
 }
 function exchangeBonesForMedals(trades){
   if(_saveProtected)return{ok:false,reason:'save-protected'};
@@ -2788,7 +2802,10 @@ function advanceBuildingsBy(secs){
       st.timer-=secs;if(st.timer<=0){
         if(st.state==='building'){st.lv=1;addLog(`${CFG.buildings[k].name}建成`)}
         else if(st.state==='tier_upgrading'){
-          refundUnitsByLine(k);  // 先退旧时代兵再升tier
+          const nextTier=(st.tier||0)+1,lineKey=CFG.buildings[k].trains;
+          // 只有存在可接班的新阶兵种才退役旧兵；当前 T4 营地尚无 T4 兵种。
+          if(lineKey&&Object.keys(CFG.units).some(uk=>baseUnitType(uk)===lineKey&&(CFG.units[uk].tier??0)===nextTier))
+            refundUnitsByLine(k);
           st.tier=(st.tier||0)+1;
           addLog(`${CFG.buildings[k].name}升级到T${st.tier}`);
         }
@@ -2951,10 +2968,13 @@ function refundUnitsByLine(buildingKey, maxTier){
   const lineKey=cfg.trains;
   const threshold=maxTier??(S.buildings[buildingKey]?.tier??0);
   let totalRefund={wood:0,stone:0,food:0}, totalCount=0;
+  function isRetired(uk){
+    const uc=CFG.units[uk];
+    return !!uc&&baseUnitType(uk)===lineKey&&(uc.tier??0)<=threshold;
+  }
   function refund(uk,count){
     const uc=CFG.units[uk];
     if(!uc||!count)return;
-    if((uc.tier??0) > threshold)return;
     const cost=uc.cost||{};
     totalRefund.wood+=Math.floor((cost.wood||0)*count);
     totalRefund.stone+=Math.floor((cost.stone||0)*count);
@@ -2963,14 +2983,14 @@ function refundUnitsByLine(buildingKey, maxTier){
   }
   // pool
   for(const[uk,count] of Object.entries(S.pool)){
-    if(!count || baseUnitType(uk)!==lineKey)continue;
+    if(!count||!isRetired(uk))continue;
     refund(uk,count);
     S.pool[uk]=0;
   }
   // 远征阵容
   for(const row of['front','mid','back']){
     S.formation[row]=S.formation[row].filter(u=>{
-      if(baseUnitType(u.type)!==lineKey)return true;
+      if(!isRetired(u.type))return true;
       refund(u.type,u.count);
       return false;
     });
@@ -2978,16 +2998,14 @@ function refundUnitsByLine(buildingKey, maxTier){
   // 驻军阵容
   for(const row of['front','mid','back']){
     S._garrisonForm[row]=(S._garrisonForm[row]||[]).filter(u=>{
-      if(baseUnitType(u.type)!==lineKey)return true;
+      if(!isRetired(u.type))return true;
       refund(u.type,u.count);
       return false;
     });
   }
   // 训练队列（取消即可，资源在产出时才扣除所以无需退款）
   for(const[uk,q] of Object.entries(S.queue)){
-    if(baseUnitType(uk)!==lineKey)continue;
-    const uc=CFG.units[uk];
-    if(!uc||(uc.tier??0)>threshold)continue;
+    if(!isRetired(uk))continue;
     q.count=0;q.timer=0;q.reason='';
   }
   if(totalCount>0){
@@ -3485,8 +3503,20 @@ function queueBattleRestart(encounterKey=null,soulSlot=null){
   battleRestartTimer=timer;
 }
 
+function campaignMaxSelectableIndex(){
+  // 历史存档可能有不连续胜场；保留已取得的最高进度及其下一关。
+  let highest=-1;
+  for(let i=0;i<CFG.enemies.length;i++)if(S.defeated.includes(CFG.enemies[i].id))highest=i;
+  return Math.min(highest+1,CFG.enemies.length-1);
+}
+function campaignStageSelectable(idx){
+  return Number.isInteger(idx)&&idx>=0&&idx<=campaignMaxSelectableIndex();
+}
 function selEnemy(idx){
-  S.selEnemy=idx;updateUI();
+  if(idx!==null&&!campaignStageSelectable(idx)){
+    toast('请先通关此前主线关卡');return false;
+  }
+  S.selEnemy=idx;updateUI();return true;
 }
 
 function openTraining(){
@@ -3529,6 +3559,7 @@ function openBattle(encounterKey=null,soulSlot=null){
       }
     }
   }else if(S.selEnemy===null||S.selEnemy===undefined){toast('请先选择关卡');return}
+  else if(!campaignStageSelectable(S.selEnemy)){toast('请先通关此前主线关卡');return}
   if(formCnt()===0){toast('请先配置阵容');return}
   cancelBattleRestart();stopBattleTimer();
   S.battleEncounter=encounterKey;

@@ -1,6 +1,6 @@
 'use strict';
 // node tests/progression/campaign_enemy_browser.js
-// Edge/CDP 冒烟：检查关卡预告和第20/29/30/39/40关战斗初始化；条件编队不证明自然可达。
+// Edge/CDP 冒烟：检查关卡预告和第20/29/30/39/40关战斗初始化；条件进度与编队不证明自然可达。
 const {spawn,spawnSync}=require('node:child_process');
 const fs=require('node:fs');
 const os=require('node:os');
@@ -68,8 +68,19 @@ async function ready(){
   await send('Emulation.setDeviceMetricsOverride',{width:360,height:800,deviceScaleFactor:1,mobile:true});
   await send('Page.reload',{ignoreCache:true});
   check('真实页面按原脚本顺序加载',await ready());
+  const freshStages=await evalJs(`(()=>{
+    S.page='fight';S._fightTab='expedition';S.selEnemy=0;updateUI();
+    return [...document.querySelectorAll('#main select[onchange*="selEnemy"] option')].map(e=>e.value);
+  })()`);
+  check('新档关卡选择只显示第1关',JSON.stringify(freshStages)===JSON.stringify(['','0']),freshStages);
+  const nextStages=await evalJs(`(()=>{
+    S.defeated=[1];updateUI();
+    return [...document.querySelectorAll('#main select[onchange*="selEnemy"] option')].map(e=>e.value);
+  })()`);
+  check('已有第1关胜场后才显示第2关',JSON.stringify(nextStages)===JSON.stringify(['','0','1']),nextStages);
   for(const stage of [3,16,17,20,93,96,97]){
     const view=await evalJs(`(()=>{
+      S.defeated=CFG.enemies.slice(0,${stage-1}).map(e=>e.id);
       S.page='fight';S._fightTab='expedition';S.selEnemy=${stage-1};updateUI();
       const select=document.querySelector('#main select[onchange*="selEnemy"]');
       const preview=select?.parentElement?.nextElementSibling;
@@ -83,6 +94,7 @@ async function ready(){
   }
   const chapterBoss=await evalJs(`(()=>{
     S.formation={front:[{type:'bronze_guard',count:15,id:20}],mid:[],back:[]};
+    S.defeated=CFG.enemies.slice(0,19).map(e=>e.id);
     S.selEnemy=19;CFG.battleStepDelay=60000;S.battleSpeed=1;openBattle();
     const field=document.getElementById('battle-field');
     const result={active:S.battleActive,stage:B.enemyCfg?.id,
@@ -97,6 +109,7 @@ async function ready(){
   for(const stage of [29,30,39,40]){
     const view=await evalJs(`(()=>{
       S.formation={front:[{type:'alloy_special',count:40,id:1}],mid:[{type:'archer',count:20,id:2}],back:[{type:'archer',count:20,id:3}]};
+      S.defeated=CFG.enemies.slice(0,${stage-1}).map(e=>e.id);
       S.selEnemy=${stage-1};CFG.battleStepDelay=60000;S.battleSpeed=1;openBattle();
       const field=document.getElementById('battle-field');
       const result={active:S.battleActive,stage:B.enemyCfg?.id,
@@ -114,6 +127,7 @@ async function ready(){
   }
   const wind=await evalJs(`(()=>{
     S.formation={front:[{type:'cavalry_wind',count:15,id:28}],mid:[],back:[]};
+    S.defeated=CFG.enemies.slice(0,28).map(e=>e.id);
     S.selEnemy=28;CFG.battleStepDelay=60000;S.battleSpeed=1;openBattle();
     const actor=B.ourUnits.find(u=>u.type==='cavalry_wind');
     const front=B.enemyUnits.find(u=>u.row==='front');
@@ -134,7 +148,7 @@ async function ready(){
     wind.garrisonTarget==='back'&&wind.crit===true,wind);
   check('浏览器无未捕获异常',exceptions.length===0,exceptions.slice(0,3));
   console.log(JSON.stringify({checks,exceptions,passed:checks.filter(x=>x.ok).length,failed:checks.filter(x=>!x.ok).length,
-    note:'条件编队仅用于 UI／加载冒烟；自然可达由独立新档探针验证。'},null,2));
+    note:'条件进度与编队仅用于 UI／加载冒烟；自然可达由独立新档探针验证。'},null,2));
   process.exitCode=checks.some(x=>!x.ok)?1:0;
 })().catch(e=>{console.error('BROWSER_SMOKE_ERROR',e?.stack||e);process.exitCode=2}).finally(async()=>{
   try{ws?.close()}catch(_){}

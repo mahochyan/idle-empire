@@ -839,6 +839,8 @@ const CFG = {
       emberElixir:{sourceId:290098,weight:30,cost:10,stones:4},
       aegisElixir:{sourceId:290099,weight:30,cost:10,stones:12}},
     refreshSeconds:1200,maxRefreshCharges:5,baseOfferSlots:8,slotsPerLevels:10,maxOfferSlots:14,heartOfferWeight:10,
+    // 母本交易所离线被动给付：满15分钟、Lv25起，按等级和住房容量发骨、勋章、地契。
+    offlineReward:{minSeconds:900,levelOffset:15,levelsPerTier:10,maxTier:30,populationStep:1000,populationBonus:0.05,rates:{bone:2,medal:0.5,deed:0.3}},
     scrollMaterials:['boarHeart','bullHorn','snakeGall','tigerPelt','turtleShell','wyrmSinew'],
     // 母本交易所各等级商品总权重；仅投影已接入的图纸、铭石与60级勋章货位，其余商品保留在权重池。
     offerTotalWeights:[[0,265],[30,445],[40,515],[50,570],[60,680],[80,688],[90,693],[100,698]]},

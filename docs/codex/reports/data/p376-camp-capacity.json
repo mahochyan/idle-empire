@@ -1,0 +1,803 @@
+{
+  "batch": "P376",
+  "source": {
+    "file": "p375-stage65-lowtech-paid-entry.json",
+    "sha256": "3807ece70ee164b57448c31a01ccf06af666b08274b81209fcbb87e9195826b3",
+    "state": {
+      "tick": 24695,
+      "defeated": 64,
+      "sciences": [
+        "sci_prospect",
+        "sci_coal",
+        "sci_copper",
+        "sci_wood_store",
+        "sci_urbanization",
+        "sci_iron",
+        "sci_large_granary",
+        "sci_bronze_age"
+      ],
+      "population": 22,
+      "army": 73,
+      "deployed": 73,
+      "infantryOwned": 15,
+      "resources": {
+        "wood": 3765,
+        "stone": 2840,
+        "food": 1665.6872137765542,
+        "tech": 2350
+      },
+      "caps": {
+        "wood": 4800,
+        "stone": 3200,
+        "food": 3000,
+        "tech": 5000
+      },
+      "warehouse": 5,
+      "stoneStore": 0,
+      "granary": 0,
+      "camp": {
+        "lv": 1,
+        "state": "idle",
+        "timer": 0,
+        "timerEnd": 0,
+        "tier": 1
+      },
+      "workers": {
+        "wood": 3,
+        "stone": 3,
+        "food": 7,
+        "coal": 6,
+        "copper": 3,
+        "iron": 0,
+        "silver": 0,
+        "gold": 0,
+        "steel": 0,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      }
+    }
+  },
+  "stage65": {
+    "battle": {
+      "seed": 1,
+      "callbacks": 12,
+      "round": 2,
+      "after": {
+        "tick": 24695,
+        "defeated": 65,
+        "sciences": [
+          "sci_prospect",
+          "sci_coal",
+          "sci_copper",
+          "sci_wood_store",
+          "sci_urbanization",
+          "sci_iron",
+          "sci_large_granary",
+          "sci_bronze_age"
+        ],
+        "population": 22,
+        "army": 69,
+        "deployed": 69,
+        "infantryOwned": 11,
+        "resources": {
+          "wood": 4800,
+          "stone": 3200,
+          "food": 3000,
+          "tech": 2350
+        },
+        "caps": {
+          "wood": 4800,
+          "stone": 3200,
+          "food": 3000,
+          "tech": 5000
+        },
+        "warehouse": 5,
+        "stoneStore": 0,
+        "granary": 0,
+        "camp": {
+          "lv": 1,
+          "state": "idle",
+          "timer": 0,
+          "timerEnd": 0,
+          "tier": 1
+        },
+        "workers": {
+          "wood": 3,
+          "stone": 3,
+          "food": 7,
+          "coal": 6,
+          "copper": 3,
+          "iron": 0,
+          "silver": 0,
+          "gold": 0,
+          "steel": 0,
+          "coin": 0,
+          "silverCoin": 0,
+          "tech": 0,
+          "goldCoin": 0
+        }
+      }
+    },
+    "won": {
+      "file": "p376-stage65-lowtech-paid-win-save.json",
+      "sha256": "f9114f2c35ed2c0ffd306d9bb2dadd199844dc776273580b57c6616af0ecb85a",
+      "state": {
+        "tick": 24695,
+        "defeated": 65,
+        "sciences": [
+          "sci_prospect",
+          "sci_coal",
+          "sci_copper",
+          "sci_wood_store",
+          "sci_urbanization",
+          "sci_iron",
+          "sci_large_granary",
+          "sci_bronze_age"
+        ],
+        "population": 22,
+        "army": 69,
+        "deployed": 69,
+        "infantryOwned": 11,
+        "resources": {
+          "wood": 4800,
+          "stone": 3200,
+          "food": 3000,
+          "tech": 2350
+        },
+        "caps": {
+          "wood": 4800,
+          "stone": 3200,
+          "food": 3000,
+          "tech": 5000
+        },
+        "warehouse": 5,
+        "stoneStore": 0,
+        "granary": 0,
+        "camp": {
+          "lv": 1,
+          "state": "idle",
+          "timer": 0,
+          "timerEnd": 0,
+          "tier": 1
+        },
+        "workers": {
+          "wood": 3,
+          "stone": 3,
+          "food": 7,
+          "coal": 6,
+          "copper": 3,
+          "iron": 0,
+          "silver": 0,
+          "gold": 0,
+          "steel": 0,
+          "coin": 0,
+          "silverCoin": 0,
+          "tech": 0,
+          "goldCoin": 0
+        }
+      }
+    }
+  },
+  "t2": {
+    "before": {
+      "tick": 24695,
+      "defeated": 65,
+      "sciences": [
+        "sci_prospect",
+        "sci_coal",
+        "sci_copper",
+        "sci_wood_store",
+        "sci_urbanization",
+        "sci_iron",
+        "sci_large_granary",
+        "sci_bronze_age"
+      ],
+      "population": 22,
+      "army": 69,
+      "deployed": 69,
+      "infantryOwned": 11,
+      "resources": {
+        "wood": 4800,
+        "stone": 3200,
+        "food": 3000,
+        "tech": 2350
+      },
+      "caps": {
+        "wood": 4800,
+        "stone": 3200,
+        "food": 3000,
+        "tech": 5000
+      },
+      "warehouse": 5,
+      "stoneStore": 0,
+      "granary": 0,
+      "camp": {
+        "lv": 1,
+        "state": "idle",
+        "timer": 0,
+        "timerEnd": 0,
+        "tier": 1
+      },
+      "workers": {
+        "wood": 3,
+        "stone": 3,
+        "food": 7,
+        "coal": 6,
+        "copper": 3,
+        "iron": 0,
+        "silver": 0,
+        "gold": 0,
+        "steel": 0,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      }
+    },
+    "cost": {
+      "wood": 2000,
+      "stone": 1500,
+      "food": 1000,
+      "time": 45
+    },
+    "payment": {
+      "ok": true,
+      "tier": 2
+    },
+    "paid": {
+      "tick": 24695,
+      "defeated": 65,
+      "sciences": [
+        "sci_prospect",
+        "sci_coal",
+        "sci_copper",
+        "sci_wood_store",
+        "sci_urbanization",
+        "sci_iron",
+        "sci_large_granary",
+        "sci_bronze_age"
+      ],
+      "population": 22,
+      "army": 69,
+      "deployed": 69,
+      "infantryOwned": 11,
+      "resources": {
+        "wood": 2800,
+        "stone": 1700,
+        "food": 2000,
+        "tech": 2350
+      },
+      "caps": {
+        "wood": 4800,
+        "stone": 3200,
+        "food": 3000,
+        "tech": 5000
+      },
+      "warehouse": 5,
+      "stoneStore": 0,
+      "granary": 0,
+      "camp": {
+        "lv": 1,
+        "state": "tier_upgrading",
+        "timer": 45,
+        "timerEnd": 45,
+        "tier": 1
+      },
+      "workers": {
+        "wood": 3,
+        "stone": 3,
+        "food": 7,
+        "coal": 6,
+        "copper": 3,
+        "iron": 0,
+        "silver": 0,
+        "gold": 0,
+        "steel": 0,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      }
+    },
+    "seconds": 45,
+    "trainCapBefore": 40,
+    "trainCapAfter": 40,
+    "save": {
+      "file": "p376-infantry-camp-t2-paid-save.json",
+      "sha256": "66c2f55651f5d0c696419ef5fd4fed4c47b8badd77ad21e17973e158e006212e",
+      "state": {
+        "tick": 24740,
+        "defeated": 65,
+        "sciences": [
+          "sci_prospect",
+          "sci_coal",
+          "sci_copper",
+          "sci_wood_store",
+          "sci_urbanization",
+          "sci_iron",
+          "sci_large_granary",
+          "sci_bronze_age"
+        ],
+        "population": 22,
+        "army": 58,
+        "deployed": 58,
+        "infantryOwned": 0,
+        "resources": {
+          "wood": 4085,
+          "stone": 2140,
+          "food": 2797.0141454272775,
+          "tech": 2350
+        },
+        "caps": {
+          "wood": 4800,
+          "stone": 3200,
+          "food": 3000,
+          "tech": 5000
+        },
+        "warehouse": 5,
+        "stoneStore": 0,
+        "granary": 0,
+        "camp": {
+          "lv": 1,
+          "state": "idle",
+          "timer": 0,
+          "timerEnd": 0,
+          "tier": 2
+        },
+        "workers": {
+          "wood": 3,
+          "stone": 3,
+          "food": 7,
+          "coal": 6,
+          "copper": 3,
+          "iron": 0,
+          "silver": 0,
+          "gold": 0,
+          "steel": 0,
+          "coin": 0,
+          "silverCoin": 0,
+          "tech": 0,
+          "goldCoin": 0
+        }
+      }
+    }
+  },
+  "firstWall": {
+    "cost": {
+      "wood": 8000,
+      "stone": 9000,
+      "food": 5200,
+      "time": 90
+    },
+    "caps": {
+      "wood": 4800,
+      "stone": 3200,
+      "food": 3000,
+      "tech": 5000
+    },
+    "reason": "资源不足",
+    "attempt": {
+      "ok": false,
+      "reason": "资源不足"
+    },
+    "exceedsCaps": [
+      "wood",
+      "stone",
+      "food"
+    ]
+  },
+  "legalNext": {
+    "research": [
+      {
+        "id": "sci_copper_furnace",
+        "configuredCost": {
+          "tech": 1000,
+          "merit": 0
+        },
+        "beforeTech": 2350,
+        "afterTech": 1350
+      },
+      {
+        "id": "sci_stone_store",
+        "configuredCost": {
+          "tech": 800,
+          "merit": 0
+        },
+        "beforeTech": 1350,
+        "afterTech": 550
+      }
+    ],
+    "storeBefore": {
+      "tick": 24740,
+      "defeated": 65,
+      "sciences": [
+        "sci_prospect",
+        "sci_coal",
+        "sci_copper",
+        "sci_wood_store",
+        "sci_urbanization",
+        "sci_iron",
+        "sci_large_granary",
+        "sci_bronze_age",
+        "sci_copper_furnace",
+        "sci_stone_store"
+      ],
+      "population": 22,
+      "army": 58,
+      "deployed": 58,
+      "infantryOwned": 0,
+      "resources": {
+        "wood": 4085,
+        "stone": 2140,
+        "food": 2797.0141454272775,
+        "tech": 550
+      },
+      "caps": {
+        "wood": 4800,
+        "stone": 3200,
+        "food": 3000,
+        "tech": 5000
+      },
+      "warehouse": 5,
+      "stoneStore": 0,
+      "granary": 0,
+      "camp": {
+        "lv": 1,
+        "state": "idle",
+        "timer": 0,
+        "timerEnd": 0,
+        "tier": 2
+      },
+      "workers": {
+        "wood": 3,
+        "stone": 3,
+        "food": 7,
+        "coal": 6,
+        "copper": 3,
+        "iron": 0,
+        "silver": 0,
+        "gold": 0,
+        "steel": 0,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      }
+    },
+    "stoneStoreCost": {
+      "stone": 1600,
+      "time": 8
+    },
+    "storePayment": {
+      "ok": true
+    },
+    "storePaid": {
+      "tick": 24740,
+      "defeated": 65,
+      "sciences": [
+        "sci_prospect",
+        "sci_coal",
+        "sci_copper",
+        "sci_wood_store",
+        "sci_urbanization",
+        "sci_iron",
+        "sci_large_granary",
+        "sci_bronze_age",
+        "sci_copper_furnace",
+        "sci_stone_store"
+      ],
+      "population": 22,
+      "army": 58,
+      "deployed": 58,
+      "infantryOwned": 0,
+      "resources": {
+        "wood": 4085,
+        "stone": 540,
+        "food": 2797.0141454272775,
+        "tech": 550
+      },
+      "caps": {
+        "wood": 4800,
+        "stone": 3200,
+        "food": 3000,
+        "tech": 5000
+      },
+      "warehouse": 5,
+      "stoneStore": 0,
+      "granary": 0,
+      "camp": {
+        "lv": 1,
+        "state": "idle",
+        "timer": 0,
+        "timerEnd": 0,
+        "tier": 2
+      },
+      "workers": {
+        "wood": 3,
+        "stone": 3,
+        "food": 7,
+        "coal": 6,
+        "copper": 3,
+        "iron": 0,
+        "silver": 0,
+        "gold": 0,
+        "steel": 0,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      }
+    },
+    "storeSeconds": 8,
+    "store": {
+      "file": "p376-stone-store-lv1-paid-save.json",
+      "sha256": "1405bc9b34bd17d85b9cd1004cebbbc0c717f236053ec23e67f82bc79352c1c0",
+      "state": {
+        "tick": 24748,
+        "defeated": 65,
+        "sciences": [
+          "sci_prospect",
+          "sci_coal",
+          "sci_copper",
+          "sci_wood_store",
+          "sci_urbanization",
+          "sci_iron",
+          "sci_large_granary",
+          "sci_bronze_age",
+          "sci_copper_furnace",
+          "sci_stone_store"
+        ],
+        "population": 22,
+        "army": 58,
+        "deployed": 58,
+        "infantryOwned": 0,
+        "resources": {
+          "wood": 4157,
+          "stone": 540,
+          "food": 2839.040352323827,
+          "tech": 550
+        },
+        "caps": {
+          "wood": 6000,
+          "stone": 4000,
+          "food": 3000,
+          "tech": 5000
+        },
+        "warehouse": 5,
+        "stoneStore": 1,
+        "granary": 0,
+        "camp": {
+          "lv": 1,
+          "state": "idle",
+          "timer": 0,
+          "timerEnd": 0,
+          "tier": 2
+        },
+        "workers": {
+          "wood": 3,
+          "stone": 3,
+          "food": 7,
+          "coal": 6,
+          "copper": 3,
+          "iron": 0,
+          "silver": 0,
+          "gold": 0,
+          "steel": 0,
+          "coin": 0,
+          "silverCoin": 0,
+          "tech": 0,
+          "goldCoin": 0
+        }
+      }
+    },
+    "granaryScienceHeld": true,
+    "granaryBuildCost": {
+      "wood": 1800,
+      "stone": 0,
+      "food": 600,
+      "time": 8
+    }
+  },
+  "online": {
+    "seconds": 60,
+    "rates": {
+      "wood": 24,
+      "stone": 12,
+      "food": 19.8
+    },
+    "before": {
+      "tick": 24748,
+      "defeated": 65,
+      "sciences": [
+        "sci_prospect",
+        "sci_coal",
+        "sci_copper",
+        "sci_wood_store",
+        "sci_urbanization",
+        "sci_iron",
+        "sci_large_granary",
+        "sci_bronze_age",
+        "sci_copper_furnace",
+        "sci_stone_store"
+      ],
+      "population": 22,
+      "army": 58,
+      "deployed": 58,
+      "infantryOwned": 0,
+      "resources": {
+        "wood": 4157,
+        "stone": 540,
+        "food": 2839.040352323827,
+        "tech": 550
+      },
+      "caps": {
+        "wood": 6000,
+        "stone": 4000,
+        "food": 3000,
+        "tech": 5000
+      },
+      "warehouse": 5,
+      "stoneStore": 1,
+      "granary": 0,
+      "camp": {
+        "lv": 1,
+        "state": "idle",
+        "timer": 0,
+        "timerEnd": 0,
+        "tier": 2
+      },
+      "workers": {
+        "wood": 8,
+        "stone": 6,
+        "food": 8,
+        "coal": 0,
+        "copper": 0,
+        "iron": 0,
+        "silver": 0,
+        "gold": 0,
+        "steel": 0,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      }
+    },
+    "after": {
+      "tick": 24808,
+      "defeated": 65,
+      "sciences": [
+        "sci_prospect",
+        "sci_coal",
+        "sci_copper",
+        "sci_wood_store",
+        "sci_urbanization",
+        "sci_iron",
+        "sci_large_granary",
+        "sci_bronze_age",
+        "sci_copper_furnace",
+        "sci_stone_store"
+      ],
+      "population": 22,
+      "army": 58,
+      "deployed": 58,
+      "infantryOwned": 0,
+      "resources": {
+        "wood": 5597,
+        "stone": 1260,
+        "food": 3000,
+        "tech": 550
+      },
+      "caps": {
+        "wood": 6000,
+        "stone": 4000,
+        "food": 3000,
+        "tech": 5000
+      },
+      "warehouse": 5,
+      "stoneStore": 1,
+      "granary": 0,
+      "camp": {
+        "lv": 1,
+        "state": "idle",
+        "timer": 0,
+        "timerEnd": 0,
+        "tier": 2
+      },
+      "workers": {
+        "wood": 8,
+        "stone": 6,
+        "food": 8,
+        "coal": 0,
+        "copper": 0,
+        "iron": 0,
+        "silver": 0,
+        "gold": 0,
+        "steel": 0,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      }
+    },
+    "save": {
+      "file": "p376-online-production-60s-save.json",
+      "sha256": "ae7dd9d2db0abbea1a7c7e391070c6ca9610e713c105dc7031b88da6c1c6121b",
+      "state": {
+        "tick": 24808,
+        "defeated": 65,
+        "sciences": [
+          "sci_prospect",
+          "sci_coal",
+          "sci_copper",
+          "sci_wood_store",
+          "sci_urbanization",
+          "sci_iron",
+          "sci_large_granary",
+          "sci_bronze_age",
+          "sci_copper_furnace",
+          "sci_stone_store"
+        ],
+        "population": 22,
+        "army": 58,
+        "deployed": 58,
+        "infantryOwned": 0,
+        "resources": {
+          "wood": 5597,
+          "stone": 1260,
+          "food": 3000,
+          "tech": 550
+        },
+        "caps": {
+          "wood": 6000,
+          "stone": 4000,
+          "food": 3000,
+          "tech": 5000
+        },
+        "warehouse": 5,
+        "stoneStore": 1,
+        "granary": 0,
+        "camp": {
+          "lv": 1,
+          "state": "idle",
+          "timer": 0,
+          "timerEnd": 0,
+          "tier": 2
+        },
+        "workers": {
+          "wood": 8,
+          "stone": 6,
+          "food": 8,
+          "coal": 0,
+          "copper": 0,
+          "iron": 0,
+          "silver": 0,
+          "gold": 0,
+          "steel": 0,
+          "coin": 0,
+          "silverCoin": 0,
+          "tech": 0,
+          "goldCoin": 0
+        }
+      }
+    }
+  },
+  "t4": {
+    "cost": {
+      "wood": 20000,
+      "stone": 20000,
+      "food": 15000
+    },
+    "tier4Units": []
+  },
+  "sourceHashes": {
+    "config.js": "8e40ccc41ab96156db291ce74560981d875b304703fffb89c4139d5e23001675",
+    "levels.js": "023aedddb3031d155a44aed6d648e8476b9ddb078893eb0d0f5a74627790b681",
+    "math.js": "8f9ecadc7c471b5243cfa504a84d568f933517ca2b72733bcfddf7e0fb751a3a",
+    "technology.js": "ab7d28656c29999eab107832e79ea6551f01b2bb230d1557f092a747fe5b5511",
+    "tests/progression/harness.js": "4770d17fa72cc8c87f4c8ef79678f19d63a41da895b8dd58776e5a39ce2ede2b",
+    "tools/verify/probe-stage65-camp-capacity-p376.js": "ebf994c137bae6b68aaaa58fddb74fbbcfcef3d45c2f83368865aa59de0e2088"
+  },
+  "scope": "Real paid L65 battle, tier upgrade, research, storage build, worker allocation and 60 online ticks. No offline simulation or T3/T4 payment. Isolated in-memory rts_save; no player save touched."
+}

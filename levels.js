@@ -85,7 +85,7 @@ CFG.enemies = [
   {id:62,name:'精锐步兵',desc:'零散的步兵正在巡逻',units:{"infantry":[8,6]},reward:{"wood":4472,"stone":3432,"food":2912}},
   {id:63,name:'帝国步兵前哨',desc:'守备步兵巡查帝国边线',units:{"infantry":[9,7]},reward:{"wood":4650,"stone":3569,"food":3028}},
   {id:64,name:'神射营',desc:'弓兵占据了有利地形',units:{"infantry":[10,7,4],"archer":[10,7,4]},reward:{"wood":4836,"stone":3712,"food":3149}},
-  {id:65,name:'神射营',desc:'弓兵占据了有利地形',units:{"infantry":[1,1,1],"archer":[1,1,1]},reward:{"wood":5030,"stone":3860,"food":3275}},
+  {id:65,name:'神射营',desc:'弓兵占据了有利地形',units:{"infantry":[11,8,5],"archer":[11,8,5]},reward:{"wood":5030,"stone":3860,"food":3275}},
   {id:66,name:'帝国步弓前哨',desc:'步兵固守边线，弓手从后方掩护',units:{"infantry":[12,9,5],"archer":[12,9,5]},reward:{"wood":5231,"stone":4014,"food":3406}},
   {id:67,name:'帝国骑士队',desc:'侍从骑士率骑队发起冲锋',units:{"infantry":[13,10,6],"archer":[13,10,6],"cavalry_t1":[13,10,6]},reward:{"wood":5440,"stone":4175,"food":3542}},
   {id:68,name:'铁骑队',desc:'铁骑踏破防线',units:{"infantry":[14,10,6],"archer":[14,10,6],"cavalry_t1":[14,10,6]},reward:{"wood":5658,"stone":4342,"food":3684}},

@@ -1,0 +1,399 @@
+{
+  "batch": "P359",
+  "kind": "paid on-hand storage actions and conditional fixed-scroll quantum capacity frontier",
+  "units": "resource/item units and simulated online seconds",
+  "inputs": {
+    "p338": {
+      "file": "p338-soul-production-knowledge-restored-save.json",
+      "sha256": "8d59afb7bb969bf175c6ca9e575e643052c6603e4853756bb2afaf239c6faf92"
+    },
+    "p351": {
+      "file": "p351-wild-short-session-8h-save.json",
+      "sha256": "766aeeede6ede527051d4ff2c4805f91cf2ad3a1bd68ce8b84c7508e08de7dc2"
+    }
+  },
+  "sourceHashes": [
+    {
+      "file": "config.js",
+      "sha256": "8e40ccc41ab96156db291ce74560981d875b304703fffb89c4139d5e23001675"
+    },
+    {
+      "file": "levels.js",
+      "sha256": "9ef3e47bae99242e70970fc9c0f86912301aabdb6ed4fef9e4e18250293c1cc1"
+    },
+    {
+      "file": "math.js",
+      "sha256": "dc0bcdee534853368cb3c576e6020e1c85ab7be00052241136605897e91b0c95"
+    },
+    {
+      "file": "garrison.js",
+      "sha256": "762da86c67c0bfb1ef0c5a519a7fad57a8f8e4f7ad6c5045f4736c2b650739a9"
+    },
+    {
+      "file": "technology.js",
+      "sha256": "9cfda541f49011a676674fb2740b12af63812542a1ce872dcafc57eb4330bf98"
+    },
+    {
+      "file": "tests/progression/harness.js",
+      "sha256": "4770d17fa72cc8c87f4c8ef79678f19d63a41da895b8dd58776e5a39ce2ede2b"
+    },
+    {
+      "file": "tools/verify/probe-quantum-paid-frontier-p359.js",
+      "sha256": "56e636a3652c514a6f575bd47b445e524b79f03eeabd39300c80ae8032584f0c"
+    }
+  ],
+  "load": "ok",
+  "before": {
+    "tick": 12223128,
+    "tech": 205249904,
+    "techCap": 205249904,
+    "medal": 3965804,
+    "medalCap": 100000000000,
+    "bone": 65,
+    "food": 401280,
+    "pop": 1002,
+    "army": 101,
+    "deployed": 55,
+    "queue": 0,
+    "allocation": {
+      "wood": 0,
+      "stone": 0,
+      "food": 100,
+      "coal": 0,
+      "copper": 0,
+      "iron": 0,
+      "silver": 0,
+      "gold": 0,
+      "steel": 0,
+      "coin": 0,
+      "silverCoin": 0,
+      "tech": 902,
+      "goldCoin": 0
+    },
+    "techRate": 24354,
+    "foodNet": 2921.5970297029703,
+    "mastery": 100,
+    "library": 1000,
+    "institute": 1000,
+    "scrollUsed": 92,
+    "scrollStock": 38,
+    "levels": {
+      "steam": 22,
+      "electric": 17,
+      "nuclear": 6
+    },
+    "items": {
+      "godCrystal": 296,
+      "guardianStone": 9,
+      "revivalLeaf": 195
+    },
+    "next": {
+      "steam": {
+        "tech": 6900000,
+        "godCrystal": 230
+      },
+      "electric": {
+        "tech": 36000000,
+        "guardianStone": 360
+      },
+      "nuclear": {
+        "tech": 140000000,
+        "revivalLeaf": 700
+      }
+    },
+    "quantum": false,
+    "nuclear": true,
+    "quantumCost": {
+      "tech": 3000000000,
+      "medal": 3000000,
+      "merit": 0
+    },
+    "starAttack": 120,
+    "defeated": 99
+  },
+  "blockedBefore": {
+    "ok": false,
+    "reason": "insufficient-tech"
+  },
+  "scrollAction": {
+    "ok": true,
+    "used": 130
+  },
+  "afterScroll": {
+    "tick": 12223128,
+    "tech": 205249904,
+    "techCap": 245872281,
+    "medal": 3965804,
+    "medalCap": 100000000000,
+    "bone": 65,
+    "food": 401280,
+    "pop": 1002,
+    "army": 101,
+    "deployed": 55,
+    "queue": 0,
+    "allocation": {
+      "wood": 0,
+      "stone": 0,
+      "food": 100,
+      "coal": 0,
+      "copper": 0,
+      "iron": 0,
+      "silver": 0,
+      "gold": 0,
+      "steel": 0,
+      "coin": 0,
+      "silverCoin": 0,
+      "tech": 902,
+      "goldCoin": 0
+    },
+    "techRate": 24354,
+    "foodNet": 2921.5970297029703,
+    "mastery": 100,
+    "library": 1000,
+    "institute": 1000,
+    "scrollUsed": 130,
+    "scrollStock": 0,
+    "levels": {
+      "steam": 22,
+      "electric": 17,
+      "nuclear": 6
+    },
+    "items": {
+      "godCrystal": 296,
+      "guardianStone": 9,
+      "revivalLeaf": 195
+    },
+    "next": {
+      "steam": {
+        "tech": 6900000,
+        "godCrystal": 230
+      },
+      "electric": {
+        "tech": 36000000,
+        "guardianStone": 360
+      },
+      "nuclear": {
+        "tech": 140000000,
+        "revivalLeaf": 700
+      }
+    },
+    "quantum": false,
+    "nuclear": true,
+    "quantumCost": {
+      "tech": 3000000000,
+      "medal": 3000000,
+      "merit": 0
+    },
+    "starAttack": 120,
+    "defeated": 99
+  },
+  "steamAction": {
+    "ok": true,
+    "level": 23,
+    "cost": {
+      "tech": 6900000,
+      "godCrystal": 230
+    }
+  },
+  "afterSteam": {
+    "tick": 12223128,
+    "tech": 198349904,
+    "techCap": 253555790,
+    "medal": 3965804,
+    "medalCap": 100000000000,
+    "bone": 65,
+    "food": 401280,
+    "pop": 1002,
+    "army": 101,
+    "deployed": 55,
+    "queue": 0,
+    "allocation": {
+      "wood": 0,
+      "stone": 0,
+      "food": 100,
+      "coal": 0,
+      "copper": 0,
+      "iron": 0,
+      "silver": 0,
+      "gold": 0,
+      "steel": 0,
+      "coin": 0,
+      "silverCoin": 0,
+      "tech": 902,
+      "goldCoin": 0
+    },
+    "techRate": 24354,
+    "foodNet": 2921.5970297029703,
+    "mastery": 100,
+    "library": 1000,
+    "institute": 1000,
+    "scrollUsed": 130,
+    "scrollStock": 0,
+    "levels": {
+      "steam": 23,
+      "electric": 17,
+      "nuclear": 6
+    },
+    "items": {
+      "godCrystal": 66,
+      "guardianStone": 9,
+      "revivalLeaf": 195
+    },
+    "next": {
+      "steam": {
+        "tech": 7200000,
+        "godCrystal": 240
+      },
+      "electric": {
+        "tech": 36000000,
+        "guardianStone": 360
+      },
+      "nuclear": {
+        "tech": 140000000,
+        "revivalLeaf": 700
+      }
+    },
+    "quantum": false,
+    "nuclear": true,
+    "quantumCost": {
+      "tech": 3000000000,
+      "medal": 3000000,
+      "merit": 0
+    },
+    "starAttack": 120,
+    "defeated": 99
+  },
+  "fill": {
+    "seconds": 2267,
+    "minFood": 401280,
+    "filled": true
+  },
+  "stockLimit": {
+    "tick": 12225395,
+    "tech": 253555790,
+    "techCap": 253555790,
+    "medal": 3965804,
+    "medalCap": 100000000000,
+    "bone": 65,
+    "food": 480699,
+    "pop": 1002,
+    "army": 101,
+    "deployed": 55,
+    "queue": 0,
+    "allocation": {
+      "wood": 0,
+      "stone": 0,
+      "food": 100,
+      "coal": 0,
+      "copper": 0,
+      "iron": 0,
+      "silver": 0,
+      "gold": 0,
+      "steel": 0,
+      "coin": 0,
+      "silverCoin": 0,
+      "tech": 902,
+      "goldCoin": 0
+    },
+    "techRate": 24354,
+    "foodNet": 2921.5970297029703,
+    "mastery": 100,
+    "library": 1000,
+    "institute": 1000,
+    "scrollUsed": 130,
+    "scrollStock": 0,
+    "levels": {
+      "steam": 23,
+      "electric": 17,
+      "nuclear": 6
+    },
+    "items": {
+      "godCrystal": 66,
+      "guardianStone": 9,
+      "revivalLeaf": 195
+    },
+    "next": {
+      "steam": {
+        "tech": 7200000,
+        "godCrystal": 240
+      },
+      "electric": {
+        "tech": 36000000,
+        "guardianStone": 360
+      },
+      "nuclear": {
+        "tech": 140000000,
+        "revivalLeaf": 700
+      }
+    },
+    "quantum": false,
+    "nuclear": true,
+    "quantumCost": {
+      "tech": 3000000000,
+      "medal": 3000000,
+      "merit": 0
+    },
+    "starAttack": 120,
+    "defeated": 99
+  },
+  "blockedAfter": {
+    "ok": false,
+    "reason": "insufficient-tech"
+  },
+  "frontier": {
+    "goal": 3000000000,
+    "initial": {
+      "steam": 23,
+      "electric": 17,
+      "nuclear": 6,
+      "scroll": 130
+    },
+    "results": [
+      {
+        "scroll": 130,
+        "extraScroll": 0,
+        "levels": {
+          "steam": 100,
+          "electric": 54,
+          "nuclear": 14
+        },
+        "cap": 3005105664,
+        "tech": 5776200000,
+        "materials": {
+          "godCrystal": 47740,
+          "guardianStone": 26640,
+          "revivalLeaf": 8400
+        },
+        "deficit": {
+          "godCrystal": 47674,
+          "guardianStone": 26631,
+          "revivalLeaf": 8205
+        }
+      },
+      {
+        "scroll": 500,
+        "extraScroll": 370,
+        "levels": {
+          "steam": 83,
+          "electric": 31,
+          "nuclear": 7
+        },
+        "cap": 3007564758,
+        "tech": 1789000000,
+        "materials": {
+          "godCrystal": 32100,
+          "guardianStone": 6860,
+          "revivalLeaf": 700
+        },
+        "deficit": {
+          "godCrystal": 32034,
+          "guardianStone": 6851,
+          "revivalLeaf": 505
+        }
+      }
+    ],
+    "restoredCap": 253555790
+  },
+  "finalSaveSha256": "600a951a3612bbd7965fd1e208024dd7b0224f47013da7542ab1c38d6ffd9199",
+  "limitation": "P351 already spent 835200 offline and 98474 online seconds; frontier assumes unpaid future scrolls/materials and does not establish a payable quantum route"
+}

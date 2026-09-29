@@ -1,0 +1,7461 @@
+{
+  "batch": "P375",
+  "predecessor": "P372",
+  "kind": "bounded lower-tech real paid stage-41 continuation",
+  "source": {
+    "report": "p206-live-l40-l41-handoff.json",
+    "caseIndex": 2,
+    "file": "p375-stage41-lowtech-paid-save.json",
+    "sha256": "e931757cb3dabb0e792e9070b44a746de50391018b2a09d8bfe10f7375562dcf",
+    "tick": 19746,
+    "state": {
+      "tick": 19746,
+      "defeated": 41,
+      "sciences": 8,
+      "population": 22,
+      "capacity": 22,
+      "army": 73,
+      "deployed": 73,
+      "food": 1604.890280317856,
+      "wood": 3763,
+      "stone": 3190,
+      "copper": 724,
+      "coal": 594,
+      "merit": 530,
+      "caps": {
+        "wood": 4800,
+        "stone": 3200,
+        "food": 3000
+      },
+      "owned": {
+        "bronze_guard": 15,
+        "cavalry_t1": 15,
+        "infantry_t1": 15,
+        "archer_t1": 28
+      },
+      "queue": {
+        "infantry": {
+          "count": 0,
+          "timer": 0,
+          "reason": ""
+        },
+        "archer": {
+          "count": 0,
+          "timer": 0,
+          "reason": ""
+        },
+        "bronze_guard": {
+          "count": 0,
+          "timer": 0,
+          "reason": ""
+        },
+        "infantry_t1": {
+          "count": 0,
+          "timer": 0,
+          "reason": ""
+        },
+        "archer_t1": {
+          "count": 0,
+          "timer": 0,
+          "reason": ""
+        },
+        "cavalry_t1": {
+          "count": 0,
+          "timer": 0,
+          "reason": ""
+        }
+      },
+      "workers": {
+        "wood": 3,
+        "stone": 3,
+        "food": 7,
+        "coal": 6,
+        "copper": 3,
+        "iron": 0,
+        "silver": 0,
+        "gold": 0,
+        "steel": 0,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      }
+    }
+  },
+  "currentHashes": {
+    "config.js": "8e40ccc41ab96156db291ce74560981d875b304703fffb89c4139d5e23001675",
+    "levels.js": "023aedddb3031d155a44aed6d648e8476b9ddb078893eb0d0f5a74627790b681",
+    "math.js": "78198ddc987ef40209359ce60cdc25c30fa90994b14b0fdbf7f4dae1bd0b93b3",
+    "garrison.js": "762da86c67c0bfb1ef0c5a519a7fad57a8f8e4f7ad6c5045f4736c2b650739a9",
+    "technology.js": "ab7d28656c29999eab107832e79ea6551f01b2bb230d1557f092a747fe5b5511",
+    "tests/progression/harness.js": "4770d17fa72cc8c87f4c8ef79678f19d63a41da895b8dd58776e5a39ce2ede2b",
+    "tools/verify/probe-stage65-lowtech-route-p372.js": "dcbecc23d3cf4cbf995e8b7022643f196fc0309b0cf293fa6464b9a585364783"
+  },
+  "targets": {
+    "bronze_guard": 15,
+    "cavalry_t1": 15,
+    "infantry_t1": 15,
+    "archer_t1": 28
+  },
+  "rows": [
+    {
+      "stage": 42,
+      "replenishment": {
+        "ok": true,
+        "seconds": 0,
+        "minFood": 1604.890280317856,
+        "queued": {}
+      },
+      "battle": {
+        "stage": 42,
+        "seed": 400527,
+        "won": true,
+        "round": 1,
+        "callbacks": 4,
+        "before": {
+          "tick": 19746,
+          "defeated": 41,
+          "sciences": 8,
+          "population": 22,
+          "capacity": 22,
+          "army": 73,
+          "deployed": 73,
+          "food": 1604.890280317856,
+          "wood": 3763,
+          "stone": 3190,
+          "copper": 724,
+          "coal": 594,
+          "merit": 530,
+          "caps": {
+            "wood": 4800,
+            "stone": 3200,
+            "food": 3000
+          },
+          "owned": {
+            "bronze_guard": 15,
+            "cavalry_t1": 15,
+            "infantry_t1": 15,
+            "archer_t1": 28
+          },
+          "queue": {
+            "infantry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "infantry_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "cavalry_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          },
+          "workers": {
+            "wood": 3,
+            "stone": 3,
+            "food": 7,
+            "coal": 6,
+            "copper": 3,
+            "iron": 0,
+            "silver": 0,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "tech": 0,
+            "goldCoin": 0
+          }
+        },
+        "after": {
+          "tick": 19746,
+          "defeated": 42,
+          "sciences": 8,
+          "population": 22,
+          "capacity": 22,
+          "army": 73,
+          "deployed": 73,
+          "food": 3000,
+          "wood": 4800,
+          "stone": 3200,
+          "copper": 724,
+          "coal": 594,
+          "merit": 552,
+          "caps": {
+            "wood": 4800,
+            "stone": 3200,
+            "food": 3000
+          },
+          "owned": {
+            "bronze_guard": 15,
+            "cavalry_t1": 15,
+            "infantry_t1": 15,
+            "archer_t1": 28
+          },
+          "queue": {
+            "infantry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "infantry_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "cavalry_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          },
+          "workers": {
+            "wood": 3,
+            "stone": 3,
+            "food": 7,
+            "coal": 6,
+            "copper": 3,
+            "iron": 0,
+            "silver": 0,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "tech": 0,
+            "goldCoin": 0
+          }
+        },
+        "loss": 0
+      }
+    },
+    {
+      "stage": 43,
+      "replenishment": {
+        "ok": true,
+        "seconds": 0,
+        "minFood": 3000,
+        "queued": {}
+      },
+      "battle": {
+        "stage": 43,
+        "seed": 409703,
+        "won": true,
+        "round": 1,
+        "callbacks": 5,
+        "before": {
+          "tick": 19746,
+          "defeated": 42,
+          "sciences": 8,
+          "population": 22,
+          "capacity": 22,
+          "army": 73,
+          "deployed": 73,
+          "food": 3000,
+          "wood": 4800,
+          "stone": 3200,
+          "copper": 724,
+          "coal": 594,
+          "merit": 552,
+          "caps": {
+            "wood": 4800,
+            "stone": 3200,
+            "food": 3000
+          },
+          "owned": {
+            "bronze_guard": 15,
+            "cavalry_t1": 15,
+            "infantry_t1": 15,
+            "archer_t1": 28
+          },
+          "queue": {
+            "infantry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "infantry_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "cavalry_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          },
+          "workers": {
+            "wood": 3,
+            "stone": 3,
+            "food": 7,
+            "coal": 6,
+            "copper": 3,
+            "iron": 0,
+            "silver": 0,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "tech": 0,
+            "goldCoin": 0
+          }
+        },
+        "after": {
+          "tick": 19746,
+          "defeated": 43,
+          "sciences": 8,
+          "population": 22,
+          "capacity": 22,
+          "army": 71,
+          "deployed": 71,
+          "food": 3000,
+          "wood": 4800,
+          "stone": 3200,
+          "copper": 724,
+          "coal": 594,
+          "merit": 575,
+          "caps": {
+            "wood": 4800,
+            "stone": 3200,
+            "food": 3000
+          },
+          "owned": {
+            "bronze_guard": 15,
+            "cavalry_t1": 15,
+            "infantry_t1": 13,
+            "archer_t1": 28
+          },
+          "queue": {
+            "infantry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "infantry_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "cavalry_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          },
+          "workers": {
+            "wood": 3,
+            "stone": 3,
+            "food": 7,
+            "coal": 6,
+            "copper": 3,
+            "iron": 0,
+            "silver": 0,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "tech": 0,
+            "goldCoin": 0
+          }
+        },
+        "loss": 2
+      }
+    },
+    {
+      "stage": 44,
+      "replenishment": {
+        "ok": true,
+        "seconds": 1,
+        "minFood": 2882.2104794520546,
+        "queued": {
+          "infantry_t1": 2
+        }
+      },
+      "battle": {
+        "stage": 44,
+        "seed": 418879,
+        "won": true,
+        "round": 2,
+        "callbacks": 12,
+        "before": {
+          "tick": 19747,
+          "defeated": 43,
+          "sciences": 8,
+          "population": 22,
+          "capacity": 22,
+          "army": 73,
+          "deployed": 73,
+          "food": 2882.2104794520546,
+          "wood": 4649,
+          "stone": 3120,
+          "copper": 727,
+          "coal": 594,
+          "merit": 575,
+          "caps": {
+            "wood": 4800,
+            "stone": 3200,
+            "food": 3000
+          },
+          "owned": {
+            "bronze_guard": 15,
+            "cavalry_t1": 15,
+            "infantry_t1": 15,
+            "archer_t1": 28
+          },
+          "queue": {
+            "infantry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "infantry_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "cavalry_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          },
+          "workers": {
+            "wood": 3,
+            "stone": 3,
+            "food": 7,
+            "coal": 6,
+            "copper": 3,
+            "iron": 0,
+            "silver": 0,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "tech": 0,
+            "goldCoin": 0
+          }
+        },
+        "after": {
+          "tick": 19747,
+          "defeated": 44,
+          "sciences": 8,
+          "population": 22,
+          "capacity": 22,
+          "army": 69,
+          "deployed": 69,
+          "food": 3000,
+          "wood": 4800,
+          "stone": 3200,
+          "copper": 727,
+          "coal": 594,
+          "merit": 598,
+          "caps": {
+            "wood": 4800,
+            "stone": 3200,
+            "food": 3000
+          },
+          "owned": {
+            "bronze_guard": 14,
+            "cavalry_t1": 12,
+            "infantry_t1": 15,
+            "archer_t1": 28
+          },
+          "queue": {
+            "infantry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "infantry_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "cavalry_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          },
+          "workers": {
+            "wood": 3,
+            "stone": 3,
+            "food": 7,
+            "coal": 6,
+            "copper": 3,
+            "iron": 0,
+            "silver": 0,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "tech": 0,
+            "goldCoin": 0
+          }
+        },
+        "loss": 4
+      }
+    },
+    {
+      "stage": 45,
+      "replenishment": {
+        "ok": true,
+        "seconds": 2,
+        "minFood": 2254.7488127853876,
+        "queued": {
+          "bronze_guard": 1,
+          "cavalry_t1": 3
+        }
+      },
+      "battle": {
+        "stage": 45,
+        "seed": 428055,
+        "won": true,
+        "round": 1,
+        "callbacks": 10,
+        "before": {
+          "tick": 19749,
+          "defeated": 44,
+          "sciences": 8,
+          "population": 22,
+          "capacity": 22,
+          "army": 73,
+          "deployed": 73,
+          "food": 2254.7488127853876,
+          "wood": 4458,
+          "stone": 2960,
+          "copper": 633,
+          "coal": 594,
+          "merit": 598,
+          "caps": {
+            "wood": 4800,
+            "stone": 3200,
+            "food": 3000
+          },
+          "owned": {
+            "bronze_guard": 15,
+            "cavalry_t1": 15,
+            "infantry_t1": 15,
+            "archer_t1": 28
+          },
+          "queue": {
+            "infantry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "infantry_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "cavalry_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          },
+          "workers": {
+            "wood": 3,
+            "stone": 3,
+            "food": 7,
+            "coal": 6,
+            "copper": 3,
+            "iron": 0,
+            "silver": 0,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "tech": 0,
+            "goldCoin": 0
+          }
+        },
+        "after": {
+          "tick": 19749,
+          "defeated": 45,
+          "sciences": 8,
+          "population": 22,
+          "capacity": 22,
+          "army": 68,
+          "deployed": 68,
+          "food": 3000,
+          "wood": 4800,
+          "stone": 3200,
+          "copper": 633,
+          "coal": 594,
+          "merit": 622,
+          "caps": {
+            "wood": 4800,
+            "stone": 3200,
+            "food": 3000
+          },
+          "owned": {
+            "bronze_guard": 13,
+            "cavalry_t1": 12,
+            "infantry_t1": 15,
+            "archer_t1": 28
+          },
+          "queue": {
+            "infantry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "infantry_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "cavalry_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          },
+          "workers": {
+            "wood": 3,
+            "stone": 3,
+            "food": 7,
+            "coal": 6,
+            "copper": 3,
+            "iron": 0,
+            "silver": 0,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "tech": 0,
+            "goldCoin": 0
+          }
+        },
+        "loss": 5
+      }
+    },
+    {
+      "stage": 46,
+      "replenishment": {
+        "ok": true,
+        "seconds": 2,
+        "minFood": 1954.7488127853878,
+        "queued": {
+          "bronze_guard": 2,
+          "cavalry_t1": 3
+        }
+      },
+      "battle": {
+        "stage": 46,
+        "seed": 437231,
+        "won": true,
+        "round": 2,
+        "callbacks": 17,
+        "before": {
+          "tick": 19751,
+          "defeated": 45,
+          "sciences": 8,
+          "population": 22,
+          "capacity": 22,
+          "army": 73,
+          "deployed": 73,
+          "food": 1954.7488127853878,
+          "wood": 4458,
+          "stone": 2960,
+          "copper": 439,
+          "coal": 594,
+          "merit": 622,
+          "caps": {
+            "wood": 4800,
+            "stone": 3200,
+            "food": 3000
+          },
+          "owned": {
+            "bronze_guard": 15,
+            "cavalry_t1": 15,
+            "infantry_t1": 15,
+            "archer_t1": 28
+          },
+          "queue": {
+            "infantry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "infantry_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "cavalry_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          },
+          "workers": {
+            "wood": 3,
+            "stone": 3,
+            "food": 7,
+            "coal": 6,
+            "copper": 3,
+            "iron": 0,
+            "silver": 0,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "tech": 0,
+            "goldCoin": 0
+          }
+        },
+        "after": {
+          "tick": 19751,
+          "defeated": 46,
+          "sciences": 8,
+          "population": 22,
+          "capacity": 22,
+          "army": 59,
+          "deployed": 59,
+          "food": 3000,
+          "wood": 4800,
+          "stone": 3200,
+          "copper": 439,
+          "coal": 594,
+          "merit": 646,
+          "caps": {
+            "wood": 4800,
+            "stone": 3200,
+            "food": 3000
+          },
+          "owned": {
+            "bronze_guard": 13,
+            "cavalry_t1": 8,
+            "infantry_t1": 10,
+            "archer_t1": 28
+          },
+          "queue": {
+            "infantry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "infantry_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "cavalry_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          },
+          "workers": {
+            "wood": 3,
+            "stone": 3,
+            "food": 7,
+            "coal": 6,
+            "copper": 3,
+            "iron": 0,
+            "silver": 0,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "tech": 0,
+            "goldCoin": 0
+          }
+        },
+        "loss": 14
+      }
+    },
+    {
+      "stage": 47,
+      "replenishment": {
+        "ok": true,
+        "seconds": 4,
+        "minFood": 1062.5618361967597,
+        "queued": {
+          "bronze_guard": 2,
+          "cavalry_t1": 7,
+          "infantry_t1": 5
+        }
+      },
+      "battle": {
+        "stage": 47,
+        "seed": 446407,
+        "won": true,
+        "round": 4,
+        "callbacks": 42,
+        "before": {
+          "tick": 19755,
+          "defeated": 46,
+          "sciences": 8,
+          "population": 22,
+          "capacity": 22,
+          "army": 73,
+          "deployed": 73,
+          "food": 1062.5618361967597,
+          "wood": 3596,
+          "stone": 2440,
+          "copper": 251,
+          "coal": 594,
+          "merit": 646,
+          "caps": {
+            "wood": 4800,
+            "stone": 3200,
+            "food": 3000
+          },
+          "owned": {
+            "bronze_guard": 15,
+            "cavalry_t1": 15,
+            "infantry_t1": 15,
+            "archer_t1": 28
+          },
+          "queue": {
+            "infantry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "infantry_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "cavalry_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          },
+          "workers": {
+            "wood": 3,
+            "stone": 3,
+            "food": 7,
+            "coal": 6,
+            "copper": 3,
+            "iron": 0,
+            "silver": 0,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "tech": 0,
+            "goldCoin": 0
+          }
+        },
+        "after": {
+          "tick": 19755,
+          "defeated": 47,
+          "sciences": 8,
+          "population": 22,
+          "capacity": 22,
+          "army": 36,
+          "deployed": 36,
+          "food": 2959.56183619676,
+          "wood": 4800,
+          "stone": 3200,
+          "copper": 251,
+          "coal": 594,
+          "merit": 671,
+          "caps": {
+            "wood": 4800,
+            "stone": 3200,
+            "food": 3000
+          },
+          "owned": {
+            "bronze_guard": 8,
+            "cavalry_t1": 0,
+            "infantry_t1": 0,
+            "archer_t1": 28
+          },
+          "queue": {
+            "infantry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "infantry_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "cavalry_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          },
+          "workers": {
+            "wood": 3,
+            "stone": 3,
+            "food": 7,
+            "coal": 6,
+            "copper": 3,
+            "iron": 0,
+            "silver": 0,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "tech": 0,
+            "goldCoin": 0
+          }
+        },
+        "loss": 37
+      }
+    },
+    {
+      "stage": 48,
+      "replenishment": {
+        "ok": true,
+        "seconds": 692,
+        "minFood": 3.0218873373599813,
+        "queued": {
+          "bronze_guard": 7,
+          "cavalry_t1": 15,
+          "infantry_t1": 15
+        }
+      },
+      "battle": {
+        "stage": 48,
+        "seed": 455583,
+        "won": true,
+        "round": 4,
+        "callbacks": 41,
+        "before": {
+          "tick": 20447,
+          "defeated": 47,
+          "sciences": 8,
+          "population": 22,
+          "capacity": 22,
+          "army": 73,
+          "deployed": 73,
+          "food": 3.0218873373599813,
+          "wood": 4800,
+          "stone": 3194,
+          "copper": 703,
+          "coal": 594,
+          "merit": 671,
+          "caps": {
+            "wood": 4800,
+            "stone": 3200,
+            "food": 3000
+          },
+          "owned": {
+            "bronze_guard": 15,
+            "cavalry_t1": 15,
+            "infantry_t1": 15,
+            "archer_t1": 28
+          },
+          "queue": {
+            "infantry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "infantry_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "cavalry_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          },
+          "workers": {
+            "wood": 3,
+            "stone": 3,
+            "food": 7,
+            "coal": 6,
+            "copper": 3,
+            "iron": 0,
+            "silver": 0,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "tech": 0,
+            "goldCoin": 0
+          }
+        },
+        "after": {
+          "tick": 20447,
+          "defeated": 48,
+          "sciences": 8,
+          "population": 22,
+          "capacity": 22,
+          "army": 36,
+          "deployed": 36,
+          "food": 1976.0218873373599,
+          "wood": 4800,
+          "stone": 3200,
+          "copper": 703,
+          "coal": 594,
+          "merit": 696,
+          "caps": {
+            "wood": 4800,
+            "stone": 3200,
+            "food": 3000
+          },
+          "owned": {
+            "bronze_guard": 10,
+            "cavalry_t1": 0,
+            "infantry_t1": 0,
+            "archer_t1": 26
+          },
+          "queue": {
+            "infantry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "infantry_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "cavalry_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          },
+          "workers": {
+            "wood": 3,
+            "stone": 3,
+            "food": 7,
+            "coal": 6,
+            "copper": 3,
+            "iron": 0,
+            "silver": 0,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "tech": 0,
+            "goldCoin": 0
+          }
+        },
+        "loss": 37
+      }
+    },
+    {
+      "stage": 49,
+      "replenishment": {
+        "ok": true,
+        "seconds": 635,
+        "minFood": 2.443969763306299,
+        "queued": {
+          "bronze_guard": 5,
+          "cavalry_t1": 15,
+          "infantry_t1": 15,
+          "archer_t1": 2
+        }
+      },
+      "battle": {
+        "stage": 49,
+        "seed": 464759,
+        "won": false,
+        "round": 5,
+        "callbacks": 57,
+        "before": {
+          "tick": 21082,
+          "defeated": 48,
+          "sciences": 8,
+          "population": 22,
+          "capacity": 22,
+          "army": 73,
+          "deployed": 73,
+          "food": 2.443969763306299,
+          "wood": 4800,
+          "stone": 3194,
+          "copper": 703,
+          "coal": 594,
+          "merit": 696,
+          "caps": {
+            "wood": 4800,
+            "stone": 3200,
+            "food": 3000
+          },
+          "owned": {
+            "bronze_guard": 15,
+            "cavalry_t1": 15,
+            "infantry_t1": 15,
+            "archer_t1": 28
+          },
+          "queue": {
+            "infantry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "infantry_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "cavalry_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          },
+          "workers": {
+            "wood": 3,
+            "stone": 3,
+            "food": 7,
+            "coal": 6,
+            "copper": 3,
+            "iron": 0,
+            "silver": 0,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "tech": 0,
+            "goldCoin": 0
+          }
+        },
+        "after": {
+          "tick": 21082,
+          "defeated": 48,
+          "sciences": 8,
+          "population": 22,
+          "capacity": 22,
+          "army": 0,
+          "deployed": 0,
+          "food": 2.443969763306299,
+          "wood": 4800,
+          "stone": 3194,
+          "copper": 703,
+          "coal": 594,
+          "merit": 696,
+          "caps": {
+            "wood": 4800,
+            "stone": 3200,
+            "food": 3000
+          },
+          "owned": {
+            "bronze_guard": 0,
+            "cavalry_t1": 0,
+            "infantry_t1": 0,
+            "archer_t1": 0
+          },
+          "queue": {
+            "infantry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "infantry_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "cavalry_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          },
+          "workers": {
+            "wood": 3,
+            "stone": 3,
+            "food": 7,
+            "coal": 6,
+            "copper": 3,
+            "iron": 0,
+            "silver": 0,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "tech": 0,
+            "goldCoin": 0
+          }
+        },
+        "loss": 73
+      }
+    }
+  ],
+  "completed": 48,
+  "block": {
+    "phase": "battle",
+    "stage": 49,
+    "seed": 464759,
+    "round": 5,
+    "loss": 73,
+    "remainingArmy": 0
+  },
+  "firstBlockScreen": [
+    {
+      "seed": 1,
+      "won": false,
+      "round": 4,
+      "loss": 73,
+      "remainingArmy": 0
+    },
+    {
+      "seed": 2,
+      "won": false,
+      "round": 5,
+      "loss": 73,
+      "remainingArmy": 0
+    },
+    {
+      "seed": 3,
+      "won": false,
+      "round": 6,
+      "loss": 73,
+      "remainingArmy": 0
+    },
+    {
+      "seed": 4,
+      "won": false,
+      "round": 2,
+      "loss": 73,
+      "remainingArmy": 0
+    },
+    {
+      "seed": 5,
+      "won": true,
+      "round": 6,
+      "loss": 65,
+      "remainingArmy": 8
+    },
+    {
+      "seed": 6,
+      "won": true,
+      "round": 6,
+      "loss": 65,
+      "remainingArmy": 8
+    },
+    {
+      "seed": 7,
+      "won": true,
+      "round": 6,
+      "loss": 63,
+      "remainingArmy": 10
+    },
+    {
+      "seed": 8,
+      "won": false,
+      "round": 3,
+      "loss": 73,
+      "remainingArmy": 0
+    },
+    {
+      "seed": 9,
+      "won": false,
+      "round": 3,
+      "loss": 73,
+      "remainingArmy": 0
+    },
+    {
+      "seed": 10,
+      "won": true,
+      "round": 5,
+      "loss": 53,
+      "remainingArmy": 20
+    },
+    {
+      "seed": 11,
+      "won": false,
+      "round": 4,
+      "loss": 73,
+      "remainingArmy": 0
+    },
+    {
+      "seed": 12,
+      "won": false,
+      "round": 4,
+      "loss": 73,
+      "remainingArmy": 0
+    },
+    {
+      "seed": 13,
+      "won": true,
+      "round": 6,
+      "loss": 63,
+      "remainingArmy": 10
+    },
+    {
+      "seed": 14,
+      "won": false,
+      "round": 7,
+      "loss": 73,
+      "remainingArmy": 0
+    },
+    {
+      "seed": 15,
+      "won": false,
+      "round": 5,
+      "loss": 73,
+      "remainingArmy": 0
+    },
+    {
+      "seed": 16,
+      "won": true,
+      "round": 6,
+      "loss": 68,
+      "remainingArmy": 5
+    },
+    {
+      "seed": 17,
+      "won": false,
+      "round": 5,
+      "loss": 73,
+      "remainingArmy": 0
+    },
+    {
+      "seed": 18,
+      "won": false,
+      "round": 3,
+      "loss": 73,
+      "remainingArmy": 0
+    },
+    {
+      "seed": 19,
+      "won": false,
+      "round": 3,
+      "loss": 73,
+      "remainingArmy": 0
+    },
+    {
+      "seed": 20,
+      "won": true,
+      "round": 4,
+      "loss": 56,
+      "remainingArmy": 17
+    },
+    {
+      "seed": 21,
+      "won": false,
+      "round": 3,
+      "loss": 73,
+      "remainingArmy": 0
+    },
+    {
+      "seed": 22,
+      "won": false,
+      "round": 4,
+      "loss": 73,
+      "remainingArmy": 0
+    },
+    {
+      "seed": 23,
+      "won": false,
+      "round": 3,
+      "loss": 73,
+      "remainingArmy": 0
+    },
+    {
+      "seed": 24,
+      "won": true,
+      "round": 4,
+      "loss": 59,
+      "remainingArmy": 14
+    },
+    {
+      "seed": 25,
+      "won": false,
+      "round": 3,
+      "loss": 73,
+      "remainingArmy": 0
+    },
+    {
+      "seed": 26,
+      "won": false,
+      "round": 3,
+      "loss": 73,
+      "remainingArmy": 0
+    },
+    {
+      "seed": 27,
+      "won": true,
+      "round": 4,
+      "loss": 46,
+      "remainingArmy": 27
+    },
+    {
+      "seed": 28,
+      "won": true,
+      "round": 6,
+      "loss": 60,
+      "remainingArmy": 13
+    },
+    {
+      "seed": 29,
+      "won": false,
+      "round": 3,
+      "loss": 73,
+      "remainingArmy": 0
+    },
+    {
+      "seed": 30,
+      "won": false,
+      "round": 5,
+      "loss": 73,
+      "remainingArmy": 0
+    },
+    {
+      "seed": 31,
+      "won": true,
+      "round": 4,
+      "loss": 48,
+      "remainingArmy": 25
+    },
+    {
+      "seed": 32,
+      "won": true,
+      "round": 4,
+      "loss": 55,
+      "remainingArmy": 18
+    }
+  ],
+  "selectedContinuation": {
+    "selection": {
+      "seed": 27,
+      "loss": 46,
+      "candidateStreams": 32,
+      "winningStreams": 12,
+      "criterion": "least loss among paid stage-49 winning fixed streams"
+    },
+    "rescueSelections": [
+      {
+        "stage": 59,
+        "initialSeed": 556519,
+        "initialLoss": 73,
+        "wins": 8,
+        "of": 32,
+        "selectedSeed": 28,
+        "selectedLoss": 35
+      }
+    ],
+    "completed": 64,
+    "block": null,
+    "rows": [
+      {
+        "stage": 49,
+        "battle": {
+          "stage": 49,
+          "seed": 27,
+          "won": true,
+          "round": 4,
+          "callbacks": 50,
+          "before": {
+            "tick": 21082,
+            "defeated": 48,
+            "sciences": 8,
+            "population": 22,
+            "capacity": 22,
+            "army": 73,
+            "deployed": 73,
+            "food": 2.443969763306299,
+            "wood": 4800,
+            "stone": 3194,
+            "copper": 703,
+            "coal": 594,
+            "merit": 696,
+            "caps": {
+              "wood": 4800,
+              "stone": 3200,
+              "food": 3000
+            },
+            "owned": {
+              "bronze_guard": 15,
+              "cavalry_t1": 15,
+              "infantry_t1": 15,
+              "archer_t1": 28
+            },
+            "queue": {
+              "infantry": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "bronze_guard": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "infantry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "cavalry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              }
+            },
+            "workers": {
+              "wood": 3,
+              "stone": 3,
+              "food": 7,
+              "coal": 6,
+              "copper": 3,
+              "iron": 0,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "tech": 0,
+              "goldCoin": 0
+            }
+          },
+          "after": {
+            "tick": 21082,
+            "defeated": 49,
+            "sciences": 8,
+            "population": 22,
+            "capacity": 22,
+            "army": 27,
+            "deployed": 27,
+            "food": 2054.443969763306,
+            "wood": 4800,
+            "stone": 3200,
+            "copper": 703,
+            "coal": 594,
+            "merit": 722,
+            "caps": {
+              "wood": 4800,
+              "stone": 3200,
+              "food": 3000
+            },
+            "owned": {
+              "bronze_guard": 2,
+              "cavalry_t1": 0,
+              "infantry_t1": 0,
+              "archer_t1": 25
+            },
+            "queue": {
+              "infantry": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "bronze_guard": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "infantry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "cavalry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              }
+            },
+            "workers": {
+              "wood": 3,
+              "stone": 3,
+              "food": 7,
+              "coal": 6,
+              "copper": 3,
+              "iron": 0,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "tech": 0,
+              "goldCoin": 0
+            }
+          },
+          "loss": 46
+        }
+      },
+      {
+        "stage": 50,
+        "replenishment": {
+          "ok": true,
+          "seconds": 1164,
+          "minFood": 3.1248076451611553,
+          "queued": {
+            "bronze_guard": 13,
+            "cavalry_t1": 15,
+            "infantry_t1": 15,
+            "archer_t1": 3
+          }
+        },
+        "battle": {
+          "stage": 50,
+          "seed": 473935,
+          "won": true,
+          "round": 1,
+          "callbacks": 18,
+          "before": {
+            "tick": 22246,
+            "defeated": 49,
+            "sciences": 8,
+            "population": 22,
+            "capacity": 22,
+            "army": 73,
+            "deployed": 73,
+            "food": 4.089434649191201,
+            "wood": 4800,
+            "stone": 3194,
+            "copper": 703,
+            "coal": 594,
+            "merit": 722,
+            "caps": {
+              "wood": 4800,
+              "stone": 3200,
+              "food": 3000
+            },
+            "owned": {
+              "bronze_guard": 15,
+              "cavalry_t1": 15,
+              "infantry_t1": 15,
+              "archer_t1": 28
+            },
+            "queue": {
+              "infantry": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "bronze_guard": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "infantry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "cavalry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              }
+            },
+            "workers": {
+              "wood": 3,
+              "stone": 3,
+              "food": 7,
+              "coal": 6,
+              "copper": 3,
+              "iron": 0,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "tech": 0,
+              "goldCoin": 0
+            }
+          },
+          "after": {
+            "tick": 22246,
+            "defeated": 50,
+            "sciences": 8,
+            "population": 22,
+            "capacity": 22,
+            "army": 64,
+            "deployed": 64,
+            "food": 3000,
+            "wood": 4800,
+            "stone": 3200,
+            "copper": 703,
+            "coal": 594,
+            "merit": 777,
+            "caps": {
+              "wood": 4800,
+              "stone": 3200,
+              "food": 3000
+            },
+            "owned": {
+              "bronze_guard": 14,
+              "cavalry_t1": 12,
+              "infantry_t1": 10,
+              "archer_t1": 28
+            },
+            "queue": {
+              "infantry": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "bronze_guard": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "infantry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "cavalry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              }
+            },
+            "workers": {
+              "wood": 3,
+              "stone": 3,
+              "food": 7,
+              "coal": 6,
+              "copper": 3,
+              "iron": 0,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "tech": 0,
+              "goldCoin": 0
+            }
+          },
+          "loss": 9
+        }
+      },
+      {
+        "stage": 51,
+        "replenishment": {
+          "ok": true,
+          "seconds": 3,
+          "minFood": 1957.7404794520548,
+          "queued": {
+            "bronze_guard": 1,
+            "cavalry_t1": 3,
+            "infantry_t1": 5
+          }
+        },
+        "battle": {
+          "stage": 51,
+          "seed": 483111,
+          "won": true,
+          "round": 1,
+          "callbacks": 3,
+          "before": {
+            "tick": 22249,
+            "defeated": 50,
+            "sciences": 8,
+            "population": 22,
+            "capacity": 22,
+            "army": 73,
+            "deployed": 73,
+            "food": 1957.7404794520548,
+            "wood": 4067,
+            "stone": 2760,
+            "copper": 612,
+            "coal": 594,
+            "merit": 777,
+            "caps": {
+              "wood": 4800,
+              "stone": 3200,
+              "food": 3000
+            },
+            "owned": {
+              "bronze_guard": 15,
+              "cavalry_t1": 15,
+              "infantry_t1": 15,
+              "archer_t1": 28
+            },
+            "queue": {
+              "infantry": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "bronze_guard": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "infantry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "cavalry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              }
+            },
+            "workers": {
+              "wood": 3,
+              "stone": 3,
+              "food": 7,
+              "coal": 6,
+              "copper": 3,
+              "iron": 0,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "tech": 0,
+              "goldCoin": 0
+            }
+          },
+          "after": {
+            "tick": 22249,
+            "defeated": 51,
+            "sciences": 8,
+            "population": 22,
+            "capacity": 22,
+            "army": 73,
+            "deployed": 73,
+            "food": 3000,
+            "wood": 4800,
+            "stone": 3200,
+            "copper": 612,
+            "coal": 594,
+            "merit": 804,
+            "caps": {
+              "wood": 4800,
+              "stone": 3200,
+              "food": 3000
+            },
+            "owned": {
+              "bronze_guard": 15,
+              "cavalry_t1": 15,
+              "infantry_t1": 15,
+              "archer_t1": 28
+            },
+            "queue": {
+              "infantry": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "bronze_guard": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "infantry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "cavalry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              }
+            },
+            "workers": {
+              "wood": 3,
+              "stone": 3,
+              "food": 7,
+              "coal": 6,
+              "copper": 3,
+              "iron": 0,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "tech": 0,
+              "goldCoin": 0
+            }
+          },
+          "loss": 0
+        }
+      },
+      {
+        "stage": 52,
+        "replenishment": {
+          "ok": true,
+          "seconds": 0,
+          "minFood": 3000,
+          "queued": {}
+        },
+        "battle": {
+          "stage": 52,
+          "seed": 492287,
+          "won": true,
+          "round": 1,
+          "callbacks": 5,
+          "before": {
+            "tick": 22249,
+            "defeated": 51,
+            "sciences": 8,
+            "population": 22,
+            "capacity": 22,
+            "army": 73,
+            "deployed": 73,
+            "food": 3000,
+            "wood": 4800,
+            "stone": 3200,
+            "copper": 612,
+            "coal": 594,
+            "merit": 804,
+            "caps": {
+              "wood": 4800,
+              "stone": 3200,
+              "food": 3000
+            },
+            "owned": {
+              "bronze_guard": 15,
+              "cavalry_t1": 15,
+              "infantry_t1": 15,
+              "archer_t1": 28
+            },
+            "queue": {
+              "infantry": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "bronze_guard": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "infantry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "cavalry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              }
+            },
+            "workers": {
+              "wood": 3,
+              "stone": 3,
+              "food": 7,
+              "coal": 6,
+              "copper": 3,
+              "iron": 0,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "tech": 0,
+              "goldCoin": 0
+            }
+          },
+          "after": {
+            "tick": 22249,
+            "defeated": 52,
+            "sciences": 8,
+            "population": 22,
+            "capacity": 22,
+            "army": 72,
+            "deployed": 72,
+            "food": 3000,
+            "wood": 4800,
+            "stone": 3200,
+            "copper": 612,
+            "coal": 594,
+            "merit": 831,
+            "caps": {
+              "wood": 4800,
+              "stone": 3200,
+              "food": 3000
+            },
+            "owned": {
+              "bronze_guard": 15,
+              "cavalry_t1": 15,
+              "infantry_t1": 14,
+              "archer_t1": 28
+            },
+            "queue": {
+              "infantry": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "bronze_guard": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "infantry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "cavalry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              }
+            },
+            "workers": {
+              "wood": 3,
+              "stone": 3,
+              "food": 7,
+              "coal": 6,
+              "copper": 3,
+              "iron": 0,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "tech": 0,
+              "goldCoin": 0
+            }
+          },
+          "loss": 1
+        }
+      },
+      {
+        "stage": 53,
+        "replenishment": {
+          "ok": true,
+          "seconds": 1,
+          "minFood": 2942.2104794520546,
+          "queued": {
+            "infantry_t1": 1
+          }
+        },
+        "battle": {
+          "stage": 53,
+          "seed": 501463,
+          "won": true,
+          "round": 1,
+          "callbacks": 4,
+          "before": {
+            "tick": 22250,
+            "defeated": 52,
+            "sciences": 8,
+            "population": 22,
+            "capacity": 22,
+            "army": 73,
+            "deployed": 73,
+            "food": 2942.2104794520546,
+            "wood": 4729,
+            "stone": 3160,
+            "copper": 615,
+            "coal": 594,
+            "merit": 831,
+            "caps": {
+              "wood": 4800,
+              "stone": 3200,
+              "food": 3000
+            },
+            "owned": {
+              "bronze_guard": 15,
+              "cavalry_t1": 15,
+              "infantry_t1": 15,
+              "archer_t1": 28
+            },
+            "queue": {
+              "infantry": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "bronze_guard": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "infantry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "cavalry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              }
+            },
+            "workers": {
+              "wood": 3,
+              "stone": 3,
+              "food": 7,
+              "coal": 6,
+              "copper": 3,
+              "iron": 0,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "tech": 0,
+              "goldCoin": 0
+            }
+          },
+          "after": {
+            "tick": 22250,
+            "defeated": 53,
+            "sciences": 8,
+            "population": 22,
+            "capacity": 22,
+            "army": 70,
+            "deployed": 70,
+            "food": 3000,
+            "wood": 4800,
+            "stone": 3200,
+            "copper": 615,
+            "coal": 594,
+            "merit": 859,
+            "caps": {
+              "wood": 4800,
+              "stone": 3200,
+              "food": 3000
+            },
+            "owned": {
+              "bronze_guard": 15,
+              "cavalry_t1": 12,
+              "infantry_t1": 15,
+              "archer_t1": 28
+            },
+            "queue": {
+              "infantry": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "bronze_guard": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "infantry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "cavalry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              }
+            },
+            "workers": {
+              "wood": 3,
+              "stone": 3,
+              "food": 7,
+              "coal": 6,
+              "copper": 3,
+              "iron": 0,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "tech": 0,
+              "goldCoin": 0
+            }
+          },
+          "loss": 3
+        }
+      },
+      {
+        "stage": 54,
+        "replenishment": {
+          "ok": true,
+          "seconds": 2,
+          "minFood": 2554.7488127853876,
+          "queued": {
+            "cavalry_t1": 3
+          }
+        },
+        "battle": {
+          "stage": 54,
+          "seed": 510639,
+          "won": true,
+          "round": 2,
+          "callbacks": 11,
+          "before": {
+            "tick": 22252,
+            "defeated": 53,
+            "sciences": 8,
+            "population": 22,
+            "capacity": 22,
+            "army": 73,
+            "deployed": 73,
+            "food": 2554.7488127853876,
+            "wood": 4458,
+            "stone": 2960,
+            "copper": 621,
+            "coal": 594,
+            "merit": 859,
+            "caps": {
+              "wood": 4800,
+              "stone": 3200,
+              "food": 3000
+            },
+            "owned": {
+              "bronze_guard": 15,
+              "cavalry_t1": 15,
+              "infantry_t1": 15,
+              "archer_t1": 28
+            },
+            "queue": {
+              "infantry": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "bronze_guard": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "infantry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "cavalry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              }
+            },
+            "workers": {
+              "wood": 3,
+              "stone": 3,
+              "food": 7,
+              "coal": 6,
+              "copper": 3,
+              "iron": 0,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "tech": 0,
+              "goldCoin": 0
+            }
+          },
+          "after": {
+            "tick": 22252,
+            "defeated": 54,
+            "sciences": 8,
+            "population": 22,
+            "capacity": 22,
+            "army": 71,
+            "deployed": 71,
+            "food": 3000,
+            "wood": 4800,
+            "stone": 3200,
+            "copper": 621,
+            "coal": 594,
+            "merit": 887,
+            "caps": {
+              "wood": 4800,
+              "stone": 3200,
+              "food": 3000
+            },
+            "owned": {
+              "bronze_guard": 14,
+              "cavalry_t1": 14,
+              "infantry_t1": 15,
+              "archer_t1": 28
+            },
+            "queue": {
+              "infantry": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "bronze_guard": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "infantry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "cavalry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              }
+            },
+            "workers": {
+              "wood": 3,
+              "stone": 3,
+              "food": 7,
+              "coal": 6,
+              "copper": 3,
+              "iron": 0,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "tech": 0,
+              "goldCoin": 0
+            }
+          },
+          "loss": 2
+        }
+      },
+      {
+        "stage": 55,
+        "replenishment": {
+          "ok": true,
+          "seconds": 1,
+          "minFood": 2552.2104794520546,
+          "queued": {
+            "bronze_guard": 1,
+            "cavalry_t1": 1
+          }
+        },
+        "battle": {
+          "stage": 55,
+          "seed": 519815,
+          "won": true,
+          "round": 2,
+          "callbacks": 15,
+          "before": {
+            "tick": 22253,
+            "defeated": 54,
+            "sciences": 8,
+            "population": 22,
+            "capacity": 22,
+            "army": 73,
+            "deployed": 73,
+            "food": 2552.2104794520546,
+            "wood": 4689,
+            "stone": 3120,
+            "copper": 524,
+            "coal": 594,
+            "merit": 887,
+            "caps": {
+              "wood": 4800,
+              "stone": 3200,
+              "food": 3000
+            },
+            "owned": {
+              "bronze_guard": 15,
+              "cavalry_t1": 15,
+              "infantry_t1": 15,
+              "archer_t1": 28
+            },
+            "queue": {
+              "infantry": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "bronze_guard": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "infantry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "cavalry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              }
+            },
+            "workers": {
+              "wood": 3,
+              "stone": 3,
+              "food": 7,
+              "coal": 6,
+              "copper": 3,
+              "iron": 0,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "tech": 0,
+              "goldCoin": 0
+            }
+          },
+          "after": {
+            "tick": 22253,
+            "defeated": 55,
+            "sciences": 8,
+            "population": 22,
+            "capacity": 22,
+            "army": 63,
+            "deployed": 63,
+            "food": 3000,
+            "wood": 4800,
+            "stone": 3200,
+            "copper": 524,
+            "coal": 594,
+            "merit": 916,
+            "caps": {
+              "wood": 4800,
+              "stone": 3200,
+              "food": 3000
+            },
+            "owned": {
+              "bronze_guard": 15,
+              "cavalry_t1": 11,
+              "infantry_t1": 12,
+              "archer_t1": 25
+            },
+            "queue": {
+              "infantry": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "bronze_guard": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "infantry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "cavalry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              }
+            },
+            "workers": {
+              "wood": 3,
+              "stone": 3,
+              "food": 7,
+              "coal": 6,
+              "copper": 3,
+              "iron": 0,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "tech": 0,
+              "goldCoin": 0
+            }
+          },
+          "loss": 10
+        }
+      },
+      {
+        "stage": 56,
+        "replenishment": {
+          "ok": true,
+          "seconds": 2,
+          "minFood": 2075.5441751042285,
+          "queued": {
+            "cavalry_t1": 4,
+            "infantry_t1": 3,
+            "archer_t1": 3
+          }
+        },
+        "battle": {
+          "stage": 56,
+          "seed": 528991,
+          "won": true,
+          "round": 2,
+          "callbacks": 17,
+          "before": {
+            "tick": 22255,
+            "defeated": 55,
+            "sciences": 8,
+            "population": 22,
+            "capacity": 22,
+            "army": 73,
+            "deployed": 73,
+            "food": 2075.5441751042285,
+            "wood": 3738,
+            "stone": 2640,
+            "copper": 530,
+            "coal": 594,
+            "merit": 916,
+            "caps": {
+              "wood": 4800,
+              "stone": 3200,
+              "food": 3000
+            },
+            "owned": {
+              "bronze_guard": 15,
+              "cavalry_t1": 15,
+              "infantry_t1": 15,
+              "archer_t1": 28
+            },
+            "queue": {
+              "infantry": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "bronze_guard": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "infantry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "cavalry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              }
+            },
+            "workers": {
+              "wood": 3,
+              "stone": 3,
+              "food": 7,
+              "coal": 6,
+              "copper": 3,
+              "iron": 0,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "tech": 0,
+              "goldCoin": 0
+            }
+          },
+          "after": {
+            "tick": 22255,
+            "defeated": 56,
+            "sciences": 8,
+            "population": 22,
+            "capacity": 22,
+            "army": 64,
+            "deployed": 64,
+            "food": 3000,
+            "wood": 4800,
+            "stone": 3200,
+            "copper": 530,
+            "coal": 594,
+            "merit": 945,
+            "caps": {
+              "wood": 4800,
+              "stone": 3200,
+              "food": 3000
+            },
+            "owned": {
+              "bronze_guard": 13,
+              "cavalry_t1": 15,
+              "infantry_t1": 8,
+              "archer_t1": 28
+            },
+            "queue": {
+              "infantry": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "bronze_guard": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "infantry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "cavalry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              }
+            },
+            "workers": {
+              "wood": 3,
+              "stone": 3,
+              "food": 7,
+              "coal": 6,
+              "copper": 3,
+              "iron": 0,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "tech": 0,
+              "goldCoin": 0
+            }
+          },
+          "loss": 9
+        }
+      },
+      {
+        "stage": 57,
+        "replenishment": {
+          "ok": true,
+          "seconds": 4,
+          "minFood": 1990.6057147461722,
+          "queued": {
+            "bronze_guard": 2,
+            "infantry_t1": 7
+          }
+        },
+        "battle": {
+          "stage": 57,
+          "seed": 538167,
+          "won": true,
+          "round": 4,
+          "callbacks": 39,
+          "before": {
+            "tick": 22259,
+            "defeated": 56,
+            "sciences": 8,
+            "population": 22,
+            "capacity": 22,
+            "army": 73,
+            "deployed": 73,
+            "food": 1990.6057147461722,
+            "wood": 4276,
+            "stone": 2920,
+            "copper": 342,
+            "coal": 594,
+            "merit": 945,
+            "caps": {
+              "wood": 4800,
+              "stone": 3200,
+              "food": 3000
+            },
+            "owned": {
+              "bronze_guard": 15,
+              "cavalry_t1": 15,
+              "infantry_t1": 15,
+              "archer_t1": 28
+            },
+            "queue": {
+              "infantry": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "bronze_guard": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "infantry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "cavalry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              }
+            },
+            "workers": {
+              "wood": 3,
+              "stone": 3,
+              "food": 7,
+              "coal": 6,
+              "copper": 3,
+              "iron": 0,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "tech": 0,
+              "goldCoin": 0
+            }
+          },
+          "after": {
+            "tick": 22259,
+            "defeated": 57,
+            "sciences": 8,
+            "population": 22,
+            "capacity": 22,
+            "army": 36,
+            "deployed": 36,
+            "food": 3000,
+            "wood": 4800,
+            "stone": 3200,
+            "copper": 342,
+            "coal": 594,
+            "merit": 975,
+            "caps": {
+              "wood": 4800,
+              "stone": 3200,
+              "food": 3000
+            },
+            "owned": {
+              "bronze_guard": 8,
+              "cavalry_t1": 0,
+              "infantry_t1": 0,
+              "archer_t1": 28
+            },
+            "queue": {
+              "infantry": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "bronze_guard": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "infantry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "cavalry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              }
+            },
+            "workers": {
+              "wood": 3,
+              "stone": 3,
+              "food": 7,
+              "coal": 6,
+              "copper": 3,
+              "iron": 0,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "tech": 0,
+              "goldCoin": 0
+            }
+          },
+          "loss": 37
+        }
+      },
+      {
+        "stage": 58,
+        "replenishment": {
+          "ok": true,
+          "seconds": 665,
+          "minFood": 2.5352730732637028,
+          "queued": {
+            "bronze_guard": 7,
+            "cavalry_t1": 15,
+            "infantry_t1": 15
+          }
+        },
+        "battle": {
+          "stage": 58,
+          "seed": 547343,
+          "won": true,
+          "round": 3,
+          "callbacks": 34,
+          "before": {
+            "tick": 22924,
+            "defeated": 57,
+            "sciences": 8,
+            "population": 22,
+            "capacity": 22,
+            "army": 73,
+            "deployed": 73,
+            "food": 4.662419191984139,
+            "wood": 4800,
+            "stone": 3194,
+            "copper": 703,
+            "coal": 594,
+            "merit": 975,
+            "caps": {
+              "wood": 4800,
+              "stone": 3200,
+              "food": 3000
+            },
+            "owned": {
+              "bronze_guard": 15,
+              "cavalry_t1": 15,
+              "infantry_t1": 15,
+              "archer_t1": 28
+            },
+            "queue": {
+              "infantry": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "bronze_guard": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "infantry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "cavalry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              }
+            },
+            "workers": {
+              "wood": 3,
+              "stone": 3,
+              "food": 7,
+              "coal": 6,
+              "copper": 3,
+              "iron": 0,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "tech": 0,
+              "goldCoin": 0
+            }
+          },
+          "after": {
+            "tick": 22924,
+            "defeated": 58,
+            "sciences": 8,
+            "population": 22,
+            "capacity": 22,
+            "army": 32,
+            "deployed": 32,
+            "food": 2767.662419191984,
+            "wood": 4800,
+            "stone": 3200,
+            "copper": 703,
+            "coal": 594,
+            "merit": 1005,
+            "caps": {
+              "wood": 4800,
+              "stone": 3200,
+              "food": 3000
+            },
+            "owned": {
+              "bronze_guard": 0,
+              "cavalry_t1": 5,
+              "infantry_t1": 0,
+              "archer_t1": 27
+            },
+            "queue": {
+              "infantry": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "bronze_guard": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "infantry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "cavalry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              }
+            },
+            "workers": {
+              "wood": 3,
+              "stone": 3,
+              "food": 7,
+              "coal": 6,
+              "copper": 3,
+              "iron": 0,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "tech": 0,
+              "goldCoin": 0
+            }
+          },
+          "loss": 41
+        }
+      },
+      {
+        "stage": 59,
+        "replenishment": {
+          "ok": true,
+          "seconds": 1053,
+          "minFood": 2.478010444232801,
+          "queued": {
+            "bronze_guard": 15,
+            "cavalry_t1": 10,
+            "infantry_t1": 15,
+            "archer_t1": 1
+          }
+        },
+        "battle": {
+          "stage": 59,
+          "seed": 28,
+          "won": true,
+          "round": 3,
+          "callbacks": 45,
+          "before": {
+            "tick": 23977,
+            "defeated": 58,
+            "sciences": 8,
+            "population": 22,
+            "capacity": 22,
+            "army": 73,
+            "deployed": 73,
+            "food": 4.605156562953237,
+            "wood": 4800,
+            "stone": 3194,
+            "copper": 703,
+            "coal": 594,
+            "merit": 1005,
+            "caps": {
+              "wood": 4800,
+              "stone": 3200,
+              "food": 3000
+            },
+            "owned": {
+              "bronze_guard": 15,
+              "cavalry_t1": 15,
+              "infantry_t1": 15,
+              "archer_t1": 28
+            },
+            "queue": {
+              "infantry": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "bronze_guard": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "infantry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "cavalry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              }
+            },
+            "workers": {
+              "wood": 3,
+              "stone": 3,
+              "food": 7,
+              "coal": 6,
+              "copper": 3,
+              "iron": 0,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "tech": 0,
+              "goldCoin": 0
+            }
+          },
+          "after": {
+            "tick": 23977,
+            "defeated": 59,
+            "sciences": 8,
+            "population": 22,
+            "capacity": 22,
+            "army": 38,
+            "deployed": 38,
+            "food": 2877.605156562953,
+            "wood": 4800,
+            "stone": 3200,
+            "copper": 703,
+            "coal": 594,
+            "merit": 1036,
+            "caps": {
+              "wood": 4800,
+              "stone": 3200,
+              "food": 3000
+            },
+            "owned": {
+              "bronze_guard": 5,
+              "cavalry_t1": 5,
+              "infantry_t1": 0,
+              "archer_t1": 28
+            },
+            "queue": {
+              "infantry": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "bronze_guard": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "infantry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "cavalry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              }
+            },
+            "workers": {
+              "wood": 3,
+              "stone": 3,
+              "food": 7,
+              "coal": 6,
+              "copper": 3,
+              "iron": 0,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "tech": 0,
+              "goldCoin": 0
+            }
+          },
+          "loss": 35
+        }
+      },
+      {
+        "stage": 60,
+        "replenishment": {
+          "ok": true,
+          "seconds": 710,
+          "minFood": 2.272019885853396,
+          "queued": {
+            "bronze_guard": 10,
+            "cavalry_t1": 10,
+            "infantry_t1": 15
+          }
+        },
+        "battle": {
+          "stage": 60,
+          "seed": 565695,
+          "won": true,
+          "round": 1,
+          "callbacks": 18,
+          "before": {
+            "tick": 24687,
+            "defeated": 59,
+            "sciences": 8,
+            "population": 22,
+            "capacity": 22,
+            "army": 73,
+            "deployed": 73,
+            "food": 2.272019885853396,
+            "wood": 4800,
+            "stone": 3194,
+            "copper": 703,
+            "coal": 594,
+            "merit": 1036,
+            "caps": {
+              "wood": 4800,
+              "stone": 3200,
+              "food": 3000
+            },
+            "owned": {
+              "bronze_guard": 15,
+              "cavalry_t1": 15,
+              "infantry_t1": 15,
+              "archer_t1": 28
+            },
+            "queue": {
+              "infantry": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "bronze_guard": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "infantry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "cavalry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              }
+            },
+            "workers": {
+              "wood": 3,
+              "stone": 3,
+              "food": 7,
+              "coal": 6,
+              "copper": 3,
+              "iron": 0,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "tech": 0,
+              "goldCoin": 0
+            }
+          },
+          "after": {
+            "tick": 24687,
+            "defeated": 60,
+            "sciences": 8,
+            "population": 22,
+            "capacity": 22,
+            "army": 66,
+            "deployed": 66,
+            "food": 3000,
+            "wood": 4800,
+            "stone": 3200,
+            "copper": 703,
+            "coal": 594,
+            "merit": 1101,
+            "caps": {
+              "wood": 4800,
+              "stone": 3200,
+              "food": 3000
+            },
+            "owned": {
+              "bronze_guard": 12,
+              "cavalry_t1": 13,
+              "infantry_t1": 15,
+              "archer_t1": 26
+            },
+            "queue": {
+              "infantry": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "bronze_guard": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "infantry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "cavalry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              }
+            },
+            "workers": {
+              "wood": 3,
+              "stone": 3,
+              "food": 7,
+              "coal": 6,
+              "copper": 3,
+              "iron": 0,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "tech": 0,
+              "goldCoin": 0
+            }
+          },
+          "loss": 7
+        }
+      },
+      {
+        "stage": 61,
+        "replenishment": {
+          "ok": true,
+          "seconds": 2,
+          "minFood": 1704.6688127853884,
+          "queued": {
+            "bronze_guard": 3,
+            "cavalry_t1": 2,
+            "archer_t1": 2
+          }
+        },
+        "battle": {
+          "stage": 61,
+          "seed": 574871,
+          "won": true,
+          "round": 1,
+          "callbacks": 5,
+          "before": {
+            "tick": 24689,
+            "defeated": 60,
+            "sciences": 8,
+            "population": 22,
+            "capacity": 22,
+            "army": 73,
+            "deployed": 73,
+            "food": 1704.6688127853884,
+            "wood": 4338,
+            "stone": 2960,
+            "copper": 409,
+            "coal": 594,
+            "merit": 1101,
+            "caps": {
+              "wood": 4800,
+              "stone": 3200,
+              "food": 3000
+            },
+            "owned": {
+              "bronze_guard": 15,
+              "cavalry_t1": 15,
+              "infantry_t1": 15,
+              "archer_t1": 28
+            },
+            "queue": {
+              "infantry": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "bronze_guard": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "infantry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "cavalry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              }
+            },
+            "workers": {
+              "wood": 3,
+              "stone": 3,
+              "food": 7,
+              "coal": 6,
+              "copper": 3,
+              "iron": 0,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "tech": 0,
+              "goldCoin": 0
+            }
+          },
+          "after": {
+            "tick": 24689,
+            "defeated": 61,
+            "sciences": 8,
+            "population": 22,
+            "capacity": 22,
+            "army": 72,
+            "deployed": 72,
+            "food": 3000,
+            "wood": 4800,
+            "stone": 3200,
+            "copper": 409,
+            "coal": 594,
+            "merit": 1133,
+            "caps": {
+              "wood": 4800,
+              "stone": 3200,
+              "food": 3000
+            },
+            "owned": {
+              "bronze_guard": 15,
+              "cavalry_t1": 15,
+              "infantry_t1": 14,
+              "archer_t1": 28
+            },
+            "queue": {
+              "infantry": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "bronze_guard": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "infantry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "cavalry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              }
+            },
+            "workers": {
+              "wood": 3,
+              "stone": 3,
+              "food": 7,
+              "coal": 6,
+              "copper": 3,
+              "iron": 0,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "tech": 0,
+              "goldCoin": 0
+            }
+          },
+          "loss": 1
+        }
+      },
+      {
+        "stage": 62,
+        "replenishment": {
+          "ok": true,
+          "seconds": 1,
+          "minFood": 2942.2104794520546,
+          "queued": {
+            "infantry_t1": 1
+          }
+        },
+        "battle": {
+          "stage": 62,
+          "seed": 584047,
+          "won": true,
+          "round": 1,
+          "callbacks": 3,
+          "before": {
+            "tick": 24690,
+            "defeated": 61,
+            "sciences": 8,
+            "population": 22,
+            "capacity": 22,
+            "army": 73,
+            "deployed": 73,
+            "food": 2942.2104794520546,
+            "wood": 4729,
+            "stone": 3160,
+            "copper": 412,
+            "coal": 594,
+            "merit": 1133,
+            "caps": {
+              "wood": 4800,
+              "stone": 3200,
+              "food": 3000
+            },
+            "owned": {
+              "bronze_guard": 15,
+              "cavalry_t1": 15,
+              "infantry_t1": 15,
+              "archer_t1": 28
+            },
+            "queue": {
+              "infantry": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "bronze_guard": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "infantry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "cavalry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              }
+            },
+            "workers": {
+              "wood": 3,
+              "stone": 3,
+              "food": 7,
+              "coal": 6,
+              "copper": 3,
+              "iron": 0,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "tech": 0,
+              "goldCoin": 0
+            }
+          },
+          "after": {
+            "tick": 24690,
+            "defeated": 62,
+            "sciences": 8,
+            "population": 22,
+            "capacity": 22,
+            "army": 73,
+            "deployed": 73,
+            "food": 3000,
+            "wood": 4800,
+            "stone": 3200,
+            "copper": 412,
+            "coal": 594,
+            "merit": 1165,
+            "caps": {
+              "wood": 4800,
+              "stone": 3200,
+              "food": 3000
+            },
+            "owned": {
+              "bronze_guard": 15,
+              "cavalry_t1": 15,
+              "infantry_t1": 15,
+              "archer_t1": 28
+            },
+            "queue": {
+              "infantry": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "bronze_guard": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "infantry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "cavalry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              }
+            },
+            "workers": {
+              "wood": 3,
+              "stone": 3,
+              "food": 7,
+              "coal": 6,
+              "copper": 3,
+              "iron": 0,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "tech": 0,
+              "goldCoin": 0
+            }
+          },
+          "loss": 0
+        }
+      },
+      {
+        "stage": 63,
+        "replenishment": {
+          "ok": true,
+          "seconds": 0,
+          "minFood": 3000,
+          "queued": {}
+        },
+        "battle": {
+          "stage": 63,
+          "seed": 593223,
+          "won": true,
+          "round": 1,
+          "callbacks": 3,
+          "before": {
+            "tick": 24690,
+            "defeated": 62,
+            "sciences": 8,
+            "population": 22,
+            "capacity": 22,
+            "army": 73,
+            "deployed": 73,
+            "food": 3000,
+            "wood": 4800,
+            "stone": 3200,
+            "copper": 412,
+            "coal": 594,
+            "merit": 1165,
+            "caps": {
+              "wood": 4800,
+              "stone": 3200,
+              "food": 3000
+            },
+            "owned": {
+              "bronze_guard": 15,
+              "cavalry_t1": 15,
+              "infantry_t1": 15,
+              "archer_t1": 28
+            },
+            "queue": {
+              "infantry": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "bronze_guard": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "infantry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "cavalry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              }
+            },
+            "workers": {
+              "wood": 3,
+              "stone": 3,
+              "food": 7,
+              "coal": 6,
+              "copper": 3,
+              "iron": 0,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "tech": 0,
+              "goldCoin": 0
+            }
+          },
+          "after": {
+            "tick": 24690,
+            "defeated": 63,
+            "sciences": 8,
+            "population": 22,
+            "capacity": 22,
+            "army": 73,
+            "deployed": 73,
+            "food": 3000,
+            "wood": 4800,
+            "stone": 3200,
+            "copper": 412,
+            "coal": 594,
+            "merit": 1198,
+            "caps": {
+              "wood": 4800,
+              "stone": 3200,
+              "food": 3000
+            },
+            "owned": {
+              "bronze_guard": 15,
+              "cavalry_t1": 15,
+              "infantry_t1": 15,
+              "archer_t1": 28
+            },
+            "queue": {
+              "infantry": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "bronze_guard": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "infantry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "cavalry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              }
+            },
+            "workers": {
+              "wood": 3,
+              "stone": 3,
+              "food": 7,
+              "coal": 6,
+              "copper": 3,
+              "iron": 0,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "tech": 0,
+              "goldCoin": 0
+            }
+          },
+          "loss": 0
+        }
+      },
+      {
+        "stage": 64,
+        "replenishment": {
+          "ok": true,
+          "seconds": 0,
+          "minFood": 3000,
+          "queued": {}
+        },
+        "battle": {
+          "stage": 64,
+          "seed": 602399,
+          "won": true,
+          "round": 2,
+          "callbacks": 18,
+          "before": {
+            "tick": 24690,
+            "defeated": 63,
+            "sciences": 8,
+            "population": 22,
+            "capacity": 22,
+            "army": 73,
+            "deployed": 73,
+            "food": 3000,
+            "wood": 4800,
+            "stone": 3200,
+            "copper": 412,
+            "coal": 594,
+            "merit": 1198,
+            "caps": {
+              "wood": 4800,
+              "stone": 3200,
+              "food": 3000
+            },
+            "owned": {
+              "bronze_guard": 15,
+              "cavalry_t1": 15,
+              "infantry_t1": 15,
+              "archer_t1": 28
+            },
+            "queue": {
+              "infantry": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "bronze_guard": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "infantry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "cavalry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              }
+            },
+            "workers": {
+              "wood": 3,
+              "stone": 3,
+              "food": 7,
+              "coal": 6,
+              "copper": 3,
+              "iron": 0,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "tech": 0,
+              "goldCoin": 0
+            }
+          },
+          "after": {
+            "tick": 24690,
+            "defeated": 64,
+            "sciences": 8,
+            "population": 22,
+            "capacity": 22,
+            "army": 61,
+            "deployed": 61,
+            "food": 3000,
+            "wood": 4800,
+            "stone": 3200,
+            "copper": 412,
+            "coal": 594,
+            "merit": 1231,
+            "caps": {
+              "wood": 4800,
+              "stone": 3200,
+              "food": 3000
+            },
+            "owned": {
+              "bronze_guard": 12,
+              "cavalry_t1": 15,
+              "infantry_t1": 15,
+              "archer_t1": 19
+            },
+            "queue": {
+              "infantry": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "bronze_guard": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "infantry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "archer_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              },
+              "cavalry_t1": {
+                "count": 0,
+                "timer": 0,
+                "reason": ""
+              }
+            },
+            "workers": {
+              "wood": 3,
+              "stone": 3,
+              "food": 7,
+              "coal": 6,
+              "copper": 3,
+              "iron": 0,
+              "silver": 0,
+              "gold": 0,
+              "steel": 0,
+              "coin": 0,
+              "silverCoin": 0,
+              "tech": 0,
+              "goldCoin": 0
+            }
+          },
+          "loss": 12
+        }
+      }
+    ],
+    "final": {
+      "tick": 24690,
+      "defeated": 64,
+      "sciences": 8,
+      "population": 22,
+      "capacity": 22,
+      "army": 61,
+      "deployed": 61,
+      "food": 3000,
+      "wood": 4800,
+      "stone": 3200,
+      "copper": 412,
+      "coal": 594,
+      "merit": 1231,
+      "caps": {
+        "wood": 4800,
+        "stone": 3200,
+        "food": 3000
+      },
+      "owned": {
+        "bronze_guard": 12,
+        "cavalry_t1": 15,
+        "infantry_t1": 15,
+        "archer_t1": 19
+      },
+      "queue": {
+        "infantry": {
+          "count": 0,
+          "timer": 0,
+          "reason": ""
+        },
+        "archer": {
+          "count": 0,
+          "timer": 0,
+          "reason": ""
+        },
+        "bronze_guard": {
+          "count": 0,
+          "timer": 0,
+          "reason": ""
+        },
+        "infantry_t1": {
+          "count": 0,
+          "timer": 0,
+          "reason": ""
+        },
+        "archer_t1": {
+          "count": 0,
+          "timer": 0,
+          "reason": ""
+        },
+        "cavalry_t1": {
+          "count": 0,
+          "timer": 0,
+          "reason": ""
+        }
+      },
+      "workers": {
+        "wood": 3,
+        "stone": 3,
+        "food": 7,
+        "coal": 6,
+        "copper": 3,
+        "iron": 0,
+        "silver": 0,
+        "gold": 0,
+        "steel": 0,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      }
+    }
+  },
+  "gateComparison": {
+    "entryFile": "p375-stage65-lowtech-paid-entry.json",
+    "entrySha256": "3807ece70ee164b57448c31a01ccf06af666b08274b81209fcbb87e9195826b3",
+    "entryRecovery": {
+      "seconds": 5,
+      "queued": {
+        "bronze_guard": 3,
+        "archer_t1": 9
+      },
+      "minFood": 1665.6872137765542
+    },
+    "entry": {
+      "tick": 24695,
+      "defeated": 64,
+      "sciences": 8,
+      "population": 22,
+      "capacity": 22,
+      "army": 73,
+      "deployed": 73,
+      "food": 1665.6872137765542,
+      "wood": 3765,
+      "stone": 2840,
+      "copper": 127,
+      "coal": 594,
+      "merit": 1231,
+      "caps": {
+        "wood": 4800,
+        "stone": 3200,
+        "food": 3000
+      },
+      "owned": {
+        "bronze_guard": 15,
+        "cavalry_t1": 15,
+        "infantry_t1": 15,
+        "archer_t1": 28
+      },
+      "queue": {
+        "infantry": {
+          "count": 0,
+          "timer": 0,
+          "reason": ""
+        },
+        "archer": {
+          "count": 0,
+          "timer": 0,
+          "reason": ""
+        },
+        "bronze_guard": {
+          "count": 0,
+          "timer": 0,
+          "reason": ""
+        },
+        "infantry_t1": {
+          "count": 0,
+          "timer": 0,
+          "reason": ""
+        },
+        "archer_t1": {
+          "count": 0,
+          "timer": 0,
+          "reason": ""
+        },
+        "cavalry_t1": {
+          "count": 0,
+          "timer": 0,
+          "reason": ""
+        }
+      },
+      "workers": {
+        "wood": 3,
+        "stone": 3,
+        "food": 7,
+        "coal": 6,
+        "copper": 3,
+        "iron": 0,
+        "silver": 0,
+        "gold": 0,
+        "steel": 0,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      }
+    },
+    "campEntry": {
+      "camp": {
+        "lv": 1,
+        "state": "idle",
+        "timer": 0,
+        "timerEnd": 0,
+        "tier": 1
+      },
+      "reason": "",
+      "cost": {
+        "wood": 2000,
+        "stone": 1500,
+        "food": 1000,
+        "time": 45
+      }
+    },
+    "summary": {
+      "historical6": {
+        "wins": 32,
+        "of": 32,
+        "winningLosses": {
+          "min": 0,
+          "median": 3,
+          "max": 9
+        },
+        "recovery66": 32,
+        "stage66Wins": 32
+      },
+      "current48": {
+        "wins": 32,
+        "of": 32,
+        "winningLosses": {
+          "min": 1,
+          "median": 5,
+          "max": 16
+        },
+        "recovery66": 32,
+        "stage66Wins": 32
+      }
+    },
+    "checks": [
+      {
+        "variant": "historical6",
+        "seed": 1,
+        "first": {
+          "won": true,
+          "round": 1,
+          "loss": 3,
+          "remainingArmy": 70,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 70
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 2,
+          "queued": {
+            "infantry_t1": 3
+          },
+          "minFood": 2824.6154794520544,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 4
+        }
+      },
+      {
+        "variant": "historical6",
+        "seed": 2,
+        "first": {
+          "won": true,
+          "round": 1,
+          "loss": 1,
+          "remainingArmy": 72,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 72
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 1,
+          "queued": {
+            "bronze_guard": 1
+          },
+          "minFood": 2702.2104794520546,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 2
+        }
+      },
+      {
+        "variant": "historical6",
+        "seed": 3,
+        "first": {
+          "won": true,
+          "round": 2,
+          "loss": 9,
+          "remainingArmy": 64,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 64
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 3,
+          "queued": {
+            "cavalry_t1": 4,
+            "infantry_t1": 5
+          },
+          "minFood": 2108.0675382755835,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 16
+        }
+      },
+      {
+        "variant": "historical6",
+        "seed": 4,
+        "first": {
+          "won": true,
+          "round": 2,
+          "loss": 2,
+          "remainingArmy": 71,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 71
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 1,
+          "queued": {
+            "cavalry_t1": 2
+          },
+          "minFood": 2702.2104794520546,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 2
+        }
+      },
+      {
+        "variant": "historical6",
+        "seed": 5,
+        "first": {
+          "won": true,
+          "round": 1,
+          "loss": 4,
+          "remainingArmy": 69,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 69
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 2,
+          "queued": {
+            "bronze_guard": 1,
+            "cavalry_t1": 3
+          },
+          "minFood": 2254.7488127853876,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 5
+        }
+      },
+      {
+        "variant": "historical6",
+        "seed": 6,
+        "first": {
+          "won": true,
+          "round": 2,
+          "loss": 4,
+          "remainingArmy": 69,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 69
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 2,
+          "queued": {
+            "infantry_t1": 4
+          },
+          "minFood": 2764.810972409801,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 17
+        }
+      },
+      {
+        "variant": "historical6",
+        "seed": 7,
+        "first": {
+          "won": true,
+          "round": 1,
+          "loss": 1,
+          "remainingArmy": 72,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 72
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 1,
+          "queued": {
+            "cavalry_t1": 1
+          },
+          "minFood": 2852.2104794520546,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 1
+        }
+      },
+      {
+        "variant": "historical6",
+        "seed": 8,
+        "first": {
+          "won": true,
+          "round": 1,
+          "loss": 2,
+          "remainingArmy": 71,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 71
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 1,
+          "queued": {
+            "cavalry_t1": 1,
+            "archer_t1": 1
+          },
+          "minFood": 2802.2104794520546,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 2
+        }
+      },
+      {
+        "variant": "historical6",
+        "seed": 9,
+        "first": {
+          "won": true,
+          "round": 1,
+          "loss": 3,
+          "remainingArmy": 70,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 70
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 1,
+          "queued": {
+            "cavalry_t1": 2,
+            "archer_t1": 1
+          },
+          "minFood": 2652.2104794520546,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 5
+        }
+      },
+      {
+        "variant": "historical6",
+        "seed": 10,
+        "first": {
+          "won": true,
+          "round": 2,
+          "loss": 6,
+          "remainingArmy": 67,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 67
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 2,
+          "queued": {
+            "bronze_guard": 1,
+            "cavalry_t1": 2,
+            "archer_t1": 3
+          },
+          "minFood": 2254.6954794520543,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 11
+        }
+      },
+      {
+        "variant": "historical6",
+        "seed": 11,
+        "first": {
+          "won": true,
+          "round": 1,
+          "loss": 3,
+          "remainingArmy": 70,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 70
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 26,
+          "queued": {
+            "bronze_guard": 2,
+            "infantry_t1": 1
+          },
+          "minFood": 2403.6688127853804,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 6
+        }
+      },
+      {
+        "variant": "historical6",
+        "seed": 12,
+        "first": {
+          "won": true,
+          "round": 1,
+          "loss": 1,
+          "remainingArmy": 72,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 72
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 1,
+          "queued": {
+            "infantry_t1": 1
+          },
+          "minFood": 2942.2104794520546,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 1
+        }
+      },
+      {
+        "variant": "historical6",
+        "seed": 13,
+        "first": {
+          "won": true,
+          "round": 1,
+          "loss": 8,
+          "remainingArmy": 65,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 65
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 2,
+          "queued": {
+            "cavalry_t1": 4,
+            "archer_t1": 4
+          },
+          "minFood": 2205.6224359737935,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 10
+        }
+      },
+      {
+        "variant": "historical6",
+        "seed": 14,
+        "first": {
+          "won": true,
+          "round": 1,
+          "loss": 4,
+          "remainingArmy": 69,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 69
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 2,
+          "queued": {
+            "infantry_t1": 3,
+            "archer_t1": 1
+          },
+          "minFood": 2774.6154794520544,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 13
+        }
+      },
+      {
+        "variant": "historical6",
+        "seed": 15,
+        "first": {
+          "won": true,
+          "round": 2,
+          "loss": 4,
+          "remainingArmy": 69,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 69
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 2,
+          "queued": {
+            "cavalry_t1": 3,
+            "infantry_t1": 1
+          },
+          "minFood": 2494.7488127853876,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 6
+        }
+      },
+      {
+        "variant": "historical6",
+        "seed": 16,
+        "first": {
+          "won": true,
+          "round": 2,
+          "loss": 1,
+          "remainingArmy": 72,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 72
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 1,
+          "queued": {
+            "infantry_t1": 1
+          },
+          "minFood": 2942.2104794520546,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 4
+        }
+      },
+      {
+        "variant": "historical6",
+        "seed": 17,
+        "first": {
+          "won": true,
+          "round": 1,
+          "loss": 2,
+          "remainingArmy": 71,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 71
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 1,
+          "queued": {
+            "cavalry_t1": 2
+          },
+          "minFood": 2702.2104794520546,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 3
+        }
+      },
+      {
+        "variant": "historical6",
+        "seed": 18,
+        "first": {
+          "won": true,
+          "round": 1,
+          "loss": 5,
+          "remainingArmy": 68,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 68
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 2,
+          "queued": {
+            "cavalry_t1": 1,
+            "infantry_t1": 4
+          },
+          "minFood": 2614.810972409801,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 8
+        }
+      },
+      {
+        "variant": "historical6",
+        "seed": 19,
+        "first": {
+          "won": true,
+          "round": 1,
+          "loss": 1,
+          "remainingArmy": 72,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 72
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 1,
+          "queued": {
+            "cavalry_t1": 1
+          },
+          "minFood": 2852.2104794520546,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 2
+        }
+      },
+      {
+        "variant": "historical6",
+        "seed": 20,
+        "first": {
+          "won": true,
+          "round": 1,
+          "loss": 0,
+          "remainingArmy": 73,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 73
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 0,
+          "queued": {},
+          "minFood": 3000,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 1
+        }
+      },
+      {
+        "variant": "historical6",
+        "seed": 21,
+        "first": {
+          "won": true,
+          "round": 1,
+          "loss": 2,
+          "remainingArmy": 71,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 71
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 1,
+          "queued": {
+            "infantry_t1": 2
+          },
+          "minFood": 2882.2104794520546,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 4
+        }
+      },
+      {
+        "variant": "historical6",
+        "seed": 22,
+        "first": {
+          "won": true,
+          "round": 2,
+          "loss": 1,
+          "remainingArmy": 72,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 72
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 1,
+          "queued": {
+            "cavalry_t1": 1
+          },
+          "minFood": 2852.2104794520546,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 14
+        }
+      },
+      {
+        "variant": "historical6",
+        "seed": 23,
+        "first": {
+          "won": true,
+          "round": 1,
+          "loss": 2,
+          "remainingArmy": 71,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 71
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 1,
+          "queued": {
+            "cavalry_t1": 2
+          },
+          "minFood": 2702.2104794520546,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 2
+        }
+      },
+      {
+        "variant": "historical6",
+        "seed": 24,
+        "first": {
+          "won": true,
+          "round": 1,
+          "loss": 5,
+          "remainingArmy": 68,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 68
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 3,
+          "queued": {
+            "infantry_t1": 5
+          },
+          "minFood": 2707.4124794520544,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 7
+        }
+      },
+      {
+        "variant": "historical6",
+        "seed": 25,
+        "first": {
+          "won": true,
+          "round": 1,
+          "loss": 6,
+          "remainingArmy": 67,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 67
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 3,
+          "queued": {
+            "cavalry_t1": 5,
+            "infantry_t1": 1
+          },
+          "minFood": 2197.9400984996732,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 8
+        }
+      },
+      {
+        "variant": "historical6",
+        "seed": 26,
+        "first": {
+          "won": true,
+          "round": 2,
+          "loss": 4,
+          "remainingArmy": 69,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 69
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 2,
+          "queued": {
+            "cavalry_t1": 3,
+            "archer_t1": 1
+          },
+          "minFood": 2504.7488127853876,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 5
+        }
+      },
+      {
+        "variant": "historical6",
+        "seed": 27,
+        "first": {
+          "won": true,
+          "round": 2,
+          "loss": 3,
+          "remainingArmy": 70,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 70
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 1,
+          "queued": {
+            "bronze_guard": 1,
+            "cavalry_t1": 2
+          },
+          "minFood": 2402.2104794520546,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 5
+        }
+      },
+      {
+        "variant": "historical6",
+        "seed": 28,
+        "first": {
+          "won": true,
+          "round": 2,
+          "loss": 4,
+          "remainingArmy": 69,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 69
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 26,
+          "queued": {
+            "bronze_guard": 2,
+            "cavalry_t1": 1,
+            "archer_t1": 1
+          },
+          "minFood": 2263.6688127853804,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 10
+        }
+      },
+      {
+        "variant": "historical6",
+        "seed": 29,
+        "first": {
+          "won": true,
+          "round": 1,
+          "loss": 3,
+          "remainingArmy": 70,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 70
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 2,
+          "queued": {
+            "archer_t1": 3
+          },
+          "minFood": 2854.6954794520543,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 7
+        }
+      },
+      {
+        "variant": "historical6",
+        "seed": 30,
+        "first": {
+          "won": true,
+          "round": 1,
+          "loss": 6,
+          "remainingArmy": 67,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 67
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 26,
+          "queued": {
+            "bronze_guard": 2,
+            "cavalry_t1": 4
+          },
+          "minFood": 1864.3229080234762,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 8
+        }
+      },
+      {
+        "variant": "historical6",
+        "seed": 31,
+        "first": {
+          "won": true,
+          "round": 1,
+          "loss": 2,
+          "remainingArmy": 71,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 71
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 1,
+          "queued": {
+            "bronze_guard": 1,
+            "archer_t1": 1
+          },
+          "minFood": 2652.2104794520546,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 5
+        }
+      },
+      {
+        "variant": "historical6",
+        "seed": 32,
+        "first": {
+          "won": true,
+          "round": 1,
+          "loss": 3,
+          "remainingArmy": 70,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 70
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 2,
+          "queued": {
+            "cavalry_t1": 3
+          },
+          "minFood": 2554.7488127853876,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 4
+        }
+      },
+      {
+        "variant": "current48",
+        "seed": 1,
+        "first": {
+          "won": true,
+          "round": 2,
+          "loss": 4,
+          "remainingArmy": 69,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 69
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 2,
+          "queued": {
+            "infantry_t1": 4
+          },
+          "minFood": 2764.810972409801,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 4
+        }
+      },
+      {
+        "variant": "current48",
+        "seed": 2,
+        "first": {
+          "won": true,
+          "round": 1,
+          "loss": 1,
+          "remainingArmy": 72,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 72
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 1,
+          "queued": {
+            "bronze_guard": 1
+          },
+          "minFood": 2702.2104794520546,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 2
+        }
+      },
+      {
+        "variant": "current48",
+        "seed": 3,
+        "first": {
+          "won": true,
+          "round": 2,
+          "loss": 16,
+          "remainingArmy": 57,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 57
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 4,
+          "queued": {
+            "cavalry_t1": 8,
+            "infantry_t1": 8
+          },
+          "minFood": 1335.1142093166304,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 16
+        }
+      },
+      {
+        "variant": "current48",
+        "seed": 4,
+        "first": {
+          "won": true,
+          "round": 2,
+          "loss": 2,
+          "remainingArmy": 71,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 71
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 1,
+          "queued": {
+            "cavalry_t1": 2
+          },
+          "minFood": 2702.2104794520546,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 2
+        }
+      },
+      {
+        "variant": "current48",
+        "seed": 5,
+        "first": {
+          "won": true,
+          "round": 1,
+          "loss": 5,
+          "remainingArmy": 68,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 68
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 2,
+          "queued": {
+            "bronze_guard": 1,
+            "cavalry_t1": 4
+          },
+          "minFood": 2105.0757611421955,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 5
+        }
+      },
+      {
+        "variant": "current48",
+        "seed": 6,
+        "first": {
+          "won": true,
+          "round": 2,
+          "loss": 16,
+          "remainingArmy": 57,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 57
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 5,
+          "queued": {
+            "infantry_t1": 10,
+            "archer_t1": 6
+          },
+          "minFood": 2116.6638806284527,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 17
+        }
+      },
+      {
+        "variant": "current48",
+        "seed": 7,
+        "first": {
+          "won": true,
+          "round": 1,
+          "loss": 1,
+          "remainingArmy": 72,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 72
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 1,
+          "queued": {
+            "cavalry_t1": 1
+          },
+          "minFood": 2852.2104794520546,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 1
+        }
+      },
+      {
+        "variant": "current48",
+        "seed": 8,
+        "first": {
+          "won": true,
+          "round": 1,
+          "loss": 2,
+          "remainingArmy": 71,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 71
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 1,
+          "queued": {
+            "cavalry_t1": 1,
+            "archer_t1": 1
+          },
+          "minFood": 2802.2104794520546,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 2
+        }
+      },
+      {
+        "variant": "current48",
+        "seed": 9,
+        "first": {
+          "won": true,
+          "round": 1,
+          "loss": 5,
+          "remainingArmy": 68,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 68
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 2,
+          "queued": {
+            "cavalry_t1": 3,
+            "archer_t1": 2
+          },
+          "minFood": 2454.7488127853876,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 5
+        }
+      },
+      {
+        "variant": "current48",
+        "seed": 10,
+        "first": {
+          "won": true,
+          "round": 2,
+          "loss": 10,
+          "remainingArmy": 63,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 63
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 4,
+          "queued": {
+            "bronze_guard": 1,
+            "cavalry_t1": 2,
+            "archer_t1": 7
+          },
+          "minFood": 2061.3105214688608,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 11
+        }
+      },
+      {
+        "variant": "current48",
+        "seed": 11,
+        "first": {
+          "won": true,
+          "round": 2,
+          "loss": 6,
+          "remainingArmy": 67,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 67
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 59,
+          "queued": {
+            "bronze_guard": 3,
+            "infantry_t1": 3
+          },
+          "minFood": 2071.1914251260882,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 6
+        }
+      },
+      {
+        "variant": "current48",
+        "seed": 12,
+        "first": {
+          "won": true,
+          "round": 1,
+          "loss": 1,
+          "remainingArmy": 72,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 72
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 1,
+          "queued": {
+            "infantry_t1": 1
+          },
+          "minFood": 2942.2104794520546,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 1
+        }
+      },
+      {
+        "variant": "current48",
+        "seed": 13,
+        "first": {
+          "won": true,
+          "round": 1,
+          "loss": 9,
+          "remainingArmy": 64,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 64
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 3,
+          "queued": {
+            "cavalry_t1": 5,
+            "archer_t1": 4
+          },
+          "minFood": 2058.48557749127,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 10
+        }
+      },
+      {
+        "variant": "current48",
+        "seed": 14,
+        "first": {
+          "won": true,
+          "round": 2,
+          "loss": 13,
+          "remainingArmy": 60,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 60
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 5,
+          "queued": {
+            "infantry_t1": 10,
+            "archer_t1": 3
+          },
+          "minFood": 2265.273597328684,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 13
+        }
+      },
+      {
+        "variant": "current48",
+        "seed": 15,
+        "first": {
+          "won": true,
+          "round": 2,
+          "loss": 5,
+          "remainingArmy": 68,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 68
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 2,
+          "queued": {
+            "cavalry_t1": 3,
+            "infantry_t1": 1,
+            "archer_t1": 1
+          },
+          "minFood": 2444.7488127853876,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 6
+        }
+      },
+      {
+        "variant": "current48",
+        "seed": 16,
+        "first": {
+          "won": true,
+          "round": 2,
+          "loss": 3,
+          "remainingArmy": 70,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 70
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 1,
+          "queued": {
+            "bronze_guard": 1,
+            "infantry_t1": 2
+          },
+          "minFood": 2582.2104794520546,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 4
+        }
+      },
+      {
+        "variant": "current48",
+        "seed": 17,
+        "first": {
+          "won": true,
+          "round": 2,
+          "loss": 3,
+          "remainingArmy": 70,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 70
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 1,
+          "queued": {
+            "bronze_guard": 1,
+            "cavalry_t1": 2
+          },
+          "minFood": 2402.2104794520546,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 3
+        }
+      },
+      {
+        "variant": "current48",
+        "seed": 18,
+        "first": {
+          "won": true,
+          "round": 2,
+          "loss": 8,
+          "remainingArmy": 65,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 65
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 4,
+          "queued": {
+            "cavalry_t1": 1,
+            "infantry_t1": 7
+          },
+          "minFood": 2440.605714746172,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 8
+        }
+      },
+      {
+        "variant": "current48",
+        "seed": 19,
+        "first": {
+          "won": true,
+          "round": 2,
+          "loss": 1,
+          "remainingArmy": 72,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 72
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 1,
+          "queued": {
+            "cavalry_t1": 1
+          },
+          "minFood": 2852.2104794520546,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 2
+        }
+      },
+      {
+        "variant": "current48",
+        "seed": 20,
+        "first": {
+          "won": true,
+          "round": 2,
+          "loss": 1,
+          "remainingArmy": 72,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 72
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 1,
+          "queued": {
+            "bronze_guard": 1
+          },
+          "minFood": 2702.2104794520546,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 1
+        }
+      },
+      {
+        "variant": "current48",
+        "seed": 21,
+        "first": {
+          "won": true,
+          "round": 2,
+          "loss": 4,
+          "remainingArmy": 69,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 69
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 2,
+          "queued": {
+            "infantry_t1": 4
+          },
+          "minFood": 2764.810972409801,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 4
+        }
+      },
+      {
+        "variant": "current48",
+        "seed": 22,
+        "first": {
+          "won": true,
+          "round": 2,
+          "loss": 13,
+          "remainingArmy": 60,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 60
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 4,
+          "queued": {
+            "cavalry_t1": 6,
+            "infantry_t1": 7
+          },
+          "minFood": 1692.567538275584,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 14
+        }
+      },
+      {
+        "variant": "current48",
+        "seed": 23,
+        "first": {
+          "won": true,
+          "round": 2,
+          "loss": 2,
+          "remainingArmy": 71,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 71
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 1,
+          "queued": {
+            "cavalry_t1": 2
+          },
+          "minFood": 2702.2104794520546,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 2
+        }
+      },
+      {
+        "variant": "current48",
+        "seed": 24,
+        "first": {
+          "won": true,
+          "round": 2,
+          "loss": 7,
+          "remainingArmy": 66,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 66
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 4,
+          "queued": {
+            "infantry_t1": 7
+          },
+          "minFood": 2590.605714746172,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 7
+        }
+      },
+      {
+        "variant": "current48",
+        "seed": 25,
+        "first": {
+          "won": true,
+          "round": 2,
+          "loss": 7,
+          "remainingArmy": 66,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 66
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 3,
+          "queued": {
+            "cavalry_t1": 6,
+            "infantry_t1": 1
+          },
+          "minFood": 2048.5920654900215,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 8
+        }
+      },
+      {
+        "variant": "current48",
+        "seed": 26,
+        "first": {
+          "won": true,
+          "round": 2,
+          "loss": 5,
+          "remainingArmy": 68,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 68
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 2,
+          "queued": {
+            "cavalry_t1": 4,
+            "archer_t1": 1
+          },
+          "minFood": 2355.0757611421955,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 5
+        }
+      },
+      {
+        "variant": "current48",
+        "seed": 27,
+        "first": {
+          "won": true,
+          "round": 2,
+          "loss": 4,
+          "remainingArmy": 69,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 69
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 26,
+          "queued": {
+            "bronze_guard": 2,
+            "cavalry_t1": 2
+          },
+          "minFood": 2163.6688127853804,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 5
+        }
+      },
+      {
+        "variant": "current48",
+        "seed": 28,
+        "first": {
+          "won": true,
+          "round": 2,
+          "loss": 4,
+          "remainingArmy": 69,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 69
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 26,
+          "queued": {
+            "bronze_guard": 2,
+            "cavalry_t1": 1,
+            "archer_t1": 1
+          },
+          "minFood": 2263.6688127853804,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 10
+        }
+      },
+      {
+        "variant": "current48",
+        "seed": 29,
+        "first": {
+          "won": true,
+          "round": 2,
+          "loss": 7,
+          "remainingArmy": 66,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 66
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 4,
+          "queued": {
+            "archer_t1": 7
+          },
+          "minFood": 2661.3105214688608,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 7
+        }
+      },
+      {
+        "variant": "current48",
+        "seed": 30,
+        "first": {
+          "won": true,
+          "round": 2,
+          "loss": 7,
+          "remainingArmy": 66,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 66
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 59,
+          "queued": {
+            "bronze_guard": 3,
+            "cavalry_t1": 4
+          },
+          "minFood": 1651.649064877656,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 8
+        }
+      },
+      {
+        "variant": "current48",
+        "seed": 31,
+        "first": {
+          "won": true,
+          "round": 2,
+          "loss": 5,
+          "remainingArmy": 68,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 68
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 26,
+          "queued": {
+            "bronze_guard": 2,
+            "archer_t1": 3
+          },
+          "minFood": 2313.943366775991,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 5
+        }
+      },
+      {
+        "variant": "current48",
+        "seed": 32,
+        "first": {
+          "won": true,
+          "round": 2,
+          "loss": 4,
+          "remainingArmy": 69,
+          "food": 3000
+        },
+        "reload": {
+          "won": true,
+          "army": 69
+        },
+        "campAfter": {
+          "camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 1
+          },
+          "reason": "",
+          "cost": {
+            "wood": 2000,
+            "stone": 1500,
+            "food": 1000,
+            "time": 45
+          }
+        },
+        "recovery66": {
+          "ok": true,
+          "seconds": 2,
+          "queued": {
+            "bronze_guard": 1,
+            "cavalry_t1": 3
+          },
+          "minFood": 2254.7488127853876,
+          "block": null
+        },
+        "second": {
+          "won": true,
+          "loss": 4
+        }
+      }
+    ],
+    "scope": "Same legally paid stage-65 entry; historical 6 changed only inside VM, current 48 comes from levels.js. 32 paired diagnostic RNG streams, not player win rates. Original P372 data remains frozen."
+  },
+  "final": {
+    "tick": 21082,
+    "defeated": 48,
+    "sciences": 8,
+    "population": 22,
+    "capacity": 22,
+    "army": 0,
+    "deployed": 0,
+    "food": 2.443969763306299,
+    "wood": 4800,
+    "stone": 3194,
+    "copper": 703,
+    "coal": 594,
+    "merit": 696,
+    "caps": {
+      "wood": 4800,
+      "stone": 3200,
+      "food": 3000
+    },
+    "owned": {
+      "bronze_guard": 0,
+      "cavalry_t1": 0,
+      "infantry_t1": 0,
+      "archer_t1": 0
+    },
+    "queue": {
+      "infantry": {
+        "count": 0,
+        "timer": 0,
+        "reason": ""
+      },
+      "archer": {
+        "count": 0,
+        "timer": 0,
+        "reason": ""
+      },
+      "bronze_guard": {
+        "count": 0,
+        "timer": 0,
+        "reason": ""
+      },
+      "infantry_t1": {
+        "count": 0,
+        "timer": 0,
+        "reason": ""
+      },
+      "archer_t1": {
+        "count": 0,
+        "timer": 0,
+        "reason": ""
+      },
+      "cavalry_t1": {
+        "count": 0,
+        "timer": 0,
+        "reason": ""
+      }
+    },
+    "workers": {
+      "wood": 3,
+      "stone": 3,
+      "food": 7,
+      "coal": 6,
+      "copper": 3,
+      "iron": 0,
+      "silver": 0,
+      "gold": 0,
+      "steel": 0,
+      "coin": 0,
+      "silverCoin": 0,
+      "tech": 0,
+      "goldCoin": 0
+    }
+  },
+  "scope": "Only real train/tick/formation/battle/save/reload from P206 paid L41 save; fixed independent battle stream per stage. No research, population, material, soldier, victory, or enemy adjustment. Natural garrison disabled by existing Node harness."
+}

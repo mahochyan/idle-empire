@@ -41,6 +41,12 @@ function check(name,value,expected){assert.deepEqual(value,expected,name);passed
   await send('Emulation.setDeviceMetricsOverride',{width:400,height:780,deviceScaleFactor:1,mobile:true});
   await evalJs("S.page='fight';S._fightTab='expedition';updateUI()");
   check('400px无横向溢出',await evalJs('document.documentElement.scrollWidth>innerWidth'),false);
+  check('真实页面离线结算刷新边贸货位并写档',await evalJs('(()=>{S.population.current=0;for(const key of Object.keys(S.popAlloc))S.popAlloc[key]=0;S.res.food=1000;S.beastExchange.level=30;S.beastExchange.heartOffers=2;S.beastExchange.refreshCharges=5;S.beastExchange.refreshClock=1;Math.random=()=>0;save();_loadedTs=Date.now()-121000;const result=settleOffline();updateUI();const saved=JSON.parse(localStorage.getItem("rts_save"));return {ok:result.ok,offers:S.beastExchange.heartOffers,savedOffers:saved.beastExchange.heartOffers,charges:S.beastExchange.refreshCharges,shown:document.body.textContent.includes("边贸行")}})()'),{ok:true,offers:11,savedOffers:11,charges:5,shown:true});
+  await send('Page.reload',{ignoreCache:true});
+  check('重载保留离线刷新的货位',await ready('typeof S!=="undefined"&&S.beastExchange?.heartOffers===11'),true);
+  check('真实页面显示离线边贸被动奖励并写档',await evalJs('(()=>{S.page="home";S.population.current=0;for(const key of Object.keys(S.popAlloc))S.popAlloc[key]=0;S.res.food=0;S.res.bone=0;S.res.medal=0;S.res.deed=0;S.beastExchange.level=31;save();_loadedTs=Date.now()-900000;const result=settleOffline();updateUI();const saved=JSON.parse(localStorage.getItem("rts_save"));return {duration:result.durationSec,bone:S.res.bone,medal:S.res.medal,deed:S.res.deed,savedBone:saved.res.bone,shown:document.body.textContent.includes("兽骨 +1800")}})()'),{duration:900,bone:1800,medal:450,deed:270,savedBone:1800,shown:true});
+  await send('Page.reload',{ignoreCache:true});
+  check('重载保留离线被动奖励',await ready('typeof S!=="undefined"&&S.res?.bone===1800&&S.res?.medal===450&&S.res?.deed===270'),true);
   check('页面无未捕获异常',exceptions,[]);
   console.log(`beast exchange hide browser: ${passed} passed`);
 })().catch(error=>{console.error('BROWSER_SMOKE_ERROR',error?.stack||error);process.exitCode=1}).finally(async()=>{

@@ -1,0 +1,996 @@
+{
+  "checks": [
+    {
+      "name": "HTTP 页面及原脚本链已加载",
+      "ok": true
+    },
+    {
+      "name": "游戏脚本依赖顺序保持原样",
+      "ok": true
+    },
+    {
+      "name": "五个底部入口顺序正确",
+      "ok": true
+    },
+    {
+      "name": "手机主体采用明亮日间配色",
+      "ok": true
+    },
+    {
+      "name": "木石粮常驻，其他资源可展开再收起",
+      "ok": true
+    },
+    {
+      "name": "日志与设置在更多菜单中",
+      "ok": true
+    },
+    {
+      "name": "更多菜单手动开启夜间界面且独立记忆，不改主存档",
+      "ok": true
+    },
+    {
+      "name": "320px home 夜间界面深色且无横向溢出",
+      "ok": true
+    },
+    {
+      "name": "320px build 夜间界面深色且无横向溢出",
+      "ok": true
+    },
+    {
+      "name": "320px tech 夜间界面深色且无横向溢出",
+      "ok": true
+    },
+    {
+      "name": "320px barracks 夜间界面深色且无横向溢出",
+      "ok": true
+    },
+    {
+      "name": "320px fight 夜间界面深色且无横向溢出",
+      "ok": true
+    },
+    {
+      "name": "360px home 夜间界面深色且无横向溢出",
+      "ok": true
+    },
+    {
+      "name": "360px build 夜间界面深色且无横向溢出",
+      "ok": true
+    },
+    {
+      "name": "360px tech 夜间界面深色且无横向溢出",
+      "ok": true
+    },
+    {
+      "name": "360px barracks 夜间界面深色且无横向溢出",
+      "ok": true
+    },
+    {
+      "name": "360px fight 夜间界面深色且无横向溢出",
+      "ok": true
+    },
+    {
+      "name": "390px home 夜间界面深色且无横向溢出",
+      "ok": true
+    },
+    {
+      "name": "390px build 夜间界面深色且无横向溢出",
+      "ok": true
+    },
+    {
+      "name": "390px tech 夜间界面深色且无横向溢出",
+      "ok": true
+    },
+    {
+      "name": "390px 夜间当前科研使用深色卡片且费用文字至少12px",
+      "ok": true
+    },
+    {
+      "name": "390px barracks 夜间界面深色且无横向溢出",
+      "ok": true
+    },
+    {
+      "name": "390px fight 夜间界面深色且无横向溢出",
+      "ok": true
+    },
+    {
+      "name": "430px home 夜间界面深色且无横向溢出",
+      "ok": true
+    },
+    {
+      "name": "430px build 夜间界面深色且无横向溢出",
+      "ok": true
+    },
+    {
+      "name": "430px tech 夜间界面深色且无横向溢出",
+      "ok": true
+    },
+    {
+      "name": "430px barracks 夜间界面深色且无横向溢出",
+      "ok": true
+    },
+    {
+      "name": "430px fight 夜间界面深色且无横向溢出",
+      "ok": true
+    },
+    {
+      "name": "刷新后仍为夜间界面",
+      "ok": true
+    },
+    {
+      "name": "设置中可手动恢复日间界面并记住选择",
+      "ok": true
+    },
+    {
+      "name": "存档导入导出文本框使用明亮可读样式",
+      "ok": true
+    },
+    {
+      "name": "320px home 导航和横向布局",
+      "ok": true
+    },
+    {
+      "name": "320px home 可见控件至少 48px",
+      "ok": true
+    },
+    {
+      "name": "320px build 导航和横向布局",
+      "ok": true
+    },
+    {
+      "name": "320px build 可见控件至少 48px",
+      "ok": true
+    },
+    {
+      "name": "320px tech 导航和横向布局",
+      "ok": true
+    },
+    {
+      "name": "320px tech 可见控件至少 48px",
+      "ok": true
+    },
+    {
+      "name": "320px barracks 导航和横向布局",
+      "ok": true
+    },
+    {
+      "name": "320px barracks 可见控件至少 48px",
+      "ok": true
+    },
+    {
+      "name": "320px fight 导航和横向布局",
+      "ok": true
+    },
+    {
+      "name": "320px fight 可见控件至少 48px",
+      "ok": true
+    },
+    {
+      "name": "360px home 导航和横向布局",
+      "ok": true
+    },
+    {
+      "name": "360px home 可见控件至少 48px",
+      "ok": true
+    },
+    {
+      "name": "360px build 导航和横向布局",
+      "ok": true
+    },
+    {
+      "name": "360px build 可见控件至少 48px",
+      "ok": true
+    },
+    {
+      "name": "360px tech 导航和横向布局",
+      "ok": true
+    },
+    {
+      "name": "360px tech 可见控件至少 48px",
+      "ok": true
+    },
+    {
+      "name": "360px barracks 导航和横向布局",
+      "ok": true
+    },
+    {
+      "name": "360px barracks 可见控件至少 48px",
+      "ok": true
+    },
+    {
+      "name": "360px fight 导航和横向布局",
+      "ok": true
+    },
+    {
+      "name": "360px fight 可见控件至少 48px",
+      "ok": true
+    },
+    {
+      "name": "390px home 导航和横向布局",
+      "ok": true
+    },
+    {
+      "name": "390px home 可见控件至少 48px",
+      "ok": true
+    },
+    {
+      "name": "390px build 导航和横向布局",
+      "ok": true
+    },
+    {
+      "name": "390px build 可见控件至少 48px",
+      "ok": true
+    },
+    {
+      "name": "390px tech 导航和横向布局",
+      "ok": true
+    },
+    {
+      "name": "390px tech 可见控件至少 48px",
+      "ok": true
+    },
+    {
+      "name": "390px barracks 导航和横向布局",
+      "ok": true
+    },
+    {
+      "name": "390px barracks 可见控件至少 48px",
+      "ok": true
+    },
+    {
+      "name": "390px fight 导航和横向布局",
+      "ok": true
+    },
+    {
+      "name": "390px fight 可见控件至少 48px",
+      "ok": true
+    },
+    {
+      "name": "430px home 导航和横向布局",
+      "ok": true
+    },
+    {
+      "name": "430px home 可见控件至少 48px",
+      "ok": true
+    },
+    {
+      "name": "430px build 导航和横向布局",
+      "ok": true
+    },
+    {
+      "name": "430px build 可见控件至少 48px",
+      "ok": true
+    },
+    {
+      "name": "430px tech 导航和横向布局",
+      "ok": true
+    },
+    {
+      "name": "430px tech 可见控件至少 48px",
+      "ok": true
+    },
+    {
+      "name": "430px barracks 导航和横向布局",
+      "ok": true
+    },
+    {
+      "name": "430px barracks 可见控件至少 48px",
+      "ok": true
+    },
+    {
+      "name": "430px fight 导航和横向布局",
+      "ok": true
+    },
+    {
+      "name": "430px fight 可见控件至少 48px",
+      "ok": true
+    },
+    {
+      "name": "八个时代兵种立绘可解码，未解锁时军队页隐藏分支",
+      "ok": true
+    },
+    {
+      "name": "军队编队标签采用浅色背景和兵种立绘",
+      "ok": true
+    },
+    {
+      "name": "建筑搜索缩小结果且清空后恢复",
+      "ok": true
+    },
+    {
+      "name": "建筑类别仅显示对应建筑",
+      "ok": true
+    },
+    {
+      "name": "320px 建筑详情可展开",
+      "ok": true
+    },
+    {
+      "name": "新档科技概览只显示科研和初始兵种分组",
+      "ok": true
+    },
+    {
+      "name": "新档兵谱只显示初始步弓节点且各自引用精确立绘",
+      "ok": true
+    },
+    {
+      "name": "科技树26张立绘在浏览器中均能解码",
+      "ok": true
+    },
+    {
+      "name": "320px 当前资源科技文字至少12px、研究按钮至少48px且无溢出",
+      "ok": true
+    },
+    {
+      "name": "新档未解锁军备、精通、仓储分类直接隐藏",
+      "ok": true
+    },
+    {
+      "name": "研究对应前置后军备、精通、仓储分类出现",
+      "ok": true
+    },
+    {
+      "name": "320px 军备分层信息、费用与操作可读可触达",
+      "ok": true
+    },
+    {
+      "name": "320px 精通分层信息、费用与操作可读可触达",
+      "ok": true
+    },
+    {
+      "name": "320px 仓储分层信息、费用与操作可读可触达",
+      "ok": true
+    },
+    {
+      "name": "320px 夜间军备禁用按钮仍可读",
+      "ok": true
+    },
+    {
+      "name": "320px 夜间精通禁用按钮仍可读",
+      "ok": true
+    },
+    {
+      "name": "320px 夜间仓储禁用按钮仍可读",
+      "ok": true
+    },
+    {
+      "name": "320px 完整兵种科技树无横向溢出且控件可触达",
+      "ok": true
+    },
+    {
+      "name": "主城地图尺寸、工人数标签、展开与文字入口",
+      "ok": true
+    },
+    {
+      "name": "主城 WebGL 或二维回退可用",
+      "ok": true
+    },
+    {
+      "name": "主城 base 科技状态选择对应美术",
+      "ok": true
+    },
+    {
+      "name": "主城 base 美术文件在浏览器中可解码",
+      "ok": true
+    },
+    {
+      "name": "主城 sci_bronze_age 科技状态选择对应美术",
+      "ok": true
+    },
+    {
+      "name": "主城 sci_bronze_age 美术文件在浏览器中可解码",
+      "ok": true
+    },
+    {
+      "name": "主城 sci_iron_age 科技状态选择对应美术",
+      "ok": true
+    },
+    {
+      "name": "主城 sci_iron_age 美术文件在浏览器中可解码",
+      "ok": true
+    },
+    {
+      "name": "主城 sci_silver_age 科技状态选择对应美术",
+      "ok": true
+    },
+    {
+      "name": "主城 sci_silver_age 美术文件在浏览器中可解码",
+      "ok": true
+    },
+    {
+      "name": "主城 sci_gold_age 科技状态选择对应美术",
+      "ok": true
+    },
+    {
+      "name": "主城 sci_gold_age 美术文件在浏览器中可解码",
+      "ok": true
+    },
+    {
+      "name": "主城 sci_alloy_age 科技状态选择对应美术",
+      "ok": true
+    },
+    {
+      "name": "主城 sci_alloy_age 美术文件在浏览器中可解码",
+      "ok": true
+    },
+    {
+      "name": "主城 sci_steam_age 科技状态选择对应美术",
+      "ok": true
+    },
+    {
+      "name": "主城 sci_steam_age 美术文件在浏览器中可解码",
+      "ok": true
+    },
+    {
+      "name": "主城 sci_electric_age 科技状态选择对应美术",
+      "ok": true
+    },
+    {
+      "name": "主城 sci_electric_age 美术文件在浏览器中可解码",
+      "ok": true
+    },
+    {
+      "name": "主城 sci_nuclear_age 科技状态选择对应美术",
+      "ok": true
+    },
+    {
+      "name": "主城 sci_nuclear_age 美术文件在浏览器中可解码",
+      "ok": true
+    },
+    {
+      "name": "WebGL 主城切换并展示 base 美术与六层浮雕",
+      "ok": true
+    },
+    {
+      "name": "WebGL 主城切换并展示 sci_bronze_age 美术与六层浮雕",
+      "ok": true
+    },
+    {
+      "name": "WebGL 主城切换并展示 sci_iron_age 美术与六层浮雕",
+      "ok": true
+    },
+    {
+      "name": "WebGL 主城切换并展示 sci_silver_age 美术与六层浮雕",
+      "ok": true
+    },
+    {
+      "name": "WebGL 主城切换并展示 sci_gold_age 美术与六层浮雕",
+      "ok": true
+    },
+    {
+      "name": "WebGL 主城切换并展示 sci_alloy_age 美术与六层浮雕",
+      "ok": true
+    },
+    {
+      "name": "WebGL 主城切换并展示 sci_steam_age 美术与六层浮雕",
+      "ok": true
+    },
+    {
+      "name": "WebGL 主城切换并展示 sci_electric_age 美术与六层浮雕",
+      "ok": true
+    },
+    {
+      "name": "WebGL 主城切换并展示 sci_nuclear_age 美术与六层浮雕",
+      "ok": true
+    },
+    {
+      "name": "主城浮雕状态样本能更新",
+      "ok": true
+    },
+    {
+      "name": "320px 九时代主城浮雕、工人、驻军及状态条同屏",
+      "ok": true
+    },
+    {
+      "name": "360px 九时代主城浮雕、工人、驻军及状态条同屏",
+      "ok": true
+    },
+    {
+      "name": "390px 九时代主城浮雕、工人、驻军及状态条同屏",
+      "ok": true
+    },
+    {
+      "name": "430px 九时代主城浮雕、工人、驻军及状态条同屏",
+      "ok": true
+    },
+    {
+      "name": "展开主城拖动后六个原画浮雕层产生受限视差",
+      "ok": true
+    },
+    {
+      "name": "收起主城后相机回正并清除视差",
+      "ok": true
+    },
+    {
+      "name": "WebGL 地标热区点击仍能打开科技页",
+      "ok": true
+    },
+    {
+      "name": "地图地标能导航到科技",
+      "ok": true
+    },
+    {
+      "name": "战斗视觉层启动且保留 DOM 信息卡",
+      "ok": true
+    },
+    {
+      "name": "稀疏 1v2 前后分层且全部角色入镜",
+      "ok": true
+    },
+    {
+      "name": "320px 战场敌左我右与 HUD 数据、触控尺寸一致",
+      "ok": true
+    },
+    {
+      "name": "320px 战斗 HUD 与二维回退均为细红血线",
+      "ok": true
+    },
+    {
+      "name": "320px 稀疏角色投影完整入镜",
+      "ok": true
+    },
+    {
+      "name": "360px 战场敌左我右与 HUD 数据、触控尺寸一致",
+      "ok": true
+    },
+    {
+      "name": "360px 战斗 HUD 与二维回退均为细红血线",
+      "ok": true
+    },
+    {
+      "name": "360px 稀疏角色投影完整入镜",
+      "ok": true
+    },
+    {
+      "name": "390px 战场敌左我右与 HUD 数据、触控尺寸一致",
+      "ok": true
+    },
+    {
+      "name": "390px 战斗 HUD 与二维回退均为细红血线",
+      "ok": true
+    },
+    {
+      "name": "390px 夜间战斗使用夜景，角色保持清晰且血线纤细",
+      "ok": true
+    },
+    {
+      "name": "390px 稀疏角色投影完整入镜",
+      "ok": true
+    },
+    {
+      "name": "430px 战场敌左我右与 HUD 数据、触控尺寸一致",
+      "ok": true
+    },
+    {
+      "name": "430px 战斗 HUD 与二维回退均为细红血线",
+      "ok": true
+    },
+    {
+      "name": "430px 稀疏角色投影完整入镜",
+      "ok": true
+    },
+    {
+      "name": "320×568 短屏战场与 HUD 均在视口内",
+      "ok": true
+    },
+    {
+      "name": "320×568 短屏角色投影完整入镜",
+      "ok": true
+    },
+    {
+      "name": "320×667 短屏战场与 HUD 均在视口内",
+      "ok": true
+    },
+    {
+      "name": "320×667 短屏角色投影完整入镜",
+      "ok": true
+    },
+    {
+      "name": "320px 六对六宽体混编立绘可见且血线贴近头顶",
+      "ok": true
+    },
+    {
+      "name": "360px 六对六宽体混编立绘可见且血线贴近头顶",
+      "ok": true
+    },
+    {
+      "name": "390px 六对六宽体混编立绘可见且血线贴近头顶",
+      "ok": true
+    },
+    {
+      "name": "430px 六对六宽体混编立绘可见且血线贴近头顶",
+      "ok": true
+    },
+    {
+      "name": "六对六减员后剩余十团保留原视觉槽位",
+      "ok": true
+    },
+    {
+      "name": "真实满编样本为双方各12团且场景可启动",
+      "ok": true
+    },
+    {
+      "name": "320×568 满编战场可见且不横向溢出",
+      "ok": true
+    },
+    {
+      "name": "320×568 满编高清动作使用 256px 单帧贴图",
+      "ok": true
+    },
+    {
+      "name": "320×568 双方24团各占独立槽位",
+      "ok": true
+    },
+    {
+      "name": "320×568 满编血线贴近立绘可见顶部",
+      "ok": true
+    },
+    {
+      "name": "320×568 人数徽标均在战场内且互不遮挡",
+      "ok": true
+    },
+    {
+      "name": "320px 满编夜战背景切换完成",
+      "ok": true
+    },
+    {
+      "name": "360×800 满编战场可见且不横向溢出",
+      "ok": true
+    },
+    {
+      "name": "360×800 满编高清动作使用 256px 单帧贴图",
+      "ok": true
+    },
+    {
+      "name": "360×800 双方24团各占独立槽位",
+      "ok": true
+    },
+    {
+      "name": "360×800 满编血线贴近立绘可见顶部",
+      "ok": true
+    },
+    {
+      "name": "360×800 人数徽标均在战场内且互不遮挡",
+      "ok": true
+    },
+    {
+      "name": "390×844 满编战场可见且不横向溢出",
+      "ok": true
+    },
+    {
+      "name": "390×844 满编高清动作使用 256px 单帧贴图",
+      "ok": true
+    },
+    {
+      "name": "390×844 双方24团各占独立槽位",
+      "ok": true
+    },
+    {
+      "name": "390×844 满编血线贴近立绘可见顶部",
+      "ok": true
+    },
+    {
+      "name": "390×844 人数徽标均在战场内且互不遮挡",
+      "ok": true
+    },
+    {
+      "name": "390px 满编夜战背景切换完成",
+      "ok": true
+    },
+    {
+      "name": "430×932 满编战场可见且不横向溢出",
+      "ok": true
+    },
+    {
+      "name": "430×932 满编高清动作使用 256px 单帧贴图",
+      "ok": true
+    },
+    {
+      "name": "430×932 双方24团各占独立槽位",
+      "ok": true
+    },
+    {
+      "name": "430×932 满编血线贴近立绘可见顶部",
+      "ok": true
+    },
+    {
+      "name": "430×932 人数徽标均在战场内且互不遮挡",
+      "ok": true
+    },
+    {
+      "name": "满编双方各减一团后其余22团保持原槽位与画面坐标",
+      "ok": true
+    },
+    {
+      "name": "宽体混编视觉样本的24个单位 ID 均在当前 CFG 中",
+      "ok": true
+    },
+    {
+      "name": "320×568 宽体混编24槽、徽标和角色投影均完整",
+      "ok": true
+    },
+    {
+      "name": "320×568 宽体混编同行 alpha 内容遮挡不超过30%",
+      "ok": true
+    },
+    {
+      "name": "390×844 宽体混编24槽、徽标和角色投影均完整",
+      "ok": true
+    },
+    {
+      "name": "390×844 宽体混编同行 alpha 内容遮挡不超过30%",
+      "ok": true
+    },
+    {
+      "name": "全部53个兵种含七字段专属攻击特效配置",
+      "ok": true
+    },
+    {
+      "name": "科技四条兵种线的攻击特效等级随升级递进",
+      "ok": true
+    },
+    {
+      "name": "青铜到星际兵种特效等级不倒退且首尾有升级",
+      "ok": true
+    },
+    {
+      "name": "六种野兽使用兽系攻击轮廓",
+      "ok": true
+    },
+    {
+      "name": "53张专属攻击PNG均能解码、非空且实际像素内容不重复",
+      "ok": true
+    },
+    {
+      "name": "全部敌方专属角色均使用独立高清立绘，三维与二维映射一致",
+      "ok": true
+    },
+    {
+      "name": "全部敌方专属角色攻击特效符合各自兵种轮廓",
+      "ok": true
+    },
+    {
+      "name": "全部敌方专属高清立绘在浏览器中解码",
+      "ok": true
+    },
+    {
+      "name": "390×844 野兽稀疏战斗保持角色入镜且野猪不挤压我方",
+      "ok": true
+    },
+    {
+      "name": "野兽攻击动作沿用稀疏场景尺寸，不瞬间放大",
+      "ok": true
+    },
+    {
+      "name": "390×844 敌方野兽与机兵混编满编战场无隐藏、越界或徽标重叠",
+      "ok": true
+    },
+    {
+      "name": "53个兵种在真实WebGL场景中都有可见、可解码的专属攻击贴图",
+      "ok": true
+    },
+    {
+      "name": "低级到高级攻击特效的真实装饰层数递增",
+      "ok": true
+    },
+    {
+      "name": "攻击与命中连续出现，命中沿用攻击者的专属视觉而非统一骑兵斩击",
+      "ok": true
+    },
+    {
+      "name": "旧 battleEpoch 的视觉事件被拒绝且不改变当前特效",
+      "ok": true
+    },
+    {
+      "name": "1倍、2倍、4倍速度下攻击贴图都曾真实可见",
+      "ok": true
+    },
+    {
+      "name": "高级兵种攻击中段有可见专属轨迹与多层拖尾",
+      "ok": true
+    },
+    {
+      "name": "高级兵种命中有独立可见光效",
+      "ok": true
+    },
+    {
+      "name": "360×800 稀疏高阶与野兽血条均在立绘上方且完整入镜",
+      "ok": true
+    },
+    {
+      "name": "320px 长枪兵血线贴头而不是枪尖",
+      "ok": true
+    },
+    {
+      "name": "390px 长枪兵血线贴头而不是枪尖",
+      "ok": true
+    },
+    {
+      "name": "初级兵种轨迹可见，面积与装饰层均少于高级兵种",
+      "ok": true
+    },
+    {
+      "name": "无WebGL的二维回退也播放兵种专属贴图并按等级控制尺寸",
+      "ok": true
+    },
+    {
+      "name": "战斗日志可展开收起且倍速入口生效",
+      "ok": true
+    },
+    {
+      "name": "WebGL 上下文丢失后仍在同一场战斗并显示可滚动的二维回退",
+      "ok": true
+    },
+    {
+      "name": "撤退后战斗渲染层释放",
+      "ok": true
+    },
+    {
+      "name": "固定种子战斗确实启用三维场景并完成结算",
+      "ok": true
+    },
+    {
+      "name": "固定种子真实战斗按攻击再命中顺序发出专属视觉事件",
+      "ok": true
+    },
+    {
+      "name": "同一固定种子战斗在强制二维回退下完成结算",
+      "ok": true
+    },
+    {
+      "name": "三维与二维战损、奖励和存档正文完全一致",
+      "ok": true
+    },
+    {
+      "name": "结算后重试创建新战斗且旧结算不复用",
+      "ok": true
+    },
+    {
+      "name": "file:// 页面可加载",
+      "ok": true
+    },
+    {
+      "name": "file:// 使用二维地图回退",
+      "ok": true
+    },
+    {
+      "name": "二维回退展开后完整城镇图和地标仍可见",
+      "ok": true
+    },
+    {
+      "name": "二维回退采用当前时代城镇图并保留七处 48px 地标入口",
+      "ok": true
+    },
+    {
+      "name": "HTTP 场景资产无 404",
+      "ok": true
+    },
+    {
+      "name": "浏览器没有未捕获异常",
+      "ok": true
+    }
+  ],
+  "passed": 217,
+  "failed": 0,
+  "battleGeometry": {
+    "screen": {
+      "top": 0,
+      "bottom": 800,
+      "width": 390,
+      "height": 800,
+      "cssHeight": "800px"
+    },
+    "top": {
+      "top": 0,
+      "bottom": 95,
+      "width": 390,
+      "height": 95,
+      "cssHeight": "95px"
+    },
+    "stage": {
+      "top": 95,
+      "bottom": 730,
+      "width": 390,
+      "height": 635,
+      "cssHeight": "635px"
+    },
+    "scene": {
+      "top": 95,
+      "bottom": 730,
+      "width": 390,
+      "height": 635,
+      "cssHeight": "635px"
+    },
+    "canvas": {
+      "top": 95,
+      "bottom": 730,
+      "width": 390,
+      "height": 635,
+      "drawingWidth": 390,
+      "drawingHeight": 635
+    }
+  },
+  "screenshots": [
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\390-dark-home.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\390-dark-build.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\390-dark-tech.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\390-dark-tech-tree-science.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\390-dark-fight.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\320-home.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\320-build.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\320-tech.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\320-barracks.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\320-fight.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\390-home.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\390-build.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\390-tech.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\390-barracks.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\390-fight.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\430-home.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\430-build.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\430-tech.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\430-barracks.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\430-fight.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\390-army-formation.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\320-build-detail.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\390-tech-tree-science.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\390-tech-tree-units.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\390-tech-tree-arms.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\390-tech-tree-mastery.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\390-tech-tree-storage.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\320-tech-tree-science.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\320-tech-tree-arms.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\320-tech-tree-mastery.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\320-tech-tree-storage.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\320-tech-tree-units.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\390-town-base.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\390-town-sci_bronze_age.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\390-town-sci_iron_age.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\390-town-sci_silver_age.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\390-town-sci_gold_age.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\390-town-sci_alloy_age.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\390-town-sci_steam_age.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\390-town-sci_electric_age.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\390-town-sci_nuclear_age.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\320-town-relief-workers-guard.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\360-town-relief-workers-guard.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\390-town-relief-workers-guard.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\430-town-relief-workers-guard.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\390-town-relief-expanded-before-pan.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\390-town-relief-expanded-after-pan.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\320-battle.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\360-battle.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\390-dark-battle.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\390-battle.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\430-battle.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\320x568-battle.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\320x667-battle.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\320-battle-medium-6v6.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\360-battle-medium-6v6.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\390-battle-medium-6v6.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\430-battle-medium-6v6.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\320x568-battle-full-12v12.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\320x568-dark-battle-full-12v12.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\360x800-battle-full-12v12.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\390x844-battle-full-12v12.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\390x844-dark-battle-full-12v12.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\430x932-battle-full-12v12.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\320x568-battle-full-after-loss.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\320x568-battle-wide-12v12.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\390x844-battle-wide-12v12.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\390x844-battle-enemy-beasts-sparse.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\390x844-battle-enemy-beasts-attack.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\390x844-battle-enemy-only-full-12v12.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\390-vfx-star-travel.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\390-vfx-star-impact.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\360x800-vfx-star-badges.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\320-spear-head-badge.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\390-spear-head-badge.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\390-vfx-infantry-travel.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\390-battle-fallback.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\390-battle-victory.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\file-town-base.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\file-town-base-320.png",
+    "C:\\Users\\lapyin\\AppData\\Local\\Temp\\visual-smoke-shots-AfNsaW\\file-town-expanded-320.png"
+  ],
+  "environment": "Node v24.19.0 + Edge headless CDP, emulated CSS viewports; not an Android device performance test"
+}

@@ -1,0 +1,664 @@
+{
+  "batch": "P343",
+  "kind": "same-stream offered market settlement after 30 paid wild attempts",
+  "sourceFile": "docs/codex/reports/data/p343-wild-paid-recovery-save.json",
+  "sourceSha256": "22428e5ead012ec16c45f82ce0885166b09054a90c5cc93e11a130a2f862fee7",
+  "rngStart": 1898179834,
+  "opening": {
+    "tick": 11387026,
+    "bone": 7756,
+    "hide": 955,
+    "medal": 944,
+    "scroll": 0,
+    "level": 31,
+    "progress": 1,
+    "need": 170,
+    "charges": 5,
+    "rng": 1898179834
+  },
+  "screens": [
+    {
+      "label": "existing",
+      "offers": {
+        "hide": [],
+        "wild": [
+          {
+            "key": "turtleShell",
+            "count": 1,
+            "cost": 160,
+            "stock": 1931
+          }
+        ],
+        "heart": 0,
+        "heartCost": 200,
+        "heartStock": 940,
+        "soul": [],
+        "medal": 0
+      }
+    },
+    {
+      "label": "manual-1",
+      "offers": {
+        "hide": [],
+        "wild": [],
+        "heart": 0,
+        "heartCost": 200,
+        "heartStock": 940,
+        "soul": [],
+        "medal": 0
+      }
+    },
+    {
+      "label": "manual-2",
+      "offers": {
+        "hide": [],
+        "wild": [
+          {
+            "key": "turtleShell",
+            "count": 1,
+            "cost": 160,
+            "stock": 1771
+          },
+          {
+            "key": "wyrmSinew",
+            "count": 1,
+            "cost": 160,
+            "stock": 827
+          }
+        ],
+        "heart": 1,
+        "heartCost": 160,
+        "heartStock": 940,
+        "soul": [],
+        "medal": 0
+      }
+    },
+    {
+      "label": "manual-3",
+      "offers": {
+        "hide": [],
+        "wild": [
+          {
+            "key": "bullHorn",
+            "count": 1,
+            "cost": 200,
+            "stock": 1546
+          },
+          {
+            "key": "snakeGall",
+            "count": 1,
+            "cost": 200,
+            "stock": 1829
+          }
+        ],
+        "heart": 1,
+        "heartCost": 160,
+        "heartStock": 780,
+        "soul": [],
+        "medal": 0
+      }
+    },
+    {
+      "label": "manual-4",
+      "offers": {
+        "hide": [
+          {
+            "id": 290013,
+            "count": 1,
+            "cost": 350,
+            "gain": 25200,
+            "get": "wood"
+          }
+        ],
+        "wild": [
+          {
+            "key": "snakeGall",
+            "count": 1,
+            "cost": 200,
+            "stock": 1629
+          },
+          {
+            "key": "tigerPelt",
+            "count": 3,
+            "cost": 200,
+            "stock": 758
+          }
+        ],
+        "heart": 0,
+        "heartCost": 200,
+        "heartStock": 620,
+        "soul": [],
+        "medal": 0
+      }
+    },
+    {
+      "label": "manual-5",
+      "offers": {
+        "hide": [],
+        "wild": [
+          {
+            "key": "snakeGall",
+            "count": 1,
+            "cost": 100,
+            "stock": 1429
+          },
+          {
+            "key": "wyrmSinew",
+            "count": 1,
+            "cost": 160,
+            "stock": 667
+          }
+        ],
+        "heart": 0,
+        "heartCost": 200,
+        "heartStock": 620,
+        "soul": [],
+        "medal": 0
+      }
+    }
+  ],
+  "purchases": [
+    {
+      "kind": "wild",
+      "key": "turtleShell",
+      "before": {
+        "tick": 11387026,
+        "bone": 7756,
+        "hide": 955,
+        "medal": 944,
+        "scroll": 0,
+        "level": 31,
+        "progress": 1,
+        "need": 170,
+        "charges": 5,
+        "rng": 1898179834
+      },
+      "action": {
+        "ok": true,
+        "cost": 160,
+        "scrollGain": 1,
+        "materialKey": "turtleShell"
+      },
+      "after": {
+        "tick": 11387026,
+        "bone": 7756,
+        "hide": 955,
+        "medal": 944,
+        "scroll": 1,
+        "level": 31,
+        "progress": 2,
+        "need": 170,
+        "charges": 5,
+        "rng": 1898179834
+      }
+    },
+    {
+      "kind": "wild",
+      "key": "turtleShell",
+      "before": {
+        "tick": 11387026,
+        "bone": 7756,
+        "hide": 955,
+        "medal": 944,
+        "scroll": 1,
+        "level": 31,
+        "progress": 2,
+        "need": 170,
+        "charges": 3,
+        "rng": 1971699843
+      },
+      "action": {
+        "ok": true,
+        "cost": 160,
+        "scrollGain": 1,
+        "materialKey": "turtleShell"
+      },
+      "after": {
+        "tick": 11387026,
+        "bone": 7756,
+        "hide": 955,
+        "medal": 944,
+        "scroll": 2,
+        "level": 31,
+        "progress": 3,
+        "need": 170,
+        "charges": 3,
+        "rng": 1971699843
+      }
+    },
+    {
+      "kind": "wild",
+      "key": "wyrmSinew",
+      "before": {
+        "tick": 11387026,
+        "bone": 7756,
+        "hide": 955,
+        "medal": 944,
+        "scroll": 2,
+        "level": 31,
+        "progress": 3,
+        "need": 170,
+        "charges": 3,
+        "rng": 1971699843
+      },
+      "action": {
+        "ok": true,
+        "cost": 160,
+        "scrollGain": 1,
+        "materialKey": "wyrmSinew"
+      },
+      "after": {
+        "tick": 11387026,
+        "bone": 7756,
+        "hide": 955,
+        "medal": 944,
+        "scroll": 3,
+        "level": 31,
+        "progress": 4,
+        "need": 170,
+        "charges": 3,
+        "rng": 1971699843
+      }
+    },
+    {
+      "kind": "heart",
+      "key": "boarHeart",
+      "before": {
+        "tick": 11387026,
+        "bone": 7756,
+        "hide": 955,
+        "medal": 944,
+        "scroll": 3,
+        "level": 31,
+        "progress": 4,
+        "need": 170,
+        "charges": 3,
+        "rng": 1971699843
+      },
+      "action": {
+        "ok": true,
+        "cost": 160,
+        "scrollGain": 1,
+        "materialKey": "boarHeart"
+      },
+      "after": {
+        "tick": 11387026,
+        "bone": 7756,
+        "hide": 955,
+        "medal": 944,
+        "scroll": 4,
+        "level": 31,
+        "progress": 5,
+        "need": 170,
+        "charges": 3,
+        "rng": 1971699843
+      }
+    },
+    {
+      "kind": "wild",
+      "key": "bullHorn",
+      "before": {
+        "tick": 11387026,
+        "bone": 7756,
+        "hide": 955,
+        "medal": 944,
+        "scroll": 4,
+        "level": 31,
+        "progress": 5,
+        "need": 170,
+        "charges": 2,
+        "rng": 3157150866
+      },
+      "action": {
+        "ok": true,
+        "cost": 200,
+        "scrollGain": 1,
+        "materialKey": "bullHorn"
+      },
+      "after": {
+        "tick": 11387026,
+        "bone": 7756,
+        "hide": 955,
+        "medal": 944,
+        "scroll": 5,
+        "level": 31,
+        "progress": 6,
+        "need": 170,
+        "charges": 2,
+        "rng": 3157150866
+      }
+    },
+    {
+      "kind": "wild",
+      "key": "snakeGall",
+      "before": {
+        "tick": 11387026,
+        "bone": 7756,
+        "hide": 955,
+        "medal": 944,
+        "scroll": 5,
+        "level": 31,
+        "progress": 6,
+        "need": 170,
+        "charges": 2,
+        "rng": 3157150866
+      },
+      "action": {
+        "ok": true,
+        "cost": 200,
+        "scrollGain": 1,
+        "materialKey": "snakeGall"
+      },
+      "after": {
+        "tick": 11387026,
+        "bone": 7756,
+        "hide": 955,
+        "medal": 944,
+        "scroll": 6,
+        "level": 31,
+        "progress": 7,
+        "need": 170,
+        "charges": 2,
+        "rng": 3157150866
+      }
+    },
+    {
+      "kind": "heart",
+      "key": "boarHeart",
+      "before": {
+        "tick": 11387026,
+        "bone": 7756,
+        "hide": 955,
+        "medal": 944,
+        "scroll": 6,
+        "level": 31,
+        "progress": 7,
+        "need": 170,
+        "charges": 2,
+        "rng": 3157150866
+      },
+      "action": {
+        "ok": true,
+        "cost": 160,
+        "scrollGain": 1,
+        "materialKey": "boarHeart"
+      },
+      "after": {
+        "tick": 11387026,
+        "bone": 7756,
+        "hide": 955,
+        "medal": 944,
+        "scroll": 7,
+        "level": 31,
+        "progress": 8,
+        "need": 170,
+        "charges": 2,
+        "rng": 3157150866
+      }
+    },
+    {
+      "kind": "hide",
+      "key": 290013,
+      "before": {
+        "tick": 11387026,
+        "bone": 7756,
+        "hide": 955,
+        "medal": 944,
+        "scroll": 7,
+        "level": 31,
+        "progress": 8,
+        "need": 170,
+        "charges": 1,
+        "rng": 2742184053
+      },
+      "action": {
+        "ok": true,
+        "id": 290013,
+        "hideCost": 350,
+        "get": "wood",
+        "gain": 25200
+      },
+      "after": {
+        "tick": 11387026,
+        "bone": 7756,
+        "hide": 605,
+        "medal": 944,
+        "scroll": 7,
+        "level": 31,
+        "progress": 9,
+        "need": 170,
+        "charges": 1,
+        "rng": 2742184053
+      }
+    },
+    {
+      "kind": "wild",
+      "key": "snakeGall",
+      "before": {
+        "tick": 11387026,
+        "bone": 7756,
+        "hide": 605,
+        "medal": 944,
+        "scroll": 7,
+        "level": 31,
+        "progress": 9,
+        "need": 170,
+        "charges": 1,
+        "rng": 2742184053
+      },
+      "action": {
+        "ok": true,
+        "cost": 200,
+        "scrollGain": 1,
+        "materialKey": "snakeGall"
+      },
+      "after": {
+        "tick": 11387026,
+        "bone": 7756,
+        "hide": 605,
+        "medal": 944,
+        "scroll": 8,
+        "level": 31,
+        "progress": 10,
+        "need": 170,
+        "charges": 1,
+        "rng": 2742184053
+      }
+    },
+    {
+      "kind": "wild",
+      "key": "tigerPelt",
+      "before": {
+        "tick": 11387026,
+        "bone": 7756,
+        "hide": 605,
+        "medal": 944,
+        "scroll": 8,
+        "level": 31,
+        "progress": 10,
+        "need": 170,
+        "charges": 1,
+        "rng": 2742184053
+      },
+      "action": {
+        "ok": true,
+        "cost": 200,
+        "scrollGain": 1,
+        "materialKey": "tigerPelt"
+      },
+      "after": {
+        "tick": 11387026,
+        "bone": 7756,
+        "hide": 605,
+        "medal": 944,
+        "scroll": 9,
+        "level": 31,
+        "progress": 11,
+        "need": 170,
+        "charges": 1,
+        "rng": 2742184053
+      }
+    },
+    {
+      "kind": "wild",
+      "key": "tigerPelt",
+      "before": {
+        "tick": 11387026,
+        "bone": 7756,
+        "hide": 605,
+        "medal": 944,
+        "scroll": 9,
+        "level": 31,
+        "progress": 11,
+        "need": 170,
+        "charges": 1,
+        "rng": 2742184053
+      },
+      "action": {
+        "ok": true,
+        "cost": 200,
+        "scrollGain": 1,
+        "materialKey": "tigerPelt"
+      },
+      "after": {
+        "tick": 11387026,
+        "bone": 7756,
+        "hide": 605,
+        "medal": 944,
+        "scroll": 10,
+        "level": 31,
+        "progress": 12,
+        "need": 170,
+        "charges": 1,
+        "rng": 2742184053
+      }
+    },
+    {
+      "kind": "wild",
+      "key": "tigerPelt",
+      "before": {
+        "tick": 11387026,
+        "bone": 7756,
+        "hide": 605,
+        "medal": 944,
+        "scroll": 10,
+        "level": 31,
+        "progress": 12,
+        "need": 170,
+        "charges": 1,
+        "rng": 2742184053
+      },
+      "action": {
+        "ok": true,
+        "cost": 200,
+        "scrollGain": 1,
+        "materialKey": "tigerPelt"
+      },
+      "after": {
+        "tick": 11387026,
+        "bone": 7756,
+        "hide": 605,
+        "medal": 944,
+        "scroll": 11,
+        "level": 31,
+        "progress": 13,
+        "need": 170,
+        "charges": 1,
+        "rng": 2742184053
+      }
+    },
+    {
+      "kind": "wild",
+      "key": "snakeGall",
+      "before": {
+        "tick": 11387026,
+        "bone": 7756,
+        "hide": 605,
+        "medal": 944,
+        "scroll": 11,
+        "level": 31,
+        "progress": 13,
+        "need": 170,
+        "charges": 0,
+        "rng": 2929873868
+      },
+      "action": {
+        "ok": true,
+        "cost": 100,
+        "scrollGain": 1,
+        "materialKey": "snakeGall"
+      },
+      "after": {
+        "tick": 11387026,
+        "bone": 7756,
+        "hide": 605,
+        "medal": 944,
+        "scroll": 12,
+        "level": 31,
+        "progress": 14,
+        "need": 170,
+        "charges": 0,
+        "rng": 2929873868
+      }
+    },
+    {
+      "kind": "wild",
+      "key": "wyrmSinew",
+      "before": {
+        "tick": 11387026,
+        "bone": 7756,
+        "hide": 605,
+        "medal": 944,
+        "scroll": 12,
+        "level": 31,
+        "progress": 14,
+        "need": 170,
+        "charges": 0,
+        "rng": 2929873868
+      },
+      "action": {
+        "ok": true,
+        "cost": 160,
+        "scrollGain": 1,
+        "materialKey": "wyrmSinew"
+      },
+      "after": {
+        "tick": 11387026,
+        "bone": 7756,
+        "hide": 605,
+        "medal": 944,
+        "scroll": 13,
+        "level": 31,
+        "progress": 15,
+        "need": 170,
+        "charges": 0,
+        "rng": 2929873868
+      }
+    }
+  ],
+  "boneTrades": 110,
+  "boneAction": {
+    "ok": true,
+    "boneCost": 7700,
+    "medalGain": 15400
+  },
+  "final": {
+    "tick": 11387026,
+    "bone": 56,
+    "hide": 605,
+    "medal": 16344,
+    "scroll": 13,
+    "level": 31,
+    "progress": 125,
+    "need": 170,
+    "charges": 0,
+    "rng": 2929873868
+  },
+  "saveFile": "docs/codex/reports/data/p343-wild-market-save.json",
+  "saveSha256": "dadf9e5621eb59f65be2572b1a5838adf08c8e0d3cef12a78ae2401fb58b8f6c",
+  "limits": [
+    "Only five stored manual refresh charges are spent; no new online time or extra battle is introduced.",
+    "Policy buys affordable offered goods first, then the always-available bone trade. Other player purchase policies may differ.",
+    "The input is one selected historical checkpoint, not a population or proof of level-60 reachability."
+  ]
+}

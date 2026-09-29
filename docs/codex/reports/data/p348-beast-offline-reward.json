@@ -1,0 +1,331 @@
+{
+  "batch": "P348",
+  "kind": "same paid Lv31 save, independent real offline settlement windows",
+  "unit": "seconds, milliseconds, resources",
+  "head": "f85e1c8624de8c9e17f7724373e65899d1085cdf",
+  "sourceFile": "docs/codex/reports/data/p342-hide-paid-seed1-save.json",
+  "sourceSha256": "ca734f8b6dfa88dc22a0ec7a7367800fb4422a27b55c594444e08b27fc6806e8",
+  "sourceReportFile": "docs/codex/reports/data/p342-hide-paid-seed1.json",
+  "rngStart": 1696915948,
+  "codeSha256": {
+    "config.js": "8e40ccc41ab96156db291ce74560981d875b304703fffb89c4139d5e23001675",
+    "math.js": "dc0bcdee534853368cb3c576e6020e1c85ab7be00052241136605897e91b0c95",
+    "tests/progression/harness.js": "4770d17fa72cc8c87f4c8ef79678f19d63a41da895b8dd58776e5a39ce2ede2b"
+  },
+  "motherSha256": {
+    "210(1)_unpacked/_analysis/deob_main.js": "b0bc24d680517c592e8bd123148814f4f9ee24c53ddb0db8165294e131b563c4",
+    "210(1)_unpacked/_analysis/entities_table.json": "f67b86147f0c2f1ebf09eddd49dad1e1806c0441c347c14647d8d0d8ef706c2e"
+  },
+  "motherRule": "getExchangeReward @1419143: >=900 seconds and tier=min(30,floor((level-15)/10))>0; floor(rate*seconds*tier*(1+0.05*floor(maxPopulation/1000))) for bone 2, medal 0.5, deed 0.3; each capped by storage.",
+  "localRule": "Current settlement awards for actual accepted offline seconds; no automatic trade or trade experience.",
+  "scenarios": [
+    {
+      "requestedSec": 899,
+      "actualSec": 899,
+      "sourceTsMs": 1793062642000,
+      "settledTsMs": 1793063541000,
+      "before": {
+        "tick": 11289454,
+        "level": 31,
+        "progress": 1,
+        "clock": 1113,
+        "charges": 0,
+        "population": 1002,
+        "populationCapacity": 1002,
+        "bone": 705,
+        "medal": 944,
+        "deed": 0,
+        "hide": 18,
+        "boneCap": 211200000000,
+        "medalCap": 100000000000,
+        "deedCap": 999999
+      },
+      "expectedGain": {
+        "bone": 0,
+        "medal": 0,
+        "deed": 0
+      },
+      "actualGain": {
+        "bone": 0,
+        "medal": 0,
+        "deed": 0
+      },
+      "returnedGains": {},
+      "pendingReportGains": {},
+      "after": {
+        "tick": 11290353,
+        "level": 31,
+        "progress": 1,
+        "clock": 214,
+        "charges": 0,
+        "bone": 705,
+        "medal": 944,
+        "deed": 0,
+        "hide": 18,
+        "boneCap": 211200000000,
+        "medalCap": 100000000000,
+        "deedCap": 999999,
+        "offerRolls": 0,
+        "rng": 1520215406
+      },
+      "saveSha256": "cde5a9e43033eace956afac47b616d246a5dc1240b56023499b4e6a52356eea3",
+      "reloadStatus": "ok",
+      "repeatSettlement": true,
+      "noAutoTrade": true
+    },
+    {
+      "requestedSec": 900,
+      "actualSec": 900,
+      "sourceTsMs": 1793062642000,
+      "settledTsMs": 1793063542000,
+      "before": {
+        "tick": 11289454,
+        "level": 31,
+        "progress": 1,
+        "clock": 1113,
+        "charges": 0,
+        "population": 1002,
+        "populationCapacity": 1002,
+        "bone": 705,
+        "medal": 944,
+        "deed": 0,
+        "hide": 18,
+        "boneCap": 211200000000,
+        "medalCap": 100000000000,
+        "deedCap": 999999
+      },
+      "expectedGain": {
+        "bone": 1890,
+        "medal": 472,
+        "deed": 283
+      },
+      "actualGain": {
+        "bone": 1890,
+        "medal": 472,
+        "deed": 283
+      },
+      "returnedGains": {
+        "deed": 283,
+        "medal": 472,
+        "bone": 1890
+      },
+      "pendingReportGains": {
+        "deed": 283,
+        "medal": 472,
+        "bone": 1890
+      },
+      "after": {
+        "tick": 11290354,
+        "level": 31,
+        "progress": 1,
+        "clock": 213,
+        "charges": 0,
+        "bone": 2595,
+        "medal": 1416,
+        "deed": 283,
+        "hide": 18,
+        "boneCap": 211200000000,
+        "medalCap": 100000000000,
+        "deedCap": 999999,
+        "offerRolls": 0,
+        "rng": 1520215406
+      },
+      "saveSha256": "2a0f6e5dc8c6a9ce5c2df8cfd709822aec31820610b754748f55f6e71d979c98",
+      "reloadStatus": "ok",
+      "repeatSettlement": true,
+      "noAutoTrade": true
+    },
+    {
+      "requestedSec": 3600,
+      "actualSec": 3600,
+      "sourceTsMs": 1793062642000,
+      "settledTsMs": 1793066242000,
+      "before": {
+        "tick": 11289454,
+        "level": 31,
+        "progress": 1,
+        "clock": 1113,
+        "charges": 0,
+        "population": 1002,
+        "populationCapacity": 1002,
+        "bone": 705,
+        "medal": 944,
+        "deed": 0,
+        "hide": 18,
+        "boneCap": 211200000000,
+        "medalCap": 100000000000,
+        "deedCap": 999999
+      },
+      "expectedGain": {
+        "bone": 7560,
+        "medal": 1890,
+        "deed": 1134
+      },
+      "actualGain": {
+        "bone": 7560,
+        "medal": 1890,
+        "deed": 1134
+      },
+      "returnedGains": {
+        "deed": 1134,
+        "medal": 1890,
+        "bone": 7560
+      },
+      "pendingReportGains": {
+        "deed": 1134,
+        "medal": 1890,
+        "bone": 7560
+      },
+      "after": {
+        "tick": 11293054,
+        "level": 31,
+        "progress": 1,
+        "clock": 1113,
+        "charges": 3,
+        "bone": 8265,
+        "medal": 2834,
+        "deed": 1134,
+        "hide": 18,
+        "boneCap": 211200000000,
+        "medalCap": 100000000000,
+        "deedCap": 999999,
+        "offerRolls": 0,
+        "rng": 2611425023
+      },
+      "saveSha256": "808dbdda66c9b35ae70db1a66d2c5b11bb1ef01014ee6d68647fbcac3a15cba4",
+      "reloadStatus": "ok",
+      "repeatSettlement": true,
+      "noAutoTrade": true
+    },
+    {
+      "requestedSec": 14400,
+      "actualSec": 14400,
+      "sourceTsMs": 1793062642000,
+      "settledTsMs": 1793077042000,
+      "before": {
+        "tick": 11289454,
+        "level": 31,
+        "progress": 1,
+        "clock": 1113,
+        "charges": 0,
+        "population": 1002,
+        "populationCapacity": 1002,
+        "bone": 705,
+        "medal": 944,
+        "deed": 0,
+        "hide": 18,
+        "boneCap": 211200000000,
+        "medalCap": 100000000000,
+        "deedCap": 999999
+      },
+      "expectedGain": {
+        "bone": 30240,
+        "medal": 7560,
+        "deed": 4536
+      },
+      "actualGain": {
+        "bone": 30240,
+        "medal": 7560,
+        "deed": 4536
+      },
+      "returnedGains": {
+        "deed": 4536,
+        "medal": 7560,
+        "bone": 30240
+      },
+      "pendingReportGains": {
+        "deed": 4536,
+        "medal": 7560,
+        "bone": 30240
+      },
+      "after": {
+        "tick": 11303854,
+        "level": 31,
+        "progress": 1,
+        "clock": 1113,
+        "charges": 5,
+        "bone": 30945,
+        "medal": 8504,
+        "deed": 4536,
+        "hide": 18,
+        "boneCap": 211200000000,
+        "medalCap": 100000000000,
+        "deedCap": 999999,
+        "offerRolls": 7,
+        "rng": 831291208
+      },
+      "saveSha256": "0d7c2a327b57365974ac5b73c932966748acb37c924a26f6dc0fd1b587486170",
+      "reloadStatus": "ok",
+      "repeatSettlement": true,
+      "noAutoTrade": true
+    },
+    {
+      "requestedSec": 28800,
+      "actualSec": 28800,
+      "sourceTsMs": 1793062642000,
+      "settledTsMs": 1793091442000,
+      "before": {
+        "tick": 11289454,
+        "level": 31,
+        "progress": 1,
+        "clock": 1113,
+        "charges": 0,
+        "population": 1002,
+        "populationCapacity": 1002,
+        "bone": 705,
+        "medal": 944,
+        "deed": 0,
+        "hide": 18,
+        "boneCap": 211200000000,
+        "medalCap": 100000000000,
+        "deedCap": 999999
+      },
+      "expectedGain": {
+        "bone": 60480,
+        "medal": 15120,
+        "deed": 9072
+      },
+      "actualGain": {
+        "bone": 60480,
+        "medal": 15120,
+        "deed": 9072
+      },
+      "returnedGains": {
+        "deed": 9072,
+        "medal": 15120,
+        "bone": 60480
+      },
+      "pendingReportGains": {
+        "deed": 9072,
+        "medal": 15120,
+        "bone": 60480
+      },
+      "after": {
+        "tick": 11318254,
+        "level": 31,
+        "progress": 1,
+        "clock": 1113,
+        "charges": 5,
+        "bone": 61185,
+        "medal": 16064,
+        "deed": 9072,
+        "hide": 18,
+        "boneCap": 211200000000,
+        "medalCap": 100000000000,
+        "deedCap": 999999,
+        "offerRolls": 19,
+        "rng": 3320277077
+      },
+      "saveSha256": "6021cbdf6e78f5667cf87e69cf95ce78e52b674910c233ee98c9e3e48b03b7de",
+      "reloadStatus": "ok",
+      "repeatSettlement": true,
+      "noAutoTrade": true
+    }
+  ],
+  "limits": [
+    "P342 is a selected, historically paid late-game save, not a fresh-player or representative population sample.",
+    "Each duration starts from a separate isolated reload of the same unchanged v32 source save.",
+    "The harness uses a VM with simulated localStorage and clock; it is not a real browser or Android timing test.",
+    "This probe checks the passive award itself, not the subsequent paid trades, troop recovery, level-60 reachability, or the 100-stage campaign."
+  ]
+}

@@ -928,42 +928,56 @@ function unitPortrait(key,size='card'){
   if(typeof artKey!=='string'||!/^[a-z0-9_]+$/.test(artKey))return '';
   return `<img class="unit-portrait unit-portrait-${size}" src="./assets/art/units/hires/${artKey}.png" alt="" loading="lazy" decoding="async">`;
 }
+function toggleBarracksBranch(key){
+  if(!S._barracksFold)S._barracksFold={};
+  S._barracksFold[key]=!S._barracksFold[key];
+  updateUI();
+}
 function rBarracks(){
   const tab=S._barracksTab||'train';
-  let h=`<div style="padding:4px 0"><div style="font-size:12px;color:#888;margin:4px 0">总兵力 ${totalSoldiers()} | 营帐上限 ${regMax()}人/团 <span style="margin-left:10px;color:#e06060">口粮消耗：-${totalUpkeep().toFixed(1)}/秒</span></div>`;
+  let h=`<div class="barracks-page"><div class="barracks-overview">
+    <div><span>总兵力</span><strong>${totalSoldiers()}</strong></div>
+    <div><span>营帐上限</span><strong>${regMax()}<small>人/团</small></strong></div>
+    <div><span>口粮消耗</span><strong>-${totalUpkeep().toFixed(1)}<small>/秒</small></strong></div>
+  </div>`;
   // 主标签
-  h+=`<div style="display:flex;gap:4px;margin-bottom:6px">`;
+  h+=`<div class="barracks-tabs">`;
   h+=`<button class="btn btn-sm ${tab==='train'?'btn-go':'btn-ghost'}" style="flex:1" onclick="setBarracksTab('train')">训练军队</button>`;
   h+=`<button class="btn btn-sm ${tab==='formation'?'btn-go':'btn-ghost'}" style="flex:1" onclick="setBarracksTab('formation')">阵容方案</button>`;
   h+=`</div>`;
 
   // 共用兵种卡片渲染
   function renderUnitCard(k,c){
-    const ow=(S.pool[k]||0)+expeditionCount(k)+garrisonCount(k),lock=trainLockReason(k);
-    const tm=maxTrainable(k),disabled=tm<=0?'disabled':'',muted=lock?'opacity:.55':'';
+    const poolCount=S.pool[k]||0,expCount=expeditionCount(k),garCount=garrisonCount(k);
+    const ow=poolCount+expCount+garCount,lock=trainLockReason(k),queue=queueTotal(k);
+    const tm=maxTrainable(k),disabled=tm<=0?'disabled':'';
     const isLockedUnit=c.locked && !(S.upgradedUnits||{})[k] && (baseUnitType(k)!==k||!!lock);
     const cap=unitCap(k);
-    const isVariantLocked=!(S.upgradedUnits||{})[k]&&c.locked;
-    let capInfo=isVariantLocked?'':`<span style="font-size:12px;margin-left:15px;color:#888">上限 ${cap} | 拥有 ${ow}</span>`;
-    let card=`<div class="card" style="${muted}">
-      <div style="display:flex;align-items:center;gap:8px">
-        <span>${unitPortrait(k,'card')}</span>
-        <div style="flex:1;min-width:0"><div style="display:flex;align-items:center;gap:6px"><strong style="cursor:pointer" onclick="openUnitDetail('${k}')">${c.name}</strong> <span style="font-size:10px;color:#aaa">${trainBuildingLabel(k)}</span> <span onclick="event.stopPropagation();openUnitDetail('${k}')" style="font-size:9px;padding:1px 5px;border:1px solid #3a4158;border-radius:0;color:#8890a6;cursor:pointer;display:inline-block">属性</span>${!isLockedUnit&&unitCapLeft(k)<=0?`<span class="limit-warn" style="margin-left:auto;font-size:9px">${pix('lock','mini')}已达上限</span>`:''}</div>
-          <div style="font-size:10px;color:#777">${c.passive.replace(/\n/g,' · ')} | ATK:${weaponAttack(k)} DEF:${weaponDefense(k)}</div>
-          <div style="font-size:12px;color:#666;line-height:14px;display:flex;justify-content:space-between;align-items:center">
-            <span>${costHtml(c.cost)}/人${(S.queue[k]||{}).reason?` <span class="limit-warn" style="margin-left:14px">${pix('lock','mini')}${S.queue[k].reason}</span>`:''}${!isLockedUnit&&lock?` <span class="limit-warn" style="margin-left:14px">${pix('lock','mini')}${lock}</span>`:''}</span>
-            ${queueTotal(k)>0?`<span style="display:inline-flex;align-items:center;gap:5px;margin-right:6px;flex-shrink:0"><span style="font-size:10px;color:#888">训练队列 ${queueTotal(k)}人</span><span onclick="event.stopPropagation();cancelQueue('${k}')" style="font-size:10px;line-height:12px;padding:0 4px;border:1px solid #3a4158;color:#8890a6;cursor:pointer">取消队列</span></span>`:''}
-          </div>
-          ${isLockedUnit?`<div style="font-size:10px;color:#e06060;margin:2px 0">${lock.replace(/ ?\(科技点[^)]*\)/,'')}</div>`:''}
-          ${isLockedUnit||lock?'':`<div class="train-custom">
-            <input id="train-barracks-${k}" type="text" inputmode="numeric" pattern="[0-9]*" value="${(S._trainQty||{})[k]||1}" oninput="(S._trainQty||{})['${k}']=parseInt(this.value)||1">
-            <button class="btn btn-go btn-xs" onclick="trainCustom('${k}','train-barracks-${k}')" ${disabled}>训练</button>
-            <button class="btn btn-ghost btn-xs" onclick="trainMax('${k}','train-barracks-${k}')" ${disabled}>MAX</button>
-            <button class="btn btn-danger btn-xs" onclick="dismissN('${k}',(S._trainQty||{})['${k}']||1)" style="background:#4a2830;border-color:#6a4050;color:#d09090">删除</button>
-            ${capInfo}
-          </div>`}
-        </div>
-      </div></div>`;
+    const isVariantLocked=!(S.upgradedUnits||{})[k]&&c.locked&&ow<=0&&queue<=0;
+    let card=`<div class="card barracks-unit-card${lock?' is-unavailable':''}" data-unit="${k}">
+      <div class="barracks-unit-head">
+        ${unitPortrait(k,'card')}
+        <div class="barracks-unit-name"><strong>${esc(c.name)}</strong><span>${esc(trainBuildingLabel(k))}</span></div>
+        <button type="button" class="btn btn-ghost btn-xs barracks-detail-btn" onclick="openUnitDetail('${k}')">属性</button>
+      </div>
+      <div class="barracks-unit-meta"><span>${esc(c.passive.replace(/\n/g,' · '))}</span><span>攻击 ${weaponAttack(k)} · 防御 ${weaponDefense(k)}</span></div>
+      <div class="barracks-unit-cost"><span>每人消耗</span><strong>${costHtml(c.cost)}</strong></div>
+      ${!isVariantLocked?`<div class="barracks-unit-stock"><span>拥有 <strong>${ow}</strong> / 上限 ${cap}</span>${unitCapLeft(k)<=0?`<span class="limit-warn">已达上限</span>`:''}</div>`:''}
+      ${queue?`<div class="barracks-unit-queue"><span>训练队列 ${queue} 人${(S.queue[k]||{}).reason?` · ${esc(S.queue[k].reason)}`:''}</span><button type="button" class="btn btn-ghost btn-xs" onclick="cancelQueue('${k}')">取消队列</button></div>`:''}
+      ${isLockedUnit||lock?`<div class="barracks-unit-lock">${esc((lock||'尚未解锁').replace(/ ?\(科技点[^)]*\)/,''))}${expCount+garCount>0?' · 已编队兵员需先撤下再遣散':''}</div>
+        ${ow>0||queue>0?`<div class="barracks-unit-actions">
+          <label for="train-barracks-${k}">遣散人数</label>
+          <input id="train-barracks-${k}" type="text" inputmode="numeric" pattern="[0-9]*" value="${(S._trainQty||{})[k]||1}" oninput="(S._trainQty||{})['${k}']=parseInt(this.value)||1">
+          <button class="btn btn-danger btn-xs" onclick="dismissN('${k}',(S._trainQty||{})['${k}']||1)">遣散</button>
+        </div>`:''}`:
+      `<div class="barracks-unit-actions">
+        <label for="train-barracks-${k}">训练人数</label>
+        <input id="train-barracks-${k}" type="text" inputmode="numeric" pattern="[0-9]*" value="${(S._trainQty||{})[k]||1}" oninput="(S._trainQty||{})['${k}']=parseInt(this.value)||1">
+        <button class="btn btn-go btn-xs" onclick="trainCustom('${k}','train-barracks-${k}')" ${disabled}>训练</button>
+        <button class="btn btn-ghost btn-xs" onclick="trainMax('${k}','train-barracks-${k}')" ${disabled}>MAX</button>
+        <button class="btn btn-danger btn-xs" onclick="dismissN('${k}',(S._trainQty||{})['${k}']||1)">遣散</button>
+      </div>`}
+    </div>`;
     return card;
   }
 
@@ -972,30 +986,34 @@ function rBarracks(){
     const branchOrder=['infantry','bronze_guard','iron_spearman','silver_heavy','gold_cavalry','alloy_special','armored_trooper','electro_trooper','star_trooper','quantum_trooper','archer','cavalry','mage','arcane_mage'];
     const branchNames={infantry:'步兵线',bronze_guard:'青铜刀盾兵',iron_spearman:'铁器长枪兵',silver_heavy:'白银重甲兵',gold_cavalry:'黄金重骑兵',alloy_special:'合金特种兵',armored_trooper:'蒸汽装甲兵',electro_trooper:'电磁兵',star_trooper:'星际先遣兵',quantum_trooper:'星界构装卫士',archer:'弓兵线',cavalry:'骑兵线',mage:'法师线',arcane_mage:'奥术师'};
     if(!S._barracksFold)S._barracksFold={};
-    let totalShown=0;
+    const readyBranches=[];
     for(const bu of branchOrder){
       const bKey=trainBuildingKey(bu);
       const cfg=bKey?CFG.buildings[bKey]:null;
       const st=bldSt(bKey);
-      // 找出该线最新已解锁的 tier
+      // 保留最新研究层、当前可训练层，以及旧档仍持有或排队的兵种。
       let latestTier=-1;
+      let trainableTier=-1;
       for(const[k,c] of Object.entries(CFG.units)){
         if(baseUnitType(k)!==bu)continue;
         const tier=c.tier??0;
-        // 根单位：trainLockReason 为空即已解锁
-        const ul=baseUnitType(k)===k?!trainLockReason(k):!!S.upgradedUnits[k];
+        const trainable=!trainLockReason(k);
+        const ul=baseUnitType(k)===k||!!S.upgradedUnits[k];
         if(ul&&tier>latestTier)latestTier=tier;
+        if(trainable&&tier>trainableTier)trainableTier=tier;
       }
-      const tierLabel=latestTier>=0?'T'+latestTier:'未解锁';
-      // 收集该线最新 tier 的兵种
       const lineUnits=[];
-      if(latestTier>=0){
-        for(const[k,c] of Object.entries(CFG.units)){
-          if(baseUnitType(k)!==bu)continue;
-          if((c.tier??0)!==latestTier)continue;
-          lineUnits.push([k,c]);
-        }
+      let hasHistoricalStock=false;
+      for(const[k,c] of Object.entries(CFG.units)){
+        if(baseUnitType(k)!==bu)continue;
+        const stock=(S.pool[k]||0)+expeditionCount(k)+garrisonCount(k)+queueTotal(k);
+        const trainable=!trainLockReason(k);
+        const researched=baseUnitType(k)===k||!!S.upgradedUnits[k];
+        if(stock>0)hasHistoricalStock=true;
+        if(stock>0||researched&&(c.tier??0)===latestTier||trainable&&(c.tier??0)===trainableTier)lineUnits.push([k,c]);
       }
+      const shownTier=lineUnits.reduce((n,[,c])=>Math.max(n,c.tier??0),-1);
+      const tierLabel=shownTier>=0?'T'+shownTier:'未解锁';
       const lineCap=unitCap(bu);
       const lineLeft=unitCapLeft(bu);
       // 解锁状态
@@ -1005,17 +1023,20 @@ function rBarracks(){
       const bossLock=cfg&&cfg.needBoss&&bossDefeatedCount()<cfg.needBoss;
       const notBuilt=!cfg||st.lv<=0;
       const isLocked=scienceLock||unitScienceLock||bossLock||notBuilt;
-      let lockReason='';
-      if(scienceLock)lockReason=`需先研究「${sciName(cfg.needScience)}」`;
-      else if(unitScienceLock)lockReason=`需先研究「${sciName(unitScience)}」`;
-      else if(bossLock)lockReason=`需击败${cfg.needBoss}个Boss`;
-      else if(notBuilt&&cfg)lockReason=`需先建造${cfg.name}`;
       const foldKey='line_'+bu;
+      if((isLocked&&!hasHistoricalStock)||!lineUnits.length){delete S._barracksFold[foldKey];continue;}
+      if(S._barracksFold[foldKey]===undefined)S._barracksFold[foldKey]=false;
       const folded=S._barracksFold[foldKey]===true;
       // 检查是否有满足条件的可研究升级
       let canResearch=false;
-      const checkAfford=(br)=> {
+      const checkAfford=(fromKey,node,br)=> {
         if(S.upgradedUnits[br.to])return false;
+        const target=CFG.units[br.to],targetTier=target?.tier??0;
+        const freeRoot=fromKey===baseUnitType(fromKey)&&node.tier===0&&!node.unlock;
+        if(!target||!freeRoot&&!S.upgradedUnits[fromKey])return false;
+        if(checkTierLevel(targetTier)||!cfg||st.lv<=0||(st.tier??0)<targetTier)return false;
+        if(cfg.needScience&&!scienceUnlocked(cfg.needScience)||target.needScience&&!scienceUnlocked(target.needScience))return false;
+        if(cfg.needBoss&&bossDefeatedCount()<cfg.needBoss)return false;
         return (S.res.tech||0)>=(br.needTech||0)
           && (S.merit||0)>=(br.needMerit||0)
           && S.res.wood>=(br.cost?.wood||0)
@@ -1023,59 +1044,34 @@ function rBarracks(){
           && S.res.food>=(br.cost?.food||0)
           && (!br.needEssence||(S.essence[br.needEssence.type]||0)>=br.needEssence.count);
       };
-      if(!isLocked){
-        const tree=CFG.unitUpgrades[bu]?.tree;
-        if(tree){
-          if(lineUnits.length>0){
-            // 已有解锁单位：检查分支升级
-            for(const[k] of lineUnits){
-              const node=tree[k];
-              if(!node||!node.branches)continue;
-              for(const br of node.branches){if(checkAfford(br)){canResearch=true;break;}}
-              if(canResearch)break;
-            }
-          }else{
-            // 无解锁单位：检查是否有可解锁的根（如骑兵线入口）
-            const rootKey=Object.keys(tree).find(rk=>tree[rk].tier===0)||Object.keys(tree)[0];
-            const rootNode=tree[rootKey];
-            if(rootNode&&rootNode.unlock&&!S.upgradedUnits[rootKey]){
-              const ul=rootNode.unlock;
-              canResearch=(S.res.tech||0)>=(ul.needTech||0)
-                && (S.merit||0)>=(ul.needMerit||0)
-                && S.res.wood>=(ul.cost?.wood||0)
-                && S.res.stone>=(ul.cost?.stone||0)
-                && S.res.food>=(ul.cost?.food||0)
-                && (!ul.needEssence||(S.essence[ul.needEssence.type]||0)>=ul.needEssence.count);
-            }
-          }
+      const tree=CFG.unitUpgrades[bu]?.tree;
+      if(tree){
+        for(const[k,node] of Object.entries(tree)){
+          if(!node||!node.branches)continue;
+          for(const br of node.branches){if(checkAfford(k,node,br)){canResearch=true;break;}}
+          if(canResearch)break;
         }
       }
       // 分支头
-      h+=`<div class="branch-header${isLocked?' is-locked':''}" onclick="(S._barracksFold||{})['${foldKey}']=!((S._barracksFold||{})['${foldKey}']);updateUI()">
+      let branchHtml=`<div class="branch-header barracks-branch-header" role="button" tabindex="0" aria-expanded="${!folded}" onclick="toggleBarracksBranch('${foldKey}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleBarracksBranch('${foldKey}')}">
         <span class="branch-arrow${folded?'':' open'}">▶</span>
         <span class="branch-icon">${unitPortrait(bu,'mini')}</span>
-        <div style="flex:1;min-width:0">
-          <div style="font-size:14px;font-weight:bold;color:#e0d070;letter-spacing:1px">${branchNames[bu]}<span style="font-size:10px;color:#6a7290;font-weight:normal;margin-left:8px">${tierLabel}</span></div>
-          <div style="font-size:12px;color:#5a6078;margin-top:2px">${isLocked?lockReason:(lineUnits.length+'种兵种  总上限 '+lineCap+(st.lv>0?'  余量 '+lineLeft:''))}</div>
+        <div class="barracks-branch-copy">
+          <div class="barracks-branch-title">${branchNames[bu]} <span>${tierLabel}</span></div>
+          <div class="barracks-branch-sub">${lineUnits.length} 种兵种 · 上限 ${lineCap}${st.lv>0?' · 可补 '+lineLeft:''}</div>
         </div>
         ${canResearch?`<span class="branch-badge-own">可研究</span>`:''}
-        ${isLocked?`<span style="font-size:10px;color:#e06060">🔒</span>`:''}
       </div>`;
       // 折叠体
-      h+=`<div class="branch-body${folded?' folded':' expanded'}">`;
-      if(isLocked){
-        h+=`<div style="text-align:center;color:#666;padding:12px">${lockReason}后才可训练</div>`;
-      }else if(!lineUnits.length){
-        h+=`<div style="text-align:center;color:#666;padding:12px">暂无可训练兵种</div>`;
-      }else{
-        for(const[k,c] of lineUnits){
-          h+=renderUnitCard(k,c);
-          totalShown++;
-        }
+      branchHtml+=`<div class="branch-body${folded?' folded':' expanded'}">`;
+      for(const[k,c] of lineUnits){
+        branchHtml+=renderUnitCard(k,c);
       }
-      h+=`</div>`;
+      branchHtml+=`</div>`;
+      readyBranches.push(branchHtml);
     }
-    if(!totalShown)h+=`<div style="text-align:center;color:#666;padding:20px">暂无可训练兵种</div>`;
+    h+=`<div class="section-kicker barracks-section-title">可训练兵种 <span>${readyBranches.length} 条兵种线</span></div>`;
+    h+=readyBranches.length?readyBranches.join(''):`<div class="barracks-empty">当前没有可训练兵种。先完成对应研究并建造兵营。</div>`;
   }else{
     // ===== 阵容方案标签 =====
     const rowNames={front:'前排',mid:'中排',back:'后排'};
@@ -1165,18 +1161,19 @@ function rFight(){
 
     // 关卡选择
     h+=`<div class="card"><h3>${pix('battle','card-pix')}关卡选择</h3>`;
-    const cur=S.selEnemy!==null&&S.selEnemy!==undefined?CFG.enemies[S.selEnemy]:null;
-    const hasSel=cur!==null;
+    const hasSel=campaignStageSelectable(S.selEnemy);
+    const cur=hasSel?CFG.enemies[S.selEnemy]:null;
     h+=`<div style="display:flex;align-items:center;gap:6px;margin-bottom:8px">`;
     h+=`<button class="btn btn-ghost btn-xs" onclick="selEnemy(${hasSel?(S.selEnemy-1):'null'})" ${!hasSel||S.selEnemy<=0?'disabled':''}>◀</button>`;
     h+=`<select onchange="this.blur();selEnemy(this.value===''?null:parseInt(this.value))" style="flex:1;background:#121224;color:#e0e0e0;border:1px solid #3a4158;padding:4px 8px;font-family:inherit;font-size:13px;cursor:pointer">`;
     h+=`<option value="" ${hasSel?'':'selected'}>-- 请选择关卡 --</option>`;
     for(let i=0;i<CFG.enemies.length;i++){
+      if(!campaignStageSelectable(i))continue;
       const e=CFG.enemies[i],df=S.defeated.includes(e.id);
       h+=`<option value="${i}" ${hasSel&&i===S.selEnemy?'selected':''}>${df?'✓ ':''}第${i+1}关 - ${e.name}${e.boss?' [BOSS]':''}</option>`;
     }
     h+=`</select>`;
-    h+=`<button class="btn btn-ghost btn-xs" onclick="selEnemy(${hasSel?(S.selEnemy+1):'null'})" ${!hasSel||S.selEnemy>=CFG.enemies.length-1?'disabled':''}>▶</button>`;
+    h+=`<button class="btn btn-ghost btn-xs" onclick="selEnemy(${hasSel?(S.selEnemy+1):'null'})" ${!hasSel||!campaignStageSelectable(S.selEnemy+1)?'disabled':''}>▶</button>`;
     h+=`</div>`;
     if(cur){
       const df=S.defeated.includes(cur.id);
@@ -1420,6 +1417,7 @@ function rTechFull(){
     if((sc.legacyOnly||sc.storageMode&&sc.storageMode!==S.storageMode||sc.currencyMode&&sc.currencyMode!==S.currencyRecipeMode)&&!done)continue;
     const needs=typeof scienceNeedIds==='function'?scienceNeedIds(id,sc):(sc.need||[]);
     const pre=needs.some(p=>!S.sciences.includes(p));
+    if(pre&&!done)continue;
     const meritEff=(CFG.tech&&CFG.tech.sciencesNoMerit)?0:(sc.cost.merit||0);
     const resourceCost=Object.entries(sc.cost).filter(([rk])=>rk!=='merit');
     const can=resourceCost.every(([rk,n])=>(S.res[rk]||0)>=n)&&(S.merit||0)>=meritEff&&!pre;
@@ -1438,25 +1436,35 @@ function rTechFull(){
 
   const scholar=CFG.scholarMastery,scholarCost=scholarMasteryCost(),scholarDone=S.scholarMasteryLv>=scholar.maxLevel;
   const scholarReady=scienceUnlocked(scholar.needScience)&&scholarCost&&Object.entries(scholarCost).every(([rk,n])=>Number.isFinite(S.res[rk])&&S.res[rk]>=n);
+  if(scienceUnlocked(scholar.needScience)||S.scholarMasteryLv>0){
   h+=`<div class="card"><h3>${pix('academy','card-pix')}${scholar.name} · Lv${S.scholarMasteryLv}/${scholar.maxLevel}</h3>`;
   h+=`<div class="tech-detail-intro">需工坊技术；每级使学者产出增加5%，第6级起另需${esc(resourceDisplayName('medal'))}</div>`;
   h+=`<div class="tech-detail-row"><div class="tech-detail-head"><strong>学者产出</strong><span class="tech-detail-state">+${Math.round(S.scholarMasteryLv*scholar.perLevel*100)}%</span></div>`;
   h+=`<div class="tech-detail-cost">${scholarDone?'已满级':`下级费用：${Object.entries(scholarCost).map(([rk,n])=>`${esc(resourceDisplayName(rk))} ${n}`).join(' · ')}`}</div>`;
   h+=`<div class="tech-detail-actions"><button class="btn btn-go btn-xs" ${scholarReady?'':'disabled'} onclick="upgradeScholarMastery()">提升</button></div></div></div>`;
+  }
 
   const steelMastery=CFG.steelMastery,steelCost=steelMasteryCost(),steelDone=S.steelMasteryLv>=steelMastery.maxLevel;
   const steelReady=scienceUnlocked(steelMastery.needScience)&&steelCost&&Object.entries(steelCost).every(([rk,n])=>Number.isFinite(S.res[rk])&&S.res[rk]>=n);
+  if(scienceUnlocked(steelMastery.needScience)||S.steelMasteryLv>0){
   h+=`<div class="card"><h3>${pix('steel','card-pix')}${steelMastery.name} · Lv${S.steelMasteryLv}/${steelMastery.maxLevel}</h3>`;
   h+=`<div class="tech-detail-intro">需冶钢技术；每级使冶钢工产出增加5%，第6级起另需${esc(resourceDisplayName('medal'))}</div>`;
   h+=`<div class="tech-detail-row"><div class="tech-detail-head"><strong>冶钢产出</strong><span class="tech-detail-state">+${Math.round(S.steelMasteryLv*steelMastery.perLevel*100)}%</span></div>`;
   h+=`<div class="tech-detail-cost">${steelDone?'已满级':`下级费用：${Object.entries(steelCost).map(([rk,n])=>`${esc(resourceDisplayName(rk))} ${n}`).join(' · ')}`}</div>`;
   h+=`<div class="tech-detail-actions"><button class="btn btn-go btn-xs" ${steelReady?'':'disabled'} onclick="upgradeSteelMastery()">提升</button></div></div></div>`;
+  }
 
+  const visibleWeapons=Object.entries(CFG.weaponForge).filter(([key,cfg])=>{
+    const w=S.weaponForge[key];
+    return w.researched||w.level>0||w.progress>0||w.equipped||
+      (scienceUnlocked(cfg.needScience)&&(!cfg.needWeapon||S.weaponForge[cfg.needWeapon]?.researched));
+  });
+  if(visibleWeapons.length){
   h+=`<div class="card"><h3>${pix('army','card-pix')}军备研发与锻造</h3>`;
   h+=`<div class="tech-detail-intro">先研发，再逐次投入材料；累计20次制成首件。装备后增加对应兵种攻击或防御，不增加兵员。</div>`;
-  for(const[key,cfg]of Object.entries(CFG.weaponForge)){
+  for(const[key,cfg]of visibleWeapons){
     const w=S.weaponForge[key],steps=weaponForgeSteps(key),researchReady=scienceUnlocked(cfg.needScience)&&(!cfg.needWeapon||S.weaponForge[cfg.needWeapon]?.researched)&&Object.entries(cfg.researchCost).every(([rk,n])=>Number.isFinite(S.res[rk])&&S.res[rk]>=n);
-    const stepCost=weaponForgeStepCost(key),forgeReady=w.researched&&stepCost&&canAffordWeaponCost(stepCost);
+    const stepCost=weaponForgeStepCost(key),forgeReady=scienceUnlocked(cfg.needScience)&&w.researched&&stepCost&&canAffordWeaponCost(stepCost);
     const isArmor=cfg.stat==='def',bonus=w.level>0?(isArmor?cfg.initialDef+(w.level-1)*cfg.perLevelDef:cfg.initialAtk+(w.level-1)*cfg.perLevelAtk):0;
     h+=`<div class="tech-detail-row"><div class="tech-detail-head"><strong>${esc(cfg.name)}</strong><span class="tech-detail-state">Lv${w.level}/${cfg.maxLevel}${w.equipped?' · 已装备':''}</span></div>`;
     h+=`<div class="tech-detail-desc">${w.level>0?(isArmor?'防御+':'攻击+')+bonus:'尚未制成'} · 需${esc(sciName(cfg.needScience))}${cfg.needWeapon?'与'+esc(CFG.weaponForge[cfg.needWeapon].name)+'研发':''}</div>`;
@@ -1471,14 +1479,15 @@ function rTechFull(){
     h+=`</div></div>`;
   }
   h+=`</div>`;
+  }
 
-  const armsKeys=Object.keys(CFG.armsUp),firstLockedArms=armsKeys.findIndex(uk=>!scienceUnlocked(CFG.armsUp[uk].needScience));
+  const armsKeys=Object.keys(CFG.armsUp);
   const armsMilestoneText=Object.entries(CFG.armsUpMilestones||{}).map(([stat,m])=>
     `${stat==='atk'?'攻击':stat==='hp'?'生命':'防御'}每${m.everyStars}星追加基础属性${Math.round(m.basePct*100)}%`).join('；');
-  for(const [index,uk] of armsKeys.entries()){
+  for(const uk of armsKeys){
     const cfg=CFG.armsUp[uk];
     const unlocked=scienceUnlocked(cfg.needScience),stock=S.res[cfg.material];
-    if(!unlocked&&index!==firstLockedArms)continue;
+    if(!unlocked&&!Object.values(S.armsUp[uk]||{}).some(state=>state.stars>0||state.progress>0))continue;
     h+=`<div class="card"><h3>${pix('army','card-pix')}${esc(cfg.name)}</h3>`;
     h+=`<div class="tech-detail-intro">需${esc(sciName(cfg.needScience))}；攻击、生命、防御分别投入。每 ${cfg.stepsPerStar} 次升一星，进度与战斗兵力分开保存。${esc(armsMilestoneText)}</div>`;
     for(const [stat,sc] of Object.entries(cfg.stats)){
@@ -1497,47 +1506,61 @@ function rTechFull(){
 
   const mastery=CFG.storageMastery,masteryCost=storageMasteryCost(),masteryDone=S.storageMasteryLv>=mastery.maxLevel;
   const masteryReady=scienceUnlocked(mastery.needScience)&&!masteryDone&&Object.entries(masteryCost).every(([rk,n])=>(S.res[rk]||0)>=n);
+  if(scienceUnlocked(mastery.needScience)||S.storageMasteryLv>0){
   h+=`<div class="card"><h3>${pix('library','card-pix')}储存精通 · Lv${S.storageMasteryLv}/${mastery.maxLevel}</h3>`;
   h+=`<div class="tech-detail-intro">需工坊技术；每级使木、石、粮、知识与金属仓容增加10%，钱币与地契不变</div>`;
   h+=`<div class="tech-detail-row"><div class="tech-detail-head"><strong>仓容加成</strong><span class="tech-detail-state">+${Math.round(S.storageMasteryLv*mastery.perLevel*100)}%</span></div>`;
   h+=`<div class="tech-detail-cost">${masteryDone?'已满级':`下级费用：${Object.entries(masteryCost).map(([rk,n])=>`${esc(CFG.res[rk]?.name||rk)} ${n}`).join(' · ')}`}</div>`;
   h+=`<div class="tech-detail-actions"><button class="btn btn-go btn-xs" ${masteryReady?'':'disabled'} onclick="upgradeStorageMastery()">提升</button></div></div></div>`;
+  }
 
+  const steamStorage=Object.entries(CFG.eraStorage).filter(([key,cfg])=>
+    key.startsWith('steam')&&(scienceUnlocked(cfg.needScience)||(S.eraStorage[key]||0)>0));
+  if(steamStorage.length){
   h+=`<div class="card"><h3>${pix('institute','card-pix')}蒸汽仓储科技</h3>`;
   const crystalName=CFG.eraMaterials.godCrystal.name;
   h+=`<div class="tech-detail-intro">需蒸汽时代；基础、金属、知识分别每级扩容10%，各自封顶100级。${crystalName}库存 ${S.items.godCrystal}</div>`;
-  for(const[key,cfg]of Object.entries(CFG.eraStorage).filter(([key])=>key.startsWith('steam'))){
+  for(const[key,cfg]of steamStorage){
     const level=S.eraStorage[key],cost=eraStorageCost(key),ready=scienceUnlocked(cfg.needScience)&&cost&&(S.res.tech||0)>=cost.tech&&(S.items.godCrystal||0)>=(cost.godCrystal||0);
     h+=`<div class="tech-detail-row"><div class="tech-detail-head"><strong>${esc(cfg.name)}</strong><span class="tech-detail-state">Lv${level}/${cfg.maxLevel}</span></div><div class="tech-detail-desc">当前仓容 +${level*10}%</div><div class="tech-detail-cost">${cost?`下级费用：科技点 ${cost.tech}${cost.godCrystal?` · ${esc(crystalName)} ${cost.godCrystal}`:''}`:'已满级'}</div><div class="tech-detail-actions"><button class="btn btn-go btn-xs" ${ready?'':'disabled'} onclick="upgradeEraStorage('${key}')">提升</button></div></div>`;
   }
   h+=`<div class="tech-detail-intro">第6级起需要${esc(crystalName)}；合金时代研究「${esc(sciName(CFG.godDomain.needScience))}」后可在远征页重复探索机巧遗迹获取。</div></div>`;
+  }
 
+  const electricStorage=Object.entries(CFG.eraStorage).filter(([key,cfg])=>
+    key.startsWith('electric')&&(scienceUnlocked(cfg.needScience)||(S.eraStorage[key]||0)>0));
+  if(electricStorage.length){
   h+=`<div class="card"><h3>${pix('institute','card-pix')}电力仓储与生产科技</h3>`;
   h+=`<div class="tech-detail-intro">需电力时代；基础、金属、知识仓容及非货币岗位产出分别每级+10%，各封顶100级。${esc(CFG.eraMaterials.guardianStone.name)} ${S.items.guardianStone} · ${esc(CFG.eraMaterials.phantomFlower.name)} ${S.items.phantomFlower}</div>`;
-  for(const[key,cfg]of Object.entries(CFG.eraStorage).filter(([key])=>key.startsWith('electric'))){
+  for(const[key,cfg]of electricStorage){
     const level=S.eraStorage[key],cost=eraStorageCost(key),material=cfg.lateMaterial,materialName=CFG.eraMaterials[material].name;
     const ready=scienceUnlocked(cfg.needScience)&&cost&&(S.res.tech||0)>=cost.tech&&(S.items[material]||0)>=(cost[material]||0);
     h+=`<div class="tech-detail-row"><div class="tech-detail-head"><strong>${esc(cfg.name)}</strong><span class="tech-detail-state">Lv${level}/${cfg.maxLevel}</span></div><div class="tech-detail-desc">当前加成 +${level*10}%</div><div class="tech-detail-cost">${cost?`下级费用：科技点 ${cost.tech}${cost[material]?` · ${esc(materialName)} ${cost[material]}`:''}`:'已满级'}</div><div class="tech-detail-actions"><button class="btn btn-go btn-xs" ${ready?'':'disabled'} onclick="upgradeEraStorage('${key}')">提升</button></div></div>`;
   }
   h+=`<div class="tech-detail-intro">第6级起分别需要${esc(CFG.eraMaterials.guardianStone.name)}或${esc(CFG.eraMaterials.phantomFlower.name)}；研究电力时代后可在远征页挑战${esc(CFG.godDomains.guardianStone.name)}／${esc(CFG.godDomains.phantomFlower.name)}获取。</div></div>`;
+  }
 
-  if(scienceUnlocked('sci_nuclear_age')){
+  const nuclearStorage=Object.entries(CFG.eraStorage).filter(([key,cfg])=>
+    key.startsWith('nuclear')&&(scienceUnlocked(cfg.needScience)||(S.eraStorage[key]||0)>0));
+  if(nuclearStorage.length){
     h+=`<div class="card"><h3>${pix('institute','card-pix')}星核仓储与生产科技</h3>`;
     h+=`<div class="tech-detail-intro">基础、金属、知识仓容及非货币岗位产出分别每级+10%，各封顶100级；第6级起需对应材料。</div>`;
-    for(const[key,cfg]of Object.entries(CFG.eraStorage).filter(([key])=>key.startsWith('nuclear'))){
+    for(const[key,cfg]of nuclearStorage){
       const level=S.eraStorage[key],cost=eraStorageCost(key),material=cfg.lateMaterial,materialName=CFG.eraMaterials[material].name;
-      const ready=cost&&(S.res.tech||0)>=cost.tech&&(S.items[material]||0)>=(cost[material]||0);
+      const ready=scienceUnlocked(cfg.needScience)&&cost&&(S.res.tech||0)>=cost.tech&&(S.items[material]||0)>=(cost[material]||0);
       h+=`<div class="tech-detail-row"><div class="tech-detail-head"><strong>${esc(cfg.name)}</strong><span class="tech-detail-state">Lv${level}/${cfg.maxLevel}</span></div><div class="tech-detail-desc">当前加成 +${level*10}%</div><div class="tech-detail-cost">${cost?`下级费用：科技点 ${cost.tech}${cost[material]?` · ${esc(materialName)} ${cost[material]}`:''}`:'已满级'}</div><div class="tech-detail-actions"><button class="btn btn-go btn-xs" ${ready?'':'disabled'} onclick="upgradeEraStorage('${key}')">提升</button></div></div>`;
     }
     h+=`<div class="tech-detail-intro">${esc(CFG.eraMaterials.revivalLeaf.name)}可在远征页挑战${esc(CFG.godDomains.revivalLeaf.name)}获得。</div></div>`;
   }
 
-  if(scienceUnlocked('sci_quantum_age')){
+  const quantumStorage=Object.entries(CFG.eraStorage).filter(([key,cfg])=>
+    key.startsWith('quantum')&&(scienceUnlocked(cfg.needScience)||(S.eraStorage[key]||0)>0));
+  if(quantumStorage.length){
     h+=`<div class="card"><h3>${pix('institute','card-pix')}星界仓储与生产科技</h3>`;
     h+=`<div class="tech-detail-intro">基础、金属、知识仓容及非货币岗位产出分别每级+10%，各封顶100级；第6级起需对应圣域材料。</div>`;
-    for(const[key,cfg]of Object.entries(CFG.eraStorage).filter(([key])=>key.startsWith('quantum'))){
+    for(const[key,cfg]of quantumStorage){
       const level=S.eraStorage[key],cost=eraStorageCost(key),material=cfg.lateMaterial,materialName=CFG.eraMaterials[material].name;
-      const ready=cost&&(S.res.tech||0)>=cost.tech&&(S.items[material]||0)>=(cost[material]||0);
+      const ready=scienceUnlocked(cfg.needScience)&&cost&&(S.res.tech||0)>=cost.tech&&(S.items[material]||0)>=(cost[material]||0);
       h+=`<div class="tech-detail-row"><div class="tech-detail-head"><strong>${esc(cfg.name)}</strong><span class="tech-detail-state">Lv${level}/${cfg.maxLevel}</span></div><div class="tech-detail-desc">当前加成 +${level*10}%</div><div class="tech-detail-cost">${cost?`下级费用：科技点 ${cost.tech}${cost[material]?` · ${esc(materialName)} ${cost[material]}`:''}`:'已满级'}</div><div class="tech-detail-actions"><button class="btn btn-go btn-xs" ${ready?'':'disabled'} onclick="upgradeEraStorage('${key}')">提升</button></div></div>`;
     }
     h+=`<div class="tech-detail-intro">材料仍由现有机巧遗迹、重装防卫机、复苏圣域和光学拟态机战斗获得。</div></div>`;
@@ -1554,7 +1577,7 @@ function rTechFull(){
     <span class="branch-icon">${pix('army','md')}</span>
     <div style="flex:1;min-width:0">
       <div style="font-size:14px;font-weight:bold;color:#e0d070;letter-spacing:1px">兵谱</div>
-      <div style="font-size:9px;color:#5a6078;margin-top:2px">点击${compFolded?'展开':'折叠'} · ${treeOrder.length}个分支</div>
+      <div style="font-size:9px;color:#5a6078;margin-top:2px">点击${compFolded?'展开':'折叠'} · 已解锁与当前可研究分支</div>
     </div>
   </div>`;
   h+=`<div class="branch-body${compFolded?' folded':' expanded'}" style="margin-bottom:8px">`;
@@ -1573,10 +1596,20 @@ function rTechFull(){
     const resourcesReady=['wood','stone','food'].every(rk=>(S.res[rk]||0)>=(cost[rk]||0));
     const essenceReady=!essenceNeed||(S.essence[essenceNeed.type]||0)>=essenceNeed.count;
     const buildingKey=Object.keys(CFG.buildings).find(bk=>CFG.buildings[bk].trains===lineKey);
-    const buildingReady=!buildingKey||((S.buildings[buildingKey]||{}).tier??0)>=node.tier;
+    const building=buildingKey?CFG.buildings[buildingKey]:null;
+    const buildingState=buildingKey?bldSt(buildingKey):null;
+    const buildingReady=!!(building&&buildingState.lv>0&&(buildingState.tier??0)>=node.tier&&
+      (!building.needScience||scienceUnlocked(building.needScience))&&
+      (!building.needBoss||bossDefeatedCount()>=building.needBoss));
+    const unitScience=CFG.units[key]?.needScience;
+    const unitScienceReady=!unitScience||scienceUnlocked(unitScience);
     const levelReady=!checkTierLevel(node.tier);
+    const rootGateReady=!isRoot||!node.unlock||buildingReady&&unitScienceReady&&levelReady;
+    const visible=owned||(isRoot?rootGateReady:parentReady&&buildingReady&&unitScienceReady&&levelReady);
+    const children=(node.branches||[]).map(branch=>renderUnitTreeNode(tree,rootKey,lineKey,branch.to,key,depth+1)).join('');
+    if(!visible)return children;
     const canResearch=!owned&&!!research&&parentReady&&resourcesReady&&essenceReady
-      &&(S.res.tech||0)>=techNeed&&(S.merit||0)>=meritNeed&&buildingReady&&levelReady;
+      &&(S.res.tech||0)>=techNeed&&(S.merit||0)>=meritNeed&&buildingReady&&unitScienceReady&&levelReady&&rootGateReady;
     const state=owned?(isRoot&&!node.unlock?'初始兵种':'已研究'):
       !parentReady?'待前置':canResearch?'可研究':'条件未达';
     const prereq=parentKey?`前置：${esc(parent?.name||parentKey)}`:
@@ -1588,17 +1621,16 @@ function rTechFull(){
     if(essenceNeed)costParts.push(`${esc(CFG.essences?.[essenceNeed.type]?.name||essenceNeed.type)} ${Math.floor(S.essence[essenceNeed.type]||0)}/${essenceNeed.count}`);
     const extraLock=!owned&&parentReady&&!levelReady?` · ${esc(checkTierLevel(node.tier))}`:
       !owned&&parentReady&&!buildingReady?` · 需${esc(CFG.buildings[buildingKey].name)}达到T${node.tier}`:'';
-    let r=`<div class="tech-unit-node${owned?' is-owned':''}" data-unit="${key}" style="--unit-depth:${Math.min(depth*12,36)}px">
+    let r=`<div class="tech-unit-node${owned?' is-owned':''}" data-unit="${key}" style="--unit-depth:${Math.min(depth*8,24)}px">
       <div class="tech-unit-main">
         ${unitPortrait(key,'tech')}
         <div class="tech-unit-info"><strong>${esc(node.name)}</strong><span class="tech-unit-state">T${node.tier} · ${state}</span>
           <div class="tech-unit-prereq">${prereq}${extraLock}</div></div>
         ${canResearch?`<button class="btn btn-go btn-sm" onclick="${isRoot?`unlockUnitRoot('${key}')`:`upgradeUnit('${parentKey}','${key}')`}">研究</button>`:''}
       </div>
-      ${research?`<div class="tech-unit-cost">费用：${costParts.join(' · ')}</div>`:''}
+      ${research?`<div class="tech-unit-cost"><span class="tech-unit-cost-label">费用：</span><div class="tech-unit-cost-list">${costParts.map(part=>`<span>${part}</span>`).join('')}</div></div>`:''}
     </div>`;
-    for(const branch of node.branches||[])r+=renderUnitTreeNode(tree,rootKey,lineKey,branch.to,key,depth+1);
-    return r;
+    return r+children;
   }
 
   for(const treeKey of treeOrder){
@@ -1606,6 +1638,8 @@ function rTechFull(){
     if(!treeCfg||!treeCfg.tree)continue;
     const tree=treeCfg.tree;
     const rootKey=Object.keys(tree).find(k=>tree[k].tier===0)||Object.keys(tree)[0];
+    const treeHtml=renderUnitTreeNode(tree,rootKey,treeKey,rootKey,null,0);
+    if(!treeHtml)continue;
     const folded=S._techFold[treeKey]===true;
 
     h+=`<div class="branch-header" style="margin:4px 0;padding:8px 12px" onclick="S._techFold['${treeKey}']=!S._techFold['${treeKey}'];updateUI()">
@@ -1618,7 +1652,7 @@ function rTechFull(){
     </div>`;
     h+=`<div class="branch-body${folded?' folded':' expanded'}" style="margin-bottom:4px">`;
 
-    h+=renderUnitTreeNode(tree,rootKey,treeKey,rootKey,null,0);
+    h+=treeHtml;
     h+=`</div>`;
   }
   h+=`</div>`;
@@ -1705,7 +1739,14 @@ function rTech(){
     actions.push({category,title,detail:techActionMeta(button,title,category),html:button.outerHTML,
       unitKey:button.closest('.tech-unit-node')?.dataset.unit||null});
   }
-  for(const child of content.children)child.dataset.techCategory=fullTechCategory(child);
+  const visibleCategories=new Set();
+  for(const child of content.children){
+    child.dataset.techCategory=fullTechCategory(child);
+    visibleCategories.add(child.dataset.techCategory);
+  }
+  if(!visibleCategories.has(_techCategory))_techCategory='science';
+  const visibleCategoryLabels=Object.entries(TECH_CATEGORIES)
+    .filter(([category])=>visibleCategories.has(category)).map(([,label])=>label).join(' · ');
   const near=[];
   for(const [id,science] of Object.entries(activeSciences())){
     if(S.sciences.includes(id)||science.legacyOnly||science.storageMode&&science.storageMode!==S.storageMode||science.currencyMode&&science.currencyMode!==S.currencyRecipeMode)continue;
@@ -1717,25 +1758,30 @@ function rTech(){
     if(!affordable)near.push({name:science.name,cost:cost.map(([key,amount])=>`${resourceDisplayName(key)} ${amount}`).join(' · '),id,techCost:science.cost.tech||0});
   }
   near.sort((a,b)=>(activeSciences()[a.id].cost.tech||0)-(activeSciences()[b.id].cost.tech||0));
-  let h=`<section id="tech-overview" class="tech-overview-head"><h2>研究与成长</h2><p>科技点 ${Math.floor(S.res.tech||0)} · 战功 ${S.merit||0} · 可处理 ${actions.length} 项</p></section>`;
+  let h=`<section id="tech-overview" class="tech-overview-head"><h2>研究与成长</h2>
+    <div class="tech-overview-stats"><span>科技点 <strong>${Math.floor(S.res.tech||0)}</strong></span><span>战功 <strong>${S.merit||0}</strong></span><span>可操作 <strong>${actions.length}</strong> 项</span></div>
+  </section>`;
   h+=`<div class="section-kicker">现在可以做</div>`;
   if(actions.length){
     const visible=_techShowAll?actions:actions.slice(0,8);
-    for(const action of visible)h+=`<div class="tech-action-card"><div class="tech-action-main">${action.unitKey?unitPortrait(action.unitKey,'card'):''}<div style="flex:1;min-width:0"><div class="tech-action-title">${esc(action.title)}</div><div class="tech-action-sub">${TECH_CATEGORIES[action.category]} · 条件已满足</div></div>${action.html}</div><div class="tech-costs">${esc(action.detail)}</div></div>`;
+    for(const action of visible)h+=`<div class="tech-action-card"><div class="tech-action-main">${action.unitKey?unitPortrait(action.unitKey,'card'):''}<div class="tech-action-copy"><div class="tech-action-title">${esc(action.title)}</div><div class="tech-action-sub"><span class="tech-action-type">${TECH_CATEGORIES[action.category]}</span>条件已满足</div></div>${action.html}</div><div class="tech-costs">${esc(action.detail)}</div></div>`;
     if(actions.length>8)h+=`<button class="btn btn-ghost btn-sm" type="button" onclick="toggleTechActionList()">${_techShowAll?'收起':'查看全部 '+actions.length+' 项可操作研究'}</button>`;
   }else h+=`<div class="card">当前没有可以直接执行的研究；查看下一步条件或完整图谱。</div>`;
   if(near.length){
-    h+=`<div class="section-kicker">接近解锁</div>`;
+    h+=`<div class="section-kicker">下一步研究</div>`;
     for(const next of near.slice(0,3)){
       const current=Math.min(Math.max(0,Math.floor(S.res.tech||0)),next.techCost);
       const percent=next.techCost?Math.round(current/next.techCost*100):100;
-      h+=`<div class="tech-action-card"><div class="tech-action-title">${esc(next.name)}</div><div class="tech-costs">所需：${esc(next.cost)}${CFG.tech?.sciencesNoMerit?'':` · 战功 ${activeSciences()[next.id].cost.merit||0}`}</div><div class="tech-action-sub">科技点 ${current}/${next.techCost}</div><div class="prog-wrap" role="progressbar" aria-label="${esc(next.name)}科技点进度" aria-valuemin="0" aria-valuemax="${next.techCost}" aria-valuenow="${current}"><div class="prog-fill" style="width:${percent}%"></div></div></div>`;
+      h+=`<div class="tech-action-card tech-near-card"><div class="tech-near-head"><div class="tech-action-title">${esc(next.name)}</div><span>${percent}%</span></div><div class="tech-costs">所需：${esc(next.cost)}${CFG.tech?.sciencesNoMerit?'':` · 战功 ${activeSciences()[next.id].cost.merit||0}`}</div><div class="tech-action-sub">科技点 ${current}/${next.techCost}</div><div class="prog-wrap" role="progressbar" aria-label="${esc(next.name)}科技点进度" aria-valuemin="0" aria-valuemax="${next.techCost}" aria-valuenow="${current}"><div class="prog-fill" style="width:${percent}%"></div></div></div>`;
     }
   }
   h+=`<details class="tech-deep-dive" id="tech-full" ${_techFullOpen?'open':''} ontoggle="setTechFullOpen(this.open)">
-    <summary id="tech-tree-toggle">完整图谱 · 科研 / 兵种 / 军备 / 精通 / 仓储</summary>
+    <summary id="tech-tree-toggle"><span>完整图谱</span><small>${visibleCategoryLabels}</small></summary>
     <div class="tech-tree-nav" aria-label="图谱分类">`;
-  for(const [category,label] of Object.entries(TECH_CATEGORIES))h+=`<button type="button" data-category="${category}" aria-pressed="${_techCategory===category}" class="btn btn-sm ${_techCategory===category?'btn-go':'btn-ghost'}" onclick="setTechCategory('${category}')">${label}</button>`;
+  for(const [category,label] of Object.entries(TECH_CATEGORIES)){
+    if(!visibleCategories.has(category))continue;
+    h+=`<button type="button" data-category="${category}" aria-pressed="${_techCategory===category}" class="btn btn-sm ${_techCategory===category?'btn-go':'btn-ghost'}" onclick="setTechCategory('${category}')">${label}</button>`;
+  }
   h+=`</div><div class="tech-full" data-category="${_techCategory}">${content.innerHTML}</div></details>`;
   return h;
 }

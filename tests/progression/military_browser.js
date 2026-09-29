@@ -70,13 +70,13 @@ async function overflow(){
   return evalJs("(()=>{const main=document.getElementById('main');return {width:innerWidth,document:document.documentElement.scrollWidth,body:document.body.scrollWidth,main:main.scrollWidth,mainClient:main.clientWidth,overflow:document.documentElement.scrollWidth>innerWidth+1||document.body.scrollWidth>innerWidth+1||main.scrollWidth>main.clientWidth+1}})()");
 }
 async function inspectTech(){
-  return evalJs("(()=>{const row=name=>{const strong=[...document.querySelectorAll('#main strong')].find(e=>e.textContent.trim()===name);const el=strong?.parentElement?.parentElement;return {text:el?.textContent||'',disabled:el?.querySelector('button')?.disabled??null}};return {bronze:row('青铜时代'),iron:row('铁器时代')}})()");
+  return evalJs("(()=>{const row=name=>{const strong=[...document.querySelectorAll('#main .tech-science-row strong')].find(e=>e.textContent.trim()===name);const el=strong?.closest('.tech-science-row');return {text:el?.textContent||'',disabled:el?.querySelector('button')?.disabled??null}};return {bronze:row('青铜时代'),iron:row('铁器时代')}})()");
 }
 async function inspectBuildings(){
-  return evalJs("(()=>{const card=name=>{const el=[...document.querySelectorAll('#main .card')].find(e=>e.querySelector('h3')?.textContent.includes(name)),icon=el?.querySelector('.i-'+(name==='青铜工坊'?'bronze_workshop':'iron_forge'));return {text:el?.textContent||'',disabled:el?.querySelector('button')?.disabled??null,icon:icon?getComputedStyle(icon).backgroundImage:null}};return {bronze:card('青铜工坊'),iron:card('铁匠铺')}})()");
+  return evalJs("(()=>{const card=key=>{const el=document.getElementById('build-'+key),icon=el?.querySelector('.i-'+key);return {text:el?.textContent||'',disabled:el?.querySelector('.build-entry-action')?.disabled??null,icon:icon?getComputedStyle(icon).backgroundImage:null}};return {bronze:card('bronze_workshop'),iron:card('iron_forge')}})()");
 }
 async function inspectTraining(){
-  return evalJs("(()=>{const branch=name=>{const header=[...document.querySelectorAll('#main .branch-header')].find(e=>e.textContent.includes(name));return {text:header?.textContent||'',body:header?.nextElementSibling?.textContent||''}};const card=name=>{const strong=[...document.querySelectorAll('#main .card strong')].find(e=>e.textContent.trim()===name),el=strong?.closest('.card');return {text:el?.textContent||'',food:!!el?.querySelector('.i-food'),copper:!!el?.querySelector('.i-copper'),iron:!!el?.querySelector('.i-iron'),train:!!el?.querySelector('input[id^=train-barracks-]')}};return {bronzeBranch:branch('青铜刀盾兵'),ironBranch:branch('铁器长枪兵'),bronzeCard:card('青铜刀盾兵'),ironCard:card('铁器长枪兵')}})()");
+  return evalJs("(()=>{const branch=name=>{const header=[...document.querySelectorAll('#main .barracks-branch-header')].find(e=>e.textContent.includes(name));return {text:header?.textContent||'',body:header?.nextElementSibling?.textContent||''}};const card=name=>{const strong=[...document.querySelectorAll('#main .barracks-unit-card strong')].find(e=>e.textContent.trim()===name),el=strong?.closest('.barracks-unit-card');return {text:el?.textContent||'',cost:el?.querySelector('.barracks-unit-cost')?.textContent||'',food:!!el?.querySelector('.i-food'),copper:!!el?.querySelector('.i-copper'),iron:!!el?.querySelector('.i-iron'),train:!!el?.querySelector('input[id^=train-barracks-]')}};return {bronzeBranch:branch('青铜刀盾兵'),ironBranch:branch('铁器长枪兵'),bronzeCard:card('青铜刀盾兵'),ironCard:card('铁器长枪兵')}})()");
 }
 
 (async()=>{
@@ -107,12 +107,16 @@ async function inspectTraining(){
 
   await evalJs("S.page='tech';updateUI();'ok'");
   const tech360=await inspectTech();
-  check('360 bronze research cost and granary prerequisite',tech360.bronze.text.includes('科技点 1200')&&tech360.bronze.text.includes('前置「大粮仓」')&&tech360.bronze.disabled===true,tech360.bronze);
-  check('360 iron research cost and iron warehouse prerequisite',tech360.iron.text.includes('科技点 2500')&&tech360.iron.text.includes('前置「铁仓库」')&&tech360.iron.disabled===true,tech360.iron);
+  check('360 prerequisite-locked age research is hidden',!tech360.bronze.text&&!tech360.iron.text,tech360);
+  // Presentation-only prerequisites: costs and buttons appear when the preceding research exists.
+  await evalJs("S.sciences.push('sci_large_granary','sci_iron_warehouse');updateUI();'ok'");
+  const eligible360=await inspectTech();
+  check('360 bronze research reveals its cost after prerequisite',eligible360.bronze.text.includes('科技点 1200')&&eligible360.bronze.text.includes('前置「大粮仓」')&&eligible360.bronze.disabled===true,eligible360.bronze);
+  check('360 iron research reveals its cost after prerequisite',eligible360.iron.text.includes('科技点 2500')&&eligible360.iron.text.includes('前置「铁仓库」')&&eligible360.iron.disabled===true,eligible360.iron);
   check('360 tech no horizontal overflow',!(await overflow()).overflow,await overflow());
   await snap(360,'tech-bronze','资源科技');
 
-  await evalJs("S.page='build';S._buildTab='barracks';updateUI();'ok'");
+  await evalJs("S.sciences=[];S.page='build';S._buildTab='barracks';updateUI();'ok'");
   const build360=await inspectBuildings();
   check('360 workshop sprites and science locks',build360.bronze.icon!=='none'&&build360.iron.icon!=='none'&&build360.bronze.text.includes('需先研究「青铜时代」')&&build360.iron.text.includes('需先研究「铁器时代」')&&build360.bronze.disabled===true&&build360.iron.disabled===true,build360);
   check('360 building no horizontal overflow',!(await overflow()).overflow,await overflow());
@@ -121,40 +125,46 @@ async function inspectTraining(){
 
   await evalJs("S.page='barracks';S._barracksTab='train';updateUI();'ok'");
   const unresearched=await inspectTraining();
-  check('360 training lines explain science locks',unresearched.bronzeBranch.text.includes('需先研究「青铜时代」')&&unresearched.ironBranch.text.includes('需先研究「铁器时代」'),unresearched);
-  await snap(360,'train-science-lock','青铜刀盾兵');
+  check('360 unresearched training lines are hidden',!unresearched.bronzeBranch.text&&!unresearched.ironBranch.text&&!unresearched.bronzeCard.text&&!unresearched.ironCard.text,unresearched);
+  await snap(360,'train-science-lock');
 
   // Presentation-only injection; never use this result to claim progression is reachable.
   await evalJs("S.sciences.push('sci_bronze_age','sci_iron_age');updateUI();'ok'");
   const unbuilt=await inspectTraining();
-  check('360 training lines explain unbuilt workshops',unbuilt.bronzeBranch.text.includes('需先建造青铜工坊')&&unbuilt.ironBranch.text.includes('需先建造铁匠铺'),unbuilt);
-  await snap(360,'train-building-lock','铁器长枪兵');
+  check('360 unbuilt training lines remain hidden',!unbuilt.bronzeBranch.text&&!unbuilt.ironBranch.text&&!unbuilt.bronzeCard.text&&!unbuilt.ironCard.text,unbuilt);
+  await snap(360,'train-building-lock');
 
   await evalJs("S.buildings.bronze_workshop={lv:1,state:'idle',timer:0,timerEnd:0,tier:0};S.buildings.iron_forge={lv:1,state:'idle',timer:0,timerEnd:0,tier:0};updateUI();'ok'");
   const trained360=await inspectTraining();
-  check('360 bronze cost food 300 plus copper 100 per soldier',trained360.bronzeCard.food&&trained360.bronzeCard.copper&&!trained360.bronzeCard.iron&&/300\s+100\/人/.test(trained360.bronzeCard.text)&&trained360.bronzeCard.train,trained360.bronzeCard);
-  check('360 iron cost food 500 plus iron 100 per soldier',trained360.ironCard.food&&trained360.ironCard.iron&&!trained360.ironCard.copper&&/500\s+100\/人/.test(trained360.ironCard.text)&&trained360.ironCard.train,trained360.ironCard);
+  check('360 bronze cost food 300 plus copper 100 per soldier',trained360.bronzeBranch.text&&trained360.bronzeCard.food&&trained360.bronzeCard.copper&&!trained360.bronzeCard.iron&&/每人消耗\s*300\s+100/.test(trained360.bronzeCard.cost)&&trained360.bronzeCard.train,trained360.bronzeCard);
+  check('360 iron cost food 500 plus iron 100 per soldier',trained360.ironBranch.text&&trained360.ironCard.food&&trained360.ironCard.iron&&!trained360.ironCard.copper&&/每人消耗\s*500\s+100/.test(trained360.ironCard.cost)&&trained360.ironCard.train,trained360.ironCard);
   check('360 training no horizontal overflow',!(await overflow()).overflow,await overflow());
   await snap(360,'train-bronze-ready','青铜刀盾兵');
   await snap(360,'train-iron-ready','铁器长枪兵');
+  await setView(320);
+  check('320 unlocked training cards have no horizontal overflow',!(await overflow()).overflow,await overflow());
+  await snap(320,'train-bronze-ready','青铜刀盾兵');
 
   await setView(400);
   await evalJs("S.sciences=[];S.buildings.bronze_workshop={lv:0,state:'idle',timer:0,timerEnd:0,tier:0};S.buildings.iron_forge={lv:0,state:'idle',timer:0,timerEnd:0,tier:0};S.page='tech';updateUI();'ok'");
   const tech400=await inspectTech();
-  check('400 age cards retain cost and prerequisites',tech400.bronze.text.includes('科技点 1200')&&tech400.bronze.text.includes('前置「大粮仓」')&&tech400.iron.text.includes('科技点 2500')&&tech400.iron.text.includes('前置「铁仓库」'),tech400);
+  check('400 prerequisite-locked age research stays hidden',!tech400.bronze.text&&!tech400.iron.text,tech400);
+  await evalJs("S.sciences.push('sci_large_granary','sci_iron_warehouse');updateUI();'ok'");
+  const eligible400=await inspectTech();
+  check('400 revealed age research retains cost and prerequisites',eligible400.bronze.text.includes('科技点 1200')&&eligible400.bronze.text.includes('前置「大粮仓」')&&eligible400.iron.text.includes('科技点 2500')&&eligible400.iron.text.includes('前置「铁仓库」'),eligible400);
   check('400 tech no horizontal overflow',!(await overflow()).overflow,await overflow());
   await snap(400,'tech-iron','资源科技');
-  await evalJs("S.page='build';S._buildTab='barracks';updateUI();'ok'");
+  await evalJs("S.sciences=[];S.page='build';S._buildTab='barracks';updateUI();'ok'");
   const build400=await inspectBuildings();
   check('400 workshop sprites and science locks',build400.bronze.text.includes('需先研究「青铜时代」')&&build400.iron.text.includes('需先研究「铁器时代」')&&build400.bronze.icon!=='none'&&build400.iron.icon!=='none'&&build400.bronze.disabled===true&&build400.iron.disabled===true,build400);
   check('400 building no horizontal overflow',!(await overflow()).overflow,await overflow());
   await snap(400,'build-iron','铁匠铺');
   await evalJs("S.page='barracks';S._barracksTab='train';updateUI();'ok'");
   const locked400=await inspectTraining();
-  check('400 training lines retain science locks',locked400.bronzeBranch.text.includes('需先研究「青铜时代」')&&locked400.ironBranch.text.includes('需先研究「铁器时代」'),locked400);
+  check('400 locked training lines stay hidden',!locked400.bronzeBranch.text&&!locked400.ironBranch.text,locked400);
   await evalJs("S.sciences.push('sci_bronze_age','sci_iron_age');S.buildings.bronze_workshop={lv:1,state:'idle',timer:0,timerEnd:0,tier:0};S.buildings.iron_forge={lv:1,state:'idle',timer:0,timerEnd:0,tier:0};updateUI();'ok'");
   const trained400=await inspectTraining();
-  check('400 both train cards retain metal costs',trained400.bronzeCard.copper&&trained400.ironCard.iron&&/300\s+100\/人/.test(trained400.bronzeCard.text)&&/500\s+100\/人/.test(trained400.ironCard.text),trained400);
+  check('400 both train cards retain metal costs',trained400.bronzeCard.copper&&trained400.ironCard.iron&&/每人消耗\s*300\s+100/.test(trained400.bronzeCard.cost)&&/每人消耗\s*500\s+100/.test(trained400.ironCard.cost),trained400);
   check('400 training no horizontal overflow',!(await overflow()).overflow,await overflow());
   await snap(400,'train-bronze-ready','青铜刀盾兵');
   await sleep(300);

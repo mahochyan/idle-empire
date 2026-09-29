@@ -17,11 +17,11 @@ HERE = Path(__file__).resolve().parent
 ART = HERE.parents[3]
 OUTPUT = ART / "units" / "hires" / "actions"
 COMPACT_OUTPUT = OUTPUT / "compact"
-PREVIEW = ART.parents[1] / "hd2d-previews" / "qa-hires-actions-six-units.png"
+PREVIEW = ART.parents[1] / "hd2d-previews" / "qa-hires-actions-eight-units.png"
 CAVALRY_PREVIEW = ART.parents[1] / "hd2d-previews" / "qa-cavalry-production-64.png"
 COMPACT_PREVIEW = ART.parents[1] / "hd2d-previews" / "qa-cavalry-compact-64.png"
 CAVALRY_IDS = ("cavalry_t1", "gold_cavalry")
-IDS = ("infantry", "star_trooper", "archer", "archer_crossbow") + CAVALRY_IDS
+IDS = ("infantry", "infantry_t1", "star_trooper", "archer", "archer_t1", "archer_crossbow") + CAVALRY_IDS
 RUNTIME_IDS = IDS
 ACTIONS = ("attack", "hit", "death")
 SUGGESTED_TIMING_MS = {
@@ -34,8 +34,8 @@ COMPACT_CELL = 256
 # The 512 px idle portraits occupy different amounts of their canvases.
 # Match each generated pose's visible character stature to its own idle art,
 # rather than enlarging the idle portrait when an action begins.
-POSE_SCALE = {"infantry": 0.68, "star_trooper": 0.705,
-              "archer": 0.70, "archer_crossbow": 0.70,
+POSE_SCALE = {"infantry": 0.68, "infantry_t1": 0.68, "star_trooper": 0.705,
+              "archer": 0.70, "archer_t1": 0.70, "archer_crossbow": 0.70,
               "cavalry_t1": 0.78, "gold_cavalry": 0.78}
 LAYOUT_ACTIONS = {"attack", "death"}
 
@@ -190,7 +190,7 @@ def main() -> None:
     parser.add_argument("--check", action="store_true", help="Compare packed PNG pixels with source")
     args = parser.parse_args()
     manifest = {
-        "version": 4,
+        "version": 5,
         "runtimeSampleEnabled": True,
         "runtimeUnits": list(RUNTIME_IDS),
         "manifestReadAtRuntime": False,

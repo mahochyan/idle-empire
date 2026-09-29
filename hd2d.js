@@ -41,13 +41,14 @@
     'wild_boar','wild_bull','wild_snake','wild_tiger','wild_turtle','wild_wyrm'
   ]);
   const hiresActionTypes=new Set([
-    'infantry','archer','archer_crossbow','star_trooper','cavalry_t1','gold_cavalry'
+    'infantry','infantry_t1','archer','archer_t1','archer_crossbow','star_trooper','cavalry_t1','gold_cavalry'
   ]);
   // Authored helmet/hood anchors for frames whose raised weapon sits higher
   // than the face. Other frames use measured alpha bounds.
   const actionBadgeHeadTops={
     infantry:{attack:{1:104/512}},
     archer:{attack:{2:92/512}},
+    archer_t1:{attack:{1:72/512,2:72/512}},
     cavalry_t1:{attack:{0:32/512,1:43/512,2:8/512,3:45/512}},
     gold_cavalry:{attack:{0:2/512,1:68/512,2:16/512,3:52/512}}
   };
@@ -56,12 +57,25 @@
   function three(){return root.THREE;}
   function validOrigin(){return root.location&&/^(https?):$/.test(root.location.protocol);}
   function available(){return !!(validOrigin()&&three()&&root.WebGLRenderingContext);}
+  function candidatePickLayout(state){
+    if(!state?.candidateReady||!state.width||!state.height)return [];
+    const T=three();state.camera.updateMatrixWorld(true);
+    return Object.entries(state.townGroups).map(([id,node])=>{
+      const center=new T.Box3().setFromObject(node).getCenter(new T.Vector3()).project(state.camera);
+      return {id,x:(center.x+1)*state.width/2,y:(1-center.y)*state.height/2};
+    });
+  }
   function status(){
     const battle=live.battle;
     const layout=battle?battleLayoutStatus(battle):[];
     return {
       available:available(),
       town:{mounted:!!live.town,reason:errors.town,modelsLoaded:live.town?live.town.modelsLoaded:0,
+        candidatePreview:!!live.town?.candidateMode,
+        candidateReady:!!live.town?.candidateReady,
+        candidatePickNodes:live.town?.candidatePickNodes||[],
+        candidatePickLayout:candidatePickLayout(live.town),
+        candidateError:live.town?.candidateError||'',
         artworkReady:!!live.town?.plate?.ready,artworkEra:live.town?.plate?.artworkEra||'',
         reliefLayers:live.town?.plate?.reliefs?.filter(item=>!!item.mesh.material.map).length||0,
         reliefParallaxPx:live.town?.expanded&&live.town?.plate?
@@ -190,6 +204,7 @@
     function colorTexture(index){
       if(textureCache.has(index))return textureCache.get(index);
       const spec=json.textures?.[index],image=json.images?.[spec?.source],
+        sampler=json.samplers?.[spec?.sampler]||{},
         view=json.bufferViews?.[image?.bufferView];
       if(!view||view.buffer!==0||!/^image\/(png|jpeg|webp)$/.test(image.mimeType||'')||
         !Number.isSafeInteger(view.byteLength)||view.byteLength<=0||view.byteLength>4194304)
@@ -201,7 +216,16 @@
       const done=()=>URL.revokeObjectURL(url);
       const map=state.loader.load(url,done,undefined,done);
       map.colorSpace=T.SRGBColorSpace;map.flipY=false;
-      map.magFilter=T.NearestFilter;map.minFilter=T.NearestMipmapNearestFilter;
+      // glTF defaults to repeat wrapping and linear filtering. The authored
+      // meadow uses UVs beyond 0..1; clamping created striped phone renders.
+      const wrap=value=>value===33071?T.ClampToEdgeWrapping:
+        value===33648?T.MirroredRepeatWrapping:T.RepeatWrapping;
+      map.wrapS=wrap(sampler.wrapS);map.wrapT=wrap(sampler.wrapT);
+      map.magFilter=sampler.magFilter===9728?T.NearestFilter:T.LinearFilter;
+      map.minFilter=({9728:T.NearestFilter,9729:T.LinearFilter,
+        9984:T.NearestMipmapNearestFilter,9985:T.LinearMipmapNearestFilter,
+        9986:T.NearestMipmapLinearFilter,9987:T.LinearMipmapLinearFilter})[sampler.minFilter]||
+        T.LinearMipmapLinearFilter;
       state.ownedTextures.add(map);textureCache.set(index,map);
       return map;
     }
@@ -223,6 +247,7 @@
     }
     function nodeObject(index){
       const data=json.nodes[index],group=new T.Group();
+      group.name=typeof data.name==='string'?data.name:'';
       if(data.translation)group.position.fromArray(data.translation);
       if(data.rotation)group.quaternion.fromArray(data.rotation);
       if(data.scale)group.scale.fromArray(data.scale);
@@ -805,6 +830,53 @@
     state.cameraTarget=new T.Vector3(0,0.55,0);
     state.raycaster=new T.Raycaster();state.pointer=new T.Vector2();
   }
+  function buildCandidateTown(state){
+    // Opt-in art review only. Production keeps its bright nine-era panorama
+    // until a complete seven-site model passes phone-size visual review.
+    const T=three(),cameraSpec=state.options.candidateCamera||{};
+    const fallbackPosition=[6.87767,8.029235,10.454059];
+    const fallbackTarget=[1.423337,1.282648,2.163474];
+    const vector=(input,fallback)=>Array.isArray(input)&&input.length===3&&
+      input.every(Number.isFinite)?input:fallback;
+    state.candidateMode=true;
+    state.candidateReady=false;
+    state.candidatePickNodes=[];
+    state.candidateError='';
+    state.candidateSpan=(Number.isFinite(cameraSpec.width)&&cameraSpec.width>0?
+      cameraSpec.width:22)/(9/5);
+    state.scene.background=new T.Color(0xdde8cf);
+    state.scene.add(new T.HemisphereLight(0xffffff,0x9f9b78,1.35));
+    const sun=new T.DirectionalLight(0xffeed1,1.55);
+    sun.position.set(-5,11,7);sun.castShadow=state.shadowEnabled;
+    sun.shadow.mapSize.set(512,512);
+    sun.shadow.camera.left=-15;sun.shadow.camera.right=15;
+    sun.shadow.camera.top=15;sun.shadow.camera.bottom=-15;
+    state.scene.add(sun);
+    state.camera.position.fromArray(vector(cameraSpec.position,fallbackPosition));
+    state.cameraTarget=new T.Vector3().fromArray(vector(cameraSpec.target,fallbackTarget));
+    state.camera.lookAt(state.cameraTarget);
+    state.raycaster=new T.Raycaster();state.pointer=new T.Vector2();
+    const name=state.options.candidateModel;
+    const url=new URL('./assets/art/models/candidates/'+name+'.glb',document.baseURI);
+    if(url.origin!==location.origin){state.candidateError='cross-origin-model';return;}
+    fetch(url.href).then(response=>{
+      if(!response.ok)throw Error('Model HTTP '+response.status);
+      return response.arrayBuffer();
+    }).then(buffer=>{
+      if(state.disposed)return;
+      const model=parseStaticGlb(buffer,state),sites=new Set(townSites.map(site=>site.id));
+      model.traverse(node=>{
+        const id=typeof node.name==='string'&&node.name.startsWith('PICK_')?
+          node.name.slice(5):'';
+        if(!sites.has(id))return;
+        let meshes=0;node.traverse(child=>{if(child.isMesh)meshes++;});
+        if(!meshes||state.townGroups[id])return;
+        markHotspot(node,id);state.townGroups[id]=node;
+        state.candidatePickNodes.push(id);
+      });
+      state.scene.add(model);state.candidateReady=true;state.modelsLoaded=1;
+    }).catch(error=>{if(!state.disposed)state.candidateError=error.message||'model-load-failed';});
+  }
   function updateTownWorkers(state,snapshot){
     for(const s of state.workerSprites){state.workerGroup.remove(s);if(s.material)s.material.dispose();}
     state.workerSprites.length=0;
@@ -831,6 +903,9 @@
   function updateTown(snapshot){
     const state=live.town;if(!state||!snapshot)return false;
     state.snapshot=snapshot;
+    // A candidate preview is a static art review; the running game never uses
+    // this path until a complete era model has passed the visual gate.
+    if(state.candidateMode)return true;
     syncTownPlateArt(state,snapshot.era);
     for(const site of townSites){
       const lv=townLevelFor(site,snapshot),phase=townBuildingFor(site,snapshot)?.state||'idle';
@@ -933,10 +1008,13 @@
     const count='×'+Math.max(0,Math.floor(number(unit.count,0)));
     ctx.clearRect(0,0,width,height);
     const lineY=Math.round(height/2)-3;
-    ctx.fillStyle='#35070d';ctx.fillRect(5,lineY,barWidth,6);
-    ctx.fillStyle='#81000f';
+    ctx.fillStyle='#29050b';ctx.fillRect(5,lineY,barWidth,6);
+    ctx.fillStyle='#a9001b';
     ctx.fillRect(5,lineY,Math.round(barWidth*ratio),6);
-    ctx.font='bold 20px sans-serif';ctx.textAlign='center';
+    // Compact world badges shrink to roughly 30 CSS px on a 320px battlefield.
+    // Draw their count larger within the same texture so it remains legible
+    // without widening the badge or separating the red line from the head.
+    ctx.font='bold '+(b.compact?28:20)+'px sans-serif';ctx.textAlign='center';
     ctx.textBaseline='middle';
     ctx.strokeStyle='#fff9ea';ctx.lineWidth=3;
     ctx.strokeText(count,(barWidth+5+width)/2,height/2,width-barWidth-10);
@@ -1077,9 +1155,9 @@
       model.sprite.scale.y*pixelsPerUnit/2;
     const visibleTopPx=spriteTopPx+visibleTopFraction*
       model.sprite.scale.y*pixelsPerUnit;
-    // Keep the narrow line against the portrait at phone scale. A few pixels
-    // of overlap avoids the floating gap left by antialiased hair and crests.
-    const desiredLinePx=visibleTopPx+(density>=7?2.5:3.5);
+    // The head anchor excludes raised weapons. Keep a narrow gap above the
+    // helmet edge; a deeper overlap cuts through the portrait at phone scale.
+    const desiredLinePx=visibleTopPx+(density>=7?4:5);
     const badgePoint=new T.Vector3(model.group.position.x+centeredBadgeX,model.badge.position.y,
       model.group.position.z).project(camera);
     const raisedPoint=new T.Vector3(model.group.position.x+centeredBadgeX,model.badge.position.y+1,
@@ -1184,8 +1262,13 @@
       const enemyOnly=model.side==='enemies'&&typeof CFG!=='undefined'&&
         !!CFG.units?.[model.type]?.enemyOnly;
       const wild=enemyOnly&&model.type.startsWith('wild_');
-      const pack=wild?(state.density<=2?0.60:state.density<7?0.75:0.72):
-        enemyOnly?(state.density<=2?0.80:state.density<7?0.88:0.82):1;
+      // This ranger's authored silhouette fills almost the full 512px cell,
+      // while the starter soldier uses only its center. Match sparse battle
+      // body proportions without shrinking the already compact 12v12 art.
+      const rangerScale=model.type==='archer_t1'?
+        (state.density<=2?0.83:state.density<7?0.92:1):1;
+      const pack=(wild?(state.density<=2?0.60:state.density<7?0.75:0.72):
+        enemyOnly?(state.density<=2?0.80:state.density<7?0.88:0.82):1)*rangerScale;
       model.portraitPack=pack;
       model.sprite.scale.set(3.0*factor*pack,3.0*factor*pack,1);
       model.baseY=1.15*factor-1.5*factor*(1-pack);
@@ -1667,7 +1750,8 @@
     state.width=width;state.height=height;
     const aspect=width/height;
     const minimumWidth=state.kind==='town'?13.8:12.8;
-    const span=Math.max(state.kind==='town'?11.9:10.8,minimumWidth/aspect);
+    const span=state.candidateMode?state.candidateSpan:
+      Math.max(state.kind==='town'?11.9:10.8,minimumWidth/aspect);
     state.camera.left=-span*aspect/2;state.camera.right=span*aspect/2;
     state.camera.top=span/2;state.camera.bottom=-span/2;
     if(state.kind==='battle')state.camera.zoom=sparseBattleFraming(state.density||12,height);
@@ -1910,9 +1994,12 @@
         shadowEnabled,pixelRatio,frameInterval:1000/30,lastRender:0,slowFrames:0,modelsLoaded:0,
         width:0,height:0,raf:0,disposed:false};
       live[kind]=state;
-      if(kind==='town'){buildTown(state,state.snapshot);updateTown(state.snapshot);}
-      else buildBattle(state,state.snapshot);
-      makeScenePlate(state,kind);
+      if(kind==='town'){
+        if(options?.candidateModel&&/^[a-z0-9_]+$/.test(options.candidateModel))
+          buildCandidateTown(state);
+        else{buildTown(state,state.snapshot);updateTown(state.snapshot);}
+      }else buildBattle(state,state.snapshot);
+      if(!state.candidateMode)makeScenePlate(state,kind);
       state.onContextLost=function(e){e.preventDefault();fallback(state,'webgl-context-lost');};
       renderer.domElement.addEventListener('webglcontextlost',state.onContextLost,false);
       if(root.ResizeObserver){state.observer=new ResizeObserver(()=>resize(state));state.observer.observe(container);}

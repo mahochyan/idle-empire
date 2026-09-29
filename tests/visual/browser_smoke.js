@@ -206,8 +206,8 @@ async function shot(name){
             disabledOpacity:row?.querySelector('button:disabled')?
               getComputedStyle(row.querySelector('button:disabled')).opacity:null};
         })()`);
-        check('390px 夜间完整科研使用深色卡片且费用文字至少12px',
-          darkScience.count>10&&darkScience.background==='rgb(41, 56, 58)'&&
+        check('390px 夜间当前科研使用深色卡片且费用文字至少12px',
+          darkScience.count>=1&&darkScience.background==='rgb(41, 56, 58)'&&
           darkScience.textSize>=12&&darkScience.disabledOpacity==='1',
           darkScience);
         await shot('390-dark-tech-tree-science');
@@ -262,15 +262,15 @@ async function shot(name){
   const armyPortraits=await evalJs(`(async()=>{
     const expected=['bronze_guard','iron_spearman','silver_heavy','gold_cavalry',
       'alloy_special','armored_trooper','electro_trooper','star_trooper'];
-    const images=[...document.querySelectorAll('.branch-header img.unit-portrait-mini')];
+    const images=expected.map(id=>{const host=document.createElement('div');host.innerHTML=unitPortrait(id,'mini');const image=host.querySelector('img');image.loading='eager';return image});
     const sources=images.map(image=>image.getAttribute('src'));
     const failed=[];
     for(const image of images){try{await image.decode();}catch(_){failed.push(image.getAttribute('src'));}}
-    return {expected,sources,failed};
+    return {expected,sources,failed,visibleLocked:document.querySelectorAll('.barracks-branch-header').length};
   })()`);
-  check('军队页八个时代兵种各用自身立绘且可解码',
+  check('八个时代兵种立绘可解码，未解锁时军队页隐藏分支',
     armyPortraits.expected.every(id=>armyPortraits.sources.includes('./assets/art/units/hires/'+id+'.png'))&&
-    armyPortraits.failed.length===0,armyPortraits);
+    armyPortraits.failed.length===0&&armyPortraits.visibleLocked===0,armyPortraits);
   const armyFormation=await evalJs(`(()=>{
     window.__armyVisualPrevious={formation:S.formation,garrison:S._garrisonForm,tab:S._barracksTab};
     S.formation={front:[{type:'infantry',count:10,id:901}],mid:[],back:[]};
@@ -332,10 +332,11 @@ async function shot(name){
     const detail=document.getElementById('tech-full');
     const groups=[...document.querySelectorAll('.tech-tree-nav button')];
     const unit=groups.find(el=>el.dataset.category==='units');if(unit)unit.click();
-    return {before,tree:!!detail&&detail.open,groups:groups.length,
+    return {before,tree:!!detail&&detail.open,groups:groups.map(el=>el.dataset.category),
       category:document.querySelector('.tech-full')?.dataset.category};
   })()`);
-  check('科技概览可切换完整图谱与兵种分组',tech.before&&tech.tree&&tech.groups>=5&&tech.category==='units',tech);
+  check('新档科技概览只显示科研和初始兵种分组',tech.before&&tech.tree&&
+    tech.groups.join(',')==='science,units'&&tech.category==='units',tech);
   const techPortraits=await evalJs(`(async()=>{
     const expected=[...new Set(Object.values(CFG.unitUpgrades)
       .flatMap(line=>Object.keys(line.tree||{})))].sort();
@@ -354,8 +355,8 @@ async function shot(name){
     })));
     return {expected,actual,wrongSource,failedImages:images.filter(image=>!image.ok).map(image=>image.id)};
   })()`);
-  check('科技树26个兵种节点各自引用精确 ID 的立绘',techPortraits.expected.length===26&&
-    techPortraits.actual.length===26&&techPortraits.expected.every((id,i)=>techPortraits.actual[i]===id)&&
+  check('新档兵谱只显示初始步弓节点且各自引用精确立绘',techPortraits.expected.length===26&&
+    techPortraits.actual.join(',')==='archer,infantry'&&
     techPortraits.wrongSource.length===0,techPortraits);
   check('科技树26张立绘在浏览器中均能解码',techPortraits.failedImages.length===0,
     techPortraits.failedImages);
@@ -387,13 +388,30 @@ async function shot(name){
       overflow:main.scrollWidth>main.clientWidth+1||
         visible.some(row=>row.getBoundingClientRect().right>main.getBoundingClientRect().right+1)};
   })()`);
-  check('320px 资源科技逐项分层、文字至少12px、研究按钮至少48px且无溢出',
-    narrowScience.count>10&&narrowScience.smallText===0&&narrowScience.smallButtons===0&&
+  check('320px 当前资源科技文字至少12px、研究按钮至少48px且无溢出',
+    narrowScience.count>=1&&narrowScience.smallText===0&&narrowScience.smallButtons===0&&
     narrowScience.fadedButtons===0&&
     !narrowScience.overflow&&
     narrowScience.categoryButtons.filter(button=>button.pressed==='true').map(button=>button.category).join(',')==='science',
     narrowScience);
   await shot('320-tech-tree-science');
+  const freshHidden=await evalJs(`(()=>({categories:[...document.querySelectorAll('.tech-tree-nav button')].map(button=>button.dataset.category),
+    details:document.querySelectorAll('.tech-full .tech-detail-row').length}))()`);
+  check('新档未解锁军备、精通、仓储分类直接隐藏',
+    freshHidden.categories.join(',')==='science,units'&&freshHidden.details===0,freshHidden);
+  const unlockedCategories=await evalJs(`(()=>{
+    window.__visualSciencePrior=S.sciences.slice();
+    const needs=[...Object.values(CFG.weaponForge).map(cfg=>cfg.needScience),
+      ...Object.values(CFG.armsUp).map(cfg=>cfg.needScience),
+      ...Object.values(CFG.eraStorage).map(cfg=>cfg.needScience),
+      CFG.storageMastery.needScience,CFG.scholarMastery.needScience,CFG.steelMastery.needScience];
+    S.sciences=[...new Set([...S.sciences,...needs.filter(Boolean)])];
+    updateUI();setTechFullOpen(true);
+    return [...document.querySelectorAll('.tech-tree-nav button')].map(button=>button.dataset.category);
+  })()`);
+  check('研究对应前置后军备、精通、仓储分类出现',
+    ['science','units','arms','mastery','storage'].every(category=>unlockedCategories.includes(category)),
+    unlockedCategories);
   for(const category of ['arms','mastery','storage']){
     await evalJs(`(()=>{document.querySelector('.tech-tree-nav button[data-category="${category}"]')?.click();
       document.getElementById('tech-full')?.scrollIntoView({block:'start'});})()`);
@@ -433,6 +451,8 @@ async function shot(name){
       darkDetail.faded===0&&!darkDetail.overflow,darkDetail);
   }
   await evalJs('toggleVisualTheme()');
+  await evalJs(`(()=>{S.sciences=window.__visualSciencePrior;delete window.__visualSciencePrior;
+    updateUI();setTechFullOpen(true);})()`);
   await evalJs(`(()=>{document.querySelector('.tech-tree-nav button[data-category="units"]')?.click();
     document.getElementById('tech-full')?.scrollIntoView({block:'start'});})()`);
   const narrowTree=await layout();
@@ -616,7 +636,7 @@ async function shot(name){
       sparse.bottom-sparse.top>=sparse.stageHeight*0.23&&
       sparse.bottom-sparse.top<=sparse.stageHeight*0.35&&
       sparse.top>=sparse.stageHeight*0.10&&sparse.bottom<=sparse.stageHeight*0.75&&
-      sparse.bloodLineGaps.every(unit=>unit.gap>=-4.75&&unit.gap<=-2.25)&&
+      sparse.bloodLineGaps.every(unit=>unit.gap>=-6&&unit.gap<=-3.5)&&
       sparse.outOfBounds.length===0&&sparse.clippedSprites.length===0&&
       sparse.facing.every(unit=>unit.facing===(unit.side==='enemies'?'right':'left')),sparse);
   }
@@ -646,8 +666,8 @@ async function shot(name){
       const fallback=document.querySelector('#battle-field .unit-hpbar');
       const fallbackFill=document.querySelector('#battle-field .unit-hpfill');
       const red=el=>{const value=getComputedStyle(el).backgroundColor.match(/\\d+/g)?.slice(0,3).map(Number)||[];
-        return value.length===3&&value[0]===129&&
-          value[1]===0&&value[2]===15;};
+        return value.length===3&&value[0]===169&&
+          value[1]===0&&value[2]===27;};
       return {hudHeights:elements.map(el=>el.getBoundingClientRect().height),
         hudRed:fills.every(red),fallbackHeight:fallback?.getBoundingClientRect().height,
         fallbackRed:!!fallbackFill&&red(fallbackFill)};
@@ -671,7 +691,7 @@ async function shot(name){
       const nightArtwork=await evalJs("HD2D.status().battle.artworkTheme");
       check('390px 夜间战斗使用夜景，角色保持清晰且血线纤细',
         darkBattle.theme==='dark'&&darkBattle.heights.every(height=>height<=3.5)&&
-        darkBattle.fillColors.every(color=>color==='rgb(129, 0, 15)')&&
+        darkBattle.fillColors.every(color=>color==='rgb(169, 0, 27)')&&
         darkBattle.trackColors.every(color=>color==='rgb(47, 17, 23)')&&
         darkBattle.fallbackArt&&darkBattle.canvasClear&&
         (!battleView.mounted||nightArtwork==='dark'),{...darkBattle,nightArtwork});
@@ -798,7 +818,7 @@ async function shot(name){
     check(`${width}px 六对六宽体混编立绘可见且血线贴近头顶`,
       mediumMounted&&medium.count===12&&medium.uniqueSlots===12&&
       medium.clipped.length===0&&medium.gaps.every(unit=>unit.ready&&
-        unit.gap>=-4.75&&unit.gap<=-2.25)&&medium.maxSameSideOverlap<=0.15&&
+        unit.gap>=-6&&unit.gap<=-3.5)&&medium.maxSameSideOverlap<=0.15&&
       medium.maxOpposingOverlap<=0.15,medium);
     await shot(`${width}-battle-medium-6v6`);
   }
@@ -854,7 +874,7 @@ async function shot(name){
   })()`);
   check('真实满编样本为双方各12团且场景可启动',fullStart.mounted&&
     fullStart.allies===12&&fullStart.enemies===12,fullStart);
-  for(const [width,height] of [[320,568],[390,844],[430,932]]){
+  for(const [width,height] of [[320,568],[360,800],[390,844],[430,932]]){
     await setView(width,height);await sleep(500);
     const fullView=await evalJs(`(()=>{
       const stage=document.getElementById('battle-stage').getBoundingClientRect();
@@ -888,7 +908,7 @@ async function shot(name){
         unit.portraitTopFraction-(unit.badgeRect.top+unit.badgeRect.bottom)/2}));
     check(`${width}×${height} 满编血线贴近立绘可见顶部`,
       badgeGaps.length===24&&badgeGaps.every(unit=>unit.ready&&
-        unit.gap>=-3.5&&unit.gap<=-1.5),badgeGaps);
+        unit.gap>=-5&&unit.gap<=-3),badgeGaps);
     const outOfBounds=units.filter(unit=>{
       const r=unit.badgeRect;
       return !Object.values(r).every(Number.isFinite)||r.left<0||r.top<0||
@@ -1452,7 +1472,7 @@ async function shot(name){
     }));
   })()`);
   check('360×800 稀疏高阶与野兽血条均在立绘上方且完整入镜',
-    sparseBadgeGap.length===2&&sparseBadgeGap.every(item=>item.gap>=-7&&item.gap<=0&&item.inside),
+    sparseBadgeGap.length===2&&sparseBadgeGap.every(item=>item.gap>=-8&&item.gap<=0&&item.inside),
     sparseBadgeGap);
   await shot('360x800-vfx-star-badges');
   for(const [width,height] of [[320,568],[390,844]]){

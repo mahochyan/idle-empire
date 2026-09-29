@@ -155,13 +155,23 @@ function upgradeUnit(fromKey,toKey){
   const targetTier=CFG.units[toKey]?.tier??0;
   const levelLock=checkTierLevel(targetTier);
   if(levelLock){toast(levelLock);return;}
-  // 建筑时代门槛：训练建筑 tier 必须 >= 目标兵种 tier
+  const targetScience=CFG.units[toKey]?.needScience;
+  if(targetScience&&!scienceUnlocked(targetScience)){
+    toast('需先研究「'+sciName(targetScience)+'」');return{ok:false,reason:'need-science'};
+  }
+  // 研究入口与训练入口使用同一座已完工的建筑；历史已研究兵种在上方直接返回。
   const bKey=Object.keys(CFG.buildings).find(k=>CFG.buildings[k].trains===baseUnitType(fromKey));
-  if(bKey){
-    const bldTier=(S.buildings[bKey]||{tier:0}).tier??0;
-    if(bldTier<targetTier){
-      toast(`需先将${CFG.buildings[bKey].name}晋升至T${targetTier}`);return;
-    }
+  if(!bKey){toast('需先建造对应训练建筑');return{ok:false,reason:'need-building'};}
+  const building=CFG.buildings[bKey],st=bldSt(bKey);
+  if(building.needScience&&!scienceUnlocked(building.needScience)){
+    toast('需先研究「'+sciName(building.needScience)+'」');return{ok:false,reason:'need-science'};
+  }
+  if(building.needBoss&&bossDefeatedCount()<building.needBoss){
+    toast(`需先击败${building.needBoss}个Boss`);return{ok:false,reason:'need-boss'};
+  }
+  if(st.lv<=0){toast(`需先建造并完成${building.name}`);return{ok:false,reason:'need-building'};}
+  if((st.tier??0)<targetTier){
+    toast(`需先将${building.name}晋升至T${targetTier}`);return{ok:false,reason:'need-building-tier'};
   }
   const needTech=branch.needTech||0;
   if((S.res.tech||0)<needTech){toast('科技点不足');return;}
@@ -208,14 +218,19 @@ function unlockUnitRoot(unitKey){
   const ul=node.unlock;
   const targetTier=CFG.units[unitKey]?.tier??0;
   const levelLock=checkTierLevel(targetTier);
-  if(levelLock){toast(levelLock);return;}
-  // 建筑时代门槛
+  if(levelLock){toast(levelLock);return{ok:false,reason:'need-level'};}
+  // 根线研究也须满足训练建筑的建造与 Boss 门；初建未完工时 lv 仍为 0。
   const bKey=Object.keys(CFG.buildings).find(k=>CFG.buildings[k].trains===baseUnitType(unitKey));
-  if(bKey){
-    const bldTier=(S.buildings[bKey]||{tier:0}).tier??0;
-    if(bldTier<targetTier){
-      toast(`需先将${CFG.buildings[bKey].name}晋升至T${targetTier}`);return;
-    }
+  if(!bKey){toast('需先建造对应训练建筑');return{ok:false,reason:'need-building'};}
+  const building=CFG.buildings[bKey],st=bldSt(bKey);
+  if(building.needBoss&&bossDefeatedCount()<building.needBoss){
+    toast(`需先击败${building.needBoss}个Boss`);return{ok:false,reason:'need-boss'};
+  }
+  if(st.lv<=0){toast(`需先建造并完成${building.name}`);return{ok:false,reason:'need-building'};}
+  const bldTier=st.tier??0;
+  if(bldTier<targetTier){
+    toast(`需先将${building.name}晋升至T${targetTier}`);
+    return{ok:false,reason:'need-building-tier'};
   }
   const needTech=ul.needTech||0;
   if((S.res.tech||0)<needTech){toast('科技点不足');return;}

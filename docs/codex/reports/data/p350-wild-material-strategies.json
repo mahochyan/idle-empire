@@ -1,0 +1,1534 @@
+{
+  "batch": "P350",
+  "date": "2026-09-29",
+  "unit": "seconds",
+  "reference": {
+    "p349RepairSeconds": 2797,
+    "p347NoQueueRepairSeconds": 2968
+  },
+  "outcomes": [
+    {
+      "policy": "baseline-steel",
+      "codeHashes": {
+        "config": "8e40ccc41ab96156db291ce74560981d875b304703fffb89c4139d5e23001675",
+        "math": "dc0bcdee534853368cb3c576e6020e1c85ab7be00052241136605897e91b0c95"
+      },
+      "sourceSha256": "ca734f8b6dfa88dc22a0ec7a7367800fb4422a27b55c594444e08b27fc6806e8",
+      "rosterSha256": "9c0e33ebca8ebd4874fbbe5aa4c64d87972040e61a6abbed629e999b056a9ebd",
+      "firstRepairSeconds": 1609,
+      "battle": {
+        "result": "win",
+        "armyAfter": 293,
+        "casualties": 379,
+        "saveSha256": "ff04cdb5e54e997ed1f84993df399fa6a296cf299aeedfec14907995bd73d6a7"
+      },
+      "battleStock": {
+        "food": 401280,
+        "wood": 19345,
+        "stone": 233814,
+        "coal": 129921.25,
+        "copper": 490.79999843215046,
+        "iron": 769726,
+        "steel": 3071,
+        "gold": 151.85000000006812
+      },
+      "requested": {
+        "star_trooper": 155,
+        "armored_trooper": 55,
+        "electro_trooper": 76,
+        "alloy_special": 55,
+        "gold_cavalry": 38
+      },
+      "totalCost": {
+        "copper": 1958000,
+        "iron": 1958000,
+        "steel": 1963500,
+        "food": 120500,
+        "gold": 3800
+      },
+      "caps": {
+        "copper": 2895552,
+        "iron": 4796352,
+        "steel": 1922976,
+        "food": 401280,
+        "gold": 291456
+      },
+      "preparationSeconds": 0,
+      "preparedStock": {
+        "food": 401280,
+        "wood": 19345,
+        "stone": 233814,
+        "coal": 129921.25,
+        "copper": 490.79999843215046,
+        "iron": 769726,
+        "steel": 3071,
+        "gold": 151.85000000006812
+      },
+      "beforeQueue": {
+        "timeMs": 1793064251000,
+        "tick": 11291063,
+        "army": 293,
+        "deployed": 0,
+        "queueCount": 0,
+        "bone": 1372,
+        "medal": 944,
+        "deed": 0,
+        "hide": 107,
+        "alert": 3930,
+        "level": 31,
+        "progress": 4,
+        "charges": 1,
+        "clock": 704,
+        "scroll": 3,
+        "rng": 3274952739
+      },
+      "logout": {
+        "timeMs": 1793064251000,
+        "tick": 11291063,
+        "army": 293,
+        "deployed": 0,
+        "queueCount": 379,
+        "bone": 1372,
+        "medal": 944,
+        "deed": 0,
+        "hide": 107,
+        "alert": 3930,
+        "level": 31,
+        "progress": 4,
+        "charges": 1,
+        "clock": 704,
+        "scroll": 3,
+        "rng": 3274952739
+      },
+      "logoutStock": {
+        "food": 401280,
+        "wood": 19345,
+        "stone": 233814,
+        "coal": 129921.25,
+        "copper": 490.79999843215046,
+        "iron": 769726,
+        "steel": 3071,
+        "gold": 151.85000000006812
+      },
+      "allocation": {
+        "wood": 0,
+        "stone": 0,
+        "food": 100,
+        "coal": 0,
+        "copper": 0,
+        "iron": 0,
+        "silver": 0,
+        "gold": 0,
+        "steel": 902,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "logoutSaveSha256": "d6fcd40715243bdd225ba4099b7123773b86b7a4640be102b674afa76e6feb7c",
+      "settlement": {
+        "durationSec": 14400,
+        "gains": {
+          "stone": -129888.00000000205,
+          "coal": -129887.9999999995,
+          "iron": -129887.99999998882,
+          "gold": -100,
+          "steel": 578996.0000000026,
+          "deed": 4536,
+          "medal": 7560,
+          "bone": 30240
+        },
+        "produced": 56
+      },
+      "arrival": {
+        "timeMs": 1793078651000,
+        "tick": 11305463,
+        "army": 349,
+        "deployed": 0,
+        "queueCount": 323,
+        "bone": 31612,
+        "medal": 8504,
+        "deed": 4536,
+        "hide": 107,
+        "alert": 3930,
+        "level": 31,
+        "progress": 4,
+        "charges": 5,
+        "clock": 704,
+        "scroll": 3,
+        "rng": 4226142402
+      },
+      "arrivalStock": {
+        "food": 401280,
+        "wood": 19345,
+        "stone": 103925.99999999795,
+        "coal": 33.2500000004909,
+        "copper": 490.79999843215046,
+        "iron": 639838.0000000112,
+        "steel": 582067.0000000026,
+        "gold": 51.85000000006812
+      },
+      "arrivalQueue": {
+        "gold_cavalry": {
+          "count": 37,
+          "timer": 0.5,
+          "reason": "资源不足，暂停生产"
+        },
+        "armored_trooper": {
+          "count": 55,
+          "timer": 0.5,
+          "reason": "资源不足，暂停生产"
+        },
+        "electro_trooper": {
+          "count": 76,
+          "timer": 0.5,
+          "reason": "资源不足，暂停生产"
+        },
+        "star_trooper": {
+          "count": 155,
+          "timer": 0.5,
+          "reason": "资源不足，暂停生产"
+        }
+      },
+      "offlineTrainingPaid": {
+        "food": 83500,
+        "gold": 100,
+        "steel": 5500
+      },
+      "settledSaveSha256": "ffb50af1a3ba7220090e1e3f6d64779127d1bec16987b35fe3ca3a0c8f2e1ca4",
+      "repairSeconds": 2797,
+      "totalActiveSeconds": 2797,
+      "finalRepair": {
+        "before": {
+          "timeMs": 1793078651000,
+          "tick": 11305463,
+          "army": 349,
+          "deployed": 0,
+          "queueCount": 0,
+          "bone": 31612,
+          "medal": 8504,
+          "deed": 4536,
+          "hide": 107,
+          "alert": 3930,
+          "level": 31,
+          "progress": 4,
+          "charges": 5,
+          "clock": 704,
+          "scroll": 3,
+          "rng": 4226142402
+        },
+        "beforeStock": {
+          "food": 401280,
+          "wood": 19345,
+          "stone": 103925.99999999795,
+          "coal": 33.2500000004909,
+          "copper": 490.79999843215046,
+          "iron": 639838.0000000112,
+          "steel": 582067.0000000026,
+          "gold": 51.85000000006812
+        },
+        "losses": {
+          "star_trooper": 155,
+          "armored_trooper": 55,
+          "electro_trooper": 76,
+          "alloy_special": 0,
+          "gold_cavalry": 37,
+          "archer": 0
+        },
+        "expected": {
+          "steel": 1958000,
+          "iron": 1958000,
+          "copper": 1958000,
+          "food": 37000,
+          "gold": 3700
+        },
+        "actual": {
+          "steel": 1958000,
+          "iron": 1958000,
+          "copper": 1958000,
+          "food": 37000,
+          "gold": 3700
+        },
+        "after": {
+          "timeMs": 1793081448000,
+          "tick": 11308260,
+          "army": 672,
+          "deployed": 626,
+          "queueCount": 0,
+          "bone": 31612,
+          "medal": 8504,
+          "deed": 4536,
+          "hide": 107,
+          "alert": 3930,
+          "level": 31,
+          "progress": 4,
+          "charges": 5,
+          "clock": 307,
+          "scroll": 3,
+          "rng": 688570636
+        },
+        "afterStock": {
+          "food": 399140.153064887,
+          "wood": 19345,
+          "stone": 1005925.9999999979,
+          "coal": 252931.50000000047,
+          "copper": 349.4499984191498,
+          "iron": 125489.00000001118,
+          "steel": 68.00000000256114,
+          "gold": 258.63750000006894
+        },
+        "seconds": 2797
+      },
+      "final": {
+        "timeMs": 1793081448000,
+        "tick": 11308260,
+        "army": 672,
+        "deployed": 626,
+        "queueCount": 0,
+        "bone": 31612,
+        "medal": 8504,
+        "deed": 4536,
+        "hide": 107,
+        "alert": 3930,
+        "level": 31,
+        "progress": 4,
+        "charges": 5,
+        "clock": 307,
+        "scroll": 3,
+        "rng": 688570636
+      },
+      "finalStock": {
+        "food": 399140.153064887,
+        "wood": 19345,
+        "stone": 1005925.9999999979,
+        "coal": 252931.50000000047,
+        "copper": 349.4499984191498,
+        "iron": 125489.00000001118,
+        "steel": 68.00000000256114,
+        "gold": 258.63750000006894
+      },
+      "finalSaveSha256": "a5aff7594dbba7646ee67c8896278035e0233c3fad320058da0b232df04842eb",
+      "minFood": 398341.98401726794,
+      "phases": {
+        "wood": 0,
+        "stone": 195,
+        "coal": 1252,
+        "iron": 748,
+        "steel": 601,
+        "copper": 1352,
+        "gold": 7,
+        "food": 0,
+        "tech": 251
+      }
+    },
+    {
+      "policy": "ore-split",
+      "codeHashes": {
+        "config": "8e40ccc41ab96156db291ce74560981d875b304703fffb89c4139d5e23001675",
+        "math": "dc0bcdee534853368cb3c576e6020e1c85ab7be00052241136605897e91b0c95"
+      },
+      "sourceSha256": "ca734f8b6dfa88dc22a0ec7a7367800fb4422a27b55c594444e08b27fc6806e8",
+      "rosterSha256": "9c0e33ebca8ebd4874fbbe5aa4c64d87972040e61a6abbed629e999b056a9ebd",
+      "firstRepairSeconds": 1609,
+      "battle": {
+        "result": "win",
+        "armyAfter": 293,
+        "casualties": 379,
+        "saveSha256": "ff04cdb5e54e997ed1f84993df399fa6a296cf299aeedfec14907995bd73d6a7"
+      },
+      "battleStock": {
+        "food": 401280,
+        "wood": 19345,
+        "stone": 233814,
+        "coal": 129921.25,
+        "copper": 490.79999843215046,
+        "iron": 769726,
+        "steel": 3071,
+        "gold": 151.85000000006812
+      },
+      "requested": {
+        "star_trooper": 155,
+        "armored_trooper": 55,
+        "electro_trooper": 76,
+        "alloy_special": 55,
+        "gold_cavalry": 38
+      },
+      "totalCost": {
+        "copper": 1958000,
+        "iron": 1958000,
+        "steel": 1963500,
+        "food": 120500,
+        "gold": 3800
+      },
+      "caps": {
+        "copper": 2895552,
+        "iron": 4796352,
+        "steel": 1922976,
+        "food": 401280,
+        "gold": 291456
+      },
+      "preparationSeconds": 0,
+      "preparedStock": {
+        "food": 401280,
+        "wood": 19345,
+        "stone": 233814,
+        "coal": 129921.25,
+        "copper": 490.79999843215046,
+        "iron": 769726,
+        "steel": 3071,
+        "gold": 151.85000000006812
+      },
+      "beforeQueue": {
+        "timeMs": 1793064251000,
+        "tick": 11291063,
+        "army": 293,
+        "deployed": 0,
+        "queueCount": 0,
+        "bone": 1372,
+        "medal": 944,
+        "deed": 0,
+        "hide": 107,
+        "alert": 3930,
+        "level": 31,
+        "progress": 4,
+        "charges": 1,
+        "clock": 704,
+        "scroll": 3,
+        "rng": 3274952739
+      },
+      "logout": {
+        "timeMs": 1793064251000,
+        "tick": 11291063,
+        "army": 293,
+        "deployed": 0,
+        "queueCount": 379,
+        "bone": 1372,
+        "medal": 944,
+        "deed": 0,
+        "hide": 107,
+        "alert": 3930,
+        "level": 31,
+        "progress": 4,
+        "charges": 1,
+        "clock": 704,
+        "scroll": 3,
+        "rng": 3274952739
+      },
+      "logoutStock": {
+        "food": 401280,
+        "wood": 19345,
+        "stone": 233814,
+        "coal": 129921.25,
+        "copper": 490.79999843215046,
+        "iron": 769726,
+        "steel": 3071,
+        "gold": 151.85000000006812
+      },
+      "allocation": {
+        "wood": 0,
+        "stone": 0,
+        "food": 100,
+        "coal": 0,
+        "copper": 300,
+        "iron": 300,
+        "silver": 0,
+        "gold": 0,
+        "steel": 302,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "logoutSaveSha256": "dc738733d839b4c761736e65c9b743d6af55b33c3cedaf4ca7cc46357a6be281",
+      "settlement": {
+        "durationSec": 14400,
+        "gains": {
+          "stone": -162216.00000000114,
+          "coal": -129815.99999999964,
+          "copper": 190,
+          "iron": 33184.00000000838,
+          "gold": -100,
+          "steel": 61272.000000000175,
+          "deed": 4536,
+          "medal": 7560,
+          "bone": 30240
+        },
+        "produced": 96
+      },
+      "arrival": {
+        "timeMs": 1793078651000,
+        "tick": 11305463,
+        "army": 389,
+        "deployed": 0,
+        "queueCount": 283,
+        "bone": 31612,
+        "medal": 8504,
+        "deed": 4536,
+        "hide": 107,
+        "alert": 3930,
+        "level": 31,
+        "progress": 4,
+        "charges": 5,
+        "clock": 704,
+        "scroll": 3,
+        "rng": 4226142402
+      },
+      "arrivalStock": {
+        "food": 401280,
+        "wood": 19345,
+        "stone": 71597.99999999886,
+        "coal": 105.25000000036681,
+        "copper": 680.7999984321505,
+        "iron": 802910.0000000084,
+        "steel": 64343.000000000175,
+        "gold": 51.85000000006812
+      },
+      "arrivalQueue": {
+        "gold_cavalry": {
+          "count": 37,
+          "timer": 0.5,
+          "reason": "资源不足，暂停生产"
+        },
+        "armored_trooper": {
+          "count": 15,
+          "timer": 0.5,
+          "reason": "资源不足，暂停生产"
+        },
+        "electro_trooper": {
+          "count": 76,
+          "timer": 0.5,
+          "reason": "资源不足，暂停生产"
+        },
+        "star_trooper": {
+          "count": 155,
+          "timer": 0.5,
+          "reason": "资源不足，暂停生产"
+        }
+      },
+      "offlineTrainingPaid": {
+        "food": 83500,
+        "gold": 100,
+        "steel": 85500,
+        "copper": 80000,
+        "iron": 80000
+      },
+      "settledSaveSha256": "ec8ad44c9594244cccf52d2aa2e1a7da64039e6dd8dfef93d8dac765f67850df",
+      "repairSeconds": 2812,
+      "totalActiveSeconds": 2812,
+      "finalRepair": {
+        "before": {
+          "timeMs": 1793078651000,
+          "tick": 11305463,
+          "army": 389,
+          "deployed": 0,
+          "queueCount": 0,
+          "bone": 31612,
+          "medal": 8504,
+          "deed": 4536,
+          "hide": 107,
+          "alert": 3930,
+          "level": 31,
+          "progress": 4,
+          "charges": 5,
+          "clock": 704,
+          "scroll": 3,
+          "rng": 4226142402
+        },
+        "beforeStock": {
+          "food": 401280,
+          "wood": 19345,
+          "stone": 71597.99999999886,
+          "coal": 105.25000000036681,
+          "copper": 680.7999984321505,
+          "iron": 802910.0000000084,
+          "steel": 64343.000000000175,
+          "gold": 51.85000000006812
+        },
+        "losses": {
+          "star_trooper": 155,
+          "armored_trooper": 15,
+          "electro_trooper": 76,
+          "alloy_special": 0,
+          "gold_cavalry": 37,
+          "archer": 0
+        },
+        "expected": {
+          "steel": 1878000,
+          "iron": 1878000,
+          "copper": 1878000,
+          "food": 37000,
+          "gold": 3700
+        },
+        "actual": {
+          "steel": 1878000,
+          "iron": 1878000,
+          "copper": 1878000,
+          "food": 37000,
+          "gold": 3700
+        },
+        "after": {
+          "timeMs": 1793081463000,
+          "tick": 11308275,
+          "army": 672,
+          "deployed": 626,
+          "queueCount": 0,
+          "bone": 31612,
+          "medal": 8504,
+          "deed": 4536,
+          "hide": 107,
+          "alert": 3930,
+          "level": 31,
+          "progress": 4,
+          "charges": 5,
+          "clock": 292,
+          "scroll": 3,
+          "rng": 688570636
+        },
+        "afterStock": {
+          "food": 399140.153064887,
+          "wood": 19345,
+          "stone": 914065.9999999988,
+          "coal": 161337.75000000035,
+          "copper": 171.24999841931276,
+          "iron": 222437.00000000838,
+          "steel": 716.0000000002328,
+          "gold": 258.63750000006894
+        },
+        "seconds": 2812
+      },
+      "final": {
+        "timeMs": 1793081463000,
+        "tick": 11308275,
+        "army": 672,
+        "deployed": 626,
+        "queueCount": 0,
+        "bone": 31612,
+        "medal": 8504,
+        "deed": 4536,
+        "hide": 107,
+        "alert": 3930,
+        "level": 31,
+        "progress": 4,
+        "charges": 5,
+        "clock": 292,
+        "scroll": 3,
+        "rng": 688570636
+      },
+      "finalStock": {
+        "food": 399140.153064887,
+        "wood": 19345,
+        "stone": 914065.9999999988,
+        "coal": 161337.75000000035,
+        "copper": 171.24999841931276,
+        "iron": 222437.00000000838,
+        "steel": 716.0000000002328,
+        "gold": 258.63750000006894
+      },
+      "finalSaveSha256": "8f71c9a875ed8a9d65c74e8b38d5698c118208f3343ec623baadc37b83992559",
+      "minFood": 398341.98401726794,
+      "phases": {
+        "wood": 0,
+        "stone": 193,
+        "coal": 1229,
+        "iron": 736,
+        "steel": 709,
+        "copper": 1316,
+        "gold": 7,
+        "food": 0,
+        "tech": 231
+      }
+    },
+    {
+      "policy": "copper-gold-prestock",
+      "codeHashes": {
+        "config": "8e40ccc41ab96156db291ce74560981d875b304703fffb89c4139d5e23001675",
+        "math": "dc0bcdee534853368cb3c576e6020e1c85ab7be00052241136605897e91b0c95"
+      },
+      "sourceSha256": "ca734f8b6dfa88dc22a0ec7a7367800fb4422a27b55c594444e08b27fc6806e8",
+      "rosterSha256": "9c0e33ebca8ebd4874fbbe5aa4c64d87972040e61a6abbed629e999b056a9ebd",
+      "firstRepairSeconds": 1609,
+      "battle": {
+        "result": "win",
+        "armyAfter": 293,
+        "casualties": 379,
+        "saveSha256": "ff04cdb5e54e997ed1f84993df399fa6a296cf299aeedfec14907995bd73d6a7"
+      },
+      "battleStock": {
+        "food": 401280,
+        "wood": 19345,
+        "stone": 233814,
+        "coal": 129921.25,
+        "copper": 490.79999843215046,
+        "iron": 769726,
+        "steel": 3071,
+        "gold": 151.85000000006812
+      },
+      "requested": {
+        "star_trooper": 155,
+        "armored_trooper": 55,
+        "electro_trooper": 76,
+        "alloy_special": 55,
+        "gold_cavalry": 38
+      },
+      "totalCost": {
+        "copper": 1958000,
+        "iron": 1958000,
+        "steel": 1963500,
+        "food": 120500,
+        "gold": 3800
+      },
+      "caps": {
+        "copper": 2895552,
+        "iron": 4796352,
+        "steel": 1922976,
+        "food": 401280,
+        "gold": 291456
+      },
+      "preparationSeconds": 1550,
+      "preparedStock": {
+        "food": 401280,
+        "wood": 19345,
+        "stone": 1025770,
+        "coal": 270633.25,
+        "copper": 1958349.4499984041,
+        "iron": 769726,
+        "steel": 3071,
+        "gold": 4058.637500000069
+      },
+      "beforeQueue": {
+        "timeMs": 1793065801000,
+        "tick": 11292613,
+        "army": 293,
+        "deployed": 0,
+        "queueCount": 0,
+        "bone": 1372,
+        "medal": 944,
+        "deed": 0,
+        "hide": 107,
+        "alert": 3930,
+        "level": 31,
+        "progress": 4,
+        "charges": 2,
+        "clock": 354,
+        "scroll": 3,
+        "rng": 3834198422
+      },
+      "logout": {
+        "timeMs": 1793065801000,
+        "tick": 11292613,
+        "army": 293,
+        "deployed": 0,
+        "queueCount": 379,
+        "bone": 1372,
+        "medal": 944,
+        "deed": 0,
+        "hide": 107,
+        "alert": 3930,
+        "level": 31,
+        "progress": 4,
+        "charges": 2,
+        "clock": 354,
+        "scroll": 3,
+        "rng": 3834198422
+      },
+      "logoutStock": {
+        "food": 401280,
+        "wood": 19345,
+        "stone": 1025770,
+        "coal": 270633.25,
+        "copper": 1958349.4499984041,
+        "iron": 769726,
+        "steel": 3071,
+        "gold": 4058.637500000069
+      },
+      "allocation": {
+        "wood": 0,
+        "stone": 0,
+        "food": 100,
+        "coal": 0,
+        "copper": 0,
+        "iron": 0,
+        "silver": 0,
+        "gold": 0,
+        "steel": 902,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "logoutSaveSha256": "1dd9fc45ff07be066638344c301872d77f330b22b808e2bbdfd0016e70eb0a8f",
+      "settlement": {
+        "durationSec": 14400,
+        "gains": {
+          "stone": -147206.39999998733,
+          "coal": -147206.40000000293,
+          "copper": -622000,
+          "iron": -769206.3999999975,
+          "gold": -3800,
+          "steel": 34928.80000000001,
+          "deed": 4536,
+          "medal": 7560,
+          "bone": 30240
+        },
+        "produced": 212
+      },
+      "arrival": {
+        "timeMs": 1793080201000,
+        "tick": 11307013,
+        "army": 505,
+        "deployed": 0,
+        "queueCount": 167,
+        "bone": 31612,
+        "medal": 8504,
+        "deed": 4536,
+        "hide": 107,
+        "alert": 3930,
+        "level": 31,
+        "progress": 4,
+        "charges": 5,
+        "clock": 354,
+        "scroll": 3,
+        "rng": 2007988439
+      },
+      "arrivalStock": {
+        "food": 401280,
+        "wood": 19345,
+        "stone": 878563.6000000127,
+        "coal": 123426.84999999705,
+        "copper": 1336349.4499984041,
+        "iron": 519.6000000025732,
+        "steel": 37999.80000000001,
+        "gold": 258.63750000006894
+      },
+      "arrivalQueue": {
+        "electro_trooper": {
+          "count": 12,
+          "timer": 0.5,
+          "reason": "资源不足，暂停生产"
+        },
+        "star_trooper": {
+          "count": 155,
+          "timer": 0.5,
+          "reason": "资源不足，暂停生产"
+        }
+      },
+      "offlineTrainingPaid": {
+        "food": 120500,
+        "gold": 3800,
+        "steel": 627500,
+        "copper": 622000,
+        "iron": 622000
+      },
+      "settledSaveSha256": "32ec7a961ee9271973b956a71b70de8a92fa4a1ded5d48fff6a4fac765e0c8cb",
+      "repairSeconds": 1340,
+      "totalActiveSeconds": 2890,
+      "finalRepair": {
+        "before": {
+          "timeMs": 1793080201000,
+          "tick": 11307013,
+          "army": 505,
+          "deployed": 0,
+          "queueCount": 0,
+          "bone": 31612,
+          "medal": 8504,
+          "deed": 4536,
+          "hide": 107,
+          "alert": 3930,
+          "level": 31,
+          "progress": 4,
+          "charges": 5,
+          "clock": 354,
+          "scroll": 3,
+          "rng": 2007988439
+        },
+        "beforeStock": {
+          "food": 401280,
+          "wood": 19345,
+          "stone": 878563.6000000127,
+          "coal": 123426.84999999705,
+          "copper": 1336349.4499984041,
+          "iron": 519.6000000025732,
+          "steel": 37999.80000000001,
+          "gold": 258.63750000006894
+        },
+        "losses": {
+          "star_trooper": 155,
+          "armored_trooper": 0,
+          "electro_trooper": 12,
+          "alloy_special": 0,
+          "gold_cavalry": 0,
+          "archer": 0
+        },
+        "expected": {
+          "steel": 1336000,
+          "iron": 1336000,
+          "copper": 1336000
+        },
+        "actual": {
+          "steel": 1336000,
+          "iron": 1336000,
+          "copper": 1336000
+        },
+        "after": {
+          "timeMs": 1793081541000,
+          "tick": 11308353,
+          "army": 672,
+          "deployed": 626,
+          "queueCount": 0,
+          "bone": 31612,
+          "medal": 8504,
+          "deed": 4536,
+          "hide": 107,
+          "alert": 3930,
+          "level": 31,
+          "progress": 4,
+          "charges": 5,
+          "clock": 214,
+          "scroll": 3,
+          "rng": 688570636
+        },
+        "afterStock": {
+          "food": 401280,
+          "wood": 19345,
+          "stone": 668397.6000000127,
+          "coal": 96254.09999999707,
+          "copper": 349.4499984041322,
+          "iron": 884341.6000000024,
+          "steel": 879.8000000000466,
+          "gold": 258.63750000006894
+        },
+        "seconds": 1340
+      },
+      "final": {
+        "timeMs": 1793081541000,
+        "tick": 11308353,
+        "army": 672,
+        "deployed": 626,
+        "queueCount": 0,
+        "bone": 31612,
+        "medal": 8504,
+        "deed": 4536,
+        "hide": 107,
+        "alert": 3930,
+        "level": 31,
+        "progress": 4,
+        "charges": 5,
+        "clock": 214,
+        "scroll": 3,
+        "rng": 688570636
+      },
+      "finalStock": {
+        "food": 401280,
+        "wood": 19345,
+        "stone": 668397.6000000127,
+        "coal": 96254.09999999707,
+        "copper": 349.4499984041322,
+        "iron": 884341.6000000024,
+        "steel": 879.8000000000466,
+        "gold": 258.63750000006894
+      },
+      "finalSaveSha256": "b99bd9363b29e576687c32ddefe8a865f1ecb94b8d96f3b8086fa8b26e1b7cca",
+      "minFood": 401280,
+      "phases": {
+        "wood": 0,
+        "stone": 195,
+        "coal": 1256,
+        "iron": 935,
+        "steel": 582,
+        "copper": 1352,
+        "gold": 7,
+        "food": 0,
+        "tech": 172
+      }
+    },
+    {
+      "policy": "full-prestock",
+      "codeHashes": {
+        "config": "8e40ccc41ab96156db291ce74560981d875b304703fffb89c4139d5e23001675",
+        "math": "dc0bcdee534853368cb3c576e6020e1c85ab7be00052241136605897e91b0c95"
+      },
+      "sourceSha256": "ca734f8b6dfa88dc22a0ec7a7367800fb4422a27b55c594444e08b27fc6806e8",
+      "rosterSha256": "9c0e33ebca8ebd4874fbbe5aa4c64d87972040e61a6abbed629e999b056a9ebd",
+      "firstRepairSeconds": 1609,
+      "battle": {
+        "result": "win",
+        "armyAfter": 293,
+        "casualties": 379,
+        "saveSha256": "ff04cdb5e54e997ed1f84993df399fa6a296cf299aeedfec14907995bd73d6a7"
+      },
+      "battleStock": {
+        "food": 401280,
+        "wood": 19345,
+        "stone": 233814,
+        "coal": 129921.25,
+        "copper": 490.79999843215046,
+        "iron": 769726,
+        "steel": 3071,
+        "gold": 151.85000000006812
+      },
+      "requested": {
+        "star_trooper": 155,
+        "armored_trooper": 55,
+        "electro_trooper": 76,
+        "alloy_special": 55,
+        "gold_cavalry": 38
+      },
+      "totalCost": {
+        "copper": 1958000,
+        "iron": 1958000,
+        "steel": 1963500,
+        "food": 120500,
+        "gold": 3800
+      },
+      "caps": {
+        "copper": 2895552,
+        "iron": 4796352,
+        "steel": 1922976,
+        "food": 401280,
+        "gold": 291456
+      },
+      "preparationSeconds": 2751,
+      "preparedStock": {
+        "food": 401280,
+        "wood": 19345,
+        "stone": 1001416.4444444445,
+        "coal": 349558.69444444444,
+        "copper": 1958349.4499984041,
+        "iron": 1958562.4444444445,
+        "steel": 1922976,
+        "gold": 4058.637500000069
+      },
+      "beforeQueue": {
+        "timeMs": 1793067002000,
+        "tick": 11293814,
+        "army": 293,
+        "deployed": 0,
+        "queueCount": 0,
+        "bone": 1372,
+        "medal": 944,
+        "deed": 0,
+        "hide": 107,
+        "alert": 3930,
+        "level": 31,
+        "progress": 4,
+        "charges": 3,
+        "clock": 353,
+        "scroll": 3,
+        "rng": 3017013542
+      },
+      "logout": {
+        "timeMs": 1793067002000,
+        "tick": 11293814,
+        "army": 293,
+        "deployed": 0,
+        "queueCount": 379,
+        "bone": 1372,
+        "medal": 944,
+        "deed": 0,
+        "hide": 107,
+        "alert": 3930,
+        "level": 31,
+        "progress": 4,
+        "charges": 3,
+        "clock": 353,
+        "scroll": 3,
+        "rng": 3017013542
+      },
+      "logoutStock": {
+        "food": 401280,
+        "wood": 19345,
+        "stone": 1001416.4444444445,
+        "coal": 349558.69444444444,
+        "copper": 1958349.4499984041,
+        "iron": 1958562.4444444445,
+        "steel": 1922976,
+        "gold": 4058.637500000069
+      },
+      "allocation": {
+        "wood": 0,
+        "stone": 0,
+        "food": 100,
+        "coal": 0,
+        "copper": 0,
+        "iron": 0,
+        "silver": 0,
+        "gold": 0,
+        "steel": 902,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "logoutSaveSha256": "423b8044a5d3785a1950936cae00cb2451c4c3a3a5fa4d36f5fca81995f848d6",
+      "settlement": {
+        "durationSec": 14400,
+        "gains": {
+          "stone": -40048.799999996554,
+          "coal": -40048.80000000086,
+          "copper": -1918000,
+          "iron": -1958048.7999999982,
+          "gold": -3800,
+          "steel": -1743280.4000000013,
+          "deed": 4536,
+          "medal": 7560,
+          "bone": 30240
+        },
+        "produced": 374
+      },
+      "arrival": {
+        "timeMs": 1793081402000,
+        "tick": 11308214,
+        "army": 667,
+        "deployed": 0,
+        "queueCount": 5,
+        "bone": 31612,
+        "medal": 8504,
+        "deed": 4536,
+        "hide": 107,
+        "alert": 3930,
+        "level": 31,
+        "progress": 4,
+        "charges": 5,
+        "clock": 353,
+        "scroll": 3,
+        "rng": 688570636
+      },
+      "arrivalStock": {
+        "food": 401280,
+        "wood": 19345,
+        "stone": 961367.644444448,
+        "coal": 309509.8944444436,
+        "copper": 40349.44999840413,
+        "iron": 513.6444444462359,
+        "steel": 179695.59999999867,
+        "gold": 258.63750000006894
+      },
+      "arrivalQueue": {
+        "star_trooper": {
+          "count": 5,
+          "timer": 0.5,
+          "reason": "资源不足，暂停生产"
+        }
+      },
+      "offlineTrainingPaid": {
+        "food": 120500,
+        "gold": 3800,
+        "steel": 1923500,
+        "copper": 1918000,
+        "iron": 1918000
+      },
+      "settledSaveSha256": "a2cc9f904106e709a1ccdbdbd5ec04edea474263bc3e6c0f8806b117b8934468",
+      "repairSeconds": 13,
+      "totalActiveSeconds": 2764,
+      "finalRepair": {
+        "before": {
+          "timeMs": 1793081402000,
+          "tick": 11308214,
+          "army": 667,
+          "deployed": 0,
+          "queueCount": 0,
+          "bone": 31612,
+          "medal": 8504,
+          "deed": 4536,
+          "hide": 107,
+          "alert": 3930,
+          "level": 31,
+          "progress": 4,
+          "charges": 5,
+          "clock": 353,
+          "scroll": 3,
+          "rng": 688570636
+        },
+        "beforeStock": {
+          "food": 401280,
+          "wood": 19345,
+          "stone": 961367.644444448,
+          "coal": 309509.8944444436,
+          "copper": 40349.44999840413,
+          "iron": 513.6444444462359,
+          "steel": 179695.59999999867,
+          "gold": 258.63750000006894
+        },
+        "losses": {
+          "star_trooper": 5,
+          "armored_trooper": 0,
+          "electro_trooper": 0,
+          "alloy_special": 0,
+          "gold_cavalry": 0,
+          "archer": 0
+        },
+        "expected": {
+          "steel": 40000,
+          "iron": 40000,
+          "copper": 40000
+        },
+        "actual": {
+          "steel": 40000,
+          "iron": 40000,
+          "copper": 40000
+        },
+        "after": {
+          "timeMs": 1793081415000,
+          "tick": 11308227,
+          "army": 672,
+          "deployed": 626,
+          "queueCount": 0,
+          "bone": 31612,
+          "medal": 8504,
+          "deed": 4536,
+          "hide": 107,
+          "alert": 3930,
+          "level": 31,
+          "progress": 4,
+          "charges": 5,
+          "clock": 340,
+          "scroll": 3,
+          "rng": 688570636
+        },
+        "afterStock": {
+          "food": 401280,
+          "wood": 19345,
+          "stone": 943327.644444448,
+          "coal": 300489.8944444436,
+          "copper": 349.4499984041322,
+          "iron": 1103.6444444462395,
+          "steel": 139695.59999999867,
+          "gold": 258.63750000006894
+        },
+        "seconds": 13
+      },
+      "final": {
+        "timeMs": 1793081415000,
+        "tick": 11308227,
+        "army": 672,
+        "deployed": 626,
+        "queueCount": 0,
+        "bone": 31612,
+        "medal": 8504,
+        "deed": 4536,
+        "hide": 107,
+        "alert": 3930,
+        "level": 31,
+        "progress": 4,
+        "charges": 5,
+        "clock": 340,
+        "scroll": 3,
+        "rng": 688570636
+      },
+      "finalStock": {
+        "food": 401280,
+        "wood": 19345,
+        "stone": 943327.644444448,
+        "coal": 300489.8944444436,
+        "copper": 349.4499984041322,
+        "iron": 1103.6444444462395,
+        "steel": 139695.59999999867,
+        "gold": 258.63750000006894
+      },
+      "finalSaveSha256": "90e67d60347fa9e1c3f292d97f84251593ee901343b9675eda9496bb54cc39ac",
+      "minFood": 401280,
+      "phases": {
+        "wood": 0,
+        "stone": 192,
+        "coal": 1271,
+        "iron": 725,
+        "steel": 735,
+        "copper": 1352,
+        "gold": 7,
+        "food": 0,
+        "tech": 91
+      }
+    },
+    {
+      "policy": "full-prestock-iron-steel",
+      "codeHashes": {
+        "config": "8e40ccc41ab96156db291ce74560981d875b304703fffb89c4139d5e23001675",
+        "math": "dc0bcdee534853368cb3c576e6020e1c85ab7be00052241136605897e91b0c95"
+      },
+      "sourceSha256": "ca734f8b6dfa88dc22a0ec7a7367800fb4422a27b55c594444e08b27fc6806e8",
+      "rosterSha256": "9c0e33ebca8ebd4874fbbe5aa4c64d87972040e61a6abbed629e999b056a9ebd",
+      "firstRepairSeconds": 1609,
+      "battle": {
+        "result": "win",
+        "armyAfter": 293,
+        "casualties": 379,
+        "saveSha256": "ff04cdb5e54e997ed1f84993df399fa6a296cf299aeedfec14907995bd73d6a7"
+      },
+      "battleStock": {
+        "food": 401280,
+        "wood": 19345,
+        "stone": 233814,
+        "coal": 129921.25,
+        "copper": 490.79999843215046,
+        "iron": 769726,
+        "steel": 3071,
+        "gold": 151.85000000006812
+      },
+      "requested": {
+        "star_trooper": 155,
+        "armored_trooper": 55,
+        "electro_trooper": 76,
+        "alloy_special": 55,
+        "gold_cavalry": 38
+      },
+      "totalCost": {
+        "copper": 1958000,
+        "iron": 1958000,
+        "steel": 1963500,
+        "food": 120500,
+        "gold": 3800
+      },
+      "caps": {
+        "copper": 2895552,
+        "iron": 4796352,
+        "steel": 1922976,
+        "food": 401280,
+        "gold": 291456
+      },
+      "preparationSeconds": 2751,
+      "preparedStock": {
+        "food": 401280,
+        "wood": 19345,
+        "stone": 1001416.4444444445,
+        "coal": 349558.69444444444,
+        "copper": 1958349.4499984041,
+        "iron": 1958562.4444444445,
+        "steel": 1922976,
+        "gold": 4058.637500000069
+      },
+      "beforeQueue": {
+        "timeMs": 1793067002000,
+        "tick": 11293814,
+        "army": 293,
+        "deployed": 0,
+        "queueCount": 0,
+        "bone": 1372,
+        "medal": 944,
+        "deed": 0,
+        "hide": 107,
+        "alert": 3930,
+        "level": 31,
+        "progress": 4,
+        "charges": 3,
+        "clock": 353,
+        "scroll": 3,
+        "rng": 3017013542
+      },
+      "logout": {
+        "timeMs": 1793067002000,
+        "tick": 11293814,
+        "army": 293,
+        "deployed": 0,
+        "queueCount": 379,
+        "bone": 1372,
+        "medal": 944,
+        "deed": 0,
+        "hide": 107,
+        "alert": 3930,
+        "level": 31,
+        "progress": 4,
+        "charges": 3,
+        "clock": 353,
+        "scroll": 3,
+        "rng": 3017013542
+      },
+      "logoutStock": {
+        "food": 401280,
+        "wood": 19345,
+        "stone": 1001416.4444444445,
+        "coal": 349558.69444444444,
+        "copper": 1958349.4499984041,
+        "iron": 1958562.4444444445,
+        "steel": 1922976,
+        "gold": 4058.637500000069
+      },
+      "allocation": {
+        "wood": 0,
+        "stone": 0,
+        "food": 100,
+        "coal": 0,
+        "copper": 0,
+        "iron": 450,
+        "silver": 0,
+        "gold": 0,
+        "steel": 452,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "logoutSaveSha256": "ee61659dff5b8275d5685a7184684c03002ba87724256095efe9535c3807585d",
+      "settlement": {
+        "durationSec": 14400,
+        "gains": {
+          "stone": -523763.9999999733,
+          "coal": -349344.0000000042,
+          "copper": -1958000,
+          "iron": -1348033.9999999986,
+          "gold": -3800,
+          "steel": -1176341.999999993,
+          "deed": 4536,
+          "medal": 7560,
+          "bone": 30240
+        },
+        "produced": 379
+      },
+      "arrival": {
+        "timeMs": 1793081402000,
+        "tick": 11308214,
+        "army": 672,
+        "deployed": 0,
+        "queueCount": 0,
+        "bone": 31612,
+        "medal": 8504,
+        "deed": 4536,
+        "hide": 107,
+        "alert": 3930,
+        "level": 31,
+        "progress": 4,
+        "charges": 5,
+        "clock": 353,
+        "scroll": 3,
+        "rng": 688570636
+      },
+      "arrivalStock": {
+        "food": 401280,
+        "wood": 19345,
+        "stone": 477652.4444444712,
+        "coal": 214.6944444402455,
+        "copper": 349.4499984041322,
+        "iron": 610528.4444444459,
+        "steel": 746634.0000000069,
+        "gold": 258.63750000006894
+      },
+      "arrivalQueue": {},
+      "offlineTrainingPaid": {
+        "food": 120500,
+        "gold": 3800,
+        "steel": 1963500,
+        "copper": 1958000,
+        "iron": 1958000
+      },
+      "settledSaveSha256": "c1f203a9d47d84869912ddc57721cbf847178e8284caef3d4f047674f297cc51",
+      "repairSeconds": 0,
+      "totalActiveSeconds": 2751,
+      "finalRepair": {
+        "before": {
+          "timeMs": 1793081402000,
+          "tick": 11308214,
+          "army": 672,
+          "deployed": 0,
+          "queueCount": 0,
+          "bone": 31612,
+          "medal": 8504,
+          "deed": 4536,
+          "hide": 107,
+          "alert": 3930,
+          "level": 31,
+          "progress": 4,
+          "charges": 5,
+          "clock": 353,
+          "scroll": 3,
+          "rng": 688570636
+        },
+        "beforeStock": {
+          "food": 401280,
+          "wood": 19345,
+          "stone": 477652.4444444712,
+          "coal": 214.6944444402455,
+          "copper": 349.4499984041322,
+          "iron": 610528.4444444459,
+          "steel": 746634.0000000069,
+          "gold": 258.63750000006894
+        },
+        "losses": {
+          "star_trooper": 0,
+          "armored_trooper": 0,
+          "electro_trooper": 0,
+          "alloy_special": 0,
+          "gold_cavalry": 0,
+          "archer": 0
+        },
+        "expected": {},
+        "actual": {},
+        "after": {
+          "timeMs": 1793081402000,
+          "tick": 11308214,
+          "army": 672,
+          "deployed": 626,
+          "queueCount": 0,
+          "bone": 31612,
+          "medal": 8504,
+          "deed": 4536,
+          "hide": 107,
+          "alert": 3930,
+          "level": 31,
+          "progress": 4,
+          "charges": 5,
+          "clock": 353,
+          "scroll": 3,
+          "rng": 688570636
+        },
+        "afterStock": {
+          "food": 401280,
+          "wood": 19345,
+          "stone": 477652.4444444712,
+          "coal": 214.6944444402455,
+          "copper": 349.4499984041322,
+          "iron": 610528.4444444459,
+          "steel": 746634.0000000069,
+          "gold": 258.63750000006894
+        },
+        "seconds": 0
+      },
+      "final": {
+        "timeMs": 1793081402000,
+        "tick": 11308214,
+        "army": 672,
+        "deployed": 626,
+        "queueCount": 0,
+        "bone": 31612,
+        "medal": 8504,
+        "deed": 4536,
+        "hide": 107,
+        "alert": 3930,
+        "level": 31,
+        "progress": 4,
+        "charges": 5,
+        "clock": 353,
+        "scroll": 3,
+        "rng": 688570636
+      },
+      "finalStock": {
+        "food": 401280,
+        "wood": 19345,
+        "stone": 477652.4444444712,
+        "coal": 214.6944444402455,
+        "copper": 349.4499984041322,
+        "iron": 610528.4444444459,
+        "steel": 746634.0000000069,
+        "gold": 258.63750000006894
+      },
+      "finalSaveSha256": "7c75b79d3de1a5eec61c2bd824cae8c530a43febb97cd5bcca62d95842e2d1c0",
+      "minFood": 401280,
+      "phases": {
+        "wood": 0,
+        "stone": 192,
+        "coal": 1271,
+        "iron": 715,
+        "steel": 735,
+        "copper": 1352,
+        "gold": 7,
+        "food": 0,
+        "tech": 88
+      }
+    }
+  ],
+  "limits": [
+    "One P342 late-game save and deterministic first battle; not a fresh-save or retention estimate.",
+    "Every candidate pays actual preparation and repair time through the shipped tick, worker, train, queue and settleOffline paths.",
+    "Only one fixed worker allocation can run during the offline window; no automated mid-window reassignment is assumed.",
+    "The game does not provide automatic replenishment from the P348 bone/medal/deed grant to copper, iron or steel.",
+    "VM localStorage, DOM and timers do not prove browser/Android behavior."
+  ]
+}

@@ -1,0 +1,3620 @@
+{
+  "batch": "P360",
+  "date": "2026-09-29",
+  "unit": "soldiers, resources, callback steps",
+  "codeHashes": {
+    "config.js": "8e40ccc41ab96156db291ce74560981d875b304703fffb89c4139d5e23001675",
+    "levels.js": "9ef3e47bae99242e70970fc9c0f86912301aabdb6ed4fef9e4e18250293c1cc1",
+    "math.js": "dc0bcdee534853368cb3c576e6020e1c85ab7be00052241136605897e91b0c95",
+    "garrison.js": "762da86c67c0bfb1ef0c5a519a7fad57a8f8e4f7ad6c5045f4736c2b650739a9",
+    "technology.js": "9cfda541f49011a676674fb2740b12af63812542a1ce872dcafc57eb4330bf98",
+    "tests/progression/harness.js": "4770d17fa72cc8c87f4c8ef79678f19d63a41da895b8dd58776e5a39ce2ede2b"
+  },
+  "sourceFile": "docs/codex/reports/data/p354-wood-5-coal-235-full-queue-4h-save.json",
+  "sourceSha256": "8727dcc7934d728ca9c5f876c0b6fb8a3d0133bc31f34649564c6cdf258359cf",
+  "rosterFile": "docs/codex/reports/data/p329-soul-refreshed-save.json",
+  "rosterSha256": "9c0e33ebca8ebd4874fbbe5aa4c64d87972040e61a6abbed629e999b056a9ebd",
+  "method": {
+    "streamCount": 128,
+    "seedDerivation": "uint32be(first 4 bytes of SHA-256 UTF-8 \"P360|<sourceSha256>|<zero-based index>\"); zero becomes one",
+    "rng": "per-VM xorshift32, seeded immediately before openMaterialDomain; fixed Date.now=source.ts",
+    "battle": "real formation actions, openMaterialDomain('wyrmSinew'), queued battle callbacks, real endBattle/save and independent reload"
+  },
+  "initial": {
+    "army": 672,
+    "deployed": 626,
+    "alert": 3930,
+    "bone": 61852,
+    "hide": 107,
+    "medal": 16064
+  },
+  "summary": {
+    "wins": 96,
+    "losses": 32,
+    "casualtiesAll": {
+      "min": 139,
+      "median": 392,
+      "max": 626,
+      "mean": 392.4765625
+    },
+    "casualtiesWins": {
+      "min": 139,
+      "median": 313,
+      "max": 571,
+      "mean": 314.6354166666667
+    },
+    "casualtiesLosses": {
+      "min": 626,
+      "median": 626,
+      "max": 626,
+      "mean": 626
+    },
+    "callbacks": {
+      "min": 12,
+      "median": 21,
+      "max": 28,
+      "mean": 19.359375
+    },
+    "rngDraws": {
+      "min": 47,
+      "median": 79,
+      "max": 98,
+      "mean": 72.171875
+    },
+    "enemyHpAfterWins": {
+      "min": 0,
+      "median": 0,
+      "max": 0,
+      "mean": 0
+    },
+    "enemyHpAfterLosses": {
+      "min": 19,
+      "median": 33,
+      "max": 127,
+      "mean": 49.78125
+    },
+    "boneRewardWins": {
+      "min": 668,
+      "median": 668,
+      "max": 668,
+      "mean": 668
+    },
+    "hideRewardWins": {
+      "min": 89,
+      "median": 89,
+      "max": 89,
+      "mean": 89
+    },
+    "medalRewardWins": {
+      "min": 0,
+      "median": 0,
+      "max": 0,
+      "mean": 0
+    },
+    "bonusItemRewardWins": {
+      "wyrmSinew": {
+        "streams": 77,
+        "total": 1925
+      }
+    },
+    "alertDeltaValues": [
+      0,
+      10
+    ]
+  },
+  "streams": [
+    {
+      "index": 0,
+      "seed": 2762594697,
+      "result": "win",
+      "callbacks": 21,
+      "rngDraws": 79,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 387,
+      "survivors": 239,
+      "armyAfter": 285,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "5a21b02d7a99aea44cd7691f47aea5e80ffe96b5c228df2ca8a5e9e474299c87"
+    },
+    {
+      "index": 1,
+      "seed": 2015706992,
+      "result": "win",
+      "callbacks": 13,
+      "rngDraws": 52,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 184,
+      "survivors": 442,
+      "armyAfter": 488,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "139087a104111c9c4f153ee5337412f7a6137f3427f48419370306898c809801"
+    },
+    {
+      "index": 2,
+      "seed": 2039832401,
+      "result": "lose",
+      "callbacks": 21,
+      "rngDraws": 70,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 124,
+      "casualties": 626,
+      "survivors": 0,
+      "armyAfter": 46,
+      "reward": {
+        "bone": 0,
+        "hide": 0,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3930,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "3a1f5eaf03e1593f60a392ced7048a777f1565dc0c7d52ba601414690a9e3bbe"
+    },
+    {
+      "index": 3,
+      "seed": 851385270,
+      "result": "win",
+      "callbacks": 12,
+      "rngDraws": 49,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 181,
+      "survivors": 445,
+      "armyAfter": 491,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "1ea5b57d7b75a33b8935f3d6b79a881a53c639ad767d824d472bdf66e30ff9ec"
+    },
+    {
+      "index": 4,
+      "seed": 1106295663,
+      "result": "win",
+      "callbacks": 12,
+      "rngDraws": 49,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 175,
+      "survivors": 451,
+      "armyAfter": 497,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "c68ba2de63dc563a94c448a038922cd8f5c8738934db30b0d743d9ca16c9d6d0"
+    },
+    {
+      "index": 5,
+      "seed": 1096978797,
+      "result": "win",
+      "callbacks": 23,
+      "rngDraws": 85,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 398,
+      "survivors": 228,
+      "armyAfter": 274,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "e294d3a23586612241b232d84aac1b6914c560f8f7cbee8e8ab11db7c51d093b"
+    },
+    {
+      "index": 6,
+      "seed": 1741602076,
+      "result": "lose",
+      "callbacks": 25,
+      "rngDraws": 88,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 26,
+      "casualties": 626,
+      "survivors": 0,
+      "armyAfter": 46,
+      "reward": {
+        "bone": 0,
+        "hide": 0,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3930,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "3a1f5eaf03e1593f60a392ced7048a777f1565dc0c7d52ba601414690a9e3bbe"
+    },
+    {
+      "index": 7,
+      "seed": 490446477,
+      "result": "win",
+      "callbacks": 23,
+      "rngDraws": 85,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 516,
+      "survivors": 110,
+      "armyAfter": 156,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "bc7035629d25708a5f59d62c65c2fba0e997268acded24654bfe658a834a56a7"
+    },
+    {
+      "index": 8,
+      "seed": 3350635923,
+      "result": "lose",
+      "callbacks": 23,
+      "rngDraws": 80,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 69,
+      "casualties": 626,
+      "survivors": 0,
+      "armyAfter": 46,
+      "reward": {
+        "bone": 0,
+        "hide": 0,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3930,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "3a1f5eaf03e1593f60a392ced7048a777f1565dc0c7d52ba601414690a9e3bbe"
+    },
+    {
+      "index": 9,
+      "seed": 1578641067,
+      "result": "win",
+      "callbacks": 13,
+      "rngDraws": 52,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 164,
+      "survivors": 462,
+      "armyAfter": 508,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "9009bf92156a5ed3c53a8bbb59fda9d9b2a36a9c0409f05e3d968e5f4baee2ab"
+    },
+    {
+      "index": 10,
+      "seed": 2579550532,
+      "result": "win",
+      "callbacks": 23,
+      "rngDraws": 85,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 571,
+      "survivors": 55,
+      "armyAfter": 101,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "01e756beb630ffaef66bf334051b0b4085f7ab8ba95e1486bf4f5c137c968599"
+    },
+    {
+      "index": 11,
+      "seed": 21879562,
+      "result": "win",
+      "callbacks": 21,
+      "rngDraws": 79,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 461,
+      "survivors": 165,
+      "armyAfter": 211,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "ff5eab56bfb9c7d21ae7e5c14aeed8e2fd9667cef87664db2a8d21f2ae35740e"
+    },
+    {
+      "index": 12,
+      "seed": 2626186307,
+      "result": "win",
+      "callbacks": 19,
+      "rngDraws": 71,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 241,
+      "survivors": 385,
+      "armyAfter": 431,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "b4790ed469356c0e540097792323f90c699c251cdc67cb1abc6f052199820279"
+    },
+    {
+      "index": 13,
+      "seed": 2933153859,
+      "result": "win",
+      "callbacks": 13,
+      "rngDraws": 52,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 196,
+      "survivors": 430,
+      "armyAfter": 476,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "009c4762278690f1b830f5b29870b18dc43001605836b3abd1bcbb050c01acc5"
+    },
+    {
+      "index": 14,
+      "seed": 4184080660,
+      "result": "win",
+      "callbacks": 23,
+      "rngDraws": 85,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 516,
+      "survivors": 110,
+      "armyAfter": 156,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "9cd47b9eff3c4a3c34937390da6c3ab72ce1e75f7aa11c79b1eee5304e93571c"
+    },
+    {
+      "index": 15,
+      "seed": 499424744,
+      "result": "win",
+      "callbacks": 21,
+      "rngDraws": 79,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 461,
+      "survivors": 165,
+      "armyAfter": 211,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "dde8db2f1bb785f0686181b567bf2a7264c2295792dd2e309e0ff3beda93aa37"
+    },
+    {
+      "index": 16,
+      "seed": 3083552941,
+      "result": "lose",
+      "callbacks": 23,
+      "rngDraws": 81,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 30,
+      "casualties": 626,
+      "survivors": 0,
+      "armyAfter": 46,
+      "reward": {
+        "bone": 0,
+        "hide": 0,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3930,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "3a1f5eaf03e1593f60a392ced7048a777f1565dc0c7d52ba601414690a9e3bbe"
+    },
+    {
+      "index": 17,
+      "seed": 2460305782,
+      "result": "win",
+      "callbacks": 12,
+      "rngDraws": 49,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 179,
+      "survivors": 447,
+      "armyAfter": 493,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "d5f5d6a814ecf216b9d5ac8b1171c60c43e2c26f07aa30ef9729e99cd59c7f78"
+    },
+    {
+      "index": 18,
+      "seed": 2964230425,
+      "result": "win",
+      "callbacks": 19,
+      "rngDraws": 68,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 344,
+      "survivors": 282,
+      "armyAfter": 328,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "9b342878e92850f12ee5d7acd00cb125dcd3228ca651db94e07e238f4fa01f7e"
+    },
+    {
+      "index": 19,
+      "seed": 738462085,
+      "result": "win",
+      "callbacks": 23,
+      "rngDraws": 85,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 516,
+      "survivors": 110,
+      "armyAfter": 156,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "4222e09686db27ccdc53c67894938def873c9bd687efc80cabc795960a604ff2"
+    },
+    {
+      "index": 20,
+      "seed": 4092916116,
+      "result": "win",
+      "callbacks": 23,
+      "rngDraws": 85,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 516,
+      "survivors": 110,
+      "armyAfter": 156,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "bc7035629d25708a5f59d62c65c2fba0e997268acded24654bfe658a834a56a7"
+    },
+    {
+      "index": 21,
+      "seed": 746625041,
+      "result": "win",
+      "callbacks": 13,
+      "rngDraws": 52,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 166,
+      "survivors": 460,
+      "armyAfter": 506,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "4d91329f9079ea7f5ea940ad25fe1477a5941cf7915ff95fa424ebcfa7a1f0fc"
+    },
+    {
+      "index": 22,
+      "seed": 4247390630,
+      "result": "win",
+      "callbacks": 21,
+      "rngDraws": 80,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 370,
+      "survivors": 256,
+      "armyAfter": 302,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "e06656355d8d056449c207c1c78a2107c5dd2b0f0de9537f697e717f9f81ab06"
+    },
+    {
+      "index": 23,
+      "seed": 3361539109,
+      "result": "win",
+      "callbacks": 21,
+      "rngDraws": 79,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 399,
+      "survivors": 227,
+      "armyAfter": 273,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "900119f1f80260c4f9f516e1329a4f64935cdcd8ef72b85c69171da2063b76f1"
+    },
+    {
+      "index": 24,
+      "seed": 1092376195,
+      "result": "win",
+      "callbacks": 13,
+      "rngDraws": 52,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 193,
+      "survivors": 433,
+      "armyAfter": 479,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "2c0c95275ef21ebbd2bdc447a2fcd3589979aa832bb416a83a4469bf58a0902d"
+    },
+    {
+      "index": 25,
+      "seed": 3724994413,
+      "result": "win",
+      "callbacks": 21,
+      "rngDraws": 79,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 393,
+      "survivors": 233,
+      "armyAfter": 279,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "d93d99e028d5eb576ef023bb4974f20b3aa323398a9406cd9e88a9dce1d50d87"
+    },
+    {
+      "index": 26,
+      "seed": 1176410134,
+      "result": "win",
+      "callbacks": 21,
+      "rngDraws": 77,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 361,
+      "survivors": 265,
+      "armyAfter": 311,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "11a782e609feb4e1a275b42cdc6ca7af18cb670ec1430fe24b50039bbb9f27e0"
+    },
+    {
+      "index": 27,
+      "seed": 3197380745,
+      "result": "lose",
+      "callbacks": 25,
+      "rngDraws": 83,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 127,
+      "casualties": 626,
+      "survivors": 0,
+      "armyAfter": 46,
+      "reward": {
+        "bone": 0,
+        "hide": 0,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3930,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "3a1f5eaf03e1593f60a392ced7048a777f1565dc0c7d52ba601414690a9e3bbe"
+    },
+    {
+      "index": 28,
+      "seed": 411374184,
+      "result": "win",
+      "callbacks": 23,
+      "rngDraws": 85,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 402,
+      "survivors": 224,
+      "armyAfter": 270,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "bdf52d7bd99d78dee4925863714128439dcfedc7711a6d2f0914a188fb46176f"
+    },
+    {
+      "index": 29,
+      "seed": 307898824,
+      "result": "win",
+      "callbacks": 23,
+      "rngDraws": 85,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 516,
+      "survivors": 110,
+      "armyAfter": 156,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "081d70bd8672a9ddccded7c6ca7a797eedd90c50c89fc967e8e18bcc967d8a98"
+    },
+    {
+      "index": 30,
+      "seed": 2316865114,
+      "result": "win",
+      "callbacks": 19,
+      "rngDraws": 74,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 315,
+      "survivors": 311,
+      "armyAfter": 357,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "189d6c232f24a696c36e08f1b4da24794456cfb39013a2071d8572360bee54f8"
+    },
+    {
+      "index": 31,
+      "seed": 1815572797,
+      "result": "win",
+      "callbacks": 13,
+      "rngDraws": 52,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 204,
+      "survivors": 422,
+      "armyAfter": 468,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "0cdedda411d685e1b9e8b81e86d84139aafe07cd57446a6bfb27bfb3a6c4750c"
+    },
+    {
+      "index": 32,
+      "seed": 4185529063,
+      "result": "win",
+      "callbacks": 21,
+      "rngDraws": 79,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 461,
+      "survivors": 165,
+      "armyAfter": 211,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "17ed24ece945fd3f1037566564d941dabff0b99f2770d94d436ad1c9a495b673"
+    },
+    {
+      "index": 33,
+      "seed": 2011436492,
+      "result": "win",
+      "callbacks": 21,
+      "rngDraws": 79,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 461,
+      "survivors": 165,
+      "armyAfter": 211,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "c1514236e414ca2069720821d8cce0902ebeb41451c3d4973003498fcc3e0de8"
+    },
+    {
+      "index": 34,
+      "seed": 3009297481,
+      "result": "lose",
+      "callbacks": 24,
+      "rngDraws": 85,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 39,
+      "casualties": 626,
+      "survivors": 0,
+      "armyAfter": 46,
+      "reward": {
+        "bone": 0,
+        "hide": 0,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3930,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "3a1f5eaf03e1593f60a392ced7048a777f1565dc0c7d52ba601414690a9e3bbe"
+    },
+    {
+      "index": 35,
+      "seed": 2228276310,
+      "result": "win",
+      "callbacks": 21,
+      "rngDraws": 80,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 393,
+      "survivors": 233,
+      "armyAfter": 279,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "c0e749e5a45a6d4f6493ed87071be2af56bb436f0bd1ef4484d7e0ca740d711c"
+    },
+    {
+      "index": 36,
+      "seed": 2420222461,
+      "result": "win",
+      "callbacks": 12,
+      "rngDraws": 49,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 165,
+      "survivors": 461,
+      "armyAfter": 507,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "2c73667f29dff207f57a947565b4edadadb8e3437dd13a8d75951be48d47b9a1"
+    },
+    {
+      "index": 37,
+      "seed": 714188370,
+      "result": "win",
+      "callbacks": 12,
+      "rngDraws": 47,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 218,
+      "survivors": 408,
+      "armyAfter": 454,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "be2c5a626a2ffa60df20ad3a2bb34282b72f10d17b2ff6701e7ae2bd17742766"
+    },
+    {
+      "index": 38,
+      "seed": 671679861,
+      "result": "win",
+      "callbacks": 23,
+      "rngDraws": 85,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 402,
+      "survivors": 224,
+      "armyAfter": 270,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "8c811d7ebdb98577f05d4acb16112ee2118e8c6f9d8f118df0e7dc3377649dc5"
+    },
+    {
+      "index": 39,
+      "seed": 1875523304,
+      "result": "win",
+      "callbacks": 12,
+      "rngDraws": 49,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 172,
+      "survivors": 454,
+      "armyAfter": 500,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "e5c4bc29d906c105761771447a5d2bc6b7ebd68a2c8f83b894e8e06f201905d7"
+    },
+    {
+      "index": 40,
+      "seed": 865457114,
+      "result": "win",
+      "callbacks": 17,
+      "rngDraws": 64,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 196,
+      "survivors": 430,
+      "armyAfter": 476,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "ea2728fd97189f8c9eb76063fc3fce1b2f1b48a8b448318bc413498c2366d88c"
+    },
+    {
+      "index": 41,
+      "seed": 2598354109,
+      "result": "win",
+      "callbacks": 12,
+      "rngDraws": 49,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 181,
+      "survivors": 445,
+      "armyAfter": 491,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "05129a97ba4b2bc28e21b7dd225b7a60d1d86fe575a98e2a3b0590b664e8e7d4"
+    },
+    {
+      "index": 42,
+      "seed": 606797909,
+      "result": "lose",
+      "callbacks": 22,
+      "rngDraws": 76,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 81,
+      "casualties": 626,
+      "survivors": 0,
+      "armyAfter": 46,
+      "reward": {
+        "bone": 0,
+        "hide": 0,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3930,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "3a1f5eaf03e1593f60a392ced7048a777f1565dc0c7d52ba601414690a9e3bbe"
+    },
+    {
+      "index": 43,
+      "seed": 2626771465,
+      "result": "win",
+      "callbacks": 19,
+      "rngDraws": 73,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 313,
+      "survivors": 313,
+      "armyAfter": 359,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "da1be2185e024fb277630548bff20939b0cbd7c648afe40dc304860fa6516c6c"
+    },
+    {
+      "index": 44,
+      "seed": 2017548541,
+      "result": "win",
+      "callbacks": 21,
+      "rngDraws": 79,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 366,
+      "survivors": 260,
+      "armyAfter": 306,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "13b2c100f3599679dda0a26d10f948e044e70f5f9669d68ba698750d97950704"
+    },
+    {
+      "index": 45,
+      "seed": 3006311482,
+      "result": "win",
+      "callbacks": 17,
+      "rngDraws": 64,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 214,
+      "survivors": 412,
+      "armyAfter": 458,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "8d51d79ac22d89cc5d7660befaa687475aa5bf4e3232942d18bd9818803cf114"
+    },
+    {
+      "index": 46,
+      "seed": 26762320,
+      "result": "win",
+      "callbacks": 12,
+      "rngDraws": 49,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 171,
+      "survivors": 455,
+      "armyAfter": 501,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "ca59f61879ee09fe3e48f05cf487ec205185604fe99e392728c98c682363785c"
+    },
+    {
+      "index": 47,
+      "seed": 350733081,
+      "result": "lose",
+      "callbacks": 24,
+      "rngDraws": 85,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 26,
+      "casualties": 626,
+      "survivors": 0,
+      "armyAfter": 46,
+      "reward": {
+        "bone": 0,
+        "hide": 0,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3930,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "3a1f5eaf03e1593f60a392ced7048a777f1565dc0c7d52ba601414690a9e3bbe"
+    },
+    {
+      "index": 48,
+      "seed": 3689532039,
+      "result": "lose",
+      "callbacks": 23,
+      "rngDraws": 81,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 33,
+      "casualties": 626,
+      "survivors": 0,
+      "armyAfter": 46,
+      "reward": {
+        "bone": 0,
+        "hide": 0,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3930,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "3a1f5eaf03e1593f60a392ced7048a777f1565dc0c7d52ba601414690a9e3bbe"
+    },
+    {
+      "index": 49,
+      "seed": 2436694437,
+      "result": "win",
+      "callbacks": 13,
+      "rngDraws": 52,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 160,
+      "survivors": 466,
+      "armyAfter": 512,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "0a00e81852aae4ce49675a6b0dddf5c446b7f0d5dbb26bcaacc110c3a33bcec0"
+    },
+    {
+      "index": 50,
+      "seed": 2075155962,
+      "result": "win",
+      "callbacks": 13,
+      "rngDraws": 52,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 195,
+      "survivors": 431,
+      "armyAfter": 477,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "609c9c7409fdfc9278b3befb461a070ab6ef9dc5b2ef09eddcd934fcb1d60de6"
+    },
+    {
+      "index": 51,
+      "seed": 2191369568,
+      "result": "win",
+      "callbacks": 28,
+      "rngDraws": 98,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 571,
+      "survivors": 55,
+      "armyAfter": 101,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "53a977fe606c91352435b87f3f4d3afb4a1258c68f8071de2787fe09b594242f"
+    },
+    {
+      "index": 52,
+      "seed": 3998808114,
+      "result": "win",
+      "callbacks": 21,
+      "rngDraws": 80,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 396,
+      "survivors": 230,
+      "armyAfter": 276,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "7d9efb326253f39e3ccd917244a0e4b250e74d4dac18f67d334bbe5fe8ee4338"
+    },
+    {
+      "index": 53,
+      "seed": 3106078234,
+      "result": "win",
+      "callbacks": 23,
+      "rngDraws": 83,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 366,
+      "survivors": 260,
+      "armyAfter": 306,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "13b2c100f3599679dda0a26d10f948e044e70f5f9669d68ba698750d97950704"
+    },
+    {
+      "index": 54,
+      "seed": 2087464542,
+      "result": "lose",
+      "callbacks": 22,
+      "rngDraws": 77,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 32,
+      "casualties": 626,
+      "survivors": 0,
+      "armyAfter": 46,
+      "reward": {
+        "bone": 0,
+        "hide": 0,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3930,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "3a1f5eaf03e1593f60a392ced7048a777f1565dc0c7d52ba601414690a9e3bbe"
+    },
+    {
+      "index": 55,
+      "seed": 1957224495,
+      "result": "lose",
+      "callbacks": 23,
+      "rngDraws": 81,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 32,
+      "casualties": 626,
+      "survivors": 0,
+      "armyAfter": 46,
+      "reward": {
+        "bone": 0,
+        "hide": 0,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3930,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "3a1f5eaf03e1593f60a392ced7048a777f1565dc0c7d52ba601414690a9e3bbe"
+    },
+    {
+      "index": 56,
+      "seed": 3376873729,
+      "result": "win",
+      "callbacks": 17,
+      "rngDraws": 64,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 211,
+      "survivors": 415,
+      "armyAfter": 461,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "4b2e37dfd861caec63167b2e475ec4628b71ac4db57eef1c987117766efb6ac9"
+    },
+    {
+      "index": 57,
+      "seed": 1092834257,
+      "result": "win",
+      "callbacks": 12,
+      "rngDraws": 47,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 205,
+      "survivors": 421,
+      "armyAfter": 467,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "1ed3c85c6949ba36bdfd12308612c8897c53b1a9e6ded0488fb8e1ff1d57aceb"
+    },
+    {
+      "index": 58,
+      "seed": 2329918847,
+      "result": "win",
+      "callbacks": 22,
+      "rngDraws": 81,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 571,
+      "survivors": 55,
+      "armyAfter": 101,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "01e756beb630ffaef66bf334051b0b4085f7ab8ba95e1486bf4f5c137c968599"
+    },
+    {
+      "index": 59,
+      "seed": 3634724392,
+      "result": "win",
+      "callbacks": 13,
+      "rngDraws": 52,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 179,
+      "survivors": 447,
+      "armyAfter": 493,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "3a417fc625783e104831b0d2dae9a8145bac9031d6198134345fa9d1a46a3a7a"
+    },
+    {
+      "index": 60,
+      "seed": 1262467814,
+      "result": "win",
+      "callbacks": 17,
+      "rngDraws": 64,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 211,
+      "survivors": 415,
+      "armyAfter": 461,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "4b2e37dfd861caec63167b2e475ec4628b71ac4db57eef1c987117766efb6ac9"
+    },
+    {
+      "index": 61,
+      "seed": 694933950,
+      "result": "win",
+      "callbacks": 23,
+      "rngDraws": 84,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 461,
+      "survivors": 165,
+      "armyAfter": 211,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "dde8db2f1bb785f0686181b567bf2a7264c2295792dd2e309e0ff3beda93aa37"
+    },
+    {
+      "index": 62,
+      "seed": 333433295,
+      "result": "lose",
+      "callbacks": 27,
+      "rngDraws": 94,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 41,
+      "casualties": 626,
+      "survivors": 0,
+      "armyAfter": 46,
+      "reward": {
+        "bone": 0,
+        "hide": 0,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3930,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "3a1f5eaf03e1593f60a392ced7048a777f1565dc0c7d52ba601414690a9e3bbe"
+    },
+    {
+      "index": 63,
+      "seed": 4049453142,
+      "result": "lose",
+      "callbacks": 25,
+      "rngDraws": 88,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 32,
+      "casualties": 626,
+      "survivors": 0,
+      "armyAfter": 46,
+      "reward": {
+        "bone": 0,
+        "hide": 0,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3930,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "3a1f5eaf03e1593f60a392ced7048a777f1565dc0c7d52ba601414690a9e3bbe"
+    },
+    {
+      "index": 64,
+      "seed": 4042750552,
+      "result": "lose",
+      "callbacks": 24,
+      "rngDraws": 83,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 81,
+      "casualties": 626,
+      "survivors": 0,
+      "armyAfter": 46,
+      "reward": {
+        "bone": 0,
+        "hide": 0,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3930,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "3a1f5eaf03e1593f60a392ced7048a777f1565dc0c7d52ba601414690a9e3bbe"
+    },
+    {
+      "index": 65,
+      "seed": 557401525,
+      "result": "win",
+      "callbacks": 19,
+      "rngDraws": 73,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 322,
+      "survivors": 304,
+      "armyAfter": 350,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "e351a7700302aba34def5099ef967ec11748657038a99e114ab84af47b31afa4"
+    },
+    {
+      "index": 66,
+      "seed": 3636014492,
+      "result": "win",
+      "callbacks": 24,
+      "rngDraws": 91,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 333,
+      "survivors": 293,
+      "armyAfter": 339,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "274fb9182d2fb3eafac7afb4818de615f8ca4512b0cb24170b22c70a2685c800"
+    },
+    {
+      "index": 67,
+      "seed": 3566776879,
+      "result": "win",
+      "callbacks": 19,
+      "rngDraws": 73,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 270,
+      "survivors": 356,
+      "armyAfter": 402,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "81c8ad20c41094c34dbbb9eecaa8046b35ae666cdbaa26e63eb142cfa7c620e3"
+    },
+    {
+      "index": 68,
+      "seed": 3617102850,
+      "result": "win",
+      "callbacks": 19,
+      "rngDraws": 71,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 246,
+      "survivors": 380,
+      "armyAfter": 426,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "fdc77bc97ee5622392bfe1cf6dcd8766c7faee1fa22a32bcf3c3d794f4054d97"
+    },
+    {
+      "index": 69,
+      "seed": 2607459349,
+      "result": "win",
+      "callbacks": 21,
+      "rngDraws": 79,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 399,
+      "survivors": 227,
+      "armyAfter": 273,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "d6aebf0d14c8f491d8b9a53d6696bcbcdcd115622f4ee626bc1f71957b7b25c9"
+    },
+    {
+      "index": 70,
+      "seed": 2783693913,
+      "result": "lose",
+      "callbacks": 24,
+      "rngDraws": 85,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 32,
+      "casualties": 626,
+      "survivors": 0,
+      "armyAfter": 46,
+      "reward": {
+        "bone": 0,
+        "hide": 0,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3930,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "3a1f5eaf03e1593f60a392ced7048a777f1565dc0c7d52ba601414690a9e3bbe"
+    },
+    {
+      "index": 71,
+      "seed": 4075173967,
+      "result": "win",
+      "callbacks": 21,
+      "rngDraws": 79,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 388,
+      "survivors": 238,
+      "armyAfter": 284,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "d144bcd3f714d9027c52dc33b4c445a08cab4998ffba5eff49cfd98cbcb49ee4"
+    },
+    {
+      "index": 72,
+      "seed": 923972345,
+      "result": "win",
+      "callbacks": 22,
+      "rngDraws": 82,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 516,
+      "survivors": 110,
+      "armyAfter": 156,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "bc7035629d25708a5f59d62c65c2fba0e997268acded24654bfe658a834a56a7"
+    },
+    {
+      "index": 73,
+      "seed": 4137036812,
+      "result": "lose",
+      "callbacks": 21,
+      "rngDraws": 72,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 75,
+      "casualties": 626,
+      "survivors": 0,
+      "armyAfter": 46,
+      "reward": {
+        "bone": 0,
+        "hide": 0,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3930,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "3a1f5eaf03e1593f60a392ced7048a777f1565dc0c7d52ba601414690a9e3bbe"
+    },
+    {
+      "index": 74,
+      "seed": 2479330819,
+      "result": "win",
+      "callbacks": 12,
+      "rngDraws": 49,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 191,
+      "survivors": 435,
+      "armyAfter": 481,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "80848d072eb93afb2ca96cb99986ed4f23abffb1ba6dd0c7c22399f41bef5af9"
+    },
+    {
+      "index": 75,
+      "seed": 1266422250,
+      "result": "lose",
+      "callbacks": 23,
+      "rngDraws": 81,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 36,
+      "casualties": 626,
+      "survivors": 0,
+      "armyAfter": 46,
+      "reward": {
+        "bone": 0,
+        "hide": 0,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3930,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "3a1f5eaf03e1593f60a392ced7048a777f1565dc0c7d52ba601414690a9e3bbe"
+    },
+    {
+      "index": 76,
+      "seed": 1048195241,
+      "result": "win",
+      "callbacks": 23,
+      "rngDraws": 85,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 516,
+      "survivors": 110,
+      "armyAfter": 156,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "240574228bd50b65ae42312b5657505e9ea3717c3b59dc153bf6700264ed8f9e"
+    },
+    {
+      "index": 77,
+      "seed": 1432981939,
+      "result": "win",
+      "callbacks": 13,
+      "rngDraws": 52,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 213,
+      "survivors": 413,
+      "armyAfter": 459,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "fc25ea84a1eae32d7a0bb0e05fecede4bba49d7fcfd444eebba0194dbcc60eae"
+    },
+    {
+      "index": 78,
+      "seed": 3203918116,
+      "result": "win",
+      "callbacks": 21,
+      "rngDraws": 79,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 392,
+      "survivors": 234,
+      "armyAfter": 280,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "cc38c55ebdc21f8e24762ddcbdee9c410b115349805594500ac3f96a196307c8"
+    },
+    {
+      "index": 79,
+      "seed": 3811131909,
+      "result": "win",
+      "callbacks": 23,
+      "rngDraws": 85,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 406,
+      "survivors": 220,
+      "armyAfter": 266,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "fcf9d22d02435b22f4d846e1436a1b771840503f1e7b88cd2a2a7dbaf112821d"
+    },
+    {
+      "index": 80,
+      "seed": 1617862133,
+      "result": "win",
+      "callbacks": 13,
+      "rngDraws": 52,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 180,
+      "survivors": 446,
+      "armyAfter": 492,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "6becff56411af0471f795280dead9aceb28032fda805b250ecda28a68756cc48"
+    },
+    {
+      "index": 81,
+      "seed": 1487708484,
+      "result": "win",
+      "callbacks": 24,
+      "rngDraws": 88,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 571,
+      "survivors": 55,
+      "armyAfter": 101,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "1187bd1214e161ec13a850875048f6302769e45a899b4c103ba401d2c7a562ef"
+    },
+    {
+      "index": 82,
+      "seed": 402915950,
+      "result": "win",
+      "callbacks": 19,
+      "rngDraws": 73,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 345,
+      "survivors": 281,
+      "armyAfter": 327,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "04c4103d23ab3a66b960d45dcd46664a9f04cf309030f3287f3070efa613e604"
+    },
+    {
+      "index": 83,
+      "seed": 2906981999,
+      "result": "win",
+      "callbacks": 21,
+      "rngDraws": 79,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 392,
+      "survivors": 234,
+      "armyAfter": 280,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "2060f24f94627a39e69ea4d6a1a3079f526c1a616ceb9700ef5f053f4e652436"
+    },
+    {
+      "index": 84,
+      "seed": 995612548,
+      "result": "lose",
+      "callbacks": 25,
+      "rngDraws": 88,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 30,
+      "casualties": 626,
+      "survivors": 0,
+      "armyAfter": 46,
+      "reward": {
+        "bone": 0,
+        "hide": 0,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3930,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "3a1f5eaf03e1593f60a392ced7048a777f1565dc0c7d52ba601414690a9e3bbe"
+    },
+    {
+      "index": 85,
+      "seed": 449343718,
+      "result": "lose",
+      "callbacks": 24,
+      "rngDraws": 83,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 67,
+      "casualties": 626,
+      "survivors": 0,
+      "armyAfter": 46,
+      "reward": {
+        "bone": 0,
+        "hide": 0,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3930,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "3a1f5eaf03e1593f60a392ced7048a777f1565dc0c7d52ba601414690a9e3bbe"
+    },
+    {
+      "index": 86,
+      "seed": 2389359768,
+      "result": "win",
+      "callbacks": 14,
+      "rngDraws": 71,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 185,
+      "survivors": 441,
+      "armyAfter": 487,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "e26290366ba268260f50e055f4f8a3ad995b1d3417dcffcd82d2628765b99d75"
+    },
+    {
+      "index": 87,
+      "seed": 2326146823,
+      "result": "win",
+      "callbacks": 19,
+      "rngDraws": 74,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 297,
+      "survivors": 329,
+      "armyAfter": 375,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "caab4162f47e94dd87a6d0cf0407bfe9ac7d1d856d3295f695b4d826081fb133"
+    },
+    {
+      "index": 88,
+      "seed": 2245485374,
+      "result": "win",
+      "callbacks": 21,
+      "rngDraws": 80,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 313,
+      "survivors": 313,
+      "armyAfter": 359,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "39d7ed8420e2caef49a396fc88fa0604ba686dfe073c37b4438dbb394fef18ae"
+    },
+    {
+      "index": 89,
+      "seed": 1165400382,
+      "result": "win",
+      "callbacks": 13,
+      "rngDraws": 52,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 187,
+      "survivors": 439,
+      "armyAfter": 485,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "11682386d1948952097dbb8b0b0261b3ed7a5d2dfe63c918a13e5c9cb8030318"
+    },
+    {
+      "index": 90,
+      "seed": 254201640,
+      "result": "lose",
+      "callbacks": 23,
+      "rngDraws": 78,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 119,
+      "casualties": 626,
+      "survivors": 0,
+      "armyAfter": 46,
+      "reward": {
+        "bone": 0,
+        "hide": 0,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3930,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "3a1f5eaf03e1593f60a392ced7048a777f1565dc0c7d52ba601414690a9e3bbe"
+    },
+    {
+      "index": 91,
+      "seed": 761189863,
+      "result": "win",
+      "callbacks": 12,
+      "rngDraws": 49,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 139,
+      "survivors": 487,
+      "armyAfter": 533,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "9f052b5cd182976e9f5f4217056f174d4171d251c8a15fc5b528997dfb92727c"
+    },
+    {
+      "index": 92,
+      "seed": 720431079,
+      "result": "win",
+      "callbacks": 12,
+      "rngDraws": 49,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 175,
+      "survivors": 451,
+      "armyAfter": 497,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "19410408e00ac1efc7fab8361b8984ece59de78a1d976eed5d0e9c22e499e815"
+    },
+    {
+      "index": 93,
+      "seed": 847132607,
+      "result": "win",
+      "callbacks": 23,
+      "rngDraws": 84,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 571,
+      "survivors": 55,
+      "armyAfter": 101,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "53a977fe606c91352435b87f3f4d3afb4a1258c68f8071de2787fe09b594242f"
+    },
+    {
+      "index": 94,
+      "seed": 2289109805,
+      "result": "lose",
+      "callbacks": 22,
+      "rngDraws": 77,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 33,
+      "casualties": 626,
+      "survivors": 0,
+      "armyAfter": 46,
+      "reward": {
+        "bone": 0,
+        "hide": 0,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3930,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "3a1f5eaf03e1593f60a392ced7048a777f1565dc0c7d52ba601414690a9e3bbe"
+    },
+    {
+      "index": 95,
+      "seed": 2683449878,
+      "result": "win",
+      "callbacks": 12,
+      "rngDraws": 49,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 177,
+      "survivors": 449,
+      "armyAfter": 495,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "75f76d6a9cb62e3ae515644ef75d389dfbfc0704202b43c760228fcb666d9ec2"
+    },
+    {
+      "index": 96,
+      "seed": 1929274937,
+      "result": "win",
+      "callbacks": 23,
+      "rngDraws": 85,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 398,
+      "survivors": 228,
+      "armyAfter": 274,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "4dde80df3d8c3df3cde3c5071a90bb4b26ddd014e143196fbaa2df2277b34286"
+    },
+    {
+      "index": 97,
+      "seed": 3612612142,
+      "result": "win",
+      "callbacks": 12,
+      "rngDraws": 49,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 171,
+      "survivors": 455,
+      "armyAfter": 501,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "ca59f61879ee09fe3e48f05cf487ec205185604fe99e392728c98c682363785c"
+    },
+    {
+      "index": 98,
+      "seed": 2754845128,
+      "result": "lose",
+      "callbacks": 22,
+      "rngDraws": 77,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 26,
+      "casualties": 626,
+      "survivors": 0,
+      "armyAfter": 46,
+      "reward": {
+        "bone": 0,
+        "hide": 0,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3930,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "3a1f5eaf03e1593f60a392ced7048a777f1565dc0c7d52ba601414690a9e3bbe"
+    },
+    {
+      "index": 99,
+      "seed": 3127265928,
+      "result": "win",
+      "callbacks": 12,
+      "rngDraws": 47,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 200,
+      "survivors": 426,
+      "armyAfter": 472,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "346587e9bac37269186a83bd584341cf73215bc506aeb6ffefbb4f9ce62e5ef3"
+    },
+    {
+      "index": 100,
+      "seed": 1988118304,
+      "result": "win",
+      "callbacks": 23,
+      "rngDraws": 85,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 461,
+      "survivors": 165,
+      "armyAfter": 211,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "c1514236e414ca2069720821d8cce0902ebeb41451c3d4973003498fcc3e0de8"
+    },
+    {
+      "index": 101,
+      "seed": 559919846,
+      "result": "lose",
+      "callbacks": 24,
+      "rngDraws": 85,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 41,
+      "casualties": 626,
+      "survivors": 0,
+      "armyAfter": 46,
+      "reward": {
+        "bone": 0,
+        "hide": 0,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3930,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "3a1f5eaf03e1593f60a392ced7048a777f1565dc0c7d52ba601414690a9e3bbe"
+    },
+    {
+      "index": 102,
+      "seed": 3046613099,
+      "result": "lose",
+      "callbacks": 25,
+      "rngDraws": 88,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 27,
+      "casualties": 626,
+      "survivors": 0,
+      "armyAfter": 46,
+      "reward": {
+        "bone": 0,
+        "hide": 0,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3930,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "3a1f5eaf03e1593f60a392ced7048a777f1565dc0c7d52ba601414690a9e3bbe"
+    },
+    {
+      "index": 103,
+      "seed": 2376817442,
+      "result": "win",
+      "callbacks": 15,
+      "rngDraws": 64,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 199,
+      "survivors": 427,
+      "armyAfter": 473,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "188990dba26e6bb1229349e6223cdb2d9fefd2c0ecfb203b8d4213ca20c086c9"
+    },
+    {
+      "index": 104,
+      "seed": 3192620399,
+      "result": "lose",
+      "callbacks": 23,
+      "rngDraws": 82,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 46,
+      "casualties": 626,
+      "survivors": 0,
+      "armyAfter": 46,
+      "reward": {
+        "bone": 0,
+        "hide": 0,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3930,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "3a1f5eaf03e1593f60a392ced7048a777f1565dc0c7d52ba601414690a9e3bbe"
+    },
+    {
+      "index": 105,
+      "seed": 3731493530,
+      "result": "win",
+      "callbacks": 13,
+      "rngDraws": 52,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 177,
+      "survivors": 449,
+      "armyAfter": 495,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "cc32a550548e7a543023528fc0e2d346a5e0a4c0f6e27d1348026750c68356c2"
+    },
+    {
+      "index": 106,
+      "seed": 2708111187,
+      "result": "win",
+      "callbacks": 19,
+      "rngDraws": 71,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 245,
+      "survivors": 381,
+      "armyAfter": 427,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "27b0a1c57d47eba37d6ec90339da2fe45ce215ad37ab2437504a4951786a1fb3"
+    },
+    {
+      "index": 107,
+      "seed": 4141463597,
+      "result": "lose",
+      "callbacks": 24,
+      "rngDraws": 85,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 31,
+      "casualties": 626,
+      "survivors": 0,
+      "armyAfter": 46,
+      "reward": {
+        "bone": 0,
+        "hide": 0,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3930,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "3a1f5eaf03e1593f60a392ced7048a777f1565dc0c7d52ba601414690a9e3bbe"
+    },
+    {
+      "index": 108,
+      "seed": 2220557358,
+      "result": "lose",
+      "callbacks": 22,
+      "rngDraws": 75,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 74,
+      "casualties": 626,
+      "survivors": 0,
+      "armyAfter": 46,
+      "reward": {
+        "bone": 0,
+        "hide": 0,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3930,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "3a1f5eaf03e1593f60a392ced7048a777f1565dc0c7d52ba601414690a9e3bbe"
+    },
+    {
+      "index": 109,
+      "seed": 3906107821,
+      "result": "lose",
+      "callbacks": 23,
+      "rngDraws": 79,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 78,
+      "casualties": 626,
+      "survivors": 0,
+      "armyAfter": 46,
+      "reward": {
+        "bone": 0,
+        "hide": 0,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3930,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "3a1f5eaf03e1593f60a392ced7048a777f1565dc0c7d52ba601414690a9e3bbe"
+    },
+    {
+      "index": 110,
+      "seed": 3052171443,
+      "result": "win",
+      "callbacks": 23,
+      "rngDraws": 82,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 313,
+      "survivors": 313,
+      "armyAfter": 359,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "01a5ab82ce83205dc113b0af7f5e32281fa653a3276b30e494bcd64f9b8b23a4"
+    },
+    {
+      "index": 111,
+      "seed": 3086409840,
+      "result": "win",
+      "callbacks": 14,
+      "rngDraws": 77,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 183,
+      "survivors": 443,
+      "armyAfter": 489,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "08714e9acc1392a441ba08daed795d8bd0a1d15b39f34335732099f017ce45b8"
+    },
+    {
+      "index": 112,
+      "seed": 799475616,
+      "result": "win",
+      "callbacks": 21,
+      "rngDraws": 75,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 393,
+      "survivors": 233,
+      "armyAfter": 279,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "e4c6d3056abc5d8ada2078de5aac83eb69afec792448da1abfa13c1f35ab80ca"
+    },
+    {
+      "index": 113,
+      "seed": 3780322377,
+      "result": "win",
+      "callbacks": 21,
+      "rngDraws": 79,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 406,
+      "survivors": 220,
+      "armyAfter": 266,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "fcf9d22d02435b22f4d846e1436a1b771840503f1e7b88cd2a2a7dbaf112821d"
+    },
+    {
+      "index": 114,
+      "seed": 3334514803,
+      "result": "win",
+      "callbacks": 12,
+      "rngDraws": 49,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 205,
+      "survivors": 421,
+      "armyAfter": 467,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "51f4bbb996b82ce08fcd1fce1a109652e079c169d2302989787d514d9a5277ca"
+    },
+    {
+      "index": 115,
+      "seed": 985300378,
+      "result": "lose",
+      "callbacks": 23,
+      "rngDraws": 81,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 39,
+      "casualties": 626,
+      "survivors": 0,
+      "armyAfter": 46,
+      "reward": {
+        "bone": 0,
+        "hide": 0,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3930,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "3a1f5eaf03e1593f60a392ced7048a777f1565dc0c7d52ba601414690a9e3bbe"
+    },
+    {
+      "index": 116,
+      "seed": 2466462048,
+      "result": "win",
+      "callbacks": 12,
+      "rngDraws": 49,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 186,
+      "survivors": 440,
+      "armyAfter": 486,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "d5971cf3d409c3c2cc985bc04a7dd1e104957c34e5d228f55e46e9e150bba52f"
+    },
+    {
+      "index": 117,
+      "seed": 475692420,
+      "result": "lose",
+      "callbacks": 25,
+      "rngDraws": 88,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 19,
+      "casualties": 626,
+      "survivors": 0,
+      "armyAfter": 46,
+      "reward": {
+        "bone": 0,
+        "hide": 0,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3930,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "3a1f5eaf03e1593f60a392ced7048a777f1565dc0c7d52ba601414690a9e3bbe"
+    },
+    {
+      "index": 118,
+      "seed": 847434817,
+      "result": "win",
+      "callbacks": 13,
+      "rngDraws": 52,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 185,
+      "survivors": 441,
+      "armyAfter": 487,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "41a88416bd6f7322883cf5cdfaafc287284148a63d55e69ce01277197f659b41"
+    },
+    {
+      "index": 119,
+      "seed": 3830857100,
+      "result": "win",
+      "callbacks": 21,
+      "rngDraws": 79,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 387,
+      "survivors": 239,
+      "armyAfter": 285,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "5a21b02d7a99aea44cd7691f47aea5e80ffe96b5c228df2ca8a5e9e474299c87"
+    },
+    {
+      "index": 120,
+      "seed": 2040339864,
+      "result": "lose",
+      "callbacks": 21,
+      "rngDraws": 74,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 27,
+      "casualties": 626,
+      "survivors": 0,
+      "armyAfter": 46,
+      "reward": {
+        "bone": 0,
+        "hide": 0,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3930,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "3a1f5eaf03e1593f60a392ced7048a777f1565dc0c7d52ba601414690a9e3bbe"
+    },
+    {
+      "index": 121,
+      "seed": 1398940888,
+      "result": "win",
+      "callbacks": 21,
+      "rngDraws": 79,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 461,
+      "survivors": 165,
+      "armyAfter": 211,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "a98633a78b55d85786048777e1404034cf673d8619a68f71b142f1b0b273b7c5"
+    },
+    {
+      "index": 122,
+      "seed": 2655006967,
+      "result": "win",
+      "callbacks": 12,
+      "rngDraws": 49,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 187,
+      "survivors": 439,
+      "armyAfter": 485,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "af0bbbcdc8e64372be29195e9d72311ee416e0532ddb38ee5b475afa10191e94"
+    },
+    {
+      "index": 123,
+      "seed": 3419542305,
+      "result": "lose",
+      "callbacks": 25,
+      "rngDraws": 88,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 20,
+      "casualties": 626,
+      "survivors": 0,
+      "armyAfter": 46,
+      "reward": {
+        "bone": 0,
+        "hide": 0,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3930,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "3a1f5eaf03e1593f60a392ced7048a777f1565dc0c7d52ba601414690a9e3bbe"
+    },
+    {
+      "index": 124,
+      "seed": 226420481,
+      "result": "win",
+      "callbacks": 19,
+      "rngDraws": 73,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 232,
+      "survivors": 394,
+      "armyAfter": 440,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "d7ac9653a4ccc1a49c54aa2315bbce91cd5b544ddffdb341374e728dc60da450"
+    },
+    {
+      "index": 125,
+      "seed": 311971671,
+      "result": "win",
+      "callbacks": 13,
+      "rngDraws": 52,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 193,
+      "survivors": 433,
+      "armyAfter": 479,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {}
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "23c6a31c9f2878929122c05fbb7a7e279167ac830af1bf7905a88bb2fd89237c"
+    },
+    {
+      "index": 126,
+      "seed": 4223614319,
+      "result": "win",
+      "callbacks": 25,
+      "rngDraws": 91,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 516,
+      "survivors": 110,
+      "armyAfter": 156,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "e9ad6aeffa3f328dcb0c44a26dc89edf3acbf3cdbf95755853b9451aad7358da"
+    },
+    {
+      "index": 127,
+      "seed": 4086626138,
+      "result": "win",
+      "callbacks": 20,
+      "rngDraws": 76,
+      "enemy": {
+        "hp": 206,
+        "atk": 118,
+        "def": 0
+      },
+      "enemyHpAfter": 0,
+      "casualties": 219,
+      "survivors": 407,
+      "armyAfter": 453,
+      "reward": {
+        "bone": 668,
+        "hide": 89,
+        "medal": 0,
+        "items": {
+          "wyrmSinew": 25
+        }
+      },
+      "alertBefore": 3930,
+      "alertAfter": 3940,
+      "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+      "battleSaveSha256": "5bdf52ae00d02c850fd8de9a8b08f82c03ef46c55d15c9c53faa2e820c189ef4"
+    }
+  ],
+  "p358Reference": {
+    "index": "P358-reference",
+    "seed": 3551856150,
+    "result": "lose",
+    "callbacks": 24,
+    "rngDraws": 85,
+    "enemy": {
+      "hp": 206,
+      "atk": 118,
+      "def": 0
+    },
+    "enemyHpAfter": 28,
+    "casualties": 626,
+    "survivors": 0,
+    "armyAfter": 46,
+    "reward": {
+      "bone": 0,
+      "hide": 0,
+      "medal": 0,
+      "items": {}
+    },
+    "alertBefore": 3930,
+    "alertAfter": 3930,
+    "formedSaveSha256": "e1430dba26fbee6f3cc85483d128a29b5e5ebf28a46852e44ddf0717366c9a0d",
+    "battleSaveSha256": "3a1f5eaf03e1593f60a392ced7048a777f1565dc0c7d52ba601414690a9e3bbe"
+  },
+  "limits": [
+    "Fixed diagnostic streams are not a player win-rate estimate.",
+    "One already-paid late-game save and one target formation; no alternative strategy, previous windows or production in this probe.",
+    "VM DOM, storage and timers are substitutes; this is not browser or Android validation."
+  ]
+}

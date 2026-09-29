@@ -1,0 +1,1090 @@
+{
+  "batch": "P352",
+  "date": "2026-09-29",
+  "unit": "online and offline seconds, resource quantities and soldiers",
+  "codeHashes": {
+    "config": "8e40ccc41ab96156db291ce74560981d875b304703fffb89c4139d5e23001675",
+    "math": "dc0bcdee534853368cb3c576e6020e1c85ab7be00052241136605897e91b0c95"
+  },
+  "sourceFile": "docs/codex/reports/data/p342-hide-paid-seed1-save.json",
+  "sourceSha256": "ca734f8b6dfa88dc22a0ec7a7367800fb4422a27b55c594444e08b27fc6806e8",
+  "rosterFile": "docs/codex/reports/data/p329-soul-refreshed-save.json",
+  "rosterSha256": "9c0e33ebca8ebd4874fbbe5aa4c64d87972040e61a6abbed629e999b056a9ebd",
+  "firstRepairSeconds": 1609,
+  "firstBattle": {
+    "result": "win",
+    "after": {
+      "timeMs": 1793064251000,
+      "tick": 11291063,
+      "army": 293,
+      "deployed": 247,
+      "queueCount": 0,
+      "bone": 1372,
+      "medal": 944,
+      "deed": 0,
+      "hide": 107,
+      "alert": 3930,
+      "level": 31,
+      "progress": 4,
+      "charges": 1,
+      "clock": 704,
+      "scroll": 3,
+      "rng": 3274952739
+    },
+    "saveSha256": "ff04cdb5e54e997ed1f84993df399fa6a296cf299aeedfec14907995bd73d6a7"
+  },
+  "firstQueue": {
+    "before": {
+      "timeMs": 1793064251000,
+      "tick": 11291063,
+      "army": 293,
+      "deployed": 247,
+      "queueCount": 0,
+      "bone": 1372,
+      "medal": 944,
+      "deed": 0,
+      "hide": 107,
+      "alert": 3930,
+      "level": 31,
+      "progress": 4,
+      "charges": 1,
+      "clock": 704,
+      "scroll": 3,
+      "rng": 3274952739
+    },
+    "beforeStock": {
+      "food": 401280,
+      "wood": 19345,
+      "stone": 233814,
+      "coal": 129921.25,
+      "copper": 490.79999843215046,
+      "iron": 769726,
+      "steel": 3071,
+      "gold": 151.85000000006812
+    },
+    "requested": {
+      "star_trooper": 155,
+      "armored_trooper": 55,
+      "electro_trooper": 76,
+      "alloy_special": 55,
+      "gold_cavalry": 38
+    },
+    "queued": {
+      "timeMs": 1793064251000,
+      "tick": 11291063,
+      "army": 293,
+      "deployed": 0,
+      "queueCount": 379,
+      "bone": 1372,
+      "medal": 944,
+      "deed": 0,
+      "hide": 107,
+      "alert": 3930,
+      "level": 31,
+      "progress": 4,
+      "charges": 1,
+      "clock": 704,
+      "scroll": 3,
+      "rng": 3274952739
+    },
+    "queue": {
+      "gold_cavalry": {
+        "count": 38,
+        "timer": 0.5,
+        "reason": ""
+      },
+      "alloy_special": {
+        "count": 55,
+        "timer": 0.5,
+        "reason": ""
+      },
+      "armored_trooper": {
+        "count": 55,
+        "timer": 0.5,
+        "reason": ""
+      },
+      "electro_trooper": {
+        "count": 76,
+        "timer": 0.5,
+        "reason": ""
+      },
+      "star_trooper": {
+        "count": 155,
+        "timer": 0.5,
+        "reason": ""
+      }
+    }
+  },
+  "firstAllocation": {
+    "wood": 0,
+    "stone": 0,
+    "food": 100,
+    "coal": 0,
+    "copper": 0,
+    "iron": 0,
+    "silver": 0,
+    "gold": 0,
+    "steel": 902,
+    "coin": 0,
+    "silverCoin": 0,
+    "tech": 0,
+    "goldCoin": 0
+  },
+  "firstWindow": {
+    "label": "first-4h-before-housing",
+    "before": {
+      "timeMs": 1793064251000,
+      "tick": 11291063,
+      "army": 293,
+      "deployed": 0,
+      "queueCount": 379,
+      "bone": 1372,
+      "medal": 944,
+      "deed": 0,
+      "hide": 107,
+      "alert": 3930,
+      "level": 31,
+      "progress": 4,
+      "charges": 1,
+      "clock": 704,
+      "scroll": 3,
+      "rng": 3274952739
+    },
+    "beforeStock": {
+      "food": 401280,
+      "wood": 19345,
+      "stone": 233814,
+      "coal": 129921.25,
+      "copper": 490.79999843215046,
+      "iron": 769726,
+      "steel": 3071,
+      "gold": 151.85000000006812
+    },
+    "beforePop": {
+      "current": 1002,
+      "capacity": 1002,
+      "free": 0,
+      "growthClock": 0,
+      "birthPolicies": 0,
+      "growthPer10": 2,
+      "settlements": {
+        "village": 4,
+        "smallTown": 5,
+        "city": 247
+      },
+      "alloc": {
+        "wood": 0,
+        "stone": 0,
+        "food": 100,
+        "coal": 0,
+        "copper": 0,
+        "iron": 0,
+        "silver": 0,
+        "gold": 0,
+        "steel": 902,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "tech": 205249904,
+      "deed": 0
+    },
+    "beforeQueue": {
+      "gold_cavalry": {
+        "count": 38,
+        "timer": 0.5,
+        "reason": ""
+      },
+      "alloy_special": {
+        "count": 55,
+        "timer": 0.5,
+        "reason": ""
+      },
+      "armored_trooper": {
+        "count": 55,
+        "timer": 0.5,
+        "reason": ""
+      },
+      "electro_trooper": {
+        "count": 76,
+        "timer": 0.5,
+        "reason": ""
+      },
+      "star_trooper": {
+        "count": 155,
+        "timer": 0.5,
+        "reason": ""
+      }
+    },
+    "beforeSaveSha256": "d6fcd40715243bdd225ba4099b7123773b86b7a4640be102b674afa76e6feb7c",
+    "result": {
+      "ok": true,
+      "durationSec": 14400,
+      "gains": {
+        "stone": -129888.00000000205,
+        "coal": -129887.9999999995,
+        "iron": -129887.99999998882,
+        "gold": -100,
+        "steel": 578996.0000000026,
+        "deed": 4536,
+        "medal": 7560,
+        "bone": 30240
+      },
+      "truncated": false
+    },
+    "after": {
+      "timeMs": 1793078651000,
+      "tick": 11305463,
+      "army": 349,
+      "deployed": 0,
+      "queueCount": 323,
+      "bone": 31612,
+      "medal": 8504,
+      "deed": 4536,
+      "hide": 107,
+      "alert": 3930,
+      "level": 31,
+      "progress": 4,
+      "charges": 5,
+      "clock": 704,
+      "scroll": 3,
+      "rng": 4226142402
+    },
+    "afterStock": {
+      "food": 401280,
+      "wood": 19345,
+      "stone": 103925.99999999795,
+      "coal": 33.2500000004909,
+      "copper": 490.79999843215046,
+      "iron": 639838.0000000112,
+      "steel": 582067.0000000026,
+      "gold": 51.85000000006812
+    },
+    "afterPop": {
+      "current": 1002,
+      "capacity": 1002,
+      "free": 0,
+      "growthClock": 0,
+      "birthPolicies": 0,
+      "growthPer10": 2,
+      "settlements": {
+        "village": 4,
+        "smallTown": 5,
+        "city": 247
+      },
+      "alloc": {
+        "wood": 0,
+        "stone": 0,
+        "food": 100,
+        "coal": 0,
+        "copper": 0,
+        "iron": 0,
+        "silver": 0,
+        "gold": 0,
+        "steel": 902,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "tech": 205249904,
+      "deed": 4536
+    },
+    "afterQueue": {
+      "gold_cavalry": {
+        "count": 37,
+        "timer": 0.5,
+        "reason": "资源不足，暂停生产"
+      },
+      "armored_trooper": {
+        "count": 55,
+        "timer": 0.5,
+        "reason": "资源不足，暂停生产"
+      },
+      "electro_trooper": {
+        "count": 76,
+        "timer": 0.5,
+        "reason": "资源不足，暂停生产"
+      },
+      "star_trooper": {
+        "count": 155,
+        "timer": 0.5,
+        "reason": "资源不足，暂停生产"
+      }
+    },
+    "produced": 56,
+    "trainingPaid": {
+      "food": 83500,
+      "gold": 100,
+      "steel": 5500
+    },
+    "saveSha256": "ffb50af1a3ba7220090e1e3f6d64779127d1bec16987b35fe3ca3a0c8f2e1ca4"
+  },
+  "firstCancelled": {
+    "gold_cavalry": 37,
+    "armored_trooper": 55,
+    "electro_trooper": 76,
+    "star_trooper": 155
+  },
+  "development": {
+    "beforeDevelopment": {
+      "current": 1002,
+      "capacity": 1002,
+      "free": 0,
+      "growthClock": 0,
+      "birthPolicies": 0,
+      "growthPer10": 2,
+      "settlements": {
+        "village": 4,
+        "smallTown": 5,
+        "city": 247
+      },
+      "alloc": {
+        "wood": 0,
+        "stone": 0,
+        "food": 100,
+        "coal": 0,
+        "copper": 0,
+        "iron": 0,
+        "silver": 0,
+        "gold": 0,
+        "steel": 902,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "tech": 205249904,
+      "deed": 4536
+    },
+    "researchCost": 1000,
+    "research": {
+      "ok": true
+    },
+    "villagePlan": {
+      "ok": true,
+      "key": "village",
+      "count": 48,
+      "startLevel": 4,
+      "level": 52,
+      "cost": 1560,
+      "costs": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56
+      ],
+      "gain": 48,
+      "capacity": 1050,
+      "remainingDeed": 2976
+    },
+    "villageAction": {
+      "ok": true,
+      "cost": 1560,
+      "level": 52,
+      "gain": 48,
+      "count": 48,
+      "remainingDeed": 2976
+    },
+    "townPlan": {
+      "ok": true,
+      "key": "smallTown",
+      "count": 36,
+      "startLevel": 5,
+      "level": 41,
+      "cost": 2969,
+      "costs": [
+        30,
+        33,
+        36,
+        39,
+        42,
+        45,
+        48,
+        51,
+        54,
+        57,
+        60,
+        63,
+        66,
+        69,
+        72,
+        75,
+        78,
+        81,
+        84,
+        87,
+        90,
+        93,
+        96,
+        99,
+        102,
+        105,
+        108,
+        111,
+        114,
+        117,
+        120,
+        122,
+        126,
+        129,
+        132,
+        135
+      ],
+      "gain": 72,
+      "capacity": 1122,
+      "remainingDeed": 7
+    },
+    "townAction": {
+      "ok": true,
+      "cost": 2969,
+      "level": 41,
+      "gain": 72,
+      "count": 36,
+      "remainingDeed": 7
+    },
+    "policyAction": {
+      "ok": true,
+      "slot": 0,
+      "policy": "birth",
+      "birthCount": 1
+    },
+    "afterDevelopment": {
+      "current": 1002,
+      "capacity": 1122,
+      "free": 0,
+      "growthClock": 0,
+      "birthPolicies": 1,
+      "growthPer10": 7,
+      "settlements": {
+        "village": 52,
+        "smallTown": 41,
+        "city": 247
+      },
+      "alloc": {
+        "wood": 0,
+        "stone": 0,
+        "food": 100,
+        "coal": 0,
+        "copper": 0,
+        "iron": 0,
+        "silver": 0,
+        "gold": 0,
+        "steel": 902,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "tech": 205248904,
+      "deed": 7
+    },
+    "birthSeconds": 180,
+    "workerTrialSeconds": 10,
+    "newWorkerAllocation": {
+      "current": 1122,
+      "capacity": 1122,
+      "free": 0,
+      "growthClock": 0,
+      "birthPolicies": 1,
+      "growthPer10": 7,
+      "settlements": {
+        "village": 52,
+        "smallTown": 41,
+        "city": 247
+      },
+      "alloc": {
+        "wood": 0,
+        "stone": 0,
+        "food": 100,
+        "coal": 902,
+        "copper": 120,
+        "iron": 0,
+        "silver": 0,
+        "gold": 0,
+        "steel": 0,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "tech": 205248904,
+      "deed": 7
+    },
+    "beforeNewWorkerStock": {
+      "food": 401280,
+      "wood": 19345,
+      "stone": 103925.99999999795,
+      "coal": 547998.2500000005,
+      "copper": 490.79999843215046,
+      "iron": 639838.0000000112,
+      "steel": 582067.0000000026,
+      "gold": 51.85000000006812
+    },
+    "afterNewWorkerStock": {
+      "food": 401280,
+      "wood": 19345,
+      "stone": 101525.99999999795,
+      "coal": 561552,
+      "copper": 3460.7999984321505,
+      "iron": 639838.0000000112,
+      "steel": 582067.0000000026,
+      "gold": 51.85000000006812
+    }
+  },
+  "secondRepair": {
+    "before": {
+      "timeMs": 1793078841000,
+      "tick": 11305653,
+      "army": 349,
+      "deployed": 0,
+      "queueCount": 0,
+      "bone": 31612,
+      "medal": 8504,
+      "deed": 7,
+      "hide": 107,
+      "alert": 3930,
+      "level": 31,
+      "progress": 7,
+      "charges": 5,
+      "clock": 514,
+      "scroll": 6,
+      "rng": 3471535457
+    },
+    "beforeStock": {
+      "food": 401280,
+      "wood": 19345,
+      "stone": 101525.99999999795,
+      "coal": 561552,
+      "copper": 3460.7999984321505,
+      "iron": 639838.0000000112,
+      "steel": 582067.0000000026,
+      "gold": 51.85000000006812
+    },
+    "losses": {
+      "star_trooper": 155,
+      "armored_trooper": 55,
+      "electro_trooper": 76,
+      "alloy_special": 0,
+      "gold_cavalry": 37,
+      "archer": 0
+    },
+    "expected": {
+      "steel": 1958000,
+      "iron": 1958000,
+      "copper": 1958000,
+      "food": 37000,
+      "gold": 3700
+    },
+    "actual": {
+      "steel": 1958000,
+      "iron": 1958000,
+      "copper": 1958000,
+      "food": 37000,
+      "gold": 3700
+    },
+    "after": {
+      "timeMs": 1793081496000,
+      "tick": 11308308,
+      "army": 672,
+      "deployed": 626,
+      "queueCount": 0,
+      "bone": 31612,
+      "medal": 8504,
+      "deed": 7,
+      "hide": 107,
+      "alert": 3930,
+      "level": 31,
+      "progress": 7,
+      "charges": 5,
+      "clock": 259,
+      "scroll": 6,
+      "rng": 688570636
+    },
+    "afterStock": {
+      "food": 398912.153064887,
+      "wood": 19345,
+      "stone": 1005329.9999999979,
+      "coal": 387015,
+      "copper": 1086.9999984193128,
+      "iron": 125489.00000001118,
+      "steel": 68.00000000256114,
+      "gold": 258.63750000006894
+    },
+    "seconds": 2655
+  },
+  "secondRepairSeconds": 2655,
+  "secondBattle": {
+    "result": "lose",
+    "after": {
+      "timeMs": 1793081496000,
+      "tick": 11308308,
+      "army": 46,
+      "deployed": 0,
+      "queueCount": 0,
+      "bone": 31612,
+      "medal": 8504,
+      "deed": 7,
+      "hide": 107,
+      "alert": 3930,
+      "level": 31,
+      "progress": 7,
+      "charges": 5,
+      "clock": 259,
+      "scroll": 6,
+      "rng": 58098231
+    },
+    "saveSha256": "4cf28fac4c188f1df193aee86d0ff34dac029f478821417d56cb08eceb311eac"
+  },
+  "secondQueue": {
+    "before": {
+      "timeMs": 1793081496000,
+      "tick": 11308308,
+      "army": 46,
+      "deployed": 0,
+      "queueCount": 0,
+      "bone": 31612,
+      "medal": 8504,
+      "deed": 7,
+      "hide": 107,
+      "alert": 3930,
+      "level": 31,
+      "progress": 7,
+      "charges": 5,
+      "clock": 259,
+      "scroll": 6,
+      "rng": 58098231
+    },
+    "beforeStock": {
+      "food": 398912.153064887,
+      "wood": 19345,
+      "stone": 1005329.9999999979,
+      "coal": 387015,
+      "copper": 1086.9999984193128,
+      "iron": 125489.00000001118,
+      "steel": 68.00000000256114,
+      "gold": 258.63750000006894
+    },
+    "requested": {
+      "star_trooper": 155,
+      "armored_trooper": 55,
+      "electro_trooper": 101,
+      "alloy_special": 55,
+      "gold_cavalry": 40,
+      "archer": 220
+    },
+    "queued": {
+      "timeMs": 1793081496000,
+      "tick": 11308308,
+      "army": 46,
+      "deployed": 0,
+      "queueCount": 626,
+      "bone": 31612,
+      "medal": 8504,
+      "deed": 7,
+      "hide": 107,
+      "alert": 3930,
+      "level": 31,
+      "progress": 7,
+      "charges": 5,
+      "clock": 259,
+      "scroll": 6,
+      "rng": 58098231
+    },
+    "queue": {
+      "gold_cavalry": {
+        "count": 40,
+        "timer": 0.5,
+        "reason": ""
+      },
+      "alloy_special": {
+        "count": 55,
+        "timer": 0.5,
+        "reason": ""
+      },
+      "armored_trooper": {
+        "count": 55,
+        "timer": 0.5,
+        "reason": ""
+      },
+      "archer": {
+        "count": 220,
+        "timer": 0.5,
+        "reason": ""
+      },
+      "electro_trooper": {
+        "count": 101,
+        "timer": 0.5,
+        "reason": ""
+      },
+      "star_trooper": {
+        "count": 155,
+        "timer": 0.5,
+        "reason": ""
+      }
+    }
+  },
+  "secondAllocation": {
+    "wood": 0,
+    "stone": 0,
+    "food": 100,
+    "coal": 0,
+    "copper": 330,
+    "iron": 330,
+    "silver": 0,
+    "gold": 60,
+    "steel": 302,
+    "coin": 0,
+    "silverCoin": 0,
+    "tech": 0,
+    "goldCoin": 0
+  },
+  "secondWindow": {
+    "label": "second-4h-after-housing",
+    "before": {
+      "timeMs": 1793081496000,
+      "tick": 11308308,
+      "army": 46,
+      "deployed": 0,
+      "queueCount": 626,
+      "bone": 31612,
+      "medal": 8504,
+      "deed": 7,
+      "hide": 107,
+      "alert": 3930,
+      "level": 31,
+      "progress": 7,
+      "charges": 5,
+      "clock": 259,
+      "scroll": 6,
+      "rng": 58098231
+    },
+    "beforeStock": {
+      "food": 398912.153064887,
+      "wood": 19345,
+      "stone": 1005329.9999999979,
+      "coal": 387015,
+      "copper": 1086.9999984193128,
+      "iron": 125489.00000001118,
+      "steel": 68.00000000256114,
+      "gold": 258.63750000006894
+    },
+    "beforePop": {
+      "current": 1122,
+      "capacity": 1122,
+      "free": 0,
+      "growthClock": 0,
+      "birthPolicies": 1,
+      "growthPer10": 7,
+      "settlements": {
+        "village": 52,
+        "smallTown": 41,
+        "city": 247
+      },
+      "alloc": {
+        "wood": 0,
+        "stone": 0,
+        "food": 100,
+        "coal": 0,
+        "copper": 330,
+        "iron": 330,
+        "silver": 0,
+        "gold": 60,
+        "steel": 302,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "tech": 205249904,
+      "deed": 7
+    },
+    "beforeQueue": {
+      "gold_cavalry": {
+        "count": 40,
+        "timer": 0.5,
+        "reason": ""
+      },
+      "alloy_special": {
+        "count": 55,
+        "timer": 0.5,
+        "reason": ""
+      },
+      "armored_trooper": {
+        "count": 55,
+        "timer": 0.5,
+        "reason": ""
+      },
+      "archer": {
+        "count": 220,
+        "timer": 0.5,
+        "reason": ""
+      },
+      "electro_trooper": {
+        "count": 101,
+        "timer": 0.5,
+        "reason": ""
+      },
+      "star_trooper": {
+        "count": 155,
+        "timer": 0.5,
+        "reason": ""
+      }
+    },
+    "beforeSaveSha256": "587bea5491532d6a18037c9bdd7bf3e8044a28471d68683f1691efeb08590478",
+    "result": {
+      "ok": true,
+      "durationSec": 14400,
+      "gains": {
+        "wood": -17600,
+        "stone": -503104.399999979,
+        "food": 2367.846935113019,
+        "coal": -387014.40000000334,
+        "copper": 3753.8500000000813,
+        "iron": 108574.59999999474,
+        "gold": 6669.724999999965,
+        "steel": 153445.7999999987,
+        "deed": 4536,
+        "medal": 7560,
+        "bone": 30240
+      },
+      "truncated": false
+    },
+    "after": {
+      "timeMs": 1793095896000,
+      "tick": 11322708,
+      "army": 431,
+      "deployed": 0,
+      "queueCount": 241,
+      "bone": 61852,
+      "medal": 16064,
+      "deed": 4543,
+      "hide": 107,
+      "alert": 3930,
+      "level": 31,
+      "progress": 7,
+      "charges": 5,
+      "clock": 259,
+      "scroll": 6,
+      "rng": 3551856150
+    },
+    "afterStock": {
+      "food": 401280,
+      "wood": 1745,
+      "stone": 502225.6000000189,
+      "coal": 0.5999999966646214,
+      "copper": 4840.849998419394,
+      "iron": 234063.6000000059,
+      "steel": 153513.80000000127,
+      "gold": 6928.362500000034
+    },
+    "afterPop": {
+      "current": 1122,
+      "capacity": 1122,
+      "free": 0,
+      "growthClock": 0,
+      "birthPolicies": 1,
+      "growthPer10": 7,
+      "settlements": {
+        "village": 52,
+        "smallTown": 41,
+        "city": 247
+      },
+      "alloc": {
+        "wood": 0,
+        "stone": 0,
+        "food": 100,
+        "coal": 0,
+        "copper": 330,
+        "iron": 330,
+        "silver": 0,
+        "gold": 60,
+        "steel": 302,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "tech": 205249904,
+      "deed": 4543
+    },
+    "afterQueue": {
+      "electro_trooper": {
+        "count": 86,
+        "timer": 0.5,
+        "reason": "资源不足，暂停生产"
+      },
+      "star_trooper": {
+        "count": 155,
+        "timer": 0.5,
+        "reason": "资源不足，暂停生产"
+      }
+    },
+    "produced": 385,
+    "trainingPaid": {
+      "food": 129100,
+      "gold": 4000,
+      "steel": 235500,
+      "wood": 17600,
+      "stone": 4400,
+      "copper": 230000,
+      "iron": 230000
+    },
+    "saveSha256": "4ea7947809fec443de573cf69e72f3831cc0efcb2cb5052cfab4e46d6a955f0c"
+  },
+  "firstWindowToSecondLogoutActiveSeconds": 2845,
+  "reference": {
+    "p349FirstProduced": 56,
+    "p349SecondRepairSeconds": 2797,
+    "p349SecondProduced": 277,
+    "p350BestFirstWindow": 379,
+    "p350BestFirstActiveSeconds": 2751
+  },
+  "onlineSeconds": 4454,
+  "offlineSeconds": 28800,
+  "minFood": 398125.98401726794,
+  "phases": {
+    "wood": 0,
+    "stone": 195,
+    "coal": 1111,
+    "iron": 748,
+    "steel": 601,
+    "copper": 1351,
+    "gold": 7,
+    "food": 0,
+    "tech": 251,
+    "birth": 190
+  },
+  "rngDraws": {
+    "online": 68,
+    "offline": 547,
+    "combat": 161,
+    "manual": 0
+  },
+  "final": {
+    "state": {
+      "timeMs": 1793095896000,
+      "tick": 11322708,
+      "army": 431,
+      "deployed": 0,
+      "queueCount": 241,
+      "bone": 61852,
+      "medal": 16064,
+      "deed": 4543,
+      "hide": 107,
+      "alert": 3930,
+      "level": 31,
+      "progress": 7,
+      "charges": 5,
+      "clock": 259,
+      "scroll": 6,
+      "rng": 3551856150
+    },
+    "population": {
+      "current": 1122,
+      "capacity": 1122,
+      "free": 0,
+      "growthClock": 0,
+      "birthPolicies": 1,
+      "growthPer10": 7,
+      "settlements": {
+        "village": 52,
+        "smallTown": 41,
+        "city": 247
+      },
+      "alloc": {
+        "wood": 0,
+        "stone": 0,
+        "food": 100,
+        "coal": 0,
+        "copper": 330,
+        "iron": 330,
+        "silver": 0,
+        "gold": 60,
+        "steel": 302,
+        "coin": 0,
+        "silverCoin": 0,
+        "tech": 0,
+        "goldCoin": 0
+      },
+      "tech": 205249904,
+      "deed": 4543
+    },
+    "stock": {
+      "food": 401280,
+      "wood": 1745,
+      "stone": 502225.6000000189,
+      "coal": 0.5999999966646214,
+      "copper": 4840.849998419394,
+      "iron": 234063.6000000059,
+      "steel": 153513.80000000127,
+      "gold": 6928.362500000034
+    },
+    "queue": {
+      "electro_trooper": {
+        "count": 86,
+        "timer": 0.5,
+        "reason": "资源不足，暂停生产"
+      },
+      "star_trooper": {
+        "count": 155,
+        "timer": 0.5,
+        "reason": "资源不足，暂停生产"
+      }
+    }
+  },
+  "finalSaveSha256": "4ea7947809fec443de573cf69e72f3831cc0efcb2cb5052cfab4e46d6a955f0c",
+  "limits": [
+    "One selected paid late-game save and only two four-hour offline windows, not a fresh-save or long-run result.",
+    "Exactly one birth-policy slot was configured; the remaining small-town slots were not stacked.",
+    "The same first P349 window is reproduced before the housing decision, but subsequent online ticks can change market RNG and battle casualties.",
+    "Housing, science and policy actions are instantaneous in game rules; birth and all resource production consume actual tick seconds.",
+    "There is no automatic offline reassignment, free population, injected resources, or automatic market purchase.",
+    "VM localStorage, DOM and timers are not browser or Android validation."
+  ]
+}

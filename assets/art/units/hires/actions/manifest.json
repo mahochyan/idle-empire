@@ -1,10 +1,12 @@
 {
-  "version": 4,
+  "version": 5,
   "runtimeSampleEnabled": true,
   "runtimeUnits": [
     "infantry",
+    "infantry_t1",
     "star_trooper",
     "archer",
+    "archer_t1",
     "archer_crossbow",
     "cavalry_t1",
     "gold_cavalry"
@@ -310,6 +312,308 @@
             ],
             "scale": 0.63508,
             "baselineY": 448
+          }
+        ]
+      }
+    },
+    "infantry_t1": {
+      "attack": {
+        "path": "./assets/art/units/hires/actions/infantry_t1-attack.png",
+        "compactPath": "./assets/art/units/hires/actions/compact/infantry_t1-attack.png",
+        "compactFrameWidth": 256,
+        "compactFrameHeight": 256,
+        "compactResampling": "nearest",
+        "frameWidth": 512,
+        "frameHeight": 512,
+        "frames": 4,
+        "order": [
+          "idle",
+          "windup_or_jolt",
+          "contact_or_fall",
+          "recover_or_prone"
+        ],
+        "suggestedFrameDurationMs": [
+          60,
+          90,
+          105,
+          100
+        ],
+        "loop": false,
+        "facing": "right",
+        "source": "source/generated/units/actions/infantry_t1-attack-master.png",
+        "sourceSize": [
+          2171,
+          724
+        ],
+        "sourceSeamsX": [
+          724,
+          1481
+        ],
+        "frameAudit": [
+          {
+            "bounds": [
+              117,
+              38,
+              416,
+              477
+            ],
+            "sourceBounds": [
+              117,
+              38,
+              416,
+              477
+            ],
+            "scale": 1.0,
+            "baselineY": 477,
+            "pixelIdenticalToIdle": true
+          },
+          {
+            "bounds": [
+              110,
+              31,
+              434,
+              477
+            ],
+            "sourceBounds": [
+              119,
+              27,
+              595,
+              683
+            ],
+            "scale": 0.68,
+            "baselineY": 477
+          },
+          {
+            "bounds": [
+              37,
+              89,
+              504,
+              477
+            ],
+            "sourceBounds": [
+              70,
+              107,
+              757,
+              677
+            ],
+            "scale": 0.68,
+            "baselineY": 477
+          },
+          {
+            "bounds": [
+              106,
+              86,
+              439,
+              477
+            ],
+            "sourceBounds": [
+              94,
+              105,
+              584,
+              680
+            ],
+            "scale": 0.68,
+            "baselineY": 477
+          }
+        ]
+      },
+      "hit": {
+        "path": "./assets/art/units/hires/actions/infantry_t1-hit.png",
+        "compactPath": "./assets/art/units/hires/actions/compact/infantry_t1-hit.png",
+        "compactFrameWidth": 256,
+        "compactFrameHeight": 256,
+        "compactResampling": "nearest",
+        "frameWidth": 512,
+        "frameHeight": 512,
+        "frames": 4,
+        "order": [
+          "idle",
+          "windup_or_jolt",
+          "contact_or_fall",
+          "recover_or_prone"
+        ],
+        "suggestedFrameDurationMs": [
+          45,
+          110,
+          130,
+          95
+        ],
+        "loop": false,
+        "facing": "right",
+        "source": "source/generated/units/actions/infantry_t1-hit-master.png",
+        "sourceSize": [
+          2172,
+          724
+        ],
+        "sourceSeamsX": [
+          724,
+          1448
+        ],
+        "frameAudit": [
+          {
+            "bounds": [
+              117,
+              38,
+              416,
+              477
+            ],
+            "sourceBounds": [
+              117,
+              38,
+              416,
+              477
+            ],
+            "scale": 1.0,
+            "baselineY": 477,
+            "pixelIdenticalToIdle": true
+          },
+          {
+            "bounds": [
+              57,
+              65,
+              414,
+              477
+            ],
+            "sourceBounds": [
+              94,
+              67,
+              619,
+              673
+            ],
+            "scale": 0.68,
+            "baselineY": 477
+          },
+          {
+            "bounds": [
+              8,
+              76,
+              455,
+              477
+            ],
+            "sourceBounds": [
+              25,
+              82,
+              683,
+              673
+            ],
+            "scale": 0.68,
+            "baselineY": 477
+          },
+          {
+            "bounds": [
+              84,
+              81,
+              431,
+              477
+            ],
+            "sourceBounds": [
+              114,
+              90,
+              625,
+              673
+            ],
+            "scale": 0.68,
+            "baselineY": 477
+          }
+        ]
+      },
+      "death": {
+        "path": "./assets/art/units/hires/actions/infantry_t1-death.png",
+        "compactPath": "./assets/art/units/hires/actions/compact/infantry_t1-death.png",
+        "compactFrameWidth": 256,
+        "compactFrameHeight": 256,
+        "compactResampling": "nearest",
+        "frameWidth": 512,
+        "frameHeight": 512,
+        "frames": 4,
+        "order": [
+          "idle",
+          "windup_or_jolt",
+          "contact_or_fall",
+          "recover_or_prone"
+        ],
+        "suggestedFrameDurationMs": [
+          50,
+          135,
+          170,
+          280
+        ],
+        "loop": false,
+        "facing": "right",
+        "source": "source/generated/units/actions/infantry_t1-death-master.png",
+        "sourceSize": [
+          2172,
+          724
+        ],
+        "sourceSeamsX": [
+          697,
+          1334
+        ],
+        "frameAudit": [
+          {
+            "bounds": [
+              117,
+              38,
+              416,
+              477
+            ],
+            "sourceBounds": [
+              117,
+              38,
+              416,
+              477
+            ],
+            "scale": 1.0,
+            "baselineY": 477,
+            "pixelIdenticalToIdle": true
+          },
+          {
+            "bounds": [
+              139,
+              94,
+              450,
+              477
+            ],
+            "sourceBounds": [
+              71,
+              65,
+              528,
+              628
+            ],
+            "scale": 0.68,
+            "baselineY": 477
+          },
+          {
+            "bounds": [
+              8,
+              153,
+              358,
+              477
+            ],
+            "sourceBounds": [
+              1,
+              179,
+              515,
+              656
+            ],
+            "scale": 0.68,
+            "baselineY": 477
+          },
+          {
+            "bounds": [
+              8,
+              304,
+              504,
+              477
+            ],
+            "sourceBounds": [
+              1,
+              354,
+              808,
+              635
+            ],
+            "scale": 0.61462,
+            "baselineY": 477
           }
         ]
       }
@@ -914,6 +1218,308 @@
             ],
             "scale": 0.66045,
             "baselineY": 471
+          }
+        ]
+      }
+    },
+    "archer_t1": {
+      "attack": {
+        "path": "./assets/art/units/hires/actions/archer_t1-attack.png",
+        "compactPath": "./assets/art/units/hires/actions/compact/archer_t1-attack.png",
+        "compactFrameWidth": 256,
+        "compactFrameHeight": 256,
+        "compactResampling": "nearest",
+        "frameWidth": 512,
+        "frameHeight": 512,
+        "frames": 4,
+        "order": [
+          "idle",
+          "windup_or_jolt",
+          "contact_or_fall",
+          "recover_or_prone"
+        ],
+        "suggestedFrameDurationMs": [
+          60,
+          90,
+          105,
+          100
+        ],
+        "loop": false,
+        "facing": "right",
+        "source": "source/generated/units/actions/archer_t1-attack-master.png",
+        "sourceSize": [
+          2172,
+          724
+        ],
+        "sourceSeamsX": [
+          724,
+          1448
+        ],
+        "frameAudit": [
+          {
+            "bounds": [
+              14,
+              14,
+              505,
+              505
+            ],
+            "sourceBounds": [
+              14,
+              14,
+              505,
+              505
+            ],
+            "scale": 1.0,
+            "baselineY": 505,
+            "pixelIdenticalToIdle": true
+          },
+          {
+            "bounds": [
+              94,
+              30,
+              455,
+              505
+            ],
+            "sourceBounds": [
+              48,
+              10,
+              564,
+              689
+            ],
+            "scale": 0.7,
+            "baselineY": 505
+          },
+          {
+            "bounds": [
+              30,
+              30,
+              485,
+              505
+            ],
+            "sourceBounds": [
+              67,
+              10,
+              717,
+              689
+            ],
+            "scale": 0.7,
+            "baselineY": 505
+          },
+          {
+            "bounds": [
+              104,
+              74,
+              413,
+              505
+            ],
+            "sourceBounds": [
+              218,
+              74,
+              659,
+              690
+            ],
+            "scale": 0.7,
+            "baselineY": 505
+          }
+        ]
+      },
+      "hit": {
+        "path": "./assets/art/units/hires/actions/archer_t1-hit.png",
+        "compactPath": "./assets/art/units/hires/actions/compact/archer_t1-hit.png",
+        "compactFrameWidth": 256,
+        "compactFrameHeight": 256,
+        "compactResampling": "nearest",
+        "frameWidth": 512,
+        "frameHeight": 512,
+        "frames": 4,
+        "order": [
+          "idle",
+          "windup_or_jolt",
+          "contact_or_fall",
+          "recover_or_prone"
+        ],
+        "suggestedFrameDurationMs": [
+          45,
+          110,
+          130,
+          95
+        ],
+        "loop": false,
+        "facing": "right",
+        "source": "source/generated/units/actions/archer_t1-hit-master.png",
+        "sourceSize": [
+          2172,
+          724
+        ],
+        "sourceSeamsX": [
+          724,
+          1448
+        ],
+        "frameAudit": [
+          {
+            "bounds": [
+              14,
+              14,
+              505,
+              505
+            ],
+            "sourceBounds": [
+              14,
+              14,
+              505,
+              505
+            ],
+            "scale": 1.0,
+            "baselineY": 505,
+            "pixelIdenticalToIdle": true
+          },
+          {
+            "bounds": [
+              42,
+              75,
+              427,
+              505
+            ],
+            "sourceBounds": [
+              38,
+              63,
+              588,
+              679
+            ],
+            "scale": 0.7,
+            "baselineY": 505
+          },
+          {
+            "bounds": [
+              8,
+              102,
+              460,
+              505
+            ],
+            "sourceBounds": [
+              36,
+              103,
+              682,
+              679
+            ],
+            "scale": 0.7,
+            "baselineY": 505
+          },
+          {
+            "bounds": [
+              70,
+              107,
+              484,
+              505
+            ],
+            "sourceBounds": [
+              96,
+              111,
+              688,
+              679
+            ],
+            "scale": 0.7,
+            "baselineY": 505
+          }
+        ]
+      },
+      "death": {
+        "path": "./assets/art/units/hires/actions/archer_t1-death.png",
+        "compactPath": "./assets/art/units/hires/actions/compact/archer_t1-death.png",
+        "compactFrameWidth": 256,
+        "compactFrameHeight": 256,
+        "compactResampling": "nearest",
+        "frameWidth": 512,
+        "frameHeight": 512,
+        "frames": 4,
+        "order": [
+          "idle",
+          "windup_or_jolt",
+          "contact_or_fall",
+          "recover_or_prone"
+        ],
+        "suggestedFrameDurationMs": [
+          50,
+          135,
+          170,
+          280
+        ],
+        "loop": false,
+        "facing": "right",
+        "source": "source/generated/units/actions/archer_t1-death-master.png",
+        "sourceSize": [
+          2172,
+          724
+        ],
+        "sourceSeamsX": [
+          724,
+          1448
+        ],
+        "frameAudit": [
+          {
+            "bounds": [
+              14,
+              14,
+              505,
+              505
+            ],
+            "sourceBounds": [
+              14,
+              14,
+              505,
+              505
+            ],
+            "scale": 1.0,
+            "baselineY": 505,
+            "pixelIdenticalToIdle": true
+          },
+          {
+            "bounds": [
+              44,
+              99,
+              504,
+              505
+            ],
+            "sourceBounds": [
+              35,
+              64,
+              692,
+              644
+            ],
+            "scale": 0.7,
+            "baselineY": 505
+          },
+          {
+            "bounds": [
+              8,
+              163,
+              447,
+              505
+            ],
+            "sourceBounds": [
+              41,
+              187,
+              668,
+              676
+            ],
+            "scale": 0.7,
+            "baselineY": 505
+          },
+          {
+            "bounds": [
+              8,
+              289,
+              496,
+              505
+            ],
+            "sourceBounds": [
+              9,
+              374,
+              706,
+              683
+            ],
+            "scale": 0.7,
+            "baselineY": 505
           }
         ]
       }
