@@ -694,7 +694,13 @@ function rBuild(){
 function marketPanel(){
   const opts=marketAvailableRates().map(r=>`<option value="${r.from}|${r.to}">${resourceDisplayName(r.from)} → ${resourceDisplayName(r.to)}（1:${r.rate}）</option>`).join('');
   const advanced=scienceUnlocked('sci_coin');
-  const special=marketSpecialUnlocked()?`<div style="border-top:1px solid #34394b;margin-top:8px;padding-top:7px;font-size:10px;color:#aaa">圣域货架 · ${CFG.eraMaterials.sacredBlood.name} ${S.items.sacredBlood} · ${CFG.eraMaterials.domainCleanser.name} ${S.items.domainCleanser} · ${CFG.eraMaterials.emberElixir.name} ${S.items.emberElixir} · ${CFG.eraMaterials.aegisElixir.name} ${S.items.aegisElixir} · 下次刷新 ${S.marketSpecial.clockSec} 秒<br>每20分钟补货一次；本轮未购货品会在补货时替换。</div>
+  const cleanserPrice=CFG.market.special.goods.domainCleanser.cost;
+  const cleanserCooling=idemSeen(idemKey('domain-cleanser-exchange','market'));
+  const canExchange=count=>!S.battleActive&&!saveProtected()&&S.offline?.populationFoodRule!=='legacy-pending'&&
+    !cleanserCooling&&S.items.sacredBlood>=cleanserPrice*count&&
+    S.items.domainCleanser+count<=CFG.eraMaterials.domainCleanser.max;
+  const special=marketSpecialUnlocked()?`<div style="border-top:1px solid #34394b;margin-top:8px;padding-top:7px;font-size:10px;color:#aaa">圣域货架 · ${CFG.eraMaterials.sacredBlood.name} ${S.items.sacredBlood} · ${CFG.eraMaterials.domainCleanser.name} ${S.items.domainCleanser} · ${CFG.eraMaterials.emberElixir.name} ${S.items.emberElixir} · ${CFG.eraMaterials.aegisElixir.name} ${S.items.aegisElixir} · 下次刷新 ${S.marketSpecial.clockSec} 秒<br>下方货品每20分钟补货一次；本轮未购货品会在补货时替换。</div>
+    <div style="margin:7px 0 5px;display:flex;flex-wrap:wrap;gap:4px"><button id="market-domain-cleanser-exchange" class="btn btn-go btn-xs" onclick="exchangeDomainCleanserFromUI(1)" ${canExchange(1)?'':'disabled'}>${cleanserCooling?'兑换处理中':'常驻兑换'} · ${CFG.eraMaterials.sacredBlood.name} ${cleanserPrice} → ${CFG.eraMaterials.domainCleanser.name} 1</button><button id="market-domain-cleanser-exchange-six" class="btn btn-ghost btn-xs" onclick="exchangeDomainCleanserFromUI(6)" ${canExchange(6)?'':'disabled'}>批量兑换 6 · ${CFG.eraMaterials.sacredBlood.name} ${cleanserPrice*6}</button></div>
     <button class="btn btn-go btn-xs" onclick="buyMarketSpecialFromUI('sacredBlood')" ${S.marketSpecial.offers.sacredBlood>0&&S.res.goldCoin>=9999?'':'disabled'}>${CFG.eraMaterials.sacredBlood.name}（在售 ${S.marketSpecial.offers.sacredBlood} · 金铸币 9999）</button>
     <button class="btn btn-go btn-xs" onclick="buyMarketSpecialFromUI('domainCleanser')" ${S.marketSpecial.offers.domainCleanser>0&&S.items.sacredBlood>=3?'':'disabled'}>${CFG.eraMaterials.domainCleanser.name}（在售 ${S.marketSpecial.offers.domainCleanser} · 血剂 3）</button>
     <button class="btn btn-go btn-xs" onclick="buyMarketSpecialFromUI('emberElixir')" ${S.marketSpecial.offers.emberElixir>0&&S.items.sacredBlood>=20?'':'disabled'}>${CFG.eraMaterials.emberElixir.name}（在售 ${S.marketSpecial.offers.emberElixir} · 血剂 20）</button>
@@ -748,6 +754,15 @@ function buyMarketSpecialFromUI(key){
     'sold-out':'本轮没有该货品','insufficient-resource':'兑换材料不足','capacity':'道具仓已满',
     'market-locked':'圣域货架尚未开放','save-failed':'保存失败，兑换未生效',
     'save-protected':'存档保护中，无法兑换'
+  }[result.reason]||'兑换失败'));
+}
+function exchangeDomainCleanserFromUI(count=1){
+  const result=exchangeDomainCleanser(count);
+  if(typeof toast==='function')toast(result.ok?(result.repeat?'本次兑换已处理':`${CFG.eraMaterials.domainCleanser.name} +${result.gained}`):({
+    'insufficient-resource':'圣兽血剂不足','capacity':'道具仓已满','invalid-quantity':'兑换数量无效',
+    'battle-active':'战斗中不能兑换','market-locked':'圣域货架尚未开放',
+    'save-failed':'保存失败，兑换未生效','save-protected':'存档保护中，无法兑换',
+    'offline-pending':'请先结算离线收益再兑换'
   }[result.reason]||'兑换失败'));
 }
 function useDomainCleanserFromUI(key){

@@ -4,7 +4,6 @@
 const {spawn,spawnSync}=require('node:child_process');
 const fs=require('node:fs');
 const http=require('node:http');
-const os=require('node:os');
 const path=require('node:path');
 
 const root=path.resolve(__dirname,'../..');
@@ -29,7 +28,11 @@ const server=http.createServer((req,res)=>{
       'Cache-Control':'no-store'});res.end(data);
   });
 });
-const tempRoot=fs.realpathSync(os.tmpdir());
+// Keep Chromium's short-lived profile on the workspace drive; the system
+// drive can be too small for repeated visual runs on Windows.
+const tempFolder=path.join(root,'hd2d-previews','.cdp-temp');
+fs.mkdirSync(tempFolder,{recursive:true});
+const tempRoot=fs.realpathSync(tempFolder);
 const profile=fs.mkdtempSync(path.join(tempRoot,'unit-action-cdp-'));
 if(!path.resolve(profile).startsWith(tempRoot+path.sep))throw Error('profile outside temp');
 const previewDir=path.join(root,'hd2d-previews');
@@ -92,6 +95,60 @@ async function runFixture({width,height,allies,enemies,epoch}){
   const ready=await waitPortrait();
   return {start,ready};
 }
+async function sameRowAttackOverlap(targetId){
+  return evalJs(`(async()=>{
+    const layout=HD2D.status().battle.layout;
+    const target=layout.find(item=>item.id===${targetId});
+    const neighbors=layout.filter(item=>item.side===target?.side&&
+      item.slotRow===target?.slotRow&&item.id!==target?.id);
+    async function alphaFrames(path,count){
+      const image=new Image();image.src=path;await image.decode();
+      const cellWidth=image.naturalWidth/count;
+      const canvas=document.createElement('canvas');canvas.width=image.naturalWidth;
+      canvas.height=image.naturalHeight;
+      const context=canvas.getContext('2d');context.drawImage(image,0,0);
+      const rgba=context.getImageData(0,0,canvas.width,canvas.height).data;
+      return Array.from({length:count},(_,frame)=>{
+        let left=cellWidth,top=canvas.height,right=-1,bottom=-1;
+        for(let y=0;y<canvas.height;y+=2)for(let x=0;x<cellWidth;x+=2){
+          if(rgba[(y*canvas.width+frame*cellWidth+x)*4+3]>32){
+            left=Math.min(left,x);top=Math.min(top,y);
+            right=Math.max(right,x);bottom=Math.max(bottom,y);
+          }
+        }
+        return {left:left/cellWidth,top:top/canvas.height,
+          right:(right+2)/cellWidth,bottom:(bottom+2)/canvas.height};
+      });
+    }
+    if(!target)return {error:'target missing'};
+    const action=await alphaFrames('./assets/art/units/hires/actions/compact/'+
+      ${JSON.stringify(unitType)}+'-attack.png',4);
+    const idle=new Map(await Promise.all([...new Set(neighbors.map(item=>item.type))]
+      .map(async type=>[type,(await alphaFrames('./assets/art/units/hires/'+type+'.png',1))[0]])));
+    const project=(unit,bounds)=>{
+      const rect=unit.spriteRect,mirror=unit.side==='allies';
+      const left=mirror?1-bounds.right:bounds.left;
+      const right=mirror?1-bounds.left:bounds.right;
+      return {left:rect.left+(rect.right-rect.left)*left,
+        right:rect.left+(rect.right-rect.left)*right,
+        top:rect.top+(rect.bottom-rect.top)*bounds.top,
+        bottom:rect.top+(rect.bottom-rect.top)*bounds.bottom};
+    };
+    const ratios=[];
+    for(let frame=1;frame<4;frame++)for(const neighbor of neighbors){
+      const a=project(target,action[frame]),b=project(neighbor,idle.get(neighbor.type));
+      const area=Math.max(0,Math.min(a.right,b.right)-Math.max(a.left,b.left))*
+        Math.max(0,Math.min(a.bottom,b.bottom)-Math.max(a.top,b.top));
+      const smaller=Math.min((a.right-a.left)*(a.bottom-a.top),
+        (b.right-b.left)*(b.bottom-b.top));
+      ratios.push({frame,neighbor:neighbor.id,neighborType:neighbor.type,
+        ratio:smaller>0?+(area/smaller).toFixed(3):0});
+    }
+    ratios.sort((a,b)=>b.ratio-a.ratio);
+    return {targetId:target.id,targetType:target.type,row:target.slotRow,
+      neighborCount:neighbors.length,maxRatio:ratios[0]?.ratio||0,worst:ratios.slice(0,4)};
+  })()`);
+}
 (async()=>{
   await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
   const url=`http://127.0.0.1:${server.address().port}/index.html`;
@@ -125,8 +182,11 @@ async function runFixture({width,height,allies,enemies,epoch}){
     screen.classList.add('active');return screen.getBoundingClientRect().height>300;
   })()`);
   check('Battle stage visible',visible);
+  const unitRow=await evalJs(`CFG.units[${JSON.stringify(unitType)}]?.row`);
+  const targetIndex=unitRow==='back'?8:unitRow==='mid'?4:0;
+  const targetId=71000+targetIndex;
   const sparse=await runFixture({width:390,height:844,
-    allies:[[unitType,70001,unitType==='archer_t1'?'back':'front']],
+    allies:[[unitType,70001,unitRow]],
     enemies:[['infantry',70002,'front']],epoch:90001});
   check('390px sparse portrait and all action atlases decode at 512px',
     sparse.start.mounted&&sparse.ready?.cell===512,sparse);
@@ -143,32 +203,44 @@ async function runFixture({width,height,allies,enemies,epoch}){
     })()`);
     check(`Sparse ${kind} uses four high-res frames`,seen.accepted&&
       seen.action===kind&&seen.ready&&seen.frames===4&&seen.facing==='left',seen);
-    if(kind==='attack'){
-      await sleep(310);
-      const file=await shot(`qa-${unitSlug}-attack-sparse-390`);
-      check('Sparse attack screenshot saved',fs.statSync(file).size>10000,file);
-    }else await sleep(75);
+    // Death is fixed to 620 ms by the visual layer, regardless of event
+    // duration; capture its final prone frame before the action resets.
+    await sleep(kind==='death'?500:310);
+    const file=await shot(`qa-${unitSlug}-${kind}-sparse-390`);
+    check(`Sparse ${kind} screenshot saved`,fs.statSync(file).size>10000,file);
   }
   const rows=['front','mid','back'];
-  const allies=Array.from({length:12},(_,i)=>[i===0?unitType:'infantry',71000+i,rows[Math.floor(i/4)]]);
+  const allies=Array.from({length:12},(_,i)=>[i===targetIndex?unitType:'infantry',
+    71000+i,rows[Math.floor(i/4)]]);
   const enemies=Array.from({length:12},(_,i)=>['infantry',72000+i,rows[Math.floor(i/4)]]);
   const full=await runFixture({width:320,height:568,allies,enemies,epoch:90002});
   check('320px full formation loads 256px action cells',full.start.mounted&&
     full.start.layout===24&&full.ready?.cell===256,full);
-  const fullAction=await evalJs(`(()=>{
-    const accepted=HD2D.playBattle({epoch:90002,type:'attack',sourceId:71000,
-      targetId:72000,sourceSide:'allies',targetSide:'enemies',durationMs:900});
-    const unit=HD2D.status().battle.layout.find(item=>item.id===71000);
-    return {accepted,action:unit?.portraitAction,ready:unit?.portraitActionReady,
-      frames:unit?.portraitActionFrames,cell:unit?.portraitActionCellPx,
-      overflow:document.getElementById('battle-screen').scrollWidth>innerWidth+1};
-  })()`);
-  check('Full formation attack uses compact four-frame art without overflow',
-    fullAction.accepted&&fullAction.action==='attack'&&fullAction.ready&&
-    fullAction.frames===4&&fullAction.cell===256&&!fullAction.overflow,fullAction);
-  await sleep(310);
-  const fullShot=await shot(`qa-${unitSlug}-attack-full-320`);
-  check('Full formation attack screenshot saved',fs.statSync(fullShot).size>10000,fullShot);
+  for(const kind of ['attack','hit','death']){
+    const event={epoch:90002,type:kind,sourceId:kind==='attack'?targetId:72000,
+      targetId:kind==='attack'?72000:targetId,
+      sourceSide:kind==='attack'?'allies':'enemies',
+      targetSide:kind==='attack'?'enemies':'allies',durationMs:900};
+    const fullAction=await evalJs(`(()=>{
+      const accepted=HD2D.playBattle(${JSON.stringify(event)});
+      const unit=HD2D.status().battle.layout.find(item=>item.id===${targetId});
+      return {accepted,action:unit?.portraitAction,ready:unit?.portraitActionReady,
+        frames:unit?.portraitActionFrames,cell:unit?.portraitActionCellPx,
+        overflow:document.getElementById('battle-screen').scrollWidth>innerWidth+1};
+    })()`);
+    check(`Full formation ${kind} uses compact four-frame art without overflow`,
+      fullAction.accepted&&fullAction.action===kind&&fullAction.ready&&
+      fullAction.frames===4&&fullAction.cell===256&&!fullAction.overflow,fullAction);
+    if(kind==='attack'){
+      const overlap=await sameRowAttackOverlap(targetId);
+      check('Full attack same-row alpha-content bounds overlap no more than 30%',
+        overlap.neighborCount===3&&overlap.maxRatio<=0.30,overlap);
+      console.log('ATTACK_OVERLAP',JSON.stringify(overlap));
+    }
+    await sleep(kind==='death'?500:310);
+    const fullShot=await shot(`qa-${unitSlug}-${kind}-full-320`);
+    check(`Full formation ${kind} screenshot saved`,fs.statSync(fullShot).size>10000,fullShot);
+  }
   check('Required HTTP art returned no 404',missing.size===0,[...missing]);
   const failed=checks.filter(item=>!item.ok);
   console.log(JSON.stringify({unitType,passed:checks.length-failed.length,failed:failed.length,checks,

@@ -1,5 +1,5 @@
 {
-  "version": 6,
+  "version": 7,
   "runtimeSampleEnabled": true,
   "runtimeUnits": [
     "infantry",
@@ -9,6 +9,7 @@
     "archer",
     "archer_t1",
     "archer_crossbow",
+    "mage_t1",
     "cavalry_t1",
     "gold_cavalry"
   ],
@@ -2125,6 +2126,308 @@
             ],
             "scale": 0.7,
             "baselineY": 499
+          }
+        ]
+      }
+    },
+    "mage_t1": {
+      "attack": {
+        "path": "./assets/art/units/hires/actions/mage_t1-attack.png",
+        "compactPath": "./assets/art/units/hires/actions/compact/mage_t1-attack.png",
+        "compactFrameWidth": 256,
+        "compactFrameHeight": 256,
+        "compactResampling": "nearest",
+        "frameWidth": 512,
+        "frameHeight": 512,
+        "frames": 4,
+        "order": [
+          "idle",
+          "windup_or_jolt",
+          "contact_or_fall",
+          "recover_or_prone"
+        ],
+        "suggestedFrameDurationMs": [
+          60,
+          90,
+          105,
+          100
+        ],
+        "loop": false,
+        "facing": "right",
+        "source": "source/generated/units/actions/mage_t1/attack-master.png",
+        "sourceSize": [
+          2170,
+          725
+        ],
+        "sourceSeamsX": [
+          723,
+          1447
+        ],
+        "frameAudit": [
+          {
+            "bounds": [
+              93,
+              18,
+              429,
+              494
+            ],
+            "sourceBounds": [
+              93,
+              18,
+              429,
+              494
+            ],
+            "scale": 1.0,
+            "baselineY": 494,
+            "pixelIdenticalToIdle": true
+          },
+          {
+            "bounds": [
+              106,
+              38,
+              454,
+              494
+            ],
+            "sourceBounds": [
+              68,
+              29,
+              580,
+              699
+            ],
+            "scale": 0.68,
+            "baselineY": 494
+          },
+          {
+            "bounds": [
+              63,
+              89,
+              504,
+              494
+            ],
+            "sourceBounds": [
+              9,
+              99,
+              658,
+              694
+            ],
+            "scale": 0.68,
+            "baselineY": 494
+          },
+          {
+            "bounds": [
+              98,
+              53,
+              397,
+              494
+            ],
+            "sourceBounds": [
+              241,
+              50,
+              681,
+              699
+            ],
+            "scale": 0.68,
+            "baselineY": 494
+          }
+        ]
+      },
+      "hit": {
+        "path": "./assets/art/units/hires/actions/mage_t1-hit.png",
+        "compactPath": "./assets/art/units/hires/actions/compact/mage_t1-hit.png",
+        "compactFrameWidth": 256,
+        "compactFrameHeight": 256,
+        "compactResampling": "nearest",
+        "frameWidth": 512,
+        "frameHeight": 512,
+        "frames": 4,
+        "order": [
+          "idle",
+          "windup_or_jolt",
+          "contact_or_fall",
+          "recover_or_prone"
+        ],
+        "suggestedFrameDurationMs": [
+          45,
+          110,
+          130,
+          95
+        ],
+        "loop": false,
+        "facing": "right",
+        "source": "source/generated/units/actions/mage_t1/hit-master.png",
+        "sourceSize": [
+          1942,
+          809
+        ],
+        "sourceSeamsX": [
+          623,
+          1295
+        ],
+        "frameAudit": [
+          {
+            "bounds": [
+              93,
+              18,
+              429,
+              494
+            ],
+            "sourceBounds": [
+              93,
+              18,
+              429,
+              494
+            ],
+            "scale": 1.0,
+            "baselineY": 494,
+            "pixelIdenticalToIdle": true
+          },
+          {
+            "bounds": [
+              93,
+              43,
+              447,
+              494
+            ],
+            "sourceBounds": [
+              66,
+              84,
+              586,
+              747
+            ],
+            "scale": 0.68,
+            "baselineY": 494
+          },
+          {
+            "bounds": [
+              8,
+              27,
+              424,
+              494
+            ],
+            "sourceBounds": [
+              1,
+              60,
+              613,
+              747
+            ],
+            "scale": 0.68,
+            "baselineY": 494
+          },
+          {
+            "bounds": [
+              78,
+              46,
+              464,
+              494
+            ],
+            "sourceBounds": [
+              29,
+              88,
+              596,
+              747
+            ],
+            "scale": 0.68,
+            "baselineY": 494
+          }
+        ]
+      },
+      "death": {
+        "path": "./assets/art/units/hires/actions/mage_t1-death.png",
+        "compactPath": "./assets/art/units/hires/actions/compact/mage_t1-death.png",
+        "compactFrameWidth": 256,
+        "compactFrameHeight": 256,
+        "compactResampling": "nearest",
+        "frameWidth": 512,
+        "frameHeight": 512,
+        "frames": 4,
+        "order": [
+          "idle",
+          "windup_or_jolt",
+          "contact_or_fall",
+          "recover_or_prone"
+        ],
+        "suggestedFrameDurationMs": [
+          50,
+          135,
+          170,
+          280
+        ],
+        "loop": false,
+        "facing": "right",
+        "source": "source/generated/units/actions/mage_t1/death-master.png",
+        "sourceSize": [
+          2172,
+          724
+        ],
+        "sourceSeamsX": [
+          724,
+          1430
+        ],
+        "frameAudit": [
+          {
+            "bounds": [
+              93,
+              18,
+              429,
+              494
+            ],
+            "sourceBounds": [
+              93,
+              18,
+              429,
+              494
+            ],
+            "scale": 1.0,
+            "baselineY": 494,
+            "pixelIdenticalToIdle": true
+          },
+          {
+            "bounds": [
+              93,
+              42,
+              504,
+              494
+            ],
+            "sourceBounds": [
+              63,
+              28,
+              668,
+              692
+            ],
+            "scale": 0.68,
+            "baselineY": 494
+          },
+          {
+            "bounds": [
+              100,
+              120,
+              458,
+              494
+            ],
+            "sourceBounds": [
+              66,
+              133,
+              592,
+              683
+            ],
+            "scale": 0.68,
+            "baselineY": 494
+          },
+          {
+            "bounds": [
+              8,
+              255,
+              498,
+              494
+            ],
+            "sourceBounds": [
+              1,
+              334,
+              721,
+              686
+            ],
+            "scale": 0.68,
+            "baselineY": 494
           }
         ]
       }

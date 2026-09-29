@@ -1,0 +1,569 @@
+{
+  "batch": "P385",
+  "source": {
+    "file": "p379-unselected-battle-recovered-save.json",
+    "sha256": "9914b6fbd6dd79277661a6bba68a61a7f4642acc9d7033535da3b993d41daf4f"
+  },
+  "seed": 1,
+  "selection": "Fixed before running, one continuous RNG stream; no winner selection",
+  "initial": {
+    "tick": 12239114,
+    "army": 672,
+    "deployed": 626,
+    "queue": 0,
+    "resources": {
+      "food": 464575.7438464984,
+      "wood": 6495,
+      "stone": 325684,
+      "coal": 405399.75,
+      "copper": 821.0999979352346,
+      "iron": 1001284,
+      "steel": 1102,
+      "gold": 532.4625000000879,
+      "tech": 254027300
+    },
+    "crystal": 9,
+    "blood": 12,
+    "cleanser": 0,
+    "crystalAlert": 5500,
+    "phantomAlert": 300,
+    "medal": 3973196,
+    "marketCycles": 2928
+  },
+  "phantom": [
+    {
+      "result": "win",
+      "loss": 0,
+      "bloodGain": 1,
+      "beforeAlert": 300,
+      "afterAlert": 400
+    },
+    {
+      "result": "win",
+      "loss": 0,
+      "bloodGain": 1,
+      "beforeAlert": 400,
+      "afterAlert": 500
+    },
+    {
+      "result": "win",
+      "loss": 0,
+      "bloodGain": 1,
+      "beforeAlert": 500,
+      "afterAlert": 600
+    },
+    {
+      "result": "win",
+      "loss": 0,
+      "bloodGain": 1,
+      "beforeAlert": 600,
+      "afterAlert": 700
+    },
+    {
+      "result": "win",
+      "loss": 0,
+      "bloodGain": 1,
+      "beforeAlert": 700,
+      "afterAlert": 800
+    },
+    {
+      "result": "win",
+      "loss": 0,
+      "bloodGain": 1,
+      "beforeAlert": 800,
+      "afterAlert": 900
+    }
+  ],
+  "afterPhantom": {
+    "file": "p385-after-phantom-save.json",
+    "sha256": "9199b090d24e8cda6641bc501bc83d5281eeccfecd46d1184bb24ca8af1fdc6f"
+  },
+  "exchange": {
+    "result": {
+      "ok": true,
+      "gained": 6,
+      "spent": 18,
+      "count": 6
+    },
+    "paidBlood": 18,
+    "checkpoint": {
+      "file": "p385-after-exchange-save.json",
+      "sha256": "e3f938cf7032e7e050447354bd93c736318b376f31ea07a2cb7b0030380d8395"
+    }
+  },
+  "purify": [
+    {
+      "before": 5500,
+      "after": 5400
+    },
+    {
+      "before": 5400,
+      "after": 5300
+    },
+    {
+      "before": 5300,
+      "after": 5200
+    },
+    {
+      "before": 5200,
+      "after": 5100
+    },
+    {
+      "before": 5100,
+      "after": 5000
+    },
+    {
+      "before": 5000,
+      "after": 4900
+    }
+  ],
+  "beforeCrystal": {
+    "file": "p385-before-crystal-save.json",
+    "sha256": "a33a272a23e79d113cb78ecefc15fe22f6b0cde2743e103fa10e149dc903f45e"
+  },
+  "crystal1": {
+    "domain": "godCrystal",
+    "before": {
+      "tick": 12239150,
+      "army": 672,
+      "deployed": 626,
+      "queue": 0,
+      "resources": {
+        "food": 480699,
+        "wood": 6495,
+        "stone": 325684,
+        "coal": 405399.75,
+        "copper": 821.0999979352346,
+        "iron": 1001284,
+        "steel": 1102,
+        "gold": 532.4625000000879,
+        "tech": 254904044
+      },
+      "crystal": 9,
+      "blood": 0,
+      "cleanser": 0,
+      "crystalAlert": 4900,
+      "phantomAlert": 900,
+      "medal": 3974662,
+      "marketCycles": 2929
+    },
+    "result": "win",
+    "after": {
+      "tick": 12239150,
+      "army": 530,
+      "deployed": 484,
+      "queue": 0,
+      "resources": {
+        "food": 480699,
+        "wood": 6495,
+        "stone": 325684,
+        "coal": 405399.75,
+        "copper": 821.0999979352346,
+        "iron": 1001284,
+        "steel": 1102,
+        "gold": 532.4625000000879,
+        "tech": 254904044
+      },
+      "crystal": 67,
+      "blood": 3,
+      "cleanser": 0,
+      "crystalAlert": 5000,
+      "phantomAlert": 900,
+      "medal": 3977014,
+      "marketCycles": 2929
+    },
+    "enemy": {
+      "hp": 2338,
+      "atk": 72,
+      "def": 531
+    },
+    "callbacks": 98,
+    "loss": 142,
+    "bloodGain": 3,
+    "crystalGain": 58
+  },
+  "afterCrystal1": {
+    "file": "p385-after-crystal1-save.json",
+    "sha256": "a8e0d8b37d8b1f6edbb6bfdc3e777d7ee24157c6d11e43b9baecb29968b1b17a"
+  },
+  "recovery1": {
+    "before": {
+      "tick": 12239150,
+      "army": 530,
+      "deployed": 484,
+      "queue": 0,
+      "resources": {
+        "food": 480699,
+        "wood": 6495,
+        "stone": 325684,
+        "coal": 405399.75,
+        "copper": 821.0999979352346,
+        "iron": 1001284,
+        "steel": 1102,
+        "gold": 532.4625000000879,
+        "tech": 254904044
+      },
+      "crystal": 67,
+      "blood": 3,
+      "cleanser": 0,
+      "crystalAlert": 5000,
+      "phantomAlert": 900,
+      "medal": 3977014,
+      "marketCycles": 2929
+    },
+    "after": {
+      "tick": 12240264,
+      "army": 672,
+      "deployed": 626,
+      "queue": 0,
+      "resources": {
+        "food": 480699,
+        "wood": 6495,
+        "stone": 382510,
+        "coal": 46967.5,
+        "copper": 1423.5999979386106,
+        "iron": 892,
+        "steel": 3734,
+        "gold": 532.4625000000879,
+        "tech": 256657532
+      },
+      "crystal": 67,
+      "blood": 3,
+      "cleanser": 0,
+      "crystalAlert": 5000,
+      "phantomAlert": 900,
+      "medal": 3977014,
+      "marketCycles": 2929
+    },
+    "shortages": {
+      "archer": 0,
+      "star_trooper": 65,
+      "armored_trooper": 22,
+      "electro_trooper": 55,
+      "alloy_special": 0,
+      "gold_cavalry": 0
+    },
+    "trained": 142,
+    "expectedPaid": {
+      "steel": 1004000,
+      "iron": 1004000,
+      "copper": 1004000
+    },
+    "actualPaid": {
+      "copper": 1004000,
+      "iron": 1004000,
+      "steel": 1004000
+    },
+    "onlineSeconds": 1150,
+    "phases": {
+      "food": 0,
+      "wood": 0,
+      "stone": 625,
+      "coal": 4151,
+      "copper": 4456,
+      "iron": 2830,
+      "steel": 2451,
+      "gold": 0,
+      "tech": 0,
+      "training": 728
+    },
+    "minFood": 480699,
+    "minCoal": 46967.5,
+    "minSteel": 654
+  },
+  "afterRecovery1": {
+    "file": "p385-after-recovery1-save.json",
+    "sha256": "e7067e907e247652807f9d0494da0b30fbe109956913221833461488af9098d8"
+  },
+  "second": {
+    "exchange": {
+      "ok": true,
+      "gained": 1,
+      "spent": 3,
+      "count": 1
+    },
+    "purify": {
+      "ok": true,
+      "alert": 4900,
+      "spent": 1
+    },
+    "beforeCrystal2": {
+      "file": "p385-before-crystal2-save.json",
+      "sha256": "d2539faa744d3118d74aee89ee7f6d3b340c67de433361a8c1a0c1ce152e1f63"
+    },
+    "crystal2": {
+      "domain": "godCrystal",
+      "before": {
+        "tick": 12240264,
+        "army": 672,
+        "deployed": 626,
+        "queue": 0,
+        "resources": {
+          "food": 480699,
+          "wood": 6495,
+          "stone": 382510,
+          "coal": 46967.5,
+          "copper": 1423.5999979386106,
+          "iron": 892,
+          "steel": 3734,
+          "gold": 532.4625000000879,
+          "tech": 256657532
+        },
+        "crystal": 67,
+        "blood": 0,
+        "cleanser": 0,
+        "crystalAlert": 4900,
+        "phantomAlert": 900,
+        "medal": 3977014,
+        "marketCycles": 2929
+      },
+      "result": "win",
+      "after": {
+        "tick": 12240264,
+        "army": 527,
+        "deployed": 481,
+        "queue": 0,
+        "resources": {
+          "food": 480699,
+          "wood": 6495,
+          "stone": 382510,
+          "coal": 46967.5,
+          "copper": 1423.5999979386106,
+          "iron": 892,
+          "steel": 3734,
+          "gold": 532.4625000000879,
+          "tech": 256657532
+        },
+        "crystal": 125,
+        "blood": 3,
+        "cleanser": 0,
+        "crystalAlert": 5000,
+        "phantomAlert": 900,
+        "medal": 3979366,
+        "marketCycles": 2929
+      },
+      "enemy": {
+        "hp": 2338,
+        "atk": 72,
+        "def": 531
+      },
+      "callbacks": 97,
+      "loss": 145,
+      "bloodGain": 3,
+      "crystalGain": 58
+    },
+    "afterCrystal2": {
+      "file": "p385-after-crystal2-save.json",
+      "sha256": "c1b737d335082b94999c0dfd936bad41cdea0c4e4f11e094e51485511972fb7c"
+    },
+    "recovery2": {
+      "before": {
+        "tick": 12240264,
+        "army": 527,
+        "deployed": 481,
+        "queue": 0,
+        "resources": {
+          "food": 480699,
+          "wood": 6495,
+          "stone": 382510,
+          "coal": 46967.5,
+          "copper": 1423.5999979386106,
+          "iron": 892,
+          "steel": 3734,
+          "gold": 532.4625000000879,
+          "tech": 256657532
+        },
+        "crystal": 125,
+        "blood": 3,
+        "cleanser": 0,
+        "crystalAlert": 5000,
+        "phantomAlert": 900,
+        "medal": 3979366,
+        "marketCycles": 2929
+      },
+      "after": {
+        "tick": 12242024,
+        "army": 672,
+        "deployed": 626,
+        "queue": 0,
+        "resources": {
+          "food": 480699,
+          "wood": 6495,
+          "stone": 1089678,
+          "coal": 330759.25,
+          "copper": 907.5499979408924,
+          "iron": 1977,
+          "steel": 3015,
+          "gold": 532.4625000000879,
+          "tech": 258435374
+        },
+        "crystal": 125,
+        "blood": 3,
+        "cleanser": 0,
+        "crystalAlert": 5000,
+        "phantomAlert": 900,
+        "medal": 3979366,
+        "marketCycles": 2931
+      },
+      "shortages": {
+        "archer": 0,
+        "star_trooper": 72,
+        "armored_trooper": 18,
+        "electro_trooper": 55,
+        "alloy_special": 0,
+        "gold_cavalry": 0
+      },
+      "trained": 145,
+      "expectedPaid": {
+        "steel": 1052000,
+        "iron": 1052000,
+        "copper": 1052000
+      },
+      "actualPaid": {
+        "copper": 1052000,
+        "iron": 1052000,
+        "steel": 1052000
+      },
+      "onlineSeconds": 2910,
+      "phases": {
+        "food": 0,
+        "wood": 0,
+        "stone": 625,
+        "coal": 4151,
+        "copper": 4456,
+        "iron": 2830,
+        "steel": 2451,
+        "gold": 0,
+        "tech": 0,
+        "training": 728
+      },
+      "minFood": 480699,
+      "minCoal": 18892.75,
+      "minSteel": 53
+    },
+    "afterRecovery2": {
+      "file": "p385-after-recovery2-save.json",
+      "sha256": "af2fe325ae47eaf9eca8e4b696c52bd34c000afe826d1cfa21cb20d321ad2945"
+    }
+  },
+  "later": [
+    {
+      "round": 3,
+      "loss": 88,
+      "crystalGain": 58,
+      "bloodGain": 3,
+      "recoveryOnlineSeconds": 1111,
+      "totalOnlineSeconds": 4021,
+      "trainingPaid": {
+        "copper": 704000,
+        "iron": 704000,
+        "steel": 704000
+      }
+    },
+    {
+      "round": 4,
+      "loss": 122,
+      "crystalGain": 58,
+      "bloodGain": 3,
+      "recoveryOnlineSeconds": 1454,
+      "totalOnlineSeconds": 5475,
+      "trainingPaid": {
+        "copper": 874000,
+        "iron": 874000,
+        "steel": 874000
+      }
+    },
+    {
+      "round": 5,
+      "loss": 219,
+      "crystalGain": 58,
+      "bloodGain": 3,
+      "recoveryOnlineSeconds": 2249,
+      "totalOnlineSeconds": 7724,
+      "trainingPaid": {
+        "copper": 1422000,
+        "iron": 1422000,
+        "steel": 1422000
+      }
+    },
+    {
+      "round": 6,
+      "loss": 219,
+      "crystalGain": 58,
+      "bloodGain": 3,
+      "recoveryOnlineSeconds": 2169,
+      "totalOnlineSeconds": 9893,
+      "trainingPaid": {
+        "copper": 1422000,
+        "iron": 1422000,
+        "steel": 1422000
+      }
+    },
+    {
+      "round": 7,
+      "loss": 125,
+      "crystalGain": 58,
+      "bloodGain": 3,
+      "recoveryOnlineSeconds": 1427,
+      "totalOnlineSeconds": 11320,
+      "trainingPaid": {
+        "copper": 874000,
+        "iron": 874000,
+        "steel": 874000
+      }
+    },
+    {
+      "round": 8,
+      "loss": 55,
+      "crystalGain": 58,
+      "bloodGain": 3,
+      "recoveryOnlineSeconds": 781,
+      "totalOnlineSeconds": 12101,
+      "trainingPaid": {
+        "copper": 422000,
+        "iron": 422000,
+        "steel": 422000
+      }
+    },
+    {
+      "round": 9,
+      "loss": 103,
+      "crystalGain": 58,
+      "bloodGain": 3,
+      "recoveryOnlineSeconds": 817,
+      "totalOnlineSeconds": 12918,
+      "trainingPaid": {
+        "copper": 752000,
+        "iron": 752000,
+        "steel": 752000
+      }
+    },
+    {
+      "round": 10,
+      "loss": 219,
+      "crystalGain": 58,
+      "bloodGain": 3,
+      "recoveryOnlineSeconds": 2359,
+      "totalOnlineSeconds": 15277,
+      "trainingPaid": {
+        "copper": 1422000,
+        "iron": 1422000,
+        "steel": 1422000
+      }
+    }
+  ],
+  "afterTenCycles": {
+    "file": "p385-after-ten-crystal-cycles-save.json",
+    "sha256": "9f181d49eea30aaad3d6ce0bd4d2e9f66cc9d38b17dac902a02de1fb6fb36e83"
+  },
+  "sourceHashes": {
+    "config.js": "8e40ccc41ab96156db291ce74560981d875b304703fffb89c4139d5e23001675",
+    "levels.js": "023aedddb3031d155a44aed6d648e8476b9ddb078893eb0d0f5a74627790b681",
+    "math.js": "4956ae322d1ff9b9fabfba0a59062d0eb5294f595d9c3c5c8a03bb04f72a1130",
+    "garrison.js": "762da86c67c0bfb1ef0c5a519a7fad57a8f8e4f7ad6c5045f4736c2b650739a9",
+    "technology.js": "c51fb05821593d9e76396ff18b0a38d78dee1db9cdc55631b78a7f223ad0a006",
+    "tests/progression/harness.js": "4770d17fa72cc8c87f4c8ef79678f19d63a41da895b8dd58776e5a39ce2ede2b",
+    "tools/verify/probe-crystal-sustainability-p385.js": "4ca5ae3d55c4322b9f39e6218c3b8dcc37049fcf7229efc182a3a6ee6e4f77c6"
+  },
+  "scope": "Single fixed continuous VM stream from a paid save; all blood, cleansing, battle, production and training use real actions and are reloaded. No player save is modified. One stream is not an estimated win rate or full quantum-stage-100 proof."
+}

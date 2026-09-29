@@ -29,7 +29,7 @@ window.UNIT_VFX_PROFILES = {
   "armored_trooper": {"art":"./assets/art/vfx/units/armored_trooper.png","style":"arrow","accent":"#D3B999","halo":"#FFEBD4","trail":"forked","impact":"impact-spark","impactShape":"crush","rank":4},
   "electro_trooper": {"art":"./assets/art/vfx/units/electro_trooper.png","style":"magebolt","accent":"#A7DAF2","halo":"#E3F8FF","trail":"forked","impact":"impact-magic","impactShape":"shock","rank":5},
   "star_trooper": {"art":"./assets/art/vfx/units/star_trooper.png","style":"magebolt","accent":"#B9E2D4","halo":"#E9FFF6","trail":"straight","impact":"impact-magic","impactShape":"burst","rank":5},
-  "quantum_trooper": {"art":"./assets/art/vfx/units/quantum_trooper.png","style":"magebolt","accent":"#73D7F5","halo":"#E5FAFF","trail":"forked","impact":"impact-magic","impactShape":"shield","rank":5},
+  "quantum_trooper": {"art":"./assets/art/vfx/units/quantum_trooper.png","style":"magebolt","accent":"#73D7F5","halo":"#E5FAFF","trail":"forked","impact":"impact-magic","impactShape":"phase","rank":5},
   "god_crystal_guard": {"art":"./assets/art/vfx/units/god_crystal_guard.png","style":"magebolt","accent":"#B9E3E5","halo":"#E7FCFD","trail":"pulse","impact":"impact-magic","impactShape":"shield","rank":4},
   "phantom_god": {"art":"./assets/art/vfx/units/phantom_god.png","style":"magebolt","accent":"#D4C8F2","halo":"#F2EAFE","trail":"zigzag","impact":"impact-magic","impactShape":"rune","rank":5},
   "guardian_god": {"art":"./assets/art/vfx/units/guardian_god.png","style":"thrust","accent":"#F0DFA9","halo":"#FFF8DB","trail":"pulse","impact":"impact-magic","impactShape":"shield","rank":5},

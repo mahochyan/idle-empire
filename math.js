@@ -1901,6 +1901,32 @@ function buyMarketSpecial(key){
   if(typeof updateUI==='function')updateUI();
   return{ok:true,item:key,count:S.items[key]};
 }
+// 本项目成长线补充常驻净化配方；母本的20分钟随机货架仍照常抽取与售卖。
+function exchangeDomainCleanser(count=1){
+  if(saveProtected())return{ok:false,reason:'save-protected'};
+  if(S.offline?.populationFoodRule==='legacy-pending')return{ok:false,reason:'offline-pending'};
+  if(S.battleActive)return{ok:false,reason:'battle-active'};
+  if(!marketSpecialUnlocked())return{ok:false,reason:'market-locked'};
+  if(!Number.isSafeInteger(count)||count<1)return{ok:false,reason:'invalid-quantity'};
+  const price=CFG.market.special.goods.domainCleanser.cost;
+  const stock=S.items.sacredBlood,oldItem=S.items.domainCleanser;
+  if(idemRepeat('domain-cleanser-exchange','market'))return{ok:true,repeat:true,gained:0,spent:0};
+  if(!Number.isSafeInteger(oldItem)||oldItem<0||count>CFG.eraMaterials.domainCleanser.max-oldItem)
+    return{ok:false,reason:'capacity'};
+  const cost=price*count;
+  if(!Number.isSafeInteger(stock)||stock<cost)return{ok:false,reason:'insufficient-resource'};
+  const oldOps=S.ops.slice();
+  S.items.sacredBlood=stock-cost;
+  S.items.domainCleanser=oldItem+count;
+  idemMark(idemKey('domain-cleanser-exchange','market'));
+  const written=save();
+  if(!written.ok){
+    S.items.sacredBlood=stock;S.items.domainCleanser=oldItem;S.ops=oldOps;
+    return{ok:false,reason:'save-failed'};
+  }
+  if(typeof updateUI==='function')updateUI();
+  return{ok:true,gained:count,spent:cost,count:S.items.domainCleanser};
+}
 function useDomainCleanser(domainKey){
   if(saveProtected())return{ok:false,reason:'save-protected'};
   if(S.battleActive)return{ok:false,reason:'battle-active'};

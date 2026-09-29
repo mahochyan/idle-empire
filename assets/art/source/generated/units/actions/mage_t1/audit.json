@@ -1,0 +1,280 @@
+{
+  "unit": "mage_t1",
+  "candidateOnly": true,
+  "runtimeIntegrated": false,
+  "idleBounds": [
+    93,
+    18,
+    429,
+    494
+  ],
+  "actions": {
+    "attack": {
+      "source": "attack-master.png",
+      "sourceSize": [
+        2170,
+        725
+      ],
+      "visibleBounds": [
+        68,
+        29,
+        2128,
+        699
+      ],
+      "seams": [
+        723,
+        1447
+      ],
+      "transparentGaps": [
+        {
+          "start": 580,
+          "end": 732,
+          "width": 152
+        },
+        {
+          "start": 1381,
+          "end": 1688,
+          "width": 307
+        }
+      ],
+      "frames": [
+        {
+          "bounds": [
+            93,
+            18,
+            429,
+            494
+          ],
+          "scale": 1.0,
+          "idleIdentical": true
+        },
+        {
+          "bounds": [
+            125,
+            38,
+            473,
+            494
+          ],
+          "sourceBounds": [
+            68,
+            29,
+            580,
+            699
+          ],
+          "scale": 0.68,
+          "baselineY": 494
+        },
+        {
+          "bounds": [
+            63,
+            89,
+            504,
+            494
+          ],
+          "sourceBounds": [
+            9,
+            99,
+            658,
+            694
+          ],
+          "scale": 0.68,
+          "baselineY": 494
+        },
+        {
+          "bounds": [
+            116,
+            53,
+            415,
+            494
+          ],
+          "sourceBounds": [
+            241,
+            50,
+            681,
+            699
+          ],
+          "scale": 0.68,
+          "baselineY": 494
+        }
+      ]
+    },
+    "hit": {
+      "source": "hit-master.png",
+      "sourceSize": [
+        1942,
+        809
+      ],
+      "visibleBounds": [
+        66,
+        60,
+        1891,
+        747
+      ],
+      "seams": [
+        623,
+        1295
+      ],
+      "transparentGaps": [
+        {
+          "start": 586,
+          "end": 624,
+          "width": 38
+        },
+        {
+          "start": 1236,
+          "end": 1324,
+          "width": 88
+        }
+      ],
+      "frames": [
+        {
+          "bounds": [
+            93,
+            18,
+            429,
+            494
+          ],
+          "scale": 1.0,
+          "idleIdentical": true
+        },
+        {
+          "bounds": [
+            112,
+            43,
+            466,
+            494
+          ],
+          "sourceBounds": [
+            66,
+            84,
+            586,
+            747
+          ],
+          "scale": 0.68,
+          "baselineY": 494
+        },
+        {
+          "bounds": [
+            8,
+            27,
+            424,
+            494
+          ],
+          "sourceBounds": [
+            1,
+            60,
+            613,
+            747
+          ],
+          "scale": 0.68,
+          "baselineY": 494
+        },
+        {
+          "bounds": [
+            96,
+            46,
+            482,
+            494
+          ],
+          "sourceBounds": [
+            29,
+            88,
+            596,
+            747
+          ],
+          "scale": 0.68,
+          "baselineY": 494
+        }
+      ]
+    },
+    "death": {
+      "source": "death-master.png",
+      "sourceSize": [
+        2172,
+        724
+      ],
+      "visibleBounds": [
+        63,
+        28,
+        2151,
+        692
+      ],
+      "seams": [
+        724,
+        1430
+      ],
+      "transparentGaps": [
+        {
+          "start": 668,
+          "end": 790,
+          "width": 122
+        },
+        {
+          "start": 1316,
+          "end": 1431,
+          "width": 115
+        }
+      ],
+      "frames": [
+        {
+          "bounds": [
+            93,
+            18,
+            429,
+            494
+          ],
+          "scale": 1.0,
+          "idleIdentical": true
+        },
+        {
+          "bounds": [
+            93,
+            42,
+            504,
+            494
+          ],
+          "sourceBounds": [
+            63,
+            28,
+            668,
+            692
+          ],
+          "scale": 0.68,
+          "baselineY": 494
+        },
+        {
+          "bounds": [
+            118,
+            120,
+            476,
+            494
+          ],
+          "sourceBounds": [
+            66,
+            133,
+            592,
+            683
+          ],
+          "scale": 0.68,
+          "baselineY": 494
+        },
+        {
+          "bounds": [
+            14,
+            255,
+            504,
+            494
+          ],
+          "sourceBounds": [
+            1,
+            334,
+            721,
+            686
+          ],
+          "scale": 0.68,
+          "baselineY": 494
+        }
+      ]
+    }
+  }
+}

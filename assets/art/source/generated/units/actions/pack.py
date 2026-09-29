@@ -17,11 +17,11 @@ HERE = Path(__file__).resolve().parent
 ART = HERE.parents[3]
 OUTPUT = ART / "units" / "hires" / "actions"
 COMPACT_OUTPUT = OUTPUT / "compact"
-PREVIEW = ART.parents[1] / "hd2d-previews" / "qa-hires-actions-nine-units.png"
+PREVIEW = ART.parents[1] / "hd2d-previews" / "qa-hires-actions-ten-units.png"
 CAVALRY_PREVIEW = ART.parents[1] / "hd2d-previews" / "qa-cavalry-production-64.png"
 COMPACT_PREVIEW = ART.parents[1] / "hd2d-previews" / "qa-cavalry-compact-64.png"
 CAVALRY_IDS = ("cavalry_t1", "gold_cavalry")
-IDS = ("infantry", "infantry_t1", "infantry_shield", "star_trooper", "archer", "archer_t1", "archer_crossbow") + CAVALRY_IDS
+IDS = ("infantry", "infantry_t1", "infantry_shield", "star_trooper", "archer", "archer_t1", "archer_crossbow", "mage_t1") + CAVALRY_IDS
 RUNTIME_IDS = IDS
 ACTIONS = ("attack", "hit", "death")
 SUGGESTED_TIMING_MS = {
@@ -37,11 +37,13 @@ COMPACT_CELL = 256
 POSE_SCALE = {"infantry": 0.68, "infantry_t1": 0.68, "infantry_shield": 0.90,
               "star_trooper": 0.705,
               "archer": 0.70, "archer_t1": 0.70, "archer_crossbow": 0.70,
+              "mage_t1": 0.68,
               "cavalry_t1": 0.78, "gold_cavalry": 0.78}
 LAYOUT_ACTIONS = {"attack", "death"}
 SOURCE_VARIANTS = {("infantry_shield", "attack"): "-v3",
                    ("infantry_shield", "hit"): "-v2",
                    ("infantry_shield", "death"): "-v2"}
+SOURCE_DIRS = {"mage_t1": HERE / "mage_t1"}
 
 
 def visible_bbox(image: Image.Image) -> tuple[int, int, int, int]:
@@ -119,7 +121,10 @@ def build_one(unit_id: str, action: str) -> tuple[Image.Image, dict]:
     idle = Image.open(ART / "units" / "hires" / f"{unit_id}.png").convert("RGBA")
     is_layout = unit_id in CAVALRY_IDS and action in LAYOUT_ACTIONS
     suffix = '-layout' if is_layout else SOURCE_VARIANTS.get((unit_id, action), '')
-    master_path = HERE / f"{unit_id}-{action}-master{suffix}.png"
+    source_dir = SOURCE_DIRS.get(unit_id, HERE)
+    master_name = f"{action}-master{suffix}.png" if unit_id in SOURCE_DIRS else \
+        f"{unit_id}-{action}-master{suffix}.png"
+    master_path = source_dir / master_name
     master = Image.open(master_path).convert("RGBA")
     if unit_id in CAVALRY_IDS:
         if master.size != (2172, 724):
@@ -195,7 +200,7 @@ def main() -> None:
     parser.add_argument("--check", action="store_true", help="Compare packed PNG pixels with source")
     args = parser.parse_args()
     manifest = {
-        "version": 6,
+        "version": 7,
         "runtimeSampleEnabled": True,
         "runtimeUnits": list(RUNTIME_IDS),
         "manifestReadAtRuntime": False,

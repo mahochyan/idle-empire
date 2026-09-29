@@ -41,7 +41,7 @@
     'wild_boar','wild_bull','wild_snake','wild_tiger','wild_turtle','wild_wyrm'
   ]);
   const hiresActionTypes=new Set([
-    'infantry','infantry_t1','infantry_shield','archer','archer_t1','archer_crossbow','star_trooper','cavalry_t1','gold_cavalry'
+    'infantry','infantry_t1','infantry_shield','archer','archer_t1','archer_crossbow','mage_t1','star_trooper','cavalry_t1','gold_cavalry'
   ]);
   // Authored helmet/hood anchors for frames whose raised weapon sits higher
   // than the face. Other frames use measured alpha bounds.
@@ -1058,7 +1058,11 @@
     // 旧偏移使第二团比第一团退后约 8 个世界单位，1v2 画面被拉得过散。
     const spread=index%2?-0.8*tall:0.8*tall;
     const stagger=density<=2?7.2:3.2;
-    return {x,z:depth+battleDepthOffset-2.5*tall-(index%2)*stagger+line*2.2+spread};
+    // A solo duel has no second squad to balance the vertical composition.
+    // Move both portraits toward the upper half; their world scale is unchanged.
+    const soloLift=density===1?3.7-0.8*tall:0;
+    return {x,z:depth+battleDepthOffset-2.5*tall-soloLift-
+      (index%2)*stagger+line*2.2+spread};
   }
   function battleLayoutStatus(state){
     if(!state.camera||!state.width||!state.height)return [];
@@ -1717,6 +1721,7 @@
         else if(e.impactShape==='cut'||e.impactShape==='claw')
           e.main.material.rotation=toward*(0.28+0.35*t);
         else if(e.impactShape==='shock')e.main.material.rotation=0.13*Math.sin(t*28);
+        else if(e.impactShape==='phase')e.main.material.rotation=0.18*Math.sin(t*22);
         for(let j=0;j<e.particles.length;j++){
           const particle=e.particles[j],a=(j/e.particles.length)*Math.PI*2+
             (e.seed%17)*Math.PI/17;
@@ -1732,6 +1737,10 @@
           else if(e.impactShape==='bite')x=(j%2?-1:1)*spread*0.72;
           else if(e.impactShape==='shield'){x*=0.75;y*=0.75;}
           else if(e.impactShape==='shock')y+=0.12*Math.sin(t*24+j*2);
+          else if(e.impactShape==='phase'){
+            x=toward*spread*(0.3+0.55*t);
+            y=(j%2?1:-1)*(0.12+spread*0.52)+0.08*Math.sin(t*20+j);
+          }
           particle.position.set(x,y,0);
           particle.material.opacity=0.55*(1-t);
         }
@@ -1828,12 +1837,21 @@
               model.sprite.position.x=0.16*factor*pack*Math.sin(p*50)*(1-p);
               material.color.setRGB(1,1-0.48*(1-p),1-0.48*(1-p));
             }else if(action.kind==='death'){
-              model.sprite.position.x=(model.side==='allies'?1:-1)*0.26*factor*pack*p;
-              offsetY=-0.45*factor*pack*p;
-              const size=3.0*factor*pack*(1-0.20*p);
-              model.sprite.scale.set(size,size,1);
-              material.rotation=(model.side==='allies'?-1:1)*0.62*p;
-              material.opacity=1-p;
+              if(model.hiresActionActive){
+                // These four authored frames already contain the fall and
+                // prone pose; rotating them again obscures the final drawing.
+                model.sprite.position.x=0;
+                model.sprite.scale.set(3.0*factor*pack,3.0*factor*pack,1);
+                material.rotation=0;
+                material.opacity=1-clamp((p-0.82)/0.18,0,1);
+              }else{
+                model.sprite.position.x=(model.side==='allies'?1:-1)*0.26*factor*pack*p;
+                offsetY=-0.45*factor*pack*p;
+                const size=3.0*factor*pack*(1-0.20*p);
+                model.sprite.scale.set(size,size,1);
+                material.rotation=(model.side==='allies'?-1:1)*0.62*p;
+                material.opacity=1-p;
+              }
             }
           }else{
             if(applyUnitActionTexture(state,model,action.kind)){
