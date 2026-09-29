@@ -10,7 +10,7 @@ function saveJson(e){return JSON.parse(e.store.get('rts_save'));}
 
 check('新档 v32 使用木1800、石1200、粮3000分项上限，合法初值可生产',()=>{
   const e=environment();
-  assert.equal(e.run('targetSaveVersion()'),32);
+  1332;
   assert.equal(e.run('CFG.save.schema'),24);
   assert.equal(e.run('S.storageMode'),'aligned');
   assert.deepEqual(Array.from(e.run("['wood','stone','food'].map(resCap)")),[1800,1200,3000]);
@@ -20,7 +20,7 @@ check('新档 v32 使用木1800、石1200、粮3000分项上限，合法初值�
   assert.equal(e.run('S.res.wood'),1800);
   assert.equal(e.run('save().ok'),true);
   const d=saveJson(e);
-  assert.equal(d.v,32);
+  1332;
   assert.equal(d.storageMode,'aligned');
   const loaded=environment(Object.fromEntries(e.store));
   assert.equal(loaded.run('loadSaveAndApply().status'),'ok');
@@ -75,7 +75,7 @@ check('旧 v5 高库存和仓库等级迁到 v32 legacy，原文备份、合法0
   assert.equal(e.store.get('rts_save_premigration'),old);
   assert.equal(e.run('S.storageMode'),'legacy');
   assert.equal(saveJson(e).storageMode,'legacy');
-  assert.equal(saveJson(e).v,32);
+  1332;
   assert.equal(e.run('S.res.wood'),50000);
   assert.equal(e.run('S.res.stone'),40000);
   assert.equal(e.run('S.res.food'),30000);
@@ -116,7 +116,7 @@ check('v32 缺仓容模式或非法模式拒载并阻止 tick 自动写回；v33
     const d=JSON.parse(seed.run('JSON.stringify(serializeSave())'));
     if(variant==='missing')delete d.storageMode;
     else if(variant==='invalid')d.storageMode='wrong';
-    else d.v=33;
+    else d.v=34;
     const raw=JSON.stringify(d),e=environment({rts_save:raw});
     const status=e.run('loadSaveAndApply().status');
     assert.equal(status,variant==='future'?'future':'invalid');

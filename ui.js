@@ -943,6 +943,14 @@ function unitPortrait(key,size='card'){
   if(typeof artKey!=='string'||!/^[a-z0-9_]+$/.test(artKey))return '';
   return `<img class="unit-portrait unit-portrait-${size}" src="./assets/art/units/hires/${artKey}.png" alt="" loading="lazy" decoding="async">`;
 }
+function calmStarBeastFromUI(){
+  const result=calmStarBeastAlert();
+  if(typeof toast==='function')toast(result.ok?`星兽警戒降至 ${result.alert}`:({
+    'daily-limit':'今日三次镇静已用完','no-alert':'当前没有星兽警戒',
+    'science-prerequisite':'需先研究星界兽域','save-failed':'保存失败，镇静未生效',
+    'unavailable':'当前不能镇静星兽'
+  }[result.reason]||'镇静失败'));
+}
 function toggleBarracksBranch(key){
   if(!S._barracksFold)S._barracksFold={};
   S._barracksFold[key]=!S._barracksFold[key];
@@ -1176,16 +1184,19 @@ function rFight(){
 
     // 关卡选择
     h+=`<div class="card"><h3>${pix('battle','card-pix')}关卡选择</h3>`;
-    const hasSel=campaignStageSelectable(S.selEnemy);
+    // 主线末关保留锁定预览；选项和开战都复用动作层的研究门。
+    const hasSel=Number.isInteger(S.selEnemy)&&S.selEnemy>=0&&S.selEnemy<=campaignMaxSelectableIndex();
     const cur=hasSel?CFG.enemies[S.selEnemy]:null;
+    const stageLock=cur?campaignStageLockReason(S.selEnemy):'';
     h+=`<div style="display:flex;align-items:center;gap:6px;margin-bottom:8px">`;
     h+=`<button class="btn btn-ghost btn-xs" onclick="selEnemy(${hasSel?(S.selEnemy-1):'null'})" ${!hasSel||S.selEnemy<=0?'disabled':''}>◀</button>`;
     h+=`<select onchange="this.blur();selEnemy(this.value===''?null:parseInt(this.value))" style="flex:1;background:#121224;color:#e0e0e0;border:1px solid #3a4158;padding:4px 8px;font-family:inherit;font-size:13px;cursor:pointer">`;
     h+=`<option value="" ${hasSel?'':'selected'}>-- 请选择关卡 --</option>`;
     for(let i=0;i<CFG.enemies.length;i++){
-      if(!campaignStageSelectable(i))continue;
+      if(i>campaignMaxSelectableIndex())continue;
       const e=CFG.enemies[i],df=S.defeated.includes(e.id);
-      h+=`<option value="${i}" ${hasSel&&i===S.selEnemy?'selected':''}>${df?'✓ ':''}第${i+1}关 - ${e.name}${e.boss?' [BOSS]':''}</option>`;
+      const locked=campaignStageLockReason(i);
+      h+=`<option value="${i}" ${hasSel&&i===S.selEnemy?'selected':''} ${locked?'disabled':''}>${df?'✓ ':''}第${i+1}关 - ${e.name}${e.boss?' [BOSS]':''}${locked?' [待研究]':''}</option>`;
     }
     h+=`</select>`;
     h+=`<button class="btn btn-ghost btn-xs" onclick="selEnemy(${hasSel?(S.selEnemy+1):'null'})" ${!hasSel||!campaignStageSelectable(S.selEnemy+1)?'disabled':''}>▶</button>`;
@@ -1198,8 +1209,9 @@ function rFight(){
       const enemyInfo=Object.entries(cur.units).map(([k,counts])=>{const t=counts.reduce((a,b)=>a+b,0);return `${pix(CFG.units[k].icon,'mini')}${CFG.units[k].name}×${t}`;}).join(' ');
       h+=`<div style="font-size:10px;color:#777;margin-top:4px">${enemyInfo}</div>`;
       h+=`</div>`;
+      if(stageLock)h+=`<div style="font-size:11px;color:#e8b86a;margin:-3px 0 8px">${pix('lock','mini')}${esc(stageLock)}</div>`;
     }
-    h+=`<button class="btn btn-go" style="width:100%" onclick="openBattle()" ${cur?'':'disabled'}>${pix('battle','mini')}开战</button>`;
+    h+=`<button class="btn btn-go" style="width:100%" onclick="openBattle()" ${cur&&!stageLock?'':'disabled'}>${pix('battle','mini')}开战</button>`;
     h+=`</div>`;
     // 拓境是独立于百关主线的发展副本；复用现有卡片样式，避免干扰并行美术工作。
     h+=`<div class="card"><h3>${pix('battle','card-pix')}拓境远征</h3>`;
@@ -1322,6 +1334,17 @@ function rFight(){
         if(!domain.noCleanser)h+=`<button class="btn btn-ghost btn-xs" onclick="useDomainCleanserFromUI('${key}')" ${S.items.domainCleanser>0&&kill>=200?'':'disabled'}>镇域净化剂 ${S.items.domainCleanser} · 警戒 -100</button>`;
         h+='</div>';
       }
+    }
+    if(scienceUnlocked(CFG.starBeast.needScience)){
+      const c=CFG.starBeast,alert=S.killValues.starBeast,calms=dailyCount('starBeastCalm');
+      h+=`<div class="card"><h3>${pix('wild_wyrm','card-pix')}星界兽域</h3>`;
+      h+=`<div style="font-size:11px;color:#aaa;margin-bottom:6px">九阶星兽每日各可击败一次，每胜得星辉原石、幻相石、圣环核石，用于星辉圣阵。当前警戒 ${alert}；每满1000警戒强化星兽。战损按实际结算。</div>`;
+      h+=`<button class="btn btn-ghost btn-xs" onclick="calmStarBeastFromUI()" ${calms<c.freeCalmsPerDay&&alert>0?'':'disabled'}>镇静警戒 -${c.calmAmount} · 今日 ${Math.max(0,c.freeCalmsPerDay-calms)}/${c.freeCalmsPerDay}</button>`;
+      for(const t of c.tiers){
+        const key='starBeast'+t.tier,done=dailyCount(key)>0,e=materialDomainEncounter(key);
+        h+=`<button class="btn btn-go btn-xs" style="margin:5px 4px 0 0" onclick="openMaterialDomain('${key}')" ${done||formCnt()===0?'disabled':''}>${t.tier}阶星兽 · 三材各 ×${e.reward.starOriginStone}${done?' · 今日已胜':''}</button>`;
+      }
+      h+='</div>';
     }
     if(scienceUnlocked('sci_astral_lord')){
       const choices=Object.entries(CFG.units).filter(([key,cfg])=>!cfg.enemyOnly&&ownedUnitCount(key)>0);
@@ -1566,6 +1589,33 @@ function rTechFull(){
       h+=`<div class="tech-detail-row"><div class="tech-detail-head"><strong>${esc(cfg.name)}</strong><span class="tech-detail-state">Lv${level}/${cfg.maxLevel}</span></div><div class="tech-detail-desc">当前加成 +${level*10}%</div><div class="tech-detail-cost">${cost?`下级费用：科技点 ${cost.tech}${cost[material]?` · ${esc(materialName)} ${cost[material]}`:''}`:'已满级'}</div><div class="tech-detail-actions"><button class="btn btn-go btn-xs" ${ready?'':'disabled'} onclick="upgradeEraStorage('${key}')">提升</button></div></div>`;
     }
     h+=`<div class="tech-detail-intro">${esc(CFG.eraMaterials.revivalLeaf.name)}可在远征页挑战${esc(CFG.godDomains.revivalLeaf.name)}获得。</div></div>`;
+  }
+
+  const starSlots=S.starArray?.[CFG.starArray.unit]?.slots||[];
+  const starOpened=starSlots.filter(slot=>slot.open).length;
+  if(scienceUnlocked(CFG.starArray.needScience)||starOpened){
+    const c=CFG.starArray,aw=S.awakening?.[c.unit]||{level:0,stars:0};
+    const active=scienceUnlocked(c.needScience)&&aw.level===c.awakeningLevel&&aw.stars>=c.starScale[0][0];
+    const next=starSlots.findIndex(slot=>!slot.open),busy=S.battleActive||S.offline?.populationFoodRule==='legacy-pending';
+    h+=`<div class="card"><h3>${pix('institute','card-pix')}星辉圣阵</h3>`;
+    h+=`<div class="tech-detail-intro">${starOpened}/${c.slots} 槽已开 · 秘典知识仓上限 +${starArrayKnowledgePercent()}% · 星际先遣兵觉醒 ${aw.level}/${c.awakeningLevel} 阶、${aw.stars}/${c.starScale[0][0]} 星${active?'':'后生效'}。</div>`;
+    h+=`<div class="tech-detail-intro">${esc(CFG.eraMaterials.sacredRingCore.name)} ${S.items.sacredRingCore} · ${esc(CFG.eraMaterials.illusionStone.name)} ${S.items.illusionStone} · ${esc(CFG.eraMaterials.starOriginStone.name)} ${S.items.starOriginStone}。三种星石均来自星界兽域胜利；每个槽先开槽，再定向刻印知识属性，最高 10 级。</div>`;
+    for(let i=0;i<starSlots.length;i++){
+      const slot=starSlots[i];
+      if(!slot.open&&i!==next)continue;
+      const action=!slot.open?'open':slot.type==='unbound'?'attune':slot.level<c.maxLevel?'upgrade':null;
+      const cost=action?starArraySlotCost(action,i):null;
+      const ready=!!cost&&!busy&&scienceUnlocked(c.needScience)&&Number.isSafeInteger(S.items[cost.item])&&S.items[cost.item]>=cost.amount;
+      const gain=slot.open&&slot.type==='knowledgeCap'?(4+2*Math.floor(i/3))*slot.level:0;
+      const label=action==='open'?'开槽':action==='attune'?'刻印知识':action==='upgrade'?'升级':'已满级';
+      const callback=action==='open'?`openStarArraySlot(${i})`:action==='attune'?`attuneStarArrayKnowledgeSlot(${i})`:`upgradeStarArraySlot(${i},${slot.level})`;
+      h+=`<div class="tech-detail-row"><div class="tech-detail-head"><strong>第${i+1}槽</strong><span class="tech-detail-state">${!slot.open?'未开放':slot.type==='unbound'?'待刻印':`知识 Lv${slot.level}/${c.maxLevel}`}</span></div>`;
+      h+=`<div class="tech-detail-desc">${gain?`秘典知识仓基础属性 ${gain}% · 觉醒后按星数折算`:'当前不增加知识仓容量'}</div>`;
+      h+=`<div class="tech-detail-cost">${cost?`${esc(CFG.eraMaterials[cost.item].name)} ${cost.amount}`:'已满级'}</div>`;
+      if(action)h+=`<div class="tech-detail-actions"><button class="btn btn-go btn-xs" ${ready?'':'disabled'} onclick="${callback}">${label}</button></div>`;
+      h+=`</div>`;
+    }
+    h+=`</div>`;
   }
 
   const quantumStorage=Object.entries(CFG.eraStorage).filter(([key,cfg])=>

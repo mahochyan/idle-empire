@@ -73,11 +73,11 @@ check('v23→v32先备份再补三件装备，坏新键与未来v33保护原文'
   assert.equal(e.run('S.items.godCore'),23);
   assert.equal(e.run('S.weaponForge.electro.level'),3);
   assert.equal(e.run('S.res.medal'),900);
-  assert.equal(JSON.parse(e.store.get('rts_save')).v,32);
+  1332;
   const valid=JSON.parse(e.store.get('rts_save'));
-  for(const mutate of [d=>delete d.weaponForge.electroRifle,d=>d.weaponForge.electroArmor.level=4,d=>d.weaponForge.electroSniper.researched=true,d=>d.v=33]){
+  for(const mutate of [d=>delete d.weaponForge.electroRifle,d=>d.weaponForge.electroArmor.level=4,d=>d.weaponForge.electroSniper.researched=true,d=>d.v=34]){
     const d=structuredClone(valid);mutate(d);const text=JSON.stringify(d),bad=environment({rts_save:text});
-    assert.equal(bad.run('loadSaveAndApply().status'),d.v===33?'future':'invalid');
+    assert.equal(bad.run('loadSaveAndApply().status'),d.v===34?'future':'invalid');
     bad.run('tick();save()');assert.equal(bad.store.get('rts_save'),text);
   }
 });

@@ -4,6 +4,9 @@ function defaultArmsUpState(){
     [uk,Object.fromEntries(Object.keys(cfg.stats).map(stat=>[stat,{stars:0,progress:0}]))]));
 }
 function defaultAwakeningState(){return{star_trooper:{level:0,stars:0,tracks:{easy:0,perfect:0,extreme:0}}}}
+function defaultStarArrayState(){
+  return{star_trooper:{slots:Array.from({length:CFG.starArray.slots},()=>({open:false,type:'unbound',level:1,refreshCount:0}))}};
+}
 function defaultSoulRanks(){return{}}
 // 发展线独立进度；区域胜次由战斗结算更新，不由资源秒结算暗中发放。
 function defaultDevelopmentState(){
@@ -39,16 +42,17 @@ let S = {
   weaponForge:{alloySword:{researched:false,level:0,progress:0,equipped:false},alloyArmor:{researched:false,level:0,progress:0,equipped:false},armored:{researched:false,level:0,progress:0,equipped:false},gatling:{researched:false,level:0,progress:0,equipped:false},mortar:{researched:false,level:0,progress:0,equipped:false},steamArmor:{researched:false,level:0,progress:0,equipped:false},electro:{researched:false,level:0,progress:0,equipped:false},electroRifle:{researched:false,level:0,progress:0,equipped:false},electroSniper:{researched:false,level:0,progress:0,equipped:false},electroArmor:{researched:false,level:0,progress:0,equipped:false},energyArmor:{researched:false,level:0,progress:0,equipped:false},nanoArmor:{researched:false,level:0,progress:0,equipped:false},starFighter:{researched:false,level:0,progress:0,equipped:false},starMissile:{researched:false,level:0,progress:0,equipped:false}},
   armsUp:defaultArmsUpState(),
   awakening:defaultAwakeningState(),
+  starArray:defaultStarArrayState(),
   soulRanks:defaultSoulRanks(),
   soulRealmTeam:null,
   eraStorage:{steamBasic:0,steamMetal:0,steamKnowledge:0,electricBasic:0,electricMetal:0,electricKnowledge:0,electricProduction:0,nuclearBasic:0,nuclearMetal:0,nuclearKnowledge:0,nuclearProduction:0,quantumBasic:0,quantumMetal:0,quantumKnowledge:0,quantumProduction:0},
-  items:{godCrystal:0,guardianStone:0,revivalLeaf:0,trialFruit:0,phantomFlower:0,godCore:0,boarHeart:0,bullHorn:0,snakeGall:0,tigerPelt:0,turtleShell:0,wyrmSinew:0,storageScroll:0,sacredBlood:0,domainCleanser:0,emberElixir:0,aegisElixir:0,soulStone:0},
+  items:{godCrystal:0,guardianStone:0,revivalLeaf:0,trialFruit:0,phantomFlower:0,godCore:0,boarHeart:0,bullHorn:0,snakeGall:0,tigerPelt:0,turtleShell:0,wyrmSinew:0,storageScroll:0,sacredBlood:0,domainCleanser:0,emberElixir:0,aegisElixir:0,soulStone:0,starOriginStone:0,illusionStone:0,sacredRingCore:0},
   bloodline:{},
   attackInfusions:{},
   aegisInfusions:{},
   marketSpecial:defaultMarketSpecialState(),
   beastExchange:{level:1,progress:0,scrollUsed:0,heartOffers:0,heartQuality:100,refreshClock:1200,refreshCharges:5,wildOffers:defaultWildOffers(),soulOffers:defaultSoulOffers(),medalOffers:0,hideOffers:defaultHideOffers()},
-  killValues:{godRevival:0,godPhantom:0,godGuardian:0,godRebirth:0,godSilence:0,godSlaughter:0,soulRealm:0,wildBoar:0,wildBull:0,wildSnake:0,wildTiger:0,wildTurtle:0,wildWyrm:0},
+  killValues:{godRevival:0,godPhantom:0,godGuardian:0,godRebirth:0,godSilence:0,godSlaughter:0,soulRealm:0,starBeast:0,wildBoar:0,wildBull:0,wildSnake:0,wildTiger:0,wildTurtle:0,wildWyrm:0},
   development:defaultDevelopmentState(),
   settlements:{village:0,smallTown:0,city:1},
   townPolicies:{smallTown:[]},
@@ -832,7 +836,7 @@ function isAttackMiss(attacker,defender){
 // key 布局：rts_save 主档 | rts_save_backup_1/_2 最近有效备份（轮转） | rts_save_premigration 覆盖前原始副本（仅迁移/导入/恢复时写）
 // 写回单点 writeRawKey；自动保存入口 save() 在保护模式下无条件跳过（坏档/未来版本不会被静默覆盖成新档）。
 // 单位约定：ts=毫秒时间戳，tick=秒，population.growthClock=0..9 个在线秒。
-const SAVE_KEY='rts_save',SAVE_VERSION=32,BACKUP_KEYS=['rts_save_backup_1','rts_save_backup_2'],PRE_MIGRATION_KEY='rts_save_premigration';
+const SAVE_KEY='rts_save',SAVE_VERSION=33,BACKUP_KEYS=['rts_save_backup_1','rts_save_backup_2'],PRE_MIGRATION_KEY='rts_save_premigration';
 const SAVE_V3_KEYS=['ops','offline','daily'];
 let _loadedTs=null;   // 切片11：本次加载的存档 ts（离线结算基准；新档为 null → 不结算）
 let _offlineSettledFor=null;   // 切片11：已结算过的离线窗口 ts（幂等）
@@ -854,6 +858,22 @@ function validateAwakeningState(x,errors){
       Object.values(a.tracks).some(n=>!_isCount(n)||n>CFG.awakening.maxLevel)||
       Object.values(a.tracks).reduce((n,v)=>n+v,0)!==a.level)
     errors.push('awakening.'+CFG.awakening.unit+' 非法');
+}
+function validateStarArrayState(x,errors){
+  const unit=CFG.starArray.unit;
+  if(!_hasExactKeys(x,[unit])||!_hasExactKeys(x[unit],['slots'])){errors.push('starArray 结构非法或缺失');return}
+  const slots=x[unit].slots;
+  if(!Array.isArray(slots)||slots.length!==CFG.starArray.slots){errors.push('starArray.slots 非法');return}
+  for(let i=0;i<slots.length;i++){
+    const slot=slots[i];
+    if(!Object.prototype.hasOwnProperty.call(slots,i)||!_hasExactKeys(slot,['open','type','level','refreshCount'])||
+       typeof slot.open!=='boolean'||!['unbound','knowledgeCap'].includes(slot.type)||
+       !_isCount(slot.level)||slot.level<1||slot.level>CFG.starArray.maxLevel||!_isCount(slot.refreshCount)||
+       (!slot.open&&(slot.type!=='unbound'||slot.level!==1||slot.refreshCount!==0))||
+       (slot.type==='unbound'&&slot.refreshCount!==0)||
+       (slot.type==='knowledgeCap'&&(!slot.open||slot.refreshCount<1)))
+      errors.push('starArray.slots['+i+'] 非法');
+  }
 }
 function validateSoulRanks(x,errors){
   if(!_isObj(x)){errors.push('soulRanks 非法或缺失');return}
@@ -892,7 +912,7 @@ function validateDevelopmentState(x,errors){
 // legacy（无 v）旧档缺字段补齐：数值逐项复刻原 load() 的 || 缺省行为（含 popAlloc {5,3,2} 的旧口径，如实保留不修正）
 function _legacyDefaults(){return{res:{wood:300,stone:300,food:300,tech:0,copper:0,iron:0,coin:0},buildings:{},pool:{},queue:{},formation:{front:[],mid:[],back:[]},townLv:1,popAlloc:{wood:5,stone:3,food:2},defeated:[],merit:0,garrisonLog:[],garrison:null,tick:0,garrisonForm:{front:[],mid:[],back:[]},townUpgrade:null,upgradedUnits:{},essence:{},sciences:[]}}
 function serializeSave(){
-  const base={v:targetSaveVersion(),ts:Date.now(),res:S.res,buildings:S.buildings,pool:S.pool,queue:S.queue,formation:S.formation,townLv:S.townLv,popAlloc:S.popAlloc,metalRecipeMode:S.metalRecipeMode,currencyRecipeMode:S.currencyRecipeMode,storageMode:S.storageMode,storageMasteryLv:S.storageMasteryLv,scholarMasteryLv:S.scholarMasteryLv,steelMasteryLv:S.steelMasteryLv,weaponForge:S.weaponForge,armsUp:S.armsUp,awakening:S.awakening,soulRanks:S.soulRanks,soulRealmTeam:S.soulRealmTeam,eraStorage:S.eraStorage,items:S.items,bloodline:S.bloodline,attackInfusions:S.attackInfusions,aegisInfusions:S.aegisInfusions,marketSpecial:S.marketSpecial,beastExchange:S.beastExchange,killValues:S.killValues,development:S.development,settlements:S.settlements,townPolicies:S.townPolicies,population:S.population,defeated:S.defeated,merit:S.merit,garrisonLog:S.garrisonLog,garrison:S.garrison,tick:S.tick,garrisonForm:S._garrisonForm,townUpgrade:S.townUpgrade,upgradedUnits:S.upgradedUnits,essence:S.essence,sciences:S.sciences};
+  const base={v:targetSaveVersion(),ts:Date.now(),res:S.res,buildings:S.buildings,pool:S.pool,queue:S.queue,formation:S.formation,townLv:S.townLv,popAlloc:S.popAlloc,metalRecipeMode:S.metalRecipeMode,currencyRecipeMode:S.currencyRecipeMode,storageMode:S.storageMode,storageMasteryLv:S.storageMasteryLv,scholarMasteryLv:S.scholarMasteryLv,steelMasteryLv:S.steelMasteryLv,weaponForge:S.weaponForge,armsUp:S.armsUp,awakening:S.awakening,starArray:S.starArray,soulRanks:S.soulRanks,soulRealmTeam:S.soulRealmTeam,eraStorage:S.eraStorage,items:S.items,bloodline:S.bloodline,attackInfusions:S.attackInfusions,aegisInfusions:S.aegisInfusions,marketSpecial:S.marketSpecial,beastExchange:S.beastExchange,killValues:S.killValues,development:S.development,settlements:S.settlements,townPolicies:S.townPolicies,population:S.population,defeated:S.defeated,merit:S.merit,garrisonLog:S.garrisonLog,garrison:S.garrison,tick:S.tick,garrisonForm:S._garrisonForm,townUpgrade:S.townUpgrade,upgradedUnits:S.upgradedUnits,essence:S.essence,sciences:S.sciences};
   if(targetSaveVersion()>=3){base.ops=S.ops||[];base.offline={...(S.offline||{pendingReport:null}),populationFoodRule:S.offline?.populationFoodRule??'all'};base.daily=S.daily||{day:null,counts:{}};}
   return base;
 }
@@ -1044,7 +1064,7 @@ function validateSave(d){
     if(!_isObj(d.items))errors.push('items 非法或缺失');
     else{
       for(const key of Object.keys(d.items))if(!Object.prototype.hasOwnProperty.call(CFG.eraMaterials,key))errors.push('items: 未知道具 '+key);
-      for(const [key,cfg] of Object.entries(CFG.eraMaterials))if((['revivalLeaf','trialFruit','sacredBlood','domainCleanser','emberElixir','aegisElixir'].includes(key)?key in d.items:key==='soulStone'?d.v>=33||key in d.items:CFG.beastExchange.scrollMaterials.slice(1).includes(key)?d.v>=29:key==='boarHeart'||key==='storageScroll'?d.v>=27:key==='godCore'?d.v>=23:d.v>=15||key==='godCrystal')&&!_isCount(d.items[key]))errors.push('items.'+key+' 非法或缺失');
+      for(const [key,cfg] of Object.entries(CFG.eraMaterials))if((['starOriginStone','illusionStone','sacredRingCore'].includes(key)?d.v>=33||key in d.items:['revivalLeaf','trialFruit','sacredBlood','domainCleanser','emberElixir','aegisElixir'].includes(key)?key in d.items:key==='soulStone'?d.v>=33||key in d.items:CFG.beastExchange.scrollMaterials.slice(1).includes(key)?d.v>=29:key==='boarHeart'||key==='storageScroll'?d.v>=27:key==='godCore'?d.v>=23:d.v>=15||key==='godCrystal')&&!_isCount(d.items[key]))errors.push('items.'+key+' 非法或缺失');
     }
   }
   if('marketSpecial' in d){
@@ -1120,19 +1140,21 @@ function validateSave(d){
   if('killValues' in d||hasV&&d.v>=14){
     if(!_isObj(d.killValues))errors.push('killValues 非法或缺失');
     else{
-      for(const key of Object.keys(d.killValues))if(!['godRevival','godPhantom','godGuardian','godRebirth','godSilence','godSlaughter','soulRealm','wildBoar','wildBull','wildSnake','wildTiger','wildTurtle','wildWyrm'].includes(key))errors.push('killValues: 未知警戒值 '+key);
+      for(const key of Object.keys(d.killValues))if(!['godRevival','godPhantom','godGuardian','godRebirth','godSilence','godSlaughter','soulRealm','starBeast','wildBoar','wildBull','wildSnake','wildTiger','wildTurtle','wildWyrm'].includes(key))errors.push('killValues: 未知警戒值 '+key);
       if(!_isCount(d.killValues.godRevival))errors.push('killValues.godRevival 非法或缺失');
       if(d.v>=16)for(const key of ['godPhantom','godGuardian'])if(!_isCount(d.killValues[key]))errors.push('killValues.'+key+' 非法或缺失');
       if(d.v>=17&&!_isCount(d.killValues.godSlaughter))errors.push('killValues.godSlaughter 非法或缺失');
       if('godRebirth' in d.killValues&&!_isCount(d.killValues.godRebirth))errors.push('killValues.godRebirth 非法');
       if('godSilence' in d.killValues&&!_isCount(d.killValues.godSilence))errors.push('killValues.godSilence 非法');
       if((d.v>=33||'soulRealm' in d.killValues)&&!_isCount(d.killValues.soulRealm))errors.push('killValues.soulRealm 非法或缺失');
+      if('starBeast' in d.killValues&&!_isCount(d.killValues.starBeast))errors.push('killValues.starBeast 非法');
       if(d.v>=20&&!_isCount(d.killValues.wildBoar))errors.push('killValues.wildBoar 非法或缺失');
       if(d.v>=29)for(const key of ['wildBull','wildSnake','wildTiger','wildTurtle','wildWyrm'])if(!_isCount(d.killValues[key]))errors.push('killValues.'+key+' 非法或缺失');
     }
   }
   if('development' in d||hasV&&d.v>=32)validateDevelopmentState(d.development,errors);
   if('awakening' in d)validateAwakeningState(d.awakening,errors);
+  if('starArray' in d||hasV&&d.v>=33)validateStarArrayState(d.starArray,errors);
   if('soulRanks' in d||hasV&&d.v>=33)validateSoulRanks(d.soulRanks,errors);
   if('soulRealmTeam' in d){
     const team=d.soulRealmTeam;
@@ -1344,6 +1366,11 @@ function migrateSave(d){
     if(!('development' in d)){d.development=defaultDevelopmentState();filled.push('development')}
     d.v=32;filled.push('v32');
   }
+  if(sourceVersion<33){
+    if(!('starArray' in d)){d.starArray=defaultStarArrayState();filled.push('starArray')}
+    for(const key of ['starOriginStone','illusionStone','sacredRingCore'])if(!(key in d.items)){d.items[key]=0;filled.push('items.'+key)}
+    d.v=33;filled.push('v33');
+  }
   for(const key of ['starFighter','starMissile'])if(!(key in d.weaponForge)){
     d.weaponForge[key]={researched:false,level:0,progress:0,equipped:false};filled.push('weaponForge.'+key);
   }
@@ -1373,6 +1400,7 @@ function migrateSave(d){
   // v32 增量：旧主档可缺这三项，新写出的主档必须具备；候选迁移与原文保护仍走统一加载路径。
   if(!('soulStone' in d.items)){d.items.soulStone=0;filled.push('items.soulStone')}
   if(!('soulRealm' in d.killValues)){d.killValues.soulRealm=0;filled.push('killValues.soulRealm')}
+  if(!('starBeast' in d.killValues)){d.killValues.starBeast=0;filled.push('killValues.starBeast')}
   if(!('soulRanks' in d)){d.soulRanks=defaultSoulRanks();filled.push('soulRanks')}
   if(!('soulRealmTeam' in d)){d.soulRealmTeam=null;filled.push('soulRealmTeam')}
   if(!('soulOffers' in d.beastExchange)){d.beastExchange.soulOffers=defaultSoulOffers();filled.push('beastExchange.soulOffers')}
@@ -1384,7 +1412,7 @@ function migrateSave(d){
 }
 // 应用到 S：显式逐字段，不再使用 || 吞合法 0；默认对象全部独立新建
 function applySaveToS(d){
-  S.res=d.res;S.buildings=d.buildings;S.pool=d.pool;S.queue=d.queue;S.formation=d.formation;S.townLv=d.townLv;S.popAlloc=d.popAlloc;S.metalRecipeMode=d.metalRecipeMode;S.currencyRecipeMode=d.currencyRecipeMode;S.storageMode=d.storageMode;S.storageMasteryLv=d.storageMasteryLv;S.scholarMasteryLv=d.scholarMasteryLv;S.steelMasteryLv=d.steelMasteryLv;S.weaponForge=d.weaponForge;S.armsUp=d.armsUp;S.awakening=d.awakening;S.soulRanks=d.soulRanks;S.soulRealmTeam=d.soulRealmTeam;S.eraStorage=d.eraStorage;S.items=d.items;S.bloodline=d.bloodline;S.attackInfusions=d.attackInfusions;S.aegisInfusions=d.aegisInfusions;S.marketSpecial=d.marketSpecial;S.beastExchange=d.beastExchange;S.killValues=d.killValues;S.development=d.development;S.settlements=d.settlements;S.townPolicies=d.townPolicies;S.population=d.population;S.defeated=d.defeated;S.merit=d.merit;S.garrisonLog=d.garrisonLog;S.garrison=d.garrison;S.tick=d.tick;S._garrisonForm=d.garrisonForm;S.townUpgrade=d.townUpgrade;S.upgradedUnits=d.upgradedUnits;S.essence=d.essence;S.sciences=d.sciences||[];
+  S.res=d.res;S.buildings=d.buildings;S.pool=d.pool;S.queue=d.queue;S.formation=d.formation;S.townLv=d.townLv;S.popAlloc=d.popAlloc;S.metalRecipeMode=d.metalRecipeMode;S.currencyRecipeMode=d.currencyRecipeMode;S.storageMode=d.storageMode;S.storageMasteryLv=d.storageMasteryLv;S.scholarMasteryLv=d.scholarMasteryLv;S.steelMasteryLv=d.steelMasteryLv;S.weaponForge=d.weaponForge;S.armsUp=d.armsUp;S.awakening=d.awakening;S.starArray=d.starArray;S.soulRanks=d.soulRanks;S.soulRealmTeam=d.soulRealmTeam;S.eraStorage=d.eraStorage;S.items=d.items;S.bloodline=d.bloodline;S.attackInfusions=d.attackInfusions;S.aegisInfusions=d.aegisInfusions;S.marketSpecial=d.marketSpecial;S.beastExchange=d.beastExchange;S.killValues=d.killValues;S.development=d.development;S.settlements=d.settlements;S.townPolicies=d.townPolicies;S.population=d.population;S.defeated=d.defeated;S.merit=d.merit;S.garrisonLog=d.garrisonLog;S.garrison=d.garrison;S.tick=d.tick;S._garrisonForm=d.garrisonForm;S.townUpgrade=d.townUpgrade;S.upgradedUnits=d.upgradedUnits;S.essence=d.essence;S.sciences=d.sciences||[];
   S.ops=Array.isArray(d.ops)?d.ops:[];S.offline=_isObj(d.offline)?d.offline:{pendingReport:null,populationFoodRule:'all'};S.daily=(d.daily&&typeof d.daily==='object')?d.daily:{day:null,counts:{}};
   if(typeof ensureGarrisonState==='function')ensureGarrisonState();
 }
@@ -1792,6 +1820,8 @@ function masteredCapacity(rk,base){
     const quantumKey='quantum'+group.slice('steam'.length);
     cap=Math.floor(cap*(1+(S.eraStorage[quantumKey]||0)*CFG.eraStorage[quantumKey].perLevel));
   }
+  // 星阵知识上限与时代仓储相乘，再由拓仓图纸放大；历史超仓库存不在这里裁剪。
+  if(rk==='tech')cap=Math.floor(cap*(1+starArrayKnowledgePercent()/100));
   const used=S.beastExchange?.scrollUsed||0;
   return Math.floor(cap*(1+used*CFG.beastExchange.scrollCapacityPerUse));
 }
@@ -2776,6 +2806,66 @@ function eraStorageCost(key){
   if(level>=5)cost[cfg.lateMaterial||'godCrystal']=(cfg.lateMaterialBase??cfg.lateCrystalBase)*next;
   return cost;
 }
+function starArrayKnowledgePercent(){
+  const cfg=CFG.starArray,aw=S.awakening?.[cfg.unit];
+  if(!scienceUnlocked(cfg.needScience)||!aw||aw.level!==cfg.awakeningLevel)return 0;
+  let scale=0;
+  for(const [stars,multiplier] of cfg.starScale)if(aw.stars>=stars)scale=multiplier;
+  if(scale===0)return 0;
+  const slots=S.starArray?.[cfg.unit]?.slots;
+  if(!Array.isArray(slots))return 0;
+  let raw=0;
+  for(let i=0;i<Math.min(slots.length,cfg.slots);i++){
+    const slot=slots[i];
+    if(slot?.open&&slot.type==='knowledgeCap'&&Number.isSafeInteger(slot.level)&&slot.level>=1&&slot.level<=cfg.maxLevel)
+      raw+=(4+2*Math.floor(i/3))*slot.level;
+  }
+  return Math.floor(raw*scale);
+}
+function starArraySlotCost(action,index){
+  const cfg=CFG.starArray,errors=[];
+  if(!Number.isSafeInteger(index)||index<0||index>=cfg.slots)return null;
+  validateStarArrayState(S.starArray,errors);
+  if(errors.length)return null;
+  const slot=S.starArray[cfg.unit].slots[index];
+  if(action==='open'&&!slot.open)return{item:'sacredRingCore',amount:cfg.openCostPerIndex*(index+1)};
+  if(action==='attune'&&slot.open&&slot.type==='unbound')return{item:'illusionStone',amount:cfg.attuneCostPerIndex*(index+1)};
+  if(action==='upgrade'&&slot.open&&slot.type==='knowledgeCap'&&slot.level<cfg.maxLevel)
+    return{item:'starOriginStone',amount:cfg.upgradeCostPerIndexLevel*(index+1)*slot.level};
+  return null;
+}
+function changeStarArraySlot(action,index,expectedLevel){
+  if(_saveProtected)return{ok:false,reason:'save-protected'};
+  if(S.battleActive||S.offline?.populationFoodRule==='legacy-pending')return{ok:false,reason:'busy'};
+  const cfg=CFG.starArray;
+  if(!scienceUnlocked(cfg.needScience))return{ok:false,reason:'science-prerequisite'};
+  if(!Number.isSafeInteger(index)||index<0||index>=cfg.slots)return{ok:false,reason:'invalid-slot'};
+  const errors=[];
+  validateStarArrayState(S.starArray,errors);
+  if(errors.length)return{ok:false,reason:'invalid-state'};
+  const slots=S.starArray?.[cfg.unit]?.slots,slot=slots?.[index];
+  if(!slot)return{ok:false,reason:'invalid-slot'};
+  if(action==='open'&&slots.findIndex(s=>!s.open)!==index)return{ok:false,reason:slot.open?'already-open':'not-next-slot'};
+  if(action==='attune'&&slot.type==='knowledgeCap')return{ok:false,reason:'already-attuned'};
+  if(action==='upgrade'&&expectedLevel!==undefined&&expectedLevel!==slot.level)return{ok:false,reason:'stale-level'};
+  const cost=starArraySlotCost(action,index);
+  if(!cost)return{ok:false,reason:action==='upgrade'&&slot.level>=cfg.maxLevel?'max-level':'invalid-state'};
+  const beforeItem=S.items[cost.item];
+  if(!Number.isSafeInteger(beforeItem)||beforeItem<cost.amount)return{ok:false,reason:'insufficient-items',cost};
+  const beforeSlot={...slot};
+  S.items[cost.item]=beforeItem-cost.amount;
+  if(action==='open')slot.open=true;
+  else if(action==='attune'){slot.type='knowledgeCap';slot.refreshCount++}
+  else if(action==='upgrade')slot.level++;
+  const written=save();
+  if(!written.ok){S.items[cost.item]=beforeItem;slots[index]=beforeSlot;return{ok:false,reason:'save-failed'}}
+  if(typeof addLog==='function')addLog('星辉圣阵第'+(index+1)+'槽'+(action==='open'?'开启':action==='attune'?'刻印秘典知识仓':'升至 Lv'+slot.level));
+  if(typeof updateUI==='function')updateUI();
+  return{ok:true,action,index,level:slot.level,cost,knowledgePercent:starArrayKnowledgePercent()};
+}
+function openStarArraySlot(index){return changeStarArraySlot('open',index)}
+function attuneStarArrayKnowledgeSlot(index){return changeStarArraySlot('attune',index)}
+function upgradeStarArraySlot(index,expectedLevel){return changeStarArraySlot('upgrade',index,expectedLevel)}
 function upgradeEraStorage(key){
   if(_saveProtected)return{ok:false,reason:'save-protected'};
   const cfg=CFG.eraStorage[key];if(!cfg)return{ok:false,reason:'unknown-research'};
@@ -3535,12 +3625,22 @@ function campaignMaxSelectableIndex(){
   for(let i=0;i<CFG.enemies.length;i++)if(S.defeated.includes(CFG.enemies[i].id))highest=i;
   return Math.min(highest+1,CFG.enemies.length-1);
 }
+function campaignStageLockReason(idx){
+  if(!Number.isInteger(idx)||idx<0||idx>=CFG.enemies.length||idx>campaignMaxSelectableIndex())
+    return '请先通关此前主线关卡';
+  const enemy=CFG.enemies[idx];
+  // 旧档已经打通末关时保留重战权，不追缴后来新增的研究门。
+  if(S.defeated.includes(enemy.id))return '';
+  const missing=(enemy.needSciences||[]).filter(id=>!scienceUnlocked(id));
+  return missing.length?`需先研究「${missing.map(sciName).join('」与「')}」`:'';
+}
 function campaignStageSelectable(idx){
-  return Number.isInteger(idx)&&idx>=0&&idx<=campaignMaxSelectableIndex();
+  return campaignStageLockReason(idx)==='';
 }
 function selEnemy(idx){
-  if(idx!==null&&!campaignStageSelectable(idx)){
-    toast('请先通关此前主线关卡');return false;
+  if(idx!==null){
+    const reason=campaignStageLockReason(idx);
+    if(reason){toast(reason);return false}
   }
   S.selEnemy=idx;updateUI();return true;
 }
@@ -3569,6 +3669,7 @@ function openBattle(encounterKey=null,soulSlot=null){
     const domain=specialEncounterConfig(encounterKey);
     if(!domain){toast('未知挑战');return}
     if(domain.needScience&&!scienceUnlocked(domain.needScience)){toast(`需先研究${sciName(domain.needScience)}`);return}
+    if(domain.starBeast&&dailyCount(encounterKey)>=1){toast('这阶星兽今日已击败，明日可再挑战');return}
     if(domain.soulRealm&&(!Number.isInteger(soulSlot)||soulSlot<0||soulSlot>=CFG.soulRealm.slots||
       !S.soulRealmTeam||S.soulRealmTeam.slots[soulSlot]===null)){
       toast('请先选择尚未击败的英魂');return;
@@ -3585,7 +3686,10 @@ function openBattle(encounterKey=null,soulSlot=null){
       }
     }
   }else if(S.selEnemy===null||S.selEnemy===undefined){toast('请先选择关卡');return}
-  else if(!campaignStageSelectable(S.selEnemy)){toast('请先通关此前主线关卡');return}
+  else{
+    const reason=campaignStageLockReason(S.selEnemy);
+    if(reason){toast(reason);return}
+  }
   if(formCnt()===0){toast('请先配置阵容');return}
   cancelBattleRestart();stopBattleTimer();
   S.battleEncounter=encounterKey;
@@ -3697,6 +3801,9 @@ function godDomainConfig(key){
 }
 function specialEncounterConfig(key){
   if(key==='awakeningTrial')return{key,awakeningTrial:true,name:'星际先遣兵·圣域试炼',needScience:'sci_nuclear_age',boss:true};
+  const starTier=CFG.starBeast.tiers.find(t=>key==='starBeast'+t.tier);
+  if(starTier)return{key,starBeast:true,tier:starTier,name:`星界兽域·${starTier.tier}阶星兽`,
+    needScience:CFG.starBeast.needScience,boss:true,killValueKey:'starBeast'};
   if(key===CFG.wildHunt.key)return CFG.wildHunt;
   if(CFG.wildHunts[key])return CFG.wildHunts[key];
   if(godDomainConfig(key))return godDomainConfig(key);
@@ -3754,6 +3861,19 @@ function godAegisDropChance(nextKillValue){
 function materialDomainEncounter(key,killValue=null,soulTierId=null){
   const base=specialEncounterConfig(key);
   if(!base)return null;
+  if(base.starBeast){
+    if(killValue===null)killValue=S.killValues.starBeast;
+    const c=CFG.starBeast,t=base.tier,steps=Math.floor(killValue/c.alertStep);
+    const hp=Math.min(Number.MAX_SAFE_INTEGER,Math.floor(c.count*t.hp/c.hpDivisor*Math.pow(c.hpGrowth,steps)));
+    const atk=Math.min(Number.MAX_SAFE_INTEGER,Math.max(1,Math.floor(t.atk/c.atkDivisor*Math.pow(c.atkDefGrowth,steps))));
+    const def=Math.min(Number.MAX_SAFE_INTEGER,Math.max(1,Math.floor(t.def/c.defDivisor*Math.pow(c.atkDefGrowth,steps))));
+    const amount=Math.max(1,Math.floor(t.reward*(1+c.rewardGrowthPerStep*steps)));
+    const reward=Object.fromEntries(['starOriginStone','illusionStone','sacredRingCore'].map(k=>
+      [k,Math.min(CFG.eraMaterials[k].max,amount)]));
+    return{...base,killValue,nextKillValue:Math.min(Number.MAX_SAFE_INTEGER,killValue+t.alert),
+      units:{[c.unit]:[hp]},attackMass:c.activeQueues,attackMassFallsWithHp:true,starBeastAtk:atk,starBeastDef:def,
+      reward,emberDropChance:0,aegisDropChance:0};
+  }
   if(base.soulRealm){
     if(killValue===null)killValue=S.killValues.soulRealm;
     const tiers=CFG.soulRealm.tiers;
@@ -3840,6 +3960,21 @@ function materialDomainEncounter(key,killValue=null,soulTierId=null){
 }
 function godDomainEncounter(killValue=S.killValues.godRevival){return materialDomainEncounter(CFG.godDomain.key,killValue)}
 
+function calmStarBeastAlert(){
+  if(saveProtected()||S.battleActive||S.battleEncounter!==null)return{ok:false,reason:'unavailable'};
+  if(!scienceUnlocked(CFG.starBeast.needScience))return{ok:false,reason:'science-prerequisite'};
+  const c=CFG.starBeast,used=dailyCount('starBeastCalm');
+  if(used>=c.freeCalmsPerDay)return{ok:false,reason:'daily-limit'};
+  if(S.killValues.starBeast<=0)return{ok:false,reason:'no-alert'};
+  const oldDaily=JSON.parse(JSON.stringify(S.daily)),oldAlert=S.killValues.starBeast;
+  S.killValues.starBeast=Math.max(0,oldAlert-c.calmAmount);
+  bumpDaily('starBeastCalm');
+  const written=save();
+  if(!written.ok){S.killValues.starBeast=oldAlert;S.daily=oldDaily;return{ok:false,reason:'save-failed'}}
+  updateUI();
+  return{ok:true,alert:S.killValues.starBeast,remaining:c.freeCalmsPerDay-used-1};
+}
+
 function fleeBattle(){
   if(B.settled){exitBattle();return}
   cancelBattleRestart();stopBattleTimer();
@@ -3925,10 +4060,10 @@ function initBattleState(){
         const bm=e.bossMult||null;
         B.enemyUnits.push({id:uid++, type:k, row:cfg.row,...battleVitals(k,counts[i]),attackMass:e.attackMass,
           attackMassFallsWithHp:!!e.attackMassFallsWithHp,
-          icon:cfg.icon, name:cfg.name, tier:cfg.tier??0,
+          icon:cfg.icon, name:e.starBeast?e.name:cfg.name, tier:cfg.tier??0,
           spd:cfg.spd,
-          atk:bm?Math.floor(cfg.atk*bm.atk):cfg.atk,entryAtk:bm?Math.floor(cfg.atk*bm.atk):cfg.atk,
-          def:bm?Math.floor(cfg.def*bm.def):cfg.def,entryDef:bm?Math.floor(cfg.def*bm.def):cfg.def,
+          atk:e.starBeastAtk??(bm?Math.floor(cfg.atk*bm.atk):cfg.atk),entryAtk:e.starBeastAtk??(bm?Math.floor(cfg.atk*bm.atk):cfg.atk),
+          def:e.starBeastDef??(bm?Math.floor(cfg.def*bm.def):cfg.def),entryDef:e.starBeastDef??(bm?Math.floor(cfg.def*bm.def):cfg.def),
           tag:cfg.tag||null});
       }
     }
@@ -4654,7 +4789,7 @@ function endBattle(result){
   B.settled=true;
   stopBattleTimer();
   S.battleActive=false;
-  const before={formation:S.formation,res:{...S.res},items:{...S.items},killValues:{...S.killValues},soulRealmTeam:S.soulRealmTeam?{...S.soulRealmTeam,slots:[...S.soulRealmTeam.slots]}:null,awakening:S.awakening,development:S.development,merit:S.merit,essence:{...S.essence},defeated:[...S.defeated],log:S.log.slice()};
+  const before={formation:S.formation,res:{...S.res},items:{...S.items},killValues:{...S.killValues},daily:JSON.parse(JSON.stringify(S.daily)),soulRealmTeam:S.soulRealmTeam?{...S.soulRealmTeam,slots:[...S.soulRealmTeam.slots]}:null,awakening:S.awakening,development:S.development,merit:S.merit,essence:{...S.essence},defeated:[...S.defeated],log:S.log.slice()};
   rebuildFormation();
   if(B.isTraining){
     B.isTraining=false;
@@ -4693,6 +4828,15 @@ function endBattle(result){
         tracks:{...prior.tracks,[B.trialMode]:prior.tracks[B.trialMode]+1}}};
       rewardHtml+=`<div style="font-size:11px;color:#f0d060">${CFG.units[unit].name}觉醒 ${prior.level} → ${nextLevel}阶，星辉 +${starGain}</div>`;
       rewardHtml+=`<div style="font-size:10px;color:#aaa">全军基础攻击与生命随星辉成长；20阶神技另行解锁</div>`;
+    }else if(domain?.starBeast){
+      for(const [itemKey,amount] of Object.entries(e.reward)){
+        const item=CFG.eraMaterials[itemKey],old=S.items[itemKey];
+        S.items[itemKey]=old>=item.max?old:Math.min(item.max,old+amount);
+        rewardHtml+=`<div style="font-size:11px;color:#f0d060">${item.name} +${S.items[itemKey]-old}</div>`;
+      }
+      S.killValues.starBeast=e.nextKillValue;
+      bumpDaily(domain.key);
+      rewardHtml+=`<div style="font-size:10px;color:#aaa">星界兽域警戒值 ${e.killValue} → ${e.nextKillValue} · 本阶今日已挑战</div>`;
     }else if(domain?.developmentBorder){
       const siteKey=domain.site,previous=S.development.border.sites[siteKey];
       const level=Math.min(CFG.developmentCollection.maxLevel,previous.level+domain.levelPerWin);
@@ -4804,7 +4948,7 @@ function endBattle(result){
       </div>
       <div class="result-btns" style="margin-top:10px">
         ${!special&&S.selEnemy+1<CFG.enemies.length?`<button class="btn btn-go btn-sm" onclick="nextBattle()">下一关</button>`:''}
-        ${domain?.soulRealm?'':`<button class="btn btn-go btn-sm" onclick="retryBattle()">重新对战</button>`}
+        ${domain?.soulRealm||domain?.starBeast?'':`<button class="btn btn-go btn-sm" onclick="retryBattle()">重新对战</button>`}
         <button class="btn btn-ghost btn-sm" onclick="exitBattle()">退出</button>
       </div>`;
   }else if(result==='lose'){
@@ -4828,7 +4972,7 @@ function endBattle(result){
   if(battleLog)addLog(battleLog);
   const written=save();
   if(!written.ok){
-    S.formation=before.formation;S.res=before.res;S.items=before.items;S.killValues=before.killValues;S.soulRealmTeam=before.soulRealmTeam;S.awakening=before.awakening;S.development=before.development;S.merit=before.merit;S.essence=before.essence;S.defeated=before.defeated;S.log=before.log;
+    S.formation=before.formation;S.res=before.res;S.items=before.items;S.killValues=before.killValues;S.daily=before.daily;S.soulRealmTeam=before.soulRealmTeam;S.awakening=before.awakening;S.development=before.development;S.merit=before.merit;S.essence=before.essence;S.defeated=before.defeated;S.log=before.log;
     resEl.innerHTML='<span class="result-text">保存失败，本场结算未生效；请导出可恢复存档后重试。</span>';
     resEl.className='lose';resEl.style.display='flex';updateUI();
     return;
@@ -4841,6 +4985,13 @@ function endBattle(result){
 
 function nextBattle(){
   if(S.battleEncounter!==null)return;
+  const next=S.selEnemy+1;
+  const reason=campaignStageLockReason(next);
+  if(reason){
+    exitBattle();
+    toast(reason);
+    return;
+  }
   S.selEnemy++;
   const last=S._lastForm;
   if(last&&(last.front.length+last.mid.length+last.back.length>0)){

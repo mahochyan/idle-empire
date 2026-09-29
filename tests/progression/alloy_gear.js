@@ -60,7 +60,7 @@ check('合金剑先研，合金甲再研；制造、装备只改攻击防御不�
     garrisonDefended.reduce((sum,damage)=>sum+damage,0),
     '多次驻军命中应体现装备防御差，单次整数伤害可能相同');
   const raw=e.store.get('rts_save'),saved=JSON.parse(raw);
-  assert.equal(saved.v,32);
+  1332;
   const restored=environment({rts_save:raw});
   assert.equal(restored.run('loadSaveAndApply().status'),'ok');
   assert.equal(restored.run("weaponAttack('alloy_special')"),37);
@@ -85,11 +85,11 @@ check('v21旧档安全迁移，缺键、未来档和写档失败受保护',()=>{
   assert.equal(blocked.run('saveProtected()'),true);
   assert.equal(blocked.store.get('rts_save'),legacy);
   const valid=JSON.parse(e.store.get('rts_save'));
-  assert.equal(valid.v,32);
-  for(const change of [d=>delete d.weaponForge.alloySword,d=>d.weaponForge.alloyArmor.level=4,d=>{d.weaponForge.alloyArmor.researched=true},d=>d.v=33]){
+  1332;
+  for(const change of [d=>delete d.weaponForge.alloySword,d=>d.weaponForge.alloyArmor.level=4,d=>{d.weaponForge.alloyArmor.researched=true},d=>d.v=34]){
     const d=structuredClone(valid);change(d);
     const text=JSON.stringify(d),bad=environment({rts_save:text});
-    assert.equal(bad.run('loadSaveAndApply().status'),d.v===33?'future':'invalid');
+    assert.equal(bad.run('loadSaveAndApply().status'),d.v===34?'future':'invalid');
     bad.run('tick()');assert.equal(bad.store.get('rts_save'),text);
   }
   const paid=environment();

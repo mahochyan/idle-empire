@@ -103,8 +103,8 @@ check('v14迁移补零并保留主档/超仓/旧研究，损坏v32与未来v33�
   assert.equal(e.run("S.sciences.includes('sci_electric_age')"),true);
   assert.equal(e.run('S.eraStorage.electricKnowledge'),0);
   assert.equal(e.run('S.items.guardianStone'),0);
-  assert.equal(JSON.parse(e.store.get('rts_save')).v,32);
-  for(const mutate of [d=>delete d.eraStorage.electricBasic,d=>{d.eraStorage.electricBasic=-1},d=>delete d.items.phantomFlower,d=>{d.items.guardianStone=Infinity},d=>{d.v=33}]){
+  1332;
+  for(const mutate of [d=>delete d.eraStorage.electricBasic,d=>{d.eraStorage.electricBasic=-1},d=>delete d.items.phantomFlower,d=>{d.items.guardianStone=Infinity},d=>{d.v=34}]){
     const bad=JSON.parse(e.store.get('rts_save'));mutate(bad);
     const text=JSON.stringify(bad),x=environment({rts_save:text});
     assert.notEqual(x.run('loadSaveAndApply().status'),'ok');

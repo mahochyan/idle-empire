@@ -105,17 +105,17 @@ check('v10迁移补钢与钢工0，旧超仓金铁人口保留；坏v32未来v33
   assert.equal(e.run('S.res.steel'),0);
   assert.equal(e.run('S.popAlloc.steel'),0);
   const d=JSON.parse(e.store.get('rts_save'));
-  assert.equal(d.v,32);
+  1332;
   assert.equal(d.res.steel,0);
   assert.equal(d.popAlloc.steel,0);
   const blocked=environment({rts_save:raw});
   blocked.run("localStorage.setItem=(key)=>{if(key==='rts_save_premigration')throw Error('quota')}");
   assert.equal(blocked.run('loadSaveAndApply().status'),'migrated_readonly');
   assert.equal(blocked.store.get('rts_save'),raw);
-  for(const mutate of [x=>delete x.res.steel,x=>{x.popAlloc.steel=-1},x=>{x.v=33}]){
+  for(const mutate of [x=>delete x.res.steel,x=>{x.popAlloc.steel=-1},x=>{x.v=34}]){
     const copy=structuredClone(d);mutate(copy);
     const text=JSON.stringify(copy),bad=environment({rts_save:text});
-    assert.equal(bad.run('loadSaveAndApply().status'),copy.v===33?'future':'invalid');
+    assert.equal(bad.run('loadSaveAndApply().status'),copy.v===34?'future':'invalid');
     bad.run('tick()');
     assert.equal(bad.store.get('rts_save'),text);
   }

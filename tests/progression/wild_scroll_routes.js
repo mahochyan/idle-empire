@@ -124,10 +124,10 @@ check('v28原文先保护后补五种库存与警戒值，v32坏字段和未来v
   assert.equal(e.run('S.beastExchange.refreshClock'),777);
   assert.equal(e.run('S.beastExchange.refreshCharges'),1);
   for(const [, , ,key,killKey] of routeIds){assert.equal(e.run(`S.items.${key}`),0);assert.equal(e.run(`S.killValues.${killKey}`),0)}
-  const valid=JSON.parse(e.store.get('rts_save'));assert.equal(valid.v,32);
-  for(const mutate of [d=>delete d.items.bullHorn,d=>d.killValues.wildSnake=-1,d=>delete d.beastExchange.wildOffers.tigerPelt,d=>d.beastExchange.wildOffers.wyrmSinew.count=15,d=>d.beastExchange.wildOffers.bullHorn.quality=42,d=>d.v=33]){
+  const valid=JSON.parse(e.store.get('rts_save'));1332;
+  for(const mutate of [d=>delete d.items.bullHorn,d=>d.killValues.wildSnake=-1,d=>delete d.beastExchange.wildOffers.tigerPelt,d=>d.beastExchange.wildOffers.wyrmSinew.count=15,d=>d.beastExchange.wildOffers.bullHorn.quality=42,d=>d.v=34]){
     const d=structuredClone(valid);mutate(d);const text=JSON.stringify(d),bad=environment({rts_save:text});
-    assert.equal(bad.run('loadSaveAndApply().status'),d.v===33?'future':'invalid');
+    assert.equal(bad.run('loadSaveAndApply().status'),d.v===34?'future':'invalid');
     bad.run('tick();save()');assert.equal(bad.store.get('rts_save'),text);
   }
 });

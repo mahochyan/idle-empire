@@ -66,7 +66,7 @@ check('v12迁移保留超仓与旧进度，v32字段严格验证，未来档保�
   assert.equal(migrated.run('S.eraStorage.steamKnowledge'),0);
   assert.equal(migrated.run('S.items.godCrystal'),0);
   assert.equal(migrated.store.get('rts_save_premigration'),text);
-  for(const mutate of [d=>delete d.eraStorage,d=>d.eraStorage.steamBasic=-1,d=>d.items.godCrystal=Infinity,d=>d.v=33]){
+  for(const mutate of [d=>delete d.eraStorage,d=>d.eraStorage.steamBasic=-1,d=>d.items.godCrystal=Infinity,d=>d.v=34]){
     const bad=JSON.parse(migrated.store.get('rts_save'));mutate(bad);
     const raw=JSON.stringify(bad),x=environment({rts_save:raw});
     assert.equal(x.run('loadSaveAndApply().status')==='ok',false);

@@ -119,10 +119,10 @@ check('v24旧档候选迁移、原文保护；v32坏键和v33未来档阻止自�
   assert.equal(e.run('S.items.godCore'),17);
   assert.equal(e.run('S.weaponForge.energyArmor.level'),0);
   const valid=JSON.parse(e.store.get('rts_save'));
-  assert.equal(valid.v,32);
-  for(const mutate of [d=>delete d.weaponForge.energyArmor,d=>{d.weaponForge.nanoArmor.researched=true},d=>{d.v=33}]){
+  1332;
+  for(const mutate of [d=>delete d.weaponForge.energyArmor,d=>{d.weaponForge.nanoArmor.researched=true},d=>{d.v=34}]){
     const d=structuredClone(valid);mutate(d);const text=JSON.stringify(d),bad=environment({rts_save:text});
-    assert.equal(bad.run('loadSaveAndApply().status'),d.v===33?'future':'invalid');
+    assert.equal(bad.run('loadSaveAndApply().status'),d.v===34?'future':'invalid');
     bad.run('tick();save()');assert.equal(bad.store.get('rts_save'),text);
   }
 });

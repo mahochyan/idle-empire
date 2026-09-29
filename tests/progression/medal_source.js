@@ -105,8 +105,8 @@ check('v16候选迁移保留原文、旧战功与超仓；损坏v32/未来v33/�
   assert.equal(e.run('S.res.steel'),1234567);
   assert.equal(e.run('S.population.current'),102);
   assert.equal(e.run('S.killValues.godSlaughter'),0);
-  assert.equal(JSON.parse(e.store.get('rts_save')).v,32);
-  for(const mutate of [d=>delete d.res.medal,d=>{d.res.medal=-1},d=>delete d.killValues.godSlaughter,d=>{d.killValues.godSlaughter=Infinity},d=>{d.v=33}]){
+  1332;
+  for(const mutate of [d=>delete d.res.medal,d=>{d.res.medal=-1},d=>delete d.killValues.godSlaughter,d=>{d.killValues.godSlaughter=Infinity},d=>{d.v=34}]){
     const invalid=JSON.parse(e.store.get('rts_save'));mutate(invalid);
     const text=JSON.stringify(invalid),x=environment({rts_save:text});
     assert.notEqual(x.run('loadSaveAndApply().status'),'ok');

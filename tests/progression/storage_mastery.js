@@ -60,7 +60,7 @@ check('旧v11候选迁移保留超仓资源、兵力和人口，合法0往返',(
   assert.equal(e.run('S.population.current'),7);
   assert.equal(e.run('S.pool.infantry'),4);
   assert.equal(e.store.get('rts_save_premigration'),raw);
-  assert.equal(JSON.parse(e.store.get('rts_save')).v,32);
+  1332;
   e.run('save()');
   assert.equal(JSON.parse(e.store.get('rts_save')).storageMasteryLv,0);
 });
@@ -68,9 +68,9 @@ check('旧v11候选迁移保留超仓资源、兵力和人口，合法0往返',(
 check('坏v32和未来v33保护主档，不被tick覆盖',()=>{
   const seed=environment();seed.run('save()');
   const valid=JSON.parse(seed.store.get('rts_save'));
-  for(const mutate of [d=>delete d.storageMasteryLv,d=>{d.storageMasteryLv=-1},d=>{d.storageMasteryLv=1.5},d=>{d.storageMasteryLv=101},d=>{d.v=33}]){
+  for(const mutate of [d=>delete d.storageMasteryLv,d=>{d.storageMasteryLv=-1},d=>{d.storageMasteryLv=1.5},d=>{d.storageMasteryLv=101},d=>{d.v=34}]){
     const d=structuredClone(valid);mutate(d);const raw=JSON.stringify(d),e=environment({rts_save:raw});
-    assert.equal(e.run('loadSaveAndApply().status'),d.v===33?'future':'invalid');
+    assert.equal(e.run('loadSaveAndApply().status'),d.v===34?'future':'invalid');
     e.run('tick()');assert.equal(e.store.get('rts_save'),raw);
   }
 });

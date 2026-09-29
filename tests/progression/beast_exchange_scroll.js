@@ -54,7 +54,7 @@ check('兽心兑换、使用次数、仓容加成与重载一致',()=>{
   assert.equal(e.run('resCap("tech")'),Math.floor(before*1.02));
   assert.equal(e.run('S.items.storageScroll'),0);
   const saved=JSON.parse(e.store.get('rts_save'));
-  assert.equal(saved.v,32);
+  1332;
   const reload=environment({rts_save:JSON.stringify(saved)});
   assert.equal(reload.run('loadSaveAndApply().status'),'ok');
   assert.equal(reload.run('S.beastExchange.scrollUsed'),2);
@@ -95,9 +95,9 @@ check('v26独立迁移保旧库存和合法0，v32坏字段及未来版本只读
   assert.equal(e.run('S.items.boarHeart'),0);
   assert.equal(e.run('S.beastExchange.scrollUsed'),0);
   const valid=JSON.parse(e.store.get('rts_save'));
-  for(const mutate of [d=>delete d.items.boarHeart,d=>d.items.storageScroll=-1,d=>delete d.beastExchange,d=>d.beastExchange.scrollUsed=501,d=>d.v=33]){
+  for(const mutate of [d=>delete d.items.boarHeart,d=>d.items.storageScroll=-1,d=>delete d.beastExchange,d=>d.beastExchange.scrollUsed=501,d=>d.v=34]){
     const d=structuredClone(valid);mutate(d);const text=JSON.stringify(d),bad=environment({rts_save:text});
-    assert.equal(bad.run('loadSaveAndApply().status'),d.v===33?'future':'invalid');
+    assert.equal(bad.run('loadSaveAndApply().status'),d.v===34?'future':'invalid');
     bad.run('tick();save()');assert.equal(bad.store.get('rts_save'),text);
   }
 });

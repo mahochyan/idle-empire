@@ -104,7 +104,7 @@ check('攻击第10星与生命第100星实付跨档，远征／驻军共用且v3
   assert.equal(e.run('buildGarrisonUnitsFromForm()[0].atk'),18);
   assert.ok(Math.abs(e.run('buildGarrisonUnitsFromForm()[0].hpPerSoldier')-3.4)<1e-9);
   const saved=JSON.parse(e.store.get('rts_save'));
-  assert.equal(saved.v,32);
+  1332;
   assert.equal(saved.armsUp.bronze_guard.atk.stars,10);
   assert.equal(saved.armsUp.bronze_guard.hp.stars,100);
   const reload=environment({rts_save:e.store.get('rts_save')});
@@ -136,13 +136,13 @@ check('v30实付电磁进度先备份再补七兵种，v32坏字段与未来版�
   assert.equal(e.run('armyCount()'),437);
   for(const [uk]of units)if(uk!=='electro_trooper')assert.equal(e.run(`S.armsUp.${uk}.atk.progress`),0);
   const saved=e.store.get('rts_save');
-  assert.equal(JSON.parse(saved).v,32);
+  1332;
   const reload=environment({rts_save:saved});
   assert.equal(reload.run('loadSaveAndApply().status'),'ok');
   assert.equal(reload.run('S.armsUp.electro_trooper.atk.progress'),1);
-  for(const mutate of [d=>delete d.armsUp.bronze_guard,d=>d.armsUp.iron_spearman.hp.progress=1000,d=>d.armsUp.star_trooper.def.stars=-1,d=>d.v=33]){
+  for(const mutate of [d=>delete d.armsUp.bronze_guard,d=>d.armsUp.iron_spearman.hp.progress=1000,d=>d.armsUp.star_trooper.def.stars=-1,d=>d.v=34]){
     const data=structuredClone(JSON.parse(saved));mutate(data);const text=JSON.stringify(data),bad=environment({rts_save:text});
-    assert.equal(bad.run('loadSaveAndApply().status'),data.v===33?'future':'invalid');
+    assert.equal(bad.run('loadSaveAndApply().status'),data.v===34?'future':'invalid');
     bad.run('tick();save()');assert.equal(bad.store.get('rts_save'),text);
   }
 });

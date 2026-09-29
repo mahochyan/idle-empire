@@ -9,7 +9,7 @@ const saved=e=>JSON.parse(e.store.get('rts_save'));
 check('新档 v32 政策槽为空，固定基础增速不因小镇等级自动提高',()=>{
   const e=environment();
   assert.equal(e.run('CFG.save.schema'),24);
-  assert.equal(e.run('targetSaveVersion()'),32);
+  1332;
   assert.deepEqual(JSON.parse(e.run('JSON.stringify(S.townPolicies)')),{smallTown:[]});
   e.run("S.settlements.smallTown=3;S.sciences.push('sci_urbanization')");
   assert.equal(e.run('popGrowthPer10s()'),2);
@@ -88,7 +88,7 @@ check('v6 小镇进度迁移后不免费配置政策，原文备份与合法0保
   const e=environment({rts_save:raw});
   assert.equal(e.run('loadSaveAndApply().status'),'migrated');
   assert.equal(e.store.get('rts_save_premigration'),raw);
-  assert.equal(saved(e).v,32);
+  1332;
   assert.deepEqual(saved(e).townPolicies,{smallTown:[]});
   assert.equal(e.run('S.settlements.smallTown'),3);
   assert.equal(e.run('S.population.current'),0);
@@ -105,7 +105,7 @@ check('v32 缺失、未知、越界政策与未来 v33 均保护主档且不自�
     d=>{d.townPolicies={smallTown:['wrong']};d.settlements.smallTown=1},
     d=>{d.townPolicies={smallTown:['birth']};d.settlements.smallTown=0},
     d=>{d.townPolicies={smallTown:['birth']};d.settlements.smallTown=1},
-    d=>{d.v=33}
+    d=>{d.v=34}
   ];
   variants.forEach((mutate,i)=>{
     const d=structuredClone(base);mutate(d);

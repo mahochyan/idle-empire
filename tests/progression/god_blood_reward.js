@@ -40,7 +40,9 @@ check('母本神域胜利100%给血剂，按胜后警戒2001/4001/6001分四档'
 });
 check('六条神域预估在边界按胜后警戒计血剂，原材料奖励不被替换',()=>{
   const e=battleEnv();
-  for(const key of ['godCrystal',...Object.keys(e.run('CFG.godDomains'))]){
+  const sixDomains=['godCrystal',...Object.keys(e.run('CFG.godDomains')).filter(key=>!e.run(`CFG.godDomains['${key}'].soulRealm`))];
+  assert.equal(sixDomains.length,6);
+  for(const key of sixDomains){
     for(const [before,wanted] of [[0,1],[1900,1],[1901,2],[3901,3],[5901,4]]){
       const actual=e.run(`materialDomainEncounter('${key}',${before}).reward.sacredBlood`);
       assert.equal(actual,wanted,`${key} alert ${before}`);
@@ -48,6 +50,7 @@ check('六条神域预估在边界按胜后警戒计血剂，原材料奖励不�
   }
   assert.equal(e.run("materialDomainEncounter('medal',0).reward.godCore"),1);
   assert.equal(e.run("materialDomainEncounter('godCrystal',0).reward.godCrystal"),1);
+  assert.equal(e.run("materialDomainEncounter('soulStone',0)"),null);
   assert.equal(e.run("materialDomainEncounter('bone',0).reward.sacredBlood"),undefined);
   assert.equal(e.run("developmentBorderEncounter(CFG.developmentBorder.copper).reward.sacredBlood"),undefined);
 });

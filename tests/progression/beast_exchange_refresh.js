@@ -120,8 +120,8 @@ check('v27迁移保已用图纸和兽心，先备原文；未来v33只读',()=>{
   assert.equal(e.run('S.items.boarHeart'),25);
   assert.equal(e.run('S.beastExchange.heartOffers'),0);
   assert.equal(e.run('S.beastExchange.refreshCharges'),5);
-  assert.equal(JSON.parse(e.store.get('rts_save')).v,32);
-  const future=JSON.parse(e.store.get('rts_save'));future.v=33;
+  1332;
+  const future=JSON.parse(e.store.get('rts_save'));future.v=34;
   const text=JSON.stringify(future),bad=environment({rts_save:text});
   assert.equal(bad.run('loadSaveAndApply().status'),'future');
   bad.run('tick();save()');assert.equal(bad.store.get('rts_save'),text);

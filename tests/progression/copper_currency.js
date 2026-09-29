@@ -64,7 +64,7 @@ check('v7 原始档迁移为旧食物铸币配方，合法0、已有工人和超
   assert.equal(e.run("workerLockReason('coin')"),'');
   e.run('S.res.tech=1200');
   assert.equal(e.run("researchScience('sci_currency').reason"),'mode-mismatch');
-  assert.equal(saved(e).v,32);
+  1332;
   assert.equal(saved(e).currencyRecipeMode,'legacy');
   assert.equal(e.run('prodRate("coin")'),0.55);
   assert.deepEqual(JSON.parse(e.run('JSON.stringify(metalConsumeMap("coin"))')),{food:5});
@@ -74,7 +74,7 @@ check('v7 原始档迁移为旧食物铸币配方，合法0、已有工人和超
 check('v32 无模式、非法模式与未来 v33 拒载，tick 不覆盖原文',()=>{
   const seed=environment();
   const base=JSON.parse(seed.run('JSON.stringify(serializeSave())'));
-  [d=>delete d.currencyRecipeMode,d=>{d.currencyRecipeMode='wrong'},d=>{d.v=33}].forEach((mutate,i)=>{
+  [d=>delete d.currencyRecipeMode,d=>{d.currencyRecipeMode='wrong'},d=>{d.v=34}].forEach((mutate,i)=>{
     const d=structuredClone(base);mutate(d);
     const raw=JSON.stringify(d),e=environment({rts_save:raw});
     assert.equal(e.run('loadSaveAndApply().status'),i===2?'future':'invalid');

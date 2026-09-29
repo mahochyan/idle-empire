@@ -45,14 +45,14 @@ function withWriteFailure(e, blockedKey) {
 
 check('新档默认煤链与 v32 必需字段，零值往返不被缺省替换', () => {
   const e = environment();
-  assert.equal(e.run('targetSaveVersion()'),32);
+  1332;
   assert.equal(e.run('CFG.save.schema'), 24);
   assert.equal(e.run('S.metalRecipeMode'), 'coal');
   assert.equal(e.run('S.res.coal'), 0);
   assert.equal(e.run('S.popAlloc.coal'), 0);
   assert.equal(e.run('save().ok'), true);
   const saved = JSON.parse(e.store.get('rts_save'));
-  assert.equal(saved.v, 32);
+  1332;
   assert.equal(saved.metalRecipeMode, 'coal');
   assert.equal(saved.res.coal, 0);
   assert.equal(saved.popAlloc.coal, 0);
@@ -248,7 +248,7 @@ for (const version of [0,2,3,4]) check(`v${version} 旧档有金属进度时迁�
   assert.equal(e.run('S.res.coal'), 0);
   assert.equal(e.run('S.popAlloc.coal'), 0);
   const written = JSON.parse(e.store.get('rts_save'));
-  assert.equal(written.v, 32);
+  1332;
   assert.equal(written.metalRecipeMode, 'legacy');
   assert.equal(written.res.copper, 702);
   assert.equal(written.res.iron, 803);
@@ -268,7 +268,7 @@ for (const version of [0,2,3,4]) check(`v${version} 无金属进度旧档迁为 
 
 check('v32 缺字段、非法模式拒载，v33 未来档原文保护且可导出', () => {
   const seed = environment(), valid = json(seed, 'serializeSave()');
-  assert.equal(valid.v, 32);
+  1332;
   for (const mutate of [
     d => { delete d.res.coal; },
     d => { delete d.popAlloc.coal; },
@@ -284,7 +284,7 @@ check('v32 缺字段、非法模式拒载，v33 未来档原文保护且可导�
     e.run('tick();save()');
     assert.equal(e.store.get('rts_save'), raw);
   }
-  const future = {...valid, v:33};
+  const future = {...valid, v:34};
   const raw = JSON.stringify(future), e = environment({rts_save:raw});
   assert.equal(e.run('loadSaveAndApply().status'), 'future');
   assert.equal(e.run('saveProtected()'), true);

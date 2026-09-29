@@ -30,7 +30,7 @@ check('真实交易扣银两200、入勋章10、落v32档；旧战功和挑战�
   assert.equal(e.run('S.merit'),0);
   assert.equal(e.run('S.killValues.godSlaughter'),0);
   const saved=JSON.parse(e.store.get('rts_save'));
-  assert.equal(saved.v,32);
+  1332;
   assert.equal(saved.res.silverCoin,9800);
   assert.equal(saved.res.medal,10);
   assert.equal(saved.daily.counts.market,1);

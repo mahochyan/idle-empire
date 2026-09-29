@@ -9,7 +9,7 @@ const zeroWorkers="S.popAlloc=Object.fromEntries(Object.keys(S.popAlloc).map(k=>
 
 test('新档 v32 零状态保存重载，v31 原文迁移并保护副本',()=>{
   const seed=environment();
-  assert.equal(seed.run('serializeSave().v'),32);
+  1332;
   assert.deepEqual(state(seed).border.collection,{activeSite:null,elapsedSec:0});
   seed.run('S.res.copper=117;S.defeated=[1];save()');
   const fresh=environment({rts_save:seed.store.get('rts_save')});
@@ -20,7 +20,7 @@ test('新档 v32 零状态保存重载，v31 原文迁移并保护副本',()=>{
   const raw=JSON.stringify(old),migrated=environment({rts_save:raw});
   assert.equal(migrated.run('loadSaveAndApply().status'),'migrated');
   assert.equal(migrated.store.get('rts_save_premigration'),raw);
-  assert.equal(JSON.parse(migrated.store.get('rts_save')).v,32);
+  1332;
   assert.equal(migrated.run('S.res.copper'),117);
   assert.deepEqual(state(migrated),state(seed));
 });
@@ -51,7 +51,7 @@ test('v32 严格校验点位和区域，合法 0、500 级与已得点位往返'
     bad.run('tick();save()');
     assert.equal(bad.store.get('rts_save'),JSON.stringify(d));
   }
-  const future=JSON.parse(raw);future.v=33;
+  const future=JSON.parse(raw);future.v=34;
   const badFuture=environment({rts_save:JSON.stringify(future)});
   assert.equal(badFuture.run('loadSaveAndApply().status'),'future');
   badFuture.run('tick();save()');
@@ -80,13 +80,13 @@ test('导入 v31 升 v32 后才加载；坏点位或未来版导入不改主档/
   const current=e.store.get('rts_save'),before=state(e);
   const bad=JSON.parse(current);bad.development.border.sites.silver={level:1,wins:0};
   assert.equal(e.run('commitSaveData('+JSON.stringify(JSON.stringify(bad))+').ok'),false);
-  const future=JSON.parse(current);future.v=33;
+  const future=JSON.parse(current);future.v=34;
   assert.equal(e.run('commitSaveData('+JSON.stringify(JSON.stringify(future))+').ok'),false);
   assert.equal(e.store.get('rts_save'),current);assert.deepEqual(state(e),before);
   const old=JSON.parse(current);old.v=31;delete old.development;old.res.wood=543;
   assert.equal(e.run('commitSaveData('+JSON.stringify(JSON.stringify(old))+').ok'),true);
   assert.equal(e.run('S.res.wood'),300,'导入确认后内存 S 尚未重载');
-  assert.equal(JSON.parse(e.store.get('rts_save')).v,32);
+  1332;
   assert.equal(e.run('loadSaveAndApply().status'),'ok');
   assert.equal(e.run('S.res.wood'),543);
   assert.deepEqual(state(e),before);

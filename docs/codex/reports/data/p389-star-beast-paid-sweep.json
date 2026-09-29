@@ -1,0 +1,1930 @@
+{
+  "batch": "P389",
+  "source": {
+    "file": "docs\\codex\\reports\\data\\p386-300m-paid-save.json",
+    "sha256": "7f27ca4a53ba412e187ec72aeaaf6349f1bba00185ae422ac959dac8e557f5cf",
+    "saveVersion": 32
+  },
+  "runtimeFiles": {
+    "config.js": "d52f6323d46d6a924cad3edabcd0491cb5f75630afd2e0bafe1082fbf5cb6ad2",
+    "levels.js": "dec14783bbeb41111ae116598dff48c9a6930b2dbf7879e2265f8887d4cc9f54",
+    "math.js": "b128ed8cc90d05f15c0a325ea815f5317d2bba34ef8f209580f38818c209f778",
+    "garrison.js": "762da86c67c0bfb1ef0c5a519a7fad57a8f8e4f7ad6c5045f4736c2b650739a9",
+    "technology.js": "c51fb05821593d9e76396ff18b0a38d78dee1db9cdc55631b78a7f223ad0a006"
+  },
+  "seedPolicy": "Fresh P386 paid v32 save for every fixed seed 1–16. Every run pays sci_star_beast_domain through researchScience. Only paid_6_7 leaves awakening and battle configuration untouched. Synthetic cases directly set awakening rank/star or beast HP divisor without paying for those changes.",
+  "entry": {
+    "researchCost": {
+      "tech": 200000000,
+      "medal": 1000000,
+      "merit": 0
+    },
+    "techAfterResearch": 100022549,
+    "medalAfterResearch": 3042870,
+    "army": 672,
+    "deployed": 626,
+    "awakening": {
+      "level": 6,
+      "stars": 7,
+      "tracks": {
+        "easy": 6,
+        "perfect": 0,
+        "extreme": 0
+      }
+    },
+    "startingAlert": 0,
+    "startingMaterials": {
+      "starOriginStone": 0,
+      "illusionStone": 0,
+      "sacredRingCore": 0
+    }
+  },
+  "summary": {
+    "paid_6_7": {
+      "wins": 11,
+      "losses": 5,
+      "seeds": 16,
+      "hp": 211764,
+      "casualtiesMin": 18,
+      "casualtiesMax": 38,
+      "enemyHpOnLossMin": 353,
+      "enemyHpOnLossMax": 15136
+    },
+    "synthetic_20_50": {
+      "wins": 15,
+      "losses": 1,
+      "seeds": 16,
+      "hp": 211764,
+      "casualtiesMin": 14,
+      "casualtiesMax": 35,
+      "enemyHpOnLossMin": 2791,
+      "enemyHpOnLossMax": 2791
+    },
+    "synthetic_6_7_hp225k": {
+      "wins": 5,
+      "losses": 11,
+      "seeds": 16,
+      "hp": 225000,
+      "casualtiesMin": 19,
+      "casualtiesMax": 41,
+      "enemyHpOnLossMin": 2263,
+      "enemyHpOnLossMax": 27832
+    },
+    "synthetic_20_50_hp225k": {
+      "wins": 10,
+      "losses": 6,
+      "seeds": 16,
+      "hp": 225000,
+      "casualtiesMin": 16,
+      "casualtiesMax": 34,
+      "enemyHpOnLossMin": 2681,
+      "enemyHpOnLossMax": 16280
+    },
+    "synthetic_6_7_hp200k": {
+      "wins": 15,
+      "losses": 1,
+      "seeds": 16,
+      "hp": 200000,
+      "casualtiesMin": 16,
+      "casualtiesMax": 37,
+      "enemyHpOnLossMin": 3090,
+      "enemyHpOnLossMax": 3090
+    },
+    "synthetic_20_50_hp200k": {
+      "wins": 16,
+      "losses": 0,
+      "seeds": 16,
+      "hp": 200000,
+      "casualtiesMin": 13,
+      "casualtiesMax": 30,
+      "enemyHpOnLossMin": null,
+      "enemyHpOnLossMax": null
+    }
+  },
+  "rows": [
+    {
+      "scenario": "paid_6_7",
+      "seed": 1,
+      "won": true,
+      "hp": 211764,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 287,
+      "round": 29,
+      "casualties": 26,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "paid_6_7",
+      "seed": 2,
+      "won": true,
+      "hp": 211764,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 286,
+      "round": 29,
+      "casualties": 25,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "paid_6_7",
+      "seed": 3,
+      "won": false,
+      "hp": 211764,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 301,
+      "round": 31,
+      "casualties": 34,
+      "enemyHp": 3096,
+      "alert": 0,
+      "daily": 0,
+      "materials": {
+        "starOriginStone": 0,
+        "illusionStone": 0,
+        "sacredRingCore": 0
+      }
+    },
+    {
+      "scenario": "paid_6_7",
+      "seed": 4,
+      "won": false,
+      "hp": 211764,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 301,
+      "round": 31,
+      "casualties": 38,
+      "enemyHp": 9025,
+      "alert": 0,
+      "daily": 0,
+      "materials": {
+        "starOriginStone": 0,
+        "illusionStone": 0,
+        "sacredRingCore": 0
+      }
+    },
+    {
+      "scenario": "paid_6_7",
+      "seed": 5,
+      "won": false,
+      "hp": 211764,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 301,
+      "round": 31,
+      "casualties": 36,
+      "enemyHp": 15136,
+      "alert": 0,
+      "daily": 0,
+      "materials": {
+        "starOriginStone": 0,
+        "illusionStone": 0,
+        "sacredRingCore": 0
+      }
+    },
+    {
+      "scenario": "paid_6_7",
+      "seed": 6,
+      "won": true,
+      "hp": 211764,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 296,
+      "round": 30,
+      "casualties": 31,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "paid_6_7",
+      "seed": 7,
+      "won": true,
+      "hp": 211764,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 286,
+      "round": 29,
+      "casualties": 24,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "paid_6_7",
+      "seed": 8,
+      "won": false,
+      "hp": 211764,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 301,
+      "round": 31,
+      "casualties": 32,
+      "enemyHp": 353,
+      "alert": 0,
+      "daily": 0,
+      "materials": {
+        "starOriginStone": 0,
+        "illusionStone": 0,
+        "sacredRingCore": 0
+      }
+    },
+    {
+      "scenario": "paid_6_7",
+      "seed": 9,
+      "won": true,
+      "hp": 211764,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 276,
+      "round": 28,
+      "casualties": 18,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "paid_6_7",
+      "seed": 10,
+      "won": true,
+      "hp": 211764,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 286,
+      "round": 29,
+      "casualties": 25,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "paid_6_7",
+      "seed": 11,
+      "won": true,
+      "hp": 211764,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 268,
+      "round": 27,
+      "casualties": 18,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "paid_6_7",
+      "seed": 12,
+      "won": false,
+      "hp": 211764,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 301,
+      "round": 31,
+      "casualties": 31,
+      "enemyHp": 2022,
+      "alert": 0,
+      "daily": 0,
+      "materials": {
+        "starOriginStone": 0,
+        "illusionStone": 0,
+        "sacredRingCore": 0
+      }
+    },
+    {
+      "scenario": "paid_6_7",
+      "seed": 13,
+      "won": true,
+      "hp": 211764,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 296,
+      "round": 30,
+      "casualties": 28,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "paid_6_7",
+      "seed": 14,
+      "won": true,
+      "hp": 211764,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 276,
+      "round": 28,
+      "casualties": 18,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "paid_6_7",
+      "seed": 15,
+      "won": true,
+      "hp": 211764,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 276,
+      "round": 28,
+      "casualties": 21,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "paid_6_7",
+      "seed": 16,
+      "won": true,
+      "hp": 211764,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 298,
+      "round": 30,
+      "casualties": 32,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_20_50",
+      "seed": 1,
+      "won": true,
+      "hp": 211764,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 268,
+      "round": 27,
+      "casualties": 21,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_20_50",
+      "seed": 2,
+      "won": true,
+      "hp": 211764,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 276,
+      "round": 28,
+      "casualties": 22,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_20_50",
+      "seed": 3,
+      "won": true,
+      "hp": 211764,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 286,
+      "round": 29,
+      "casualties": 27,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_20_50",
+      "seed": 4,
+      "won": true,
+      "hp": 211764,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 298,
+      "round": 30,
+      "casualties": 35,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_20_50",
+      "seed": 5,
+      "won": false,
+      "hp": 211764,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 301,
+      "round": 31,
+      "casualties": 32,
+      "enemyHp": 2791,
+      "alert": 0,
+      "daily": 0,
+      "materials": {
+        "starOriginStone": 0,
+        "illusionStone": 0,
+        "sacredRingCore": 0
+      }
+    },
+    {
+      "scenario": "synthetic_20_50",
+      "seed": 6,
+      "won": true,
+      "hp": 211764,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 277,
+      "round": 28,
+      "casualties": 25,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_20_50",
+      "seed": 7,
+      "won": true,
+      "hp": 211764,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 267,
+      "round": 27,
+      "casualties": 19,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_20_50",
+      "seed": 8,
+      "won": true,
+      "hp": 211764,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 286,
+      "round": 29,
+      "casualties": 28,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_20_50",
+      "seed": 9,
+      "won": true,
+      "hp": 211764,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 266,
+      "round": 27,
+      "casualties": 14,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_20_50",
+      "seed": 10,
+      "won": true,
+      "hp": 211764,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 266,
+      "round": 27,
+      "casualties": 17,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_20_50",
+      "seed": 11,
+      "won": true,
+      "hp": 211764,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 257,
+      "round": 26,
+      "casualties": 15,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_20_50",
+      "seed": 12,
+      "won": true,
+      "hp": 211764,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 286,
+      "round": 29,
+      "casualties": 24,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_20_50",
+      "seed": 13,
+      "won": true,
+      "hp": 211764,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 276,
+      "round": 28,
+      "casualties": 22,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_20_50",
+      "seed": 14,
+      "won": true,
+      "hp": 211764,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 266,
+      "round": 27,
+      "casualties": 14,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_20_50",
+      "seed": 15,
+      "won": true,
+      "hp": 211764,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 266,
+      "round": 27,
+      "casualties": 17,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_20_50",
+      "seed": 16,
+      "won": true,
+      "hp": 211764,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 286,
+      "round": 29,
+      "casualties": 27,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_6_7_hp225k",
+      "seed": 1,
+      "won": false,
+      "hp": 225000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 301,
+      "round": 31,
+      "casualties": 28,
+      "enemyHp": 5761,
+      "alert": 0,
+      "daily": 0,
+      "materials": {
+        "starOriginStone": 0,
+        "illusionStone": 0,
+        "sacredRingCore": 0
+      }
+    },
+    {
+      "scenario": "synthetic_6_7_hp225k",
+      "seed": 2,
+      "won": false,
+      "hp": 225000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 301,
+      "round": 31,
+      "casualties": 30,
+      "enemyHp": 7012,
+      "alert": 0,
+      "daily": 0,
+      "materials": {
+        "starOriginStone": 0,
+        "illusionStone": 0,
+        "sacredRingCore": 0
+      }
+    },
+    {
+      "scenario": "synthetic_6_7_hp225k",
+      "seed": 3,
+      "won": false,
+      "hp": 225000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 301,
+      "round": 31,
+      "casualties": 35,
+      "enemyHp": 17779,
+      "alert": 0,
+      "daily": 0,
+      "materials": {
+        "starOriginStone": 0,
+        "illusionStone": 0,
+        "sacredRingCore": 0
+      }
+    },
+    {
+      "scenario": "synthetic_6_7_hp225k",
+      "seed": 4,
+      "won": false,
+      "hp": 225000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 301,
+      "round": 31,
+      "casualties": 41,
+      "enemyHp": 24063,
+      "alert": 0,
+      "daily": 0,
+      "materials": {
+        "starOriginStone": 0,
+        "illusionStone": 0,
+        "sacredRingCore": 0
+      }
+    },
+    {
+      "scenario": "synthetic_6_7_hp225k",
+      "seed": 5,
+      "won": false,
+      "hp": 225000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 301,
+      "round": 31,
+      "casualties": 37,
+      "enemyHp": 27832,
+      "alert": 0,
+      "daily": 0,
+      "materials": {
+        "starOriginStone": 0,
+        "illusionStone": 0,
+        "sacredRingCore": 0
+      }
+    },
+    {
+      "scenario": "synthetic_6_7_hp225k",
+      "seed": 6,
+      "won": false,
+      "hp": 225000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 301,
+      "round": 31,
+      "casualties": 36,
+      "enemyHp": 12119,
+      "alert": 0,
+      "daily": 0,
+      "materials": {
+        "starOriginStone": 0,
+        "illusionStone": 0,
+        "sacredRingCore": 0
+      }
+    },
+    {
+      "scenario": "synthetic_6_7_hp225k",
+      "seed": 7,
+      "won": true,
+      "hp": 225000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 298,
+      "round": 30,
+      "casualties": 26,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_6_7_hp225k",
+      "seed": 8,
+      "won": false,
+      "hp": 225000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 301,
+      "round": 31,
+      "casualties": 34,
+      "enemyHp": 13854,
+      "alert": 0,
+      "daily": 0,
+      "materials": {
+        "starOriginStone": 0,
+        "illusionStone": 0,
+        "sacredRingCore": 0
+      }
+    },
+    {
+      "scenario": "synthetic_6_7_hp225k",
+      "seed": 9,
+      "won": true,
+      "hp": 225000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 296,
+      "round": 30,
+      "casualties": 19,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_6_7_hp225k",
+      "seed": 10,
+      "won": false,
+      "hp": 225000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 301,
+      "round": 31,
+      "casualties": 28,
+      "enemyHp": 2263,
+      "alert": 0,
+      "daily": 0,
+      "materials": {
+        "starOriginStone": 0,
+        "illusionStone": 0,
+        "sacredRingCore": 0
+      }
+    },
+    {
+      "scenario": "synthetic_6_7_hp225k",
+      "seed": 11,
+      "won": true,
+      "hp": 225000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 288,
+      "round": 29,
+      "casualties": 21,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_6_7_hp225k",
+      "seed": 12,
+      "won": false,
+      "hp": 225000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 301,
+      "round": 31,
+      "casualties": 32,
+      "enemyHp": 15673,
+      "alert": 0,
+      "daily": 0,
+      "materials": {
+        "starOriginStone": 0,
+        "illusionStone": 0,
+        "sacredRingCore": 0
+      }
+    },
+    {
+      "scenario": "synthetic_6_7_hp225k",
+      "seed": 13,
+      "won": false,
+      "hp": 225000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 301,
+      "round": 31,
+      "casualties": 30,
+      "enemyHp": 8941,
+      "alert": 0,
+      "daily": 0,
+      "materials": {
+        "starOriginStone": 0,
+        "illusionStone": 0,
+        "sacredRingCore": 0
+      }
+    },
+    {
+      "scenario": "synthetic_6_7_hp225k",
+      "seed": 14,
+      "won": true,
+      "hp": 225000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 296,
+      "round": 30,
+      "casualties": 19,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_6_7_hp225k",
+      "seed": 15,
+      "won": true,
+      "hp": 225000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 296,
+      "round": 30,
+      "casualties": 26,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_6_7_hp225k",
+      "seed": 16,
+      "won": false,
+      "hp": 225000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 301,
+      "round": 31,
+      "casualties": 34,
+      "enemyHp": 13624,
+      "alert": 0,
+      "daily": 0,
+      "materials": {
+        "starOriginStone": 0,
+        "illusionStone": 0,
+        "sacredRingCore": 0
+      }
+    },
+    {
+      "scenario": "synthetic_20_50_hp225k",
+      "seed": 1,
+      "won": true,
+      "hp": 225000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 296,
+      "round": 30,
+      "casualties": 24,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_20_50_hp225k",
+      "seed": 2,
+      "won": true,
+      "hp": 225000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 296,
+      "round": 30,
+      "casualties": 24,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_20_50_hp225k",
+      "seed": 3,
+      "won": false,
+      "hp": 225000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 301,
+      "round": 31,
+      "casualties": 32,
+      "enemyHp": 6611,
+      "alert": 0,
+      "daily": 0,
+      "materials": {
+        "starOriginStone": 0,
+        "illusionStone": 0,
+        "sacredRingCore": 0
+      }
+    },
+    {
+      "scenario": "synthetic_20_50_hp225k",
+      "seed": 4,
+      "won": false,
+      "hp": 225000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 301,
+      "round": 31,
+      "casualties": 34,
+      "enemyHp": 12282,
+      "alert": 0,
+      "daily": 0,
+      "materials": {
+        "starOriginStone": 0,
+        "illusionStone": 0,
+        "sacredRingCore": 0
+      }
+    },
+    {
+      "scenario": "synthetic_20_50_hp225k",
+      "seed": 5,
+      "won": false,
+      "hp": 225000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 301,
+      "round": 31,
+      "casualties": 34,
+      "enemyHp": 16280,
+      "alert": 0,
+      "daily": 0,
+      "materials": {
+        "starOriginStone": 0,
+        "illusionStone": 0,
+        "sacredRingCore": 0
+      }
+    },
+    {
+      "scenario": "synthetic_20_50_hp225k",
+      "seed": 6,
+      "won": true,
+      "hp": 225000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 299,
+      "round": 30,
+      "casualties": 28,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_20_50_hp225k",
+      "seed": 7,
+      "won": true,
+      "hp": 225000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 286,
+      "round": 29,
+      "casualties": 21,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_20_50_hp225k",
+      "seed": 8,
+      "won": false,
+      "hp": 225000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 301,
+      "round": 31,
+      "casualties": 29,
+      "enemyHp": 4086,
+      "alert": 0,
+      "daily": 0,
+      "materials": {
+        "starOriginStone": 0,
+        "illusionStone": 0,
+        "sacredRingCore": 0
+      }
+    },
+    {
+      "scenario": "synthetic_20_50_hp225k",
+      "seed": 9,
+      "won": true,
+      "hp": 225000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 286,
+      "round": 29,
+      "casualties": 16,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_20_50_hp225k",
+      "seed": 10,
+      "won": true,
+      "hp": 225000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 286,
+      "round": 29,
+      "casualties": 21,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_20_50_hp225k",
+      "seed": 11,
+      "won": true,
+      "hp": 225000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 276,
+      "round": 28,
+      "casualties": 17,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_20_50_hp225k",
+      "seed": 12,
+      "won": false,
+      "hp": 225000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 301,
+      "round": 31,
+      "casualties": 28,
+      "enemyHp": 5092,
+      "alert": 0,
+      "daily": 0,
+      "materials": {
+        "starOriginStone": 0,
+        "illusionStone": 0,
+        "sacredRingCore": 0
+      }
+    },
+    {
+      "scenario": "synthetic_20_50_hp225k",
+      "seed": 13,
+      "won": true,
+      "hp": 225000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 297,
+      "round": 30,
+      "casualties": 25,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_20_50_hp225k",
+      "seed": 14,
+      "won": true,
+      "hp": 225000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 286,
+      "round": 29,
+      "casualties": 16,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_20_50_hp225k",
+      "seed": 15,
+      "won": true,
+      "hp": 225000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 286,
+      "round": 29,
+      "casualties": 21,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_20_50_hp225k",
+      "seed": 16,
+      "won": false,
+      "hp": 225000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 301,
+      "round": 31,
+      "casualties": 30,
+      "enemyHp": 2681,
+      "alert": 0,
+      "daily": 0,
+      "materials": {
+        "starOriginStone": 0,
+        "illusionStone": 0,
+        "sacredRingCore": 0
+      }
+    },
+    {
+      "scenario": "synthetic_6_7_hp200k",
+      "seed": 1,
+      "won": true,
+      "hp": 200000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 266,
+      "round": 27,
+      "casualties": 22,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_6_7_hp200k",
+      "seed": 2,
+      "won": true,
+      "hp": 200000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 267,
+      "round": 27,
+      "casualties": 23,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_6_7_hp200k",
+      "seed": 3,
+      "won": true,
+      "hp": 200000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 286,
+      "round": 29,
+      "casualties": 31,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_6_7_hp200k",
+      "seed": 4,
+      "won": true,
+      "hp": 200000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 296,
+      "round": 30,
+      "casualties": 37,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_6_7_hp200k",
+      "seed": 5,
+      "won": false,
+      "hp": 200000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 301,
+      "round": 31,
+      "casualties": 36,
+      "enemyHp": 3090,
+      "alert": 0,
+      "daily": 0,
+      "materials": {
+        "starOriginStone": 0,
+        "illusionStone": 0,
+        "sacredRingCore": 0
+      }
+    },
+    {
+      "scenario": "synthetic_6_7_hp200k",
+      "seed": 6,
+      "won": true,
+      "hp": 200000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 276,
+      "round": 28,
+      "casualties": 29,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_6_7_hp200k",
+      "seed": 7,
+      "won": true,
+      "hp": 200000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 262,
+      "round": 27,
+      "casualties": 21,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_6_7_hp200k",
+      "seed": 8,
+      "won": true,
+      "hp": 200000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 286,
+      "round": 29,
+      "casualties": 31,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_6_7_hp200k",
+      "seed": 9,
+      "won": true,
+      "hp": 200000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 257,
+      "round": 26,
+      "casualties": 16,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_6_7_hp200k",
+      "seed": 10,
+      "won": true,
+      "hp": 200000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 258,
+      "round": 26,
+      "casualties": 20,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_6_7_hp200k",
+      "seed": 11,
+      "won": true,
+      "hp": 200000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 256,
+      "round": 26,
+      "casualties": 17,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_6_7_hp200k",
+      "seed": 12,
+      "won": true,
+      "hp": 200000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 286,
+      "round": 29,
+      "casualties": 27,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_6_7_hp200k",
+      "seed": 13,
+      "won": true,
+      "hp": 200000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 276,
+      "round": 28,
+      "casualties": 25,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_6_7_hp200k",
+      "seed": 14,
+      "won": true,
+      "hp": 200000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 258,
+      "round": 26,
+      "casualties": 17,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_6_7_hp200k",
+      "seed": 15,
+      "won": true,
+      "hp": 200000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 257,
+      "round": 26,
+      "casualties": 18,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_6_7_hp200k",
+      "seed": 16,
+      "won": true,
+      "hp": 200000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 277,
+      "round": 28,
+      "casualties": 30,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_20_50_hp200k",
+      "seed": 1,
+      "won": true,
+      "hp": 200000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 256,
+      "round": 26,
+      "casualties": 19,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_20_50_hp200k",
+      "seed": 2,
+      "won": true,
+      "hp": 200000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 256,
+      "round": 26,
+      "casualties": 18,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_20_50_hp200k",
+      "seed": 3,
+      "won": true,
+      "hp": 200000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 266,
+      "round": 27,
+      "casualties": 26,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_20_50_hp200k",
+      "seed": 4,
+      "won": true,
+      "hp": 200000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 277,
+      "round": 28,
+      "casualties": 30,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_20_50_hp200k",
+      "seed": 5,
+      "won": true,
+      "hp": 200000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 286,
+      "round": 29,
+      "casualties": 29,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_20_50_hp200k",
+      "seed": 6,
+      "won": true,
+      "hp": 200000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 257,
+      "round": 26,
+      "casualties": 23,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_20_50_hp200k",
+      "seed": 7,
+      "won": true,
+      "hp": 200000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 249,
+      "round": 25,
+      "casualties": 18,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_20_50_hp200k",
+      "seed": 8,
+      "won": true,
+      "hp": 200000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 267,
+      "round": 27,
+      "casualties": 25,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_20_50_hp200k",
+      "seed": 9,
+      "won": true,
+      "hp": 200000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 248,
+      "round": 25,
+      "casualties": 13,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_20_50_hp200k",
+      "seed": 10,
+      "won": true,
+      "hp": 200000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 247,
+      "round": 25,
+      "casualties": 17,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_20_50_hp200k",
+      "seed": 11,
+      "won": true,
+      "hp": 200000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 246,
+      "round": 25,
+      "casualties": 14,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_20_50_hp200k",
+      "seed": 12,
+      "won": true,
+      "hp": 200000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 267,
+      "round": 27,
+      "casualties": 22,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_20_50_hp200k",
+      "seed": 13,
+      "won": true,
+      "hp": 200000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 257,
+      "round": 26,
+      "casualties": 21,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_20_50_hp200k",
+      "seed": 14,
+      "won": true,
+      "hp": 200000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 254,
+      "round": 26,
+      "casualties": 14,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_20_50_hp200k",
+      "seed": 15,
+      "won": true,
+      "hp": 200000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 248,
+      "round": 25,
+      "casualties": 15,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    },
+    {
+      "scenario": "synthetic_20_50_hp200k",
+      "seed": 16,
+      "won": true,
+      "hp": 200000,
+      "attackMass": 6,
+      "attackMassFallsWithHp": true,
+      "callbacks": 266,
+      "round": 27,
+      "casualties": 22,
+      "enemyHp": 0,
+      "alert": 100,
+      "daily": 1,
+      "materials": {
+        "starOriginStone": 10,
+        "illusionStone": 10,
+        "sacredRingCore": 10
+      }
+    }
+  ]
+}

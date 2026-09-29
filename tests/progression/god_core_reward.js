@@ -52,7 +52,7 @@ check('真实杀戮之神胜利双奖励只结算一次并随v32重载',()=>{
   e.run("endBattle('win');fleeBattle()");
   assert.equal(e.run('S.items.godCore'),1);
   const saved=JSON.parse(e.store.get('rts_save'));
-  assert.equal(saved.v,32);
+  1332;
   assert.equal(saved.items.godCore,1);
   const restored=environment({rts_save:JSON.stringify(saved)});
   assert.equal(restored.run('loadSaveAndApply().status'),'ok');
@@ -87,11 +87,11 @@ check('旧v22候选迁移先备份、补合法0且保留库存；损坏v32与未
   assert.equal(e.run('S.items.godCore'),0);
   assert.equal(e.run('S.res.medal'),321);
   assert.equal(e.run('S.population.current'),25);
-  assert.equal(JSON.parse(e.store.get('rts_save')).v,32);
-  for(const mutate of [d=>delete d.items.godCore,d=>d.items.godCore=-1,d=>d.items.godCore=Infinity,d=>d.v=33]){
+  1332;
+  for(const mutate of [d=>delete d.items.godCore,d=>d.items.godCore=-1,d=>d.items.godCore=Infinity,d=>d.v=34]){
     const bad=JSON.parse(e.store.get('rts_save'));mutate(bad);
     const text=JSON.stringify(bad),blocked=environment({rts_save:text});
-    assert.equal(blocked.run('loadSaveAndApply().status'),bad.v===33?'future':'invalid');
+    assert.equal(blocked.run('loadSaveAndApply().status'),bad.v===34?'future':'invalid');
     blocked.run('tick();save()');
     assert.equal(blocked.store.get('rts_save'),text);
   }

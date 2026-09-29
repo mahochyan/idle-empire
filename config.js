@@ -558,6 +558,8 @@ const CFG = {
     sci_astral_lord:{name:'星界领主',desc:'开启英魂升阶；支付知识10000000和战备勋章200000',cost:{tech:10000000,medal:200000,merit:0},need:['sci_arcane_mage'],unlocks:[]},
     sci_soul_realm:{name:'英魂遗境',desc:'开放英魂遗境材料战；支付知识20000000和战备勋章300000',cost:{tech:20000000,medal:300000,merit:0},need:['sci_astral_lord'],unlocks:[]},
     sci_nuclear_age:{name:'星核时代',desc:'开放星际先遣兵；须单次支付知识100000000和战备勋章800000',cost:{tech:100000000,medal:800000,merit:0},need:['sci_electric_age'],unlocks:['star_trooper']},
+    sci_star_beast_domain:{name:'星界兽域',desc:'开放星界异兽挑战与星石材料；须单次支付知识200000000和战备勋章1000000',cost:{tech:200000000,medal:1000000,merit:0},need:['sci_nuclear_age'],unlocks:[]},
+    sci_star_array:{name:'星辉圣阵',desc:'开放星辉圣阵槽位与秘典知识仓刻印；须单次支付知识300000000和战备勋章2000000',cost:{tech:300000000,medal:2000000,merit:0},need:['sci_star_beast_domain'],unlocks:[]},
     sci_quantum_age:{name:'星界量子时代',desc:'开放星界仓储、生产科技与星界构装卫士；须单次支付知识3000000000和战备勋章3000000',cost:{tech:3000000000,medal:3000000,merit:0},need:['sci_nuclear_age'],unlocks:['quantum_trooper']},
     sci_coin:{name:'货币铸造',desc:'解锁铸币厂与高级兑换',cost:{tech:200,merit:30},need:['sci_iron'],unlocks:['mint']}
   },
@@ -606,6 +608,8 @@ const CFG = {
     sci_astral_lord:{name:'星界领主',desc:'开启英魂升阶；一次支付知识10000000与战备勋章200000',cost:{tech:10000000,medal:200000,merit:0},need:['sci_arcane_mage'],unlocks:[]},
     sci_soul_realm:{name:'英魂遗境',desc:'开放英魂遗境材料战；一次支付知识20000000与战备勋章300000',cost:{tech:20000000,medal:300000,merit:0},need:['sci_astral_lord'],unlocks:[]},
     sci_nuclear_age:{name:'星核时代',desc:'开放星际先遣兵；一次支付知识100000000与战备勋章800000',cost:{tech:100000000,medal:800000,merit:0},need:['sci_electric_age'],unlocks:['star_trooper']},
+    sci_star_beast_domain:{name:'星界兽域',desc:'开放星界异兽挑战与星石材料；一次支付知识200000000与战备勋章1000000',cost:{tech:200000000,medal:1000000,merit:0},need:['sci_nuclear_age'],unlocks:[]},
+    sci_star_array:{name:'星辉圣阵',desc:'开放星辉圣阵槽位与秘典知识仓刻印；一次支付知识300000000与战备勋章2000000',cost:{tech:300000000,medal:2000000,merit:0},need:['sci_star_beast_domain'],unlocks:[]},
     sci_quantum_age:{name:'星界量子时代',desc:'开放星界仓储、生产科技与星界构装卫士；一次支付知识3000000000与战备勋章3000000',cost:{tech:3000000000,medal:3000000,merit:0},need:['sci_nuclear_age'],unlocks:['quantum_trooper']},
     sci_mint:{name:'铸币术',desc:'铸造工艺基础',cost:{tech:5000,merit:0},need:['sci_iron'],unlocks:[]},
     sci_coin:{name:'货币铸造',desc:'解锁铸币厂与高级兑换',cost:{tech:12000,merit:0},need:['sci_mint'],unlocks:['mint']}
@@ -753,8 +757,32 @@ const CFG = {
     domainCleanser:{name:'镇域净化剂',max:20000,source:'市场以3份圣兽血剂兑换；消耗后降低指定神域警戒值100'},
     emberElixir:{name:'炽翼战剂',max:5000,source:'神域胜利稀有掉落或市场以20份圣兽血剂兑换；母本朱雀造化丹180002的主题名'},
     aegisElixir:{name:'圣盾秘剂',max:5000,source:'神域胜利稀有掉落或市场以3份炽翼战剂兑换；母本玄武清虚丹180003的主题名'},
-    soulStone:{name:'英魂铭石',max:500000,source:'英魂遗境战斗胜利；边贸行60级战剂或秘剂兑换'}
+    soulStone:{name:'英魂铭石',max:500000,source:'英魂遗境战斗胜利；边贸行60级战剂或秘剂兑换'},
+    starOriginStone:{name:'星辉原石',max:20000000,source:'星界兽域·异兽战斗胜利，用于圣阵槽位升级'},
+    illusionStone:{name:'幻相石',max:20000000,source:'星界兽域·异兽战斗胜利，用于圣阵知识属性刻印'},
+    sacredRingCore:{name:'圣环核石',max:20000000,source:'星界兽域·异兽战斗胜利，用于圣阵开槽'}
   },
+  // 母本 320000／170021–170023 的我方首版：只开放已实装的知识仓属性，刻印为定向操作。
+  starArray:{unit:'star_trooper',needScience:'sci_star_array',slots:20,maxLevel:10,
+    openCostPerIndex:1000,attuneCostPerIndex:100,upgradeCostPerIndexLevel:20,
+    awakeningLevel:20,starScale:[[50,0.6],[100,0.8],[150,1],[200,1.2],[250,1.4],[300,1.6]]},
+  // 源 530001–530009：九阶星兽每日各可胜一次，三种圣阵材料同额掉落。
+  // P389 已付档敏感性校准：源单兵生命换为本项目聚合生命 /170；源攻击、防御各 /100。
+  // 六队同时出手，聚合生命每损失约 1/6 时减少一条活跃队列。
+  starBeast:{needScience:'sci_star_beast_domain',unit:'wild_wyrm',count:1200,activeQueues:6,
+    hpDivisor:170,atkDivisor:100,defDivisor:100,alertStep:1000,hpGrowth:1.2,atkDefGrowth:1.1,
+    rewardGrowthPerStep:0.2,freeCalmsPerDay:3,calmAmount:1000,
+    tiers:[
+      {tier:1,hp:30000,atk:3000,def:500,reward:10,alert:100},
+      {tier:2,hp:50000,atk:3000,def:600,reward:20,alert:150},
+      {tier:3,hp:80000,atk:3000,def:700,reward:30,alert:200},
+      {tier:4,hp:100000,atk:3000,def:700,reward:50,alert:250},
+      {tier:5,hp:120000,atk:3000,def:800,reward:70,alert:300},
+      {tier:6,hp:150000,atk:3000,def:800,reward:100,alert:350},
+      {tier:7,hp:200000,atk:3000,def:900,reward:140,alert:400},
+      {tier:8,hp:250000,atk:3000,def:900,reward:190,alert:450},
+      {tier:9,hp:300000,atk:5000,def:1000,reward:250,alert:500}
+    ]},
   // 母本 winGodWar 每胜保底凝血丹1；本次胜利后的警戒值跨2001/4001/6001时分别升至2/3/4。
   godBloodRewardTiers:[[2001,2],[4001,3],[6001,4]],
   // 母本180001：指定兵种每服用1枚基础HP永久+1%，基础上限300次；我方100:1生命口径用小数生命保留增量。

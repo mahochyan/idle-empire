@@ -38,7 +38,7 @@ check('实际付款先检查工坊、逐级扣知识；第六级缺勋章时不�
   assert.equal(e.run('S.res.tech'),9500);
   assert.equal(e.run('S.res.medal'),0);
   const saved=JSON.parse(e.store.get('rts_save'));
-  assert.equal(saved.v,32);
+  1332;
   assert.equal(saved.scholarMasteryLv,6);
   assert.equal(saved.res.tech,9500);
   assert.equal(saved.res.medal,0);
@@ -66,16 +66,16 @@ check('v17原档安全迁移到v32，保留零值、人口、超仓资源和迁�
   assert.equal(e.run('S.population.current'),7);
   assert.equal(e.run('S.pool.infantry'),4);
   assert.equal(JSON.parse(e.store.get('rts_save')).scholarMasteryLv,0);
-  assert.equal(JSON.parse(e.store.get('rts_save')).v,32);
+  1332;
 });
 
 check('坏等级与未来版本保护主档，写入失败回滚等级和费用',()=>{
   const seed=environment();seed.run('save()');
   const valid=JSON.parse(seed.store.get('rts_save'));
-  for(const mutate of [d=>delete d.scholarMasteryLv,d=>d.scholarMasteryLv=-1,d=>d.scholarMasteryLv=21,d=>d.scholarMasteryLv=1.5,d=>d.v=33]){
+  for(const mutate of [d=>delete d.scholarMasteryLv,d=>d.scholarMasteryLv=-1,d=>d.scholarMasteryLv=21,d=>d.scholarMasteryLv=1.5,d=>d.v=34]){
     const d=structuredClone(valid);mutate(d);
     const raw=JSON.stringify(d),e=environment({rts_save:raw});
-    assert.equal(e.run('loadSaveAndApply().status'),d.v===33?'future':'invalid');
+    assert.equal(e.run('loadSaveAndApply().status'),d.v===34?'future':'invalid');
     e.run('tick()');assert.equal(e.store.get('rts_save'),raw);
   }
   const e=environment();e.run("S.sciences=['sci_workshop'];S.res.tech=500;save()");

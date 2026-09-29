@@ -168,10 +168,10 @@ check('v13原档迁移到v32保留水晶和超仓资源，坏杀戮值与未来�
   const preserved=environment({rts_save:JSON.stringify(carried)});
   assert.equal(preserved.run('loadSaveAndApply().status'),'migrated');
   assert.equal(preserved.run('S.killValues.godRevival'),500);
-  for(const mutate of [d=>delete d.killValues,d=>d.killValues.godRevival=-1,d=>d.killValues.godRevival=1.5,d=>d.killValues.other=1,d=>d.v=33]){
+  for(const mutate of [d=>delete d.killValues,d=>d.killValues.godRevival=-1,d=>d.killValues.godRevival=1.5,d=>d.killValues.other=1,d=>d.v=34]){
     const d=JSON.parse(migrated.store.get('rts_save'));mutate(d);
     const badRaw=JSON.stringify(d),bad=environment({rts_save:badRaw});
-    assert.equal(bad.run('loadSaveAndApply().status'),d.v===33?'future':'invalid');
+    assert.equal(bad.run('loadSaveAndApply().status'),d.v===34?'future':'invalid');
     bad.run('tick();save()');
     assert.equal(bad.store.get('rts_save'),badRaw);
   }

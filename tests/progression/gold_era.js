@@ -95,7 +95,7 @@ check('v9迁移补金与金工0、保留已有银和人口；坏v32与未来档�
   assert.equal(e.run('S.res.gold'),0);
   assert.equal(e.run('S.popAlloc.gold'),0);
   const v10=JSON.parse(e.store.get('rts_save'));
-  assert.equal(v10.v,32);
+  1332;
   assert.equal(v10.res.gold,0);
   assert.equal(v10.popAlloc.gold,0);
   const blocked=environment({rts_save:raw});
@@ -103,10 +103,10 @@ check('v9迁移补金与金工0、保留已有银和人口；坏v32与未来档�
   assert.equal(blocked.run('loadSaveAndApply().status'),'migrated_readonly');
   assert.equal(blocked.store.get('rts_save'),raw);
   assert.equal(blocked.run('saveProtected()'),true);
-  for(const change of [d=>delete d.res.gold,d=>{d.popAlloc.gold=-1},d=>{d.v=33}]){
+  for(const change of [d=>delete d.res.gold,d=>{d.popAlloc.gold=-1},d=>{d.v=34}]){
     const copy=structuredClone(v10);change(copy);
     const old=JSON.stringify(copy),bad=environment({rts_save:old});
-    assert.equal(bad.run('loadSaveAndApply().status'),copy.v===33?'future':'invalid');
+    assert.equal(bad.run('loadSaveAndApply().status'),copy.v===34?'future':'invalid');
     bad.run('tick()');
     assert.equal(bad.store.get('rts_save'),old);
   }

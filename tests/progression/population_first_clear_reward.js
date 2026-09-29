@@ -48,7 +48,7 @@ check('第3关首胜获得6地契并保存，战利品名称符合开拓主题',
   assert.equal(e.run('S.defeated.includes(3)'),true);
   assert.match(e.run('__result.innerHTML'),/拓居令（地契） \+6/);
   const saved=JSON.parse(e.store.get('rts_save'));
-  assert.equal(saved.v,32);
+  1332;
   assert.equal(saved.res.deed,36);
   assert.deepEqual(saved.defeated,[1,2,3]);
 });

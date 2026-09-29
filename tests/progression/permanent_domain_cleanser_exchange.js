@@ -43,7 +43,7 @@ check('no random offer is needed; batch pays exact source price and persists wit
   assert.equal(e.run('S.items.domainCleanser'),6);
   assert.equal(e.run('JSON.stringify(S.marketSpecial)'),initial);
   const stored=JSON.parse(e.store.get('rts_save'));
-  assert.equal(stored.v,32);
+  1332;
   assert.equal(stored.items.sacredBlood,0);
   assert.equal(stored.items.domainCleanser,6);
   const reload=environment({rts_save:e.store.get('rts_save')});

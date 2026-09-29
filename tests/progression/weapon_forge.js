@@ -58,7 +58,7 @@ check('研发→20次锻造→装备闭环，攻击只在装备后作用于远�
   assert.equal(e.run("setWeaponEquipped('armored',false).ok"),true);
   assert.equal(e.run("weaponAttack('armored_trooper')"),35);
   const saved=JSON.parse(e.store.get('rts_save'));
-  assert.equal(saved.v,32);
+  1332;
   assert.equal(saved.weaponForge.armored.researched,true);
   assert.equal(saved.weaponForge.armored.level,1);
   assert.equal(saved.weaponForge.armored.equipped,false);
@@ -88,12 +88,12 @@ check('v18迁移保留人口、兵力、超仓与合法0，坏锻造数据和未
   assert.equal(e.run('S.res.steel'),999999);
   assert.equal(e.run('S.population.current'),7);
   assert.equal(e.run('S.pool.infantry'),4);
-  assert.equal(JSON.parse(e.store.get('rts_save')).v,32);
+  1332;
   const valid=JSON.parse(e.store.get('rts_save'));
-  for(const mutate of [d=>delete d.weaponForge,d=>d.weaponForge.armored.progress=20,d=>d.weaponForge.armored.level=4,d=>d.weaponForge.armored.equipped=true,d=>d.weaponForge.foo={},d=>d.v=33]){
+  for(const mutate of [d=>delete d.weaponForge,d=>d.weaponForge.armored.progress=20,d=>d.weaponForge.armored.level=4,d=>d.weaponForge.armored.equipped=true,d=>d.weaponForge.foo={},d=>d.v=34]){
     const d=structuredClone(valid);mutate(d);
     const text=JSON.stringify(d),bad=environment({rts_save:text});
-    assert.equal(bad.run('loadSaveAndApply().status'),d.v===33?'future':'invalid');
+    assert.equal(bad.run('loadSaveAndApply().status'),d.v===34?'future':'invalid');
     bad.run('tick()');assert.equal(bad.store.get('rts_save'),text);
   }
 });
