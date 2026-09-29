@@ -1,0 +1,6464 @@
+{
+  "unit": "online seconds; soldier count; battle rounds",
+  "source": "natural-save-reload",
+  "alloyFront": true,
+  "replenish": true,
+  "reserveArmor": false,
+  "silverReserve": false,
+  "armorRefill39": false,
+  "battleRandom": null,
+  "seed": 9,
+  "start": 3320154,
+  "finish": 3321219,
+  "population": 102,
+  "initialArmy": {
+    "formation": {
+      "front": [
+        {
+          "type": "alloy_special",
+          "count": 31,
+          "id": 1790296449766
+        }
+      ],
+      "mid": [
+        {
+          "type": "armored_trooper",
+          "count": 40,
+          "id": 1790296449767
+        }
+      ],
+      "back": [
+        {
+          "type": "archer",
+          "count": 40,
+          "id": 1790296449768
+        }
+      ]
+    },
+    "armor": 0,
+    "archer": 0,
+    "electro": 1,
+    "regMax": 40,
+    "slots": {
+      "front": 1,
+      "mid": 1,
+      "back": 1
+    }
+  },
+  "attempted": 89,
+  "wins": 89,
+  "recruitTotals": {
+    "alloy": 195,
+    "archer": 269,
+    "silver": 0,
+    "armor": 0
+  },
+  "trainingSpend": {
+    "food": 300570,
+    "steel": 19500,
+    "wood": 21520,
+    "stone": 5380
+  },
+  "battleLosses": 508,
+  "blockedAt": null,
+  "finalArmy": 72,
+  "finalSlots": {
+    "front": 4,
+    "mid": 4,
+    "back": 4
+  },
+  "finalResources": {
+    "wood": 488400,
+    "stone": 325600,
+    "food": 204366.11278882215,
+    "steel": 23
+  },
+  "refills": [
+    {
+      "forStage": 1,
+      "alloy": 9,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320154,
+        "food": 209000,
+        "steel": 11,
+        "wood": 322677,
+        "stone": 325584
+      },
+      "after": {
+        "second": 3320197,
+        "food": 195390.7955514299,
+        "steel": 23,
+        "wood": 322677,
+        "stone": 325548
+      }
+    },
+    {
+      "forStage": 2,
+      "alloy": 0,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320197,
+        "food": 195450.7955514299,
+        "steel": 23,
+        "wood": 322777,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320197,
+        "food": 195450.7955514299,
+        "steel": 23,
+        "wood": 322777,
+        "stone": 325600
+      }
+    },
+    {
+      "forStage": 3,
+      "alloy": 0,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320197,
+        "food": 195514.7955514299,
+        "steel": 23,
+        "wood": 322885,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320197,
+        "food": 195514.7955514299,
+        "steel": 23,
+        "wood": 322885,
+        "stone": 325600
+      }
+    },
+    {
+      "forStage": 4,
+      "alloy": 0,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320197,
+        "food": 195583.7955514299,
+        "steel": 23,
+        "wood": 323001,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320197,
+        "food": 195583.7955514299,
+        "steel": 23,
+        "wood": 323001,
+        "stone": 325600
+      }
+    },
+    {
+      "forStage": 5,
+      "alloy": 0,
+      "archer": 1,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320197,
+        "food": 195658.7955514299,
+        "steel": 23,
+        "wood": 323126,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320198,
+        "food": 195822.13099142993,
+        "steel": 23,
+        "wood": 323046,
+        "stone": 325580
+      }
+    },
+    {
+      "forStage": 6,
+      "alloy": 0,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320198,
+        "food": 195903.13099142993,
+        "steel": 23,
+        "wood": 323182,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320198,
+        "food": 195903.13099142993,
+        "steel": 23,
+        "wood": 323182,
+        "stone": 325600
+      }
+    },
+    {
+      "forStage": 7,
+      "alloy": 2,
+      "archer": 3,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320198,
+        "food": 195991.13099142993,
+        "steel": 23,
+        "wood": 323328,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320209,
+        "food": 193229.0515888422,
+        "steel": 15,
+        "wood": 323088,
+        "stone": 325488
+      }
+    },
+    {
+      "forStage": 8,
+      "alloy": 0,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320209,
+        "food": 193324.0515888422,
+        "steel": 15,
+        "wood": 323246,
+        "stone": 325599
+      },
+      "after": {
+        "second": 3320209,
+        "food": 193324.0515888422,
+        "steel": 15,
+        "wood": 323246,
+        "stone": 325599
+      }
+    },
+    {
+      "forStage": 9,
+      "alloy": 2,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320209,
+        "food": 193426.0515888422,
+        "steel": 15,
+        "wood": 323417,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320218,
+        "food": 190358.02182559017,
+        "steel": 7,
+        "wood": 323417,
+        "stone": 325548
+      }
+    },
+    {
+      "forStage": 10,
+      "alloy": 2,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320218,
+        "food": 190469.02182559017,
+        "steel": 7,
+        "wood": 323602,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320228,
+        "food": 187368.32141193163,
+        "steel": 23,
+        "wood": 323602,
+        "stone": 325548
+      }
+    },
+    {
+      "forStage": 11,
+      "alloy": 1,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320228,
+        "food": 188088.32141193163,
+        "steel": 23,
+        "wood": 324802,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320233,
+        "food": 186648.65040031873,
+        "steel": 19,
+        "wood": 324802,
+        "stone": 325548
+      }
+    },
+    {
+      "forStage": 12,
+      "alloy": 0,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320233,
+        "food": 186988.65040031873,
+        "steel": 19,
+        "wood": 325302,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320233,
+        "food": 186988.65040031873,
+        "steel": 19,
+        "wood": 325302,
+        "stone": 325600
+      }
+    },
+    {
+      "forStage": 13,
+      "alloy": 0,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320233,
+        "food": 187348.65040031873,
+        "steel": 19,
+        "wood": 325832,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320233,
+        "food": 187348.65040031873,
+        "steel": 19,
+        "wood": 325832,
+        "stone": 325600
+      }
+    },
+    {
+      "forStage": 14,
+      "alloy": 0,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320233,
+        "food": 187730.65040031873,
+        "steel": 19,
+        "wood": 326393,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320233,
+        "food": 187730.65040031873,
+        "steel": 19,
+        "wood": 326393,
+        "stone": 325600
+      }
+    },
+    {
+      "forStage": 15,
+      "alloy": 0,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320233,
+        "food": 188134.65040031873,
+        "steel": 19,
+        "wood": 326988,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320233,
+        "food": 188134.65040031873,
+        "steel": 19,
+        "wood": 326988,
+        "stone": 325600
+      }
+    },
+    {
+      "forStage": 16,
+      "alloy": 0,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320233,
+        "food": 188563.65040031873,
+        "steel": 19,
+        "wood": 327619,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320233,
+        "food": 188563.65040031873,
+        "steel": 19,
+        "wood": 327619,
+        "stone": 325600
+      }
+    },
+    {
+      "forStage": 17,
+      "alloy": 0,
+      "archer": 2,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320233,
+        "food": 189017.65040031873,
+        "steel": 19,
+        "wood": 328288,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320234,
+        "food": 189150.98584031875,
+        "steel": 19,
+        "wood": 328128,
+        "stone": 325560
+      }
+    },
+    {
+      "forStage": 18,
+      "alloy": 3,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320234,
+        "food": 189632.98584031875,
+        "steel": 19,
+        "wood": 328837,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320248,
+        "food": 185135.6896674156,
+        "steel": 7,
+        "wood": 328837,
+        "stone": 325548
+      }
+    },
+    {
+      "forStage": 19,
+      "alloy": 6,
+      "archer": 3,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320248,
+        "food": 185646.6896674156,
+        "steel": 7,
+        "wood": 329588,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320278,
+        "food": 176795.37853348168,
+        "steel": 7,
+        "wood": 329348,
+        "stone": 325488
+      }
+    },
+    {
+      "forStage": 20,
+      "alloy": 4,
+      "archer": 7,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320278,
+        "food": 177336.37853348168,
+        "steel": 7,
+        "wood": 330144,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320301,
+        "food": 171796.82434511147,
+        "steel": 15,
+        "wood": 329584,
+        "stone": 325408
+      }
+    },
+    {
+      "forStage": 21,
+      "alloy": 4,
+      "archer": 5,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320301,
+        "food": 175876.82434511147,
+        "steel": 15,
+        "wood": 335584,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320323,
+        "food": 170190.44762769833,
+        "steel": 23,
+        "wood": 335184,
+        "stone": 325448
+      }
+    },
+    {
+      "forStage": 22,
+      "alloy": 0,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320323,
+        "food": 170850.44762769833,
+        "steel": 23,
+        "wood": 336134,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320323,
+        "food": 170850.44762769833,
+        "steel": 23,
+        "wood": 336134,
+        "stone": 325600
+      }
+    },
+    {
+      "forStage": 23,
+      "alloy": 0,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320323,
+        "food": 171543.44762769833,
+        "steel": 23,
+        "wood": 337131,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320323,
+        "food": 171543.44762769833,
+        "steel": 23,
+        "wood": 337131,
+        "stone": 325600
+      }
+    },
+    {
+      "forStage": 24,
+      "alloy": 0,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320323,
+        "food": 172270.44762769833,
+        "steel": 23,
+        "wood": 338178,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320323,
+        "food": 172270.44762769833,
+        "steel": 23,
+        "wood": 338178,
+        "stone": 325600
+      }
+    },
+    {
+      "forStage": 25,
+      "alloy": 1,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320323,
+        "food": 173034.44762769833,
+        "steel": 23,
+        "wood": 339277,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320328,
+        "food": 171594.77661608544,
+        "steel": 19,
+        "wood": 339277,
+        "stone": 325548
+      }
+    },
+    {
+      "forStage": 26,
+      "alloy": 2,
+      "archer": 4,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320328,
+        "food": 172396.77661608544,
+        "steel": 19,
+        "wood": 340431,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320339,
+        "food": 169607.65960410296,
+        "steel": 11,
+        "wood": 340111,
+        "stone": 325468
+      }
+    },
+    {
+      "forStage": 27,
+      "alloy": 0,
+      "archer": 4,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320339,
+        "food": 170449.65960410296,
+        "steel": 11,
+        "wood": 341323,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320341,
+        "food": 170717.44553190787,
+        "steel": 11,
+        "wood": 341003,
+        "stone": 325520
+      }
+    },
+    {
+      "forStage": 28,
+      "alloy": 2,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320341,
+        "food": 171601.44553190787,
+        "steel": 11,
+        "wood": 342276,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320350,
+        "food": 168533.41576865583,
+        "steel": 3,
+        "wood": 342276,
+        "stone": 325548
+      }
+    },
+    {
+      "forStage": 29,
+      "alloy": 4,
+      "archer": 20,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320350,
+        "food": 169461.41576865583,
+        "steel": 3,
+        "wood": 343612,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320379,
+        "food": 164797.87069815744,
+        "steel": 11,
+        "wood": 342012,
+        "stone": 325148
+      }
+    },
+    {
+      "forStage": 30,
+      "alloy": 6,
+      "archer": 8,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320379,
+        "food": 165772.87069815744,
+        "steel": 11,
+        "wood": 343415,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320411,
+        "food": 157204.9230625675,
+        "steel": 11,
+        "wood": 342775,
+        "stone": 325388
+      }
+    },
+    {
+      "forStage": 31,
+      "alloy": 3,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320411,
+        "food": 165124.9230625675,
+        "steel": 11,
+        "wood": 354175,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320426,
+        "food": 160595.53688966436,
+        "steel": 23,
+        "wood": 354175,
+        "stone": 325548
+      }
+    },
+    {
+      "forStage": 32,
+      "alloy": 0,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320426,
+        "food": 161595.53688966436,
+        "steel": 23,
+        "wood": 355725,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320426,
+        "food": 161595.53688966436,
+        "steel": 23,
+        "wood": 355725,
+        "stone": 325600
+      }
+    },
+    {
+      "forStage": 33,
+      "alloy": 0,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320426,
+        "food": 162645.53688966436,
+        "steel": 23,
+        "wood": 357352,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320426,
+        "food": 162645.53688966436,
+        "steel": 23,
+        "wood": 357352,
+        "stone": 325600
+      }
+    },
+    {
+      "forStage": 34,
+      "alloy": 0,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320426,
+        "food": 163747.53688966436,
+        "steel": 23,
+        "wood": 359060,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320426,
+        "food": 163747.53688966436,
+        "steel": 23,
+        "wood": 359060,
+        "stone": 325600
+      }
+    },
+    {
+      "forStage": 35,
+      "alloy": 0,
+      "archer": 1,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320426,
+        "food": 164904.53688966436,
+        "steel": 23,
+        "wood": 360854,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320427,
+        "food": 165067.8723296644,
+        "steel": 23,
+        "wood": 360774,
+        "stone": 325580
+      }
+    },
+    {
+      "forStage": 36,
+      "alloy": 2,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320427,
+        "food": 166282.8723296644,
+        "steel": 23,
+        "wood": 362658,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320436,
+        "food": 163214.84256641235,
+        "steel": 15,
+        "wood": 362658,
+        "stone": 325548
+      }
+    },
+    {
+      "forStage": 37,
+      "alloy": 1,
+      "archer": 8,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320436,
+        "food": 164490.84256641235,
+        "steel": 15,
+        "wood": 364636,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320445,
+        "food": 163602.04164133137,
+        "steel": 11,
+        "wood": 363996,
+        "stone": 325388
+      }
+    },
+    {
+      "forStage": 38,
+      "alloy": 5,
+      "archer": 8,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320445,
+        "food": 164942.04164133137,
+        "steel": 11,
+        "wood": 366073,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320473,
+        "food": 157972.4111019131,
+        "steel": 15,
+        "wood": 365433,
+        "stone": 325388
+      }
+    },
+    {
+      "forStage": 39,
+      "alloy": 6,
+      "archer": 12,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320473,
+        "food": 159379.4111019131,
+        "steel": 15,
+        "wood": 367614,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320507,
+        "food": 151119.4308244193,
+        "steel": 15,
+        "wood": 366654,
+        "stone": 325308
+      }
+    },
+    {
+      "forStage": 40,
+      "alloy": 5,
+      "archer": 8,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320507,
+        "food": 152596.4308244193,
+        "steel": 15,
+        "wood": 368944,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320535,
+        "food": 145626.80028500105,
+        "steel": 19,
+        "wood": 368304,
+        "stone": 325416
+      }
+    },
+    {
+      "forStage": 41,
+      "alloy": 6,
+      "archer": 17,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320535,
+        "food": 157626.80028500105,
+        "steel": 19,
+        "wood": 386904,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320572,
+        "food": 149853.63489294559,
+        "steel": 19,
+        "wood": 385544,
+        "stone": 325236
+      }
+    },
+    {
+      "forStage": 42,
+      "alloy": 0,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320572,
+        "food": 151353.63489294559,
+        "steel": 19,
+        "wood": 387844,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320572,
+        "food": 151353.63489294559,
+        "steel": 19,
+        "wood": 387844,
+        "stone": 325600
+      }
+    },
+    {
+      "forStage": 43,
+      "alloy": 0,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320572,
+        "food": 152913.63489294559,
+        "steel": 19,
+        "wood": 390236,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320572,
+        "food": 152913.63489294559,
+        "steel": 19,
+        "wood": 390236,
+        "stone": 325600
+      }
+    },
+    {
+      "forStage": 44,
+      "alloy": 0,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320572,
+        "food": 154535.63489294559,
+        "steel": 19,
+        "wood": 392723,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320572,
+        "food": 154535.63489294559,
+        "steel": 19,
+        "wood": 392723,
+        "stone": 325600
+      }
+    },
+    {
+      "forStage": 45,
+      "alloy": 0,
+      "archer": 2,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320572,
+        "food": 156222.63489294559,
+        "steel": 19,
+        "wood": 395310,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320573,
+        "food": 156355.9703329456,
+        "steel": 19,
+        "wood": 395150,
+        "stone": 325560
+      }
+    },
+    {
+      "forStage": 46,
+      "alloy": 0,
+      "archer": 10,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320573,
+        "food": 158109.9703329456,
+        "steel": 19,
+        "wood": 397840,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320578,
+        "food": 158784.67009751982,
+        "steel": 19,
+        "wood": 397040,
+        "stone": 325400
+      }
+    },
+    {
+      "forStage": 47,
+      "alloy": 0,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320578,
+        "food": 160608.67009751982,
+        "steel": 19,
+        "wood": 399838,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320578,
+        "food": 160608.67009751982,
+        "steel": 19,
+        "wood": 399838,
+        "stone": 325600
+      }
+    },
+    {
+      "forStage": 48,
+      "alloy": 7,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320578,
+        "food": 162505.67009751982,
+        "steel": 19,
+        "wood": 402748,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320611,
+        "food": 151922.48459693324,
+        "steel": 15,
+        "wood": 402748,
+        "stone": 325576
+      }
+    },
+    {
+      "forStage": 49,
+      "alloy": 6,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320611,
+        "food": 153895.48459693324,
+        "steel": 15,
+        "wood": 405774,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320639,
+        "food": 144721.28971710516,
+        "steel": 15,
+        "wood": 405774,
+        "stone": 325576
+      }
+    },
+    {
+      "forStage": 50,
+      "alloy": 8,
+      "archer": 19,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320639,
+        "food": 146773.28971710516,
+        "steel": 15,
+        "wood": 408921,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320686,
+        "food": 136204.84749313485,
+        "steel": 7,
+        "wood": 407401,
+        "stone": 325196
+      }
+    },
+    {
+      "forStage": 51,
+      "alloy": 3,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320686,
+        "food": 154204.84749313485,
+        "steel": 7,
+        "wood": 435001,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320701,
+        "food": 149675.4613202317,
+        "steel": 19,
+        "wood": 435001,
+        "stone": 325576
+      }
+    },
+    {
+      "forStage": 52,
+      "alloy": 0,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320701,
+        "food": 151775.4613202317,
+        "steel": 19,
+        "wood": 438201,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320701,
+        "food": 151775.4613202317,
+        "steel": 19,
+        "wood": 438201,
+        "stone": 325600
+      }
+    },
+    {
+      "forStage": 53,
+      "alloy": 0,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320701,
+        "food": 153959.4613202317,
+        "steel": 19,
+        "wood": 441529,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320701,
+        "food": 153959.4613202317,
+        "steel": 19,
+        "wood": 441529,
+        "stone": 325600
+      }
+    },
+    {
+      "forStage": 54,
+      "alloy": 0,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320701,
+        "food": 156230.4613202317,
+        "steel": 19,
+        "wood": 444990,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320701,
+        "food": 156230.4613202317,
+        "steel": 19,
+        "wood": 444990,
+        "stone": 325600
+      }
+    },
+    {
+      "forStage": 55,
+      "alloy": 0,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320701,
+        "food": 158592.4613202317,
+        "steel": 19,
+        "wood": 448589,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320701,
+        "food": 158592.4613202317,
+        "steel": 19,
+        "wood": 448589,
+        "stone": 325600
+      }
+    },
+    {
+      "forStage": 56,
+      "alloy": 0,
+      "archer": 3,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320701,
+        "food": 161048.4613202317,
+        "steel": 19,
+        "wood": 452332,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320703,
+        "food": 161345.95482474787,
+        "steel": 19,
+        "wood": 452092,
+        "stone": 325540
+      }
+    },
+    {
+      "forStage": 57,
+      "alloy": 1,
+      "archer": 2,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320703,
+        "food": 163899.95482474787,
+        "steel": 19,
+        "wood": 455985,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320709,
+        "food": 162597.07255583143,
+        "steel": 15,
+        "wood": 455825,
+        "stone": 325536
+      }
+    },
+    {
+      "forStage": 58,
+      "alloy": 4,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320709,
+        "food": 165254.07255583143,
+        "steel": 15,
+        "wood": 459874,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320728,
+        "food": 159106.7729652599,
+        "steel": 23,
+        "wood": 459874,
+        "stone": 325576
+      }
+    },
+    {
+      "forStage": 59,
+      "alloy": 6,
+      "archer": 2,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320728,
+        "food": 161869.7729652599,
+        "steel": 23,
+        "wood": 464084,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320757,
+        "food": 152845.97181922937,
+        "steel": 23,
+        "wood": 463924,
+        "stone": 325536
+      }
+    },
+    {
+      "forStage": 60,
+      "alloy": 10,
+      "archer": 29,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320757,
+        "food": 155718.97181922937,
+        "steel": 23,
+        "wood": 468303,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320818,
+        "food": 143085.6067554224,
+        "steel": 7,
+        "wood": 465983,
+        "stone": 324996
+      }
+    },
+    {
+      "forStage": 61,
+      "alloy": 2,
+      "archer": 3,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320818,
+        "food": 168285.6067554224,
+        "steel": 7,
+        "wood": 488400,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320830,
+        "food": 165491.737686168,
+        "steel": 23,
+        "wood": 488160,
+        "stone": 325516
+      }
+    },
+    {
+      "forStage": 62,
+      "alloy": 0,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320830,
+        "food": 168291.737686168,
+        "steel": 23,
+        "wood": 488400,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320830,
+        "food": 168291.737686168,
+        "steel": 23,
+        "wood": 488400,
+        "stone": 325600
+      }
+    },
+    {
+      "forStage": 63,
+      "alloy": 0,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320830,
+        "food": 171203.737686168,
+        "steel": 23,
+        "wood": 488400,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320830,
+        "food": 171203.737686168,
+        "steel": 23,
+        "wood": 488400,
+        "stone": 325600
+      }
+    },
+    {
+      "forStage": 64,
+      "alloy": 0,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320830,
+        "food": 174231.737686168,
+        "steel": 23,
+        "wood": 488400,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320830,
+        "food": 174231.737686168,
+        "steel": 23,
+        "wood": 488400,
+        "stone": 325600
+      }
+    },
+    {
+      "forStage": 65,
+      "alloy": 1,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320830,
+        "food": 177380.737686168,
+        "steel": 23,
+        "wood": 488400,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320835,
+        "food": 175941.0666745551,
+        "steel": 19,
+        "wood": 488400,
+        "stone": 325576
+      }
+    },
+    {
+      "forStage": 66,
+      "alloy": 2,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320835,
+        "food": 179216.0666745551,
+        "steel": 19,
+        "wood": 488400,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320844,
+        "food": 176148.03691130306,
+        "steel": 11,
+        "wood": 488400,
+        "stone": 325576
+      }
+    },
+    {
+      "forStage": 67,
+      "alloy": 1,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320844,
+        "food": 179554.03691130306,
+        "steel": 11,
+        "wood": 488400,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320849,
+        "food": 178114.36589969016,
+        "steel": 7,
+        "wood": 488400,
+        "stone": 325576
+      }
+    },
+    {
+      "forStage": 68,
+      "alloy": 9,
+      "archer": 6,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320849,
+        "food": 181656.36589969016,
+        "steel": 7,
+        "wood": 488400,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320895,
+        "food": 168528.026403871,
+        "steel": 19,
+        "wood": 487920,
+        "stone": 325456
+      }
+    },
+    {
+      "forStage": 69,
+      "alloy": 5,
+      "archer": 1,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320895,
+        "food": 172212.026403871,
+        "steel": 19,
+        "wood": 488400,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320920,
+        "food": 164816.81255435906,
+        "steel": 23,
+        "wood": 488320,
+        "stone": 325556
+      }
+    },
+    {
+      "forStage": 70,
+      "alloy": 9,
+      "archer": 16,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320920,
+        "food": 168647.81255435906,
+        "steel": 23,
+        "wood": 488400,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320970,
+        "food": 156363.43241733743,
+        "steel": 11,
+        "wood": 487120,
+        "stone": 325256
+      }
+    },
+    {
+      "forStage": 71,
+      "alloy": 3,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320970,
+        "food": 189963.43241733743,
+        "steel": 11,
+        "wood": 488400,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320985,
+        "food": 185434.04624443428,
+        "steel": 23,
+        "wood": 488400,
+        "stone": 325576
+      }
+    },
+    {
+      "forStage": 72,
+      "alloy": 0,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320985,
+        "food": 189034.04624443428,
+        "steel": 23,
+        "wood": 488400,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320985,
+        "food": 189034.04624443428,
+        "steel": 23,
+        "wood": 488400,
+        "stone": 325600
+      }
+    },
+    {
+      "forStage": 73,
+      "alloy": 0,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320985,
+        "food": 192742.04624443428,
+        "steel": 23,
+        "wood": 488400,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320985,
+        "food": 192742.04624443428,
+        "steel": 23,
+        "wood": 488400,
+        "stone": 325600
+      }
+    },
+    {
+      "forStage": 74,
+      "alloy": 0,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320985,
+        "food": 196561.04624443428,
+        "steel": 23,
+        "wood": 488400,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320985,
+        "food": 196561.04624443428,
+        "steel": 23,
+        "wood": 488400,
+        "stone": 325600
+      }
+    },
+    {
+      "forStage": 75,
+      "alloy": 1,
+      "archer": 2,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320985,
+        "food": 200494.04624443428,
+        "steel": 23,
+        "wood": 488400,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320991,
+        "food": 199191.16397551785,
+        "steel": 19,
+        "wood": 488240,
+        "stone": 325536
+      }
+    },
+    {
+      "forStage": 76,
+      "alloy": 1,
+      "archer": 1,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320991,
+        "food": 203242.16397551785,
+        "steel": 19,
+        "wood": 488400,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3320997,
+        "food": 201967.81715483076,
+        "steel": 15,
+        "wood": 488320,
+        "stone": 325556
+      }
+    },
+    {
+      "forStage": 77,
+      "alloy": 2,
+      "archer": 10,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3320997,
+        "food": 206140.81715483076,
+        "steel": 15,
+        "wood": 488400,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3321011,
+        "food": 203774.95651694242,
+        "steel": 7,
+        "wood": 487600,
+        "stone": 325376
+      }
+    },
+    {
+      "forStage": 78,
+      "alloy": 4,
+      "archer": 6,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3321011,
+        "food": 208072.95651694242,
+        "steel": 7,
+        "wood": 488400,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3321033,
+        "food": 202362.89362897136,
+        "steel": 15,
+        "wood": 487920,
+        "stone": 325456
+      }
+    },
+    {
+      "forStage": 79,
+      "alloy": 6,
+      "archer": 4,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3321033,
+        "food": 206789.89362897136,
+        "steel": 15,
+        "wood": 488400,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3321063,
+        "food": 197917.25421267812,
+        "steel": 15,
+        "wood": 488080,
+        "stone": 325496
+      }
+    },
+    {
+      "forStage": 80,
+      "alloy": 9,
+      "archer": 18,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3321063,
+        "food": 202477.25421267812,
+        "steel": 15,
+        "wood": 488400,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3321114,
+        "food": 190359.36116937926,
+        "steel": 3,
+        "wood": 486960,
+        "stone": 325216
+      }
+    },
+    {
+      "forStage": 81,
+      "alloy": 3,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3321114,
+        "food": 209000,
+        "steel": 3,
+        "wood": 488400,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3321129,
+        "food": 204470.61382709685,
+        "steel": 15,
+        "wood": 488400,
+        "stone": 325576
+      }
+    },
+    {
+      "forStage": 82,
+      "alloy": 0,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3321129,
+        "food": 209000,
+        "steel": 15,
+        "wood": 488400,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3321129,
+        "food": 209000,
+        "steel": 15,
+        "wood": 488400,
+        "stone": 325600
+      }
+    },
+    {
+      "forStage": 83,
+      "alloy": 0,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3321129,
+        "food": 209000,
+        "steel": 15,
+        "wood": 488400,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3321129,
+        "food": 209000,
+        "steel": 15,
+        "wood": 488400,
+        "stone": 325600
+      }
+    },
+    {
+      "forStage": 84,
+      "alloy": 0,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3321129,
+        "food": 209000,
+        "steel": 15,
+        "wood": 488400,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3321129,
+        "food": 209000,
+        "steel": 15,
+        "wood": 488400,
+        "stone": 325600
+      }
+    },
+    {
+      "forStage": 85,
+      "alloy": 1,
+      "archer": 15,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3321129,
+        "food": 209000,
+        "steel": 15,
+        "wood": 488400,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3321142,
+        "food": 208698.58017077166,
+        "steel": 11,
+        "wood": 487200,
+        "stone": 325276
+      }
+    },
+    {
+      "forStage": 86,
+      "alloy": 1,
+      "archer": 2,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3321142,
+        "food": 209000,
+        "steel": 11,
+        "wood": 488400,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3321148,
+        "food": 207697.11773108356,
+        "steel": 7,
+        "wood": 488240,
+        "stone": 325536
+      }
+    },
+    {
+      "forStage": 87,
+      "alloy": 3,
+      "archer": 0,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3321148,
+        "food": 209000,
+        "steel": 7,
+        "wood": 488400,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3321163,
+        "food": 204470.61382709685,
+        "steel": 19,
+        "wood": 488400,
+        "stone": 325576
+      }
+    },
+    {
+      "forStage": 88,
+      "alloy": 5,
+      "archer": 2,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3321163,
+        "food": 209000,
+        "steel": 19,
+        "wood": 488400,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3321188,
+        "food": 201581.87231930232,
+        "steel": 23,
+        "wood": 488240,
+        "stone": 325536
+      }
+    },
+    {
+      "forStage": 89,
+      "alloy": 6,
+      "archer": 5,
+      "armor": 0,
+      "armorTrained": 0,
+      "silver": 0,
+      "before": {
+        "second": 3321188,
+        "food": 207238.87231930232,
+        "steel": 23,
+        "wood": 488400,
+        "stone": 325600
+      },
+      "after": {
+        "second": 3321219,
+        "food": 198539.11278882215,
+        "steel": 23,
+        "wood": 488000,
+        "stone": 325476
+      }
+    }
+  ],
+  "rows": [
+    {
+      "stage": 1,
+      "name": "步兵小队",
+      "win": true,
+      "round": 1,
+      "callbacks": 5,
+      "armyBefore": 125,
+      "armyAfter": 125,
+      "deployedBefore": 80,
+      "deployedAfter": 80,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 40,
+            "id": 1790709499304
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499305
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499306
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 1,
+        "mid": 1,
+        "back": 1
+      },
+      "slotsAfter": {
+        "front": 1,
+        "mid": 1,
+        "back": 1
+      },
+      "meritGain": 2,
+      "reward": {
+        "wood": 100,
+        "stone": 52,
+        "food": 60
+      }
+    },
+    {
+      "stage": 2,
+      "name": "步兵小队",
+      "win": true,
+      "round": 2,
+      "callbacks": 8,
+      "armyBefore": 125,
+      "armyAfter": 125,
+      "deployedBefore": 80,
+      "deployedAfter": 80,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 40,
+            "id": 1790709499312
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499313
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499314
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 1,
+        "mid": 1,
+        "back": 1
+      },
+      "slotsAfter": {
+        "front": 1,
+        "mid": 1,
+        "back": 1
+      },
+      "meritGain": 2,
+      "reward": {
+        "wood": 108,
+        "stone": 0,
+        "food": 64
+      }
+    },
+    {
+      "stage": 3,
+      "name": "边境步兵哨位",
+      "win": true,
+      "round": 1,
+      "callbacks": 5,
+      "armyBefore": 125,
+      "armyAfter": 125,
+      "deployedBefore": 80,
+      "deployedAfter": 80,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 40,
+            "id": 1790709499315
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499316
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499317
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 1,
+        "mid": 1,
+        "back": 1
+      },
+      "slotsAfter": {
+        "front": 1,
+        "mid": 1,
+        "back": 1
+      },
+      "meritGain": 3,
+      "reward": {
+        "wood": 116,
+        "stone": 0,
+        "food": 69
+      }
+    },
+    {
+      "stage": 4,
+      "name": "边境混编哨站",
+      "win": true,
+      "round": 1,
+      "callbacks": 10,
+      "armyBefore": 125,
+      "armyAfter": 124,
+      "deployedBefore": 80,
+      "deployedAfter": 79,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 40,
+            "id": 1790709499318
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499319
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 19,
+            "id": 1790709499320
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 1,
+        "mid": 1,
+        "back": 1
+      },
+      "slotsAfter": {
+        "front": 1,
+        "mid": 1,
+        "back": 1
+      },
+      "meritGain": 3,
+      "reward": {
+        "wood": 125,
+        "stone": 0,
+        "food": 75
+      }
+    },
+    {
+      "stage": 5,
+      "name": "弓兵哨位",
+      "win": true,
+      "round": 1,
+      "callbacks": 10,
+      "armyBefore": 125,
+      "armyAfter": 125,
+      "deployedBefore": 80,
+      "deployedAfter": 80,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 40,
+            "id": 1790709499323
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499324
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499325
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 1,
+        "mid": 1,
+        "back": 1
+      },
+      "slotsAfter": {
+        "front": 2,
+        "mid": 1,
+        "back": 1
+      },
+      "meritGain": 4,
+      "reward": {
+        "wood": 136,
+        "stone": 20,
+        "food": 81
+      }
+    },
+    {
+      "stage": 6,
+      "name": "军镇巡防队",
+      "win": true,
+      "round": 2,
+      "callbacks": 16,
+      "armyBefore": 125,
+      "armyAfter": 120,
+      "deployedBefore": 80,
+      "deployedAfter": 75,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 38,
+            "id": 1790709499326
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 17,
+            "id": 1790709499327
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499328
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 2,
+        "mid": 1,
+        "back": 1
+      },
+      "slotsAfter": {
+        "front": 2,
+        "mid": 1,
+        "back": 1
+      },
+      "meritGain": 4,
+      "reward": {
+        "wood": 146,
+        "stone": 0,
+        "food": 88
+      }
+    },
+    {
+      "stage": 7,
+      "name": "弓兵哨位",
+      "win": true,
+      "round": 1,
+      "callbacks": 9,
+      "armyBefore": 125,
+      "armyAfter": 125,
+      "deployedBefore": 80,
+      "deployedAfter": 80,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 40,
+            "id": 1790709499344
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499345
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499346
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 2,
+        "mid": 1,
+        "back": 1
+      },
+      "slotsAfter": {
+        "front": 2,
+        "mid": 1,
+        "back": 1
+      },
+      "meritGain": 5,
+      "reward": {
+        "wood": 158,
+        "stone": 111,
+        "food": 95
+      }
+    },
+    {
+      "stage": 8,
+      "name": "弓兵哨位",
+      "win": true,
+      "round": 2,
+      "callbacks": 15,
+      "armyBefore": 125,
+      "armyAfter": 123,
+      "deployedBefore": 80,
+      "deployedAfter": 78,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 38,
+            "id": 1790709499347
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499348
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499349
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 2,
+        "mid": 1,
+        "back": 1
+      },
+      "slotsAfter": {
+        "front": 2,
+        "mid": 1,
+        "back": 1
+      },
+      "meritGain": 5,
+      "reward": {
+        "wood": 171,
+        "stone": 1,
+        "food": 102
+      }
+    },
+    {
+      "stage": 9,
+      "name": "弓兵哨位",
+      "win": true,
+      "round": 2,
+      "callbacks": 17,
+      "armyBefore": 125,
+      "armyAfter": 123,
+      "deployedBefore": 80,
+      "deployedAfter": 78,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 38,
+            "id": 1790709499362
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499363
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499364
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 2,
+        "mid": 1,
+        "back": 1
+      },
+      "slotsAfter": {
+        "front": 2,
+        "mid": 1,
+        "back": 1
+      },
+      "meritGain": 6,
+      "reward": {
+        "wood": 185,
+        "stone": 52,
+        "food": 111
+      }
+    },
+    {
+      "stage": 10,
+      "name": "边境军镇统领",
+      "win": true,
+      "round": 1,
+      "callbacks": 10,
+      "armyBefore": 125,
+      "armyAfter": 124,
+      "deployedBefore": 80,
+      "deployedAfter": 79,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 39,
+            "id": 1790709499384
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499385
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499386
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 2,
+        "mid": 1,
+        "back": 1
+      },
+      "slotsAfter": {
+        "front": 2,
+        "mid": 2,
+        "back": 1
+      },
+      "meritGain": 15,
+      "reward": {
+        "wood": 1200,
+        "stone": 52,
+        "food": 720
+      }
+    },
+    {
+      "stage": 11,
+      "name": "步兵小队",
+      "win": true,
+      "round": 1,
+      "callbacks": 4,
+      "armyBefore": 125,
+      "armyAfter": 125,
+      "deployedBefore": 80,
+      "deployedAfter": 80,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 40,
+            "id": 1790709499398
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499399
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499400
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 2,
+        "mid": 2,
+        "back": 1
+      },
+      "slotsAfter": {
+        "front": 2,
+        "mid": 2,
+        "back": 1
+      },
+      "meritGain": 7,
+      "reward": {
+        "wood": 500,
+        "stone": 52,
+        "food": 340
+      }
+    },
+    {
+      "stage": 12,
+      "name": "步兵小队",
+      "win": true,
+      "round": 1,
+      "callbacks": 5,
+      "armyBefore": 125,
+      "armyAfter": 125,
+      "deployedBefore": 80,
+      "deployedAfter": 80,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 40,
+            "id": 1790709499401
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499402
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499403
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 2,
+        "mid": 2,
+        "back": 1
+      },
+      "slotsAfter": {
+        "front": 2,
+        "mid": 2,
+        "back": 1
+      },
+      "meritGain": 7,
+      "reward": {
+        "wood": 530,
+        "stone": 0,
+        "food": 360
+      }
+    },
+    {
+      "stage": 13,
+      "name": "军镇步兵哨位",
+      "win": true,
+      "round": 1,
+      "callbacks": 3,
+      "armyBefore": 125,
+      "armyAfter": 125,
+      "deployedBefore": 80,
+      "deployedAfter": 80,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 40,
+            "id": 1790709499404
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499405
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499406
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 2,
+        "mid": 2,
+        "back": 1
+      },
+      "slotsAfter": {
+        "front": 2,
+        "mid": 2,
+        "back": 1
+      },
+      "meritGain": 8,
+      "reward": {
+        "wood": 561,
+        "stone": 0,
+        "food": 382
+      }
+    },
+    {
+      "stage": 14,
+      "name": "弓兵哨位",
+      "win": true,
+      "round": 2,
+      "callbacks": 13,
+      "armyBefore": 125,
+      "armyAfter": 125,
+      "deployedBefore": 80,
+      "deployedAfter": 80,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 40,
+            "id": 1790709499407
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499408
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499409
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 2,
+        "mid": 2,
+        "back": 1
+      },
+      "slotsAfter": {
+        "front": 2,
+        "mid": 2,
+        "back": 1
+      },
+      "meritGain": 8,
+      "reward": {
+        "wood": 595,
+        "stone": 0,
+        "food": 404
+      }
+    },
+    {
+      "stage": 15,
+      "name": "弓兵哨位",
+      "win": true,
+      "round": 1,
+      "callbacks": 10,
+      "armyBefore": 125,
+      "armyAfter": 125,
+      "deployedBefore": 80,
+      "deployedAfter": 80,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 40,
+            "id": 1790709499410
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499411
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499412
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 2,
+        "mid": 2,
+        "back": 1
+      },
+      "slotsAfter": {
+        "front": 2,
+        "mid": 2,
+        "back": 2
+      },
+      "meritGain": 9,
+      "reward": {
+        "wood": 631,
+        "stone": 0,
+        "food": 429
+      }
+    },
+    {
+      "stage": 16,
+      "name": "军镇步弓前哨",
+      "win": true,
+      "round": 2,
+      "callbacks": 13,
+      "armyBefore": 125,
+      "armyAfter": 123,
+      "deployedBefore": 80,
+      "deployedAfter": 78,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 40,
+            "id": 1790709499413
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499414
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 18,
+            "id": 1790709499415
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 2,
+        "mid": 2,
+        "back": 2
+      },
+      "slotsAfter": {
+        "front": 2,
+        "mid": 2,
+        "back": 2
+      },
+      "meritGain": 9,
+      "reward": {
+        "wood": 669,
+        "stone": 0,
+        "food": 454
+      }
+    },
+    {
+      "stage": 17,
+      "name": "骑兵斥候",
+      "win": true,
+      "round": 2,
+      "callbacks": 20,
+      "armyBefore": 125,
+      "armyAfter": 122,
+      "deployedBefore": 80,
+      "deployedAfter": 77,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 37,
+            "id": 1790709499416
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499417
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499418
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 2,
+        "mid": 2,
+        "back": 2
+      },
+      "slotsAfter": {
+        "front": 2,
+        "mid": 2,
+        "back": 2
+      },
+      "meritGain": 10,
+      "reward": {
+        "wood": 709,
+        "stone": 40,
+        "food": 482
+      }
+    },
+    {
+      "stage": 18,
+      "name": "骑兵斥候",
+      "win": true,
+      "round": 3,
+      "callbacks": 31,
+      "armyBefore": 125,
+      "armyAfter": 116,
+      "deployedBefore": 80,
+      "deployedAfter": 71,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 34,
+            "id": 1790709499430
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 17,
+            "id": 1790709499431
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499432
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 2,
+        "mid": 2,
+        "back": 2
+      },
+      "slotsAfter": {
+        "front": 2,
+        "mid": 2,
+        "back": 2
+      },
+      "meritGain": 10,
+      "reward": {
+        "wood": 751,
+        "stone": 52,
+        "food": 511
+      }
+    },
+    {
+      "stage": 19,
+      "name": "骑兵斥候",
+      "win": true,
+      "round": 3,
+      "callbacks": 32,
+      "armyBefore": 125,
+      "armyAfter": 114,
+      "deployedBefore": 80,
+      "deployedAfter": 69,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 36,
+            "id": 1790709499452
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499453
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 13,
+            "id": 1790709499454
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 2,
+        "mid": 2,
+        "back": 2
+      },
+      "slotsAfter": {
+        "front": 2,
+        "mid": 2,
+        "back": 2
+      },
+      "meritGain": 11,
+      "reward": {
+        "wood": 796,
+        "stone": 112,
+        "food": 541
+      }
+    },
+    {
+      "stage": 20,
+      "name": "军镇铁骑统领",
+      "win": true,
+      "round": 3,
+      "callbacks": 32,
+      "armyBefore": 125,
+      "armyAfter": 116,
+      "deployedBefore": 80,
+      "deployedAfter": 71,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 36,
+            "id": 1790709499478
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 18,
+            "id": 1790709499479
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 17,
+            "id": 1790709499480
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 2,
+        "mid": 2,
+        "back": 2
+      },
+      "slotsAfter": {
+        "front": 3,
+        "mid": 2,
+        "back": 2
+      },
+      "meritGain": 25,
+      "reward": {
+        "wood": 6000,
+        "stone": 192,
+        "food": 4080
+      }
+    },
+    {
+      "stage": 21,
+      "name": "步兵小队",
+      "win": true,
+      "round": 1,
+      "callbacks": 3,
+      "armyBefore": 125,
+      "armyAfter": 125,
+      "deployedBefore": 80,
+      "deployedAfter": 80,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 40,
+            "id": 1790709499502
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499503
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499504
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 3,
+        "mid": 2,
+        "back": 2
+      },
+      "slotsAfter": {
+        "front": 3,
+        "mid": 2,
+        "back": 2
+      },
+      "meritGain": 12,
+      "reward": {
+        "wood": 950,
+        "stone": 152,
+        "food": 660
+      }
+    },
+    {
+      "stage": 22,
+      "name": "步兵小队",
+      "win": true,
+      "round": 1,
+      "callbacks": 6,
+      "armyBefore": 125,
+      "armyAfter": 125,
+      "deployedBefore": 80,
+      "deployedAfter": 80,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 40,
+            "id": 1790709499505
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499506
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499507
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 3,
+        "mid": 2,
+        "back": 2
+      },
+      "slotsAfter": {
+        "front": 3,
+        "mid": 2,
+        "back": 2
+      },
+      "meritGain": 12,
+      "reward": {
+        "wood": 997,
+        "stone": 0,
+        "food": 693
+      }
+    },
+    {
+      "stage": 23,
+      "name": "山口步兵哨位",
+      "win": true,
+      "round": 1,
+      "callbacks": 5,
+      "armyBefore": 125,
+      "armyAfter": 125,
+      "deployedBefore": 80,
+      "deployedAfter": 80,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 40,
+            "id": 1790709499508
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499509
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499510
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 3,
+        "mid": 2,
+        "back": 2
+      },
+      "slotsAfter": {
+        "front": 3,
+        "mid": 2,
+        "back": 2
+      },
+      "meritGain": 13,
+      "reward": {
+        "wood": 1047,
+        "stone": 0,
+        "food": 727
+      }
+    },
+    {
+      "stage": 24,
+      "name": "弓兵哨位",
+      "win": true,
+      "round": 2,
+      "callbacks": 14,
+      "armyBefore": 125,
+      "armyAfter": 124,
+      "deployedBefore": 80,
+      "deployedAfter": 79,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 39,
+            "id": 1790709499511
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499512
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499513
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 3,
+        "mid": 2,
+        "back": 2
+      },
+      "slotsAfter": {
+        "front": 3,
+        "mid": 2,
+        "back": 2
+      },
+      "meritGain": 13,
+      "reward": {
+        "wood": 1099,
+        "stone": 0,
+        "food": 764
+      }
+    },
+    {
+      "stage": 25,
+      "name": "弓兵哨位",
+      "win": true,
+      "round": 2,
+      "callbacks": 18,
+      "armyBefore": 125,
+      "armyAfter": 119,
+      "deployedBefore": 80,
+      "deployedAfter": 74,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 38,
+            "id": 1790709499524
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499525
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 16,
+            "id": 1790709499526
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 3,
+        "mid": 2,
+        "back": 2
+      },
+      "slotsAfter": {
+        "front": 3,
+        "mid": 3,
+        "back": 2
+      },
+      "meritGain": 14,
+      "reward": {
+        "wood": 1154,
+        "stone": 52,
+        "food": 802
+      }
+    },
+    {
+      "stage": 26,
+      "name": "山口步弓前哨",
+      "win": true,
+      "round": 1,
+      "callbacks": 10,
+      "armyBefore": 125,
+      "armyAfter": 121,
+      "deployedBefore": 80,
+      "deployedAfter": 76,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 40,
+            "id": 1790709499542
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499543
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 16,
+            "id": 1790709499544
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 3,
+        "mid": 3,
+        "back": 2
+      },
+      "slotsAfter": {
+        "front": 3,
+        "mid": 3,
+        "back": 2
+      },
+      "meritGain": 14,
+      "reward": {
+        "wood": 1212,
+        "stone": 132,
+        "food": 842
+      }
+    },
+    {
+      "stage": 27,
+      "name": "骑兵斥候",
+      "win": true,
+      "round": 2,
+      "callbacks": 21,
+      "armyBefore": 125,
+      "armyAfter": 123,
+      "deployedBefore": 80,
+      "deployedAfter": 78,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 38,
+            "id": 1790709499550
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499551
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499552
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 3,
+        "mid": 3,
+        "back": 2
+      },
+      "slotsAfter": {
+        "front": 3,
+        "mid": 3,
+        "back": 2
+      },
+      "meritGain": 15,
+      "reward": {
+        "wood": 1273,
+        "stone": 80,
+        "food": 884
+      }
+    },
+    {
+      "stage": 28,
+      "name": "骑兵斥候",
+      "win": true,
+      "round": 3,
+      "callbacks": 29,
+      "armyBefore": 125,
+      "armyAfter": 101,
+      "deployedBefore": 80,
+      "deployedAfter": 56,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 36,
+            "id": 1790709499565
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499566
+          }
+        ],
+        "back": []
+      },
+      "slotsBefore": {
+        "front": 3,
+        "mid": 3,
+        "back": 2
+      },
+      "slotsAfter": {
+        "front": 3,
+        "mid": 3,
+        "back": 2
+      },
+      "meritGain": 15,
+      "reward": {
+        "wood": 1336,
+        "stone": 52,
+        "food": 928
+      }
+    },
+    {
+      "stage": 29,
+      "name": "帝国军校学徒",
+      "win": true,
+      "round": 3,
+      "callbacks": 33,
+      "armyBefore": 125,
+      "armyAfter": 111,
+      "deployedBefore": 80,
+      "deployedAfter": 66,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 34,
+            "id": 1790709499593
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 14,
+            "id": 1790709499594
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 18,
+            "id": 1790709499595
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 3,
+        "mid": 3,
+        "back": 2
+      },
+      "slotsAfter": {
+        "front": 3,
+        "mid": 3,
+        "back": 2
+      },
+      "meritGain": 16,
+      "reward": {
+        "wood": 1403,
+        "stone": 452,
+        "food": 975
+      }
+    },
+    {
+      "stage": 30,
+      "name": "帝国元帅",
+      "win": true,
+      "round": 2,
+      "callbacks": 26,
+      "armyBefore": 125,
+      "armyAfter": 122,
+      "deployedBefore": 80,
+      "deployedAfter": 77,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 37,
+            "id": 1790709499618
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499619
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499620
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 3,
+        "mid": 3,
+        "back": 2
+      },
+      "slotsAfter": {
+        "front": 3,
+        "mid": 3,
+        "back": 3
+      },
+      "meritGain": 35,
+      "reward": {
+        "wood": 11400,
+        "stone": 212,
+        "food": 7920
+      }
+    },
+    {
+      "stage": 31,
+      "name": "重步卫队",
+      "win": true,
+      "round": 1,
+      "callbacks": 4,
+      "armyBefore": 125,
+      "armyAfter": 125,
+      "deployedBefore": 80,
+      "deployedAfter": 80,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 40,
+            "id": 1790709499639
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499640
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499641
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 3,
+        "mid": 3,
+        "back": 3
+      },
+      "slotsAfter": {
+        "front": 3,
+        "mid": 3,
+        "back": 3
+      },
+      "meritGain": 17,
+      "reward": {
+        "wood": 1550,
+        "stone": 52,
+        "food": 1000
+      }
+    },
+    {
+      "stage": 32,
+      "name": "重步卫队",
+      "win": true,
+      "round": 1,
+      "callbacks": 5,
+      "armyBefore": 125,
+      "armyAfter": 125,
+      "deployedBefore": 80,
+      "deployedAfter": 80,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 40,
+            "id": 1790709499642
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499643
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499644
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 3,
+        "mid": 3,
+        "back": 3
+      },
+      "slotsAfter": {
+        "front": 3,
+        "mid": 3,
+        "back": 3
+      },
+      "meritGain": 17,
+      "reward": {
+        "wood": 1627,
+        "stone": 0,
+        "food": 1050
+      }
+    },
+    {
+      "stage": 33,
+      "name": "工坊步兵哨位",
+      "win": true,
+      "round": 1,
+      "callbacks": 5,
+      "armyBefore": 125,
+      "armyAfter": 125,
+      "deployedBefore": 80,
+      "deployedAfter": 80,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 40,
+            "id": 1790709499645
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499646
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499647
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 3,
+        "mid": 3,
+        "back": 3
+      },
+      "slotsAfter": {
+        "front": 3,
+        "mid": 3,
+        "back": 3
+      },
+      "meritGain": 18,
+      "reward": {
+        "wood": 1708,
+        "stone": 0,
+        "food": 1102
+      }
+    },
+    {
+      "stage": 34,
+      "name": "长弓阵地",
+      "win": true,
+      "round": 1,
+      "callbacks": 10,
+      "armyBefore": 125,
+      "armyAfter": 124,
+      "deployedBefore": 80,
+      "deployedAfter": 79,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 40,
+            "id": 1790709499648
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 19,
+            "id": 1790709499649
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499650
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 3,
+        "mid": 3,
+        "back": 3
+      },
+      "slotsAfter": {
+        "front": 3,
+        "mid": 3,
+        "back": 3
+      },
+      "meritGain": 18,
+      "reward": {
+        "wood": 1794,
+        "stone": 0,
+        "food": 1157
+      }
+    },
+    {
+      "stage": 35,
+      "name": "长弓阵地",
+      "win": true,
+      "round": 2,
+      "callbacks": 14,
+      "armyBefore": 125,
+      "armyAfter": 123,
+      "deployedBefore": 80,
+      "deployedAfter": 78,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 38,
+            "id": 1790709499651
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499652
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499653
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 3,
+        "mid": 3,
+        "back": 3
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 3,
+        "back": 3
+      },
+      "meritGain": 19,
+      "reward": {
+        "wood": 1884,
+        "stone": 20,
+        "food": 1215
+      }
+    },
+    {
+      "stage": 36,
+      "name": "工坊步弓前哨",
+      "win": true,
+      "round": 2,
+      "callbacks": 16,
+      "armyBefore": 125,
+      "armyAfter": 116,
+      "deployedBefore": 80,
+      "deployedAfter": 71,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 39,
+            "id": 1790709499659
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499660
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 12,
+            "id": 1790709499661
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 3,
+        "back": 3
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 3,
+        "back": 3
+      },
+      "meritGain": 19,
+      "reward": {
+        "wood": 1978,
+        "stone": 52,
+        "food": 1276
+      }
+    },
+    {
+      "stage": 37,
+      "name": "骑兵突击",
+      "win": true,
+      "round": 3,
+      "callbacks": 35,
+      "armyBefore": 125,
+      "armyAfter": 112,
+      "deployedBefore": 80,
+      "deployedAfter": 67,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 35,
+            "id": 1790709499678
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 15,
+            "id": 1790709499679
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 17,
+            "id": 1790709499680
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 3,
+        "back": 3
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 3,
+        "back": 3
+      },
+      "meritGain": 20,
+      "reward": {
+        "wood": 2077,
+        "stone": 212,
+        "food": 1340
+      }
+    },
+    {
+      "stage": 38,
+      "name": "骑兵突击",
+      "win": true,
+      "round": 3,
+      "callbacks": 36,
+      "armyBefore": 125,
+      "armyAfter": 107,
+      "deployedBefore": 80,
+      "deployedAfter": 62,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 34,
+            "id": 1790709499701
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 13,
+            "id": 1790709499702
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 15,
+            "id": 1790709499703
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 3,
+        "back": 3
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 3,
+        "back": 3
+      },
+      "meritGain": 20,
+      "reward": {
+        "wood": 2181,
+        "stone": 212,
+        "food": 1407
+      }
+    },
+    {
+      "stage": 39,
+      "name": "秘法团",
+      "win": true,
+      "round": 3,
+      "callbacks": 38,
+      "armyBefore": 125,
+      "armyAfter": 112,
+      "deployedBefore": 80,
+      "deployedAfter": 67,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 35,
+            "id": 1790709499724
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499725
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 12,
+            "id": 1790709499726
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 3,
+        "back": 3
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 3,
+        "back": 3
+      },
+      "meritGain": 21,
+      "reward": {
+        "wood": 2290,
+        "stone": 292,
+        "food": 1477
+      }
+    },
+    {
+      "stage": 40,
+      "name": "深渊领主",
+      "win": true,
+      "round": 4,
+      "callbacks": 38,
+      "armyBefore": 125,
+      "armyAfter": 102,
+      "deployedBefore": 80,
+      "deployedAfter": 57,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 34,
+            "id": 1790709499746
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 14,
+            "id": 1790709499747
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 9,
+            "id": 1790709499748
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 3,
+        "back": 3
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 4,
+        "back": 3
+      },
+      "meritGain": 45,
+      "reward": {
+        "wood": 18600,
+        "stone": 184,
+        "food": 12000
+      }
+    },
+    {
+      "stage": 41,
+      "name": "重步卫队",
+      "win": true,
+      "round": 1,
+      "callbacks": 5,
+      "armyBefore": 125,
+      "armyAfter": 125,
+      "deployedBefore": 80,
+      "deployedAfter": 80,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 40,
+            "id": 1790709499771
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499772
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499773
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 4,
+        "back": 3
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 4,
+        "back": 3
+      },
+      "meritGain": 22,
+      "reward": {
+        "wood": 2300,
+        "stone": 364,
+        "food": 1500
+      }
+    },
+    {
+      "stage": 42,
+      "name": "重步卫队",
+      "win": true,
+      "round": 1,
+      "callbacks": 4,
+      "armyBefore": 125,
+      "armyAfter": 125,
+      "deployedBefore": 80,
+      "deployedAfter": 80,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 40,
+            "id": 1790709499774
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499775
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499776
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 4,
+        "back": 3
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 4,
+        "back": 3
+      },
+      "meritGain": 22,
+      "reward": {
+        "wood": 2392,
+        "stone": 0,
+        "food": 1560
+      }
+    },
+    {
+      "stage": 43,
+      "name": "矿道步兵哨位",
+      "win": true,
+      "round": 1,
+      "callbacks": 4,
+      "armyBefore": 125,
+      "armyAfter": 125,
+      "deployedBefore": 80,
+      "deployedAfter": 80,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 40,
+            "id": 1790709499777
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499778
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499779
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 4,
+        "back": 3
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 4,
+        "back": 3
+      },
+      "meritGain": 23,
+      "reward": {
+        "wood": 2487,
+        "stone": 0,
+        "food": 1622
+      }
+    },
+    {
+      "stage": 44,
+      "name": "长弓阵地",
+      "win": true,
+      "round": 1,
+      "callbacks": 10,
+      "armyBefore": 125,
+      "armyAfter": 123,
+      "deployedBefore": 80,
+      "deployedAfter": 78,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 40,
+            "id": 1790709499780
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499781
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 18,
+            "id": 1790709499782
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 4,
+        "back": 3
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 4,
+        "back": 3
+      },
+      "meritGain": 23,
+      "reward": {
+        "wood": 2587,
+        "stone": 0,
+        "food": 1687
+      }
+    },
+    {
+      "stage": 45,
+      "name": "长弓阵地",
+      "win": true,
+      "round": 2,
+      "callbacks": 15,
+      "armyBefore": 125,
+      "armyAfter": 115,
+      "deployedBefore": 80,
+      "deployedAfter": 70,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 40,
+            "id": 1790709499783
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 10,
+            "id": 1790709499784
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499785
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 4,
+        "back": 3
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "meritGain": 24,
+      "reward": {
+        "wood": 2690,
+        "stone": 40,
+        "food": 1754
+      }
+    },
+    {
+      "stage": 46,
+      "name": "矿道步弓前哨",
+      "win": true,
+      "round": 2,
+      "callbacks": 12,
+      "armyBefore": 125,
+      "armyAfter": 125,
+      "deployedBefore": 80,
+      "deployedAfter": 80,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 40,
+            "id": 1790709499787
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499788
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499789
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "meritGain": 24,
+      "reward": {
+        "wood": 2798,
+        "stone": 200,
+        "food": 1824
+      }
+    },
+    {
+      "stage": 47,
+      "name": "骑兵突击",
+      "win": true,
+      "round": 3,
+      "callbacks": 30,
+      "armyBefore": 125,
+      "armyAfter": 118,
+      "deployedBefore": 80,
+      "deployedAfter": 73,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 33,
+            "id": 1790709499790
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499791
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499792
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "meritGain": 25,
+      "reward": {
+        "wood": 2910,
+        "stone": 0,
+        "food": 1897
+      }
+    },
+    {
+      "stage": 48,
+      "name": "骑兵突击",
+      "win": true,
+      "round": 3,
+      "callbacks": 33,
+      "armyBefore": 125,
+      "armyAfter": 119,
+      "deployedBefore": 80,
+      "deployedAfter": 74,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 34,
+            "id": 1790709499806
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499807
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499808
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "meritGain": 25,
+      "reward": {
+        "wood": 3026,
+        "stone": 24,
+        "food": 1973
+      }
+    },
+    {
+      "stage": 49,
+      "name": "秘法团",
+      "win": true,
+      "round": 4,
+      "callbacks": 48,
+      "armyBefore": 125,
+      "armyAfter": 98,
+      "deployedBefore": 80,
+      "deployedAfter": 53,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 32,
+            "id": 1790709499823
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 1,
+            "id": 1790709499824
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499825
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "meritGain": 26,
+      "reward": {
+        "wood": 3147,
+        "stone": 24,
+        "food": 2052
+      }
+    },
+    {
+      "stage": 50,
+      "name": "钢铁巨人",
+      "win": true,
+      "round": 2,
+      "callbacks": 21,
+      "armyBefore": 125,
+      "armyAfter": 122,
+      "deployedBefore": 80,
+      "deployedAfter": 77,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 37,
+            "id": 1790709499851
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499852
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499853
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "meritGain": 55,
+      "reward": {
+        "wood": 27600,
+        "stone": 404,
+        "food": 18000
+      }
+    },
+    {
+      "stage": 51,
+      "name": "重步卫队",
+      "win": true,
+      "round": 1,
+      "callbacks": 4,
+      "armyBefore": 125,
+      "armyAfter": 125,
+      "deployedBefore": 80,
+      "deployedAfter": 80,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 40,
+            "id": 1790709499865
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499866
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499867
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "meritGain": 27,
+      "reward": {
+        "wood": 3200,
+        "stone": 24,
+        "food": 2100
+      }
+    },
+    {
+      "stage": 52,
+      "name": "重步卫队",
+      "win": true,
+      "round": 1,
+      "callbacks": 3,
+      "armyBefore": 125,
+      "armyAfter": 125,
+      "deployedBefore": 80,
+      "deployedAfter": 80,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 40,
+            "id": 1790709499868
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499869
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499870
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "meritGain": 27,
+      "reward": {
+        "wood": 3328,
+        "stone": 0,
+        "food": 2184
+      }
+    },
+    {
+      "stage": 53,
+      "name": "锻坊步兵哨位",
+      "win": true,
+      "round": 1,
+      "callbacks": 5,
+      "armyBefore": 125,
+      "armyAfter": 125,
+      "deployedBefore": 80,
+      "deployedAfter": 80,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 40,
+            "id": 1790709499871
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499872
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499873
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "meritGain": 28,
+      "reward": {
+        "wood": 3461,
+        "stone": 0,
+        "food": 2271
+      }
+    },
+    {
+      "stage": 54,
+      "name": "长弓阵地",
+      "win": true,
+      "round": 1,
+      "callbacks": 10,
+      "armyBefore": 125,
+      "armyAfter": 125,
+      "deployedBefore": 80,
+      "deployedAfter": 80,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 40,
+            "id": 1790709499874
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499875
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499876
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "meritGain": 28,
+      "reward": {
+        "wood": 3599,
+        "stone": 0,
+        "food": 2362
+      }
+    },
+    {
+      "stage": 55,
+      "name": "长弓阵地",
+      "win": true,
+      "round": 2,
+      "callbacks": 14,
+      "armyBefore": 125,
+      "armyAfter": 122,
+      "deployedBefore": 80,
+      "deployedAfter": 77,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 40,
+            "id": 1790709499877
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499878
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 17,
+            "id": 1790709499879
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "meritGain": 29,
+      "reward": {
+        "wood": 3743,
+        "stone": 0,
+        "food": 2456
+      }
+    },
+    {
+      "stage": 56,
+      "name": "锻坊步弓前哨",
+      "win": true,
+      "round": 2,
+      "callbacks": 14,
+      "armyBefore": 125,
+      "armyAfter": 122,
+      "deployedBefore": 80,
+      "deployedAfter": 77,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 39,
+            "id": 1790709499880
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 18,
+            "id": 1790709499881
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499882
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "meritGain": 29,
+      "reward": {
+        "wood": 3893,
+        "stone": 60,
+        "food": 2554
+      }
+    },
+    {
+      "stage": 57,
+      "name": "骑兵突击",
+      "win": true,
+      "round": 2,
+      "callbacks": 20,
+      "armyBefore": 125,
+      "armyAfter": 121,
+      "deployedBefore": 80,
+      "deployedAfter": 76,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 36,
+            "id": 1790709499890
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499891
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499892
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "meritGain": 30,
+      "reward": {
+        "wood": 4049,
+        "stone": 64,
+        "food": 2657
+      }
+    },
+    {
+      "stage": 58,
+      "name": "骑兵突击",
+      "win": true,
+      "round": 3,
+      "callbacks": 35,
+      "armyBefore": 125,
+      "armyAfter": 117,
+      "deployedBefore": 80,
+      "deployedAfter": 72,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 34,
+            "id": 1790709499904
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 18,
+            "id": 1790709499905
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499906
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "meritGain": 30,
+      "reward": {
+        "wood": 4210,
+        "stone": 24,
+        "food": 2763
+      }
+    },
+    {
+      "stage": 59,
+      "name": "秘法团",
+      "win": true,
+      "round": 3,
+      "callbacks": 43,
+      "armyBefore": 125,
+      "armyAfter": 86,
+      "deployedBefore": 80,
+      "deployedAfter": 41,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 30,
+            "id": 1790709499923
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 11,
+            "id": 1790709499924
+          }
+        ],
+        "back": []
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "meritGain": 31,
+      "reward": {
+        "wood": 4379,
+        "stone": 64,
+        "food": 2873
+      }
+    },
+    {
+      "stage": 60,
+      "name": "暗影将军",
+      "win": true,
+      "round": 3,
+      "callbacks": 28,
+      "armyBefore": 125,
+      "armyAfter": 120,
+      "deployedBefore": 80,
+      "deployedAfter": 75,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 38,
+            "id": 1790709499957
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499958
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 17,
+            "id": 1790709499959
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "meritGain": 65,
+      "reward": {
+        "wood": 22417,
+        "stone": 604,
+        "food": 25200
+      }
+    },
+    {
+      "stage": 61,
+      "name": "精锐步兵",
+      "win": true,
+      "round": 1,
+      "callbacks": 4,
+      "armyBefore": 125,
+      "armyAfter": 125,
+      "deployedBefore": 80,
+      "deployedAfter": 80,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 40,
+            "id": 1790709499977
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499978
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499979
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "meritGain": 32,
+      "reward": {
+        "wood": 240,
+        "stone": 84,
+        "food": 2800
+      }
+    },
+    {
+      "stage": 62,
+      "name": "精锐步兵",
+      "win": true,
+      "round": 1,
+      "callbacks": 3,
+      "armyBefore": 125,
+      "armyAfter": 125,
+      "deployedBefore": 80,
+      "deployedAfter": 80,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 40,
+            "id": 1790709499980
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499981
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499982
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "meritGain": 32,
+      "reward": {
+        "wood": 0,
+        "stone": 0,
+        "food": 2912
+      }
+    },
+    {
+      "stage": 63,
+      "name": "帝国步兵前哨",
+      "win": true,
+      "round": 1,
+      "callbacks": 5,
+      "armyBefore": 125,
+      "armyAfter": 125,
+      "deployedBefore": 80,
+      "deployedAfter": 80,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 40,
+            "id": 1790709499983
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499984
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499985
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "meritGain": 33,
+      "reward": {
+        "wood": 0,
+        "stone": 0,
+        "food": 3028
+      }
+    },
+    {
+      "stage": 64,
+      "name": "神射营",
+      "win": true,
+      "round": 1,
+      "callbacks": 10,
+      "armyBefore": 125,
+      "armyAfter": 124,
+      "deployedBefore": 80,
+      "deployedAfter": 79,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 39,
+            "id": 1790709499986
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499987
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499988
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "meritGain": 33,
+      "reward": {
+        "wood": 0,
+        "stone": 0,
+        "food": 3149
+      }
+    },
+    {
+      "stage": 65,
+      "name": "神射营",
+      "win": true,
+      "round": 2,
+      "callbacks": 18,
+      "armyBefore": 125,
+      "armyAfter": 123,
+      "deployedBefore": 80,
+      "deployedAfter": 78,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 38,
+            "id": 1790709499995
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499996
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709499997
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "meritGain": 34,
+      "reward": {
+        "wood": 0,
+        "stone": 24,
+        "food": 3275
+      }
+    },
+    {
+      "stage": 66,
+      "name": "帝国步弓前哨",
+      "win": true,
+      "round": 2,
+      "callbacks": 13,
+      "armyBefore": 125,
+      "armyAfter": 124,
+      "deployedBefore": 80,
+      "deployedAfter": 79,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 39,
+            "id": 1790709500008
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709500009
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709500010
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "meritGain": 34,
+      "reward": {
+        "wood": 0,
+        "stone": 24,
+        "food": 3406
+      }
+    },
+    {
+      "stage": 67,
+      "name": "帝国骑士队",
+      "win": true,
+      "round": 4,
+      "callbacks": 39,
+      "armyBefore": 125,
+      "armyAfter": 110,
+      "deployedBefore": 80,
+      "deployedAfter": 65,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 31,
+            "id": 1790709500021
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 14,
+            "id": 1790709500022
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709500023
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "meritGain": 35,
+      "reward": {
+        "wood": 0,
+        "stone": 24,
+        "food": 3542
+      }
+    },
+    {
+      "stage": 68,
+      "name": "铁骑队",
+      "win": true,
+      "round": 3,
+      "callbacks": 27,
+      "armyBefore": 125,
+      "armyAfter": 119,
+      "deployedBefore": 80,
+      "deployedAfter": 74,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 35,
+            "id": 1790709500048
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 19,
+            "id": 1790709500049
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709500050
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "meritGain": 35,
+      "reward": {
+        "wood": 480,
+        "stone": 144,
+        "food": 3684
+      }
+    },
+    {
+      "stage": 69,
+      "name": "大法师塔",
+      "win": true,
+      "round": 3,
+      "callbacks": 39,
+      "armyBefore": 125,
+      "armyAfter": 100,
+      "deployedBefore": 80,
+      "deployedAfter": 55,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 31,
+            "id": 1790709500067
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 15,
+            "id": 1790709500068
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 9,
+            "id": 1790709500069
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "meritGain": 36,
+      "reward": {
+        "wood": 80,
+        "stone": 44,
+        "food": 3831
+      }
+    },
+    {
+      "stage": 70,
+      "name": "亡灵统帅",
+      "win": true,
+      "round": 2,
+      "callbacks": 26,
+      "armyBefore": 125,
+      "armyAfter": 122,
+      "deployedBefore": 80,
+      "deployedAfter": 77,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 37,
+            "id": 1790709500096
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709500097
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709500098
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "meritGain": 75,
+      "reward": {
+        "wood": 1280,
+        "stone": 344,
+        "food": 33600
+      }
+    },
+    {
+      "stage": 71,
+      "name": "精锐步兵",
+      "win": true,
+      "round": 1,
+      "callbacks": 3,
+      "armyBefore": 125,
+      "armyAfter": 125,
+      "deployedBefore": 80,
+      "deployedAfter": 80,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 40,
+            "id": 1790709500109
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709500110
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709500111
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "meritGain": 37,
+      "reward": {
+        "wood": 0,
+        "stone": 24,
+        "food": 3600
+      }
+    },
+    {
+      "stage": 72,
+      "name": "精锐步兵",
+      "win": true,
+      "round": 1,
+      "callbacks": 4,
+      "armyBefore": 125,
+      "armyAfter": 125,
+      "deployedBefore": 80,
+      "deployedAfter": 80,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 40,
+            "id": 1790709500112
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709500113
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709500114
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "meritGain": 37,
+      "reward": {
+        "wood": 0,
+        "stone": 0,
+        "food": 3708
+      }
+    },
+    {
+      "stage": 73,
+      "name": "帝国步兵前哨",
+      "win": true,
+      "round": 1,
+      "callbacks": 4,
+      "armyBefore": 125,
+      "armyAfter": 125,
+      "deployedBefore": 80,
+      "deployedAfter": 80,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 40,
+            "id": 1790709500115
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709500116
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709500117
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "meritGain": 38,
+      "reward": {
+        "wood": 0,
+        "stone": 0,
+        "food": 3819
+      }
+    },
+    {
+      "stage": 74,
+      "name": "神射营",
+      "win": true,
+      "round": 2,
+      "callbacks": 14,
+      "armyBefore": 125,
+      "armyAfter": 122,
+      "deployedBefore": 80,
+      "deployedAfter": 77,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 39,
+            "id": 1790709500118
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709500119
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 18,
+            "id": 1790709500120
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "meritGain": 38,
+      "reward": {
+        "wood": 0,
+        "stone": 0,
+        "food": 3933
+      }
+    },
+    {
+      "stage": 75,
+      "name": "神射营",
+      "win": true,
+      "round": 2,
+      "callbacks": 15,
+      "armyBefore": 125,
+      "armyAfter": 123,
+      "deployedBefore": 80,
+      "deployedAfter": 78,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 39,
+            "id": 1790709500127
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709500128
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 19,
+            "id": 1790709500129
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "meritGain": 39,
+      "reward": {
+        "wood": 160,
+        "stone": 64,
+        "food": 4051
+      }
+    },
+    {
+      "stage": 76,
+      "name": "帝国步弓前哨",
+      "win": true,
+      "round": 3,
+      "callbacks": 21,
+      "armyBefore": 125,
+      "armyAfter": 113,
+      "deployedBefore": 80,
+      "deployedAfter": 68,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 38,
+            "id": 1790709500141
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 10,
+            "id": 1790709500142
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709500143
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "meritGain": 39,
+      "reward": {
+        "wood": 80,
+        "stone": 44,
+        "food": 4173
+      }
+    },
+    {
+      "stage": 77,
+      "name": "帝国骑士队",
+      "win": true,
+      "round": 3,
+      "callbacks": 27,
+      "armyBefore": 125,
+      "armyAfter": 115,
+      "deployedBefore": 80,
+      "deployedAfter": 70,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 36,
+            "id": 1790709500161
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709500162
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 14,
+            "id": 1790709500163
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "meritGain": 40,
+      "reward": {
+        "wood": 800,
+        "stone": 224,
+        "food": 4298
+      }
+    },
+    {
+      "stage": 78,
+      "name": "铁骑队",
+      "win": true,
+      "round": 3,
+      "callbacks": 31,
+      "armyBefore": 125,
+      "armyAfter": 115,
+      "deployedBefore": 80,
+      "deployedAfter": 70,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 34,
+            "id": 1790709500180
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709500181
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 16,
+            "id": 1790709500182
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "meritGain": 40,
+      "reward": {
+        "wood": 480,
+        "stone": 144,
+        "food": 4427
+      }
+    },
+    {
+      "stage": 79,
+      "name": "大法师塔",
+      "win": true,
+      "round": 4,
+      "callbacks": 50,
+      "armyBefore": 125,
+      "armyAfter": 98,
+      "deployedBefore": 80,
+      "deployedAfter": 53,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 31,
+            "id": 1790709500200
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 11,
+            "id": 1790709500201
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 11,
+            "id": 1790709500202
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "meritGain": 41,
+      "reward": {
+        "wood": 320,
+        "stone": 104,
+        "food": 4560
+      }
+    },
+    {
+      "stage": 80,
+      "name": "炎龙骑士",
+      "win": true,
+      "round": 2,
+      "callbacks": 25,
+      "armyBefore": 125,
+      "armyAfter": 122,
+      "deployedBefore": 80,
+      "deployedAfter": 77,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 37,
+            "id": 1790709500228
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709500229
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709500230
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "meritGain": 85,
+      "reward": {
+        "wood": 1440,
+        "stone": 384,
+        "food": 18640.638830620737
+      }
+    },
+    {
+      "stage": 81,
+      "name": "精锐步兵",
+      "win": true,
+      "round": 1,
+      "callbacks": 5,
+      "armyBefore": 125,
+      "armyAfter": 125,
+      "deployedBefore": 80,
+      "deployedAfter": 80,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 40,
+            "id": 1790709500243
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709500244
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709500245
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "meritGain": 42,
+      "reward": {
+        "wood": 0,
+        "stone": 24,
+        "food": 4529.386172903149
+      }
+    },
+    {
+      "stage": 82,
+      "name": "精锐步兵",
+      "win": true,
+      "round": 1,
+      "callbacks": 3,
+      "armyBefore": 125,
+      "armyAfter": 125,
+      "deployedBefore": 80,
+      "deployedAfter": 80,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 40,
+            "id": 1790709500246
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709500247
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709500248
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "meritGain": 42,
+      "reward": {
+        "wood": 0,
+        "stone": 0,
+        "food": 0
+      }
+    },
+    {
+      "stage": 83,
+      "name": "帝国步兵前哨",
+      "win": true,
+      "round": 1,
+      "callbacks": 5,
+      "armyBefore": 125,
+      "armyAfter": 125,
+      "deployedBefore": 80,
+      "deployedAfter": 80,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 40,
+            "id": 1790709500249
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709500250
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709500251
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "meritGain": 43,
+      "reward": {
+        "wood": 0,
+        "stone": 0,
+        "food": 0
+      }
+    },
+    {
+      "stage": 84,
+      "name": "神射营",
+      "win": true,
+      "round": 2,
+      "callbacks": 17,
+      "armyBefore": 125,
+      "armyAfter": 109,
+      "deployedBefore": 80,
+      "deployedAfter": 64,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 39,
+            "id": 1790709500252
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 14,
+            "id": 1790709500253
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 11,
+            "id": 1790709500254
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "meritGain": 43,
+      "reward": {
+        "wood": 0,
+        "stone": 0,
+        "food": 0
+      }
+    },
+    {
+      "stage": 85,
+      "name": "神射营",
+      "win": true,
+      "round": 1,
+      "callbacks": 10,
+      "armyBefore": 125,
+      "armyAfter": 122,
+      "deployedBefore": 80,
+      "deployedAfter": 77,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 39,
+            "id": 1790709500267
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 18,
+            "id": 1790709500268
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709500269
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "meritGain": 44,
+      "reward": {
+        "wood": 1200,
+        "stone": 324,
+        "food": 301.41982922833995
+      }
+    },
+    {
+      "stage": 86,
+      "name": "帝国步弓前哨",
+      "win": true,
+      "round": 2,
+      "callbacks": 18,
+      "armyBefore": 125,
+      "armyAfter": 122,
+      "deployedBefore": 80,
+      "deployedAfter": 77,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 37,
+            "id": 1790709500283
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709500284
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709500285
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "meritGain": 44,
+      "reward": {
+        "wood": 160,
+        "stone": 64,
+        "food": 1302.8822689164372
+      }
+    },
+    {
+      "stage": 87,
+      "name": "帝国骑士队",
+      "win": true,
+      "round": 3,
+      "callbacks": 25,
+      "armyBefore": 125,
+      "armyAfter": 118,
+      "deployedBefore": 80,
+      "deployedAfter": 73,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 35,
+            "id": 1790709500300
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 18,
+            "id": 1790709500301
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709500302
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "meritGain": 45,
+      "reward": {
+        "wood": 0,
+        "stone": 24,
+        "food": 4529.386172903149
+      }
+    },
+    {
+      "stage": 88,
+      "name": "铁骑队",
+      "win": true,
+      "round": 4,
+      "callbacks": 40,
+      "armyBefore": 125,
+      "armyAfter": 114,
+      "deployedBefore": 80,
+      "deployedAfter": 69,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 34,
+            "id": 1790709500320
+          }
+        ],
+        "mid": [
+          {
+            "type": "archer",
+            "count": 15,
+            "id": 1790709500321
+          }
+        ],
+        "back": [
+          {
+            "type": "archer",
+            "count": 20,
+            "id": 1790709500322
+          }
+        ]
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "meritGain": 45,
+      "reward": {
+        "wood": 160,
+        "stone": 64,
+        "food": 5657
+      }
+    },
+    {
+      "stage": 89,
+      "name": "大法师塔",
+      "win": true,
+      "round": 5,
+      "callbacks": 54,
+      "armyBefore": 125,
+      "armyAfter": 72,
+      "deployedBefore": 80,
+      "deployedAfter": 27,
+      "formationAfter": {
+        "front": [
+          {
+            "type": "alloy_special",
+            "count": 27,
+            "id": 1790709500341
+          }
+        ],
+        "mid": [],
+        "back": []
+      },
+      "slotsBefore": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "slotsAfter": {
+        "front": 4,
+        "mid": 4,
+        "back": 4
+      },
+      "meritGain": 46,
+      "reward": {
+        "wood": 400,
+        "stone": 124,
+        "food": 5827
+      }
+    }
+  ]
+}

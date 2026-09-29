@@ -1,0 +1,275 @@
+{
+  "kind": "paid sequential first clears 46-89, no candidate battle yet",
+  "head": "1a8d785d298faf632682dddac70ac8e752556912",
+  "scriptSha256": "80f6d620a2cd0ffa9217afb8e183ad4e21490b7e257cff8d3cd427b81eaa918a",
+  "entries": [
+    {
+      "source": "p269-crystal-full-roster-last-recovered-save.json",
+      "sourceSha256": "e6803dbc09617243fc973719d236db88f96acbe6ef9632e58f2756856d51288a",
+      "output": "p-stage90-entry-mid-prenuclear-paid-save.json",
+      "outputSha256": "fd97f6eb210bc2d9904b834553844ef86b8cf62de81522cfd83c01ff4f970118",
+      "stage89": {
+        "stage": 89,
+        "enemyId": 89,
+        "name": "大法师塔",
+        "seed": 1,
+        "loadStatus": "migrated",
+        "win": true,
+        "round": 2,
+        "callbacks": 34,
+        "start": {
+          "tick": 8263645,
+          "army": 516,
+          "deployed": 516
+        },
+        "end": {
+          "tick": 8263706,
+          "army": 516,
+          "defeated": 89
+        },
+        "actualTroopLoss": 9,
+        "lossByUnit": {
+          "electro_trooper": 1,
+          "armored_trooper": 5,
+          "archer": 3
+        },
+        "reward": {
+          "resources": {
+            "wood": 800,
+            "stone": 6967
+          },
+          "items": {},
+          "merit": 46,
+          "essence": {}
+        },
+        "configuredReward": {
+          "wood": 9120,
+          "stone": 6967,
+          "food": 5827
+        },
+        "configuredDrops": {},
+        "replacementCost": {
+          "copper": 18000,
+          "iron": 18000,
+          "steel": 18000,
+          "wood": 240,
+          "stone": 60,
+          "food": 90
+        },
+        "replenishment": {
+          "seconds": 61,
+          "trainingSeconds": 3,
+          "cost": {
+            "copper": 18000,
+            "iron": 18000,
+            "steel": 18000,
+            "wood": 240,
+            "stone": 60,
+            "food": 90
+          },
+          "paidCost": {
+            "copper": 18000,
+            "iron": 18000,
+            "steel": 18000,
+            "wood": 240,
+            "stone": 60,
+            "food": 90
+          },
+          "startingResources": {
+            "wood": 2150280,
+            "stone": 571784,
+            "food": 378290,
+            "tech": 2331050,
+            "coal": 243124.5,
+            "copper": 674.5000000549007,
+            "iron": 201044,
+            "silver": 5.666666666666515,
+            "gold": 157.05,
+            "steel": 1287,
+            "coin": 0.7999999999992724,
+            "silverCoin": 295.99999999999983,
+            "deed": 0,
+            "medal": 823856,
+            "bone": 1481,
+            "goldCoin": 0,
+            "hide": 0
+          },
+          "endingResources": {
+            "wood": 2150040,
+            "stone": 529772,
+            "food": 378290,
+            "tech": 2363882,
+            "coal": 242212.5,
+            "copper": 732.1000000549066,
+            "iron": 173924,
+            "silver": 5.666666666666515,
+            "gold": 157.05,
+            "steel": 1527,
+            "coin": 0.7999999999992724,
+            "silverCoin": 295.99999999999983,
+            "deed": 0,
+            "medal": 823856,
+            "bone": 1481,
+            "goldCoin": 0,
+            "hide": 0
+          },
+          "army": 516
+        },
+        "replenishmentBlocked": null,
+        "stockBefore": {
+          "wood": 2149480,
+          "stone": 564817,
+          "food": 378290,
+          "copper": 674.5000000549007,
+          "iron": 201044,
+          "steel": 1287
+        },
+        "stockAfter": {
+          "wood": 2150280,
+          "stone": 571784,
+          "food": 378290,
+          "copper": 674.5000000549007,
+          "iron": 201044,
+          "steel": 1287
+        }
+      },
+      "onlineSeconds": 1379,
+      "army": 516,
+      "totalArmy": 516
+    },
+    {
+      "source": "p270-nuclear-research-paid-save.json",
+      "sourceSha256": "8e33a404c1e718dffcd5a4911b7cd8c051ba55797edebbd618da379388287beb",
+      "output": "p-stage90-entry-mid-fulltech-paid-save.json",
+      "outputSha256": "d5740490629e4eb6d362f440f920cce92b44cf84e34dad0e861d353faf71681f",
+      "stage89": {
+        "stage": 89,
+        "enemyId": 89,
+        "name": "大法师塔",
+        "seed": 1,
+        "loadStatus": "migrated",
+        "win": true,
+        "round": 2,
+        "callbacks": 30,
+        "start": {
+          "tick": 8642446,
+          "army": 517,
+          "deployed": 516
+        },
+        "end": {
+          "tick": 8642482,
+          "army": 517,
+          "defeated": 89
+        },
+        "actualTroopLoss": 9,
+        "lossByUnit": {
+          "electro_trooper": 1,
+          "bronze_guard": 1,
+          "archer": 7
+        },
+        "reward": {
+          "resources": {
+            "stone": 6967,
+            "food": 2501.5659574468154
+          },
+          "items": {},
+          "merit": 46,
+          "essence": {}
+        },
+        "configuredReward": {
+          "wood": 9120,
+          "stone": 6967,
+          "food": 5827
+        },
+        "configuredDrops": {},
+        "replacementCost": {
+          "copper": 8100,
+          "iron": 8000,
+          "steel": 8000,
+          "food": 510,
+          "wood": 560,
+          "stone": 140
+        },
+        "replenishment": {
+          "seconds": 36,
+          "trainingSeconds": 4,
+          "cost": {
+            "copper": 8100,
+            "iron": 8000,
+            "steel": 8000,
+            "food": 510,
+            "wood": 560,
+            "stone": 140
+          },
+          "paidCost": {
+            "food": 510,
+            "copper": 8100,
+            "wood": 560,
+            "stone": 140,
+            "iron": 8000,
+            "steel": 8000
+          },
+          "startingResources": {
+            "wood": 2280960,
+            "stone": 260765,
+            "food": 401280,
+            "tech": 788452,
+            "coal": 242382.5,
+            "copper": 382.8999999425305,
+            "iron": 525456,
+            "silver": 272.9999999999995,
+            "gold": 76.65000000000327,
+            "steel": 443,
+            "coin": 0.7999999999992724,
+            "silverCoin": 295.99999999999983,
+            "deed": 0,
+            "medal": 23856,
+            "bone": 45931,
+            "goldCoin": 0,
+            "hide": 0
+          },
+          "endingResources": {
+            "wood": 2280400,
+            "stone": 263361,
+            "food": 401280,
+            "tech": 832228,
+            "coal": 246486.5,
+            "copper": 308.49999994253085,
+            "iron": 512896,
+            "silver": 272.9999999999995,
+            "gold": 76.65000000000327,
+            "steel": 1563,
+            "coin": 0.7999999999992724,
+            "silverCoin": 295.99999999999983,
+            "deed": 0,
+            "medal": 23856,
+            "bone": 45931,
+            "goldCoin": 0,
+            "hide": 0
+          },
+          "army": 517
+        },
+        "replenishmentBlocked": null,
+        "stockBefore": {
+          "wood": 2280960,
+          "stone": 253798,
+          "food": 398778.4340425532,
+          "copper": 382.8999999425305,
+          "iron": 525456,
+          "steel": 443
+        },
+        "stockAfter": {
+          "wood": 2280960,
+          "stone": 260765,
+          "food": 401280,
+          "copper": 382.8999999425305,
+          "iron": 525456,
+          "steel": 443
+        }
+      },
+      "onlineSeconds": 984,
+      "army": 516,
+      "totalArmy": 517
+    }
+  ]
+}

@@ -1,0 +1,3814 @@
+{
+  "kind": "same paid input, 90-99 sequential repeat wins plus gate-bypassed stage-100 first win; real-action replenishment, no valid first-clear claim",
+  "head": "1a8d785d298faf632682dddac70ac8e752556912",
+  "input": {
+    "file": "p391-steam-military-six-star-paid-save.json",
+    "sha256": "6a6150b11c74f19933c235092993bebe5ebcc59404df1d809cfda031d4845bda"
+  },
+  "sourceHashes": [
+    {
+      "file": "config.js",
+      "sha256": "1d46cd09d15cd9faf05cbb40a0b5e30fdf7d6ae3bcfd21550233c178378ebfd8"
+    },
+    {
+      "file": "levels.js",
+      "sha256": "dec14783bbeb41111ae116598dff48c9a6930b2dbf7879e2265f8887d4cc9f54"
+    },
+    {
+      "file": "math.js",
+      "sha256": "8980af2b1c87dcdc7b3bb359294d93a741947c35c5538c66b2c139b1e92238ec"
+    },
+    {
+      "file": "garrison.js",
+      "sha256": "4d233f0529d256cd1ace2de782603fcfcbbff110032ca4cf29c5e36af30f10ff"
+    },
+    {
+      "file": "technology.js",
+      "sha256": "c51fb05821593d9e76396ff18b0a38d78dee1db9cdc55631b78a7f223ad0a006"
+    },
+    {
+      "file": "tests/progression/harness.js",
+      "sha256": "4770d17fa72cc8c87f4c8ef79678f19d63a41da895b8dd58776e5a39ce2ede2b"
+    },
+    {
+      "file": "tools/verify/probe-stage100-paid-replay-agent.js",
+      "sha256": "73800e9c92ca2d0af7fa369b7470152cd4c9db8a1d9a00470f98144f4056b1e8"
+    }
+  ],
+  "targetPeople": {
+    "90": 165,
+    "91": 180,
+    "92": 210,
+    "93": 250,
+    "94": 300,
+    "95": 360,
+    "96": 450,
+    "97": 600,
+    "98": 800,
+    "99": 1100,
+    "100": 1870
+  },
+  "bossScale": 170,
+  "routes": [
+    {
+      "seed": 1,
+      "stages": [
+        {
+          "ok": true,
+          "stage": 90,
+          "enemy": {
+            "before": 11,
+            "after": 165
+          },
+          "won": true,
+          "before": {
+            "tick": 12295458,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 6495,
+            "stone": 1102306,
+            "coal": 35128.75,
+            "copper": 16778.949997925003,
+            "iron": 83965,
+            "steel": 215,
+            "tech": 13721
+          },
+          "after": {
+            "tick": 12295458,
+            "army": 655,
+            "deployed": 609,
+            "food": 480699,
+            "wood": 92895,
+            "stone": 1168306,
+            "coal": 35128.75,
+            "copper": 16778.949997925003,
+            "iron": 83965,
+            "steel": 215,
+            "tech": 13721
+          },
+          "enemyRemainingHp": 0,
+          "loss": 17,
+          "recovery": {
+            "shortages": {
+              "archer": 8,
+              "star_trooper": 9,
+              "armored_trooper": 0,
+              "electro_trooper": 0,
+              "alloy_special": 0,
+              "gold_cavalry": 0
+            },
+            "expected": {
+              "food": 240,
+              "stone": 160,
+              "wood": 640,
+              "steel": 72000,
+              "iron": 72000,
+              "copper": 72000
+            },
+            "paid": {
+              "wood": 640,
+              "stone": 160,
+              "food": 240,
+              "copper": 72000,
+              "iron": 72000,
+              "steel": 72000
+            },
+            "trained": 17,
+            "onlineSeconds": 415,
+            "phases": {
+              "training": 9,
+              "coal": 137,
+              "iron": 226,
+              "steel": 18,
+              "copper": 25
+            },
+            "minFood": 480639
+          },
+          "final": {
+            "tick": 12295873,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 92255,
+            "stone": 699106,
+            "coal": 187003,
+            "copper": 590.1999979249667,
+            "iron": 913063,
+            "steel": 1277,
+            "tech": 232907
+          },
+          "rng": 1382379352,
+          "callbacks": 28
+        },
+        {
+          "ok": true,
+          "stage": 91,
+          "enemy": {
+            "before": 16,
+            "after": 180
+          },
+          "won": true,
+          "before": {
+            "tick": 12295873,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 92255,
+            "stone": 699106,
+            "coal": 187003,
+            "copper": 590.1999979249667,
+            "iron": 913063,
+            "steel": 1277,
+            "tech": 232907
+          },
+          "after": {
+            "tick": 12295873,
+            "army": 669,
+            "deployed": 623,
+            "food": 480699,
+            "wood": 101255,
+            "stone": 706106,
+            "coal": 187003,
+            "copper": 590.1999979249667,
+            "iron": 913063,
+            "steel": 1277,
+            "tech": 232907
+          },
+          "enemyRemainingHp": 0,
+          "loss": 3,
+          "recovery": {
+            "shortages": {
+              "archer": 0,
+              "star_trooper": 3,
+              "armored_trooper": 0,
+              "electro_trooper": 0,
+              "alloy_special": 0,
+              "gold_cavalry": 0
+            },
+            "expected": {
+              "steel": 24000,
+              "iron": 24000,
+              "copper": 24000
+            },
+            "paid": {
+              "copper": 24000,
+              "iron": 24000,
+              "steel": 24000
+            },
+            "trained": 3,
+            "onlineSeconds": 19,
+            "phases": {
+              "steel": 6,
+              "copper": 11,
+              "training": 2
+            },
+            "minFood": 480699
+          },
+          "final": {
+            "tick": 12295892,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 101255,
+            "stone": 680850,
+            "coal": 161747,
+            "copper": 1147.149997924971,
+            "iron": 883651,
+            "steel": 1631,
+            "tech": 281615
+          },
+          "rng": 2998334459,
+          "callbacks": 11
+        },
+        {
+          "ok": true,
+          "stage": 92,
+          "enemy": {
+            "before": 17,
+            "after": 210
+          },
+          "won": true,
+          "before": {
+            "tick": 12295892,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 101255,
+            "stone": 680850,
+            "coal": 161747,
+            "copper": 1147.149997924971,
+            "iron": 883651,
+            "steel": 1631,
+            "tech": 281615
+          },
+          "after": {
+            "tick": 12295892,
+            "army": 671,
+            "deployed": 625,
+            "food": 480699,
+            "wood": 110525,
+            "stone": 688060,
+            "coal": 161747,
+            "copper": 1147.149997924971,
+            "iron": 883651,
+            "steel": 1631,
+            "tech": 281615
+          },
+          "enemyRemainingHp": 0,
+          "loss": 1,
+          "recovery": {
+            "shortages": {
+              "archer": 0,
+              "star_trooper": 0,
+              "armored_trooper": 0,
+              "electro_trooper": 1,
+              "alloy_special": 0,
+              "gold_cavalry": 0
+            },
+            "expected": {
+              "steel": 8000,
+              "iron": 8000,
+              "copper": 8000
+            },
+            "paid": {
+              "copper": 8000,
+              "iron": 8000,
+              "steel": 8000
+            },
+            "trained": 1,
+            "onlineSeconds": 7,
+            "phases": {
+              "steel": 2,
+              "copper": 4,
+              "training": 1
+            },
+            "minFood": 480699
+          },
+          "final": {
+            "tick": 12295899,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 110525,
+            "stone": 679040,
+            "coal": 152727,
+            "copper": 2076.949997924972,
+            "iron": 873847,
+            "steel": 1749,
+            "tech": 305969
+          },
+          "rng": 954609590,
+          "callbacks": 11
+        },
+        {
+          "ok": true,
+          "stage": 93,
+          "enemy": {
+            "before": 19,
+            "after": 250
+          },
+          "won": true,
+          "before": {
+            "tick": 12295899,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 110525,
+            "stone": 679040,
+            "coal": 152727,
+            "copper": 2076.949997924972,
+            "iron": 873847,
+            "steel": 1749,
+            "tech": 305969
+          },
+          "after": {
+            "tick": 12295899,
+            "army": 663,
+            "deployed": 617,
+            "food": 480699,
+            "wood": 120073,
+            "stone": 686466,
+            "coal": 152727,
+            "copper": 2076.949997924972,
+            "iron": 873847,
+            "steel": 1749,
+            "tech": 305969
+          },
+          "enemyRemainingHp": 0,
+          "loss": 9,
+          "recovery": {
+            "shortages": {
+              "archer": 0,
+              "star_trooper": 8,
+              "armored_trooper": 1,
+              "electro_trooper": 0,
+              "alloy_special": 0,
+              "gold_cavalry": 0
+            },
+            "expected": {
+              "steel": 66000,
+              "iron": 66000,
+              "copper": 66000
+            },
+            "paid": {
+              "copper": 66000,
+              "iron": 66000,
+              "steel": 66000
+            },
+            "trained": 9,
+            "onlineSeconds": 169,
+            "phases": {
+              "steel": 16,
+              "copper": 29,
+              "training": 5,
+              "coal": 119
+            },
+            "minFood": 480699
+          },
+          "final": {
+            "tick": 12296068,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 120073,
+            "stone": 619718,
+            "coal": 448244.75,
+            "copper": 817.9999979249365,
+            "iron": 793415,
+            "steel": 693,
+            "tech": 427739
+          },
+          "rng": 1668900563,
+          "callbacks": 15
+        },
+        {
+          "ok": true,
+          "stage": 94,
+          "enemy": {
+            "before": 52,
+            "after": 300
+          },
+          "won": true,
+          "before": {
+            "tick": 12296068,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 120073,
+            "stone": 619718,
+            "coal": 448244.75,
+            "copper": 817.9999979249365,
+            "iron": 793415,
+            "steel": 693,
+            "tech": 427739
+          },
+          "after": {
+            "tick": 12296068,
+            "army": 666,
+            "deployed": 620,
+            "food": 480699,
+            "wood": 129907,
+            "stone": 627367,
+            "coal": 448244.75,
+            "copper": 817.9999979249365,
+            "iron": 793415,
+            "steel": 693,
+            "tech": 427739
+          },
+          "enemyRemainingHp": 0,
+          "loss": 6,
+          "recovery": {
+            "shortages": {
+              "archer": 0,
+              "star_trooper": 5,
+              "armored_trooper": 1,
+              "electro_trooper": 0,
+              "alloy_special": 0,
+              "gold_cavalry": 0
+            },
+            "expected": {
+              "steel": 42000,
+              "iron": 42000,
+              "copper": 42000
+            },
+            "paid": {
+              "copper": 42000,
+              "iron": 42000,
+              "steel": 42000
+            },
+            "trained": 6,
+            "onlineSeconds": 34,
+            "phases": {
+              "steel": 11,
+              "copper": 19,
+              "training": 4
+            },
+            "minFood": 480699
+          },
+          "final": {
+            "tick": 12296102,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 129907,
+            "stone": 583169,
+            "coal": 404046.75,
+            "copper": 1234.549997924932,
+            "iron": 741493,
+            "steel": 3342,
+            "tech": 525155
+          },
+          "rng": 745467168,
+          "callbacks": 17
+        },
+        {
+          "ok": true,
+          "stage": 95,
+          "enemy": {
+            "before": 58,
+            "after": 360
+          },
+          "won": true,
+          "before": {
+            "tick": 12296102,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 129907,
+            "stone": 583169,
+            "coal": 404046.75,
+            "copper": 1234.549997924932,
+            "iron": 741493,
+            "steel": 3342,
+            "tech": 525155
+          },
+          "after": {
+            "tick": 12296102,
+            "army": 638,
+            "deployed": 592,
+            "food": 480699,
+            "wood": 140036,
+            "stone": 591047,
+            "coal": 404046.75,
+            "copper": 1234.549997924932,
+            "iron": 741493,
+            "steel": 3342,
+            "tech": 525155
+          },
+          "enemyRemainingHp": 0,
+          "loss": 34,
+          "recovery": {
+            "shortages": {
+              "archer": 25,
+              "star_trooper": 9,
+              "armored_trooper": 0,
+              "electro_trooper": 0,
+              "alloy_special": 0,
+              "gold_cavalry": 0
+            },
+            "expected": {
+              "food": 750,
+              "stone": 500,
+              "wood": 2000,
+              "steel": 72000,
+              "iron": 72000,
+              "copper": 72000
+            },
+            "paid": {
+              "wood": 2000,
+              "stone": 500,
+              "food": 750,
+              "copper": 72000,
+              "iron": 72000,
+              "steel": 72000
+            },
+            "trained": 34,
+            "onlineSeconds": 67,
+            "phases": {
+              "training": 18,
+              "steel": 17,
+              "copper": 32
+            },
+            "minFood": 480639
+          },
+          "final": {
+            "tick": 12296169,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 138036,
+            "stone": 517485,
+            "coal": 330984.75,
+            "copper": 672.949997924894,
+            "iron": 654159,
+            "steel": 345,
+            "tech": 963527
+          },
+          "rng": 3586344698,
+          "callbacks": 23
+        },
+        {
+          "ok": true,
+          "stage": 96,
+          "enemy": {
+            "before": 60,
+            "after": 450
+          },
+          "won": true,
+          "before": {
+            "tick": 12296169,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 138036,
+            "stone": 517485,
+            "coal": 330984.75,
+            "copper": 672.949997924894,
+            "iron": 654159,
+            "steel": 345,
+            "tech": 963527
+          },
+          "after": {
+            "tick": 12296169,
+            "army": 647,
+            "deployed": 601,
+            "food": 480699,
+            "wood": 148469,
+            "stone": 525599,
+            "coal": 330984.75,
+            "copper": 672.949997924894,
+            "iron": 654159,
+            "steel": 345,
+            "tech": 963527
+          },
+          "enemyRemainingHp": 0,
+          "loss": 25,
+          "recovery": {
+            "shortages": {
+              "archer": 14,
+              "star_trooper": 7,
+              "armored_trooper": 2,
+              "electro_trooper": 0,
+              "alloy_special": 0,
+              "gold_cavalry": 2
+            },
+            "expected": {
+              "food": 2420,
+              "stone": 280,
+              "wood": 1120,
+              "steel": 60000,
+              "iron": 60000,
+              "copper": 60000,
+              "gold": 200
+            },
+            "paid": {
+              "wood": 1120,
+              "stone": 280,
+              "food": 2420,
+              "copper": 60000,
+              "iron": 60000,
+              "steel": 60000,
+              "gold": 200
+            },
+            "trained": 25,
+            "onlineSeconds": 55,
+            "phases": {
+              "training": 13,
+              "steel": 15,
+              "copper": 27
+            },
+            "minFood": 478699
+          },
+          "final": {
+            "tick": 12296224,
+            "army": 672,
+            "deployed": 626,
+            "food": 480497.16904761904,
+            "wood": 147349,
+            "stone": 463081,
+            "coal": 268746.75,
+            "copper": 949.0999979248727,
+            "iron": 580629,
+            "steel": 1230,
+            "tech": 1280129
+          },
+          "rng": 355905545,
+          "callbacks": 25
+        },
+        {
+          "ok": true,
+          "stage": 97,
+          "enemy": {
+            "before": 96,
+            "after": 603
+          },
+          "won": true,
+          "before": {
+            "tick": 12296224,
+            "army": 672,
+            "deployed": 626,
+            "food": 480497.16904761904,
+            "wood": 147349,
+            "stone": 463081,
+            "coal": 268746.75,
+            "copper": 949.0999979248727,
+            "iron": 580629,
+            "steel": 1230,
+            "tech": 1280129
+          },
+          "after": {
+            "tick": 12296224,
+            "army": 635,
+            "deployed": 589,
+            "food": 480699,
+            "wood": 158095,
+            "stone": 471439,
+            "coal": 268746.75,
+            "copper": 949.0999979248727,
+            "iron": 580629,
+            "steel": 1230,
+            "tech": 1280129
+          },
+          "enemyRemainingHp": 0,
+          "loss": 37,
+          "recovery": {
+            "shortages": {
+              "archer": 0,
+              "star_trooper": 11,
+              "armored_trooper": 5,
+              "electro_trooper": 21,
+              "alloy_special": 0,
+              "gold_cavalry": 0
+            },
+            "expected": {
+              "steel": 266000,
+              "iron": 266000,
+              "copper": 266000
+            },
+            "paid": {
+              "copper": 266000,
+              "iron": 266000,
+              "steel": 266000
+            },
+            "trained": 37,
+            "onlineSeconds": 347,
+            "phases": {
+              "steel": 66,
+              "copper": 119,
+              "training": 20,
+              "coal": 142
+            },
+            "minFood": 480699
+          },
+          "final": {
+            "tick": 12296571,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 158095,
+            "stone": 197231,
+            "coal": 426822.25,
+            "copper": 610.6499979248911,
+            "iron": 255097,
+            "steel": 3124,
+            "tech": 1767209
+          },
+          "rng": 1247165876,
+          "callbacks": 33
+        },
+        {
+          "ok": true,
+          "stage": 98,
+          "enemy": {
+            "before": 105,
+            "after": 798
+          },
+          "won": true,
+          "before": {
+            "tick": 12296571,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 158095,
+            "stone": 197231,
+            "coal": 426822.25,
+            "copper": 610.6499979248911,
+            "iron": 255097,
+            "steel": 3124,
+            "tech": 1767209
+          },
+          "after": {
+            "tick": 12296571,
+            "army": 565,
+            "deployed": 519,
+            "food": 480699,
+            "wood": 169163,
+            "stone": 205840,
+            "coal": 426822.25,
+            "copper": 610.6499979248911,
+            "iron": 255097,
+            "steel": 3124,
+            "tech": 1767209
+          },
+          "enemyRemainingHp": 0,
+          "loss": 107,
+          "recovery": {
+            "shortages": {
+              "archer": 33,
+              "star_trooper": 29,
+              "armored_trooper": 2,
+              "electro_trooper": 43,
+              "alloy_special": 0,
+              "gold_cavalry": 0
+            },
+            "expected": {
+              "food": 990,
+              "stone": 660,
+              "wood": 2640,
+              "steel": 580000,
+              "iron": 580000,
+              "copper": 580000
+            },
+            "paid": {
+              "wood": 2640,
+              "stone": 660,
+              "food": 990,
+              "copper": 580000,
+              "iron": 580000,
+              "steel": 580000
+            },
+            "trained": 107,
+            "onlineSeconds": 903,
+            "phases": {
+              "training": 55,
+              "steel": 143,
+              "iron": 254,
+              "copper": 260,
+              "stone": 49,
+              "coal": 142
+            },
+            "minFood": 480639
+          },
+          "final": {
+            "tick": 12297474,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 166523,
+            "stone": 342284,
+            "coal": 31971.75,
+            "copper": 1047.6499979263172,
+            "iron": 577097,
+            "steel": 3561,
+            "tech": 3106679
+          },
+          "rng": 2617235227,
+          "callbacks": 34
+        },
+        {
+          "ok": true,
+          "stage": 99,
+          "enemy": {
+            "before": 144,
+            "after": 1100
+          },
+          "won": true,
+          "before": {
+            "tick": 12297474,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 166523,
+            "stone": 342284,
+            "coal": 31971.75,
+            "copper": 1047.6499979263172,
+            "iron": 577097,
+            "steel": 3561,
+            "tech": 3106679
+          },
+          "after": {
+            "tick": 12297474,
+            "army": 429,
+            "deployed": 383,
+            "food": 480699,
+            "wood": 177923,
+            "stone": 351151,
+            "coal": 31971.75,
+            "copper": 1047.6499979263172,
+            "iron": 577097,
+            "steel": 3561,
+            "tech": 3106679
+          },
+          "enemyRemainingHp": 0,
+          "loss": 243,
+          "recovery": {
+            "shortages": {
+              "archer": 157,
+              "star_trooper": 28,
+              "armored_trooper": 13,
+              "electro_trooper": 45,
+              "alloy_special": 0,
+              "gold_cavalry": 0
+            },
+            "expected": {
+              "food": 4710,
+              "stone": 3140,
+              "wood": 12560,
+              "steel": 610000,
+              "iron": 610000,
+              "copper": 610000
+            },
+            "paid": {
+              "wood": 12560,
+              "stone": 3140,
+              "food": 4710,
+              "copper": 610000,
+              "iron": 610000,
+              "steel": 610000
+            },
+            "trained": 243,
+            "onlineSeconds": 895,
+            "phases": {
+              "training": 123,
+              "coal": 261,
+              "steel": 150,
+              "copper": 273,
+              "stone": 46,
+              "iron": 42
+            },
+            "minFood": 480639
+          },
+          "final": {
+            "tick": 12298369,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 165363,
+            "stone": 764735,
+            "coal": 160845,
+            "copper": 506.49999792774906,
+            "iron": 2275,
+            "steel": 2411,
+            "tech": 6102221
+          },
+          "rng": 2271820597,
+          "callbacks": 53
+        },
+        {
+          "ok": true,
+          "stage": 100,
+          "enemy": {
+            "before": 11,
+            "after": 1870
+          },
+          "won": true,
+          "before": {
+            "tick": 12298369,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 165363,
+            "stone": 764735,
+            "coal": 160845,
+            "copper": 506.49999792774906,
+            "iron": 2275,
+            "steel": 2411,
+            "tech": 6102221
+          },
+          "after": {
+            "tick": 12298369,
+            "army": 166,
+            "deployed": 120,
+            "food": 480699,
+            "wood": 273363,
+            "stone": 848735,
+            "coal": 160845,
+            "copper": 506.49999792774906,
+            "iron": 2275,
+            "steel": 2411,
+            "tech": 6102221
+          },
+          "enemyRemainingHp": 0,
+          "loss": 506,
+          "recovery": {
+            "shortages": {
+              "archer": 216,
+              "star_trooper": 130,
+              "armored_trooper": 45,
+              "electro_trooper": 63,
+              "alloy_special": 12,
+              "gold_cavalry": 40
+            },
+            "expected": {
+              "food": 64480,
+              "stone": 4320,
+              "wood": 17280,
+              "steel": 1635200,
+              "iron": 1634000,
+              "copper": 1634000,
+              "gold": 4000
+            },
+            "paid": {
+              "wood": 17280,
+              "stone": 4320,
+              "food": 64480,
+              "copper": 1634000,
+              "iron": 1634000,
+              "steel": 1635200,
+              "gold": 4000
+            },
+            "trained": 506,
+            "onlineSeconds": 2866,
+            "phases": {
+              "training": 254,
+              "iron": 559,
+              "coal": 814,
+              "steel": 403,
+              "stone": 97,
+              "copper": 732,
+              "gold": 7
+            },
+            "minFood": 472192.35796239984
+          },
+          "final": {
+            "tick": 12301235,
+            "army": 672,
+            "deployed": 626,
+            "food": 477477.60906944296,
+            "wood": 256083,
+            "stone": 501655,
+            "coal": 444298.5,
+            "copper": 659.899997920671,
+            "iron": 273750,
+            "steel": 2988,
+            "tech": 12288137
+          },
+          "rng": 1302596047,
+          "callbacks": 76,
+          "attempt": 1
+        }
+      ],
+      "completed": true,
+      "finalSaveSha256": "cc187aca9b8b4bce9085b5cc88ebf0d4b9371dae5fc6dab4cfa55e2fcf6efb96"
+    },
+    {
+      "seed": 7,
+      "stages": [
+        {
+          "ok": true,
+          "stage": 90,
+          "enemy": {
+            "before": 11,
+            "after": 165
+          },
+          "won": true,
+          "before": {
+            "tick": 12295458,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 6495,
+            "stone": 1102306,
+            "coal": 35128.75,
+            "copper": 16778.949997925003,
+            "iron": 83965,
+            "steel": 215,
+            "tech": 13721
+          },
+          "after": {
+            "tick": 12295458,
+            "army": 645,
+            "deployed": 599,
+            "food": 480699,
+            "wood": 92895,
+            "stone": 1168306,
+            "coal": 35128.75,
+            "copper": 16778.949997925003,
+            "iron": 83965,
+            "steel": 215,
+            "tech": 13721
+          },
+          "enemyRemainingHp": 0,
+          "loss": 27,
+          "recovery": {
+            "shortages": {
+              "archer": 19,
+              "star_trooper": 8,
+              "armored_trooper": 0,
+              "electro_trooper": 0,
+              "alloy_special": 0,
+              "gold_cavalry": 0
+            },
+            "expected": {
+              "food": 570,
+              "stone": 380,
+              "wood": 1520,
+              "steel": 64000,
+              "iron": 64000,
+              "copper": 64000
+            },
+            "paid": {
+              "wood": 1520,
+              "stone": 380,
+              "food": 570,
+              "copper": 64000,
+              "iron": 64000,
+              "steel": 64000
+            },
+            "trained": 27,
+            "onlineSeconds": 415,
+            "phases": {
+              "training": 14,
+              "coal": 137,
+              "iron": 226,
+              "steel": 16,
+              "copper": 22
+            },
+            "minFood": 480639
+          },
+          "final": {
+            "tick": 12295873,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 91375,
+            "stone": 706102,
+            "coal": 194219,
+            "copper": 1892.8499979249755,
+            "iron": 922867,
+            "steel": 1159,
+            "tech": 354677
+          },
+          "rng": 3473680292,
+          "callbacks": 26
+        },
+        {
+          "ok": true,
+          "stage": 91,
+          "enemy": {
+            "before": 16,
+            "after": 180
+          },
+          "won": true,
+          "before": {
+            "tick": 12295873,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 91375,
+            "stone": 706102,
+            "coal": 194219,
+            "copper": 1892.8499979249755,
+            "iron": 922867,
+            "steel": 1159,
+            "tech": 354677
+          },
+          "after": {
+            "tick": 12295873,
+            "army": 670,
+            "deployed": 624,
+            "food": 480699,
+            "wood": 100375,
+            "stone": 713102,
+            "coal": 194219,
+            "copper": 1892.8499979249755,
+            "iron": 922867,
+            "steel": 1159,
+            "tech": 354677
+          },
+          "enemyRemainingHp": 0,
+          "loss": 2,
+          "recovery": {
+            "shortages": {
+              "archer": 0,
+              "star_trooper": 2,
+              "armored_trooper": 0,
+              "electro_trooper": 0,
+              "alloy_special": 0,
+              "gold_cavalry": 0
+            },
+            "expected": {
+              "steel": 16000,
+              "iron": 16000,
+              "copper": 16000
+            },
+            "paid": {
+              "copper": 16000,
+              "iron": 16000,
+              "steel": 16000
+            },
+            "trained": 2,
+            "onlineSeconds": 12,
+            "phases": {
+              "steel": 4,
+              "copper": 7,
+              "training": 1
+            },
+            "minFood": 480699
+          },
+          "final": {
+            "tick": 12295885,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 100375,
+            "stone": 696866,
+            "coal": 177983,
+            "copper": 1519.9999979249806,
+            "iron": 903259,
+            "steel": 1395,
+            "tech": 379031
+          },
+          "rng": 2550953812,
+          "callbacks": 8
+        },
+        {
+          "ok": true,
+          "stage": 92,
+          "enemy": {
+            "before": 17,
+            "after": 210
+          },
+          "won": true,
+          "before": {
+            "tick": 12295885,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 100375,
+            "stone": 696866,
+            "coal": 177983,
+            "copper": 1519.9999979249806,
+            "iron": 903259,
+            "steel": 1395,
+            "tech": 379031
+          },
+          "after": {
+            "tick": 12295885,
+            "army": 668,
+            "deployed": 622,
+            "food": 480699,
+            "wood": 109645,
+            "stone": 704076,
+            "coal": 177983,
+            "copper": 1519.9999979249806,
+            "iron": 903259,
+            "steel": 1395,
+            "tech": 379031
+          },
+          "enemyRemainingHp": 0,
+          "loss": 4,
+          "recovery": {
+            "shortages": {
+              "archer": 0,
+              "star_trooper": 4,
+              "armored_trooper": 0,
+              "electro_trooper": 0,
+              "alloy_special": 0,
+              "gold_cavalry": 0
+            },
+            "expected": {
+              "steel": 32000,
+              "iron": 32000,
+              "copper": 32000
+            },
+            "paid": {
+              "copper": 32000,
+              "iron": 32000,
+              "steel": 32000
+            },
+            "trained": 4,
+            "onlineSeconds": 24,
+            "phases": {
+              "steel": 8,
+              "copper": 14,
+              "training": 2
+            },
+            "minFood": 480699
+          },
+          "final": {
+            "tick": 12295909,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 109645,
+            "stone": 671604,
+            "coal": 145511,
+            "copper": 774.2999979249871,
+            "iron": 864043,
+            "steel": 1867,
+            "tech": 427739
+          },
+          "rng": 3673904273,
+          "callbacks": 11
+        },
+        {
+          "ok": true,
+          "stage": 93,
+          "enemy": {
+            "before": 19,
+            "after": 250
+          },
+          "won": true,
+          "before": {
+            "tick": 12295909,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 109645,
+            "stone": 671604,
+            "coal": 145511,
+            "copper": 774.2999979249871,
+            "iron": 864043,
+            "steel": 1867,
+            "tech": 427739
+          },
+          "after": {
+            "tick": 12295909,
+            "army": 669,
+            "deployed": 623,
+            "food": 480699,
+            "wood": 119193,
+            "stone": 679030,
+            "coal": 145511,
+            "copper": 774.2999979249871,
+            "iron": 864043,
+            "steel": 1867,
+            "tech": 427739
+          },
+          "enemyRemainingHp": 0,
+          "loss": 3,
+          "recovery": {
+            "shortages": {
+              "archer": 0,
+              "star_trooper": 3,
+              "armored_trooper": 0,
+              "electro_trooper": 0,
+              "alloy_special": 0,
+              "gold_cavalry": 0
+            },
+            "expected": {
+              "steel": 24000,
+              "iron": 24000,
+              "copper": 24000
+            },
+            "paid": {
+              "copper": 24000,
+              "iron": 24000,
+              "steel": 24000
+            },
+            "trained": 3,
+            "onlineSeconds": 19,
+            "phases": {
+              "steel": 6,
+              "copper": 11,
+              "training": 2
+            },
+            "minFood": 480699
+          },
+          "final": {
+            "tick": 12295928,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 119193,
+            "stone": 653774,
+            "coal": 120255,
+            "copper": 1331.2499979249915,
+            "iron": 834631,
+            "steel": 2221,
+            "tech": 476447
+          },
+          "rng": 70607365,
+          "callbacks": 14
+        },
+        {
+          "ok": true,
+          "stage": 94,
+          "enemy": {
+            "before": 52,
+            "after": 300
+          },
+          "won": true,
+          "before": {
+            "tick": 12295928,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 119193,
+            "stone": 653774,
+            "coal": 120255,
+            "copper": 1331.2499979249915,
+            "iron": 834631,
+            "steel": 2221,
+            "tech": 476447
+          },
+          "after": {
+            "tick": 12295928,
+            "army": 647,
+            "deployed": 601,
+            "food": 480699,
+            "wood": 129027,
+            "stone": 661423,
+            "coal": 120255,
+            "copper": 1331.2499979249915,
+            "iron": 834631,
+            "steel": 2221,
+            "tech": 476447
+          },
+          "enemyRemainingHp": 0,
+          "loss": 25,
+          "recovery": {
+            "shortages": {
+              "archer": 17,
+              "star_trooper": 7,
+              "armored_trooper": 1,
+              "electro_trooper": 0,
+              "alloy_special": 0,
+              "gold_cavalry": 0
+            },
+            "expected": {
+              "food": 510,
+              "stone": 340,
+              "wood": 1360,
+              "steel": 58000,
+              "iron": 58000,
+              "copper": 58000
+            },
+            "paid": {
+              "wood": 1360,
+              "stone": 340,
+              "food": 510,
+              "copper": 58000,
+              "iron": 58000,
+              "steel": 58000
+            },
+            "trained": 25,
+            "onlineSeconds": 182,
+            "phases": {
+              "training": 14,
+              "steel": 14,
+              "copper": 26,
+              "coal": 128
+            },
+            "minFood": 480639
+          },
+          "final": {
+            "tick": 12296110,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 127667,
+            "stone": 601551,
+            "coal": 450387,
+            "copper": 1374.94999792497,
+            "iron": 764003,
+            "steel": 1047,
+            "tech": 817403
+          },
+          "rng": 4247356376,
+          "callbacks": 23
+        },
+        {
+          "ok": true,
+          "stage": 95,
+          "enemy": {
+            "before": 58,
+            "after": 360
+          },
+          "won": true,
+          "before": {
+            "tick": 12296110,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 127667,
+            "stone": 601551,
+            "coal": 450387,
+            "copper": 1374.94999792497,
+            "iron": 764003,
+            "steel": 1047,
+            "tech": 817403
+          },
+          "after": {
+            "tick": 12296110,
+            "army": 639,
+            "deployed": 593,
+            "food": 480699,
+            "wood": 137796,
+            "stone": 609429,
+            "coal": 450387,
+            "copper": 1374.94999792497,
+            "iron": 764003,
+            "steel": 1047,
+            "tech": 817403
+          },
+          "enemyRemainingHp": 0,
+          "loss": 33,
+          "recovery": {
+            "shortages": {
+              "archer": 24,
+              "star_trooper": 9,
+              "armored_trooper": 0,
+              "electro_trooper": 0,
+              "alloy_special": 0,
+              "gold_cavalry": 0
+            },
+            "expected": {
+              "food": 720,
+              "stone": 480,
+              "wood": 1920,
+              "steel": 72000,
+              "iron": 72000,
+              "copper": 72000
+            },
+            "paid": {
+              "wood": 1920,
+              "stone": 480,
+              "food": 720,
+              "copper": 72000,
+              "iron": 72000,
+              "steel": 72000
+            },
+            "trained": 33,
+            "onlineSeconds": 67,
+            "phases": {
+              "training": 17,
+              "steel": 18,
+              "copper": 32
+            },
+            "minFood": 480639
+          },
+          "final": {
+            "tick": 12296177,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 135876,
+            "stone": 534985,
+            "coal": 376423,
+            "copper": 813.3499979249318,
+            "iron": 675767,
+            "steel": 2109,
+            "tech": 1231421
+          },
+          "rng": 3361635274,
+          "callbacks": 17
+        },
+        {
+          "ok": true,
+          "stage": 96,
+          "enemy": {
+            "before": 60,
+            "after": 450
+          },
+          "won": true,
+          "before": {
+            "tick": 12296177,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 135876,
+            "stone": 534985,
+            "coal": 376423,
+            "copper": 813.3499979249318,
+            "iron": 675767,
+            "steel": 2109,
+            "tech": 1231421
+          },
+          "after": {
+            "tick": 12296177,
+            "army": 662,
+            "deployed": 616,
+            "food": 480699,
+            "wood": 146309,
+            "stone": 543099,
+            "coal": 376423,
+            "copper": 813.3499979249318,
+            "iron": 675767,
+            "steel": 2109,
+            "tech": 1231421
+          },
+          "enemyRemainingHp": 0,
+          "loss": 10,
+          "recovery": {
+            "shortages": {
+              "archer": 0,
+              "star_trooper": 5,
+              "armored_trooper": 4,
+              "electro_trooper": 1,
+              "alloy_special": 0,
+              "gold_cavalry": 0
+            },
+            "expected": {
+              "steel": 56000,
+              "iron": 56000,
+              "copper": 56000
+            },
+            "paid": {
+              "copper": 56000,
+              "iron": 56000,
+              "steel": 56000
+            },
+            "trained": 10,
+            "onlineSeconds": 45,
+            "phases": {
+              "steel": 14,
+              "copper": 25,
+              "training": 6
+            },
+            "minFood": 480699
+          },
+          "final": {
+            "tick": 12296222,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 146309,
+            "stone": 485371,
+            "coal": 318695,
+            "copper": 624.5999979249336,
+            "iron": 607139,
+            "steel": 2935,
+            "tech": 1377545
+          },
+          "rng": 3242796736,
+          "callbacks": 26
+        },
+        {
+          "ok": true,
+          "stage": 97,
+          "enemy": {
+            "before": 96,
+            "after": 603
+          },
+          "won": true,
+          "before": {
+            "tick": 12296222,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 146309,
+            "stone": 485371,
+            "coal": 318695,
+            "copper": 624.5999979249336,
+            "iron": 607139,
+            "steel": 2935,
+            "tech": 1377545
+          },
+          "after": {
+            "tick": 12296222,
+            "army": 600,
+            "deployed": 554,
+            "food": 480699,
+            "wood": 157055,
+            "stone": 493729,
+            "coal": 318695,
+            "copper": 624.5999979249336,
+            "iron": 607139,
+            "steel": 2935,
+            "tech": 1377545
+          },
+          "enemyRemainingHp": 0,
+          "loss": 72,
+          "recovery": {
+            "shortages": {
+              "archer": 36,
+              "star_trooper": 12,
+              "armored_trooper": 2,
+              "electro_trooper": 22,
+              "alloy_special": 0,
+              "gold_cavalry": 0
+            },
+            "expected": {
+              "food": 1080,
+              "stone": 720,
+              "wood": 2880,
+              "steel": 276000,
+              "iron": 276000,
+              "copper": 276000
+            },
+            "paid": {
+              "wood": 2880,
+              "stone": 720,
+              "food": 1080,
+              "copper": 276000,
+              "iron": 276000,
+              "steel": 276000
+            },
+            "trained": 72,
+            "onlineSeconds": 228,
+            "phases": {
+              "training": 36,
+              "steel": 68,
+              "copper": 124
+            },
+            "minFood": 480639
+          },
+          "final": {
+            "tick": 12296450,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 154175,
+            "stone": 207977,
+            "coal": 33663,
+            "copper": 1448.3999979249784,
+            "iron": 269803,
+            "steel": 2947,
+            "tech": 2254289
+          },
+          "rng": 2948386494,
+          "callbacks": 32
+        },
+        {
+          "ok": true,
+          "stage": 98,
+          "enemy": {
+            "before": 105,
+            "after": 798
+          },
+          "won": true,
+          "before": {
+            "tick": 12296450,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 154175,
+            "stone": 207977,
+            "coal": 33663,
+            "copper": 1448.3999979249784,
+            "iron": 269803,
+            "steel": 2947,
+            "tech": 2254289
+          },
+          "after": {
+            "tick": 12296450,
+            "army": 600,
+            "deployed": 554,
+            "food": 480699,
+            "wood": 165243,
+            "stone": 216586,
+            "coal": 33663,
+            "copper": 1448.3999979249784,
+            "iron": 269803,
+            "steel": 2947,
+            "tech": 2254289
+          },
+          "enemyRemainingHp": 0,
+          "loss": 72,
+          "recovery": {
+            "shortages": {
+              "archer": 0,
+              "star_trooper": 16,
+              "armored_trooper": 1,
+              "electro_trooper": 55,
+              "alloy_special": 0,
+              "gold_cavalry": 0
+            },
+            "expected": {
+              "steel": 570000,
+              "iron": 570000,
+              "copper": 570000
+            },
+            "paid": {
+              "copper": 570000,
+              "iron": 570000,
+              "steel": 570000
+            },
+            "trained": 72,
+            "onlineSeconds": 999,
+            "phases": {
+              "coal": 279,
+              "steel": 140,
+              "copper": 255,
+              "training": 37,
+              "stone": 46,
+              "iron": 242
+            },
+            "minFood": 480699
+          },
+          "final": {
+            "tick": 12297449,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 165243,
+            "stone": 314002,
+            "coal": 78424.75,
+            "copper": 723.1499979263754,
+            "iron": 555801,
+            "steel": 1207,
+            "tech": 3155387
+          },
+          "rng": 488368543,
+          "callbacks": 32
+        },
+        {
+          "ok": true,
+          "stage": 99,
+          "enemy": {
+            "before": 144,
+            "after": 1100
+          },
+          "won": true,
+          "before": {
+            "tick": 12297449,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 165243,
+            "stone": 314002,
+            "coal": 78424.75,
+            "copper": 723.1499979263754,
+            "iron": 555801,
+            "steel": 1207,
+            "tech": 3155387
+          },
+          "after": {
+            "tick": 12297449,
+            "army": 440,
+            "deployed": 394,
+            "food": 480699,
+            "wood": 176643,
+            "stone": 322869,
+            "coal": 78424.75,
+            "copper": 723.1499979263754,
+            "iron": 555801,
+            "steel": 1207,
+            "tech": 3155387
+          },
+          "enemyRemainingHp": 0,
+          "loss": 232,
+          "recovery": {
+            "shortages": {
+              "archer": 117,
+              "star_trooper": 47,
+              "armored_trooper": 7,
+              "electro_trooper": 55,
+              "alloy_special": 0,
+              "gold_cavalry": 6
+            },
+            "expected": {
+              "food": 9510,
+              "stone": 2340,
+              "wood": 9360,
+              "steel": 830000,
+              "iron": 830000,
+              "copper": 830000,
+              "gold": 600
+            },
+            "paid": {
+              "wood": 9360,
+              "stone": 2340,
+              "food": 9510,
+              "copper": 830000,
+              "iron": 830000,
+              "steel": 830000,
+              "gold": 600
+            },
+            "trained": 232,
+            "onlineSeconds": 1360,
+            "phases": {
+              "training": 118,
+              "coal": 392,
+              "steel": 205,
+              "copper": 372,
+              "stone": 49,
+              "iron": 223,
+              "gold": 1
+            },
+            "minFood": 478308.1803914559
+          },
+          "final": {
+            "tick": 12298809,
+            "army": 672,
+            "deployed": 626,
+            "food": 480106.3494390749,
+            "wood": 167283,
+            "stone": 253781,
+            "coal": 213724.75,
+            "copper": 1194.549997929018,
+            "iron": 446048,
+            "steel": 3302,
+            "tech": 6029159
+          },
+          "rng": 3573294675,
+          "callbacks": 51
+        },
+        {
+          "ok": true,
+          "stage": 100,
+          "enemy": {
+            "before": 11,
+            "after": 1870
+          },
+          "won": true,
+          "before": {
+            "tick": 12298809,
+            "army": 672,
+            "deployed": 626,
+            "food": 480106.3494390749,
+            "wood": 167283,
+            "stone": 253781,
+            "coal": 213724.75,
+            "copper": 1194.549997929018,
+            "iron": 446048,
+            "steel": 3302,
+            "tech": 6029159
+          },
+          "after": {
+            "tick": 12298809,
+            "army": 161,
+            "deployed": 115,
+            "food": 480699,
+            "wood": 275283,
+            "stone": 337781,
+            "coal": 213724.75,
+            "copper": 1194.549997929018,
+            "iron": 446048,
+            "steel": 3302,
+            "tech": 6029159
+          },
+          "enemyRemainingHp": 0,
+          "loss": 511,
+          "recovery": {
+            "shortages": {
+              "archer": 220,
+              "star_trooper": 143,
+              "armored_trooper": 37,
+              "electro_trooper": 71,
+              "alloy_special": 0,
+              "gold_cavalry": 40
+            },
+            "expected": {
+              "food": 46600,
+              "stone": 4400,
+              "wood": 17600,
+              "steel": 1786000,
+              "iron": 1786000,
+              "copper": 1786000,
+              "gold": 4000
+            },
+            "paid": {
+              "wood": 17600,
+              "stone": 4400,
+              "food": 46600,
+              "copper": 1786000,
+              "iron": 1786000,
+              "steel": 1786000,
+              "gold": 4000
+            },
+            "trained": 511,
+            "onlineSeconds": 2840,
+            "phases": {
+              "training": 257,
+              "steel": 440,
+              "coal": 710,
+              "stone": 145,
+              "iron": 481,
+              "copper": 800,
+              "gold": 7
+            },
+            "minFood": 475679.4400218239
+          },
+          "final": {
+            "tick": 12301649,
+            "army": 672,
+            "deployed": 626,
+            "food": 477477.60906944296,
+            "wood": 257683,
+            "stone": 1144279,
+            "coal": 94886.25,
+            "copper": 1154.5499979188899,
+            "iron": 215547,
+            "steel": 3262,
+            "tech": 12288137
+          },
+          "rng": 1480757292,
+          "callbacks": 56,
+          "attempt": 1
+        }
+      ],
+      "completed": true,
+      "finalSaveSha256": "97e9de762d48a05752a3e79fc1ff68b11404802dd6cab265c1e8a385ae4ca188"
+    },
+    {
+      "seed": 13,
+      "stages": [
+        {
+          "ok": true,
+          "stage": 90,
+          "enemy": {
+            "before": 11,
+            "after": 165
+          },
+          "won": true,
+          "before": {
+            "tick": 12295458,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 6495,
+            "stone": 1102306,
+            "coal": 35128.75,
+            "copper": 16778.949997925003,
+            "iron": 83965,
+            "steel": 215,
+            "tech": 13721
+          },
+          "after": {
+            "tick": 12295458,
+            "army": 649,
+            "deployed": 603,
+            "food": 480699,
+            "wood": 92895,
+            "stone": 1168306,
+            "coal": 35128.75,
+            "copper": 16778.949997925003,
+            "iron": 83965,
+            "steel": 215,
+            "tech": 13721
+          },
+          "enemyRemainingHp": 0,
+          "loss": 23,
+          "recovery": {
+            "shortages": {
+              "archer": 9,
+              "star_trooper": 4,
+              "armored_trooper": 0,
+              "electro_trooper": 10,
+              "alloy_special": 0,
+              "gold_cavalry": 0
+            },
+            "expected": {
+              "food": 270,
+              "stone": 180,
+              "wood": 720,
+              "steel": 112000,
+              "iron": 112000,
+              "copper": 112000
+            },
+            "paid": {
+              "wood": 720,
+              "stone": 180,
+              "food": 270,
+              "copper": 112000,
+              "iron": 112000,
+              "steel": 112000
+            },
+            "trained": 23,
+            "onlineSeconds": 446,
+            "phases": {
+              "training": 12,
+              "coal": 137,
+              "iron": 226,
+              "steel": 28,
+              "copper": 43
+            },
+            "minFood": 480639
+          },
+          "final": {
+            "tick": 12295904,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 92175,
+            "stone": 657594,
+            "coal": 145511,
+            "copper": 774.299997924958,
+            "iron": 864043,
+            "steel": 1867,
+            "tech": 305969
+          },
+          "rng": 1335806672,
+          "callbacks": 28
+        },
+        {
+          "ok": true,
+          "stage": 91,
+          "enemy": {
+            "before": 16,
+            "after": 180
+          },
+          "won": true,
+          "before": {
+            "tick": 12295904,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 92175,
+            "stone": 657594,
+            "coal": 145511,
+            "copper": 774.299997924958,
+            "iron": 864043,
+            "steel": 1867,
+            "tech": 305969
+          },
+          "after": {
+            "tick": 12295904,
+            "army": 670,
+            "deployed": 624,
+            "food": 480699,
+            "wood": 101175,
+            "stone": 664594,
+            "coal": 145511,
+            "copper": 774.299997924958,
+            "iron": 864043,
+            "steel": 1867,
+            "tech": 305969
+          },
+          "enemyRemainingHp": 0,
+          "loss": 2,
+          "recovery": {
+            "shortages": {
+              "archer": 0,
+              "star_trooper": 2,
+              "armored_trooper": 0,
+              "electro_trooper": 0,
+              "alloy_special": 0,
+              "gold_cavalry": 0
+            },
+            "expected": {
+              "steel": 16000,
+              "iron": 16000,
+              "copper": 16000
+            },
+            "paid": {
+              "copper": 16000,
+              "iron": 16000,
+              "steel": 16000
+            },
+            "trained": 2,
+            "onlineSeconds": 12,
+            "phases": {
+              "steel": 4,
+              "copper": 7,
+              "training": 1
+            },
+            "minFood": 480699
+          },
+          "final": {
+            "tick": 12295916,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 101175,
+            "stone": 648358,
+            "coal": 129275,
+            "copper": 401.44999792495946,
+            "iron": 844435,
+            "steel": 2103,
+            "tech": 330323
+          },
+          "rng": 1723264131,
+          "callbacks": 9
+        },
+        {
+          "ok": true,
+          "stage": 92,
+          "enemy": {
+            "before": 17,
+            "after": 210
+          },
+          "won": true,
+          "before": {
+            "tick": 12295916,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 101175,
+            "stone": 648358,
+            "coal": 129275,
+            "copper": 401.44999792495946,
+            "iron": 844435,
+            "steel": 2103,
+            "tech": 330323
+          },
+          "after": {
+            "tick": 12295916,
+            "army": 665,
+            "deployed": 619,
+            "food": 480699,
+            "wood": 110445,
+            "stone": 655568,
+            "coal": 129275,
+            "copper": 401.44999792495946,
+            "iron": 844435,
+            "steel": 2103,
+            "tech": 330323
+          },
+          "enemyRemainingHp": 0,
+          "loss": 7,
+          "recovery": {
+            "shortages": {
+              "archer": 0,
+              "star_trooper": 7,
+              "armored_trooper": 0,
+              "electro_trooper": 0,
+              "alloy_special": 0,
+              "gold_cavalry": 0
+            },
+            "expected": {
+              "steel": 56000,
+              "iron": 56000,
+              "copper": 56000
+            },
+            "paid": {
+              "copper": 56000,
+              "iron": 56000,
+              "steel": 56000
+            },
+            "trained": 7,
+            "onlineSeconds": 43,
+            "phases": {
+              "steel": 14,
+              "copper": 25,
+              "training": 4
+            },
+            "minFood": 480699
+          },
+          "final": {
+            "tick": 12295959,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 110445,
+            "stone": 597840,
+            "coal": 71547,
+            "copper": 212.69999792493763,
+            "iron": 775807,
+            "steel": 2929,
+            "tech": 427739
+          },
+          "rng": 76509821,
+          "callbacks": 15
+        },
+        {
+          "ok": true,
+          "stage": 93,
+          "enemy": {
+            "before": 19,
+            "after": 250
+          },
+          "won": true,
+          "before": {
+            "tick": 12295959,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 110445,
+            "stone": 597840,
+            "coal": 71547,
+            "copper": 212.69999792493763,
+            "iron": 775807,
+            "steel": 2929,
+            "tech": 427739
+          },
+          "after": {
+            "tick": 12295959,
+            "army": 667,
+            "deployed": 621,
+            "food": 480699,
+            "wood": 119993,
+            "stone": 605266,
+            "coal": 71547,
+            "copper": 212.69999792493763,
+            "iron": 775807,
+            "steel": 2929,
+            "tech": 427739
+          },
+          "enemyRemainingHp": 0,
+          "loss": 5,
+          "recovery": {
+            "shortages": {
+              "archer": 0,
+              "star_trooper": 5,
+              "armored_trooper": 0,
+              "electro_trooper": 0,
+              "alloy_special": 0,
+              "gold_cavalry": 0
+            },
+            "expected": {
+              "steel": 40000,
+              "iron": 40000,
+              "copper": 40000
+            },
+            "paid": {
+              "copper": 40000,
+              "iron": 40000,
+              "steel": 40000
+            },
+            "trained": 5,
+            "onlineSeconds": 156,
+            "phases": {
+              "coal": 125,
+              "steel": 10,
+              "copper": 18,
+              "training": 3
+            },
+            "minFood": 480699
+          },
+          "final": {
+            "tick": 12296115,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 119993,
+            "stone": 563774,
+            "coal": 410586.25,
+            "copper": 396.7999979249362,
+            "iron": 726787,
+            "steel": 3519,
+            "tech": 500801
+          },
+          "rng": 87899592,
+          "callbacks": 14
+        },
+        {
+          "ok": true,
+          "stage": 94,
+          "enemy": {
+            "before": 52,
+            "after": 300
+          },
+          "won": true,
+          "before": {
+            "tick": 12296115,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 119993,
+            "stone": 563774,
+            "coal": 410586.25,
+            "copper": 396.7999979249362,
+            "iron": 726787,
+            "steel": 3519,
+            "tech": 500801
+          },
+          "after": {
+            "tick": 12296115,
+            "army": 659,
+            "deployed": 613,
+            "food": 480699,
+            "wood": 129827,
+            "stone": 571423,
+            "coal": 410586.25,
+            "copper": 396.7999979249362,
+            "iron": 726787,
+            "steel": 3519,
+            "tech": 500801
+          },
+          "enemyRemainingHp": 0,
+          "loss": 13,
+          "recovery": {
+            "shortages": {
+              "archer": 8,
+              "star_trooper": 5,
+              "armored_trooper": 0,
+              "electro_trooper": 0,
+              "alloy_special": 0,
+              "gold_cavalry": 0
+            },
+            "expected": {
+              "food": 240,
+              "stone": 160,
+              "wood": 640,
+              "steel": 40000,
+              "iron": 40000,
+              "copper": 40000
+            },
+            "paid": {
+              "wood": 640,
+              "stone": 160,
+              "food": 240,
+              "copper": 40000,
+              "iron": 40000,
+              "steel": 40000
+            },
+            "trained": 13,
+            "onlineSeconds": 34,
+            "phases": {
+              "training": 7,
+              "steel": 9,
+              "copper": 18
+            },
+            "minFood": 480639
+          },
+          "final": {
+            "tick": 12296149,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 129187,
+            "stone": 530673,
+            "coal": 369996.25,
+            "copper": 580.8999979249347,
+            "iron": 678669,
+            "steel": 50,
+            "tech": 671279
+          },
+          "rng": 2071579138,
+          "callbacks": 23
+        },
+        {
+          "ok": true,
+          "stage": 95,
+          "enemy": {
+            "before": 58,
+            "after": 360
+          },
+          "won": true,
+          "before": {
+            "tick": 12296149,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 129187,
+            "stone": 530673,
+            "coal": 369996.25,
+            "copper": 580.8999979249347,
+            "iron": 678669,
+            "steel": 50,
+            "tech": 671279
+          },
+          "after": {
+            "tick": 12296149,
+            "army": 671,
+            "deployed": 625,
+            "food": 480699,
+            "wood": 139316,
+            "stone": 538551,
+            "coal": 369996.25,
+            "copper": 580.8999979249347,
+            "iron": 678669,
+            "steel": 50,
+            "tech": 671279
+          },
+          "enemyRemainingHp": 0,
+          "loss": 1,
+          "recovery": {
+            "shortages": {
+              "archer": 0,
+              "star_trooper": 0,
+              "armored_trooper": 1,
+              "electro_trooper": 0,
+              "alloy_special": 0,
+              "gold_cavalry": 0
+            },
+            "expected": {
+              "steel": 2000,
+              "iron": 2000,
+              "copper": 2000
+            },
+            "paid": {
+              "copper": 2000,
+              "iron": 2000,
+              "steel": 2000
+            },
+            "trained": 1,
+            "onlineSeconds": 3,
+            "phases": {
+              "steel": 1,
+              "copper": 1,
+              "training": 1
+            },
+            "minFood": 480699
+          },
+          "final": {
+            "tick": 12296152,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 139316,
+            "stone": 535845,
+            "coal": 367290.25,
+            "copper": 813.349997924935,
+            "iron": 675767,
+            "steel": 2109,
+            "tech": 695633
+          },
+          "rng": 1104409475,
+          "callbacks": 16
+        },
+        {
+          "ok": true,
+          "stage": 96,
+          "enemy": {
+            "before": 60,
+            "after": 450
+          },
+          "won": true,
+          "before": {
+            "tick": 12296152,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 139316,
+            "stone": 535845,
+            "coal": 367290.25,
+            "copper": 813.349997924935,
+            "iron": 675767,
+            "steel": 2109,
+            "tech": 695633
+          },
+          "after": {
+            "tick": 12296152,
+            "army": 665,
+            "deployed": 619,
+            "food": 480699,
+            "wood": 149749,
+            "stone": 543959,
+            "coal": 367290.25,
+            "copper": 813.349997924935,
+            "iron": 675767,
+            "steel": 2109,
+            "tech": 695633
+          },
+          "enemyRemainingHp": 0,
+          "loss": 7,
+          "recovery": {
+            "shortages": {
+              "archer": 0,
+              "star_trooper": 5,
+              "armored_trooper": 2,
+              "electro_trooper": 0,
+              "alloy_special": 0,
+              "gold_cavalry": 0
+            },
+            "expected": {
+              "steel": 44000,
+              "iron": 44000,
+              "copper": 44000
+            },
+            "paid": {
+              "copper": 44000,
+              "iron": 44000,
+              "steel": 44000
+            },
+            "trained": 7,
+            "onlineSeconds": 35,
+            "phases": {
+              "steel": 11,
+              "copper": 20,
+              "training": 4
+            },
+            "minFood": 480699
+          },
+          "final": {
+            "tick": 12296187,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 149749,
+            "stone": 497957,
+            "coal": 321288.25,
+            "copper": 1462.349997924931,
+            "iron": 621845,
+            "steel": 2758,
+            "tech": 793049
+          },
+          "rng": 4255993892,
+          "callbacks": 17
+        },
+        {
+          "ok": true,
+          "stage": 97,
+          "enemy": {
+            "before": 96,
+            "after": 603
+          },
+          "won": true,
+          "before": {
+            "tick": 12296187,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 149749,
+            "stone": 497957,
+            "coal": 321288.25,
+            "copper": 1462.349997924931,
+            "iron": 621845,
+            "steel": 2758,
+            "tech": 793049
+          },
+          "after": {
+            "tick": 12296187,
+            "army": 593,
+            "deployed": 547,
+            "food": 480699,
+            "wood": 160495,
+            "stone": 506315,
+            "coal": 321288.25,
+            "copper": 1462.349997924931,
+            "iron": 621845,
+            "steel": 2758,
+            "tech": 793049
+          },
+          "enemyRemainingHp": 0,
+          "loss": 79,
+          "recovery": {
+            "shortages": {
+              "archer": 14,
+              "star_trooper": 31,
+              "armored_trooper": 3,
+              "electro_trooper": 31,
+              "alloy_special": 0,
+              "gold_cavalry": 0
+            },
+            "expected": {
+              "food": 420,
+              "stone": 280,
+              "wood": 1120,
+              "steel": 502000,
+              "iron": 502000,
+              "copper": 502000
+            },
+            "paid": {
+              "wood": 1120,
+              "stone": 280,
+              "food": 420,
+              "copper": 502000,
+              "iron": 502000,
+              "steel": 502000
+            },
+            "trained": 79,
+            "onlineSeconds": 565,
+            "phases": {
+              "training": 41,
+              "steel": 123,
+              "copper": 225,
+              "coal": 127,
+              "stone": 49
+            },
+            "minFood": 480639
+          },
+          "final": {
+            "tick": 12296752,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 159375,
+            "stone": 1182535,
+            "coal": 191062,
+            "copper": 1763.5999979259504,
+            "iron": 8899,
+            "steel": 15,
+            "tech": 1791563
+          },
+          "rng": 1819322876,
+          "callbacks": 41
+        },
+        {
+          "ok": true,
+          "stage": 98,
+          "enemy": {
+            "before": 105,
+            "after": 798
+          },
+          "won": true,
+          "before": {
+            "tick": 12296752,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 159375,
+            "stone": 1182535,
+            "coal": 191062,
+            "copper": 1763.5999979259504,
+            "iron": 8899,
+            "steel": 15,
+            "tech": 1791563
+          },
+          "after": {
+            "tick": 12296752,
+            "army": 604,
+            "deployed": 558,
+            "food": 480699,
+            "wood": 170443,
+            "stone": 1191144,
+            "coal": 191062,
+            "copper": 1763.5999979259504,
+            "iron": 8899,
+            "steel": 15,
+            "tech": 1791563
+          },
+          "enemyRemainingHp": 0,
+          "loss": 68,
+          "recovery": {
+            "shortages": {
+              "archer": 20,
+              "star_trooper": 41,
+              "armored_trooper": 4,
+              "electro_trooper": 3,
+              "alloy_special": 0,
+              "gold_cavalry": 0
+            },
+            "expected": {
+              "food": 600,
+              "stone": 400,
+              "wood": 1600,
+              "steel": 360000,
+              "iron": 360000,
+              "copper": 360000
+            },
+            "paid": {
+              "wood": 1600,
+              "stone": 400,
+              "food": 600,
+              "copper": 360000,
+              "iron": 360000,
+              "steel": 360000
+            },
+            "trained": 68,
+            "onlineSeconds": 799,
+            "phases": {
+              "training": 35,
+              "iron": 245,
+              "coal": 269,
+              "steel": 89,
+              "copper": 161
+            },
+            "minFood": 480639
+          },
+          "final": {
+            "tick": 12297551,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 168843,
+            "stone": 378042,
+            "coal": 418253.25,
+            "copper": 1188.0499979268825,
+            "iron": 563076,
+            "steel": 1266,
+            "tech": 2643953
+          },
+          "rng": 736837056,
+          "callbacks": 32
+        },
+        {
+          "ok": true,
+          "stage": 99,
+          "enemy": {
+            "before": 144,
+            "after": 1100
+          },
+          "won": true,
+          "before": {
+            "tick": 12297551,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 168843,
+            "stone": 378042,
+            "coal": 418253.25,
+            "copper": 1188.0499979268825,
+            "iron": 563076,
+            "steel": 1266,
+            "tech": 2643953
+          },
+          "after": {
+            "tick": 12297551,
+            "army": 453,
+            "deployed": 407,
+            "food": 480699,
+            "wood": 180243,
+            "stone": 386909,
+            "coal": 418253.25,
+            "copper": 1188.0499979268825,
+            "iron": 563076,
+            "steel": 1266,
+            "tech": 2643953
+          },
+          "enemyRemainingHp": 0,
+          "loss": 219,
+          "recovery": {
+            "shortages": {
+              "archer": 113,
+              "star_trooper": 48,
+              "armored_trooper": 3,
+              "electro_trooper": 55,
+              "alloy_special": 0,
+              "gold_cavalry": 0
+            },
+            "expected": {
+              "food": 3390,
+              "stone": 2260,
+              "wood": 9040,
+              "steel": 830000,
+              "iron": 830000,
+              "copper": 830000
+            },
+            "paid": {
+              "wood": 9040,
+              "stone": 2260,
+              "food": 3390,
+              "copper": 830000,
+              "iron": 830000,
+              "steel": 830000
+            },
+            "trained": 219,
+            "onlineSeconds": 1234,
+            "phases": {
+              "training": 111,
+              "steel": 205,
+              "copper": 372,
+              "stone": 49,
+              "coal": 273,
+              "iron": 224
+            },
+            "minFood": 480639
+          },
+          "final": {
+            "tick": 12298785,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 171203,
+            "stone": 317901,
+            "coal": 191287.5,
+            "copper": 1659.4499979295651,
+            "iron": 457382,
+            "steel": 3361,
+            "tech": 5347247
+          },
+          "rng": 406053646,
+          "callbacks": 48
+        },
+        {
+          "ok": true,
+          "stage": 100,
+          "enemy": {
+            "before": 11,
+            "after": 1870
+          },
+          "won": true,
+          "before": {
+            "tick": 12298785,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 171203,
+            "stone": 317901,
+            "coal": 191287.5,
+            "copper": 1659.4499979295651,
+            "iron": 457382,
+            "steel": 3361,
+            "tech": 5347247
+          },
+          "after": {
+            "tick": 12298785,
+            "army": 323,
+            "deployed": 277,
+            "food": 480699,
+            "wood": 279203,
+            "stone": 401901,
+            "coal": 191287.5,
+            "copper": 1659.4499979295651,
+            "iron": 457382,
+            "steel": 3361,
+            "tech": 5347247
+          },
+          "enemyRemainingHp": 0,
+          "loss": 349,
+          "recovery": {
+            "shortages": {
+              "archer": 165,
+              "star_trooper": 90,
+              "armored_trooper": 24,
+              "electro_trooper": 55,
+              "alloy_special": 3,
+              "gold_cavalry": 12
+            },
+            "expected": {
+              "food": 21450,
+              "stone": 3300,
+              "wood": 13200,
+              "steel": 1208300,
+              "iron": 1208000,
+              "copper": 1208000,
+              "gold": 1200
+            },
+            "paid": {
+              "wood": 13200,
+              "stone": 3300,
+              "food": 21450,
+              "copper": 1208000,
+              "iron": 1208000,
+              "steel": 1208300,
+              "gold": 1200
+            },
+            "trained": 349,
+            "onlineSeconds": 2027,
+            "phases": {
+              "training": 176,
+              "steel": 297,
+              "coal": 564,
+              "iron": 351,
+              "stone": 96,
+              "copper": 541,
+              "gold": 2
+            },
+            "minFood": 477699
+          },
+          "final": {
+            "tick": 12300812,
+            "army": 672,
+            "deployed": 626,
+            "food": 479552.2511628531,
+            "wood": 266003,
+            "stone": 855915,
+            "coal": 345980.5,
+            "copper": 1414.8999979289365,
+            "iron": 406197,
+            "steel": 584,
+            "tech": 9633551
+          },
+          "rng": 2813258972,
+          "callbacks": 51,
+          "attempt": 1
+        }
+      ],
+      "completed": true,
+      "finalSaveSha256": "92b01e01aa99eaa09fd74719105d8bdc32ae3e7abcf07b3da7efe14d7be7c9ec"
+    },
+    {
+      "seed": 23,
+      "stages": [
+        {
+          "ok": true,
+          "stage": 90,
+          "enemy": {
+            "before": 11,
+            "after": 165
+          },
+          "won": true,
+          "before": {
+            "tick": 12295458,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 6495,
+            "stone": 1102306,
+            "coal": 35128.75,
+            "copper": 16778.949997925003,
+            "iron": 83965,
+            "steel": 215,
+            "tech": 13721
+          },
+          "after": {
+            "tick": 12295458,
+            "army": 636,
+            "deployed": 590,
+            "food": 480699,
+            "wood": 92895,
+            "stone": 1168306,
+            "coal": 35128.75,
+            "copper": 16778.949997925003,
+            "iron": 83965,
+            "steel": 215,
+            "tech": 13721
+          },
+          "enemyRemainingHp": 0,
+          "loss": 36,
+          "recovery": {
+            "shortages": {
+              "archer": 22,
+              "star_trooper": 14,
+              "armored_trooper": 0,
+              "electro_trooper": 0,
+              "alloy_special": 0,
+              "gold_cavalry": 0
+            },
+            "expected": {
+              "food": 660,
+              "stone": 440,
+              "wood": 1760,
+              "steel": 112000,
+              "iron": 112000,
+              "copper": 112000
+            },
+            "paid": {
+              "wood": 1760,
+              "stone": 440,
+              "food": 660,
+              "copper": 112000,
+              "iron": 112000,
+              "steel": 112000
+            },
+            "trained": 36,
+            "onlineSeconds": 452,
+            "phases": {
+              "training": 18,
+              "coal": 137,
+              "iron": 226,
+              "steel": 28,
+              "copper": 43
+            },
+            "minFood": 480639
+          },
+          "final": {
+            "tick": 12295910,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 91135,
+            "stone": 657334,
+            "coal": 145511,
+            "copper": 774.2999979249144,
+            "iron": 864043,
+            "steel": 1867,
+            "tech": 452093
+          },
+          "rng": 811102506,
+          "callbacks": 31
+        },
+        {
+          "ok": true,
+          "stage": 91,
+          "enemy": {
+            "before": 16,
+            "after": 180
+          },
+          "won": true,
+          "before": {
+            "tick": 12295910,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 91135,
+            "stone": 657334,
+            "coal": 145511,
+            "copper": 774.2999979249144,
+            "iron": 864043,
+            "steel": 1867,
+            "tech": 452093
+          },
+          "after": {
+            "tick": 12295910,
+            "army": 668,
+            "deployed": 622,
+            "food": 480699,
+            "wood": 100135,
+            "stone": 664334,
+            "coal": 145511,
+            "copper": 774.2999979249144,
+            "iron": 864043,
+            "steel": 1867,
+            "tech": 452093
+          },
+          "enemyRemainingHp": 0,
+          "loss": 4,
+          "recovery": {
+            "shortages": {
+              "archer": 0,
+              "star_trooper": 4,
+              "armored_trooper": 0,
+              "electro_trooper": 0,
+              "alloy_special": 0,
+              "gold_cavalry": 0
+            },
+            "expected": {
+              "steel": 32000,
+              "iron": 32000,
+              "copper": 32000
+            },
+            "paid": {
+              "copper": 32000,
+              "iron": 32000,
+              "steel": 32000
+            },
+            "trained": 4,
+            "onlineSeconds": 24,
+            "phases": {
+              "steel": 8,
+              "copper": 14,
+              "training": 2
+            },
+            "minFood": 480699
+          },
+          "final": {
+            "tick": 12295934,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 100135,
+            "stone": 631862,
+            "coal": 113039,
+            "copper": 28.5999979249209,
+            "iron": 824827,
+            "steel": 2339,
+            "tech": 500801
+          },
+          "rng": 2624364712,
+          "callbacks": 9
+        },
+        {
+          "ok": true,
+          "stage": 92,
+          "enemy": {
+            "before": 17,
+            "after": 210
+          },
+          "won": true,
+          "before": {
+            "tick": 12295934,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 100135,
+            "stone": 631862,
+            "coal": 113039,
+            "copper": 28.5999979249209,
+            "iron": 824827,
+            "steel": 2339,
+            "tech": 500801
+          },
+          "after": {
+            "tick": 12295934,
+            "army": 670,
+            "deployed": 624,
+            "food": 480699,
+            "wood": 109405,
+            "stone": 639072,
+            "coal": 113039,
+            "copper": 28.5999979249209,
+            "iron": 824827,
+            "steel": 2339,
+            "tech": 500801
+          },
+          "enemyRemainingHp": 0,
+          "loss": 2,
+          "recovery": {
+            "shortages": {
+              "archer": 0,
+              "star_trooper": 1,
+              "armored_trooper": 1,
+              "electro_trooper": 0,
+              "alloy_special": 0,
+              "gold_cavalry": 0
+            },
+            "expected": {
+              "steel": 10000,
+              "iron": 10000,
+              "copper": 10000
+            },
+            "paid": {
+              "copper": 10000,
+              "iron": 10000,
+              "steel": 10000
+            },
+            "trained": 2,
+            "onlineSeconds": 9,
+            "phases": {
+              "steel": 2,
+              "copper": 5,
+              "training": 2
+            },
+            "minFood": 480699
+          },
+          "final": {
+            "tick": 12295943,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 109405,
+            "stone": 628248,
+            "coal": 102215,
+            "copper": 1190.8499979249223,
+            "iron": 813023,
+            "steel": 457,
+            "tech": 549509
+          },
+          "rng": 4255227853,
+          "callbacks": 15
+        },
+        {
+          "ok": true,
+          "stage": 93,
+          "enemy": {
+            "before": 19,
+            "after": 250
+          },
+          "won": true,
+          "before": {
+            "tick": 12295943,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 109405,
+            "stone": 628248,
+            "coal": 102215,
+            "copper": 1190.8499979249223,
+            "iron": 813023,
+            "steel": 457,
+            "tech": 549509
+          },
+          "after": {
+            "tick": 12295943,
+            "army": 663,
+            "deployed": 617,
+            "food": 480699,
+            "wood": 118953,
+            "stone": 635674,
+            "coal": 102215,
+            "copper": 1190.8499979249223,
+            "iron": 813023,
+            "steel": 457,
+            "tech": 549509
+          },
+          "enemyRemainingHp": 0,
+          "loss": 9,
+          "recovery": {
+            "shortages": {
+              "archer": 0,
+              "star_trooper": 7,
+              "armored_trooper": 1,
+              "electro_trooper": 1,
+              "alloy_special": 0,
+              "gold_cavalry": 0
+            },
+            "expected": {
+              "steel": 66000,
+              "iron": 66000,
+              "copper": 66000
+            },
+            "paid": {
+              "copper": 66000,
+              "iron": 66000,
+              "steel": 66000
+            },
+            "trained": 9,
+            "onlineSeconds": 172,
+            "phases": {
+              "steel": 17,
+              "coal": 119,
+              "copper": 30,
+              "training": 6
+            },
+            "minFood": 480699
+          },
+          "final": {
+            "tick": 12296115,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 118953,
+            "stone": 566220,
+            "coal": 395026.75,
+            "copper": 2164.3499979249045,
+            "iron": 731689,
+            "steel": 3460,
+            "tech": 695633
+          },
+          "rng": 8579750,
+          "callbacks": 15
+        },
+        {
+          "ok": true,
+          "stage": 94,
+          "enemy": {
+            "before": 52,
+            "after": 300
+          },
+          "won": true,
+          "before": {
+            "tick": 12296115,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 118953,
+            "stone": 566220,
+            "coal": 395026.75,
+            "copper": 2164.3499979249045,
+            "iron": 731689,
+            "steel": 3460,
+            "tech": 695633
+          },
+          "after": {
+            "tick": 12296115,
+            "army": 651,
+            "deployed": 605,
+            "food": 480699,
+            "wood": 128787,
+            "stone": 573869,
+            "coal": 395026.75,
+            "copper": 2164.3499979249045,
+            "iron": 731689,
+            "steel": 3460,
+            "tech": 695633
+          },
+          "enemyRemainingHp": 0,
+          "loss": 21,
+          "recovery": {
+            "shortages": {
+              "archer": 8,
+              "star_trooper": 8,
+              "armored_trooper": 0,
+              "electro_trooper": 5,
+              "alloy_special": 0,
+              "gold_cavalry": 0
+            },
+            "expected": {
+              "food": 240,
+              "stone": 160,
+              "wood": 640,
+              "steel": 104000,
+              "iron": 104000,
+              "copper": 104000
+            },
+            "paid": {
+              "wood": 640,
+              "stone": 160,
+              "food": 240,
+              "copper": 104000,
+              "iron": 104000,
+              "steel": 104000
+            },
+            "trained": 21,
+            "onlineSeconds": 82,
+            "phases": {
+              "training": 11,
+              "steel": 25,
+              "copper": 46
+            },
+            "minFood": 480639
+          },
+          "final": {
+            "tick": 12296197,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 128147,
+            "stone": 468175,
+            "coal": 289492.75,
+            "copper": 857.0499979248707,
+            "iron": 605139,
+            "steel": 935,
+            "tech": 963527
+          },
+          "rng": 2935162729,
+          "callbacks": 22
+        },
+        {
+          "ok": true,
+          "stage": 95,
+          "enemy": {
+            "before": 58,
+            "after": 360
+          },
+          "won": true,
+          "before": {
+            "tick": 12296197,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 128147,
+            "stone": 468175,
+            "coal": 289492.75,
+            "copper": 857.0499979248707,
+            "iron": 605139,
+            "steel": 935,
+            "tech": 963527
+          },
+          "after": {
+            "tick": 12296197,
+            "army": 638,
+            "deployed": 592,
+            "food": 480699,
+            "wood": 138276,
+            "stone": 476053,
+            "coal": 289492.75,
+            "copper": 857.0499979248707,
+            "iron": 605139,
+            "steel": 935,
+            "tech": 963527
+          },
+          "enemyRemainingHp": 0,
+          "loss": 34,
+          "recovery": {
+            "shortages": {
+              "archer": 26,
+              "star_trooper": 8,
+              "armored_trooper": 0,
+              "electro_trooper": 0,
+              "alloy_special": 0,
+              "gold_cavalry": 0
+            },
+            "expected": {
+              "food": 780,
+              "stone": 520,
+              "wood": 2080,
+              "steel": 64000,
+              "iron": 64000,
+              "copper": 64000
+            },
+            "paid": {
+              "wood": 2080,
+              "stone": 520,
+              "food": 780,
+              "copper": 64000,
+              "iron": 64000,
+              "steel": 64000
+            },
+            "trained": 34,
+            "onlineSeconds": 62,
+            "phases": {
+              "training": 17,
+              "steel": 16,
+              "copper": 29
+            },
+            "minFood": 480639
+          },
+          "final": {
+            "tick": 12296259,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 136196,
+            "stone": 408785,
+            "coal": 222744.75,
+            "copper": 1598.0999979248445,
+            "iron": 526707,
+            "steel": 1879,
+            "tech": 1377545
+          },
+          "rng": 2459100555,
+          "callbacks": 20
+        },
+        {
+          "ok": true,
+          "stage": 96,
+          "enemy": {
+            "before": 60,
+            "after": 450
+          },
+          "won": true,
+          "before": {
+            "tick": 12296259,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 136196,
+            "stone": 408785,
+            "coal": 222744.75,
+            "copper": 1598.0999979248445,
+            "iron": 526707,
+            "steel": 1879,
+            "tech": 1377545
+          },
+          "after": {
+            "tick": 12296259,
+            "army": 654,
+            "deployed": 608,
+            "food": 480699,
+            "wood": 146629,
+            "stone": 416899,
+            "coal": 222744.75,
+            "copper": 1598.0999979248445,
+            "iron": 526707,
+            "steel": 1879,
+            "tech": 1377545
+          },
+          "enemyRemainingHp": 0,
+          "loss": 18,
+          "recovery": {
+            "shortages": {
+              "archer": 14,
+              "star_trooper": 4,
+              "armored_trooper": 0,
+              "electro_trooper": 0,
+              "alloy_special": 0,
+              "gold_cavalry": 0
+            },
+            "expected": {
+              "food": 420,
+              "stone": 280,
+              "wood": 1120,
+              "steel": 32000,
+              "iron": 32000,
+              "copper": 32000
+            },
+            "paid": {
+              "wood": 1120,
+              "stone": 280,
+              "food": 420,
+              "copper": 32000,
+              "iron": 32000,
+              "steel": 32000
+            },
+            "trained": 18,
+            "onlineSeconds": 31,
+            "phases": {
+              "training": 9,
+              "steel": 8,
+              "copper": 14
+            },
+            "minFood": 480639
+          },
+          "final": {
+            "tick": 12296290,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 145509,
+            "stone": 384147,
+            "coal": 190272.75,
+            "copper": 852.3999979248474,
+            "iron": 487491,
+            "steel": 2351,
+            "tech": 1596731
+          },
+          "rng": 3857722364,
+          "callbacks": 24
+        },
+        {
+          "ok": true,
+          "stage": 97,
+          "enemy": {
+            "before": 96,
+            "after": 603
+          },
+          "won": true,
+          "before": {
+            "tick": 12296290,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 145509,
+            "stone": 384147,
+            "coal": 190272.75,
+            "copper": 852.3999979248474,
+            "iron": 487491,
+            "steel": 2351,
+            "tech": 1596731
+          },
+          "after": {
+            "tick": 12296290,
+            "army": 646,
+            "deployed": 600,
+            "food": 480699,
+            "wood": 156255,
+            "stone": 392505,
+            "coal": 190272.75,
+            "copper": 852.3999979248474,
+            "iron": 487491,
+            "steel": 2351,
+            "tech": 1596731
+          },
+          "enemyRemainingHp": 0,
+          "loss": 26,
+          "recovery": {
+            "shortages": {
+              "archer": 0,
+              "star_trooper": 25,
+              "armored_trooper": 0,
+              "electro_trooper": 1,
+              "alloy_special": 0,
+              "gold_cavalry": 0
+            },
+            "expected": {
+              "steel": 208000,
+              "iron": 208000,
+              "copper": 208000
+            },
+            "paid": {
+              "copper": 208000,
+              "iron": 208000,
+              "steel": 208000
+            },
+            "trained": 26,
+            "onlineSeconds": 300,
+            "phases": {
+              "steel": 51,
+              "copper": 93,
+              "coal": 142,
+              "training": 14
+            },
+            "minFood": 480699
+          },
+          "final": {
+            "tick": 12296590,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 156255,
+            "stone": 178731,
+            "coal": 408782.25,
+            "copper": 470.24999792509516,
+            "iron": 233489,
+            "steel": 1360,
+            "tech": 1937687
+          },
+          "rng": 3293400960,
+          "callbacks": 29
+        },
+        {
+          "ok": true,
+          "stage": 98,
+          "enemy": {
+            "before": 105,
+            "after": 798
+          },
+          "won": true,
+          "before": {
+            "tick": 12296590,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 156255,
+            "stone": 178731,
+            "coal": 408782.25,
+            "copper": 470.24999792509516,
+            "iron": 233489,
+            "steel": 1360,
+            "tech": 1937687
+          },
+          "after": {
+            "tick": 12296590,
+            "army": 636,
+            "deployed": 590,
+            "food": 480699,
+            "wood": 167323,
+            "stone": 187340,
+            "coal": 408782.25,
+            "copper": 470.24999792509516,
+            "iron": 233489,
+            "steel": 1360,
+            "tech": 1937687
+          },
+          "enemyRemainingHp": 0,
+          "loss": 36,
+          "recovery": {
+            "shortages": {
+              "archer": 0,
+              "star_trooper": 18,
+              "armored_trooper": 3,
+              "electro_trooper": 15,
+              "alloy_special": 0,
+              "gold_cavalry": 0
+            },
+            "expected": {
+              "steel": 270000,
+              "iron": 270000,
+              "copper": 270000
+            },
+            "paid": {
+              "copper": 270000,
+              "iron": 270000,
+              "steel": 270000
+            },
+            "trained": 36,
+            "onlineSeconds": 621,
+            "phases": {
+              "steel": 67,
+              "copper": 121,
+              "training": 19,
+              "stone": 48,
+              "iron": 233,
+              "coal": 133
+            },
+            "minFood": 480699
+          },
+          "final": {
+            "tick": 12297211,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 167323,
+            "stone": 657282,
+            "coal": 324783.5,
+            "copper": 596.6999979249376,
+            "iron": 848802,
+            "steel": 3313,
+            "tech": 2400413
+          },
+          "rng": 647741903,
+          "callbacks": 35
+        },
+        {
+          "ok": true,
+          "stage": 99,
+          "enemy": {
+            "before": 144,
+            "after": 1100
+          },
+          "won": true,
+          "before": {
+            "tick": 12297211,
+            "army": 672,
+            "deployed": 626,
+            "food": 480699,
+            "wood": 167323,
+            "stone": 657282,
+            "coal": 324783.5,
+            "copper": 596.6999979249376,
+            "iron": 848802,
+            "steel": 3313,
+            "tech": 2400413
+          },
+          "after": {
+            "tick": 12297211,
+            "army": 471,
+            "deployed": 425,
+            "food": 480699,
+            "wood": 178723,
+            "stone": 666149,
+            "coal": 324783.5,
+            "copper": 596.6999979249376,
+            "iron": 848802,
+            "steel": 3313,
+            "tech": 2400413
+          },
+          "enemyRemainingHp": 0,
+          "loss": 201,
+          "recovery": {
+            "shortages": {
+              "archer": 113,
+              "star_trooper": 25,
+              "armored_trooper": 8,
+              "electro_trooper": 52,
+              "alloy_special": 3,
+              "gold_cavalry": 0
+            },
+            "expected": {
+              "food": 7890,
+              "stone": 2260,
+              "wood": 9040,
+              "steel": 632300,
+              "iron": 632000,
+              "copper": 632000
+            },
+            "paid": {
+              "wood": 9040,
+              "stone": 2260,
+              "food": 7890,
+              "copper": 632000,
+              "iron": 632000,
+              "steel": 632300
+            },
+            "trained": 201,
+            "onlineSeconds": 731,
+            "phases": {
+              "training": 102,
+              "steel": 155,
+              "copper": 283,
+              "coal": 142,
+              "stone": 49
+            },
+            "minFood": 477699
+          },
+          "final": {
+            "tick": 12297942,
+            "army": 672,
+            "deployed": 626,
+            "food": 479797.7542935207,
+            "wood": 169683,
+            "stone": 1206893,
+            "coal": 106725,
+            "copper": 380.04999792657327,
+            "iron": 76992,
+            "steel": 158,
+            "tech": 4884521
+          },
+          "rng": 3380736247,
+          "callbacks": 47
+        },
+        {
+          "ok": true,
+          "stage": 100,
+          "enemy": {
+            "before": 11,
+            "after": 1870
+          },
+          "won": true,
+          "before": {
+            "tick": 12297942,
+            "army": 672,
+            "deployed": 626,
+            "food": 479797.7542935207,
+            "wood": 169683,
+            "stone": 1206893,
+            "coal": 106725,
+            "copper": 380.04999792657327,
+            "iron": 76992,
+            "steel": 158,
+            "tech": 4884521
+          },
+          "after": {
+            "tick": 12297942,
+            "army": 299,
+            "deployed": 253,
+            "food": 480699,
+            "wood": 277683,
+            "stone": 1290893,
+            "coal": 106725,
+            "copper": 380.04999792657327,
+            "iron": 76992,
+            "steel": 158,
+            "tech": 4884521
+          },
+          "enemyRemainingHp": 0,
+          "loss": 373,
+          "recovery": {
+            "shortages": {
+              "archer": 110,
+              "star_trooper": 155,
+              "armored_trooper": 37,
+              "electro_trooper": 64,
+              "alloy_special": 7,
+              "gold_cavalry": 0
+            },
+            "expected": {
+              "food": 13800,
+              "stone": 2200,
+              "wood": 8800,
+              "steel": 1826700,
+              "iron": 1826000,
+              "copper": 1826000
+            },
+            "paid": {
+              "wood": 8800,
+              "stone": 2200,
+              "food": 13800,
+              "copper": 1826000,
+              "iron": 1826000,
+              "steel": 1826700
+            },
+            "trained": 373,
+            "onlineSeconds": 2991,
+            "phases": {
+              "training": 188,
+              "iron": 601,
+              "coal": 839,
+              "steel": 450,
+              "copper": 818,
+              "stone": 95
+            },
+            "minFood": 475314.66831248056
+          },
+          "final": {
+            "tick": 12300933,
+            "army": 672,
+            "deployed": 626,
+            "food": 477413.42260600126,
+            "wood": 268883,
+            "stone": 636547,
+            "coal": 237176.75,
+            "copper": 524.1499979154323,
+            "iron": 284551,
+            "steel": 8,
+            "tech": 9463073
+          },
+          "rng": 1025185927,
+          "callbacks": 64,
+          "attempt": 1
+        }
+      ],
+      "completed": true,
+      "finalSaveSha256": "2130840c341ff1b0127dc6dcdeee88750ced596b40c6d06166313e7634798008"
+    }
+  ]
+}
