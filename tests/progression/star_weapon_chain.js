@@ -99,7 +99,7 @@ check('真实远征和驻军入口共享星界军备首击，兵员回写不增�
   assert.equal(e.run('S._garrisonForm.front[0].count'),300);
 });
 
-check('旧v32在独立候选迁移并保护原文；坏键、缺前置和未来档禁止覆盖',()=>{
+check('缺失旧兵装字段时独立候选迁移并保护原文；坏键、缺前置和未来档禁止覆盖',()=>{
   const seed=environment();seed.run('save()');
   const old=JSON.parse(seed.store.get('rts_save'));delete old.weaponForge.starFighter;delete old.weaponForge.starMissile;
   const raw=JSON.stringify(old),e=environment({rts_save:raw});
@@ -108,9 +108,9 @@ check('旧v32在独立候选迁移并保护原文；坏键、缺前置和未来�
   assert.equal(e.run('S.weaponForge.starFighter.level'),0);
   assert.equal(e.run('S.weaponForge.starMissile.progress'),0);
   const valid=JSON.parse(e.store.get('rts_save'));
-  for(const mutate of [d=>d.weaponForge.starFighter.level=21,d=>d.weaponForge.starMissile.researched=true,d=>d.v=34]){
+  for(const mutate of [d=>d.weaponForge.starFighter.level=21,d=>d.weaponForge.starMissile.researched=true,d=>d.v=35]){
     const d=structuredClone(valid);mutate(d);const text=JSON.stringify(d),bad=environment({rts_save:text});
-    assert.equal(bad.run('loadSaveAndApply().status'),d.v===34?'future':'invalid');
+    assert.equal(bad.run('loadSaveAndApply().status'),d.v===35?'future':'invalid');
     bad.run('tick();save()');assert.equal(bad.store.get('rts_save'),text);
   }
 });

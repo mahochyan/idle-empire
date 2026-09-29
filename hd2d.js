@@ -41,7 +41,7 @@
     'wild_boar','wild_bull','wild_snake','wild_tiger','wild_turtle','wild_wyrm'
   ]);
   const hiresActionTypes=new Set([
-    'infantry','infantry_t1','infantry_shield','archer','archer_t1','archer_crossbow','mage_t1','iron_spearman','star_trooper','cavalry_t1','gold_cavalry'
+    'infantry','infantry_t1','infantry_shield','archer','archer_t1','archer_crossbow','mage_t1','iron_spearman','bronze_guard','star_trooper','cavalry_t1','gold_cavalry'
   ]);
   // Authored helmet/hood anchors for frames whose raised weapon sits higher
   // than the face. Other frames use measured alpha bounds.
@@ -1162,8 +1162,8 @@
       model.sprite.scale.y*pixelsPerUnit/2;
     const visibleTopPx=spriteTopPx+visibleTopFraction*
       model.sprite.scale.y*pixelsPerUnit;
-    // The head anchor excludes raised weapons. Keep a narrow gap above the
-    // helmet edge; a deeper overlap cuts through the portrait at phone scale.
+    // The broad opaque run excludes raised weapons and halos. Place the line
+    // on the outer helmet rim, clear of the face at phone scale.
     const desiredLinePx=visibleTopPx+(density>=7?2:3);
     const badgePoint=new T.Vector3(model.group.position.x+centeredBadgeX,model.badge.position.y,
       model.group.position.z).project(camera);
@@ -1231,8 +1231,10 @@
       if(state.disposed||state.units[key]!==model)return;
       if(!model.hiresIdle)model.sprite.visible=true;
       for(const follower of model.followers)follower.userData.artReady=true;
-      model.followers[0].visible=!model.soloEnemyArt&&state.density<7&&number(model.count,0)>=3;
-      model.followers[1].visible=!model.soloEnemyArt&&state.density<7&&number(model.count,0)>=20;
+      model.followers[0].visible=!model.soloEnemyArt&&model.action?.kind!=='death'&&
+        state.density<7&&number(model.count,0)>=3;
+      model.followers[1].visible=!model.soloEnemyArt&&model.action?.kind!=='death'&&
+        state.density<7&&number(model.count,0)>=20;
     }});
     const hires=hiresIconPath(unit,state.options,side);
     if(hires)loadTextureFor(state,hires,null,{pixelArt:true,onReady:function(texture){

@@ -63,9 +63,9 @@ check('v29独立迁移先保原文，非法新字段与未来版本拒载，存�
   assert.equal(e.run('S.armsUp.electro_trooper.atk.stars'),0);
   1332;
   const valid=JSON.parse(e.store.get('rts_save'));
-  for(const mutate of [d=>delete d.armsUp.electro_trooper.hp,d=>d.armsUp.electro_trooper.atk.progress=1000,d=>d.armsUp.electro_trooper.def.stars=-1,d=>d.v=34]){
+  for(const mutate of [d=>delete d.armsUp.electro_trooper.hp,d=>d.armsUp.electro_trooper.atk.progress=1000,d=>d.armsUp.electro_trooper.def.stars=-1,d=>d.v=35]){
     const d=structuredClone(valid);mutate(d);const text=JSON.stringify(d),bad=environment({rts_save:text});
-    assert.equal(bad.run('loadSaveAndApply().status'),d.v===34?'future':'invalid');
+    assert.equal(bad.run('loadSaveAndApply().status'),d.v===35?'future':'invalid');
     bad.run('tick();save()');assert.equal(bad.store.get('rts_save'),text);
   }
   e.run("S.sciences=['sci_electric_age'];S.res.steel=4000;localStorage.setItem=()=>{throw Error('full')}");

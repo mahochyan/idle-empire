@@ -32,7 +32,7 @@ check('P386 实付 v32 原档在独立候选迁移，原文受保护且旧进度
   assert.equal(e.run('loadSaveAndApply().status'),'migrated');
   assert.equal(e.store.get('rts_save_premigration'),oldPaid);
   const migrated=JSON.parse(e.store.get('rts_save'));
-  assert.equal(migrated.v,33);
+  assert.equal(migrated.v,34);
   assert.equal(migrated.res.tech,before.res.tech);
   assert.equal(migrated.res.medal,before.res.medal);
   assert.deepEqual(migrated.defeated,before.defeated);
@@ -129,10 +129,10 @@ check('运行时槽位或材料被篡改时动作拒绝且不扣费、不写坏�
 check('损坏星阵字段、负数星石及未来档一律保护主档',()=>{
   const e=environment();e.run('save()');
   const base=JSON.parse(e.store.get('rts_save'));
-  for(const mutate of [d=>delete d.starArray,d=>{d.starArray.star_trooper.slots[0].level=0},d=>{d.items.starOriginStone=-1},d=>{d.v=34}]){
+  for(const mutate of [d=>delete d.starArray,d=>{d.starArray.star_trooper.slots[0].level=0},d=>{d.items.starOriginStone=-1},d=>{d.v=35}]){
     const d=JSON.parse(JSON.stringify(base));mutate(d);
     const raw=JSON.stringify(d),bad=environment({rts_save:raw});
-    assert.equal(bad.run('loadSaveAndApply().status'),d.v===34?'future':'invalid');
+    assert.equal(bad.run('loadSaveAndApply().status'),d.v===35?'future':'invalid');
     bad.run('tick();save()');
     assert.equal(bad.store.get('rts_save'),raw);
   }

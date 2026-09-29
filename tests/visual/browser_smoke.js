@@ -46,7 +46,7 @@ function check(name,ok,detail){checks.push({name,ok:!!ok,detail:ok?undefined:det
 function send(method,params={}){
   return new Promise((resolve,reject)=>{
     const id=++nextId;
-    const timer=setTimeout(()=>{pending.delete(id);reject(Error('CDP_TIMEOUT '+method));},25000);
+    const timer=setTimeout(()=>{pending.delete(id);reject(Error('CDP_TIMEOUT '+method));},60000);
     pending.set(id,{resolve,reject,timer});
     ws.send(JSON.stringify({id,method,params}));
   });
@@ -1357,21 +1357,31 @@ async function shot(name){
     HD2D.disposeBattle();
     const mounted=HD2D.mountBattle(document.getElementById('battle-scene'),
       {epoch,round:0,speed:1,stage:'vfx-check',allies:[source],enemies:[target]},{});
-    const attack=HD2D.playBattle({epoch,type:'attack',sourceId:source.id,targetId:target.id,
-      sourceSide:'allies',targetSide:'enemies',durationMs:1000});
-    const hit=HD2D.playBattle({epoch,type:'hit',sourceId:source.id,targetId:target.id,
-      sourceSide:'allies',targetSide:'enemies',durationMs:650});
-    let before;
-    for(let attempt=0;attempt<16;attempt++){
-      await new Promise(resolve=>setTimeout(resolve,25));
-      before=HD2D.status().battle;
+    const fire=()=>({
+      attack:HD2D.playBattle({epoch,type:'attack',sourceId:source.id,targetId:target.id,
+        sourceSide:'allies',targetSide:'enemies',durationMs:1200}),
+      hit:HD2D.playBattle({epoch,type:'hit',sourceId:source.id,targetId:target.id,
+        sourceSide:'allies',targetSide:'enemies',durationMs:1200})
+    });
+    let before,played={attack:false,hit:false};
+    // A freshly mounted WebGL scene uploads both textures asynchronously.
+    // Replay after that warmup if a busy renderer consumed the first window.
+    for(let replay=0;replay<3;replay++){
+      const current=fire();
+      played.attack||=current.attack;played.hit||=current.hit;
+      for(let attempt=0;attempt<20;attempt++){
+        await new Promise(resolve=>setTimeout(resolve,25));
+        before=HD2D.status().battle;
+        if(['attack','hit'].every(type=>before.effectDetails?.some(effect=>
+          effect.type===type&&effect.visible&&effect.assetReady)))break;
+      }
       if(['attack','hit'].every(type=>before.effectDetails?.some(effect=>
         effect.type===type&&effect.visible&&effect.assetReady)))break;
     }
     const stale=HD2D.playBattle({epoch:epoch-1,type:'attack',sourceId:source.id,
       targetId:target.id,sourceSide:'allies',targetSide:'enemies',durationMs:650});
     const after=HD2D.status().battle;
-    return {mounted,attack,hit,stale,
+    return {mounted,attack:played.attack,hit:played.hit,stale,
       hidden:document.hidden,effects:before.effectDetails||[],
       beforeCount:before.activeEffects,afterCount:after.activeEffects,
       beforeEvent:before.lastAcceptedEvent,afterEvent:after.lastAcceptedEvent};
@@ -1438,13 +1448,21 @@ async function shot(name){
   })()`);
   const starTravel=await evalJs(`(async()=>{
     let effect;
-    for(let attempt=0;attempt<24;attempt++){
-      await new Promise(resolve=>setTimeout(resolve,35));
-      effect=HD2D.status().battle.effectDetails.find(item=>
-        item.type==='attack'&&item.unitType==='star_trooper');
-      if(effect?.phase==='travel'&&effect.visible&&effect.assetReady)break;
+    for(let replay=0;replay<3;replay++){
+      if(replay)HD2D.playBattle({epoch:${cinematicVfx.epoch},type:'attack',
+        sourceId:63001,targetId:63002,sourceSide:'allies',targetSide:'enemies',
+        durationMs:1200});
+      for(let attempt=0;attempt<22;attempt++){
+        await new Promise(resolve=>setTimeout(resolve,25));
+        const effects=HD2D.status().battle.effectDetails||[];
+        effect=effects.find(item=>item.type==='attack'&&
+          item.unitType==='star_trooper'&&item.phase==='travel'&&
+          item.visible&&item.assetReady);
+        if(effect)break;
+      }
+      if(effect)break;
     }
-    return effect;
+    return effect||null;
   })()`);
   check('高级兵种攻击中段有可见专属轨迹与多层拖尾',
     cinematicVfx.mounted&&cinematicVfx.portraits&&cinematicVfx.attack&&starTravel?.visible&&

@@ -1,5 +1,5 @@
 {
-  "version": 8,
+  "version": 9,
   "runtimeSampleEnabled": true,
   "runtimeUnits": [
     "infantry",
@@ -11,6 +11,7 @@
     "archer_crossbow",
     "mage_t1",
     "iron_spearman",
+    "bronze_guard",
     "cavalry_t1",
     "gold_cavalry"
   ],
@@ -2731,6 +2732,308 @@
             ],
             "scale": 0.68,
             "baselineY": 497
+          }
+        ]
+      }
+    },
+    "bronze_guard": {
+      "attack": {
+        "path": "./assets/art/units/hires/actions/bronze_guard-attack.png",
+        "compactPath": "./assets/art/units/hires/actions/compact/bronze_guard-attack.png",
+        "compactFrameWidth": 256,
+        "compactFrameHeight": 256,
+        "compactResampling": "nearest",
+        "frameWidth": 512,
+        "frameHeight": 512,
+        "frames": 4,
+        "order": [
+          "idle",
+          "windup_or_jolt",
+          "contact_or_fall",
+          "recover_or_prone"
+        ],
+        "suggestedFrameDurationMs": [
+          60,
+          90,
+          105,
+          100
+        ],
+        "loop": false,
+        "facing": "right",
+        "source": "source/generated/units/actions/bronze_guard/attack-master.png",
+        "sourceSize": [
+          2172,
+          724
+        ],
+        "sourceSeamsX": [
+          724,
+          1542
+        ],
+        "frameAudit": [
+          {
+            "bounds": [
+              95,
+              13,
+              421,
+              499
+            ],
+            "sourceBounds": [
+              95,
+              13,
+              421,
+              499
+            ],
+            "scale": 1.0,
+            "baselineY": 499,
+            "pixelIdenticalToIdle": true
+          },
+          {
+            "bounds": [
+              55,
+              19,
+              443,
+              499
+            ],
+            "sourceBounds": [
+              63,
+              12,
+              624,
+              706
+            ],
+            "scale": 0.69164,
+            "baselineY": 499
+          },
+          {
+            "bounds": [
+              8,
+              111,
+              504,
+              499
+            ],
+            "sourceBounds": [
+              65,
+              115,
+              818,
+              704
+            ],
+            "scale": 0.6587,
+            "baselineY": 499
+          },
+          {
+            "bounds": [
+              136,
+              19,
+              411,
+              499
+            ],
+            "sourceBounds": [
+              196,
+              56,
+              569,
+              708
+            ],
+            "scale": 0.7362,
+            "baselineY": 499
+          }
+        ]
+      },
+      "hit": {
+        "path": "./assets/art/units/hires/actions/bronze_guard-hit.png",
+        "compactPath": "./assets/art/units/hires/actions/compact/bronze_guard-hit.png",
+        "compactFrameWidth": 256,
+        "compactFrameHeight": 256,
+        "compactResampling": "nearest",
+        "frameWidth": 512,
+        "frameHeight": 512,
+        "frames": 4,
+        "order": [
+          "idle",
+          "windup_or_jolt",
+          "contact_or_fall",
+          "recover_or_prone"
+        ],
+        "suggestedFrameDurationMs": [
+          45,
+          110,
+          130,
+          95
+        ],
+        "loop": false,
+        "facing": "right",
+        "source": "source/generated/units/actions/bronze_guard/hit-master.png",
+        "sourceSize": [
+          1881,
+          836
+        ],
+        "sourceSeamsX": [
+          627,
+          1261
+        ],
+        "frameAudit": [
+          {
+            "bounds": [
+              95,
+              13,
+              421,
+              499
+            ],
+            "sourceBounds": [
+              95,
+              13,
+              421,
+              499
+            ],
+            "scale": 1.0,
+            "baselineY": 499,
+            "pixelIdenticalToIdle": true
+          },
+          {
+            "bounds": [
+              57,
+              19,
+              423,
+              499
+            ],
+            "sourceBounds": [
+              75,
+              96,
+              598,
+              781
+            ],
+            "scale": 0.70073,
+            "baselineY": 499
+          },
+          {
+            "bounds": [
+              18,
+              19,
+              422,
+              499
+            ],
+            "sourceBounds": [
+              87,
+              129,
+              634,
+              779
+            ],
+            "scale": 0.73846,
+            "baselineY": 499
+          },
+          {
+            "bounds": [
+              84,
+              19,
+              430,
+              499
+            ],
+            "sourceBounds": [
+              95,
+              96,
+              590,
+              781
+            ],
+            "scale": 0.70073,
+            "baselineY": 499
+          }
+        ]
+      },
+      "death": {
+        "path": "./assets/art/units/hires/actions/bronze_guard-death.png",
+        "compactPath": "./assets/art/units/hires/actions/compact/bronze_guard-death.png",
+        "compactFrameWidth": 256,
+        "compactFrameHeight": 256,
+        "compactResampling": "nearest",
+        "frameWidth": 512,
+        "frameHeight": 512,
+        "frames": 4,
+        "order": [
+          "idle",
+          "windup_or_jolt",
+          "contact_or_fall",
+          "recover_or_prone"
+        ],
+        "suggestedFrameDurationMs": [
+          50,
+          135,
+          170,
+          280
+        ],
+        "loop": false,
+        "facing": "right",
+        "source": "source/generated/units/actions/bronze_guard/death-master.png",
+        "sourceSize": [
+          2172,
+          724
+        ],
+        "sourceSeamsX": [
+          724,
+          1446
+        ],
+        "frameAudit": [
+          {
+            "bounds": [
+              95,
+              13,
+              421,
+              499
+            ],
+            "sourceBounds": [
+              95,
+              13,
+              421,
+              499
+            ],
+            "scale": 1.0,
+            "baselineY": 499,
+            "pixelIdenticalToIdle": true
+          },
+          {
+            "bounds": [
+              40,
+              25,
+              483,
+              499
+            ],
+            "sourceBounds": [
+              89,
+              69,
+              643,
+              662
+            ],
+            "scale": 0.8,
+            "baselineY": 499
+          },
+          {
+            "bounds": [
+              8,
+              126,
+              453,
+              499
+            ],
+            "sourceBounds": [
+              116,
+              220,
+              672,
+              686
+            ],
+            "scale": 0.8,
+            "baselineY": 499
+          },
+          {
+            "bounds": [
+              8,
+              346,
+              504,
+              499
+            ],
+            "sourceBounds": [
+              1,
+              474,
+              709,
+              693
+            ],
+            "scale": 0.70056,
+            "baselineY": 499
           }
         ]
       }

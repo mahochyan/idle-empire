@@ -573,6 +573,7 @@ const CFG = {
     sci_star_beast_domain:{name:'星界兽域',desc:'开放星界异兽挑战与星石材料；须单次支付知识200000000和战备勋章1000000',cost:{tech:200000000,medal:1000000,merit:0},need:['sci_nuclear_age'],unlocks:[]},
     sci_star_array:{name:'星辉圣阵',desc:'开放星辉圣阵槽位与秘典知识仓刻印；须单次支付知识300000000和战备勋章2000000',cost:{tech:300000000,medal:2000000,merit:0},need:['sci_star_beast_domain'],unlocks:[]},
     sci_quantum_age:{name:'星界量子时代',desc:'开放星界仓储、生产科技与星界构装卫士；须单次支付知识3000000000和战备勋章3000000',cost:{tech:3000000000,medal:3000000,merit:0},need:['sci_nuclear_age'],unlocks:['quantum_trooper']},
+    sci_astral_armament:{name:'星界圣痕兵装',desc:'开放逐兵种的圣痕攻击与生命强化；一次支付知识5000000000和战备勋章5000000',cost:{tech:5000000000,medal:5000000,merit:0},need:['sci_quantum_age'],unlocks:[]},
     sci_coin:{name:'货币铸造',desc:'解锁铸币厂与高级兑换',cost:{tech:200,merit:30},need:['sci_iron'],unlocks:['mint']}
   },
 
@@ -624,6 +625,7 @@ const CFG = {
     sci_star_beast_domain:{name:'星界兽域',desc:'开放星界异兽挑战与星石材料；一次支付知识200000000与战备勋章1000000',cost:{tech:200000000,medal:1000000,merit:0},need:['sci_nuclear_age'],unlocks:[]},
     sci_star_array:{name:'星辉圣阵',desc:'开放星辉圣阵槽位与秘典知识仓刻印；一次支付知识300000000与战备勋章2000000',cost:{tech:300000000,medal:2000000,merit:0},need:['sci_star_beast_domain'],unlocks:[]},
     sci_quantum_age:{name:'星界量子时代',desc:'开放星界仓储、生产科技与星界构装卫士；一次支付知识3000000000与战备勋章3000000',cost:{tech:3000000000,medal:3000000,merit:0},need:['sci_nuclear_age'],unlocks:['quantum_trooper']},
+    sci_astral_armament:{name:'星界圣痕兵装',desc:'开放逐兵种的圣痕攻击与生命强化；一次支付知识5000000000与战备勋章5000000',cost:{tech:5000000000,medal:5000000,merit:0},need:['sci_quantum_age'],unlocks:[]},
     sci_mint:{name:'铸币术',desc:'铸造工艺基础',cost:{tech:5000,merit:0},need:['sci_iron'],unlocks:[]},
     sci_coin:{name:'货币铸造',desc:'解锁铸币厂与高级兑换',cost:{tech:12000,merit:0},need:['sci_mint'],unlocks:['mint']}
   },
@@ -730,6 +732,9 @@ const CFG = {
   },
   // 母本兵装成长的阶段奖励：攻击每10星加基础攻击20%，生命每100星加基础生命20%。
   armsUpMilestones:{atk:{everyStars:10,basePct:0.2},hp:{everyStars:100,basePct:0.2}},
+  // 参考源 450224 的逐兵种 HP/ATK 入口；百分比与单次材料费是我方聚合战斗口径的适配值。
+  quantumArmament:{needScience:'sci_astral_armament',units:['bronze_guard','iron_spearman','silver_heavy','gold_cavalry','alloy_special','armored_trooper','electro_trooper','star_trooper','quantum_trooper'],
+    maxLevel:10,atkPerLevel:0.05,hpPerLevel:0.05,steelPerLevel:8000,starOriginStonePerLevel:10},
   // 母本470061/071研发、230061/071锻造：先研发、累计投入20次得首件，后续各投入12/14次升级。
   weaponForge:{
     alloySword:{name:'合金剑',unit:'alloy_special',stat:'atk',needScience:'sci_alloy_age',researchCost:{tech:5000,medal:80},stepCost:{steel:200},maxLevel:3,firstSteps:20,nextStepBase:10,nextStepPerLevel:2,initialAtk:5,perLevelAtk:4},

@@ -60,6 +60,26 @@ async function shot(name){
   fs.writeFileSync(file,Buffer.from(result.data,'base64'));
   return file;
 }
+async function shotDeathPose(name,targetId){
+  const capture=await evalJs(`new Promise(resolve=>{
+    let attempts=0;
+    const captureFrame=()=>{
+    const inspect=()=>{const unit=HD2D.status().battle.layout.find(item=>item.id===${targetId});
+      return {action:unit?.portraitAction,badge:unit?.badgeVisible};};
+    const before=inspect();
+    const dataUrl=document.querySelector('#battle-scene canvas')?.toDataURL('image/png')||'';
+    const after=inspect();
+    if(dataUrl.length>15000||++attempts>=5)resolve({before,after,dataUrl,attempts});
+    else requestAnimationFrame(captureFrame);
+    };
+    requestAnimationFrame(captureFrame);
+  })`);
+  const file=path.join(previewDir,name+'.png');
+  fs.mkdirSync(previewDir,{recursive:true});
+  if(!capture.dataUrl.startsWith('data:image/png;base64,'))throw Error('Death canvas capture failed');
+  fs.writeFileSync(file,Buffer.from(capture.dataUrl.slice('data:image/png;base64,'.length),'base64'));
+  return {file,before:capture.before,after:capture.after};
+}
 async function waitReady(){
   for(let i=0;i<100;i++){
     try{if(await evalJs("document.readyState==='complete'&&typeof HD2D==='object'&&typeof openBattle==='function'"))return true;}
@@ -206,12 +226,22 @@ async function sameRowAttackOverlap(targetId){
       seen.action===kind&&seen.ready&&seen.frames===4&&seen.facing==='left',seen);
     if(kind==='death')check('Sparse death hides follower portraits and health badge',
       seen.followersVisible===0&&seen.badgeVisible===false,seen);
-    // Death is fixed to 620 ms by the visual layer, regardless of event
-    // duration; capture its final prone frame before the action resets.
-    await sleep(kind==='death'?500:310);
-    const file=await shot(`qa-${unitSlug}-${kind}-sparse-390`);
+    // Read the WebGL canvas in its animation frame. Capturing the whole page
+    // can take longer than the 620ms pose and return the idle frame.
+    await sleep(kind==='death'?470:310);
+    const deathCapture=kind==='death'?
+      await shotDeathPose(`qa-${unitSlug}-${kind}-sparse-390`,70001):null;
+    if(deathCapture){
+      const before=deathCapture.before;
+      check('Sparse screenshot begins during death with badge hidden',
+        before.action==='death'&&before.badge===false,before);
+    }
+    const file=deathCapture?.file||await shot(`qa-${unitSlug}-${kind}-sparse-390`);
     check(`Sparse ${kind} screenshot saved`,fs.statSync(file).size>10000,file);
-    if(kind==='death'){
+    if(deathCapture){
+      const after=deathCapture.after;
+      check('Sparse screenshot ends during death with badge hidden',
+        after.action==='death'&&after.badge===false,after);
       const restored=await evalJs(`(async()=>{
         for(let attempt=0;attempt<30;attempt++){
           await new Promise(resolve=>setTimeout(resolve,30));
@@ -257,10 +287,20 @@ async function sameRowAttackOverlap(targetId){
         overlap.neighborCount===3&&overlap.maxRatio<=0.30,overlap);
       console.log('ATTACK_OVERLAP',JSON.stringify(overlap));
     }
-    await sleep(kind==='death'?500:310);
-    const fullShot=await shot(`qa-${unitSlug}-${kind}-full-320`);
+    await sleep(kind==='death'?470:310);
+    const deathCapture=kind==='death'?
+      await shotDeathPose(`qa-${unitSlug}-${kind}-full-320`,targetId):null;
+    if(deathCapture){
+      const before=deathCapture.before;
+      check('Full screenshot begins during death with badge hidden',
+        before.action==='death'&&before.badge===false,before);
+    }
+    const fullShot=deathCapture?.file||await shot(`qa-${unitSlug}-${kind}-full-320`);
     check(`Full formation ${kind} screenshot saved`,fs.statSync(fullShot).size>10000,fullShot);
-    if(kind==='death'){
+    if(deathCapture){
+      const after=deathCapture.after;
+      check('Full screenshot ends during death with badge hidden',
+        after.action==='death'&&after.badge===false,after);
       const restored=await evalJs(`(async()=>{
         for(let attempt=0;attempt<30;attempt++){
           await new Promise(resolve=>setTimeout(resolve,30));

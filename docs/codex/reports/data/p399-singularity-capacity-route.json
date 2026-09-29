@@ -1,0 +1,122 @@
+{
+  "source": "docs/codex/reports/data/p397-quantum-stage100-paid-save.json",
+  "sourceSha256": "ba8602a98d0d927c96cabb2d2074807c9b0ec46183aae4534e5486055c6125c4",
+  "load": "migrated",
+  "start": {
+    "tick": 13462669,
+    "tech": 1727566,
+    "medal": 1440726,
+    "cap": 3017311895,
+    "food": 486970,
+    "quantumKnowledge": 0,
+    "revivalLeaf": 63,
+    "scrollUsed": 133,
+    "scrollStock": 0,
+    "marketLevel": 79
+  },
+  "rates": {
+    "techPerSec": 24354,
+    "foodPerSec": 3037.5,
+    "foodCostPerSec": 424.9625730994152
+  },
+  "offlineSeconds": 35000,
+  "offlineRatio": 0.6,
+  "offline": {
+    "advanced": true,
+    "events": [],
+    "produced": 0,
+    "due": 0,
+    "elapsed": 35000,
+    "foodClamped": false
+  },
+  "beforePay": {
+    "tick": 13497669,
+    "tech": 513161565.999678,
+    "medal": 1440726,
+    "cap": 3017311895,
+    "food": 486970,
+    "quantumKnowledge": 0,
+    "revivalLeaf": 63,
+    "scrollUsed": 133,
+    "scrollStock": 0,
+    "marketLevel": 79
+  },
+  "payment": {
+    "ok": true,
+    "level": 1,
+    "cost": {
+      "tech": 500000000
+    }
+  },
+  "afterPay": {
+    "tick": 13497669,
+    "tech": 13161565.999678016,
+    "medal": 1440726,
+    "cap": 3319043083,
+    "food": 486970,
+    "quantumKnowledge": 1,
+    "revivalLeaf": 63,
+    "scrollUsed": 133,
+    "scrollStock": 0,
+    "marketLevel": 79
+  },
+  "reload": {
+    "level": 1,
+    "cap": 3319043083
+  },
+  "paidSaveSha256": "e2699d42832c4fa44f52d416e9b437a0e6488fe3d8e5b27618286bdeb7b3c603",
+  "conditional": [
+    {
+      "level": 5,
+      "scrollUsed": 133,
+      "cap": 4525967842,
+      "nextCost": {
+        "tech": 3000000000,
+        "revivalLeaf": 3600
+      }
+    },
+    {
+      "level": 5,
+      "scrollUsed": 157,
+      "cap": 4992161955,
+      "nextCost": {
+        "tech": 3000000000,
+        "revivalLeaf": 3600
+      }
+    },
+    {
+      "level": 5,
+      "scrollUsed": 158,
+      "cap": 5011586710,
+      "nextCost": {
+        "tech": 3000000000,
+        "revivalLeaf": 3600
+      }
+    },
+    {
+      "level": 6,
+      "scrollUsed": 133,
+      "cap": 4827699030,
+      "nextCost": {
+        "tech": 3500000000,
+        "revivalLeaf": 4200
+      }
+    },
+    {
+      "level": 7,
+      "scrollUsed": 133,
+      "cap": 5129430221,
+      "nextCost": {
+        "tech": 4000000000,
+        "revivalLeaf": 4800
+      }
+    }
+  ],
+  "remaining": {
+    "level5KnowledgeCost": 7000000000,
+    "level5AdditionalScrolls": 25,
+    "nominalBeastMaterialsFor25Scrolls": 5000,
+    "level6And7RevivalLeafCost": 7800
+  },
+  "note": "Only the first quantum knowledge upgrade was paid and reloaded. Remaining levels, scroll purchases, 5b research and 5m medals were not paid."
+}

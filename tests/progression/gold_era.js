@@ -85,7 +85,7 @@ check('黄金重骑兵须时代研究和兵坊，完成训练扣粮1000金100并
   assert.ok(Number.isFinite(e.run("calcGarrisonDmg(buildGarrisonUnitsFromForm()[0],buildGarrisonEnemyUnits({units:{infantry:[3]}})[0])")));
 });
 
-check('v9迁移补金与金工0、保留已有银和人口；坏v32与未来档写回受保护',()=>{
+check('v9迁移补金与金工0、保留已有银和人口；坏v34与未来档写回受保护',()=>{
   const seed=environment();
   const raw=seed.run("(()=>{S.res.silver=501;S.population.current=8;const d=serializeSave();d.v=9;delete d.res.gold;delete d.popAlloc.gold;return JSON.stringify(d)})()");
   const e=environment({rts_save:raw});
@@ -95,7 +95,7 @@ check('v9迁移补金与金工0、保留已有银和人口；坏v32与未来档�
   assert.equal(e.run('S.res.gold'),0);
   assert.equal(e.run('S.popAlloc.gold'),0);
   const v10=JSON.parse(e.store.get('rts_save'));
-  1332;
+  assert.equal(v10.v,34);
   assert.equal(v10.res.gold,0);
   assert.equal(v10.popAlloc.gold,0);
   const blocked=environment({rts_save:raw});
@@ -103,10 +103,10 @@ check('v9迁移补金与金工0、保留已有银和人口；坏v32与未来档�
   assert.equal(blocked.run('loadSaveAndApply().status'),'migrated_readonly');
   assert.equal(blocked.store.get('rts_save'),raw);
   assert.equal(blocked.run('saveProtected()'),true);
-  for(const change of [d=>delete d.res.gold,d=>{d.popAlloc.gold=-1},d=>{d.v=34}]){
+  for(const change of [d=>delete d.res.gold,d=>{d.popAlloc.gold=-1},d=>{d.v=35}]){
     const copy=structuredClone(v10);change(copy);
     const old=JSON.stringify(copy),bad=environment({rts_save:old});
-    assert.equal(bad.run('loadSaveAndApply().status'),copy.v===34?'future':'invalid');
+    assert.equal(bad.run('loadSaveAndApply().status'),copy.v===35?'future':'invalid');
     bad.run('tick()');
     assert.equal(bad.store.get('rts_save'),old);
   }

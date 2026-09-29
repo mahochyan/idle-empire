@@ -103,7 +103,7 @@ check('远征真实回调与驻军回合均触发迫击炮，装备效果不写�
   assert.equal(e.run('S._garrisonForm.front[0].count'),40);
 });
 
-check('v25候选迁移先保原文，v32缺键和未来v33不自动覆盖',()=>{
+check('v25候选迁移先保原文，v34缺键和未来v35不自动覆盖',()=>{
   const seed=environment();seed.run('S.res.medal=123;S.items.godCore=17;save()');
   const old=JSON.parse(seed.store.get('rts_save'));old.v=25;
   for(const key of ['gatling','mortar','steamArmor'])delete old.weaponForge[key];
@@ -114,10 +114,10 @@ check('v25候选迁移先保原文，v32缺键和未来v33不自动覆盖',()=>{
   assert.equal(e.run('S.items.godCore'),17);
   assert.equal(e.run('S.weaponForge.steamArmor.level'),0);
   const valid=JSON.parse(e.store.get('rts_save'));
-  1332;
-  for(const mutate of [d=>delete d.weaponForge.gatling,d=>{d.weaponForge.steamArmor.researched=true},d=>{d.v=34}]){
+  assert.equal(valid.v,34);
+  for(const mutate of [d=>delete d.weaponForge.gatling,d=>{d.weaponForge.steamArmor.researched=true},d=>{d.v=35}]){
     const d=structuredClone(valid);mutate(d);const text=JSON.stringify(d),bad=environment({rts_save:text});
-    assert.equal(bad.run('loadSaveAndApply().status'),d.v===34?'future':'invalid');
+    assert.equal(bad.run('loadSaveAndApply().status'),d.v===35?'future':'invalid');
     bad.run('tick();save()');assert.equal(bad.store.get('rts_save'),text);
   }
 });

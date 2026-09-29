@@ -1,0 +1,74 @@
+{
+  "source": "docs/codex/reports/data/p397-quantum-stage100-paid-save.json",
+  "sourceHash": "ba8602a98d0d927c96cabb2d2074807c9b0ec46183aae4534e5486055c6125c4",
+  "sourceSaveVersion": 33,
+  "newSaveVersion": 34,
+  "natural": {
+    "knowledge": 1727566,
+    "knowledgeCapacity": 3017311895,
+    "medal": 1440726,
+    "knowledgeStore": 0,
+    "starOriginStone": 30
+  },
+  "naturalAfterRefusal": {
+    "tech": 1727566,
+    "medal": 1440726,
+    "researched": false
+  },
+  "baselineStats": {
+    "attack": 513.12,
+    "hp": 62.38400000000001
+  },
+  "conditionalFixture": {
+    "capacity": 5011586710,
+    "knowledge": 5000000000,
+    "medal": 5000000,
+    "steel": 32749,
+    "starOriginStone": 30,
+    "storeLevel": 5,
+    "usedBlueprints": 158,
+    "seeded": true,
+    "notes": "VM-only: quantumKnowledge level 5, 25 additional used blueprints and one-time resources were assigned, not earned or paid"
+  },
+  "paidResearchCost": {
+    "knowledge": 5000000000,
+    "medal": 5000000
+  },
+  "upgraded": {
+    "attack": 258.56,
+    "hp": 65.18400000000001,
+    "attackLevel": 1,
+    "hpLevel": 1
+  },
+  "entry": {
+    "star": [
+      {
+        "atk": 517.12,
+        "maxHp": 65.18400000000001,
+        "count": 7
+      },
+      {
+        "atk": 517.12,
+        "maxHp": 335.232,
+        "count": 36
+      }
+    ],
+    "enemyHp": 1100
+  },
+  "battle": {
+    "outcome": "win",
+    "callbacks": 49,
+    "round": 4,
+    "remainingEnemyHp": 0,
+    "starAfter": [
+      {
+        "hp": 0,
+        "maxHp": 65.18400000000001
+      },
+      {
+        "hp": 0,
+        "maxHp": 335.232
+      }
+    ]
+  }
+}

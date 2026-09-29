@@ -53,7 +53,7 @@ check('双物资升级只扣一次；保存失败恢复等级、资源和道具'
   assert.equal(e.run('S.items.godCrystal'),0);
 });
 
-check('v12迁移保留超仓与旧进度，v32字段严格验证，未来档保护',()=>{
+check('v12迁移保留超仓与旧进度，v34字段严格验证，未来档保护',()=>{
   const seed=environment();
   seed.run('S.res.steel=100001;S.population.current=27;save()');
   const old=JSON.parse(seed.store.get('rts_save'));
@@ -66,10 +66,12 @@ check('v12迁移保留超仓与旧进度，v32字段严格验证，未来档保�
   assert.equal(migrated.run('S.eraStorage.steamKnowledge'),0);
   assert.equal(migrated.run('S.items.godCrystal'),0);
   assert.equal(migrated.store.get('rts_save_premigration'),text);
-  for(const mutate of [d=>delete d.eraStorage,d=>d.eraStorage.steamBasic=-1,d=>d.items.godCrystal=Infinity,d=>d.v=34]){
+  for(const mutate of [d=>delete d.eraStorage,d=>d.eraStorage.steamBasic=-1,d=>d.items.godCrystal=Infinity,d=>d.v=35]){
     const bad=JSON.parse(migrated.store.get('rts_save'));mutate(bad);
     const raw=JSON.stringify(bad),x=environment({rts_save:raw});
-    assert.equal(x.run('loadSaveAndApply().status')==='ok',false);
+    assert.equal(x.run('loadSaveAndApply().status'),bad.v===35?'future':'invalid');
+    assert.equal(x.run('saveProtected()'),true);
+    x.run('tick();save()');
     assert.equal(x.store.get('rts_save'),raw);
   }
 });

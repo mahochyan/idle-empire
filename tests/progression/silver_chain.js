@@ -7,7 +7,7 @@ function check(name,fn){try{fn();passed++;console.log('PASS '+name)}catch(error)
 const saved=e=>JSON.parse(e.store.get('rts_save'));
 const near=(actual,want)=>assert.ok(Math.abs(actual-want)<1e-7,`${actual} != ${want}`);
 
-check('新档 v32 银与银两入档，冶银技术须城市化后花3200科技点',()=>{
+check('新档 v34 银与银两入档，冶银技术须城市化后花3200科技点',()=>{
   const e=environment();
   assert.equal(e.run('CFG.save.schema'),24);
   assert.equal(e.run('S.res.silver'),0);
@@ -21,7 +21,7 @@ check('新档 v32 银与银两入档，冶银技术须城市化后花3200科技�
   assert.equal(e.run("researchScience('sci_silver').ok"),true);
   assert.equal(e.run('S.res.tech'),0);
   assert.equal(e.run("researchScience('sci_silver').repeat"),true);
-  1332;
+  assert.equal(saved(e).v,34);
   assert.equal(saved(e).res.silver,0);
   const short=environment();
   short.run("CFG.tech.longLadder=false;S.sciences=['sci_iron'];S.res.tech=2200");
@@ -112,7 +112,7 @@ check('v8 原文迁移补银与银两0，不裁剪旧金币、工人和旧配方
   assert.equal(e.run('S.currencyRecipeMode'),'legacy');
   assert.equal(e.run('S.res.silver'),0);
   assert.equal(e.run('S.res.silverCoin'),0);
-  1332;
+  assert.equal(JSON.parse(e.store.get('rts_save')).v,34);
   e.run('S.res.tech=3200');
   assert.equal(e.run("researchScience('sci_silver').ok"),true);
   assert.equal(e.run("workerLockReason('silverCoin')"),'');
@@ -123,9 +123,9 @@ check('v8 原文迁移补银与银两0，不裁剪旧金币、工人和旧配方
   assert.equal(blocked.run('saveProtected()'),true);
 });
 
-check('v32 缺银字段、非法值与未来 v33 均保护原始主档',()=>{
+check('v34 缺银字段、非法值与未来 v35 均保护原始主档',()=>{
   const seed=environment(),base=JSON.parse(seed.run('JSON.stringify(serializeSave())'));
-  [d=>delete d.res.silver,d=>{d.popAlloc.silverCoin=-1},d=>{d.v=34}].forEach((mutate,i)=>{
+  [d=>delete d.res.silver,d=>{d.popAlloc.silverCoin=-1},d=>{d.v=35}].forEach((mutate,i)=>{
     const d=structuredClone(base);mutate(d);
     const raw=JSON.stringify(d),e=environment({rts_save:raw});
     assert.equal(e.run('loadSaveAndApply().status'),i===2?'future':'invalid');

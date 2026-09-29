@@ -3,6 +3,9 @@ function defaultArmsUpState(){
   return Object.fromEntries(Object.entries(CFG.armsUp).map(([uk,cfg])=>
     [uk,Object.fromEntries(Object.keys(cfg.stats).map(stat=>[stat,{stars:0,progress:0}]))]));
 }
+function defaultQuantumArmamentState(){
+  return Object.fromEntries(CFG.quantumArmament.units.map(uk=>[uk,{atk:0,hp:0}]));
+}
 function defaultAwakeningState(){return{star_trooper:{level:0,stars:0,tracks:{easy:0,perfect:0,extreme:0}}}}
 function defaultStarArrayState(){
   return{star_trooper:{slots:Array.from({length:CFG.starArray.slots},()=>({open:false,type:'unbound',level:1,refreshCount:0}))}};
@@ -41,6 +44,7 @@ let S = {
   steelMasteryLv:0,
   weaponForge:{alloySword:{researched:false,level:0,progress:0,equipped:false},alloyArmor:{researched:false,level:0,progress:0,equipped:false},armored:{researched:false,level:0,progress:0,equipped:false},gatling:{researched:false,level:0,progress:0,equipped:false},mortar:{researched:false,level:0,progress:0,equipped:false},steamArmor:{researched:false,level:0,progress:0,equipped:false},electro:{researched:false,level:0,progress:0,equipped:false},electroRifle:{researched:false,level:0,progress:0,equipped:false},electroSniper:{researched:false,level:0,progress:0,equipped:false},electroArmor:{researched:false,level:0,progress:0,equipped:false},energyArmor:{researched:false,level:0,progress:0,equipped:false},nanoArmor:{researched:false,level:0,progress:0,equipped:false},starFighter:{researched:false,level:0,progress:0,equipped:false},starMissile:{researched:false,level:0,progress:0,equipped:false}},
   armsUp:defaultArmsUpState(),
+  quantumArmament:defaultQuantumArmamentState(),
   awakening:defaultAwakeningState(),
   starArray:defaultStarArrayState(),
   steamMilitaryStars:0,
@@ -697,7 +701,7 @@ function ownedUnitCount(unitType){
 // 战斗实例聚合单兵生命；S 中仍只记录真实人数，护盾始终是临时量。
 function battleVitals(unitType,count,owned=false){
   const configured=CFG.units[unitType]?.hpPerSoldier;
-  const bonus=owned?armsUpBonus(unitType,'hp'):0;
+  const bonus=owned?armsUpBonus(unitType,'hp')+quantumArmamentBonus(unitType,'hp'):0;
   const base=Number.isFinite(configured)&&configured>=1?configured:1;
   const bloodlineUses=owned&&Object.prototype.hasOwnProperty.call(S.bloodline,unitType)?S.bloodline[unitType]:0;
   const aegisUses=owned&&Object.prototype.hasOwnProperty.call(S.aegisInfusions,unitType)?S.aegisInfusions[unitType]:0;
@@ -884,7 +888,7 @@ function isAttackMiss(attacker,defender){
 // key 布局：rts_save 主档 | rts_save_backup_1/_2 最近有效备份（轮转） | rts_save_premigration 覆盖前原始副本（仅迁移/导入/恢复时写）
 // 写回单点 writeRawKey；自动保存入口 save() 在保护模式下无条件跳过（坏档/未来版本不会被静默覆盖成新档）。
 // 单位约定：ts=毫秒时间戳，tick=秒，population.growthClock=0..9 个在线秒。
-const SAVE_KEY='rts_save',SAVE_VERSION=33,BACKUP_KEYS=['rts_save_backup_1','rts_save_backup_2'],PRE_MIGRATION_KEY='rts_save_premigration';
+const SAVE_KEY='rts_save',SAVE_VERSION=34,BACKUP_KEYS=['rts_save_backup_1','rts_save_backup_2'],PRE_MIGRATION_KEY='rts_save_premigration';
 const SAVE_V3_KEYS=['ops','offline','daily'];
 let _loadedTs=null;   // 切片11：本次加载的存档 ts（离线结算基准；新档为 null → 不结算）
 let _offlineSettledFor=null;   // 切片11：已结算过的离线窗口 ts（幂等）
@@ -961,6 +965,7 @@ function validateDevelopmentState(x,errors){
 function _legacyDefaults(){return{res:{wood:300,stone:300,food:300,tech:0,copper:0,iron:0,coin:0},buildings:{},pool:{},queue:{},formation:{front:[],mid:[],back:[]},townLv:1,popAlloc:{wood:5,stone:3,food:2},defeated:[],merit:0,garrisonLog:[],garrison:null,tick:0,garrisonForm:{front:[],mid:[],back:[]},townUpgrade:null,upgradedUnits:{},essence:{},sciences:[]}}
 function serializeSave(){
   const base={v:targetSaveVersion(),ts:Date.now(),res:S.res,buildings:S.buildings,pool:S.pool,queue:S.queue,formation:S.formation,townLv:S.townLv,popAlloc:S.popAlloc,metalRecipeMode:S.metalRecipeMode,currencyRecipeMode:S.currencyRecipeMode,storageMode:S.storageMode,storageMasteryLv:S.storageMasteryLv,scholarMasteryLv:S.scholarMasteryLv,steelMasteryLv:S.steelMasteryLv,weaponForge:S.weaponForge,armsUp:S.armsUp,awakening:S.awakening,starArray:S.starArray,steamMilitaryStars:S.steamMilitaryStars,soulRanks:S.soulRanks,soulRealmTeam:S.soulRealmTeam,eraStorage:S.eraStorage,items:S.items,bloodline:S.bloodline,attackInfusions:S.attackInfusions,aegisInfusions:S.aegisInfusions,marketSpecial:S.marketSpecial,beastExchange:S.beastExchange,killValues:S.killValues,development:S.development,settlements:S.settlements,townPolicies:S.townPolicies,population:S.population,defeated:S.defeated,merit:S.merit,garrisonLog:S.garrisonLog,garrison:S.garrison,tick:S.tick,garrisonForm:S._garrisonForm,townUpgrade:S.townUpgrade,upgradedUnits:S.upgradedUnits,essence:S.essence,sciences:S.sciences};
+  base.quantumArmament=S.quantumArmament;
   if(targetSaveVersion()>=3){base.ops=S.ops||[];base.offline={...(S.offline||{pendingReport:null}),populationFoodRule:S.offline?.populationFoodRule??'all'};base.daily=S.daily||{day:null,counts:{}};}
   return base;
 }
@@ -1209,6 +1214,20 @@ function validateSave(d){
     else if(d.steamMilitaryStars>0&&(!Array.isArray(d.sciences)||!d.sciences.includes(CFG.steamMilitary.needScience)))
       errors.push('steamMilitaryStars 缺少蒸汽军制研究');
   }
+  if(hasV&&d.v>=34||'quantumArmament' in d){
+    if(!_isObj(d.quantumArmament))errors.push('quantumArmament 非法或缺失');
+    else{
+      const units=CFG.quantumArmament.units;
+      if(Object.keys(d.quantumArmament).length!==units.length)errors.push('quantumArmament 兵种数量非法');
+      for(const key of Object.keys(d.quantumArmament))if(!units.includes(key))errors.push('quantumArmament: 未知兵种 '+key);
+      for(const key of units){
+        const state=d.quantumArmament[key];
+        if(!_isObj(state)||Object.keys(state).length!==2||!_isCount(state.atk)||!_isCount(state.hp)||state.atk>CFG.quantumArmament.maxLevel||state.hp>CFG.quantumArmament.maxLevel||Object.keys(state).some(stat=>stat!=='atk'&&stat!=='hp'))
+          errors.push('quantumArmament.'+key+' 非法或超出上限');
+        else if((state.atk>0||state.hp>0)&&(!Array.isArray(d.sciences)||!d.sciences.includes(CFG.quantumArmament.needScience)||!d.sciences.includes(CFG.armsUp[key].needScience)))errors.push('quantumArmament.'+key+' 缺少研究');
+      }
+    }
+  }
   if('soulRanks' in d||hasV&&d.v>=33)validateSoulRanks(d.soulRanks,errors);
   if('soulRealmTeam' in d){
     const team=d.soulRealmTeam;
@@ -1425,6 +1444,10 @@ function migrateSave(d){
     for(const key of ['starOriginStone','illusionStone','sacredRingCore'])if(!(key in d.items)){d.items[key]=0;filled.push('items.'+key)}
     d.v=33;filled.push('v33');
   }
+  if(sourceVersion<34){
+    if(!('quantumArmament' in d)){d.quantumArmament=defaultQuantumArmamentState();filled.push('quantumArmament')}
+    d.v=34;filled.push('v34');
+  }
   // v33 同版追加字段：旧主档缺键时仅在独立候选上补零，并保留迁移前原文。
   if(!('steamMilitaryStars' in d)){d.steamMilitaryStars=0;filled.push('steamMilitaryStars')}
   for(const key of ['starFighter','starMissile'])if(!(key in d.weaponForge)){
@@ -1469,6 +1492,7 @@ function migrateSave(d){
 // 应用到 S：显式逐字段，不再使用 || 吞合法 0；默认对象全部独立新建
 function applySaveToS(d){
   S.res=d.res;S.buildings=d.buildings;S.pool=d.pool;S.queue=d.queue;S.formation=d.formation;S.townLv=d.townLv;S.popAlloc=d.popAlloc;S.metalRecipeMode=d.metalRecipeMode;S.currencyRecipeMode=d.currencyRecipeMode;S.storageMode=d.storageMode;S.storageMasteryLv=d.storageMasteryLv;S.scholarMasteryLv=d.scholarMasteryLv;S.steelMasteryLv=d.steelMasteryLv;S.weaponForge=d.weaponForge;S.armsUp=d.armsUp;S.awakening=d.awakening;S.starArray=d.starArray;S.steamMilitaryStars=d.steamMilitaryStars;S.soulRanks=d.soulRanks;S.soulRealmTeam=d.soulRealmTeam;S.eraStorage=d.eraStorage;S.items=d.items;S.bloodline=d.bloodline;S.attackInfusions=d.attackInfusions;S.aegisInfusions=d.aegisInfusions;S.marketSpecial=d.marketSpecial;S.beastExchange=d.beastExchange;S.killValues=d.killValues;S.development=d.development;S.settlements=d.settlements;S.townPolicies=d.townPolicies;S.population=d.population;S.defeated=d.defeated;S.merit=d.merit;S.garrisonLog=d.garrisonLog;S.garrison=d.garrison;S.tick=d.tick;S._garrisonForm=d.garrisonForm;S.townUpgrade=d.townUpgrade;S.upgradedUnits=d.upgradedUnits;S.essence=d.essence;S.sciences=d.sciences||[];
+  S.quantumArmament=d.quantumArmament;
   S.ops=Array.isArray(d.ops)?d.ops:[];S.offline=_isObj(d.offline)?d.offline:{pendingReport:null,populationFoodRule:'all'};S.daily=(d.daily&&typeof d.daily==='object')?d.daily:{day:null,counts:{}};
   if(typeof ensureGarrisonState==='function')ensureGarrisonState();
 }
@@ -2638,6 +2662,42 @@ function armsUpBonus(uk,stat){
   }
   return bonus;
 }
+function quantumArmamentBonus(uk,stat){
+  const cfg=CFG.quantumArmament;
+  if(!scienceUnlocked(cfg.needScience)||!cfg.units.includes(uk)||stat!=='atk'&&stat!=='hp')return 0;
+  const level=S.quantumArmament?.[uk]?.[stat];
+  if(!Number.isSafeInteger(level)||level<=0)return 0;
+  const base=stat==='hp'?(CFG.units[uk]?.hpPerSoldier||1):(CFG.units[uk]?.atk||0);
+  return base*level*(stat==='hp'?cfg.hpPerLevel:cfg.atkPerLevel);
+}
+function quantumArmamentCost(uk,stat){
+  const cfg=CFG.quantumArmament;
+  if(!cfg.units.includes(uk)||stat!=='atk'&&stat!=='hp')return null;
+  const level=S.quantumArmament?.[uk]?.[stat];
+  if(!Number.isSafeInteger(level)||level<0||level>=cfg.maxLevel)return null;
+  return{steel:cfg.steelPerLevel*(level+1),starOriginStone:cfg.starOriginStonePerLevel*(level+1)};
+}
+function upgradeQuantumArmament(uk,stat){
+  if(_saveProtected)return{ok:false,reason:'save-protected'};
+  if(!CFG.quantumArmament.units.includes(uk)||stat!=='atk'&&stat!=='hp')return{ok:false,reason:'unknown-upgrade'};
+  if(!scienceUnlocked(CFG.quantumArmament.needScience))return{ok:false,reason:'science-prerequisite'};
+  if(!scienceUnlocked(CFG.armsUp[uk].needScience))return{ok:false,reason:'unit-science-prerequisite'};
+  const cost=quantumArmamentCost(uk,stat);
+  if(!cost)return{ok:false,reason:'max-level'};
+  if(!Number.isFinite(S.res.steel)||S.res.steel<cost.steel||!Number.isFinite(S.items.starOriginStone)||S.items.starOriginStone<cost.starOriginStone)
+    return{ok:false,reason:'insufficient-resources',cost};
+  const oldSteel=S.res.steel,oldStone=S.items.starOriginStone,oldLevel=S.quantumArmament[uk][stat];
+  S.res.steel-=cost.steel;
+  S.items.starOriginStone-=cost.starOriginStone;
+  S.quantumArmament[uk][stat]++;
+  if(!save().ok){
+    S.res.steel=oldSteel;S.items.starOriginStone=oldStone;S.quantumArmament[uk][stat]=oldLevel;
+    return{ok:false,reason:'save-failed'};
+  }
+  if(typeof addLog==='function')addLog(CFG.units[uk].name+'·圣痕'+(stat==='atk'?'攻击':'生命')+'强化至 '+S.quantumArmament[uk][stat]+' 级');
+  if(typeof updateUI==='function')updateUI();
+  return{ok:true,level:S.quantumArmament[uk][stat],cost};
+}
 // 同一兵装维度累计1000次得一星；批量仅合并玩家本可逐次完成的等价投入。
 function investArmsUp(uk,stat,times=1){
   if(_saveProtected)return{ok:false,reason:'save-protected'};
@@ -2664,7 +2724,7 @@ function weaponAttack(uk){
   return Object.entries(CFG.weaponForge).reduce((atk,[key,cfg])=>{
     const w=S.weaponForge[key];
     return atk+(cfg.unit===uk&&cfg.stat!=='def'&&w?.equipped&&w.level>0?cfg.initialAtk+(w.level-1)*cfg.perLevelAtk:0);
-  },base+armsUpBonus(uk,'atk')+Math.floor(base*(S.soulRanks[uk]?.rank||0)/2)+base*(awakeningTotalStars()*CFG.awakening.globalStatPerStar+
+  },base+armsUpBonus(uk,'atk')+quantumArmamentBonus(uk,'atk')+Math.floor(base*(S.soulRanks[uk]?.rank||0)/2)+base*(awakeningTotalStars()*CFG.awakening.globalStatPerStar+
     doses*CFG.emberElixir.atkPerUse+aegis*CFG.aegisElixir.atkPerUse));
 }
 function weaponDefense(uk){

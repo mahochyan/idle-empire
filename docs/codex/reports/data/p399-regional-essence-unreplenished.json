@@ -1,0 +1,347 @@
+{
+  "batch": "P399",
+  "mode": "real paid L10 village consecutive battles without refill",
+  "sourceFile": "docs/codex/reports/data/p245-outer-village-l10-save.json",
+  "sourceSha256": "1b8c23197941d8cee7da3adc7d5a668dbb5f1cfcb2f8335f18714ecf2860c401",
+  "runtimeSha256": {
+    "config.js": "3730abb54cf3fc311c9a9e607da5e8233796c47d63d3070d59e3bfb3ea54918c",
+    "levels.js": "cec80c26fa91f941994c253a2fe73be0dfe3f108237620b662fdab9f5449fd1d",
+    "math.js": "4e121994991540d91b52d63b64b21506ff42f84f7e3e558917cebfdec65366bb",
+    "garrison.js": "4d233f0529d256cd1ace2de782603fcfcbbff110032ca4cf29c5e36af30f10ff",
+    "technology.js": "3d3485f57e1e3ef73d11077cec06d467f674959aa6f0dfb27c3eb4d4abf94536",
+    "tests/progression/harness.js": "4770d17fa72cc8c87f4c8ef79678f19d63a41da895b8dd58776e5a39ce2ede2b"
+  },
+  "gameClock": "battle callbacks advance tick by scheduled milliseconds; online recovery uses tick(); no offline settlement",
+  "finalSaveSha256": "78616bfe745dad868a9d3e3997981d468186bffe5df4ce54343f2e9d69f94a60",
+  "results": [
+    {
+      "attempt": 1,
+      "outcome": "win",
+      "callbacks": 24,
+      "before": {
+        "tick": 10701,
+        "mainline": 10,
+        "merit": 39,
+        "wins": 0,
+        "alert": 0,
+        "essence": {
+          "sword": 1
+        },
+        "resources": {
+          "food": 3000,
+          "wood": 4800,
+          "stone": 3200,
+          "copper": 800,
+          "iron": 179,
+          "deed": 0,
+          "medal": 0
+        },
+        "formation": {
+          "front": [
+            {
+              "type": "bronze_guard",
+              "count": 15,
+              "id": 1790400000012
+            },
+            {
+              "type": "infantry_t1",
+              "count": 15,
+              "id": 1790400000013
+            }
+          ],
+          "mid": [],
+          "back": [
+            {
+              "type": "archer_t1",
+              "count": 13,
+              "id": 1790400000014
+            }
+          ]
+        },
+        "pool": {
+          "infantry": 0,
+          "archer": 0,
+          "bronze_guard": 0,
+          "infantry_t1": 0,
+          "archer_t1": 0
+        },
+        "army": 43,
+        "garrison": {
+          "phase": "idle",
+          "nextCheckTick": 5820,
+          "cooldownUntil": 0,
+          "logCount": 0
+        }
+      },
+      "after": {
+        "tick": 10710,
+        "mainline": 10,
+        "merit": 44,
+        "wins": 1,
+        "alert": 20,
+        "essence": {
+          "shield": 1,
+          "sword": 1
+        },
+        "resources": {
+          "food": 3000,
+          "wood": 4800,
+          "stone": 3200,
+          "copper": 800,
+          "iron": 179,
+          "deed": 12,
+          "medal": 5
+        },
+        "formation": {
+          "front": [
+            {
+              "type": "bronze_guard",
+              "count": 9,
+              "id": 1790400000012
+            },
+            {
+              "type": "infantry_t1",
+              "count": 6,
+              "id": 1790400000013
+            }
+          ],
+          "mid": [],
+          "back": [
+            {
+              "type": "archer_t1",
+              "count": 13,
+              "id": 1790400000014
+            }
+          ]
+        },
+        "pool": {
+          "infantry": 0,
+          "archer": 0,
+          "bronze_guard": 0,
+          "infantry_t1": 0,
+          "archer_t1": 0
+        },
+        "army": 28,
+        "garrison": {
+          "phase": "idle",
+          "nextCheckTick": 5820,
+          "cooldownUntil": 0,
+          "logCount": 0
+        }
+      },
+      "saveSha256": "bf1cdb078ee2e35e2e0b8280ad1287a696ecc88dc2a95f95b45ec9a70cfc3ac7"
+    },
+    {
+      "attempt": 2,
+      "outcome": "win",
+      "callbacks": 22,
+      "before": {
+        "tick": 10710,
+        "mainline": 10,
+        "merit": 44,
+        "wins": 1,
+        "alert": 20,
+        "essence": {
+          "shield": 1,
+          "sword": 1
+        },
+        "resources": {
+          "food": 3000,
+          "wood": 4800,
+          "stone": 3200,
+          "copper": 800,
+          "iron": 179,
+          "deed": 12,
+          "medal": 5
+        },
+        "formation": {
+          "front": [
+            {
+              "type": "bronze_guard",
+              "count": 9,
+              "id": 1790400000012
+            },
+            {
+              "type": "infantry_t1",
+              "count": 6,
+              "id": 1790400000013
+            }
+          ],
+          "mid": [],
+          "back": [
+            {
+              "type": "archer_t1",
+              "count": 13,
+              "id": 1790400000014
+            }
+          ]
+        },
+        "pool": {
+          "infantry": 0,
+          "archer": 0,
+          "bronze_guard": 0,
+          "infantry_t1": 0,
+          "archer_t1": 0
+        },
+        "army": 28,
+        "garrison": {
+          "phase": "idle",
+          "nextCheckTick": 5820,
+          "cooldownUntil": 0,
+          "logCount": 0
+        }
+      },
+      "after": {
+        "tick": 10719,
+        "mainline": 10,
+        "merit": 49,
+        "wins": 2,
+        "alert": 40,
+        "essence": {
+          "shield": 1,
+          "spear": 1,
+          "sword": 1
+        },
+        "resources": {
+          "food": 3000,
+          "wood": 4800,
+          "stone": 3200,
+          "copper": 800,
+          "iron": 179,
+          "deed": 24,
+          "medal": 10
+        },
+        "formation": {
+          "front": [
+            {
+              "type": "bronze_guard",
+              "count": 6,
+              "id": 1790400000012
+            }
+          ],
+          "mid": [],
+          "back": [
+            {
+              "type": "archer_t1",
+              "count": 10,
+              "id": 1790400000014
+            }
+          ]
+        },
+        "pool": {
+          "infantry": 0,
+          "archer": 0,
+          "bronze_guard": 0,
+          "infantry_t1": 0,
+          "archer_t1": 0
+        },
+        "army": 16,
+        "garrison": {
+          "phase": "idle",
+          "nextCheckTick": 5820,
+          "cooldownUntil": 0,
+          "logCount": 0
+        }
+      },
+      "saveSha256": "c7d1218f10d1454dab576e5a4fe41a20595fcbf0d613ad4befe341784ac4bb0a"
+    },
+    {
+      "attempt": 3,
+      "outcome": "lose",
+      "callbacks": 24,
+      "before": {
+        "tick": 10719,
+        "mainline": 10,
+        "merit": 49,
+        "wins": 2,
+        "alert": 40,
+        "essence": {
+          "shield": 1,
+          "spear": 1,
+          "sword": 1
+        },
+        "resources": {
+          "food": 3000,
+          "wood": 4800,
+          "stone": 3200,
+          "copper": 800,
+          "iron": 179,
+          "deed": 24,
+          "medal": 10
+        },
+        "formation": {
+          "front": [
+            {
+              "type": "bronze_guard",
+              "count": 6,
+              "id": 1790400000012
+            }
+          ],
+          "mid": [],
+          "back": [
+            {
+              "type": "archer_t1",
+              "count": 10,
+              "id": 1790400000014
+            }
+          ]
+        },
+        "pool": {
+          "infantry": 0,
+          "archer": 0,
+          "bronze_guard": 0,
+          "infantry_t1": 0,
+          "archer_t1": 0
+        },
+        "army": 16,
+        "garrison": {
+          "phase": "idle",
+          "nextCheckTick": 5820,
+          "cooldownUntil": 0,
+          "logCount": 0
+        }
+      },
+      "after": {
+        "tick": 10729,
+        "mainline": 10,
+        "merit": 49,
+        "wins": 2,
+        "alert": 40,
+        "essence": {
+          "shield": 1,
+          "spear": 1,
+          "sword": 1
+        },
+        "resources": {
+          "food": 3000,
+          "wood": 4800,
+          "stone": 3200,
+          "copper": 800,
+          "iron": 179,
+          "deed": 24,
+          "medal": 10
+        },
+        "formation": {
+          "front": [],
+          "mid": [],
+          "back": []
+        },
+        "pool": {
+          "infantry": 0,
+          "archer": 0,
+          "bronze_guard": 0,
+          "infantry_t1": 0,
+          "archer_t1": 0
+        },
+        "army": 0,
+        "garrison": {
+          "phase": "idle",
+          "nextCheckTick": 5820,
+          "cooldownUntil": 0,
+          "logCount": 0
+        }
+      },
+      "saveSha256": "78616bfe745dad868a9d3e3997981d468186bffe5df4ce54343f2e9d69f94a60"
+    }
+  ]
+}

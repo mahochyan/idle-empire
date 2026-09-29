@@ -1534,6 +1534,24 @@ function rTechFull(){
   h+=`</div>`;
   }
 
+  const quantumCfg=CFG.quantumArmament;
+  if(scienceUnlocked(quantumCfg.needScience)||Object.values(S.quantumArmament||{}).some(levels=>levels.atk>0||levels.hp>0)){
+    h+=`<div class="card"><h3>${pix('army','card-pix')}星界圣痕兵装</h3>`;
+    h+=`<div class="tech-detail-intro">逐兵种强化攻击与单兵生命，每级各增加基础属性 5%；远征与驻军共用。每次投入钢与星辉原石，兵员数量不变。</div>`;
+    for(const uk of quantumCfg.units){
+      const state=S.quantumArmament[uk];
+      if(!scienceUnlocked(CFG.armsUp[uk].needScience)&&state.atk===0&&state.hp===0)continue;
+      h+=`<div class="tech-detail-row"><div class="tech-detail-head"><strong>${esc(CFG.units[uk].name)}</strong><span class="tech-detail-state">攻击 ${state.atk}/${quantumCfg.maxLevel} · 生命 ${state.hp}/${quantumCfg.maxLevel}</span></div>`;
+      for(const stat of ['atk','hp']){
+        const level=state[stat],cost=quantumArmamentCost(uk,stat),ready=cost&&scienceUnlocked(quantumCfg.needScience)&&Number.isFinite(S.res.steel)&&S.res.steel>=cost.steel&&Number.isFinite(S.items.starOriginStone)&&S.items.starOriginStone>=cost.starOriginStone;
+        const bonus=quantumArmamentBonus(uk,stat);
+        h+=`<div class="tech-detail-cost">${stat==='atk'?'攻击':'单兵生命'} +${bonus.toFixed(2)} · ${cost?`下级：钢 ${cost.steel}、星辉原石 ${cost.starOriginStone}`:'已满级'} <button class="btn btn-go btn-xs" ${ready?'':'disabled'} onclick="upgradeQuantumArmament('${uk}','${stat}')">强化</button></div>`;
+      }
+      h+=`</div>`;
+    }
+    h+=`</div>`;
+  }
+
   const armsKeys=Object.keys(CFG.armsUp);
   const armsMilestoneText=Object.entries(CFG.armsUpMilestones||{}).map(([stat,m])=>
     `${stat==='atk'?'攻击':stat==='hp'?'生命':'防御'}每${m.everyStars}星追加基础属性${Math.round(m.basePct*100)}%`).join('；');
