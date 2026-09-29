@@ -1,0 +1,484 @@
+{
+  "sourceFile": "p396-quantum-paid-bridge-save.json",
+  "sourceHash": "f80351aca309c5268575a583b7ca8e46a763407d2a52d476a1e666e4049a6fdd",
+  "clock": {
+    "onlineSeconds": 36,
+    "offlineSeconds": 0
+  },
+  "start": {
+    "tick": 12950976,
+    "tech": 404429558,
+    "medal": 3092442,
+    "cap": 404429558,
+    "army": 672,
+    "deployed": 626,
+    "blood": 22,
+    "cleanser": 0,
+    "crystal": 9,
+    "alert": 5000,
+    "steam": 33
+  },
+  "nextCost": {
+    "tech": 10200000,
+    "godCrystal": 340
+  },
+  "battles": [
+    {
+      "before": {
+        "tick": 12950976,
+        "tech": 404429558,
+        "medal": 3092442,
+        "cap": 404429558,
+        "army": 672,
+        "deployed": 626,
+        "blood": 22,
+        "cleanser": 0,
+        "crystal": 9,
+        "alert": 5000,
+        "steam": 33
+      },
+      "expected": 58,
+      "outcome": "win",
+      "callbacks": 16,
+      "after": {
+        "tick": 12950976,
+        "tech": 404429558,
+        "medal": 3094794,
+        "cap": 404429558,
+        "army": 663,
+        "deployed": 617,
+        "blood": 22,
+        "cleanser": 0,
+        "crystal": 67,
+        "alert": 5000,
+        "steam": 33
+      },
+      "crystalGain": 58,
+      "armyLoss": 9
+    },
+    {
+      "before": {
+        "tick": 12950982,
+        "tech": 404429558,
+        "medal": 3094794,
+        "cap": 404429558,
+        "army": 663,
+        "deployed": 617,
+        "blood": 22,
+        "cleanser": 0,
+        "crystal": 67,
+        "alert": 5000,
+        "steam": 33
+      },
+      "expected": 58,
+      "outcome": "win",
+      "callbacks": 16,
+      "after": {
+        "tick": 12950982,
+        "tech": 404429558,
+        "medal": 3097146,
+        "cap": 404429558,
+        "army": 641,
+        "deployed": 595,
+        "blood": 22,
+        "cleanser": 0,
+        "crystal": 125,
+        "alert": 5000,
+        "steam": 33
+      },
+      "crystalGain": 58,
+      "armyLoss": 22
+    },
+    {
+      "before": {
+        "tick": 12950988,
+        "tech": 404429558,
+        "medal": 3097146,
+        "cap": 404429558,
+        "army": 641,
+        "deployed": 595,
+        "blood": 22,
+        "cleanser": 0,
+        "crystal": 125,
+        "alert": 5000,
+        "steam": 33
+      },
+      "expected": 58,
+      "outcome": "win",
+      "callbacks": 15,
+      "after": {
+        "tick": 12950988,
+        "tech": 404429558,
+        "medal": 3099498,
+        "cap": 404429558,
+        "army": 632,
+        "deployed": 586,
+        "blood": 22,
+        "cleanser": 0,
+        "crystal": 183,
+        "alert": 5000,
+        "steam": 33
+      },
+      "crystalGain": 58,
+      "armyLoss": 9
+    },
+    {
+      "before": {
+        "tick": 12950994,
+        "tech": 404429558,
+        "medal": 3099498,
+        "cap": 404429558,
+        "army": 632,
+        "deployed": 586,
+        "blood": 22,
+        "cleanser": 0,
+        "crystal": 183,
+        "alert": 5000,
+        "steam": 33
+      },
+      "expected": 58,
+      "outcome": "win",
+      "callbacks": 16,
+      "after": {
+        "tick": 12950994,
+        "tech": 404429558,
+        "medal": 3101850,
+        "cap": 404429558,
+        "army": 603,
+        "deployed": 557,
+        "blood": 22,
+        "cleanser": 0,
+        "crystal": 241,
+        "alert": 5000,
+        "steam": 33
+      },
+      "crystalGain": 58,
+      "armyLoss": 29
+    },
+    {
+      "before": {
+        "tick": 12951000,
+        "tech": 404429558,
+        "medal": 3101850,
+        "cap": 404429558,
+        "army": 603,
+        "deployed": 557,
+        "blood": 22,
+        "cleanser": 0,
+        "crystal": 241,
+        "alert": 5000,
+        "steam": 33
+      },
+      "expected": 58,
+      "outcome": "win",
+      "callbacks": 26,
+      "after": {
+        "tick": 12951000,
+        "tech": 404429558,
+        "medal": 3104202,
+        "cap": 404429558,
+        "army": 591,
+        "deployed": 545,
+        "blood": 22,
+        "cleanser": 0,
+        "crystal": 299,
+        "alert": 5000,
+        "steam": 33
+      },
+      "crystalGain": 58,
+      "armyLoss": 12
+    },
+    {
+      "before": {
+        "tick": 12951006,
+        "tech": 404429558,
+        "medal": 3104202,
+        "cap": 404429558,
+        "army": 591,
+        "deployed": 545,
+        "blood": 22,
+        "cleanser": 0,
+        "crystal": 299,
+        "alert": 5000,
+        "steam": 33
+      },
+      "expected": 58,
+      "outcome": "win",
+      "callbacks": 33,
+      "after": {
+        "tick": 12951006,
+        "tech": 404429558,
+        "medal": 3106554,
+        "cap": 404429558,
+        "army": 548,
+        "deployed": 502,
+        "blood": 22,
+        "cleanser": 0,
+        "crystal": 357,
+        "alert": 5000,
+        "steam": 33
+      },
+      "crystalGain": 58,
+      "armyLoss": 43
+    }
+  ],
+  "cleanses": [
+    {
+      "before": {
+        "tick": 12950976,
+        "tech": 404429558,
+        "medal": 3092442,
+        "cap": 404429558,
+        "army": 672,
+        "deployed": 626,
+        "blood": 22,
+        "cleanser": 0,
+        "crystal": 9,
+        "alert": 5000,
+        "steam": 33
+      },
+      "exchange": {
+        "ok": true,
+        "gained": 1,
+        "spent": 3,
+        "count": 1
+      },
+      "use": {
+        "ok": true,
+        "alert": 4900,
+        "spent": 1
+      },
+      "after": {
+        "tick": 12950976,
+        "tech": 404429558,
+        "medal": 3092442,
+        "cap": 404429558,
+        "army": 672,
+        "deployed": 626,
+        "blood": 19,
+        "cleanser": 0,
+        "crystal": 9,
+        "alert": 4900,
+        "steam": 33
+      }
+    },
+    {
+      "before": {
+        "tick": 12950982,
+        "tech": 404429558,
+        "medal": 3094794,
+        "cap": 404429558,
+        "army": 663,
+        "deployed": 617,
+        "blood": 22,
+        "cleanser": 0,
+        "crystal": 67,
+        "alert": 5000,
+        "steam": 33
+      },
+      "exchange": {
+        "ok": true,
+        "gained": 1,
+        "spent": 3,
+        "count": 1
+      },
+      "use": {
+        "ok": true,
+        "alert": 4900,
+        "spent": 1
+      },
+      "after": {
+        "tick": 12950982,
+        "tech": 404429558,
+        "medal": 3094794,
+        "cap": 404429558,
+        "army": 663,
+        "deployed": 617,
+        "blood": 19,
+        "cleanser": 0,
+        "crystal": 67,
+        "alert": 4900,
+        "steam": 33
+      }
+    },
+    {
+      "before": {
+        "tick": 12950988,
+        "tech": 404429558,
+        "medal": 3097146,
+        "cap": 404429558,
+        "army": 641,
+        "deployed": 595,
+        "blood": 22,
+        "cleanser": 0,
+        "crystal": 125,
+        "alert": 5000,
+        "steam": 33
+      },
+      "exchange": {
+        "ok": true,
+        "gained": 1,
+        "spent": 3,
+        "count": 1
+      },
+      "use": {
+        "ok": true,
+        "alert": 4900,
+        "spent": 1
+      },
+      "after": {
+        "tick": 12950988,
+        "tech": 404429558,
+        "medal": 3097146,
+        "cap": 404429558,
+        "army": 641,
+        "deployed": 595,
+        "blood": 19,
+        "cleanser": 0,
+        "crystal": 125,
+        "alert": 4900,
+        "steam": 33
+      }
+    },
+    {
+      "before": {
+        "tick": 12950994,
+        "tech": 404429558,
+        "medal": 3099498,
+        "cap": 404429558,
+        "army": 632,
+        "deployed": 586,
+        "blood": 22,
+        "cleanser": 0,
+        "crystal": 183,
+        "alert": 5000,
+        "steam": 33
+      },
+      "exchange": {
+        "ok": true,
+        "gained": 1,
+        "spent": 3,
+        "count": 1
+      },
+      "use": {
+        "ok": true,
+        "alert": 4900,
+        "spent": 1
+      },
+      "after": {
+        "tick": 12950994,
+        "tech": 404429558,
+        "medal": 3099498,
+        "cap": 404429558,
+        "army": 632,
+        "deployed": 586,
+        "blood": 19,
+        "cleanser": 0,
+        "crystal": 183,
+        "alert": 4900,
+        "steam": 33
+      }
+    },
+    {
+      "before": {
+        "tick": 12951000,
+        "tech": 404429558,
+        "medal": 3101850,
+        "cap": 404429558,
+        "army": 603,
+        "deployed": 557,
+        "blood": 22,
+        "cleanser": 0,
+        "crystal": 241,
+        "alert": 5000,
+        "steam": 33
+      },
+      "exchange": {
+        "ok": true,
+        "gained": 1,
+        "spent": 3,
+        "count": 1
+      },
+      "use": {
+        "ok": true,
+        "alert": 4900,
+        "spent": 1
+      },
+      "after": {
+        "tick": 12951000,
+        "tech": 404429558,
+        "medal": 3101850,
+        "cap": 404429558,
+        "army": 603,
+        "deployed": 557,
+        "blood": 19,
+        "cleanser": 0,
+        "crystal": 241,
+        "alert": 4900,
+        "steam": 33
+      }
+    },
+    {
+      "before": {
+        "tick": 12951006,
+        "tech": 404429558,
+        "medal": 3104202,
+        "cap": 404429558,
+        "army": 591,
+        "deployed": 545,
+        "blood": 22,
+        "cleanser": 0,
+        "crystal": 299,
+        "alert": 5000,
+        "steam": 33
+      },
+      "exchange": {
+        "ok": true,
+        "gained": 1,
+        "spent": 3,
+        "count": 1
+      },
+      "use": {
+        "ok": true,
+        "alert": 4900,
+        "spent": 1
+      },
+      "after": {
+        "tick": 12951006,
+        "tech": 404429558,
+        "medal": 3104202,
+        "cap": 404429558,
+        "army": 591,
+        "deployed": 545,
+        "blood": 19,
+        "cleanser": 0,
+        "crystal": 299,
+        "alert": 4900,
+        "steam": 33
+      }
+    }
+  ],
+  "payment": {
+    "ok": true,
+    "level": 34,
+    "cost": {
+      "tech": 10200000,
+      "godCrystal": 340
+    }
+  },
+  "afterPay": {
+    "tick": 12951012,
+    "tech": 394229558,
+    "medal": 3106554,
+    "cap": 413834897,
+    "army": 548,
+    "deployed": 502,
+    "blood": 22,
+    "cleanser": 0,
+    "crystal": 17,
+    "alert": 5000,
+    "steam": 34
+  },
+  "finalHash": "5ff16ddfaea3248be20c2b4e5d66bbbda6ee4531e8d1c721cc25d78d53d8e680",
+  "finalFile": "p397-quantum-next-gate-paid-save.json"
+}

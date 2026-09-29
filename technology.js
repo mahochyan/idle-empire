@@ -97,9 +97,10 @@ CFG.unitUpgrades = {
 };
 
 // ==================== 解锁逻辑 ====================
-// 时代科技关卡门槛：T1需第5关 / T2需第20关 / T3需第40关
+// 兵种层级沿用原主线胜场，也接受对应拓境区域首胜；资源与精魄仍须正常支付。
 function tierNeedLevel(tier){
   if(tier<=0)return 0;
+  if(CFG.unitTierDevelopment?.[tier])return CFG.unitTierDevelopment[tier].stage;
   if(tier===1)return 5;
   if(tier===2)return 20;
   if(tier===3)return 40;
@@ -108,12 +109,7 @@ function tierNeedLevel(tier){
 function checkTierLevel(tier){
   const need=tierNeedLevel(tier);
   if(need<=0)return '';
-  const idx=need-1; // 0-based
-  if(!hasLevelDefeated(idx)){
-    const en=CFG.enemies[idx];
-    return `需先击败第${need}关「${en?.name||'?'}」`;
-  }
-  return '';
+  return unitTierProgressLock(tier,need);
 }
 function bossEssenceCount(){
   return Object.values(S.essence||{}).reduce((a,b)=>a+(b||0),0);

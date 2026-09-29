@@ -1,0 +1,920 @@
+{
+  "sourceFile": "p397-quantum-next-gate-paid-save.json",
+  "sourceHash": "5ff16ddfaea3248be20c2b4e5d66bbbda6ee4531e8d1c721cc25d78d53d8e680",
+  "start": {
+    "tick": 12951012,
+    "tech": 394229558,
+    "medal": 3106554,
+    "cap": 413834897,
+    "army": 548,
+    "deployed": 502,
+    "blood": 22,
+    "leaf": 4,
+    "alert": 3400,
+    "nuclear": 8
+  },
+  "cost": {
+    "tech": 180000000,
+    "revivalLeaf": 900
+  },
+  "clock": {
+    "onlineSeconds": 1375,
+    "offlineSeconds": 0
+  },
+  "battles": [
+    {
+      "before": {
+        "tick": 12952315,
+        "tech": 394229558,
+        "medal": 3106554,
+        "cap": 413834897,
+        "army": 672,
+        "deployed": 626,
+        "blood": 22,
+        "leaf": 4,
+        "alert": 3400,
+        "nuclear": 8
+      },
+      "expected": 81,
+      "outcome": "win",
+      "callbacks": 7,
+      "after": {
+        "tick": 12952315,
+        "tech": 394229558,
+        "medal": 3106554,
+        "cap": 413834897,
+        "army": 672,
+        "deployed": 626,
+        "blood": 21,
+        "leaf": 85,
+        "alert": 3400,
+        "nuclear": 8
+      },
+      "leafGain": 81,
+      "armyLoss": 0
+    },
+    {
+      "before": {
+        "tick": 12952321,
+        "tech": 394229558,
+        "medal": 3106554,
+        "cap": 413834897,
+        "army": 672,
+        "deployed": 626,
+        "blood": 21,
+        "leaf": 85,
+        "alert": 3400,
+        "nuclear": 8
+      },
+      "expected": 81,
+      "outcome": "win",
+      "callbacks": 7,
+      "after": {
+        "tick": 12952321,
+        "tech": 394229558,
+        "medal": 3106554,
+        "cap": 413834897,
+        "army": 672,
+        "deployed": 626,
+        "blood": 20,
+        "leaf": 166,
+        "alert": 3400,
+        "nuclear": 8
+      },
+      "leafGain": 81,
+      "armyLoss": 0
+    },
+    {
+      "before": {
+        "tick": 12952327,
+        "tech": 394229558,
+        "medal": 3106554,
+        "cap": 413834897,
+        "army": 672,
+        "deployed": 626,
+        "blood": 20,
+        "leaf": 166,
+        "alert": 3400,
+        "nuclear": 8
+      },
+      "expected": 81,
+      "outcome": "win",
+      "callbacks": 7,
+      "after": {
+        "tick": 12952327,
+        "tech": 394229558,
+        "medal": 3106554,
+        "cap": 413834897,
+        "army": 672,
+        "deployed": 626,
+        "blood": 19,
+        "leaf": 247,
+        "alert": 3400,
+        "nuclear": 8
+      },
+      "leafGain": 81,
+      "armyLoss": 0
+    },
+    {
+      "before": {
+        "tick": 12952333,
+        "tech": 394229558,
+        "medal": 3106554,
+        "cap": 413834897,
+        "army": 672,
+        "deployed": 626,
+        "blood": 19,
+        "leaf": 247,
+        "alert": 3400,
+        "nuclear": 8
+      },
+      "expected": 81,
+      "outcome": "win",
+      "callbacks": 6,
+      "after": {
+        "tick": 12952333,
+        "tech": 394229558,
+        "medal": 3106554,
+        "cap": 413834897,
+        "army": 672,
+        "deployed": 626,
+        "blood": 18,
+        "leaf": 328,
+        "alert": 3400,
+        "nuclear": 8
+      },
+      "leafGain": 81,
+      "armyLoss": 0
+    },
+    {
+      "before": {
+        "tick": 12952339,
+        "tech": 394229558,
+        "medal": 3106554,
+        "cap": 413834897,
+        "army": 672,
+        "deployed": 626,
+        "blood": 18,
+        "leaf": 328,
+        "alert": 3400,
+        "nuclear": 8
+      },
+      "expected": 81,
+      "outcome": "win",
+      "callbacks": 6,
+      "after": {
+        "tick": 12952339,
+        "tech": 394229558,
+        "medal": 3106554,
+        "cap": 413834897,
+        "army": 672,
+        "deployed": 626,
+        "blood": 17,
+        "leaf": 409,
+        "alert": 3400,
+        "nuclear": 8
+      },
+      "leafGain": 81,
+      "armyLoss": 0
+    },
+    {
+      "before": {
+        "tick": 12952345,
+        "tech": 394229558,
+        "medal": 3106554,
+        "cap": 413834897,
+        "army": 672,
+        "deployed": 626,
+        "blood": 17,
+        "leaf": 409,
+        "alert": 3400,
+        "nuclear": 8
+      },
+      "expected": 81,
+      "outcome": "win",
+      "callbacks": 6,
+      "after": {
+        "tick": 12952345,
+        "tech": 394229558,
+        "medal": 3106554,
+        "cap": 413834897,
+        "army": 672,
+        "deployed": 626,
+        "blood": 16,
+        "leaf": 490,
+        "alert": 3400,
+        "nuclear": 8
+      },
+      "leafGain": 81,
+      "armyLoss": 0
+    },
+    {
+      "before": {
+        "tick": 12952351,
+        "tech": 394229558,
+        "medal": 3106554,
+        "cap": 413834897,
+        "army": 672,
+        "deployed": 626,
+        "blood": 16,
+        "leaf": 490,
+        "alert": 3400,
+        "nuclear": 8
+      },
+      "expected": 81,
+      "outcome": "win",
+      "callbacks": 6,
+      "after": {
+        "tick": 12952351,
+        "tech": 394229558,
+        "medal": 3106554,
+        "cap": 413834897,
+        "army": 672,
+        "deployed": 626,
+        "blood": 15,
+        "leaf": 571,
+        "alert": 3400,
+        "nuclear": 8
+      },
+      "leafGain": 81,
+      "armyLoss": 0
+    },
+    {
+      "before": {
+        "tick": 12952357,
+        "tech": 394229558,
+        "medal": 3106554,
+        "cap": 413834897,
+        "army": 672,
+        "deployed": 626,
+        "blood": 15,
+        "leaf": 571,
+        "alert": 3400,
+        "nuclear": 8
+      },
+      "expected": 81,
+      "outcome": "win",
+      "callbacks": 6,
+      "after": {
+        "tick": 12952357,
+        "tech": 394229558,
+        "medal": 3106554,
+        "cap": 413834897,
+        "army": 672,
+        "deployed": 626,
+        "blood": 14,
+        "leaf": 652,
+        "alert": 3400,
+        "nuclear": 8
+      },
+      "leafGain": 81,
+      "armyLoss": 0
+    },
+    {
+      "before": {
+        "tick": 12952363,
+        "tech": 394229558,
+        "medal": 3106554,
+        "cap": 413834897,
+        "army": 672,
+        "deployed": 626,
+        "blood": 14,
+        "leaf": 652,
+        "alert": 3400,
+        "nuclear": 8
+      },
+      "expected": 81,
+      "outcome": "win",
+      "callbacks": 6,
+      "after": {
+        "tick": 12952363,
+        "tech": 394229558,
+        "medal": 3106554,
+        "cap": 413834897,
+        "army": 672,
+        "deployed": 626,
+        "blood": 13,
+        "leaf": 733,
+        "alert": 3400,
+        "nuclear": 8
+      },
+      "leafGain": 81,
+      "armyLoss": 0
+    },
+    {
+      "before": {
+        "tick": 12952369,
+        "tech": 394229558,
+        "medal": 3106554,
+        "cap": 413834897,
+        "army": 672,
+        "deployed": 626,
+        "blood": 13,
+        "leaf": 733,
+        "alert": 3400,
+        "nuclear": 8
+      },
+      "expected": 81,
+      "outcome": "win",
+      "callbacks": 6,
+      "after": {
+        "tick": 12952369,
+        "tech": 394229558,
+        "medal": 3106554,
+        "cap": 413834897,
+        "army": 672,
+        "deployed": 626,
+        "blood": 12,
+        "leaf": 814,
+        "alert": 3400,
+        "nuclear": 8
+      },
+      "leafGain": 81,
+      "armyLoss": 0
+    },
+    {
+      "before": {
+        "tick": 12952375,
+        "tech": 394229558,
+        "medal": 3106554,
+        "cap": 413834897,
+        "army": 672,
+        "deployed": 626,
+        "blood": 12,
+        "leaf": 814,
+        "alert": 3400,
+        "nuclear": 8
+      },
+      "expected": 81,
+      "outcome": "win",
+      "callbacks": 6,
+      "after": {
+        "tick": 12952375,
+        "tech": 394229558,
+        "medal": 3106554,
+        "cap": 413834897,
+        "army": 672,
+        "deployed": 626,
+        "blood": 11,
+        "leaf": 895,
+        "alert": 3400,
+        "nuclear": 8
+      },
+      "leafGain": 81,
+      "armyLoss": 0
+    },
+    {
+      "before": {
+        "tick": 12952381,
+        "tech": 394229558,
+        "medal": 3106554,
+        "cap": 413834897,
+        "army": 672,
+        "deployed": 626,
+        "blood": 11,
+        "leaf": 895,
+        "alert": 3400,
+        "nuclear": 8
+      },
+      "expected": 81,
+      "outcome": "win",
+      "callbacks": 6,
+      "after": {
+        "tick": 12952381,
+        "tech": 394229558,
+        "medal": 3106554,
+        "cap": 413834897,
+        "army": 672,
+        "deployed": 626,
+        "blood": 10,
+        "leaf": 976,
+        "alert": 3400,
+        "nuclear": 8
+      },
+      "leafGain": 81,
+      "armyLoss": 0
+    }
+  ],
+  "cleanses": [
+    {
+      "before": {
+        "tick": 12952315,
+        "tech": 394229558,
+        "medal": 3106554,
+        "cap": 413834897,
+        "army": 672,
+        "deployed": 626,
+        "blood": 22,
+        "leaf": 4,
+        "alert": 3400,
+        "nuclear": 8
+      },
+      "exchange": {
+        "ok": true,
+        "gained": 1,
+        "spent": 3,
+        "count": 1
+      },
+      "use": {
+        "ok": true,
+        "alert": 3300,
+        "spent": 1
+      },
+      "after": {
+        "tick": 12952315,
+        "tech": 394229558,
+        "medal": 3106554,
+        "cap": 413834897,
+        "army": 672,
+        "deployed": 626,
+        "blood": 19,
+        "leaf": 4,
+        "alert": 3300,
+        "nuclear": 8
+      }
+    },
+    {
+      "before": {
+        "tick": 12952321,
+        "tech": 394229558,
+        "medal": 3106554,
+        "cap": 413834897,
+        "army": 672,
+        "deployed": 626,
+        "blood": 21,
+        "leaf": 85,
+        "alert": 3400,
+        "nuclear": 8
+      },
+      "exchange": {
+        "ok": true,
+        "gained": 1,
+        "spent": 3,
+        "count": 1
+      },
+      "use": {
+        "ok": true,
+        "alert": 3300,
+        "spent": 1
+      },
+      "after": {
+        "tick": 12952321,
+        "tech": 394229558,
+        "medal": 3106554,
+        "cap": 413834897,
+        "army": 672,
+        "deployed": 626,
+        "blood": 18,
+        "leaf": 85,
+        "alert": 3300,
+        "nuclear": 8
+      }
+    },
+    {
+      "before": {
+        "tick": 12952327,
+        "tech": 394229558,
+        "medal": 3106554,
+        "cap": 413834897,
+        "army": 672,
+        "deployed": 626,
+        "blood": 20,
+        "leaf": 166,
+        "alert": 3400,
+        "nuclear": 8
+      },
+      "exchange": {
+        "ok": true,
+        "gained": 1,
+        "spent": 3,
+        "count": 1
+      },
+      "use": {
+        "ok": true,
+        "alert": 3300,
+        "spent": 1
+      },
+      "after": {
+        "tick": 12952327,
+        "tech": 394229558,
+        "medal": 3106554,
+        "cap": 413834897,
+        "army": 672,
+        "deployed": 626,
+        "blood": 17,
+        "leaf": 166,
+        "alert": 3300,
+        "nuclear": 8
+      }
+    },
+    {
+      "before": {
+        "tick": 12952333,
+        "tech": 394229558,
+        "medal": 3106554,
+        "cap": 413834897,
+        "army": 672,
+        "deployed": 626,
+        "blood": 19,
+        "leaf": 247,
+        "alert": 3400,
+        "nuclear": 8
+      },
+      "exchange": {
+        "ok": true,
+        "gained": 1,
+        "spent": 3,
+        "count": 1
+      },
+      "use": {
+        "ok": true,
+        "alert": 3300,
+        "spent": 1
+      },
+      "after": {
+        "tick": 12952333,
+        "tech": 394229558,
+        "medal": 3106554,
+        "cap": 413834897,
+        "army": 672,
+        "deployed": 626,
+        "blood": 16,
+        "leaf": 247,
+        "alert": 3300,
+        "nuclear": 8
+      }
+    },
+    {
+      "before": {
+        "tick": 12952339,
+        "tech": 394229558,
+        "medal": 3106554,
+        "cap": 413834897,
+        "army": 672,
+        "deployed": 626,
+        "blood": 18,
+        "leaf": 328,
+        "alert": 3400,
+        "nuclear": 8
+      },
+      "exchange": {
+        "ok": true,
+        "gained": 1,
+        "spent": 3,
+        "count": 1
+      },
+      "use": {
+        "ok": true,
+        "alert": 3300,
+        "spent": 1
+      },
+      "after": {
+        "tick": 12952339,
+        "tech": 394229558,
+        "medal": 3106554,
+        "cap": 413834897,
+        "army": 672,
+        "deployed": 626,
+        "blood": 15,
+        "leaf": 328,
+        "alert": 3300,
+        "nuclear": 8
+      }
+    },
+    {
+      "before": {
+        "tick": 12952345,
+        "tech": 394229558,
+        "medal": 3106554,
+        "cap": 413834897,
+        "army": 672,
+        "deployed": 626,
+        "blood": 17,
+        "leaf": 409,
+        "alert": 3400,
+        "nuclear": 8
+      },
+      "exchange": {
+        "ok": true,
+        "gained": 1,
+        "spent": 3,
+        "count": 1
+      },
+      "use": {
+        "ok": true,
+        "alert": 3300,
+        "spent": 1
+      },
+      "after": {
+        "tick": 12952345,
+        "tech": 394229558,
+        "medal": 3106554,
+        "cap": 413834897,
+        "army": 672,
+        "deployed": 626,
+        "blood": 14,
+        "leaf": 409,
+        "alert": 3300,
+        "nuclear": 8
+      }
+    },
+    {
+      "before": {
+        "tick": 12952351,
+        "tech": 394229558,
+        "medal": 3106554,
+        "cap": 413834897,
+        "army": 672,
+        "deployed": 626,
+        "blood": 16,
+        "leaf": 490,
+        "alert": 3400,
+        "nuclear": 8
+      },
+      "exchange": {
+        "ok": true,
+        "gained": 1,
+        "spent": 3,
+        "count": 1
+      },
+      "use": {
+        "ok": true,
+        "alert": 3300,
+        "spent": 1
+      },
+      "after": {
+        "tick": 12952351,
+        "tech": 394229558,
+        "medal": 3106554,
+        "cap": 413834897,
+        "army": 672,
+        "deployed": 626,
+        "blood": 13,
+        "leaf": 490,
+        "alert": 3300,
+        "nuclear": 8
+      }
+    },
+    {
+      "before": {
+        "tick": 12952357,
+        "tech": 394229558,
+        "medal": 3106554,
+        "cap": 413834897,
+        "army": 672,
+        "deployed": 626,
+        "blood": 15,
+        "leaf": 571,
+        "alert": 3400,
+        "nuclear": 8
+      },
+      "exchange": {
+        "ok": true,
+        "gained": 1,
+        "spent": 3,
+        "count": 1
+      },
+      "use": {
+        "ok": true,
+        "alert": 3300,
+        "spent": 1
+      },
+      "after": {
+        "tick": 12952357,
+        "tech": 394229558,
+        "medal": 3106554,
+        "cap": 413834897,
+        "army": 672,
+        "deployed": 626,
+        "blood": 12,
+        "leaf": 571,
+        "alert": 3300,
+        "nuclear": 8
+      }
+    },
+    {
+      "before": {
+        "tick": 12952363,
+        "tech": 394229558,
+        "medal": 3106554,
+        "cap": 413834897,
+        "army": 672,
+        "deployed": 626,
+        "blood": 14,
+        "leaf": 652,
+        "alert": 3400,
+        "nuclear": 8
+      },
+      "exchange": {
+        "ok": true,
+        "gained": 1,
+        "spent": 3,
+        "count": 1
+      },
+      "use": {
+        "ok": true,
+        "alert": 3300,
+        "spent": 1
+      },
+      "after": {
+        "tick": 12952363,
+        "tech": 394229558,
+        "medal": 3106554,
+        "cap": 413834897,
+        "army": 672,
+        "deployed": 626,
+        "blood": 11,
+        "leaf": 652,
+        "alert": 3300,
+        "nuclear": 8
+      }
+    },
+    {
+      "before": {
+        "tick": 12952369,
+        "tech": 394229558,
+        "medal": 3106554,
+        "cap": 413834897,
+        "army": 672,
+        "deployed": 626,
+        "blood": 13,
+        "leaf": 733,
+        "alert": 3400,
+        "nuclear": 8
+      },
+      "exchange": {
+        "ok": true,
+        "gained": 1,
+        "spent": 3,
+        "count": 1
+      },
+      "use": {
+        "ok": true,
+        "alert": 3300,
+        "spent": 1
+      },
+      "after": {
+        "tick": 12952369,
+        "tech": 394229558,
+        "medal": 3106554,
+        "cap": 413834897,
+        "army": 672,
+        "deployed": 626,
+        "blood": 10,
+        "leaf": 733,
+        "alert": 3300,
+        "nuclear": 8
+      }
+    },
+    {
+      "before": {
+        "tick": 12952375,
+        "tech": 394229558,
+        "medal": 3106554,
+        "cap": 413834897,
+        "army": 672,
+        "deployed": 626,
+        "blood": 12,
+        "leaf": 814,
+        "alert": 3400,
+        "nuclear": 8
+      },
+      "exchange": {
+        "ok": true,
+        "gained": 1,
+        "spent": 3,
+        "count": 1
+      },
+      "use": {
+        "ok": true,
+        "alert": 3300,
+        "spent": 1
+      },
+      "after": {
+        "tick": 12952375,
+        "tech": 394229558,
+        "medal": 3106554,
+        "cap": 413834897,
+        "army": 672,
+        "deployed": 626,
+        "blood": 9,
+        "leaf": 814,
+        "alert": 3300,
+        "nuclear": 8
+      }
+    },
+    {
+      "before": {
+        "tick": 12952381,
+        "tech": 394229558,
+        "medal": 3106554,
+        "cap": 413834897,
+        "army": 672,
+        "deployed": 626,
+        "blood": 11,
+        "leaf": 895,
+        "alert": 3400,
+        "nuclear": 8
+      },
+      "exchange": {
+        "ok": true,
+        "gained": 1,
+        "spent": 3,
+        "count": 1
+      },
+      "use": {
+        "ok": true,
+        "alert": 3300,
+        "spent": 1
+      },
+      "after": {
+        "tick": 12952381,
+        "tech": 394229558,
+        "medal": 3106554,
+        "cap": 413834897,
+        "army": 672,
+        "deployed": 626,
+        "blood": 8,
+        "leaf": 895,
+        "alert": 3300,
+        "nuclear": 8
+      }
+    }
+  ],
+  "replenishments": [
+    {
+      "before": {
+        "tick": 12951012,
+        "tech": 394229558,
+        "medal": 3106554,
+        "cap": 413834897,
+        "army": 548,
+        "deployed": 502,
+        "blood": 22,
+        "leaf": 4,
+        "alert": 3400,
+        "nuclear": 8
+      },
+      "need": {
+        "star_trooper": 43,
+        "electro_trooper": 81,
+        "armored_trooper": 0,
+        "alloy_special": 0,
+        "gold_cavalry": 0,
+        "archer": 0
+      },
+      "trainingCost": {
+        "steel": 992000,
+        "iron": 992000,
+        "copper": 992000
+      },
+      "seconds": 1303,
+      "minFood": 486970,
+      "phases": {
+        "stone": 50,
+        "coal": 414,
+        "copper": 415,
+        "iron": 127,
+        "steel": 234,
+        "wood": 0,
+        "gold": 0,
+        "food": 0,
+        "training": 63
+      },
+      "after": {
+        "tick": 12952315,
+        "tech": 394229558,
+        "medal": 3106554,
+        "cap": 413834897,
+        "army": 672,
+        "deployed": 626,
+        "blood": 22,
+        "leaf": 4,
+        "alert": 3400,
+        "nuclear": 8
+      }
+    }
+  ],
+  "payment": {
+    "ok": true,
+    "level": 9,
+    "cost": {
+      "tech": 180000000,
+      "revivalLeaf": 900
+    }
+  },
+  "final": {
+    "tick": 12952387,
+    "tech": 214229558,
+    "medal": 3106554,
+    "cap": 436825725,
+    "army": 672,
+    "deployed": 626,
+    "blood": 10,
+    "leaf": 76,
+    "alert": 3400,
+    "nuclear": 9
+  },
+  "finalHash": "b83d5b17de1a8df4a829b0ddbeb630fde2508afb006aa2dbe6912fe85b13451d",
+  "finalFile": "p397-quantum-leaf-step-paid-save.json"
+}

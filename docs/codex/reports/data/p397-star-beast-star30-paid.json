@@ -1,0 +1,785 @@
+{
+  "sourceFile": "p395-star7-fighter-equipped-paid-save.json",
+  "sourceSha256": "dcf21b0932e2bd640c3a37804da1fc3d685165c47b2f2f3c1c50f3ccb16d93f1",
+  "runtimeSha256": {
+    "config.js": "85501a43d1257c2d189d517fd9dd4edb33e5cc3764f13759ee82d9d7f05a0b01",
+    "levels.js": "7105cc27283ea25aa6829135b09c1da2f1b0ea5a7f1721d6bb3167e3d57c5f08",
+    "math.js": "88f9c84b549f4b80d331faa59c2a540973c98c5f1caadae5a3d04e7df5941e3f",
+    "garrison.js": "4d233f0529d256cd1ace2de782603fcfcbbff110032ca4cf29c5e36af30f10ff",
+    "technology.js": "9b35d51f46e636713f06cedfb003a19c338026ab2bfbbc80f8c63bc8ef99e486",
+    "tests/progression/harness.js": "4770d17fa72cc8c87f4c8ef79678f19d63a41da895b8dd58776e5a39ce2ede2b"
+  },
+  "start": {
+    "tick": 13880092,
+    "ts": 1792353794000,
+    "city": 1090,
+    "deed": 70521,
+    "food": 480699,
+    "tech": 207778724,
+    "medal": 5402551,
+    "stars": 25,
+    "multiplier": 3.5,
+    "field": 629,
+    "army": 672,
+    "deployed": 626,
+    "garrison": 0,
+    "alert": 0,
+    "daily": {
+      "starBeast6": 1,
+      "starBeastCalm": 1
+    },
+    "weapon": {
+      "researched": true,
+      "level": 1,
+      "progress": 0,
+      "equipped": true
+    }
+  },
+  "targetStars": 30,
+  "offlineWindowSeconds": 86400,
+  "simulatedOfflineSeconds": 1296000,
+  "simulatedOnlineSeconds": 0,
+  "settlements": [
+    {
+      "target": 26,
+      "count": 10,
+      "cost": 65970,
+      "beforeCity": 1090,
+      "afterCity": 1100,
+      "beforeDeed": 70521,
+      "afterDeed": 4551,
+      "saveSha256": "36d9a0aa43eec2f37dda754801410163bd52086050866ffc6d5ad049a269fd6f"
+    },
+    {
+      "target": 26,
+      "count": 28,
+      "cost": 187908,
+      "beforeCity": 1100,
+      "afterCity": 1128,
+      "beforeDeed": 191175,
+      "afterDeed": 3267,
+      "saveSha256": "dcdb19a7c70c8a3bb434d670cfee0173e25449eea3044abcfda3fb796b13c455"
+    },
+    {
+      "target": 26,
+      "count": 27,
+      "cost": 185652,
+      "beforeCity": 1128,
+      "afterCity": 1155,
+      "beforeDeed": 189891,
+      "afterDeed": 4239,
+      "saveSha256": "1c6e874d2562d3d910820be90029e6466c3b622f05582b6462d1884c108c11bd"
+    },
+    {
+      "target": 26,
+      "count": 10,
+      "cost": 69870,
+      "beforeCity": 1155,
+      "afterCity": 1165,
+      "beforeDeed": 190863,
+      "afterDeed": 120993,
+      "saveSha256": "18d549fe5ace251c3c6ee2ff7d64e83bf0a9aa80ac7c26dddb4e5a02f68b3dcb"
+    },
+    {
+      "target": 27,
+      "count": 17,
+      "cost": 120156,
+      "beforeCity": 1165,
+      "afterCity": 1182,
+      "beforeDeed": 120993,
+      "afterDeed": 837,
+      "saveSha256": "7fb0f44a4fbdd2b69085c791dbe2a551341fc5da5a6da162ae97859045176308"
+    },
+    {
+      "target": 27,
+      "count": 26,
+      "cost": 187122,
+      "beforeCity": 1182,
+      "afterCity": 1208,
+      "beforeDeed": 187461,
+      "afterDeed": 339,
+      "saveSha256": "23382956a730920332fea88a2d10fa041b76e01c133a0304c754fd9a12fd7265"
+    },
+    {
+      "target": 27,
+      "count": 25,
+      "cost": 183750,
+      "beforeCity": 1208,
+      "afterCity": 1233,
+      "beforeDeed": 186963,
+      "afterDeed": 3213,
+      "saveSha256": "76fc2c2dbed6cae903ce048bf58371b87ac855d97d1e513f530c62973056cf8c"
+    },
+    {
+      "target": 27,
+      "count": 7,
+      "cost": 52122,
+      "beforeCity": 1233,
+      "afterCity": 1240,
+      "beforeDeed": 189837,
+      "afterDeed": 137715,
+      "saveSha256": "241828200f8f9c4a49114aacfd2c0c2ea4873a550324256b930f08cc3a1d52da"
+    },
+    {
+      "target": 28,
+      "count": 18,
+      "cost": 135378,
+      "beforeCity": 1240,
+      "afterCity": 1258,
+      "beforeDeed": 137715,
+      "afterDeed": 2337,
+      "saveSha256": "3645c0af6669a0cf5139ad10898e9f1ff54a633636d5dd8a0a0ad04152b9a1d9"
+    },
+    {
+      "target": 28,
+      "count": 25,
+      "cost": 191249,
+      "beforeCity": 1258,
+      "afterCity": 1283,
+      "beforeDeed": 196737,
+      "afterDeed": 5488,
+      "saveSha256": "669043c56be0e13e66e30d9a913937613f9d359aca487051f0b4d404f56306ae"
+    },
+    {
+      "target": 28,
+      "count": 25,
+      "cost": 195000,
+      "beforeCity": 1283,
+      "afterCity": 1308,
+      "beforeDeed": 199888,
+      "afterDeed": 4888,
+      "saveSha256": "727743e8740c7b5ac7dae4d42e66688ff246b4e120fdbfa26752cf9d82f34053"
+    },
+    {
+      "target": 28,
+      "count": 7,
+      "cost": 55272,
+      "beforeCity": 1308,
+      "afterCity": 1315,
+      "beforeDeed": 199288,
+      "afterDeed": 144016,
+      "saveSha256": "f495733674394ab79d1aac87503319dcfdc4b78865e6bf418862c3ec9d090989"
+    },
+    {
+      "target": 29,
+      "count": 18,
+      "cost": 143478,
+      "beforeCity": 1315,
+      "afterCity": 1333,
+      "beforeDeed": 144016,
+      "afterDeed": 538,
+      "saveSha256": "c7d140ca1ad8510eaa95bef1b7d0ca56124f0a8e3225aa74842b6ac1fa4a4c7b"
+    },
+    {
+      "target": 29,
+      "count": 24,
+      "cost": 194328,
+      "beforeCity": 1333,
+      "afterCity": 1357,
+      "beforeDeed": 194938,
+      "afterDeed": 610,
+      "saveSha256": "ad32cf4f6fd1ed07be2c970d1e97003161d340af6d871596d240641e6c4e2c64"
+    },
+    {
+      "target": 29,
+      "count": 23,
+      "cost": 189474,
+      "beforeCity": 1357,
+      "afterCity": 1380,
+      "beforeDeed": 195010,
+      "afterDeed": 5536,
+      "saveSha256": "81c5b6a33997a14be7d3386ad4502cc6b977f6dbcae715f57d2f656c121de0d5"
+    },
+    {
+      "target": 29,
+      "count": 10,
+      "cost": 83370,
+      "beforeCity": 1380,
+      "afterCity": 1390,
+      "beforeDeed": 199936,
+      "afterDeed": 116566,
+      "saveSha256": "74bfa96b044feb12f2f675e71233211083873e195ffac0c016e6d093315aecd4"
+    },
+    {
+      "target": 30,
+      "count": 13,
+      "cost": 109278,
+      "beforeCity": 1390,
+      "afterCity": 1403,
+      "beforeDeed": 116566,
+      "afterDeed": 7288,
+      "saveSha256": "498b1df193e346b3a18e78b5bc9018fda4144dde02c969f95fe6df518d3b4ff6"
+    },
+    {
+      "target": 30,
+      "count": 23,
+      "cost": 195822,
+      "beforeCity": 1403,
+      "afterCity": 1426,
+      "beforeDeed": 201688,
+      "afterDeed": 5866,
+      "saveSha256": "023f338d3966c96d71707828efbcf591063dd04fdb209fa71ff4c931dd4b171c"
+    },
+    {
+      "target": 30,
+      "count": 23,
+      "cost": 198996,
+      "beforeCity": 1426,
+      "afterCity": 1449,
+      "beforeDeed": 200266,
+      "afterDeed": 1270,
+      "saveSha256": "e301778984a47a536d347da4e07b13a3d7b405bf4aabc0f1198b6bac6840b61a"
+    },
+    {
+      "target": 30,
+      "count": 16,
+      "cost": 140304,
+      "beforeCity": 1449,
+      "afterCity": 1465,
+      "beforeDeed": 195670,
+      "afterDeed": 55366,
+      "saveSha256": "9c2b80ea32a52eee372bf4f599a57d18c87cbb14f7d1a215ff2c4a5a3d433e69"
+    }
+  ],
+  "offline": [
+    {
+      "index": 1,
+      "target": 26,
+      "seconds": 86400,
+      "beforeDeed": 4551,
+      "afterDeed": 191175,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 186624,
+      "saveSha256": "f45174f40ecd542ec776cd3b003f00335dabb6a4d16cb86a5ba2dfc7f9dd92d3"
+    },
+    {
+      "index": 2,
+      "target": 26,
+      "seconds": 86400,
+      "beforeDeed": 3267,
+      "afterDeed": 189891,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 186624,
+      "saveSha256": "af4cd3dd7f41df24bfd8895aaa7f1e2eae18f0e5215bb508c586c1f77e948528"
+    },
+    {
+      "index": 3,
+      "target": 26,
+      "seconds": 86400,
+      "beforeDeed": 4239,
+      "afterDeed": 190863,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 186624,
+      "saveSha256": "75ad6fd1cd7627791032ec9c80d6e1b1485f26985d28b980bd5f748aa3bfb5fd"
+    },
+    {
+      "index": 4,
+      "target": 27,
+      "seconds": 86400,
+      "beforeDeed": 837,
+      "afterDeed": 187461,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 186624,
+      "saveSha256": "a7504c02a2ad54c44641f27b784c78de8c5219b0d202c11b9e2b4a46d395e131"
+    },
+    {
+      "index": 5,
+      "target": 27,
+      "seconds": 86400,
+      "beforeDeed": 339,
+      "afterDeed": 186963,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 186624,
+      "saveSha256": "67e14b0fed5e8daf384c4979653c088c629515f2e940c44f052f7eaffbec4f22"
+    },
+    {
+      "index": 6,
+      "target": 27,
+      "seconds": 86400,
+      "beforeDeed": 3213,
+      "afterDeed": 189837,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 186624,
+      "saveSha256": "bfb0344c3ca17ef0760e0f50d4e01cd11024bac7a10272f30845f9f47ab994fe"
+    },
+    {
+      "index": 7,
+      "target": 28,
+      "seconds": 86400,
+      "beforeDeed": 2337,
+      "afterDeed": 196737,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 194400,
+      "saveSha256": "487f11c1a9ffc7e9abf0fdce2ed30fe7bda8841c47943b5554552c6154ff66d6"
+    },
+    {
+      "index": 8,
+      "target": 28,
+      "seconds": 86400,
+      "beforeDeed": 5488,
+      "afterDeed": 199888,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 194400,
+      "saveSha256": "48538778beff9c6d864ec4f97340d6af3bb3adfe75d38255e1693dc14dea0fe0"
+    },
+    {
+      "index": 9,
+      "target": 28,
+      "seconds": 86400,
+      "beforeDeed": 4888,
+      "afterDeed": 199288,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 194400,
+      "saveSha256": "14221e2f23e85e2337fb522cbba875fcb8dfc58c2453ebb74c39ff44eb35e19d"
+    },
+    {
+      "index": 10,
+      "target": 29,
+      "seconds": 86400,
+      "beforeDeed": 538,
+      "afterDeed": 194938,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 194400,
+      "saveSha256": "5b1f898ad8ae1e4a8fb0043298b342c48f9cb7b5f1a5946f1d67d36d221923f0"
+    },
+    {
+      "index": 11,
+      "target": 29,
+      "seconds": 86400,
+      "beforeDeed": 610,
+      "afterDeed": 195010,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 194400,
+      "saveSha256": "d73e42aa789119a2f2b2685cc7f780ccf1cfa023db6bce5a52029e4cd492328c"
+    },
+    {
+      "index": 12,
+      "target": 29,
+      "seconds": 86400,
+      "beforeDeed": 5536,
+      "afterDeed": 199936,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 194400,
+      "saveSha256": "e08d0c22d7f8a6fd9c68e7cc5574abb73d0e1d12790c45dd39a53780e1df236e"
+    },
+    {
+      "index": 13,
+      "target": 30,
+      "seconds": 86400,
+      "beforeDeed": 7288,
+      "afterDeed": 201688,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 194400,
+      "saveSha256": "0eec432c4406141dfbca2789614d06bbf70ad1aacdbe29879a230b0a0caec568"
+    },
+    {
+      "index": 14,
+      "target": 30,
+      "seconds": 86400,
+      "beforeDeed": 5866,
+      "afterDeed": 200266,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 194400,
+      "saveSha256": "1fd3791a4a9cb8bbd217434356eee2d803731767223d45b3c28a9543ef35763b"
+    },
+    {
+      "index": 15,
+      "target": 30,
+      "seconds": 86400,
+      "beforeDeed": 1270,
+      "afterDeed": 195670,
+      "beforeFood": 480699,
+      "afterFood": 480699,
+      "gain": 194400,
+      "saveSha256": "939db92dd8f98a101e22264d538e2c535b1ca67d9d2fab0069ac70903a9572b6"
+    }
+  ],
+  "starSteps": [
+    {
+      "target": 26,
+      "before": {
+        "tick": 14139292,
+        "ts": 1792612994000,
+        "city": 1165,
+        "deed": 120993,
+        "food": 480699,
+        "tech": 307340352,
+        "medal": 6335671,
+        "stars": 25,
+        "multiplier": 3.5,
+        "field": 929,
+        "army": 672,
+        "deployed": 626,
+        "garrison": 0,
+        "alert": 0,
+        "daily": {
+          "starBeast6": 1,
+          "starBeastCalm": 1
+        },
+        "weapon": {
+          "researched": true,
+          "level": 1,
+          "progress": 0,
+          "equipped": true
+        }
+      },
+      "step": {
+        "ok": true,
+        "stars": 26,
+        "fieldSize": 629,
+        "multiplier": 3.6
+      },
+      "after": {
+        "tick": 14139292,
+        "ts": 1792612994000,
+        "city": 1165,
+        "deed": 120993,
+        "food": 480699,
+        "tech": 307340352,
+        "medal": 6335671,
+        "stars": 26,
+        "multiplier": 3.6,
+        "field": 629,
+        "army": 672,
+        "deployed": 626,
+        "garrison": 0,
+        "alert": 0,
+        "daily": {
+          "starBeast6": 1,
+          "starBeastCalm": 1
+        },
+        "weapon": {
+          "researched": true,
+          "level": 1,
+          "progress": 0,
+          "equipped": true
+        }
+      },
+      "saveSha256": "4212cbba8bf648b3a092103ccbd6568c0032aaaaa4d5ae65d20bcdb0afaa6caf"
+    },
+    {
+      "target": 27,
+      "before": {
+        "tick": 14398492,
+        "ts": 1792872194000,
+        "city": 1240,
+        "deed": 137715,
+        "food": 480699,
+        "tech": 307340352,
+        "medal": 7268791,
+        "stars": 26,
+        "multiplier": 3.6,
+        "field": 929,
+        "army": 672,
+        "deployed": 626,
+        "garrison": 0,
+        "alert": 0,
+        "daily": {
+          "starBeast6": 1,
+          "starBeastCalm": 1
+        },
+        "weapon": {
+          "researched": true,
+          "level": 1,
+          "progress": 0,
+          "equipped": true
+        }
+      },
+      "step": {
+        "ok": true,
+        "stars": 27,
+        "fieldSize": 629,
+        "multiplier": 3.7
+      },
+      "after": {
+        "tick": 14398492,
+        "ts": 1792872194000,
+        "city": 1240,
+        "deed": 137715,
+        "food": 480699,
+        "tech": 307340352,
+        "medal": 7268791,
+        "stars": 27,
+        "multiplier": 3.7,
+        "field": 629,
+        "army": 672,
+        "deployed": 626,
+        "garrison": 0,
+        "alert": 0,
+        "daily": {
+          "starBeast6": 1,
+          "starBeastCalm": 1
+        },
+        "weapon": {
+          "researched": true,
+          "level": 1,
+          "progress": 0,
+          "equipped": true
+        }
+      },
+      "saveSha256": "09a9a4c710f6947902e6ed9d4c533a5e7b23bd9415ca0182f62365a65989a5da"
+    },
+    {
+      "target": 28,
+      "before": {
+        "tick": 14657692,
+        "ts": 1793131394000,
+        "city": 1315,
+        "deed": 144016,
+        "food": 480699,
+        "tech": 307340352,
+        "medal": 8240791,
+        "stars": 27,
+        "multiplier": 3.7,
+        "field": 929,
+        "army": 672,
+        "deployed": 626,
+        "garrison": 0,
+        "alert": 0,
+        "daily": {
+          "starBeast6": 1,
+          "starBeastCalm": 1
+        },
+        "weapon": {
+          "researched": true,
+          "level": 1,
+          "progress": 0,
+          "equipped": true
+        }
+      },
+      "step": {
+        "ok": true,
+        "stars": 28,
+        "fieldSize": 629,
+        "multiplier": 3.8000000000000003
+      },
+      "after": {
+        "tick": 14657692,
+        "ts": 1793131394000,
+        "city": 1315,
+        "deed": 144016,
+        "food": 480699,
+        "tech": 307340352,
+        "medal": 8240791,
+        "stars": 28,
+        "multiplier": 3.8000000000000003,
+        "field": 629,
+        "army": 672,
+        "deployed": 626,
+        "garrison": 0,
+        "alert": 0,
+        "daily": {
+          "starBeast6": 1,
+          "starBeastCalm": 1
+        },
+        "weapon": {
+          "researched": true,
+          "level": 1,
+          "progress": 0,
+          "equipped": true
+        }
+      },
+      "saveSha256": "6f435662a45f9bd2f8ffcd41a07a92d16bb9fa1fca2d4e6d29f6e262897bca15"
+    },
+    {
+      "target": 29,
+      "before": {
+        "tick": 14916892,
+        "ts": 1793390594000,
+        "city": 1390,
+        "deed": 116566,
+        "food": 480699,
+        "tech": 307340352,
+        "medal": 9212791,
+        "stars": 28,
+        "multiplier": 3.8000000000000003,
+        "field": 929,
+        "army": 672,
+        "deployed": 626,
+        "garrison": 0,
+        "alert": 0,
+        "daily": {
+          "starBeast6": 1,
+          "starBeastCalm": 1
+        },
+        "weapon": {
+          "researched": true,
+          "level": 1,
+          "progress": 0,
+          "equipped": true
+        }
+      },
+      "step": {
+        "ok": true,
+        "stars": 29,
+        "fieldSize": 629,
+        "multiplier": 3.9000000000000004
+      },
+      "after": {
+        "tick": 14916892,
+        "ts": 1793390594000,
+        "city": 1390,
+        "deed": 116566,
+        "food": 480699,
+        "tech": 307340352,
+        "medal": 9212791,
+        "stars": 29,
+        "multiplier": 3.9000000000000004,
+        "field": 629,
+        "army": 672,
+        "deployed": 626,
+        "garrison": 0,
+        "alert": 0,
+        "daily": {
+          "starBeast6": 1,
+          "starBeastCalm": 1
+        },
+        "weapon": {
+          "researched": true,
+          "level": 1,
+          "progress": 0,
+          "equipped": true
+        }
+      },
+      "saveSha256": "8ce3a96c53f8bbec2f9a870f3018436afcdfaccc72c984944e3299ed5756eb60"
+    },
+    {
+      "target": 30,
+      "before": {
+        "tick": 15176092,
+        "ts": 1793649794000,
+        "city": 1465,
+        "deed": 55366,
+        "food": 480699,
+        "tech": 307340352,
+        "medal": 10184791,
+        "stars": 29,
+        "multiplier": 3.9000000000000004,
+        "field": 929,
+        "army": 672,
+        "deployed": 626,
+        "garrison": 0,
+        "alert": 0,
+        "daily": {
+          "starBeast6": 1,
+          "starBeastCalm": 1
+        },
+        "weapon": {
+          "researched": true,
+          "level": 1,
+          "progress": 0,
+          "equipped": true
+        }
+      },
+      "step": {
+        "ok": true,
+        "stars": 30,
+        "fieldSize": 629,
+        "multiplier": 4
+      },
+      "after": {
+        "tick": 15176092,
+        "ts": 1793649794000,
+        "city": 1465,
+        "deed": 55366,
+        "food": 480699,
+        "tech": 307340352,
+        "medal": 10184791,
+        "stars": 30,
+        "multiplier": 4,
+        "field": 629,
+        "army": 672,
+        "deployed": 626,
+        "garrison": 0,
+        "alert": 0,
+        "daily": {
+          "starBeast6": 1,
+          "starBeastCalm": 1
+        },
+        "weapon": {
+          "researched": true,
+          "level": 1,
+          "progress": 0,
+          "equipped": true
+        }
+      },
+      "saveSha256": "f035783e5ff578a93520e29bc6832d65c28125664b3a94634686eb2d2b7164f2"
+    }
+  ],
+  "milestones": [
+    {
+      "target": 30,
+      "file": "p397-star-beast-star30-paid-save.json",
+      "sha256": "f035783e5ff578a93520e29bc6832d65c28125664b3a94634686eb2d2b7164f2",
+      "state": {
+        "tick": 15176092,
+        "ts": 1793649794000,
+        "city": 1465,
+        "deed": 55366,
+        "food": 480699,
+        "tech": 307340352,
+        "medal": 10184791,
+        "stars": 30,
+        "multiplier": 4,
+        "field": 629,
+        "army": 672,
+        "deployed": 626,
+        "garrison": 0,
+        "alert": 0,
+        "daily": {
+          "starBeast6": 1,
+          "starBeastCalm": 1
+        },
+        "weapon": {
+          "researched": true,
+          "level": 1,
+          "progress": 0,
+          "equipped": true
+        }
+      }
+    }
+  ],
+  "stopped": null,
+  "final": {
+    "tick": 15176092,
+    "ts": 1793649794000,
+    "city": 1465,
+    "deed": 55366,
+    "food": 480699,
+    "tech": 307340352,
+    "medal": 10184791,
+    "stars": 30,
+    "multiplier": 4,
+    "field": 629,
+    "army": 672,
+    "deployed": 626,
+    "garrison": 0,
+    "alert": 0,
+    "daily": {
+      "starBeast6": 1,
+      "starBeastCalm": 1
+    },
+    "weapon": {
+      "researched": true,
+      "level": 1,
+      "progress": 0,
+      "equipped": true
+    }
+  },
+  "finalSaveFile": "p397-star-beast-last-star-paid-save.json",
+  "finalSaveSha256": "f035783e5ff578a93520e29bc6832d65c28125664b3a94634686eb2d2b7164f2"
+}

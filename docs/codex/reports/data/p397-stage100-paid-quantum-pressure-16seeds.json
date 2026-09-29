@@ -1,0 +1,8006 @@
+{
+  "batch": "P397",
+  "kind": "isolated stage-100 candidate, real callbacks and save/reload",
+  "units": "soldiers, HP and battle rounds; no economic recovery measured",
+  "inputs": {
+    "preArray": {
+      "name": "p386-300m-paid-save.json",
+      "hash": "7f27ca4a53ba412e187ec72aeaaf6349f1bba00185ae422ac959dac8e557f5cf"
+    },
+    "preQuantum": {
+      "name": "p397-quantum-bounded-cycle-save.json",
+      "hash": "c8b71c92ad325efec241fba561e852c448c5d2c156ceb30bd9673a7f23e3afe1"
+    },
+    "paidQuantum": {
+      "name": "p397-quantum-two-stores-save.json",
+      "hash": "c057701bbbfcf6d4763696e47cba0d10e37704b75f8f4cd5031a3cb050e7bea8"
+    }
+  },
+  "eligibility": {
+    "preArray": {
+      "array": false,
+      "quantum": false,
+      "clear99": true,
+      "clear100": false,
+      "selectable": false,
+      "reason": "需先研究「星辉圣阵」与「星界量子时代」",
+      "deployed": 626,
+      "quantumDeployed": 0
+    },
+    "preQuantum": {
+      "array": true,
+      "quantum": false,
+      "clear99": true,
+      "clear100": false,
+      "selectable": false,
+      "reason": "需先研究「星界量子时代」",
+      "deployed": 626,
+      "quantumDeployed": 0
+    },
+    "paidQuantum": {
+      "array": true,
+      "quantum": true,
+      "clear99": true,
+      "clear100": false,
+      "selectable": true,
+      "reason": "",
+      "deployed": 626,
+      "quantumDeployed": 0
+    }
+  },
+  "sourceHashes": [
+    {
+      "file": "config.js",
+      "hash": "85501a43d1257c2d189d517fd9dd4edb33e5cc3764f13759ee82d9d7f05a0b01"
+    },
+    {
+      "file": "levels.js",
+      "hash": "cec80c26fa91f941994c253a2fe73be0dfe3f108237620b662fdab9f5449fd1d"
+    },
+    {
+      "file": "math.js",
+      "hash": "88f9c84b549f4b80d331faa59c2a540973c98c5f1caadae5a3d04e7df5941e3f"
+    },
+    {
+      "file": "garrison.js",
+      "hash": "4d233f0529d256cd1ace2de782603fcfcbbff110032ca4cf29c5e36af30f10ff"
+    },
+    {
+      "file": "technology.js",
+      "hash": "9b35d51f46e636713f06cedfb003a19c338026ab2bfbbc80f8c63bc8ef99e486"
+    },
+    {
+      "file": "tests/progression/harness.js",
+      "hash": "4770d17fa72cc8c87f4c8ef79678f19d63a41da895b8dd58776e5a39ce2ede2b"
+    },
+    {
+      "file": "tools/verify/probe-stage100-paid-quantum-pressure-p397.js",
+      "hash": "67c44bdcd1a7fab11910a7ebd8a0fe4480060182a226302f511140deea64ff8f"
+    }
+  ],
+  "scales": [
+    1,
+    10,
+    20,
+    30,
+    40,
+    50,
+    60,
+    80,
+    100,
+    120,
+    140,
+    160,
+    180
+  ],
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+  ],
+  "summary": [
+    {
+      "profile": "preQuantum",
+      "perGroup": 1,
+      "totalEnemy": 11,
+      "wins": 16,
+      "of": 16,
+      "meanWinLoss": 1,
+      "minWinLoss": 0,
+      "maxWinLoss": 3,
+      "meanRounds": 2,
+      "fullArmyLosses": 0
+    },
+    {
+      "profile": "preQuantum",
+      "perGroup": 10,
+      "totalEnemy": 110,
+      "wins": 16,
+      "of": 16,
+      "meanWinLoss": 8.75,
+      "minWinLoss": 4,
+      "maxWinLoss": 15,
+      "meanRounds": 2,
+      "fullArmyLosses": 0
+    },
+    {
+      "profile": "preQuantum",
+      "perGroup": 20,
+      "totalEnemy": 220,
+      "wins": 16,
+      "of": 16,
+      "meanWinLoss": 20.5625,
+      "minWinLoss": 12,
+      "maxWinLoss": 40,
+      "meanRounds": 2,
+      "fullArmyLosses": 0
+    },
+    {
+      "profile": "preQuantum",
+      "perGroup": 30,
+      "totalEnemy": 330,
+      "wins": 16,
+      "of": 16,
+      "meanWinLoss": 41,
+      "minWinLoss": 14,
+      "maxWinLoss": 77,
+      "meanRounds": 2.1875,
+      "fullArmyLosses": 0
+    },
+    {
+      "profile": "preQuantum",
+      "perGroup": 40,
+      "totalEnemy": 440,
+      "wins": 16,
+      "of": 16,
+      "meanWinLoss": 70.9375,
+      "minWinLoss": 28,
+      "maxWinLoss": 147,
+      "meanRounds": 2.25,
+      "fullArmyLosses": 0
+    },
+    {
+      "profile": "preQuantum",
+      "perGroup": 50,
+      "totalEnemy": 550,
+      "wins": 16,
+      "of": 16,
+      "meanWinLoss": 112.3125,
+      "minWinLoss": 67,
+      "maxWinLoss": 193,
+      "meanRounds": 2.625,
+      "fullArmyLosses": 0
+    },
+    {
+      "profile": "preQuantum",
+      "perGroup": 60,
+      "totalEnemy": 660,
+      "wins": 16,
+      "of": 16,
+      "meanWinLoss": 159.8125,
+      "minWinLoss": 85,
+      "maxWinLoss": 234,
+      "meanRounds": 3.0625,
+      "fullArmyLosses": 0
+    },
+    {
+      "profile": "preQuantum",
+      "perGroup": 80,
+      "totalEnemy": 880,
+      "wins": 16,
+      "of": 16,
+      "meanWinLoss": 241.9375,
+      "minWinLoss": 145,
+      "maxWinLoss": 337,
+      "meanRounds": 3.5625,
+      "fullArmyLosses": 0
+    },
+    {
+      "profile": "preQuantum",
+      "perGroup": 100,
+      "totalEnemy": 1100,
+      "wins": 16,
+      "of": 16,
+      "meanWinLoss": 274,
+      "minWinLoss": 176,
+      "maxWinLoss": 381,
+      "meanRounds": 3.9375,
+      "fullArmyLosses": 0
+    },
+    {
+      "profile": "preQuantum",
+      "perGroup": 120,
+      "totalEnemy": 1320,
+      "wins": 16,
+      "of": 16,
+      "meanWinLoss": 350.3125,
+      "minWinLoss": 239,
+      "maxWinLoss": 452,
+      "meanRounds": 4.4375,
+      "fullArmyLosses": 0
+    },
+    {
+      "profile": "preQuantum",
+      "perGroup": 140,
+      "totalEnemy": 1540,
+      "wins": 16,
+      "of": 16,
+      "meanWinLoss": 379.1875,
+      "minWinLoss": 266,
+      "maxWinLoss": 523,
+      "meanRounds": 4.6875,
+      "fullArmyLosses": 0
+    },
+    {
+      "profile": "preQuantum",
+      "perGroup": 160,
+      "totalEnemy": 1760,
+      "wins": 16,
+      "of": 16,
+      "meanWinLoss": 439.9375,
+      "minWinLoss": 300,
+      "maxWinLoss": 541,
+      "meanRounds": 4.8125,
+      "fullArmyLosses": 0
+    },
+    {
+      "profile": "preQuantum",
+      "perGroup": 180,
+      "totalEnemy": 1980,
+      "wins": 16,
+      "of": 16,
+      "meanWinLoss": 477.5625,
+      "minWinLoss": 372,
+      "maxWinLoss": 544,
+      "meanRounds": 5.0625,
+      "fullArmyLosses": 0
+    },
+    {
+      "profile": "paidQuantum",
+      "perGroup": 1,
+      "totalEnemy": 11,
+      "wins": 16,
+      "of": 16,
+      "meanWinLoss": 1,
+      "minWinLoss": 0,
+      "maxWinLoss": 3,
+      "meanRounds": 2,
+      "fullArmyLosses": 0
+    },
+    {
+      "profile": "paidQuantum",
+      "perGroup": 10,
+      "totalEnemy": 110,
+      "wins": 16,
+      "of": 16,
+      "meanWinLoss": 8.75,
+      "minWinLoss": 4,
+      "maxWinLoss": 15,
+      "meanRounds": 2,
+      "fullArmyLosses": 0
+    },
+    {
+      "profile": "paidQuantum",
+      "perGroup": 20,
+      "totalEnemy": 220,
+      "wins": 16,
+      "of": 16,
+      "meanWinLoss": 20.5625,
+      "minWinLoss": 12,
+      "maxWinLoss": 40,
+      "meanRounds": 2,
+      "fullArmyLosses": 0
+    },
+    {
+      "profile": "paidQuantum",
+      "perGroup": 30,
+      "totalEnemy": 330,
+      "wins": 16,
+      "of": 16,
+      "meanWinLoss": 41,
+      "minWinLoss": 14,
+      "maxWinLoss": 77,
+      "meanRounds": 2.1875,
+      "fullArmyLosses": 0
+    },
+    {
+      "profile": "paidQuantum",
+      "perGroup": 40,
+      "totalEnemy": 440,
+      "wins": 16,
+      "of": 16,
+      "meanWinLoss": 70.9375,
+      "minWinLoss": 28,
+      "maxWinLoss": 147,
+      "meanRounds": 2.25,
+      "fullArmyLosses": 0
+    },
+    {
+      "profile": "paidQuantum",
+      "perGroup": 50,
+      "totalEnemy": 550,
+      "wins": 16,
+      "of": 16,
+      "meanWinLoss": 112.3125,
+      "minWinLoss": 67,
+      "maxWinLoss": 193,
+      "meanRounds": 2.625,
+      "fullArmyLosses": 0
+    },
+    {
+      "profile": "paidQuantum",
+      "perGroup": 60,
+      "totalEnemy": 660,
+      "wins": 16,
+      "of": 16,
+      "meanWinLoss": 159.8125,
+      "minWinLoss": 85,
+      "maxWinLoss": 234,
+      "meanRounds": 3.0625,
+      "fullArmyLosses": 0
+    },
+    {
+      "profile": "paidQuantum",
+      "perGroup": 80,
+      "totalEnemy": 880,
+      "wins": 16,
+      "of": 16,
+      "meanWinLoss": 241.9375,
+      "minWinLoss": 145,
+      "maxWinLoss": 337,
+      "meanRounds": 3.5625,
+      "fullArmyLosses": 0
+    },
+    {
+      "profile": "paidQuantum",
+      "perGroup": 100,
+      "totalEnemy": 1100,
+      "wins": 16,
+      "of": 16,
+      "meanWinLoss": 274,
+      "minWinLoss": 176,
+      "maxWinLoss": 381,
+      "meanRounds": 3.9375,
+      "fullArmyLosses": 0
+    },
+    {
+      "profile": "paidQuantum",
+      "perGroup": 120,
+      "totalEnemy": 1320,
+      "wins": 16,
+      "of": 16,
+      "meanWinLoss": 350.3125,
+      "minWinLoss": 239,
+      "maxWinLoss": 452,
+      "meanRounds": 4.4375,
+      "fullArmyLosses": 0
+    },
+    {
+      "profile": "paidQuantum",
+      "perGroup": 140,
+      "totalEnemy": 1540,
+      "wins": 16,
+      "of": 16,
+      "meanWinLoss": 379.1875,
+      "minWinLoss": 266,
+      "maxWinLoss": 523,
+      "meanRounds": 4.6875,
+      "fullArmyLosses": 0
+    },
+    {
+      "profile": "paidQuantum",
+      "perGroup": 160,
+      "totalEnemy": 1760,
+      "wins": 16,
+      "of": 16,
+      "meanWinLoss": 439.9375,
+      "minWinLoss": 300,
+      "maxWinLoss": 541,
+      "meanRounds": 4.8125,
+      "fullArmyLosses": 0
+    },
+    {
+      "profile": "paidQuantum",
+      "perGroup": 180,
+      "totalEnemy": 1980,
+      "wins": 16,
+      "of": 16,
+      "meanWinLoss": 477.5625,
+      "minWinLoss": 372,
+      "maxWinLoss": 544,
+      "meanRounds": 5.0625,
+      "fullArmyLosses": 0
+    }
+  ],
+  "rows": [
+    {
+      "profile": "preQuantum",
+      "scale": 1,
+      "seed": 1,
+      "enemy": {
+        "groups": 11,
+        "people": 11,
+        "hp": 11
+      },
+      "won": true,
+      "loss": 0,
+      "deployedBefore": 626,
+      "deployedAfter": 626,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 30,
+      "saveHash": "0160eaa86839396242ca6dc76b00f9b14e05da3b136959f5cf77f1752c5d87f0"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 1,
+      "seed": 2,
+      "enemy": {
+        "groups": 11,
+        "people": 11,
+        "hp": 11
+      },
+      "won": true,
+      "loss": 0,
+      "deployedBefore": 626,
+      "deployedAfter": 626,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 27,
+      "saveHash": "8b5957d6d315a2e84f528bab696c7b1ad8f4364f64756c8f70d22681c82461f8"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 1,
+      "seed": 3,
+      "enemy": {
+        "groups": 11,
+        "people": 11,
+        "hp": 11
+      },
+      "won": true,
+      "loss": 1,
+      "deployedBefore": 626,
+      "deployedAfter": 625,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 29,
+      "saveHash": "acd46f7ddb5e243b974b27cf3e0a5f3d58000934d82d1ff8a8e2605234661a00"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 1,
+      "seed": 4,
+      "enemy": {
+        "groups": 11,
+        "people": 11,
+        "hp": 11
+      },
+      "won": true,
+      "loss": 1,
+      "deployedBefore": 626,
+      "deployedAfter": 625,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 30,
+      "saveHash": "d404488233b9d7d715654c7e76c4ff3362009a1be826f80d8f5fc709f54d5b88"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 1,
+      "seed": 5,
+      "enemy": {
+        "groups": 11,
+        "people": 11,
+        "hp": 11
+      },
+      "won": true,
+      "loss": 2,
+      "deployedBefore": 626,
+      "deployedAfter": 624,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 30,
+      "saveHash": "bff7fd93e537fddcfe42065fe388c915ce24e98303a23785fa518525b1448c6f"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 1,
+      "seed": 6,
+      "enemy": {
+        "groups": 11,
+        "people": 11,
+        "hp": 11
+      },
+      "won": true,
+      "loss": 2,
+      "deployedBefore": 626,
+      "deployedAfter": 624,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 28,
+      "saveHash": "d20a150104ae9b23dfcf92f56c0d81ff7cfb8c0faccf54385a9d7462bac7bc6d"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 1,
+      "seed": 7,
+      "enemy": {
+        "groups": 11,
+        "people": 11,
+        "hp": 11
+      },
+      "won": true,
+      "loss": 0,
+      "deployedBefore": 626,
+      "deployedAfter": 626,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 29,
+      "saveHash": "b5bfdac08417abaa1339b92553b68a196daf644c2c19c50c6861ce99f798ad19"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 1,
+      "seed": 8,
+      "enemy": {
+        "groups": 11,
+        "people": 11,
+        "hp": 11
+      },
+      "won": true,
+      "loss": 1,
+      "deployedBefore": 626,
+      "deployedAfter": 625,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 23,
+      "saveHash": "d318b4b205ec4dd3763280a7627002bd7b265d83819ca49187bd99d9204348a7"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 1,
+      "seed": 9,
+      "enemy": {
+        "groups": 11,
+        "people": 11,
+        "hp": 11
+      },
+      "won": true,
+      "loss": 1,
+      "deployedBefore": 626,
+      "deployedAfter": 625,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 29,
+      "saveHash": "036259b6262b7212bd9790be75c970beeff1cbb2fcb18cf13723e3762c445bd2"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 1,
+      "seed": 10,
+      "enemy": {
+        "groups": 11,
+        "people": 11,
+        "hp": 11
+      },
+      "won": true,
+      "loss": 0,
+      "deployedBefore": 626,
+      "deployedAfter": 626,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 27,
+      "saveHash": "b87d6ec196f6fe8f3daa6378450e96d413cc0938908b50eb88bb3ee05fb36ca8"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 1,
+      "seed": 11,
+      "enemy": {
+        "groups": 11,
+        "people": 11,
+        "hp": 11
+      },
+      "won": true,
+      "loss": 0,
+      "deployedBefore": 626,
+      "deployedAfter": 626,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 30,
+      "saveHash": "6f98e2dcab9273c151c77d58ccd53e2afe715212cf817e3b220ba73d01e5e05c"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 1,
+      "seed": 12,
+      "enemy": {
+        "groups": 11,
+        "people": 11,
+        "hp": 11
+      },
+      "won": true,
+      "loss": 1,
+      "deployedBefore": 626,
+      "deployedAfter": 625,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 24,
+      "saveHash": "6550eccbd94ce364296ec30a9e3fa2eda172bfa5d145bb279e3e51d940c19af4"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 1,
+      "seed": 13,
+      "enemy": {
+        "groups": 11,
+        "people": 11,
+        "hp": 11
+      },
+      "won": true,
+      "loss": 3,
+      "deployedBefore": 626,
+      "deployedAfter": 623,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 27,
+      "saveHash": "5b4ba460f851b666aeef3ff4a609c5def495f05f88d3c62fdcdce1253ebbb5b2"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 1,
+      "seed": 14,
+      "enemy": {
+        "groups": 11,
+        "people": 11,
+        "hp": 11
+      },
+      "won": true,
+      "loss": 1,
+      "deployedBefore": 626,
+      "deployedAfter": 625,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 24,
+      "saveHash": "5ae6031f40092cf867ad44aec42bde5d56c3b8aad2296f3eb955395c3e0243e7"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 1,
+      "seed": 15,
+      "enemy": {
+        "groups": 11,
+        "people": 11,
+        "hp": 11
+      },
+      "won": true,
+      "loss": 2,
+      "deployedBefore": 626,
+      "deployedAfter": 624,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 26,
+      "saveHash": "e004360b10c7ab5e74d65ad38423d12f631aa16c9e816a29f45fba75f631468e"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 1,
+      "seed": 16,
+      "enemy": {
+        "groups": 11,
+        "people": 11,
+        "hp": 11
+      },
+      "won": true,
+      "loss": 1,
+      "deployedBefore": 626,
+      "deployedAfter": 625,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 28,
+      "saveHash": "d9a9a25264e3eb5f2ad3bc8641620957a5075cb0955a2a2d6871583c321ea407"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 10,
+      "seed": 1,
+      "enemy": {
+        "groups": 11,
+        "people": 110,
+        "hp": 110
+      },
+      "won": true,
+      "loss": 10,
+      "deployedBefore": 626,
+      "deployedAfter": 616,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 30,
+      "saveHash": "4aeb05d07a2aecc36e2d1ae60ff6ab85168b37dda72cefc45994769b9243d825"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 10,
+      "seed": 2,
+      "enemy": {
+        "groups": 11,
+        "people": 110,
+        "hp": 110
+      },
+      "won": true,
+      "loss": 4,
+      "deployedBefore": 626,
+      "deployedAfter": 622,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 27,
+      "saveHash": "c280408e1da31f1754c6459f7f615b7ccf052b2f3ae500a9fdac234a5509c1a3"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 10,
+      "seed": 3,
+      "enemy": {
+        "groups": 11,
+        "people": 110,
+        "hp": 110
+      },
+      "won": true,
+      "loss": 5,
+      "deployedBefore": 626,
+      "deployedAfter": 621,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 24,
+      "saveHash": "fab94a7b6ce1f00b1042466b3cf0daac349d9aef9a5c7fb6db203c3f48cbabe8"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 10,
+      "seed": 4,
+      "enemy": {
+        "groups": 11,
+        "people": 110,
+        "hp": 110
+      },
+      "won": true,
+      "loss": 5,
+      "deployedBefore": 626,
+      "deployedAfter": 621,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 29,
+      "saveHash": "fac0ac674778ce51286af0b0520cc665f257ac63a5203a4bda9a8c7cce51fb87"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 10,
+      "seed": 5,
+      "enemy": {
+        "groups": 11,
+        "people": 110,
+        "hp": 110
+      },
+      "won": true,
+      "loss": 15,
+      "deployedBefore": 626,
+      "deployedAfter": 611,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 30,
+      "saveHash": "c0d95a3dddee4966b6a1094864e4ed57c3191d4bc62e8fd309232413dc347b79"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 10,
+      "seed": 6,
+      "enemy": {
+        "groups": 11,
+        "people": 110,
+        "hp": 110
+      },
+      "won": true,
+      "loss": 7,
+      "deployedBefore": 626,
+      "deployedAfter": 619,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 28,
+      "saveHash": "1ff8e33571b0c61e254489346cbe7df3cf47b58457373bc0182131a5ff2b3e9e"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 10,
+      "seed": 7,
+      "enemy": {
+        "groups": 11,
+        "people": 110,
+        "hp": 110
+      },
+      "won": true,
+      "loss": 15,
+      "deployedBefore": 626,
+      "deployedAfter": 611,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 29,
+      "saveHash": "e14e477a9cc98781e31ee7d663a2155c7fdaba3bd098b2d66b1f0c4422f1ceba"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 10,
+      "seed": 8,
+      "enemy": {
+        "groups": 11,
+        "people": 110,
+        "hp": 110
+      },
+      "won": true,
+      "loss": 14,
+      "deployedBefore": 626,
+      "deployedAfter": 612,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 23,
+      "saveHash": "abc69c2516e926db7013c57e4ffe4251786b4e598e55a69a39d6ecea3534e7e6"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 10,
+      "seed": 9,
+      "enemy": {
+        "groups": 11,
+        "people": 110,
+        "hp": 110
+      },
+      "won": true,
+      "loss": 8,
+      "deployedBefore": 626,
+      "deployedAfter": 618,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 29,
+      "saveHash": "77c07dd9aabeb1f814f3524d9fcf3746e3f84cbef83aa34afab04b05826bbb40"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 10,
+      "seed": 10,
+      "enemy": {
+        "groups": 11,
+        "people": 110,
+        "hp": 110
+      },
+      "won": true,
+      "loss": 4,
+      "deployedBefore": 626,
+      "deployedAfter": 622,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 27,
+      "saveHash": "89223eb6048d3395a20587158a07d6f22873d15c657a58736c2950a817860eb9"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 10,
+      "seed": 11,
+      "enemy": {
+        "groups": 11,
+        "people": 110,
+        "hp": 110
+      },
+      "won": true,
+      "loss": 7,
+      "deployedBefore": 626,
+      "deployedAfter": 619,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 30,
+      "saveHash": "2d8675a4cd08eae4acf728996b79230bb06084f9cb79fc968068e49bc53381c0"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 10,
+      "seed": 12,
+      "enemy": {
+        "groups": 11,
+        "people": 110,
+        "hp": 110
+      },
+      "won": true,
+      "loss": 9,
+      "deployedBefore": 626,
+      "deployedAfter": 617,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 24,
+      "saveHash": "09523b7a110d74d9b6fc277deeaedf1c622a7d04a161607180a0bd33a3ec7e5a"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 10,
+      "seed": 13,
+      "enemy": {
+        "groups": 11,
+        "people": 110,
+        "hp": 110
+      },
+      "won": true,
+      "loss": 11,
+      "deployedBefore": 626,
+      "deployedAfter": 615,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 27,
+      "saveHash": "272b261e6f712a6e4f14215cf2a58e8a512495edb914827bcf92d62e7ed8aed0"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 10,
+      "seed": 14,
+      "enemy": {
+        "groups": 11,
+        "people": 110,
+        "hp": 110
+      },
+      "won": true,
+      "loss": 7,
+      "deployedBefore": 626,
+      "deployedAfter": 619,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 24,
+      "saveHash": "7056652e8e8e73c90254bbbcc8c743ed96bbfff22bd622ac3a4f628b98574a8b"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 10,
+      "seed": 15,
+      "enemy": {
+        "groups": 11,
+        "people": 110,
+        "hp": 110
+      },
+      "won": true,
+      "loss": 7,
+      "deployedBefore": 626,
+      "deployedAfter": 619,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 26,
+      "saveHash": "87d2becf7e437c5e9522c9f94dca6b9fd6c4ef5ba87d002b5d180c23df1bbd61"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 10,
+      "seed": 16,
+      "enemy": {
+        "groups": 11,
+        "people": 110,
+        "hp": 110
+      },
+      "won": true,
+      "loss": 12,
+      "deployedBefore": 626,
+      "deployedAfter": 614,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 28,
+      "saveHash": "ef9f25d6d61dc3563b3a0d11935faead977085d5cf604a9b865b342644006131"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 20,
+      "seed": 1,
+      "enemy": {
+        "groups": 11,
+        "people": 220,
+        "hp": 220
+      },
+      "won": true,
+      "loss": 15,
+      "deployedBefore": 626,
+      "deployedAfter": 611,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 30,
+      "saveHash": "1b1678a31cf4177cdbd064c9347eea06ba8dad553a0d6cde64b69557c48a19d6"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 20,
+      "seed": 2,
+      "enemy": {
+        "groups": 11,
+        "people": 220,
+        "hp": 220
+      },
+      "won": true,
+      "loss": 21,
+      "deployedBefore": 626,
+      "deployedAfter": 605,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 30,
+      "saveHash": "bda2fe183917f027bea79f387fe53776e81dd01997abafed5a63ea0fb44f0646"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 20,
+      "seed": 3,
+      "enemy": {
+        "groups": 11,
+        "people": 220,
+        "hp": 220
+      },
+      "won": true,
+      "loss": 12,
+      "deployedBefore": 626,
+      "deployedAfter": 614,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 31,
+      "saveHash": "f9f367b6853b52f4593ca72294e240db53a0eba0e2f9e238e0390e715b171416"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 20,
+      "seed": 4,
+      "enemy": {
+        "groups": 11,
+        "people": 220,
+        "hp": 220
+      },
+      "won": true,
+      "loss": 32,
+      "deployedBefore": 626,
+      "deployedAfter": 594,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 33,
+      "saveHash": "75db7be49846502534d58fd3a03bc1dcaac6179e7a2331c31495ef76004c2361"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 20,
+      "seed": 5,
+      "enemy": {
+        "groups": 11,
+        "people": 220,
+        "hp": 220
+      },
+      "won": true,
+      "loss": 40,
+      "deployedBefore": 626,
+      "deployedAfter": 586,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 30,
+      "saveHash": "f7e677c235e503f4ad5a07fc29c84a55a0a4845a1c91d17f33d1b602b9f24f67"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 20,
+      "seed": 6,
+      "enemy": {
+        "groups": 11,
+        "people": 220,
+        "hp": 220
+      },
+      "won": true,
+      "loss": 30,
+      "deployedBefore": 626,
+      "deployedAfter": 596,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 28,
+      "saveHash": "65553a80522985b4359a52be14efd06327cfd4a5ef8867e927d77ad651382f58"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 20,
+      "seed": 7,
+      "enemy": {
+        "groups": 11,
+        "people": 220,
+        "hp": 220
+      },
+      "won": true,
+      "loss": 21,
+      "deployedBefore": 626,
+      "deployedAfter": 605,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 24,
+      "saveHash": "572bd5180af32f32fef8fc89dc0da9e576b06c1db921dd201f4cbf5b47b5d7b3"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 20,
+      "seed": 8,
+      "enemy": {
+        "groups": 11,
+        "people": 220,
+        "hp": 220
+      },
+      "won": true,
+      "loss": 21,
+      "deployedBefore": 626,
+      "deployedAfter": 605,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 27,
+      "saveHash": "f5c738363cbeb48096732d09b06d95ee054139da0ab99a9aab8d51e1346d15f1"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 20,
+      "seed": 9,
+      "enemy": {
+        "groups": 11,
+        "people": 220,
+        "hp": 220
+      },
+      "won": true,
+      "loss": 13,
+      "deployedBefore": 626,
+      "deployedAfter": 613,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 28,
+      "saveHash": "5ee376204e8ccb373372bfd97bb72336111e632254018b778c24c06944cbbc44"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 20,
+      "seed": 10,
+      "enemy": {
+        "groups": 11,
+        "people": 220,
+        "hp": 220
+      },
+      "won": true,
+      "loss": 23,
+      "deployedBefore": 626,
+      "deployedAfter": 603,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 29,
+      "saveHash": "3433491eea18e93b1ea17dd93fb84ba5e4f8d49403d3c33a92438f6fb44e3b94"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 20,
+      "seed": 11,
+      "enemy": {
+        "groups": 11,
+        "people": 220,
+        "hp": 220
+      },
+      "won": true,
+      "loss": 17,
+      "deployedBefore": 626,
+      "deployedAfter": 609,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 30,
+      "saveHash": "3cc54e13ffe6a9adb1506d5e5b16fd52d5f9c83aca924cec14e1f06637ea343c"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 20,
+      "seed": 12,
+      "enemy": {
+        "groups": 11,
+        "people": 220,
+        "hp": 220
+      },
+      "won": true,
+      "loss": 13,
+      "deployedBefore": 626,
+      "deployedAfter": 613,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 29,
+      "saveHash": "53a88064703327aaa58b2fe8ce35b0329a6baaa530ae65f19124a37ced805f16"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 20,
+      "seed": 13,
+      "enemy": {
+        "groups": 11,
+        "people": 220,
+        "hp": 220
+      },
+      "won": true,
+      "loss": 13,
+      "deployedBefore": 626,
+      "deployedAfter": 613,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 26,
+      "saveHash": "fc3fb5dddae724492a137c770e9af9de846525a1f95c81311ce1d55a7120cda8"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 20,
+      "seed": 14,
+      "enemy": {
+        "groups": 11,
+        "people": 220,
+        "hp": 220
+      },
+      "won": true,
+      "loss": 16,
+      "deployedBefore": 626,
+      "deployedAfter": 610,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 24,
+      "saveHash": "edf7dc019f1c7e81f5a3eb625ba140d481aa70b0305861b8cfa7eda4ce80320d"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 20,
+      "seed": 15,
+      "enemy": {
+        "groups": 11,
+        "people": 220,
+        "hp": 220
+      },
+      "won": true,
+      "loss": 16,
+      "deployedBefore": 626,
+      "deployedAfter": 610,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 29,
+      "saveHash": "6918b4077ef3d2e0b9694c70f09edd3d9230f197d9f94d555d69a3fc1d0a70c7"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 20,
+      "seed": 16,
+      "enemy": {
+        "groups": 11,
+        "people": 220,
+        "hp": 220
+      },
+      "won": true,
+      "loss": 26,
+      "deployedBefore": 626,
+      "deployedAfter": 600,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 28,
+      "saveHash": "286fe73b2e4256b55c512a7235d161b538ceec3dd430f41a4735aa19307c86a6"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 30,
+      "seed": 1,
+      "enemy": {
+        "groups": 11,
+        "people": 330,
+        "hp": 330
+      },
+      "won": true,
+      "loss": 75,
+      "deployedBefore": 626,
+      "deployedAfter": 551,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 43,
+      "saveHash": "628ceba0041929340b255b6094c4d50d587f88ef38091584a0f63797055d6bbe"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 30,
+      "seed": 2,
+      "enemy": {
+        "groups": 11,
+        "people": 330,
+        "hp": 330
+      },
+      "won": true,
+      "loss": 33,
+      "deployedBefore": 626,
+      "deployedAfter": 593,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 27,
+      "saveHash": "81fecc44e948e3ac891096026de6e181ea412e4788b53843a0cf2fbb855ea875"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 30,
+      "seed": 3,
+      "enemy": {
+        "groups": 11,
+        "people": 330,
+        "hp": 330
+      },
+      "won": true,
+      "loss": 26,
+      "deployedBefore": 626,
+      "deployedAfter": 600,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 28,
+      "saveHash": "ac887edee1a16b385997550ef2c1e00c2d26e523dd3c27eb3f8694cd98335556"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 30,
+      "seed": 4,
+      "enemy": {
+        "groups": 11,
+        "people": 330,
+        "hp": 330
+      },
+      "won": true,
+      "loss": 27,
+      "deployedBefore": 626,
+      "deployedAfter": 599,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 33,
+      "saveHash": "42d056f1f4f72775086cd70a6554a9e52b33f13082fd5cd7b20162ea9bbbf3e9"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 30,
+      "seed": 5,
+      "enemy": {
+        "groups": 11,
+        "people": 330,
+        "hp": 330
+      },
+      "won": true,
+      "loss": 77,
+      "deployedBefore": 626,
+      "deployedAfter": 549,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 35,
+      "saveHash": "be9ff2d11b54c2577d84c61fa93defa8c99f817b6eeb8a6e1d0ad378f7539789"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 30,
+      "seed": 6,
+      "enemy": {
+        "groups": 11,
+        "people": 330,
+        "hp": 330
+      },
+      "won": true,
+      "loss": 43,
+      "deployedBefore": 626,
+      "deployedAfter": 583,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 29,
+      "saveHash": "abdcfbc0e0891d420fe3b43ca46220345931298925e079abef5b06ebde919c98"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 30,
+      "seed": 7,
+      "enemy": {
+        "groups": 11,
+        "people": 330,
+        "hp": 330
+      },
+      "won": true,
+      "loss": 38,
+      "deployedBefore": 626,
+      "deployedAfter": 588,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 26,
+      "saveHash": "b362decb4b550dc71830739d0742df82b80639e78fec06ba416c71fc40e73ad7"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 30,
+      "seed": 8,
+      "enemy": {
+        "groups": 11,
+        "people": 330,
+        "hp": 330
+      },
+      "won": true,
+      "loss": 33,
+      "deployedBefore": 626,
+      "deployedAfter": 593,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 27,
+      "saveHash": "a5b4946543a7b2bc58039b2aa9835f1db31eddfdf3d2dc12d7a2ba868f81110f"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 30,
+      "seed": 9,
+      "enemy": {
+        "groups": 11,
+        "people": 330,
+        "hp": 330
+      },
+      "won": true,
+      "loss": 26,
+      "deployedBefore": 626,
+      "deployedAfter": 600,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 29,
+      "saveHash": "298693bfbdd0d66c2cd3e3d2a9b0b8d86c07f42c7e54628d3ec4fefbee90d186"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 30,
+      "seed": 10,
+      "enemy": {
+        "groups": 11,
+        "people": 330,
+        "hp": 330
+      },
+      "won": true,
+      "loss": 46,
+      "deployedBefore": 626,
+      "deployedAfter": 580,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 35,
+      "saveHash": "9de366ff5dc6df86fff4ecb1b3a63ccb9761e9ce440d7384203a8f981c701cb8"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 30,
+      "seed": 11,
+      "enemy": {
+        "groups": 11,
+        "people": 330,
+        "hp": 330
+      },
+      "won": true,
+      "loss": 14,
+      "deployedBefore": 626,
+      "deployedAfter": 612,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 28,
+      "saveHash": "c75c283852c9b5a891e6b0d102baa2d00a4030a93e14fcf16106dc440f61c7b3"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 30,
+      "seed": 12,
+      "enemy": {
+        "groups": 11,
+        "people": 330,
+        "hp": 330
+      },
+      "won": true,
+      "loss": 30,
+      "deployedBefore": 626,
+      "deployedAfter": 596,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 29,
+      "saveHash": "c00515dc7f7baad9fc239d593fb20b9ac29db5be773c284b4d80732e91831c45"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 30,
+      "seed": 13,
+      "enemy": {
+        "groups": 11,
+        "people": 330,
+        "hp": 330
+      },
+      "won": true,
+      "loss": 44,
+      "deployedBefore": 626,
+      "deployedAfter": 582,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 28,
+      "saveHash": "826b2f2a772696fe9623de4414a39fd6482042473450e61193ed976f83a6bd81"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 30,
+      "seed": 14,
+      "enemy": {
+        "groups": 11,
+        "people": 330,
+        "hp": 330
+      },
+      "won": true,
+      "loss": 71,
+      "deployedBefore": 626,
+      "deployedAfter": 555,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 38,
+      "saveHash": "fb1c710ae320c1c99200eb579a4024edd96cc3687ac83565212320420c607cbb"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 30,
+      "seed": 15,
+      "enemy": {
+        "groups": 11,
+        "people": 330,
+        "hp": 330
+      },
+      "won": true,
+      "loss": 44,
+      "deployedBefore": 626,
+      "deployedAfter": 582,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 37,
+      "saveHash": "cae30b5eca238839856e6c7f56be18302ffd48fa15bc15e5e27b60ce807c5aa4"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 30,
+      "seed": 16,
+      "enemy": {
+        "groups": 11,
+        "people": 330,
+        "hp": 330
+      },
+      "won": true,
+      "loss": 29,
+      "deployedBefore": 626,
+      "deployedAfter": 597,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 29,
+      "saveHash": "34d1913cc4d3e54c0ad1ab0b70b54579e23eecde60d8dec1ccf39fce1765f86d"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 40,
+      "seed": 1,
+      "enemy": {
+        "groups": 11,
+        "people": 440,
+        "hp": 440
+      },
+      "won": true,
+      "loss": 125,
+      "deployedBefore": 626,
+      "deployedAfter": 501,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 43,
+      "saveHash": "93c69b870e164dba0e0b007ea29b8fcffeb0431f7f08bce44bb25fca2bb97b0d"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 40,
+      "seed": 2,
+      "enemy": {
+        "groups": 11,
+        "people": 440,
+        "hp": 440
+      },
+      "won": true,
+      "loss": 73,
+      "deployedBefore": 626,
+      "deployedAfter": 553,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 35,
+      "saveHash": "47f1ebfc62940fbc5ec210420e5a56329b7f730a4edc5b139b487202dfbac76a"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 40,
+      "seed": 3,
+      "enemy": {
+        "groups": 11,
+        "people": 440,
+        "hp": 440
+      },
+      "won": true,
+      "loss": 31,
+      "deployedBefore": 626,
+      "deployedAfter": 595,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 30,
+      "saveHash": "02188cc5a73dcacc8f78a5e0451164d88141dfcfdfb679e718fa1af4a98ec208"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 40,
+      "seed": 4,
+      "enemy": {
+        "groups": 11,
+        "people": 440,
+        "hp": 440
+      },
+      "won": true,
+      "loss": 50,
+      "deployedBefore": 626,
+      "deployedAfter": 576,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 34,
+      "saveHash": "15a8a15a17e4cde4b0d514537a5b4c3a3aa9eb519ffe9742bf378540c6d9d03c"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 40,
+      "seed": 5,
+      "enemy": {
+        "groups": 11,
+        "people": 440,
+        "hp": 440
+      },
+      "won": true,
+      "loss": 147,
+      "deployedBefore": 626,
+      "deployedAfter": 479,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 42,
+      "saveHash": "61d9c09c0820476561a7e1e43844528f977ede199695c890b250300b59506453"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 40,
+      "seed": 6,
+      "enemy": {
+        "groups": 11,
+        "people": 440,
+        "hp": 440
+      },
+      "won": true,
+      "loss": 43,
+      "deployedBefore": 626,
+      "deployedAfter": 583,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 32,
+      "saveHash": "739f01ac04f6ab41cbbece18e67825a2650c6ded6452823fd70b8866951c4482"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 40,
+      "seed": 7,
+      "enemy": {
+        "groups": 11,
+        "people": 440,
+        "hp": 440
+      },
+      "won": true,
+      "loss": 55,
+      "deployedBefore": 626,
+      "deployedAfter": 571,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 26,
+      "saveHash": "ec3a3d116fbe5820370d08bf2aff12f4d09367865fa0c57be0769a29d25eeb5d"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 40,
+      "seed": 8,
+      "enemy": {
+        "groups": 11,
+        "people": 440,
+        "hp": 440
+      },
+      "won": true,
+      "loss": 72,
+      "deployedBefore": 626,
+      "deployedAfter": 554,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 32,
+      "saveHash": "c7b4699fea88418205955954a25ce76d887e76b971a25810612d294d4ef6153c"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 40,
+      "seed": 9,
+      "enemy": {
+        "groups": 11,
+        "people": 440,
+        "hp": 440
+      },
+      "won": true,
+      "loss": 28,
+      "deployedBefore": 626,
+      "deployedAfter": 598,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 29,
+      "saveHash": "b099b98b401434deae8b077903b93c34992abf99b0ae187a09bd7b7b700e3357"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 40,
+      "seed": 10,
+      "enemy": {
+        "groups": 11,
+        "people": 440,
+        "hp": 440
+      },
+      "won": true,
+      "loss": 65,
+      "deployedBefore": 626,
+      "deployedAfter": 561,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 36,
+      "saveHash": "11273776f18bb6d53df40d35befbf6b555cc36a1c98f0b60ef12633d5bbf46c2"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 40,
+      "seed": 11,
+      "enemy": {
+        "groups": 11,
+        "people": 440,
+        "hp": 440
+      },
+      "won": true,
+      "loss": 50,
+      "deployedBefore": 626,
+      "deployedAfter": 576,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 32,
+      "saveHash": "a8384439214f8c497b5a03b22b70eaf82aaa8bc6e59a5faf6f2eff84d878a8e9"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 40,
+      "seed": 12,
+      "enemy": {
+        "groups": 11,
+        "people": 440,
+        "hp": 440
+      },
+      "won": true,
+      "loss": 53,
+      "deployedBefore": 626,
+      "deployedAfter": 573,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 27,
+      "saveHash": "38e7c40e449a97431136ad7d1ac8c0263a2f1281d6566224b7f27c4f4e2bd585"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 40,
+      "seed": 13,
+      "enemy": {
+        "groups": 11,
+        "people": 440,
+        "hp": 440
+      },
+      "won": true,
+      "loss": 65,
+      "deployedBefore": 626,
+      "deployedAfter": 561,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 28,
+      "saveHash": "91e878e1eddb54d1db7767f87514fb7d01dc8c658a42d0188b371f683c807887"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 40,
+      "seed": 14,
+      "enemy": {
+        "groups": 11,
+        "people": 440,
+        "hp": 440
+      },
+      "won": true,
+      "loss": 103,
+      "deployedBefore": 626,
+      "deployedAfter": 523,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 38,
+      "saveHash": "037fcdd8f9c9cd5e898c4b4c5d50d92753e521f9e8d3c82ebd4d6e4e60c4072a"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 40,
+      "seed": 15,
+      "enemy": {
+        "groups": 11,
+        "people": 440,
+        "hp": 440
+      },
+      "won": true,
+      "loss": 127,
+      "deployedBefore": 626,
+      "deployedAfter": 499,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 45,
+      "saveHash": "68d84aa395d603e1becd23ca4bb139d7b7888aeda7bca46fb95f1392f9e117dd"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 40,
+      "seed": 16,
+      "enemy": {
+        "groups": 11,
+        "people": 440,
+        "hp": 440
+      },
+      "won": true,
+      "loss": 48,
+      "deployedBefore": 626,
+      "deployedAfter": 578,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 33,
+      "saveHash": "c295ad8bc395f3f94535ef44c53314f5237ee8d6071c6b04390c3ee28e135318"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 50,
+      "seed": 1,
+      "enemy": {
+        "groups": 11,
+        "people": 550,
+        "hp": 550
+      },
+      "won": true,
+      "loss": 175,
+      "deployedBefore": 626,
+      "deployedAfter": 451,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 44,
+      "saveHash": "44170db040d95e5ec65b4d425b830d16e74724a68d71285dcfa8a54e02d668f7"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 50,
+      "seed": 2,
+      "enemy": {
+        "groups": 11,
+        "people": 550,
+        "hp": 550
+      },
+      "won": true,
+      "loss": 124,
+      "deployedBefore": 626,
+      "deployedAfter": 502,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 48,
+      "saveHash": "d1ce8d618795b33dbb47036f0ba8378dfada318b54a020c90e0409ac4d069dc6"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 50,
+      "seed": 3,
+      "enemy": {
+        "groups": 11,
+        "people": 550,
+        "hp": 550
+      },
+      "won": true,
+      "loss": 161,
+      "deployedBefore": 626,
+      "deployedAfter": 465,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 43,
+      "saveHash": "2467c07640d093da3dadf41b8bd1aabe6f12f891623264ebc578e2c1558b3130"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 50,
+      "seed": 4,
+      "enemy": {
+        "groups": 11,
+        "people": 550,
+        "hp": 550
+      },
+      "won": true,
+      "loss": 90,
+      "deployedBefore": 626,
+      "deployedAfter": 536,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 36,
+      "saveHash": "f6e5d3d5bd85608eb6d4ce36cbdcd7f61c12b73468016e9229bac02965d8c9f0"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 50,
+      "seed": 5,
+      "enemy": {
+        "groups": 11,
+        "people": 550,
+        "hp": 550
+      },
+      "won": true,
+      "loss": 193,
+      "deployedBefore": 626,
+      "deployedAfter": 433,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 42,
+      "saveHash": "0e3d0abb2a53a3a5c632917b8be60608cf58bfc6d97130fcc9e37cbb29cb261e"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 50,
+      "seed": 6,
+      "enemy": {
+        "groups": 11,
+        "people": 550,
+        "hp": 550
+      },
+      "won": true,
+      "loss": 73,
+      "deployedBefore": 626,
+      "deployedAfter": 553,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 34,
+      "saveHash": "00af2f3fe86c91c5daa51c6d373177091f96e8422c430c2941786a50b631d751"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 50,
+      "seed": 7,
+      "enemy": {
+        "groups": 11,
+        "people": 550,
+        "hp": 550
+      },
+      "won": true,
+      "loss": 106,
+      "deployedBefore": 626,
+      "deployedAfter": 520,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 35,
+      "saveHash": "1a7adf3edbc1201326f16ed5322a79b2fdebfc31508a636c52a40a9ffeef3a91"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 50,
+      "seed": 8,
+      "enemy": {
+        "groups": 11,
+        "people": 550,
+        "hp": 550
+      },
+      "won": true,
+      "loss": 85,
+      "deployedBefore": 626,
+      "deployedAfter": 541,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 40,
+      "saveHash": "e33e24517530bb48622de251d49ae480329f749090e0780017f2eb6cf0af5a29"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 50,
+      "seed": 9,
+      "enemy": {
+        "groups": 11,
+        "people": 550,
+        "hp": 550
+      },
+      "won": true,
+      "loss": 82,
+      "deployedBefore": 626,
+      "deployedAfter": 544,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 39,
+      "saveHash": "df456f2980e5989bbf5e99b1f56d12593d701cb02bb056ca9bef7b7350470d5c"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 50,
+      "seed": 10,
+      "enemy": {
+        "groups": 11,
+        "people": 550,
+        "hp": 550
+      },
+      "won": true,
+      "loss": 101,
+      "deployedBefore": 626,
+      "deployedAfter": 525,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 36,
+      "saveHash": "02a97f2a8c55ea1db21860cfa92a5a14afa344e6a1d24cbf0343701904312b31"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 50,
+      "seed": 11,
+      "enemy": {
+        "groups": 11,
+        "people": 550,
+        "hp": 550
+      },
+      "won": true,
+      "loss": 85,
+      "deployedBefore": 626,
+      "deployedAfter": 541,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 38,
+      "saveHash": "1599c575aace3d54d94858aa020e23454d089b0624b3ded4e7e0589b62cc6577"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 50,
+      "seed": 12,
+      "enemy": {
+        "groups": 11,
+        "people": 550,
+        "hp": 550
+      },
+      "won": true,
+      "loss": 101,
+      "deployedBefore": 626,
+      "deployedAfter": 525,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 36,
+      "saveHash": "fad86258a54a59106470d62a872d1fdc9d8449342ab73b979aaee517031ff68b"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 50,
+      "seed": 13,
+      "enemy": {
+        "groups": 11,
+        "people": 550,
+        "hp": 550
+      },
+      "won": true,
+      "loss": 71,
+      "deployedBefore": 626,
+      "deployedAfter": 555,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 28,
+      "saveHash": "0bd705bf3fb22838aeab799dcbaee8b2b1fd27f57a6cc1e442e807ea63d12ed3"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 50,
+      "seed": 14,
+      "enemy": {
+        "groups": 11,
+        "people": 550,
+        "hp": 550
+      },
+      "won": true,
+      "loss": 132,
+      "deployedBefore": 626,
+      "deployedAfter": 494,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 39,
+      "saveHash": "be609d4626feb98676ec4867c5b77ae52f38f1fbf0ab86bd90db7593a691862f"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 50,
+      "seed": 15,
+      "enemy": {
+        "groups": 11,
+        "people": 550,
+        "hp": 550
+      },
+      "won": true,
+      "loss": 151,
+      "deployedBefore": 626,
+      "deployedAfter": 475,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 51,
+      "saveHash": "463410647957b4af5fe5f8130a4f2017fe50d4d62621f08a3895a86adb5f1f7b"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 50,
+      "seed": 16,
+      "enemy": {
+        "groups": 11,
+        "people": 550,
+        "hp": 550
+      },
+      "won": true,
+      "loss": 67,
+      "deployedBefore": 626,
+      "deployedAfter": 559,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 33,
+      "saveHash": "cd1475a50027e1db48a8c96b63130636ab042c142d7591abb8aa9dd023d4d221"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 60,
+      "seed": 1,
+      "enemy": {
+        "groups": 11,
+        "people": 660,
+        "hp": 660
+      },
+      "won": true,
+      "loss": 143,
+      "deployedBefore": 626,
+      "deployedAfter": 483,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 47,
+      "saveHash": "0ed532dc03e740fd82af95e3942a545c3dec8c55a1d782907ee3cc833ea9025f"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 60,
+      "seed": 2,
+      "enemy": {
+        "groups": 11,
+        "people": 660,
+        "hp": 660
+      },
+      "won": true,
+      "loss": 196,
+      "deployedBefore": 626,
+      "deployedAfter": 430,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 49,
+      "saveHash": "d6b6ccab4004ee02119a4114959b8010f86167b7b5ac69470056ff8663510815"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 60,
+      "seed": 3,
+      "enemy": {
+        "groups": 11,
+        "people": 660,
+        "hp": 660
+      },
+      "won": true,
+      "loss": 223,
+      "deployedBefore": 626,
+      "deployedAfter": 403,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 52,
+      "saveHash": "142b48687e1ac64f159ec0b389d109d46d3bc74e3686a58a71ea4259ec0ef26a"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 60,
+      "seed": 4,
+      "enemy": {
+        "groups": 11,
+        "people": 660,
+        "hp": 660
+      },
+      "won": true,
+      "loss": 213,
+      "deployedBefore": 626,
+      "deployedAfter": 413,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 57,
+      "saveHash": "2864c28e1eb2fc8729143f44c253994fd5645e0056290eb592c3d799be0ef695"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 60,
+      "seed": 5,
+      "enemy": {
+        "groups": 11,
+        "people": 660,
+        "hp": 660
+      },
+      "won": true,
+      "loss": 209,
+      "deployedBefore": 626,
+      "deployedAfter": 417,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 53,
+      "saveHash": "f58e97befd9537e72361a1f079bd515e53990c98e015b6ccbfbade8b966051b8"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 60,
+      "seed": 6,
+      "enemy": {
+        "groups": 11,
+        "people": 660,
+        "hp": 660
+      },
+      "won": true,
+      "loss": 181,
+      "deployedBefore": 626,
+      "deployedAfter": 445,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 48,
+      "saveHash": "444dd330e9618d977ab0a44cd3852a69787ab534f7fa95b4489b090719908e73"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 60,
+      "seed": 7,
+      "enemy": {
+        "groups": 11,
+        "people": 660,
+        "hp": 660
+      },
+      "won": true,
+      "loss": 94,
+      "deployedBefore": 626,
+      "deployedAfter": 532,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 51,
+      "saveHash": "92703726d785478a126da775337be4bc9ad4e6fda1454eb132695faf224db0aa"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 60,
+      "seed": 8,
+      "enemy": {
+        "groups": 11,
+        "people": 660,
+        "hp": 660
+      },
+      "won": true,
+      "loss": 98,
+      "deployedBefore": 626,
+      "deployedAfter": 528,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 62,
+      "saveHash": "63fdf38f9005578bfe0eda4a96267b0c09069aaebdc6ef7f8f3314b4f9f5a628"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 60,
+      "seed": 9,
+      "enemy": {
+        "groups": 11,
+        "people": 660,
+        "hp": 660
+      },
+      "won": true,
+      "loss": 144,
+      "deployedBefore": 626,
+      "deployedAfter": 482,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 52,
+      "saveHash": "cc892190bfd6b0600283d05038e23d1f212e274b3ec701e9cdd1146b83f3bfea"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 60,
+      "seed": 10,
+      "enemy": {
+        "groups": 11,
+        "people": 660,
+        "hp": 660
+      },
+      "won": true,
+      "loss": 151,
+      "deployedBefore": 626,
+      "deployedAfter": 475,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 47,
+      "saveHash": "fa1603b9dea9614a457794d7acd984b85027d97015e1b27b3ca8c372781b2474"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 60,
+      "seed": 11,
+      "enemy": {
+        "groups": 11,
+        "people": 660,
+        "hp": 660
+      },
+      "won": true,
+      "loss": 119,
+      "deployedBefore": 626,
+      "deployedAfter": 507,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 36,
+      "saveHash": "15640aeefc1756c2c487abbfdd737c237f74a4a4f277647fe07e69604125e52e"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 60,
+      "seed": 12,
+      "enemy": {
+        "groups": 11,
+        "people": 660,
+        "hp": 660
+      },
+      "won": true,
+      "loss": 85,
+      "deployedBefore": 626,
+      "deployedAfter": 541,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 39,
+      "saveHash": "9f08c99b337c7e4d15aff25d94473a9c80ca25b6fb8f1e71d32b797e4c8884c9"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 60,
+      "seed": 13,
+      "enemy": {
+        "groups": 11,
+        "people": 660,
+        "hp": 660
+      },
+      "won": true,
+      "loss": 177,
+      "deployedBefore": 626,
+      "deployedAfter": 449,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 46,
+      "saveHash": "2db6d39079bb99a5692dcb857a4d9054422e192f67240a0ea44bda98f942b665"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 60,
+      "seed": 14,
+      "enemy": {
+        "groups": 11,
+        "people": 660,
+        "hp": 660
+      },
+      "won": true,
+      "loss": 99,
+      "deployedBefore": 626,
+      "deployedAfter": 527,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 43,
+      "saveHash": "5d0f85ac71c7dccb5b4a29e9fefd0e9411271b3a43c0cb3bbd03f3f74f814143"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 60,
+      "seed": 15,
+      "enemy": {
+        "groups": 11,
+        "people": 660,
+        "hp": 660
+      },
+      "won": true,
+      "loss": 234,
+      "deployedBefore": 626,
+      "deployedAfter": 392,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 54,
+      "saveHash": "4c406298e7e11ee2be9532156dd956975f9a6e5bf746d7ed9a63c8ada2996871"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 60,
+      "seed": 16,
+      "enemy": {
+        "groups": 11,
+        "people": 660,
+        "hp": 660
+      },
+      "won": true,
+      "loss": 191,
+      "deployedBefore": 626,
+      "deployedAfter": 435,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 50,
+      "saveHash": "2bd5005ffc4c1132c710902abca3c604ce8bc28f9fb0c53e87475018292e2db3"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 80,
+      "seed": 1,
+      "enemy": {
+        "groups": 11,
+        "people": 880,
+        "hp": 880
+      },
+      "won": true,
+      "loss": 274,
+      "deployedBefore": 626,
+      "deployedAfter": 352,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 56,
+      "saveHash": "a986e1e8a18db8d5a4b3ecc2a13ff28958920963db87cede2f2da7ebc3b8ebef"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 80,
+      "seed": 2,
+      "enemy": {
+        "groups": 11,
+        "people": 880,
+        "hp": 880
+      },
+      "won": true,
+      "loss": 228,
+      "deployedBefore": 626,
+      "deployedAfter": 398,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 53,
+      "saveHash": "562fa835d335c3546c1514dda807979d622ddacc0c877c034493b01869f19ef0"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 80,
+      "seed": 3,
+      "enemy": {
+        "groups": 11,
+        "people": 880,
+        "hp": 880
+      },
+      "won": true,
+      "loss": 282,
+      "deployedBefore": 626,
+      "deployedAfter": 344,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 54,
+      "saveHash": "aae1a4c000acf7f7b5018406c17367fda9162e4c38b50bc9124bf50260d71ccf"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 80,
+      "seed": 4,
+      "enemy": {
+        "groups": 11,
+        "people": 880,
+        "hp": 880
+      },
+      "won": true,
+      "loss": 246,
+      "deployedBefore": 626,
+      "deployedAfter": 380,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 56,
+      "saveHash": "cfede8a750ae0327f3a6bf918d58386cacae35c8bbe387ca328993e736b49d3a"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 80,
+      "seed": 5,
+      "enemy": {
+        "groups": 11,
+        "people": 880,
+        "hp": 880
+      },
+      "won": true,
+      "loss": 287,
+      "deployedBefore": 626,
+      "deployedAfter": 339,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 50,
+      "saveHash": "4d6055742bef58b4ceb176516ca7a11f683667e00e685b3aa3c691a8a9d8de82"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 80,
+      "seed": 6,
+      "enemy": {
+        "groups": 11,
+        "people": 880,
+        "hp": 880
+      },
+      "won": true,
+      "loss": 307,
+      "deployedBefore": 626,
+      "deployedAfter": 319,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 54,
+      "saveHash": "237c7f68450449bbc70abfb32b5ad638ab3cdfa1a9656f523eacc4d04b762c06"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 80,
+      "seed": 7,
+      "enemy": {
+        "groups": 11,
+        "people": 880,
+        "hp": 880
+      },
+      "won": true,
+      "loss": 171,
+      "deployedBefore": 626,
+      "deployedAfter": 455,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 51,
+      "saveHash": "3a98e068232c12402297988a3031fdd478aaa5265b50101968e741f8a7c30750"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 80,
+      "seed": 8,
+      "enemy": {
+        "groups": 11,
+        "people": 880,
+        "hp": 880
+      },
+      "won": true,
+      "loss": 150,
+      "deployedBefore": 626,
+      "deployedAfter": 476,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 62,
+      "saveHash": "6ccc591e1f4814b9c45489b053f47e6f00efa7da5ad1aa3d96fe2298a8d83a1f"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 80,
+      "seed": 9,
+      "enemy": {
+        "groups": 11,
+        "people": 880,
+        "hp": 880
+      },
+      "won": true,
+      "loss": 292,
+      "deployedBefore": 626,
+      "deployedAfter": 334,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 55,
+      "saveHash": "29f19ab27d7626a16629021e4b286feb72cea30c7cd5909ea908fbeb63987276"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 80,
+      "seed": 10,
+      "enemy": {
+        "groups": 11,
+        "people": 880,
+        "hp": 880
+      },
+      "won": true,
+      "loss": 337,
+      "deployedBefore": 626,
+      "deployedAfter": 289,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 78,
+      "saveHash": "44658c707b04d55c2d356dabd621787f34cd6b4a58feb9ad0306a9edcbe5c6be"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 80,
+      "seed": 11,
+      "enemy": {
+        "groups": 11,
+        "people": 880,
+        "hp": 880
+      },
+      "won": true,
+      "loss": 145,
+      "deployedBefore": 626,
+      "deployedAfter": 481,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 38,
+      "saveHash": "7ad6ac6063938acc9cd4cb760dc62bec1dff5ac60f4276af1a62a4438237b30a"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 80,
+      "seed": 12,
+      "enemy": {
+        "groups": 11,
+        "people": 880,
+        "hp": 880
+      },
+      "won": true,
+      "loss": 174,
+      "deployedBefore": 626,
+      "deployedAfter": 452,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 44,
+      "saveHash": "a6f1467b22fe046448e6464638a06558a6649fe9f586d01dabb4f30f7326b5c6"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 80,
+      "seed": 13,
+      "enemy": {
+        "groups": 11,
+        "people": 880,
+        "hp": 880
+      },
+      "won": true,
+      "loss": 256,
+      "deployedBefore": 626,
+      "deployedAfter": 370,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 59,
+      "saveHash": "9967e401875120e78d4a0631e52331acdcbda379b5062af4311b4b40e4c2c74d"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 80,
+      "seed": 14,
+      "enemy": {
+        "groups": 11,
+        "people": 880,
+        "hp": 880
+      },
+      "won": true,
+      "loss": 198,
+      "deployedBefore": 626,
+      "deployedAfter": 428,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 41,
+      "saveHash": "d0bb28f1a8132776b2dcfa51663a9bbc6dba26aea9b03eca15e1a4b1ea473fa3"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 80,
+      "seed": 15,
+      "enemy": {
+        "groups": 11,
+        "people": 880,
+        "hp": 880
+      },
+      "won": true,
+      "loss": 270,
+      "deployedBefore": 626,
+      "deployedAfter": 356,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 66,
+      "saveHash": "4474141e09d2db322d4b84a76f88ebb1f6d235b9fddce9c3ffa3e4f2f191455c"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 80,
+      "seed": 16,
+      "enemy": {
+        "groups": 11,
+        "people": 880,
+        "hp": 880
+      },
+      "won": true,
+      "loss": 254,
+      "deployedBefore": 626,
+      "deployedAfter": 372,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 50,
+      "saveHash": "76917fd8042054710ea40206e7f3691967b1d7e91c7e01e0cf3e7e2751d17882"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 100,
+      "seed": 1,
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "won": true,
+      "loss": 331,
+      "deployedBefore": 626,
+      "deployedAfter": 295,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 57,
+      "saveHash": "fb2871c452adf73300bbf1cf41a9c4f7c4cb61fe9e1e9166d23d3dba6320d274"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 100,
+      "seed": 2,
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "won": true,
+      "loss": 360,
+      "deployedBefore": 626,
+      "deployedAfter": 266,
+      "round": 6,
+      "remainingEnemyHp": 0,
+      "callbacks": 76,
+      "saveHash": "cd30500bc9b89032d4ae587ffff6cfd468e0807b80bfe00b90841444c162a1f2"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 100,
+      "seed": 3,
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "won": true,
+      "loss": 362,
+      "deployedBefore": 626,
+      "deployedAfter": 264,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 60,
+      "saveHash": "a3e1c6e1283fd29f44882ced6f1afd62396a8c7eca343dbcb96f7d70f76b0127"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 100,
+      "seed": 4,
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "won": true,
+      "loss": 223,
+      "deployedBefore": 626,
+      "deployedAfter": 403,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 54,
+      "saveHash": "0bd87d4e378fc3225fdb984fd2b8c0835d38a950e2fa4b7f5be3ac9545f4e1ab"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 100,
+      "seed": 5,
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "won": true,
+      "loss": 351,
+      "deployedBefore": 626,
+      "deployedAfter": 275,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 62,
+      "saveHash": "f6f8c44689da651b6f806c5ea75e47a8079f2cffc592bd2721fcd320221361f7"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 100,
+      "seed": 6,
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "won": true,
+      "loss": 286,
+      "deployedBefore": 626,
+      "deployedAfter": 340,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 53,
+      "saveHash": "0df1017885dfc69fdab0c321a44bbf7409eb144350674198726917187da532aa"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 100,
+      "seed": 7,
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "won": true,
+      "loss": 202,
+      "deployedBefore": 626,
+      "deployedAfter": 424,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 57,
+      "saveHash": "e706a3f09fbdb3d9ff766fd8bf12b14e0ecbf46eabe5c0bf09c73439c1aefe5a"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 100,
+      "seed": 8,
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "won": true,
+      "loss": 233,
+      "deployedBefore": 626,
+      "deployedAfter": 393,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 66,
+      "saveHash": "f90131c2eede0919fc33062cc564fc9c36203b023b9a8cae21746569b43a91fe"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 100,
+      "seed": 9,
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "won": true,
+      "loss": 217,
+      "deployedBefore": 626,
+      "deployedAfter": 409,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 53,
+      "saveHash": "0076edbae847c195618107bccc6a4f5ccdfa078fbca80888fa7b2af71c6112af"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 100,
+      "seed": 10,
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "won": true,
+      "loss": 280,
+      "deployedBefore": 626,
+      "deployedAfter": 346,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 61,
+      "saveHash": "79f33de0db59a45484b11bf6304b704ba32df370eef41ff84e2ab5a3e0ae62c9"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 100,
+      "seed": 11,
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "won": true,
+      "loss": 186,
+      "deployedBefore": 626,
+      "deployedAfter": 440,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 50,
+      "saveHash": "8cd0f70601b43caa10e09b685b85a1ce29e16bd4e29c3eea544d36611307b525"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 100,
+      "seed": 12,
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "won": true,
+      "loss": 295,
+      "deployedBefore": 626,
+      "deployedAfter": 331,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 57,
+      "saveHash": "05056975fcc65658af68f8dcb11d8097dac6ce15d4a1b3e6951666bd976ef188"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 100,
+      "seed": 13,
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "won": true,
+      "loss": 176,
+      "deployedBefore": 626,
+      "deployedAfter": 450,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 45,
+      "saveHash": "eaa51a8ac7effa3b43eb012b8870a9e82b4a93dd0a26d00e31155def3345faf9"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 100,
+      "seed": 14,
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "won": true,
+      "loss": 300,
+      "deployedBefore": 626,
+      "deployedAfter": 326,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 53,
+      "saveHash": "e9f477916c385c2b50ac7ea67caec9bbbf03d12bf7f21edf6bc344f2a655003e"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 100,
+      "seed": 15,
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "won": true,
+      "loss": 381,
+      "deployedBefore": 626,
+      "deployedAfter": 245,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 70,
+      "saveHash": "8fbfce90edf5d11e5725d54ff62eeaacaccd281fbf7ecf8cea015073d16de43e"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 100,
+      "seed": 16,
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "won": true,
+      "loss": 201,
+      "deployedBefore": 626,
+      "deployedAfter": 425,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 46,
+      "saveHash": "4aa57fbbe344ebc87e40a900853478a8e2cf43962da059c0ea1de61e7c2a3c34"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 120,
+      "seed": 1,
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "won": true,
+      "loss": 357,
+      "deployedBefore": 626,
+      "deployedAfter": 269,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 61,
+      "saveHash": "41b080a9bbfcf0d32d7275fcae074b3380024e53163da3b3b83fe5eb87db9a6a"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 120,
+      "seed": 2,
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "won": true,
+      "loss": 399,
+      "deployedBefore": 626,
+      "deployedAfter": 227,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 69,
+      "saveHash": "55f07387b7e8b074cf28adac85329b2cb8356d09f1e24db1739512d4c1906a4f"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 120,
+      "seed": 3,
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "won": true,
+      "loss": 371,
+      "deployedBefore": 626,
+      "deployedAfter": 255,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 63,
+      "saveHash": "0275d90c2a83292c3cc1011fd3d95e12505a667ea8431a41a6d1320d0b9b77c1"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 120,
+      "seed": 4,
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "won": true,
+      "loss": 355,
+      "deployedBefore": 626,
+      "deployedAfter": 271,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 64,
+      "saveHash": "66e0ae239974f4cec976ba76062dece7ac20c89271e217f5cc1933ad38bfda40"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 120,
+      "seed": 5,
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "won": true,
+      "loss": 414,
+      "deployedBefore": 626,
+      "deployedAfter": 212,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 70,
+      "saveHash": "79fc466a315a135681259c7a448c7ac194354030227dd05408d7e765dff71749"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 120,
+      "seed": 6,
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "won": true,
+      "loss": 360,
+      "deployedBefore": 626,
+      "deployedAfter": 266,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 68,
+      "saveHash": "db11194297632c9aef8c57e880732623723995e8b33dae888c00d197c4fc2925"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 120,
+      "seed": 7,
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "won": true,
+      "loss": 244,
+      "deployedBefore": 626,
+      "deployedAfter": 382,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 64,
+      "saveHash": "b49678600beab4d1acd592da6c10b2bcbdc581e321756e89175de6f6e1d9ecb5"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 120,
+      "seed": 8,
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "won": true,
+      "loss": 370,
+      "deployedBefore": 626,
+      "deployedAfter": 256,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 82,
+      "saveHash": "f15d5bce8d68ffce08a638621e1afb7d2db0e5924ac9d20c4bd0b1c197a2f6d2"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 120,
+      "seed": 9,
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "won": true,
+      "loss": 303,
+      "deployedBefore": 626,
+      "deployedAfter": 323,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 68,
+      "saveHash": "362949f19f0df9f64688be45dfbdaab61e4509c3e6b31c5962c08008d4ea24ff"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 120,
+      "seed": 10,
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "won": true,
+      "loss": 346,
+      "deployedBefore": 626,
+      "deployedAfter": 280,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 73,
+      "saveHash": "21176c1951e18d78b89e9ffb0986ddd808d8775f928c6ed05047f194a47c9d0a"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 120,
+      "seed": 11,
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "won": true,
+      "loss": 239,
+      "deployedBefore": 626,
+      "deployedAfter": 387,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 55,
+      "saveHash": "58b689170606565551053285e07d85d66b64a005a99f1eac4c025b4f1698f5a7"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 120,
+      "seed": 12,
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "won": true,
+      "loss": 283,
+      "deployedBefore": 626,
+      "deployedAfter": 343,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 53,
+      "saveHash": "b992449d5ffa8f843f06cfe4790220214e3e0b3e1ca0f932d04fc7d3238ab1b7"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 120,
+      "seed": 13,
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "won": true,
+      "loss": 438,
+      "deployedBefore": 626,
+      "deployedAfter": 188,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 58,
+      "saveHash": "eb5c1bb3e599eb0d1b4083f3cdb7dca4fc7884fb075966e6dc0efcb212038f60"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 120,
+      "seed": 14,
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "won": true,
+      "loss": 452,
+      "deployedBefore": 626,
+      "deployedAfter": 174,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 66,
+      "saveHash": "c34bd662a848e575fa0a9662cccb65a55694def87fcd75520173b3f48f8e6507"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 120,
+      "seed": 15,
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "won": true,
+      "loss": 391,
+      "deployedBefore": 626,
+      "deployedAfter": 235,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 66,
+      "saveHash": "3434e3f67acc69b8939ad3d79511272528ec9df574cb2594105ed984dcd2c3cd"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 120,
+      "seed": 16,
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "won": true,
+      "loss": 283,
+      "deployedBefore": 626,
+      "deployedAfter": 343,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 53,
+      "saveHash": "849499ec5720efb96b8e9c8caa00f3f61b5051ae3a66bfab5170640d7606de91"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 140,
+      "seed": 1,
+      "enemy": {
+        "groups": 11,
+        "people": 1540,
+        "hp": 1540
+      },
+      "won": true,
+      "loss": 445,
+      "deployedBefore": 626,
+      "deployedAfter": 181,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 62,
+      "saveHash": "986701232fcd4976bd36863a22880fc95590ed96962a894b06a22011d1c5b5d5"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 140,
+      "seed": 2,
+      "enemy": {
+        "groups": 11,
+        "people": 1540,
+        "hp": 1540
+      },
+      "won": true,
+      "loss": 430,
+      "deployedBefore": 626,
+      "deployedAfter": 196,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 61,
+      "saveHash": "a856ef72d9029c12bb0f91c96d2a3b46ac9597378784e98564e836d5ca45cfb6"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 140,
+      "seed": 3,
+      "enemy": {
+        "groups": 11,
+        "people": 1540,
+        "hp": 1540
+      },
+      "won": true,
+      "loss": 523,
+      "deployedBefore": 626,
+      "deployedAfter": 103,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 66,
+      "saveHash": "e79587ce460aaf5d6f84addb223aa9bfdd9e72e7264dab0484668f980a048088"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 140,
+      "seed": 4,
+      "enemy": {
+        "groups": 11,
+        "people": 1540,
+        "hp": 1540
+      },
+      "won": true,
+      "loss": 474,
+      "deployedBefore": 626,
+      "deployedAfter": 152,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 65,
+      "saveHash": "dc4bcfb169f5ea1df7804adde06fbd79a5b62c37014e8f1cf7749c7ef1b53808"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 140,
+      "seed": 5,
+      "enemy": {
+        "groups": 11,
+        "people": 1540,
+        "hp": 1540
+      },
+      "won": true,
+      "loss": 381,
+      "deployedBefore": 626,
+      "deployedAfter": 245,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 63,
+      "saveHash": "282b7a0e82f51bbc4f5739ae40a76e6eec0329728baece569a1a6321bef4c313"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 140,
+      "seed": 6,
+      "enemy": {
+        "groups": 11,
+        "people": 1540,
+        "hp": 1540
+      },
+      "won": true,
+      "loss": 463,
+      "deployedBefore": 626,
+      "deployedAfter": 163,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 56,
+      "saveHash": "64e0e9691f07d20be2d705bd8150a758e8eb2ca7dc1821a6d14dba9d75882952"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 140,
+      "seed": 7,
+      "enemy": {
+        "groups": 11,
+        "people": 1540,
+        "hp": 1540
+      },
+      "won": true,
+      "loss": 333,
+      "deployedBefore": 626,
+      "deployedAfter": 293,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 64,
+      "saveHash": "2fd12b06e01e5de84335e9a3d597f869f9c67d529dc8d83da85f72611d5b6578"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 140,
+      "seed": 8,
+      "enemy": {
+        "groups": 11,
+        "people": 1540,
+        "hp": 1540
+      },
+      "won": true,
+      "loss": 411,
+      "deployedBefore": 626,
+      "deployedAfter": 215,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 72,
+      "saveHash": "e98a8e68f6cfa7615f247efab4e07fc37074ceb1f2a96ab754a66a72e81c4852"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 140,
+      "seed": 9,
+      "enemy": {
+        "groups": 11,
+        "people": 1540,
+        "hp": 1540
+      },
+      "won": true,
+      "loss": 266,
+      "deployedBefore": 626,
+      "deployedAfter": 360,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 70,
+      "saveHash": "a2f8d040a2b690e81e6b320ac3dc248eff17beb36bcb5d92ea26778e96b64836"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 140,
+      "seed": 10,
+      "enemy": {
+        "groups": 11,
+        "people": 1540,
+        "hp": 1540
+      },
+      "won": true,
+      "loss": 348,
+      "deployedBefore": 626,
+      "deployedAfter": 278,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 58,
+      "saveHash": "fd0cab81f5ed68457af25beee3511a32db307210817a8fdb0f8abf6e20a01ff8"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 140,
+      "seed": 11,
+      "enemy": {
+        "groups": 11,
+        "people": 1540,
+        "hp": 1540
+      },
+      "won": true,
+      "loss": 266,
+      "deployedBefore": 626,
+      "deployedAfter": 360,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 54,
+      "saveHash": "2a1f71c3b000f3198320ec1761a8c641517c456a0b6b1e00210e3d88e9b0b145"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 140,
+      "seed": 12,
+      "enemy": {
+        "groups": 11,
+        "people": 1540,
+        "hp": 1540
+      },
+      "won": true,
+      "loss": 283,
+      "deployedBefore": 626,
+      "deployedAfter": 343,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 54,
+      "saveHash": "62a3b52e227d1a773f1b1e8356bf097ed11cf2f655e8f64b6285ef142bf5a828"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 140,
+      "seed": 13,
+      "enemy": {
+        "groups": 11,
+        "people": 1540,
+        "hp": 1540
+      },
+      "won": true,
+      "loss": 273,
+      "deployedBefore": 626,
+      "deployedAfter": 353,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 78,
+      "saveHash": "a7e1313fec6081f782186d6b1ee2bacc04ebb0759f6b2b873054bf8bf60c3ab7"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 140,
+      "seed": 14,
+      "enemy": {
+        "groups": 11,
+        "people": 1540,
+        "hp": 1540
+      },
+      "won": true,
+      "loss": 474,
+      "deployedBefore": 626,
+      "deployedAfter": 152,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 66,
+      "saveHash": "74f76d1530b55805d2158f478fa5d9ec5e556672e7de27062e7563797ffbd634"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 140,
+      "seed": 15,
+      "enemy": {
+        "groups": 11,
+        "people": 1540,
+        "hp": 1540
+      },
+      "won": true,
+      "loss": 382,
+      "deployedBefore": 626,
+      "deployedAfter": 244,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 64,
+      "saveHash": "b6e961cf95b576a101e48b503d90f7b65f61d3e2bfd3c1310e25239df1673ef4"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 140,
+      "seed": 16,
+      "enemy": {
+        "groups": 11,
+        "people": 1540,
+        "hp": 1540
+      },
+      "won": true,
+      "loss": 315,
+      "deployedBefore": 626,
+      "deployedAfter": 311,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 59,
+      "saveHash": "c062782bb40bef20cc7f54aec4464add7fd279cc8683533a2a660f8996afc131"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 160,
+      "seed": 1,
+      "enemy": {
+        "groups": 11,
+        "people": 1760,
+        "hp": 1760
+      },
+      "won": true,
+      "loss": 448,
+      "deployedBefore": 626,
+      "deployedAfter": 178,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 59,
+      "saveHash": "ad6be5774b0da1065ab9169de46eb3f42f355b86c7527ab87b4330f90734afe3"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 160,
+      "seed": 2,
+      "enemy": {
+        "groups": 11,
+        "people": 1760,
+        "hp": 1760
+      },
+      "won": true,
+      "loss": 428,
+      "deployedBefore": 626,
+      "deployedAfter": 198,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 68,
+      "saveHash": "52a280fca6f7abb568ccdc3063c01c02bf4736d929f04a6238592ed717452924"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 160,
+      "seed": 3,
+      "enemy": {
+        "groups": 11,
+        "people": 1760,
+        "hp": 1760
+      },
+      "won": true,
+      "loss": 541,
+      "deployedBefore": 626,
+      "deployedAfter": 85,
+      "round": 6,
+      "remainingEnemyHp": 0,
+      "callbacks": 67,
+      "saveHash": "a91189e81f6be5cd062ec192502704d41de7b002d80bf9aaf9fda6fb77e01504"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 160,
+      "seed": 4,
+      "enemy": {
+        "groups": 11,
+        "people": 1760,
+        "hp": 1760
+      },
+      "won": true,
+      "loss": 412,
+      "deployedBefore": 626,
+      "deployedAfter": 214,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 68,
+      "saveHash": "96ad48af28fe4bc4475a0709c7051f41a3dcd3e24e196b5a4743646b0c3ccbcf"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 160,
+      "seed": 5,
+      "enemy": {
+        "groups": 11,
+        "people": 1760,
+        "hp": 1760
+      },
+      "won": true,
+      "loss": 499,
+      "deployedBefore": 626,
+      "deployedAfter": 127,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 62,
+      "saveHash": "87aa7634da28d2a3d3f06962cce0617dcff909e80df75c48a87b13d857a627b3"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 160,
+      "seed": 6,
+      "enemy": {
+        "groups": 11,
+        "people": 1760,
+        "hp": 1760
+      },
+      "won": true,
+      "loss": 458,
+      "deployedBefore": 626,
+      "deployedAfter": 168,
+      "round": 6,
+      "remainingEnemyHp": 0,
+      "callbacks": 67,
+      "saveHash": "5d6fc63e36b298dde3c345a7432abf24d85a21bafa5b02eb20eb07afd0137e69"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 160,
+      "seed": 7,
+      "enemy": {
+        "groups": 11,
+        "people": 1760,
+        "hp": 1760
+      },
+      "won": true,
+      "loss": 395,
+      "deployedBefore": 626,
+      "deployedAfter": 231,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 62,
+      "saveHash": "58baa2c750d272e272d7dac7380bb0a5bdc80b24064d27a2f2bc32fd51bb6034"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 160,
+      "seed": 8,
+      "enemy": {
+        "groups": 11,
+        "people": 1760,
+        "hp": 1760
+      },
+      "won": true,
+      "loss": 300,
+      "deployedBefore": 626,
+      "deployedAfter": 326,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 65,
+      "saveHash": "e8f5c3c3dd9b4f5fe0959438ca90a181c2d8ab8c122b3d9cae822e6b0fc3e1f2"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 160,
+      "seed": 9,
+      "enemy": {
+        "groups": 11,
+        "people": 1760,
+        "hp": 1760
+      },
+      "won": true,
+      "loss": 396,
+      "deployedBefore": 626,
+      "deployedAfter": 230,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 69,
+      "saveHash": "f26ff40ccb6f04130db5a809bc57be3647f3e60a604ec62582b183f165e883f7"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 160,
+      "seed": 10,
+      "enemy": {
+        "groups": 11,
+        "people": 1760,
+        "hp": 1760
+      },
+      "won": true,
+      "loss": 508,
+      "deployedBefore": 626,
+      "deployedAfter": 118,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 65,
+      "saveHash": "93099fee33aef55c989e1746d806668cea5e56d8f67a4bd4a07647e13b2ed688"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 160,
+      "seed": 11,
+      "enemy": {
+        "groups": 11,
+        "people": 1760,
+        "hp": 1760
+      },
+      "won": true,
+      "loss": 431,
+      "deployedBefore": 626,
+      "deployedAfter": 195,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 62,
+      "saveHash": "a039b5cabeeaa8a3315612cb3df84306fb61aff669e4788ed331bf54c6d47569"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 160,
+      "seed": 12,
+      "enemy": {
+        "groups": 11,
+        "people": 1760,
+        "hp": 1760
+      },
+      "won": true,
+      "loss": 425,
+      "deployedBefore": 626,
+      "deployedAfter": 201,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 63,
+      "saveHash": "5d8f2bdf4caa7b439a8dfce00feb5ce873526e7b73fda5d64ea6c35d5105d0d2"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 160,
+      "seed": 13,
+      "enemy": {
+        "groups": 11,
+        "people": 1760,
+        "hp": 1760
+      },
+      "won": true,
+      "loss": 533,
+      "deployedBefore": 626,
+      "deployedAfter": 93,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 74,
+      "saveHash": "75274e9fe1bfc011d90192c74d11523e48ad6b4a4b1849d761acb380ee1579c5"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 160,
+      "seed": 14,
+      "enemy": {
+        "groups": 11,
+        "people": 1760,
+        "hp": 1760
+      },
+      "won": true,
+      "loss": 445,
+      "deployedBefore": 626,
+      "deployedAfter": 181,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 66,
+      "saveHash": "b6f526415d28165bd31fdb1a391e106d254960cb9d5aa0ecc270e5056e9d94af"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 160,
+      "seed": 15,
+      "enemy": {
+        "groups": 11,
+        "people": 1760,
+        "hp": 1760
+      },
+      "won": true,
+      "loss": 489,
+      "deployedBefore": 626,
+      "deployedAfter": 137,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 68,
+      "saveHash": "b166bf4c4943bd8081d44284a4a707500923d7b02eacd3d4098a7e9edba58fdd"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 160,
+      "seed": 16,
+      "enemy": {
+        "groups": 11,
+        "people": 1760,
+        "hp": 1760
+      },
+      "won": true,
+      "loss": 331,
+      "deployedBefore": 626,
+      "deployedAfter": 295,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 63,
+      "saveHash": "e3e8a4ac1e4d71771afbd09caeee95dba97cf95721bff6f4a18b5ad95918c045"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 180,
+      "seed": 1,
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "won": true,
+      "loss": 483,
+      "deployedBefore": 626,
+      "deployedAfter": 143,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 62,
+      "saveHash": "34dba772d5b78d4f92acf15b52c278e7e924d63bd09ade7d7ab1fb02398b7024"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 180,
+      "seed": 2,
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "won": true,
+      "loss": 518,
+      "deployedBefore": 626,
+      "deployedAfter": 108,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 61,
+      "saveHash": "18b791c59a3197b5790222c08afa01168ff0744d02d4149af235c769addf2844"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 180,
+      "seed": 3,
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "won": true,
+      "loss": 544,
+      "deployedBefore": 626,
+      "deployedAfter": 82,
+      "round": 6,
+      "remainingEnemyHp": 0,
+      "callbacks": 72,
+      "saveHash": "e16e9f5e48173f43a5d60fd1c6e3439a1ff5a6e8f61538783dabb769fd96a843"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 180,
+      "seed": 4,
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "won": true,
+      "loss": 514,
+      "deployedBefore": 626,
+      "deployedAfter": 112,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 53,
+      "saveHash": "ac2a92f438160bb52c2a06fa51a585c2a400da46880c14eae437abbab0642826"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 180,
+      "seed": 5,
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "won": true,
+      "loss": 506,
+      "deployedBefore": 626,
+      "deployedAfter": 120,
+      "round": 6,
+      "remainingEnemyHp": 0,
+      "callbacks": 78,
+      "saveHash": "c11b0d918e7198436ba71b7f4960e1fdc1ab366dc957ec34b6b5aed90370f1b3"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 180,
+      "seed": 6,
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "won": true,
+      "loss": 528,
+      "deployedBefore": 626,
+      "deployedAfter": 98,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 61,
+      "saveHash": "9a8b135bc37036879b3816791215be343b037a94a372fac018fd05be95860d84"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 180,
+      "seed": 7,
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "won": true,
+      "loss": 423,
+      "deployedBefore": 626,
+      "deployedAfter": 203,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 62,
+      "saveHash": "c60eeeb283ea7c4459e08761d14c962caa2c0b57423a5030894b0cb9b78cf615"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 180,
+      "seed": 8,
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "won": true,
+      "loss": 420,
+      "deployedBefore": 626,
+      "deployedAfter": 206,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 72,
+      "saveHash": "f3d124601e77e6fad19d644aa58df11a553105c7bebb118b8c7a3fce1d698a7f"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 180,
+      "seed": 9,
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "won": true,
+      "loss": 510,
+      "deployedBefore": 626,
+      "deployedAfter": 116,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 65,
+      "saveHash": "44ed372660c3f6d3eeec35a5c9d4bb4b7cc704d2a5565327d4c302f4c1bc6f0d"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 180,
+      "seed": 10,
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "won": true,
+      "loss": 426,
+      "deployedBefore": 626,
+      "deployedAfter": 200,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 70,
+      "saveHash": "d7dacb7a453a89ff8e8d8e78dc297ae116b0e73a7b1c5ea730be8124e84b40c9"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 180,
+      "seed": 11,
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "won": true,
+      "loss": 520,
+      "deployedBefore": 626,
+      "deployedAfter": 106,
+      "round": 6,
+      "remainingEnemyHp": 0,
+      "callbacks": 74,
+      "saveHash": "7c283fdafb064098f00ba4d608f857cbbee57af46debf20a26c58cb25dda371f"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 180,
+      "seed": 12,
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "won": true,
+      "loss": 372,
+      "deployedBefore": 626,
+      "deployedAfter": 254,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 68,
+      "saveHash": "8443cf4497b1e953bc9f8af6f862a5d411bbb282ff402017f87d20a6f627d21c"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 180,
+      "seed": 13,
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "won": true,
+      "loss": 469,
+      "deployedBefore": 626,
+      "deployedAfter": 157,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 72,
+      "saveHash": "fd44eb39c84ee001be142b478d6d90462e848acb3ba927982a3620eedb64254a"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 180,
+      "seed": 14,
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "won": true,
+      "loss": 454,
+      "deployedBefore": 626,
+      "deployedAfter": 172,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 63,
+      "saveHash": "bf3c65fde5071572e389a44dc1f5a1ad24fce588a0afe6ed32cefd966917843e"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 180,
+      "seed": 15,
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "won": true,
+      "loss": 497,
+      "deployedBefore": 626,
+      "deployedAfter": 129,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 69,
+      "saveHash": "8d8a870ac9a969fd5350f4625defc6849fca004e5c9575366b1da6c6c03bcbea"
+    },
+    {
+      "profile": "preQuantum",
+      "scale": 180,
+      "seed": 16,
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "won": true,
+      "loss": 457,
+      "deployedBefore": 626,
+      "deployedAfter": 169,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 61,
+      "saveHash": "6d721eeda55d5532d89893ee2e43d550df11cf9196e9a97fbb0d765671fe5846"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 1,
+      "seed": 1,
+      "enemy": {
+        "groups": 11,
+        "people": 11,
+        "hp": 11
+      },
+      "won": true,
+      "loss": 0,
+      "deployedBefore": 626,
+      "deployedAfter": 626,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 30,
+      "saveHash": "6e8185c545185c3c9dbaea358fb5b48fb44b7d150952b37d65598b1fbe6d896f"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 1,
+      "seed": 2,
+      "enemy": {
+        "groups": 11,
+        "people": 11,
+        "hp": 11
+      },
+      "won": true,
+      "loss": 0,
+      "deployedBefore": 626,
+      "deployedAfter": 626,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 27,
+      "saveHash": "18bf9b0ad89e854725aa122df4e4dcca4b54acdbd0fee784d1b9597a67437673"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 1,
+      "seed": 3,
+      "enemy": {
+        "groups": 11,
+        "people": 11,
+        "hp": 11
+      },
+      "won": true,
+      "loss": 1,
+      "deployedBefore": 626,
+      "deployedAfter": 625,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 29,
+      "saveHash": "4af7799034a7b1c0e03ef805b27585d24f23f87c36c945748b342d1277b59f9c"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 1,
+      "seed": 4,
+      "enemy": {
+        "groups": 11,
+        "people": 11,
+        "hp": 11
+      },
+      "won": true,
+      "loss": 1,
+      "deployedBefore": 626,
+      "deployedAfter": 625,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 30,
+      "saveHash": "08b8db9010934c68ea0daf1c9a210fdfc200fd72c53326a937d9efb40807205b"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 1,
+      "seed": 5,
+      "enemy": {
+        "groups": 11,
+        "people": 11,
+        "hp": 11
+      },
+      "won": true,
+      "loss": 2,
+      "deployedBefore": 626,
+      "deployedAfter": 624,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 30,
+      "saveHash": "ca7c2305aca66598cb24361a8004932611636f36e9d0f25f5224d2457a5ecc0b"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 1,
+      "seed": 6,
+      "enemy": {
+        "groups": 11,
+        "people": 11,
+        "hp": 11
+      },
+      "won": true,
+      "loss": 2,
+      "deployedBefore": 626,
+      "deployedAfter": 624,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 28,
+      "saveHash": "f79095fa299ec2ebcbf6139f7477e3185b9df4717f75c288d58cf11e209be785"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 1,
+      "seed": 7,
+      "enemy": {
+        "groups": 11,
+        "people": 11,
+        "hp": 11
+      },
+      "won": true,
+      "loss": 0,
+      "deployedBefore": 626,
+      "deployedAfter": 626,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 29,
+      "saveHash": "cc22ed78436f015cc5b62221b3bebdc40b3144a8bd0928eeb039d89428fba254"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 1,
+      "seed": 8,
+      "enemy": {
+        "groups": 11,
+        "people": 11,
+        "hp": 11
+      },
+      "won": true,
+      "loss": 1,
+      "deployedBefore": 626,
+      "deployedAfter": 625,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 23,
+      "saveHash": "c8ff6411e491cdf2007503b4ff466f780c6b36fd628e7cb18cf686e8eb34aa81"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 1,
+      "seed": 9,
+      "enemy": {
+        "groups": 11,
+        "people": 11,
+        "hp": 11
+      },
+      "won": true,
+      "loss": 1,
+      "deployedBefore": 626,
+      "deployedAfter": 625,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 29,
+      "saveHash": "d6ff3c7239d731da76911865bcb159e4871a505a932eec113d6a37777b1c488d"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 1,
+      "seed": 10,
+      "enemy": {
+        "groups": 11,
+        "people": 11,
+        "hp": 11
+      },
+      "won": true,
+      "loss": 0,
+      "deployedBefore": 626,
+      "deployedAfter": 626,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 27,
+      "saveHash": "154c7c879c8cedd61d2e1e74243458405c91a422020dd0a58a7097e780fc03da"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 1,
+      "seed": 11,
+      "enemy": {
+        "groups": 11,
+        "people": 11,
+        "hp": 11
+      },
+      "won": true,
+      "loss": 0,
+      "deployedBefore": 626,
+      "deployedAfter": 626,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 30,
+      "saveHash": "85cc8ba69b7c6d6338418a03736d259876c12d312008cbf010ee9d3c436c0fde"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 1,
+      "seed": 12,
+      "enemy": {
+        "groups": 11,
+        "people": 11,
+        "hp": 11
+      },
+      "won": true,
+      "loss": 1,
+      "deployedBefore": 626,
+      "deployedAfter": 625,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 24,
+      "saveHash": "6f64f8695ec26f7ddf29a54a80c14d17b992d48b6739ec4bfbbfd87b8c65cc31"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 1,
+      "seed": 13,
+      "enemy": {
+        "groups": 11,
+        "people": 11,
+        "hp": 11
+      },
+      "won": true,
+      "loss": 3,
+      "deployedBefore": 626,
+      "deployedAfter": 623,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 27,
+      "saveHash": "7e302167b4e1f31e8267319890a7b391b1701f2b362ad756e62faff2284688d6"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 1,
+      "seed": 14,
+      "enemy": {
+        "groups": 11,
+        "people": 11,
+        "hp": 11
+      },
+      "won": true,
+      "loss": 1,
+      "deployedBefore": 626,
+      "deployedAfter": 625,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 24,
+      "saveHash": "0f5c6be726c53c61058832d3fd835e1a6559d39719b9a4d900dbe8e6f8ef7aef"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 1,
+      "seed": 15,
+      "enemy": {
+        "groups": 11,
+        "people": 11,
+        "hp": 11
+      },
+      "won": true,
+      "loss": 2,
+      "deployedBefore": 626,
+      "deployedAfter": 624,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 26,
+      "saveHash": "c443b32ad0e5de1de41ca9ba39a7ef3ffca941f54fcd9e75a3535e352e64148d"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 1,
+      "seed": 16,
+      "enemy": {
+        "groups": 11,
+        "people": 11,
+        "hp": 11
+      },
+      "won": true,
+      "loss": 1,
+      "deployedBefore": 626,
+      "deployedAfter": 625,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 28,
+      "saveHash": "d99d450b57dfc7c9a8a289a7a74240bfc15993c815e93619a171d8326d03b181"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 10,
+      "seed": 1,
+      "enemy": {
+        "groups": 11,
+        "people": 110,
+        "hp": 110
+      },
+      "won": true,
+      "loss": 10,
+      "deployedBefore": 626,
+      "deployedAfter": 616,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 30,
+      "saveHash": "f69a4f6fddfa86fdad139c9d32392426ceb8a8abd2bab1d607aaddcca6a95efd"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 10,
+      "seed": 2,
+      "enemy": {
+        "groups": 11,
+        "people": 110,
+        "hp": 110
+      },
+      "won": true,
+      "loss": 4,
+      "deployedBefore": 626,
+      "deployedAfter": 622,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 27,
+      "saveHash": "067f6691e7d2a775890311db7e798a37a2bbc14603bf9e1c084a11ae83d86a30"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 10,
+      "seed": 3,
+      "enemy": {
+        "groups": 11,
+        "people": 110,
+        "hp": 110
+      },
+      "won": true,
+      "loss": 5,
+      "deployedBefore": 626,
+      "deployedAfter": 621,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 24,
+      "saveHash": "44e43898546224a0f6a87c8c9892f764304ff847f81a6fe4c00110383886c115"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 10,
+      "seed": 4,
+      "enemy": {
+        "groups": 11,
+        "people": 110,
+        "hp": 110
+      },
+      "won": true,
+      "loss": 5,
+      "deployedBefore": 626,
+      "deployedAfter": 621,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 29,
+      "saveHash": "dc90ebbfbf5f997bab0a004b12ae9b07e7c890fe84e1072650d84cc1e0715bd7"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 10,
+      "seed": 5,
+      "enemy": {
+        "groups": 11,
+        "people": 110,
+        "hp": 110
+      },
+      "won": true,
+      "loss": 15,
+      "deployedBefore": 626,
+      "deployedAfter": 611,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 30,
+      "saveHash": "d725b395f57f1018d2a7e6dd325622e21da73629fddc7801649b2de73fd41ea7"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 10,
+      "seed": 6,
+      "enemy": {
+        "groups": 11,
+        "people": 110,
+        "hp": 110
+      },
+      "won": true,
+      "loss": 7,
+      "deployedBefore": 626,
+      "deployedAfter": 619,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 28,
+      "saveHash": "ee0bbf41d0f0b5ceb19112808f89788c6141e90db152dc965eb62f9cff109109"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 10,
+      "seed": 7,
+      "enemy": {
+        "groups": 11,
+        "people": 110,
+        "hp": 110
+      },
+      "won": true,
+      "loss": 15,
+      "deployedBefore": 626,
+      "deployedAfter": 611,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 29,
+      "saveHash": "b4f5d0956d1921029a8193c1e3c18e81336101d0f7accdead51cfceaf82ebba4"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 10,
+      "seed": 8,
+      "enemy": {
+        "groups": 11,
+        "people": 110,
+        "hp": 110
+      },
+      "won": true,
+      "loss": 14,
+      "deployedBefore": 626,
+      "deployedAfter": 612,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 23,
+      "saveHash": "055ba7f45521a1cf3562325fbca598d81e531739da3c1f7610570e2a3d20e0bd"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 10,
+      "seed": 9,
+      "enemy": {
+        "groups": 11,
+        "people": 110,
+        "hp": 110
+      },
+      "won": true,
+      "loss": 8,
+      "deployedBefore": 626,
+      "deployedAfter": 618,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 29,
+      "saveHash": "d74a34e8de40c0ce60a606d25c2033c7e08e6d5af3d508a3bbe10f84f0cf2122"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 10,
+      "seed": 10,
+      "enemy": {
+        "groups": 11,
+        "people": 110,
+        "hp": 110
+      },
+      "won": true,
+      "loss": 4,
+      "deployedBefore": 626,
+      "deployedAfter": 622,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 27,
+      "saveHash": "0cb731ca74a21f153af648567e85f733e25937f549b39e007ce3339de031199b"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 10,
+      "seed": 11,
+      "enemy": {
+        "groups": 11,
+        "people": 110,
+        "hp": 110
+      },
+      "won": true,
+      "loss": 7,
+      "deployedBefore": 626,
+      "deployedAfter": 619,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 30,
+      "saveHash": "b6c14a4f13b4bfce8dc15f945745e9f709876c3f34fdc197cc2b3f92c93929cf"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 10,
+      "seed": 12,
+      "enemy": {
+        "groups": 11,
+        "people": 110,
+        "hp": 110
+      },
+      "won": true,
+      "loss": 9,
+      "deployedBefore": 626,
+      "deployedAfter": 617,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 24,
+      "saveHash": "acc41e68d551d8ef1e1027020e5be98b7158c0f0b7712e5e9edafe8ef2e8f0bb"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 10,
+      "seed": 13,
+      "enemy": {
+        "groups": 11,
+        "people": 110,
+        "hp": 110
+      },
+      "won": true,
+      "loss": 11,
+      "deployedBefore": 626,
+      "deployedAfter": 615,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 27,
+      "saveHash": "58aa47b21e8ce1c8046f5e3e3a0b6b70e539b8174437e9027f0152831174e01b"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 10,
+      "seed": 14,
+      "enemy": {
+        "groups": 11,
+        "people": 110,
+        "hp": 110
+      },
+      "won": true,
+      "loss": 7,
+      "deployedBefore": 626,
+      "deployedAfter": 619,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 24,
+      "saveHash": "58d812ef20541752059df361a703d5ca159b053166487a6d892604c1c77ef422"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 10,
+      "seed": 15,
+      "enemy": {
+        "groups": 11,
+        "people": 110,
+        "hp": 110
+      },
+      "won": true,
+      "loss": 7,
+      "deployedBefore": 626,
+      "deployedAfter": 619,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 26,
+      "saveHash": "649a43c0b8719f07fe0d07636c9d1a30a0eee80ab81d7d836644e60eec541c25"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 10,
+      "seed": 16,
+      "enemy": {
+        "groups": 11,
+        "people": 110,
+        "hp": 110
+      },
+      "won": true,
+      "loss": 12,
+      "deployedBefore": 626,
+      "deployedAfter": 614,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 28,
+      "saveHash": "af347655cd369684454da17db15143b20ba6148a28687a1e61c73886ec298441"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 20,
+      "seed": 1,
+      "enemy": {
+        "groups": 11,
+        "people": 220,
+        "hp": 220
+      },
+      "won": true,
+      "loss": 15,
+      "deployedBefore": 626,
+      "deployedAfter": 611,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 30,
+      "saveHash": "6f6264a26616df0d71b39281bb5cabffe49ddd298fc16de401aace3d1630c26b"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 20,
+      "seed": 2,
+      "enemy": {
+        "groups": 11,
+        "people": 220,
+        "hp": 220
+      },
+      "won": true,
+      "loss": 21,
+      "deployedBefore": 626,
+      "deployedAfter": 605,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 30,
+      "saveHash": "408076a86ca35390f759ccf5921a8e4430f4b39dee67a9dd59eacb29061e1f7a"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 20,
+      "seed": 3,
+      "enemy": {
+        "groups": 11,
+        "people": 220,
+        "hp": 220
+      },
+      "won": true,
+      "loss": 12,
+      "deployedBefore": 626,
+      "deployedAfter": 614,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 31,
+      "saveHash": "60fe7ef9df1adc1d6fd3f363b747770e571acdf7009ee0c42e50519d3d60de6d"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 20,
+      "seed": 4,
+      "enemy": {
+        "groups": 11,
+        "people": 220,
+        "hp": 220
+      },
+      "won": true,
+      "loss": 32,
+      "deployedBefore": 626,
+      "deployedAfter": 594,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 33,
+      "saveHash": "f11a0bd0fcc9845dafda8b7ad36d7e7fe614af7c9088818666b5785ca7f26c17"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 20,
+      "seed": 5,
+      "enemy": {
+        "groups": 11,
+        "people": 220,
+        "hp": 220
+      },
+      "won": true,
+      "loss": 40,
+      "deployedBefore": 626,
+      "deployedAfter": 586,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 30,
+      "saveHash": "34408b651c6dc19b4fe17b0a2e48e61d2aaecf60c006bc520ba14a07471fa21a"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 20,
+      "seed": 6,
+      "enemy": {
+        "groups": 11,
+        "people": 220,
+        "hp": 220
+      },
+      "won": true,
+      "loss": 30,
+      "deployedBefore": 626,
+      "deployedAfter": 596,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 28,
+      "saveHash": "b1b4ba396920b966b5b305efa4a354be0809be1e58428280647c1e00bfe8c7c8"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 20,
+      "seed": 7,
+      "enemy": {
+        "groups": 11,
+        "people": 220,
+        "hp": 220
+      },
+      "won": true,
+      "loss": 21,
+      "deployedBefore": 626,
+      "deployedAfter": 605,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 24,
+      "saveHash": "0be04415c8523c25fd7a4171ea1c9d6f7b87125a90f5d4189ef31caff5f812ba"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 20,
+      "seed": 8,
+      "enemy": {
+        "groups": 11,
+        "people": 220,
+        "hp": 220
+      },
+      "won": true,
+      "loss": 21,
+      "deployedBefore": 626,
+      "deployedAfter": 605,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 27,
+      "saveHash": "f8c1a4b3aa12bf6248aaa44b62be5f7b376023d8f242304cf5a6d5f84ac5e78a"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 20,
+      "seed": 9,
+      "enemy": {
+        "groups": 11,
+        "people": 220,
+        "hp": 220
+      },
+      "won": true,
+      "loss": 13,
+      "deployedBefore": 626,
+      "deployedAfter": 613,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 28,
+      "saveHash": "f6812ee459bf1b169f0dbece2d4e328ad4ef09e43dc543461c9cdbf288db7fba"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 20,
+      "seed": 10,
+      "enemy": {
+        "groups": 11,
+        "people": 220,
+        "hp": 220
+      },
+      "won": true,
+      "loss": 23,
+      "deployedBefore": 626,
+      "deployedAfter": 603,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 29,
+      "saveHash": "ee955e0511e01429fdddc18f5994db5dd77c2b34ea05d84d0b3428a37c1d63c0"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 20,
+      "seed": 11,
+      "enemy": {
+        "groups": 11,
+        "people": 220,
+        "hp": 220
+      },
+      "won": true,
+      "loss": 17,
+      "deployedBefore": 626,
+      "deployedAfter": 609,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 30,
+      "saveHash": "c4f336cfe0a7003fb1415a8420aa2aa145a870da02a5700551bfc148cd7e7965"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 20,
+      "seed": 12,
+      "enemy": {
+        "groups": 11,
+        "people": 220,
+        "hp": 220
+      },
+      "won": true,
+      "loss": 13,
+      "deployedBefore": 626,
+      "deployedAfter": 613,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 29,
+      "saveHash": "7b0551c8c64550ed71c922e2f5c1f48b15fde644f1bc2c0300124a2b7ee07158"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 20,
+      "seed": 13,
+      "enemy": {
+        "groups": 11,
+        "people": 220,
+        "hp": 220
+      },
+      "won": true,
+      "loss": 13,
+      "deployedBefore": 626,
+      "deployedAfter": 613,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 26,
+      "saveHash": "f79c4c50171d6d6d7a7fcac2b35af1445dc6789d5dfb8657ad885eb56bb7a5a6"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 20,
+      "seed": 14,
+      "enemy": {
+        "groups": 11,
+        "people": 220,
+        "hp": 220
+      },
+      "won": true,
+      "loss": 16,
+      "deployedBefore": 626,
+      "deployedAfter": 610,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 24,
+      "saveHash": "021cd3e277f71f102a752f14ac48e1d7b3a420863b4697d3d25ed1d02dbb239f"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 20,
+      "seed": 15,
+      "enemy": {
+        "groups": 11,
+        "people": 220,
+        "hp": 220
+      },
+      "won": true,
+      "loss": 16,
+      "deployedBefore": 626,
+      "deployedAfter": 610,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 29,
+      "saveHash": "e67676eeeb77700687c6eaf30f9de9ce69a0de5afe060bd1118c7a677a60de4e"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 20,
+      "seed": 16,
+      "enemy": {
+        "groups": 11,
+        "people": 220,
+        "hp": 220
+      },
+      "won": true,
+      "loss": 26,
+      "deployedBefore": 626,
+      "deployedAfter": 600,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 28,
+      "saveHash": "b311cc25d0e3d35f4a06f60017b924779257f52974664be55a51a49528f3f413"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 30,
+      "seed": 1,
+      "enemy": {
+        "groups": 11,
+        "people": 330,
+        "hp": 330
+      },
+      "won": true,
+      "loss": 75,
+      "deployedBefore": 626,
+      "deployedAfter": 551,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 43,
+      "saveHash": "2cc599150dad37236240c6779b054fa8cc41cf8448c0089c40db5e17b9db8f53"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 30,
+      "seed": 2,
+      "enemy": {
+        "groups": 11,
+        "people": 330,
+        "hp": 330
+      },
+      "won": true,
+      "loss": 33,
+      "deployedBefore": 626,
+      "deployedAfter": 593,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 27,
+      "saveHash": "72dbdadaae086ce3840fc04034986fc13e5d816848cbf1addba71bafa84ff778"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 30,
+      "seed": 3,
+      "enemy": {
+        "groups": 11,
+        "people": 330,
+        "hp": 330
+      },
+      "won": true,
+      "loss": 26,
+      "deployedBefore": 626,
+      "deployedAfter": 600,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 28,
+      "saveHash": "3c3b41d68d2893581e07400c8086793f3ae4ed1454fc385f06fa0d3c2f2ee4e9"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 30,
+      "seed": 4,
+      "enemy": {
+        "groups": 11,
+        "people": 330,
+        "hp": 330
+      },
+      "won": true,
+      "loss": 27,
+      "deployedBefore": 626,
+      "deployedAfter": 599,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 33,
+      "saveHash": "00ff1638d7ec1f359021b0d382bb37d04a70415194e4158b3fd101bada7ed137"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 30,
+      "seed": 5,
+      "enemy": {
+        "groups": 11,
+        "people": 330,
+        "hp": 330
+      },
+      "won": true,
+      "loss": 77,
+      "deployedBefore": 626,
+      "deployedAfter": 549,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 35,
+      "saveHash": "31d227cd7af8f37030e94a1afed3ff7681b55d8e29915f8b36b107dd036b61af"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 30,
+      "seed": 6,
+      "enemy": {
+        "groups": 11,
+        "people": 330,
+        "hp": 330
+      },
+      "won": true,
+      "loss": 43,
+      "deployedBefore": 626,
+      "deployedAfter": 583,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 29,
+      "saveHash": "61a0d165cd2fb0a695e3acfa88bf5dabbb2b71ef1653d454f2e3840edc3062e3"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 30,
+      "seed": 7,
+      "enemy": {
+        "groups": 11,
+        "people": 330,
+        "hp": 330
+      },
+      "won": true,
+      "loss": 38,
+      "deployedBefore": 626,
+      "deployedAfter": 588,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 26,
+      "saveHash": "dcc492db31b9e5c0e203aeec3ffc08207d8fcf4a1ea7e66e0401e4ea52c1ad3c"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 30,
+      "seed": 8,
+      "enemy": {
+        "groups": 11,
+        "people": 330,
+        "hp": 330
+      },
+      "won": true,
+      "loss": 33,
+      "deployedBefore": 626,
+      "deployedAfter": 593,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 27,
+      "saveHash": "4808c88051348cfc93c6a2fca8b11a9dbcdfc719d6cba2e8bd089086fccdccda"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 30,
+      "seed": 9,
+      "enemy": {
+        "groups": 11,
+        "people": 330,
+        "hp": 330
+      },
+      "won": true,
+      "loss": 26,
+      "deployedBefore": 626,
+      "deployedAfter": 600,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 29,
+      "saveHash": "19467f268102f2f2a566c45bb56b002dfaa007fe22efdeeee984a7e4ae3fb2bb"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 30,
+      "seed": 10,
+      "enemy": {
+        "groups": 11,
+        "people": 330,
+        "hp": 330
+      },
+      "won": true,
+      "loss": 46,
+      "deployedBefore": 626,
+      "deployedAfter": 580,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 35,
+      "saveHash": "2fa806e6319d1100e44f1ccdcc4cc6d49cee6e6ff7d44a25476c24b720d93330"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 30,
+      "seed": 11,
+      "enemy": {
+        "groups": 11,
+        "people": 330,
+        "hp": 330
+      },
+      "won": true,
+      "loss": 14,
+      "deployedBefore": 626,
+      "deployedAfter": 612,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 28,
+      "saveHash": "4dd263e567f70399b1c5363745e7bed14644f672159243f2feb01d05aff7a9c5"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 30,
+      "seed": 12,
+      "enemy": {
+        "groups": 11,
+        "people": 330,
+        "hp": 330
+      },
+      "won": true,
+      "loss": 30,
+      "deployedBefore": 626,
+      "deployedAfter": 596,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 29,
+      "saveHash": "35140003f0ca4d1e10008028aecf434c11fde328065ac5ef0c163e2dfceb20bf"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 30,
+      "seed": 13,
+      "enemy": {
+        "groups": 11,
+        "people": 330,
+        "hp": 330
+      },
+      "won": true,
+      "loss": 44,
+      "deployedBefore": 626,
+      "deployedAfter": 582,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 28,
+      "saveHash": "c08aea53261622b7295035ada69f7e4537f49bd8ceecbfd25abb3ace63661594"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 30,
+      "seed": 14,
+      "enemy": {
+        "groups": 11,
+        "people": 330,
+        "hp": 330
+      },
+      "won": true,
+      "loss": 71,
+      "deployedBefore": 626,
+      "deployedAfter": 555,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 38,
+      "saveHash": "eb6f6f41de2d8c07cfc76276fe451a2fb7423c3ce86643cc19a1295b83a30962"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 30,
+      "seed": 15,
+      "enemy": {
+        "groups": 11,
+        "people": 330,
+        "hp": 330
+      },
+      "won": true,
+      "loss": 44,
+      "deployedBefore": 626,
+      "deployedAfter": 582,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 37,
+      "saveHash": "c3d57526608b2a9ea2da351f6deb541e8b90df3737167789a235c127e9acf182"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 30,
+      "seed": 16,
+      "enemy": {
+        "groups": 11,
+        "people": 330,
+        "hp": 330
+      },
+      "won": true,
+      "loss": 29,
+      "deployedBefore": 626,
+      "deployedAfter": 597,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 29,
+      "saveHash": "b18a290aebbd32a9ddfcb92219d6ec1a7ae5c9935064a0459f8d01a3f84512c9"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 40,
+      "seed": 1,
+      "enemy": {
+        "groups": 11,
+        "people": 440,
+        "hp": 440
+      },
+      "won": true,
+      "loss": 125,
+      "deployedBefore": 626,
+      "deployedAfter": 501,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 43,
+      "saveHash": "966c918788ed7fb978ef582d230205fef100bd0dc9ca0d1b019c3754f14552d2"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 40,
+      "seed": 2,
+      "enemy": {
+        "groups": 11,
+        "people": 440,
+        "hp": 440
+      },
+      "won": true,
+      "loss": 73,
+      "deployedBefore": 626,
+      "deployedAfter": 553,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 35,
+      "saveHash": "0dfa4635494167e7aaabc0742fee95161c8379d4988e12a737c77228a4945a3c"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 40,
+      "seed": 3,
+      "enemy": {
+        "groups": 11,
+        "people": 440,
+        "hp": 440
+      },
+      "won": true,
+      "loss": 31,
+      "deployedBefore": 626,
+      "deployedAfter": 595,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 30,
+      "saveHash": "b8d84df2a7e67e3763175f464684ce1bfdf11db6fc1a5e4dae3bff440aa84ff8"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 40,
+      "seed": 4,
+      "enemy": {
+        "groups": 11,
+        "people": 440,
+        "hp": 440
+      },
+      "won": true,
+      "loss": 50,
+      "deployedBefore": 626,
+      "deployedAfter": 576,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 34,
+      "saveHash": "e6d29cfe4aed8bdbc6e45477eff643b0a986fdd442810f02108ff200ce671b10"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 40,
+      "seed": 5,
+      "enemy": {
+        "groups": 11,
+        "people": 440,
+        "hp": 440
+      },
+      "won": true,
+      "loss": 147,
+      "deployedBefore": 626,
+      "deployedAfter": 479,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 42,
+      "saveHash": "2143130e216ebd8a36d027c6cb56d3c5e23673e3103a0cfd1d284b09812fb2b4"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 40,
+      "seed": 6,
+      "enemy": {
+        "groups": 11,
+        "people": 440,
+        "hp": 440
+      },
+      "won": true,
+      "loss": 43,
+      "deployedBefore": 626,
+      "deployedAfter": 583,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 32,
+      "saveHash": "442df9038fef617120549d3c7a8317dc4542d4d7479936b7e96f11420a9d9ee1"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 40,
+      "seed": 7,
+      "enemy": {
+        "groups": 11,
+        "people": 440,
+        "hp": 440
+      },
+      "won": true,
+      "loss": 55,
+      "deployedBefore": 626,
+      "deployedAfter": 571,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 26,
+      "saveHash": "e3f07b1c747b3f7ea5c8d1586462737cdaca783bf92f9b7cb46cef26152b5fd7"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 40,
+      "seed": 8,
+      "enemy": {
+        "groups": 11,
+        "people": 440,
+        "hp": 440
+      },
+      "won": true,
+      "loss": 72,
+      "deployedBefore": 626,
+      "deployedAfter": 554,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 32,
+      "saveHash": "aeabe78c1fe6a8f3f6a1e23a746a93fe59bb9c5e9a78057c8570a609646727f3"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 40,
+      "seed": 9,
+      "enemy": {
+        "groups": 11,
+        "people": 440,
+        "hp": 440
+      },
+      "won": true,
+      "loss": 28,
+      "deployedBefore": 626,
+      "deployedAfter": 598,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 29,
+      "saveHash": "755b4f263ce3c5237beca6b9c17e9736fa49e53bf2e5cdf887a88cfccebd2f9e"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 40,
+      "seed": 10,
+      "enemy": {
+        "groups": 11,
+        "people": 440,
+        "hp": 440
+      },
+      "won": true,
+      "loss": 65,
+      "deployedBefore": 626,
+      "deployedAfter": 561,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 36,
+      "saveHash": "4733bb746a04eb3cad16c47c691998698a17870a73d0e99c2829764566eb5e38"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 40,
+      "seed": 11,
+      "enemy": {
+        "groups": 11,
+        "people": 440,
+        "hp": 440
+      },
+      "won": true,
+      "loss": 50,
+      "deployedBefore": 626,
+      "deployedAfter": 576,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 32,
+      "saveHash": "b6ef4dd438aa20ceb0697f9258b4e7f5f168cbc6c1bcd16b9f6352f2bac143ff"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 40,
+      "seed": 12,
+      "enemy": {
+        "groups": 11,
+        "people": 440,
+        "hp": 440
+      },
+      "won": true,
+      "loss": 53,
+      "deployedBefore": 626,
+      "deployedAfter": 573,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 27,
+      "saveHash": "27131fe6103fc777d1f55a68c322ed82990ecc151b5a3e348d09dbe6c32a10dc"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 40,
+      "seed": 13,
+      "enemy": {
+        "groups": 11,
+        "people": 440,
+        "hp": 440
+      },
+      "won": true,
+      "loss": 65,
+      "deployedBefore": 626,
+      "deployedAfter": 561,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 28,
+      "saveHash": "1a507ee1b89bf467dc2c92d6ca22dfafe4bd0066fef977055a7485e21b85a9c1"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 40,
+      "seed": 14,
+      "enemy": {
+        "groups": 11,
+        "people": 440,
+        "hp": 440
+      },
+      "won": true,
+      "loss": 103,
+      "deployedBefore": 626,
+      "deployedAfter": 523,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 38,
+      "saveHash": "ebf36d2fc826a1e8fca13c21cdc5fda816b3051175591d538b084cbd307558ba"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 40,
+      "seed": 15,
+      "enemy": {
+        "groups": 11,
+        "people": 440,
+        "hp": 440
+      },
+      "won": true,
+      "loss": 127,
+      "deployedBefore": 626,
+      "deployedAfter": 499,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 45,
+      "saveHash": "012879e7fcc602719ddddc3b3bcc3f01a3f30d53aa7fc0a7181090c564fefb3b"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 40,
+      "seed": 16,
+      "enemy": {
+        "groups": 11,
+        "people": 440,
+        "hp": 440
+      },
+      "won": true,
+      "loss": 48,
+      "deployedBefore": 626,
+      "deployedAfter": 578,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 33,
+      "saveHash": "618ec5b91f70d54ad6b44d4db9eea2da19065aafd8886d87d027fd6f598b7d0d"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 50,
+      "seed": 1,
+      "enemy": {
+        "groups": 11,
+        "people": 550,
+        "hp": 550
+      },
+      "won": true,
+      "loss": 175,
+      "deployedBefore": 626,
+      "deployedAfter": 451,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 44,
+      "saveHash": "3766e10833940965e595a0aa14082c80c36708a0647be0fe471b132289ce3069"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 50,
+      "seed": 2,
+      "enemy": {
+        "groups": 11,
+        "people": 550,
+        "hp": 550
+      },
+      "won": true,
+      "loss": 124,
+      "deployedBefore": 626,
+      "deployedAfter": 502,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 48,
+      "saveHash": "8414b1da2db1db0ae2ea2f6f7b3f37b5b89b5f2c503e58d9a66d60876fc89fea"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 50,
+      "seed": 3,
+      "enemy": {
+        "groups": 11,
+        "people": 550,
+        "hp": 550
+      },
+      "won": true,
+      "loss": 161,
+      "deployedBefore": 626,
+      "deployedAfter": 465,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 43,
+      "saveHash": "955787c304a92598f20cbf25802a239b78eddb3475be294416913ee2160ca7c3"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 50,
+      "seed": 4,
+      "enemy": {
+        "groups": 11,
+        "people": 550,
+        "hp": 550
+      },
+      "won": true,
+      "loss": 90,
+      "deployedBefore": 626,
+      "deployedAfter": 536,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 36,
+      "saveHash": "1dbc5943d2823114fd859d0c5642dae86a077cf626cf32ffc6c886c010151df4"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 50,
+      "seed": 5,
+      "enemy": {
+        "groups": 11,
+        "people": 550,
+        "hp": 550
+      },
+      "won": true,
+      "loss": 193,
+      "deployedBefore": 626,
+      "deployedAfter": 433,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 42,
+      "saveHash": "40eda95e662c41b6b4ce329b20c0d7a255d5abe3f89065cf34dcbd74a23b19fb"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 50,
+      "seed": 6,
+      "enemy": {
+        "groups": 11,
+        "people": 550,
+        "hp": 550
+      },
+      "won": true,
+      "loss": 73,
+      "deployedBefore": 626,
+      "deployedAfter": 553,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 34,
+      "saveHash": "3bf332898ab5db68a0a540c99f5f0e15d999f41bd364fac3821fec4865c6edb6"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 50,
+      "seed": 7,
+      "enemy": {
+        "groups": 11,
+        "people": 550,
+        "hp": 550
+      },
+      "won": true,
+      "loss": 106,
+      "deployedBefore": 626,
+      "deployedAfter": 520,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 35,
+      "saveHash": "41c7a43d5a91b519655097789f031c2621528bb6eac097a01c36ad2f4833703f"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 50,
+      "seed": 8,
+      "enemy": {
+        "groups": 11,
+        "people": 550,
+        "hp": 550
+      },
+      "won": true,
+      "loss": 85,
+      "deployedBefore": 626,
+      "deployedAfter": 541,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 40,
+      "saveHash": "454770cb7c7c7a2140b00a182c0473748751b74085e38475fa461e00c2272704"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 50,
+      "seed": 9,
+      "enemy": {
+        "groups": 11,
+        "people": 550,
+        "hp": 550
+      },
+      "won": true,
+      "loss": 82,
+      "deployedBefore": 626,
+      "deployedAfter": 544,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 39,
+      "saveHash": "3149481532cb4e4bcaef393dce50e13c53a42ec085bfc58f865ad85e3cbdffcd"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 50,
+      "seed": 10,
+      "enemy": {
+        "groups": 11,
+        "people": 550,
+        "hp": 550
+      },
+      "won": true,
+      "loss": 101,
+      "deployedBefore": 626,
+      "deployedAfter": 525,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 36,
+      "saveHash": "d2c5486298f1da5a97720ebfccc243df565fc927fe2c03768ef15fcf8b1c55e7"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 50,
+      "seed": 11,
+      "enemy": {
+        "groups": 11,
+        "people": 550,
+        "hp": 550
+      },
+      "won": true,
+      "loss": 85,
+      "deployedBefore": 626,
+      "deployedAfter": 541,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 38,
+      "saveHash": "478260e7f1bf30dddcc08c2b516df31e5b43f66aba0cfbca609085887172fe29"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 50,
+      "seed": 12,
+      "enemy": {
+        "groups": 11,
+        "people": 550,
+        "hp": 550
+      },
+      "won": true,
+      "loss": 101,
+      "deployedBefore": 626,
+      "deployedAfter": 525,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 36,
+      "saveHash": "b96eb90b0fd60b9e33879a2f0a4bb248f70e0d96d20157482af60ad144b16a40"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 50,
+      "seed": 13,
+      "enemy": {
+        "groups": 11,
+        "people": 550,
+        "hp": 550
+      },
+      "won": true,
+      "loss": 71,
+      "deployedBefore": 626,
+      "deployedAfter": 555,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 28,
+      "saveHash": "3d358ea0e59af9619583f552e9dab584d8a470702df8b7154485926db6d4e5f5"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 50,
+      "seed": 14,
+      "enemy": {
+        "groups": 11,
+        "people": 550,
+        "hp": 550
+      },
+      "won": true,
+      "loss": 132,
+      "deployedBefore": 626,
+      "deployedAfter": 494,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 39,
+      "saveHash": "bf3923754621f21bdd80d6f13519267e19885497667175616b58bdf9e3c4efec"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 50,
+      "seed": 15,
+      "enemy": {
+        "groups": 11,
+        "people": 550,
+        "hp": 550
+      },
+      "won": true,
+      "loss": 151,
+      "deployedBefore": 626,
+      "deployedAfter": 475,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 51,
+      "saveHash": "fe14e59ad131eaedf80504fae4e9b46f964c3bcdff06f4487300a14d6602b6a8"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 50,
+      "seed": 16,
+      "enemy": {
+        "groups": 11,
+        "people": 550,
+        "hp": 550
+      },
+      "won": true,
+      "loss": 67,
+      "deployedBefore": 626,
+      "deployedAfter": 559,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 33,
+      "saveHash": "6c91a8eb6df414f514aef25207e9360183439d6053f1f501cc361dc2e6c398e6"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 60,
+      "seed": 1,
+      "enemy": {
+        "groups": 11,
+        "people": 660,
+        "hp": 660
+      },
+      "won": true,
+      "loss": 143,
+      "deployedBefore": 626,
+      "deployedAfter": 483,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 47,
+      "saveHash": "778f102517664aae2203103dfceb9981d47a1492414a7e9065deb4b191425e4b"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 60,
+      "seed": 2,
+      "enemy": {
+        "groups": 11,
+        "people": 660,
+        "hp": 660
+      },
+      "won": true,
+      "loss": 196,
+      "deployedBefore": 626,
+      "deployedAfter": 430,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 49,
+      "saveHash": "d4a3ba78d462926765667cabe676330bb70843c4ef6253cb88ddfb59197f62f2"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 60,
+      "seed": 3,
+      "enemy": {
+        "groups": 11,
+        "people": 660,
+        "hp": 660
+      },
+      "won": true,
+      "loss": 223,
+      "deployedBefore": 626,
+      "deployedAfter": 403,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 52,
+      "saveHash": "0b08b4c5890e127fe2d1093c1e257cdd64ada52b8b75b2d9a21e99b5bab6d610"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 60,
+      "seed": 4,
+      "enemy": {
+        "groups": 11,
+        "people": 660,
+        "hp": 660
+      },
+      "won": true,
+      "loss": 213,
+      "deployedBefore": 626,
+      "deployedAfter": 413,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 57,
+      "saveHash": "72a1507e1632181e303cae4eb70ed64472dddd57300a4b81b24c3f9e7a2c7a6a"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 60,
+      "seed": 5,
+      "enemy": {
+        "groups": 11,
+        "people": 660,
+        "hp": 660
+      },
+      "won": true,
+      "loss": 209,
+      "deployedBefore": 626,
+      "deployedAfter": 417,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 53,
+      "saveHash": "ff093d7de09b781cdcc80d0d58a157a2a591f6a297debe24e2cecb761c0f6cdf"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 60,
+      "seed": 6,
+      "enemy": {
+        "groups": 11,
+        "people": 660,
+        "hp": 660
+      },
+      "won": true,
+      "loss": 181,
+      "deployedBefore": 626,
+      "deployedAfter": 445,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 48,
+      "saveHash": "9a990839d322ce2c9874ca61950f9731bfe1f3ce7d1cc0985552417b81b7ab5a"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 60,
+      "seed": 7,
+      "enemy": {
+        "groups": 11,
+        "people": 660,
+        "hp": 660
+      },
+      "won": true,
+      "loss": 94,
+      "deployedBefore": 626,
+      "deployedAfter": 532,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 51,
+      "saveHash": "dc68926d3480b54262f04fd0d22658ec612b5a7adcb1035a57b5af74887c8700"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 60,
+      "seed": 8,
+      "enemy": {
+        "groups": 11,
+        "people": 660,
+        "hp": 660
+      },
+      "won": true,
+      "loss": 98,
+      "deployedBefore": 626,
+      "deployedAfter": 528,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 62,
+      "saveHash": "67bb3921f03a5ed2c9a882acf254474796d3852ef681143fcabfae4374823587"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 60,
+      "seed": 9,
+      "enemy": {
+        "groups": 11,
+        "people": 660,
+        "hp": 660
+      },
+      "won": true,
+      "loss": 144,
+      "deployedBefore": 626,
+      "deployedAfter": 482,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 52,
+      "saveHash": "31f454ee27ba80b6beecaecbf4404b16c6be47da1d4c4aed63342629d658adb1"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 60,
+      "seed": 10,
+      "enemy": {
+        "groups": 11,
+        "people": 660,
+        "hp": 660
+      },
+      "won": true,
+      "loss": 151,
+      "deployedBefore": 626,
+      "deployedAfter": 475,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 47,
+      "saveHash": "118ee0e2d3f8d12f554a83bce99377da15cf377480fa19ad179274ac7fbf445b"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 60,
+      "seed": 11,
+      "enemy": {
+        "groups": 11,
+        "people": 660,
+        "hp": 660
+      },
+      "won": true,
+      "loss": 119,
+      "deployedBefore": 626,
+      "deployedAfter": 507,
+      "round": 2,
+      "remainingEnemyHp": 0,
+      "callbacks": 36,
+      "saveHash": "8bc25689efa8d049c2a84ee5df747069f6d98f2294d08d2e895f577079b5becc"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 60,
+      "seed": 12,
+      "enemy": {
+        "groups": 11,
+        "people": 660,
+        "hp": 660
+      },
+      "won": true,
+      "loss": 85,
+      "deployedBefore": 626,
+      "deployedAfter": 541,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 39,
+      "saveHash": "b4958e8cd97384c44ae9cf2919dde5faf1c9a779e7acedd379047a4b297f1519"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 60,
+      "seed": 13,
+      "enemy": {
+        "groups": 11,
+        "people": 660,
+        "hp": 660
+      },
+      "won": true,
+      "loss": 177,
+      "deployedBefore": 626,
+      "deployedAfter": 449,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 46,
+      "saveHash": "9dabcf87f5dd021bcac2ae89344863caee3c02678cf984d7561c2283d1eb1601"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 60,
+      "seed": 14,
+      "enemy": {
+        "groups": 11,
+        "people": 660,
+        "hp": 660
+      },
+      "won": true,
+      "loss": 99,
+      "deployedBefore": 626,
+      "deployedAfter": 527,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 43,
+      "saveHash": "8355bfbfbbadd4a6cced9cafcb852d158f08c3f451bdd9266cbb70da01f938a8"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 60,
+      "seed": 15,
+      "enemy": {
+        "groups": 11,
+        "people": 660,
+        "hp": 660
+      },
+      "won": true,
+      "loss": 234,
+      "deployedBefore": 626,
+      "deployedAfter": 392,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 54,
+      "saveHash": "3fee58ef9247dedd6b33d6fcb7c69d257590cadfbb36034d350a1fd8c9d375b8"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 60,
+      "seed": 16,
+      "enemy": {
+        "groups": 11,
+        "people": 660,
+        "hp": 660
+      },
+      "won": true,
+      "loss": 191,
+      "deployedBefore": 626,
+      "deployedAfter": 435,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 50,
+      "saveHash": "debb3b216beb1d75d05a5d0be356fb94d14ce7fe2177c55567da19d40ab5577a"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 80,
+      "seed": 1,
+      "enemy": {
+        "groups": 11,
+        "people": 880,
+        "hp": 880
+      },
+      "won": true,
+      "loss": 274,
+      "deployedBefore": 626,
+      "deployedAfter": 352,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 56,
+      "saveHash": "214e4ce341b7eab910d4e2a8c8ae7fdee93c34c3a7c5b2c0b57589936a89f50f"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 80,
+      "seed": 2,
+      "enemy": {
+        "groups": 11,
+        "people": 880,
+        "hp": 880
+      },
+      "won": true,
+      "loss": 228,
+      "deployedBefore": 626,
+      "deployedAfter": 398,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 53,
+      "saveHash": "5ad1bf5e2565d25749f75d382b9ec4442c203249a327e998379f6fbe6f94b044"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 80,
+      "seed": 3,
+      "enemy": {
+        "groups": 11,
+        "people": 880,
+        "hp": 880
+      },
+      "won": true,
+      "loss": 282,
+      "deployedBefore": 626,
+      "deployedAfter": 344,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 54,
+      "saveHash": "fdf2cd45ee2bad36b1cb5a4c45ace9edc584d9b9a171ed561ed2fe0e51f71e70"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 80,
+      "seed": 4,
+      "enemy": {
+        "groups": 11,
+        "people": 880,
+        "hp": 880
+      },
+      "won": true,
+      "loss": 246,
+      "deployedBefore": 626,
+      "deployedAfter": 380,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 56,
+      "saveHash": "f3208519e0a3f1408d38206ed7294a1b1297abcdd75cad5fcad78ec8657af575"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 80,
+      "seed": 5,
+      "enemy": {
+        "groups": 11,
+        "people": 880,
+        "hp": 880
+      },
+      "won": true,
+      "loss": 287,
+      "deployedBefore": 626,
+      "deployedAfter": 339,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 50,
+      "saveHash": "0bcb30bf6de723b15393f6f842be37ad870e191fb9c23708abc37705a2a52d31"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 80,
+      "seed": 6,
+      "enemy": {
+        "groups": 11,
+        "people": 880,
+        "hp": 880
+      },
+      "won": true,
+      "loss": 307,
+      "deployedBefore": 626,
+      "deployedAfter": 319,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 54,
+      "saveHash": "9d1606d2141fd46a36d5c9efbad2c97b95ad452006fc441a25b86e8ad1eb1504"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 80,
+      "seed": 7,
+      "enemy": {
+        "groups": 11,
+        "people": 880,
+        "hp": 880
+      },
+      "won": true,
+      "loss": 171,
+      "deployedBefore": 626,
+      "deployedAfter": 455,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 51,
+      "saveHash": "6abd31d2c87657cde89b3ec0a24e6170ec363781bced0803379d710f91834c72"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 80,
+      "seed": 8,
+      "enemy": {
+        "groups": 11,
+        "people": 880,
+        "hp": 880
+      },
+      "won": true,
+      "loss": 150,
+      "deployedBefore": 626,
+      "deployedAfter": 476,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 62,
+      "saveHash": "e7afc84c79d4d78ab6428e4153cc7cce0ac984106bb80f64538d17255cd65729"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 80,
+      "seed": 9,
+      "enemy": {
+        "groups": 11,
+        "people": 880,
+        "hp": 880
+      },
+      "won": true,
+      "loss": 292,
+      "deployedBefore": 626,
+      "deployedAfter": 334,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 55,
+      "saveHash": "df1d2ea67fcffd7376ddd0f8bfc83fb00555af790977357ba6dc60a608ff3392"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 80,
+      "seed": 10,
+      "enemy": {
+        "groups": 11,
+        "people": 880,
+        "hp": 880
+      },
+      "won": true,
+      "loss": 337,
+      "deployedBefore": 626,
+      "deployedAfter": 289,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 78,
+      "saveHash": "9b71991d134d868dfe97fe80c274a5dc52947f431d2db79096b93a40b8bde18a"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 80,
+      "seed": 11,
+      "enemy": {
+        "groups": 11,
+        "people": 880,
+        "hp": 880
+      },
+      "won": true,
+      "loss": 145,
+      "deployedBefore": 626,
+      "deployedAfter": 481,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 38,
+      "saveHash": "6ccd906d89cc13b60b8700f02b232bdef16e25d7d98b84b47cccdc290a824fb7"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 80,
+      "seed": 12,
+      "enemy": {
+        "groups": 11,
+        "people": 880,
+        "hp": 880
+      },
+      "won": true,
+      "loss": 174,
+      "deployedBefore": 626,
+      "deployedAfter": 452,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 44,
+      "saveHash": "b56af0cad8a63c7d971dbfd6eb4a9730b203e91103940ef93fb67ba51ba2ae78"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 80,
+      "seed": 13,
+      "enemy": {
+        "groups": 11,
+        "people": 880,
+        "hp": 880
+      },
+      "won": true,
+      "loss": 256,
+      "deployedBefore": 626,
+      "deployedAfter": 370,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 59,
+      "saveHash": "2c61067d585dc0c84f4755a455e24bd7f07f2f07cff7b68c0bc0c7e17a1d0b43"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 80,
+      "seed": 14,
+      "enemy": {
+        "groups": 11,
+        "people": 880,
+        "hp": 880
+      },
+      "won": true,
+      "loss": 198,
+      "deployedBefore": 626,
+      "deployedAfter": 428,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 41,
+      "saveHash": "2b1e28e03227586f1d386129984b5c72751eff9d8fe957a9a13fa7d9f832f649"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 80,
+      "seed": 15,
+      "enemy": {
+        "groups": 11,
+        "people": 880,
+        "hp": 880
+      },
+      "won": true,
+      "loss": 270,
+      "deployedBefore": 626,
+      "deployedAfter": 356,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 66,
+      "saveHash": "743730a26ae90639b9d15362aee9be88358641333eea4f469b3fe8fcaeeca508"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 80,
+      "seed": 16,
+      "enemy": {
+        "groups": 11,
+        "people": 880,
+        "hp": 880
+      },
+      "won": true,
+      "loss": 254,
+      "deployedBefore": 626,
+      "deployedAfter": 372,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 50,
+      "saveHash": "74128a48b3572f891afca2dad147365f83410dee34e732ed3f02f23a12712875"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 100,
+      "seed": 1,
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "won": true,
+      "loss": 331,
+      "deployedBefore": 626,
+      "deployedAfter": 295,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 57,
+      "saveHash": "9ff438894105b3ad6c5b02290fc63492198523ef6c1eabbb8136f557e4c068e0"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 100,
+      "seed": 2,
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "won": true,
+      "loss": 360,
+      "deployedBefore": 626,
+      "deployedAfter": 266,
+      "round": 6,
+      "remainingEnemyHp": 0,
+      "callbacks": 76,
+      "saveHash": "fdef7f61552ed416031ab985c70d581fef86959752cf556a96c5a617e772222a"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 100,
+      "seed": 3,
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "won": true,
+      "loss": 362,
+      "deployedBefore": 626,
+      "deployedAfter": 264,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 60,
+      "saveHash": "90cf5c20b73bbe364297c0bd5581ee752fa48a163c1706e5a9c2612666efd97c"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 100,
+      "seed": 4,
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "won": true,
+      "loss": 223,
+      "deployedBefore": 626,
+      "deployedAfter": 403,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 54,
+      "saveHash": "aa894bd602d6591f1fc483905cabde4f30783f3ac5f393cd139037c30d340423"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 100,
+      "seed": 5,
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "won": true,
+      "loss": 351,
+      "deployedBefore": 626,
+      "deployedAfter": 275,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 62,
+      "saveHash": "56891d140468745f5d11006393c8b80c750d6dc5b8eebaa9d60fad8f076acdff"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 100,
+      "seed": 6,
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "won": true,
+      "loss": 286,
+      "deployedBefore": 626,
+      "deployedAfter": 340,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 53,
+      "saveHash": "b97bc90ec93326659563680489152b03225b6c41bc458254ca618506c438971f"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 100,
+      "seed": 7,
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "won": true,
+      "loss": 202,
+      "deployedBefore": 626,
+      "deployedAfter": 424,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 57,
+      "saveHash": "156c34cfaa0593cb2d0e9148c3f4c388527038e76de50370c16e5a6db9049152"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 100,
+      "seed": 8,
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "won": true,
+      "loss": 233,
+      "deployedBefore": 626,
+      "deployedAfter": 393,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 66,
+      "saveHash": "49f43f9819401daadf2ee415928c0b79ab51e6e0581ed8ad53203823e2bfd962"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 100,
+      "seed": 9,
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "won": true,
+      "loss": 217,
+      "deployedBefore": 626,
+      "deployedAfter": 409,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 53,
+      "saveHash": "a3ae7c6460aac9051b380d3f57d338c6705ee5158e16add9aac82ccf79644f59"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 100,
+      "seed": 10,
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "won": true,
+      "loss": 280,
+      "deployedBefore": 626,
+      "deployedAfter": 346,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 61,
+      "saveHash": "4593aec052643d153feaa65e76967778a306ac66e8c3c588e2ae33076b0157f0"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 100,
+      "seed": 11,
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "won": true,
+      "loss": 186,
+      "deployedBefore": 626,
+      "deployedAfter": 440,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 50,
+      "saveHash": "ae4b2091aa0c9014689cedacecbba7d85f92beef625f69d5199ce6d8e8a3e856"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 100,
+      "seed": 12,
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "won": true,
+      "loss": 295,
+      "deployedBefore": 626,
+      "deployedAfter": 331,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 57,
+      "saveHash": "59ad5031121cc6125788decc88fab56bc2aa450f813e77add085dfbb2efd48b1"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 100,
+      "seed": 13,
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "won": true,
+      "loss": 176,
+      "deployedBefore": 626,
+      "deployedAfter": 450,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 45,
+      "saveHash": "924b6c581efeb548a3c02469e0330c20965ae8eac6a2935b24902f1d36c3f833"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 100,
+      "seed": 14,
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "won": true,
+      "loss": 300,
+      "deployedBefore": 626,
+      "deployedAfter": 326,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 53,
+      "saveHash": "b8e6de6f1dceacd62ae522da6d03a0153201f9d1ea5e17b71c1e4956066c0608"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 100,
+      "seed": 15,
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "won": true,
+      "loss": 381,
+      "deployedBefore": 626,
+      "deployedAfter": 245,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 70,
+      "saveHash": "3dfac4f0e5e014752756fa9c03efcf233be551151655ab132a6fa95df184e042"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 100,
+      "seed": 16,
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "won": true,
+      "loss": 201,
+      "deployedBefore": 626,
+      "deployedAfter": 425,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 46,
+      "saveHash": "fc6dd79b41e0a5263602add952d37ca8eaa61e03ee186d0a3c7336aba695729f"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 120,
+      "seed": 1,
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "won": true,
+      "loss": 357,
+      "deployedBefore": 626,
+      "deployedAfter": 269,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 61,
+      "saveHash": "593cf78709382c9e31a0329d21882b5a15116360ea9b10a1dd57bd6efe8e8b41"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 120,
+      "seed": 2,
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "won": true,
+      "loss": 399,
+      "deployedBefore": 626,
+      "deployedAfter": 227,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 69,
+      "saveHash": "86a982a41de8c210ba6c91587d24aa3d48003b09301e29dd9042fc83abdaf8c0"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 120,
+      "seed": 3,
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "won": true,
+      "loss": 371,
+      "deployedBefore": 626,
+      "deployedAfter": 255,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 63,
+      "saveHash": "0afc81a637289cb8a8f91f000bd17523edf802a475bcc21b9486361997301c2f"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 120,
+      "seed": 4,
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "won": true,
+      "loss": 355,
+      "deployedBefore": 626,
+      "deployedAfter": 271,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 64,
+      "saveHash": "56c122140811271816c9ffa9dccda85f3926fdff5f4f63594448e82f376cda94"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 120,
+      "seed": 5,
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "won": true,
+      "loss": 414,
+      "deployedBefore": 626,
+      "deployedAfter": 212,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 70,
+      "saveHash": "5d2b60d3bfdbd1d206094f8809303b0f652eec756590e46b73e738d76254262b"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 120,
+      "seed": 6,
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "won": true,
+      "loss": 360,
+      "deployedBefore": 626,
+      "deployedAfter": 266,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 68,
+      "saveHash": "a025e1d3c4c1959c79fdedffa9474029e7a5ab658b68487076db4b6084a8b5bf"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 120,
+      "seed": 7,
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "won": true,
+      "loss": 244,
+      "deployedBefore": 626,
+      "deployedAfter": 382,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 64,
+      "saveHash": "09a60a673de4a5a27b170b5963f5b5cdaad5236f826af6768021f4d36cb9e3ba"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 120,
+      "seed": 8,
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "won": true,
+      "loss": 370,
+      "deployedBefore": 626,
+      "deployedAfter": 256,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 82,
+      "saveHash": "f2aef919b9d28d27d962c0c5b3d2902eb5f2ca90530f7d5968d9a35c4ee94c23"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 120,
+      "seed": 9,
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "won": true,
+      "loss": 303,
+      "deployedBefore": 626,
+      "deployedAfter": 323,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 68,
+      "saveHash": "3445f3fea6d7a8910c3477604ab7f4e660d26510b8dbb2be8aa7fbe881687fa3"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 120,
+      "seed": 10,
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "won": true,
+      "loss": 346,
+      "deployedBefore": 626,
+      "deployedAfter": 280,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 73,
+      "saveHash": "770d967613fb9e994a37f18d206edbaa55a26ec22fe4ea5a58e797268f8140d3"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 120,
+      "seed": 11,
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "won": true,
+      "loss": 239,
+      "deployedBefore": 626,
+      "deployedAfter": 387,
+      "round": 3,
+      "remainingEnemyHp": 0,
+      "callbacks": 55,
+      "saveHash": "6b37b4186c6034eb49f2ff7be35e83d4edbc2d6a611c7cf753ddf4bda6a59ac1"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 120,
+      "seed": 12,
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "won": true,
+      "loss": 283,
+      "deployedBefore": 626,
+      "deployedAfter": 343,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 53,
+      "saveHash": "601f7ea29ddb81a45157f1819b24624c8406988f81ce951644013b578b014420"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 120,
+      "seed": 13,
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "won": true,
+      "loss": 438,
+      "deployedBefore": 626,
+      "deployedAfter": 188,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 58,
+      "saveHash": "95be4bf80f6adccd849145523628bbe281ad7f35775131716e9cad9bfa408fd8"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 120,
+      "seed": 14,
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "won": true,
+      "loss": 452,
+      "deployedBefore": 626,
+      "deployedAfter": 174,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 66,
+      "saveHash": "812e68fb9950be01ecacdd3cdb81f672d6edde60248557e6cd6c8ac27e7dc1c6"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 120,
+      "seed": 15,
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "won": true,
+      "loss": 391,
+      "deployedBefore": 626,
+      "deployedAfter": 235,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 66,
+      "saveHash": "e4b2d37d9ab875966b23baa648c9f787cc8ce3e5863a7521d1ee2921a18dff7e"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 120,
+      "seed": 16,
+      "enemy": {
+        "groups": 11,
+        "people": 1320,
+        "hp": 1320
+      },
+      "won": true,
+      "loss": 283,
+      "deployedBefore": 626,
+      "deployedAfter": 343,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 53,
+      "saveHash": "b72ebcb25a1074b1a7db6f1c2ed4fcde67f41605a7d729303911449594bc59f1"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 140,
+      "seed": 1,
+      "enemy": {
+        "groups": 11,
+        "people": 1540,
+        "hp": 1540
+      },
+      "won": true,
+      "loss": 445,
+      "deployedBefore": 626,
+      "deployedAfter": 181,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 62,
+      "saveHash": "e2be25f1487147ada9cdc41b2f3f477964dc3e246da4af764402a05b6a9edbc1"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 140,
+      "seed": 2,
+      "enemy": {
+        "groups": 11,
+        "people": 1540,
+        "hp": 1540
+      },
+      "won": true,
+      "loss": 430,
+      "deployedBefore": 626,
+      "deployedAfter": 196,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 61,
+      "saveHash": "231f480bc92191fa4997a04ac93f227f1903177273e6389da69555ff1b854df2"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 140,
+      "seed": 3,
+      "enemy": {
+        "groups": 11,
+        "people": 1540,
+        "hp": 1540
+      },
+      "won": true,
+      "loss": 523,
+      "deployedBefore": 626,
+      "deployedAfter": 103,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 66,
+      "saveHash": "477029cac9a2a867e76a60061b5ab35e8a60f9df6bbf84c7934506b81f7b022d"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 140,
+      "seed": 4,
+      "enemy": {
+        "groups": 11,
+        "people": 1540,
+        "hp": 1540
+      },
+      "won": true,
+      "loss": 474,
+      "deployedBefore": 626,
+      "deployedAfter": 152,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 65,
+      "saveHash": "dd19b505ed696c40e3d3ac6099f3d5bb1061d0980ac58035457c63f61023ef0f"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 140,
+      "seed": 5,
+      "enemy": {
+        "groups": 11,
+        "people": 1540,
+        "hp": 1540
+      },
+      "won": true,
+      "loss": 381,
+      "deployedBefore": 626,
+      "deployedAfter": 245,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 63,
+      "saveHash": "1643cf7dfd85382bfd397e15ac29577ac3a43560e734a83c43818606d19b8432"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 140,
+      "seed": 6,
+      "enemy": {
+        "groups": 11,
+        "people": 1540,
+        "hp": 1540
+      },
+      "won": true,
+      "loss": 463,
+      "deployedBefore": 626,
+      "deployedAfter": 163,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 56,
+      "saveHash": "d27d305ab6f90d79d61e0bd52cf317638abee86879c17be4caa9b6e31fea0c03"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 140,
+      "seed": 7,
+      "enemy": {
+        "groups": 11,
+        "people": 1540,
+        "hp": 1540
+      },
+      "won": true,
+      "loss": 333,
+      "deployedBefore": 626,
+      "deployedAfter": 293,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 64,
+      "saveHash": "270f2e9208b4e4a1719f0e6ff0e122bb0375d0824f5bd68f1bb6923e1db22212"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 140,
+      "seed": 8,
+      "enemy": {
+        "groups": 11,
+        "people": 1540,
+        "hp": 1540
+      },
+      "won": true,
+      "loss": 411,
+      "deployedBefore": 626,
+      "deployedAfter": 215,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 72,
+      "saveHash": "170ded19d9dab6391768303a5d78d7526c3c95f63a4cd2152fc7d7c9b3a6688b"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 140,
+      "seed": 9,
+      "enemy": {
+        "groups": 11,
+        "people": 1540,
+        "hp": 1540
+      },
+      "won": true,
+      "loss": 266,
+      "deployedBefore": 626,
+      "deployedAfter": 360,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 70,
+      "saveHash": "c384eae239c618585256559bd58f16b04fcfc6e178099a336ea6464f49a53001"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 140,
+      "seed": 10,
+      "enemy": {
+        "groups": 11,
+        "people": 1540,
+        "hp": 1540
+      },
+      "won": true,
+      "loss": 348,
+      "deployedBefore": 626,
+      "deployedAfter": 278,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 58,
+      "saveHash": "023e6110c285274d98a5ec9b4ec51a93d78ea4329752bab6d63ec2ab951a5655"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 140,
+      "seed": 11,
+      "enemy": {
+        "groups": 11,
+        "people": 1540,
+        "hp": 1540
+      },
+      "won": true,
+      "loss": 266,
+      "deployedBefore": 626,
+      "deployedAfter": 360,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 54,
+      "saveHash": "942dff38b309d06841995102adfe58017c2c840e615d86e9ce2a01ec2714708f"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 140,
+      "seed": 12,
+      "enemy": {
+        "groups": 11,
+        "people": 1540,
+        "hp": 1540
+      },
+      "won": true,
+      "loss": 283,
+      "deployedBefore": 626,
+      "deployedAfter": 343,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 54,
+      "saveHash": "5a7354208a2880d50bca6506657970cecb4c93d6bc3b767b76d6cea619fa8927"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 140,
+      "seed": 13,
+      "enemy": {
+        "groups": 11,
+        "people": 1540,
+        "hp": 1540
+      },
+      "won": true,
+      "loss": 273,
+      "deployedBefore": 626,
+      "deployedAfter": 353,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 78,
+      "saveHash": "c273f86a78df35a1ccbedfe41144f163d52701aed86266a366d4c42d98670781"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 140,
+      "seed": 14,
+      "enemy": {
+        "groups": 11,
+        "people": 1540,
+        "hp": 1540
+      },
+      "won": true,
+      "loss": 474,
+      "deployedBefore": 626,
+      "deployedAfter": 152,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 66,
+      "saveHash": "92e74e6ce6a2da354a8120241aeb61fdb635afb2dca121711376d6a6465ae0af"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 140,
+      "seed": 15,
+      "enemy": {
+        "groups": 11,
+        "people": 1540,
+        "hp": 1540
+      },
+      "won": true,
+      "loss": 382,
+      "deployedBefore": 626,
+      "deployedAfter": 244,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 64,
+      "saveHash": "38ada0525e41991ec0070881fd36d16103fd13aa7d2b71599bc4235fb20593a1"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 140,
+      "seed": 16,
+      "enemy": {
+        "groups": 11,
+        "people": 1540,
+        "hp": 1540
+      },
+      "won": true,
+      "loss": 315,
+      "deployedBefore": 626,
+      "deployedAfter": 311,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 59,
+      "saveHash": "f4bce1d3ce1ff498287fbdb00987bf54ec60afcbcb024f441351a6115d94ab59"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 160,
+      "seed": 1,
+      "enemy": {
+        "groups": 11,
+        "people": 1760,
+        "hp": 1760
+      },
+      "won": true,
+      "loss": 448,
+      "deployedBefore": 626,
+      "deployedAfter": 178,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 59,
+      "saveHash": "df54a0c0d8734f1311cb6871a97346b9cd6b4e96d7ef2d68a075f19046c2259f"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 160,
+      "seed": 2,
+      "enemy": {
+        "groups": 11,
+        "people": 1760,
+        "hp": 1760
+      },
+      "won": true,
+      "loss": 428,
+      "deployedBefore": 626,
+      "deployedAfter": 198,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 68,
+      "saveHash": "03a55da0248c02f615b3d2d722ad9a68e8ad4238a715623cf3f5ea86ae7e6d5c"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 160,
+      "seed": 3,
+      "enemy": {
+        "groups": 11,
+        "people": 1760,
+        "hp": 1760
+      },
+      "won": true,
+      "loss": 541,
+      "deployedBefore": 626,
+      "deployedAfter": 85,
+      "round": 6,
+      "remainingEnemyHp": 0,
+      "callbacks": 67,
+      "saveHash": "879712e3ca4c39cf40255c709706284aa0fee3737cc8afaf6cd3ce76b58b5fa3"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 160,
+      "seed": 4,
+      "enemy": {
+        "groups": 11,
+        "people": 1760,
+        "hp": 1760
+      },
+      "won": true,
+      "loss": 412,
+      "deployedBefore": 626,
+      "deployedAfter": 214,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 68,
+      "saveHash": "d4de98e8b3722abe0839f1ba0514428da9d1dbb9a79afcf71ff5aed4fde30568"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 160,
+      "seed": 5,
+      "enemy": {
+        "groups": 11,
+        "people": 1760,
+        "hp": 1760
+      },
+      "won": true,
+      "loss": 499,
+      "deployedBefore": 626,
+      "deployedAfter": 127,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 62,
+      "saveHash": "3d4ccf75005875047fe94798180d7b3fa029bffcaa40b721b6e7484d109ef414"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 160,
+      "seed": 6,
+      "enemy": {
+        "groups": 11,
+        "people": 1760,
+        "hp": 1760
+      },
+      "won": true,
+      "loss": 458,
+      "deployedBefore": 626,
+      "deployedAfter": 168,
+      "round": 6,
+      "remainingEnemyHp": 0,
+      "callbacks": 67,
+      "saveHash": "67db8e4b46d8f3cba485c2d385008c48999cb577e37bccded94bc6b17bbc6ca0"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 160,
+      "seed": 7,
+      "enemy": {
+        "groups": 11,
+        "people": 1760,
+        "hp": 1760
+      },
+      "won": true,
+      "loss": 395,
+      "deployedBefore": 626,
+      "deployedAfter": 231,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 62,
+      "saveHash": "68cc5d950bfe66ba5eb48feea3306d0766a86e2028d75135851ee13bf32d8fdd"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 160,
+      "seed": 8,
+      "enemy": {
+        "groups": 11,
+        "people": 1760,
+        "hp": 1760
+      },
+      "won": true,
+      "loss": 300,
+      "deployedBefore": 626,
+      "deployedAfter": 326,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 65,
+      "saveHash": "d95fa54c69bc42324a2970e587ea86ea79dea4e6102713337c56cc420ce3bd47"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 160,
+      "seed": 9,
+      "enemy": {
+        "groups": 11,
+        "people": 1760,
+        "hp": 1760
+      },
+      "won": true,
+      "loss": 396,
+      "deployedBefore": 626,
+      "deployedAfter": 230,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 69,
+      "saveHash": "672ed74f11ff2611740ba992a2e042c753e18d9d041338b7b5b4fe0ada76db43"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 160,
+      "seed": 10,
+      "enemy": {
+        "groups": 11,
+        "people": 1760,
+        "hp": 1760
+      },
+      "won": true,
+      "loss": 508,
+      "deployedBefore": 626,
+      "deployedAfter": 118,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 65,
+      "saveHash": "46200fbc6a24bff7d3796d16b4bb964474dac1a3768977375fe8337c427c8658"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 160,
+      "seed": 11,
+      "enemy": {
+        "groups": 11,
+        "people": 1760,
+        "hp": 1760
+      },
+      "won": true,
+      "loss": 431,
+      "deployedBefore": 626,
+      "deployedAfter": 195,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 62,
+      "saveHash": "95c44c5cfcb8e0f9ff75f24db86b9cfa9f23bc6029e265c691692ee148bdaad5"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 160,
+      "seed": 12,
+      "enemy": {
+        "groups": 11,
+        "people": 1760,
+        "hp": 1760
+      },
+      "won": true,
+      "loss": 425,
+      "deployedBefore": 626,
+      "deployedAfter": 201,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 63,
+      "saveHash": "1cf98c38c2096fc6fac3e365eb2d962cf7b2bbfa46a6595e8ca8b4b0fcbb065e"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 160,
+      "seed": 13,
+      "enemy": {
+        "groups": 11,
+        "people": 1760,
+        "hp": 1760
+      },
+      "won": true,
+      "loss": 533,
+      "deployedBefore": 626,
+      "deployedAfter": 93,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 74,
+      "saveHash": "e17deeea0257f5d717ee8679f12a3fa760fab6f4832a5c10e4ecf3d75dfed3e7"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 160,
+      "seed": 14,
+      "enemy": {
+        "groups": 11,
+        "people": 1760,
+        "hp": 1760
+      },
+      "won": true,
+      "loss": 445,
+      "deployedBefore": 626,
+      "deployedAfter": 181,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 66,
+      "saveHash": "9712a9d043dc562833c793c3f39a683f7fb32e36abd72214314afe9b9831a0d4"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 160,
+      "seed": 15,
+      "enemy": {
+        "groups": 11,
+        "people": 1760,
+        "hp": 1760
+      },
+      "won": true,
+      "loss": 489,
+      "deployedBefore": 626,
+      "deployedAfter": 137,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 68,
+      "saveHash": "9662b5c83fb0bbfb383a2c423568ea15a8880d3e982b7c29fa631af310ae13fb"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 160,
+      "seed": 16,
+      "enemy": {
+        "groups": 11,
+        "people": 1760,
+        "hp": 1760
+      },
+      "won": true,
+      "loss": 331,
+      "deployedBefore": 626,
+      "deployedAfter": 295,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 63,
+      "saveHash": "9787a5ca68ba940d861f9df9f5aa8a41b3ebc8f1e7d5a679fb2814b25d6cac35"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 180,
+      "seed": 1,
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "won": true,
+      "loss": 483,
+      "deployedBefore": 626,
+      "deployedAfter": 143,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 62,
+      "saveHash": "07c11dbae11755b49d969ee9e577e05fb869bb297e6bc55c1f896eb8eb5cc448"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 180,
+      "seed": 2,
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "won": true,
+      "loss": 518,
+      "deployedBefore": 626,
+      "deployedAfter": 108,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 61,
+      "saveHash": "bb3ddf92ae03a9a93d0d8e77601f90bad77a3fc4abc07e48a6eda10a9f8c3766"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 180,
+      "seed": 3,
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "won": true,
+      "loss": 544,
+      "deployedBefore": 626,
+      "deployedAfter": 82,
+      "round": 6,
+      "remainingEnemyHp": 0,
+      "callbacks": 72,
+      "saveHash": "dcaf08b34bbe374c668cc0fea77572d3fb334f79c03b59f8bcd1318dcba5ca85"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 180,
+      "seed": 4,
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "won": true,
+      "loss": 514,
+      "deployedBefore": 626,
+      "deployedAfter": 112,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 53,
+      "saveHash": "21e5aea95709c2d40d60f0c27ef7eff243788b888028654be23a1c4733566598"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 180,
+      "seed": 5,
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "won": true,
+      "loss": 506,
+      "deployedBefore": 626,
+      "deployedAfter": 120,
+      "round": 6,
+      "remainingEnemyHp": 0,
+      "callbacks": 78,
+      "saveHash": "2a2c4cd26ab744d43a5c234ee6f2441c3702aa30fbc718927c09da963544d295"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 180,
+      "seed": 6,
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "won": true,
+      "loss": 528,
+      "deployedBefore": 626,
+      "deployedAfter": 98,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 61,
+      "saveHash": "3018b2973dd82f3bbfdafc5dbcb89f9f7ad4c9f8da2b3c7e5f08693c5af459cd"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 180,
+      "seed": 7,
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "won": true,
+      "loss": 423,
+      "deployedBefore": 626,
+      "deployedAfter": 203,
+      "round": 4,
+      "remainingEnemyHp": 0,
+      "callbacks": 62,
+      "saveHash": "f3118fefa9ec9864a6faf1c8f99dc9760c674fbddef219851e99f051e1e8a950"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 180,
+      "seed": 8,
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "won": true,
+      "loss": 420,
+      "deployedBefore": 626,
+      "deployedAfter": 206,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 72,
+      "saveHash": "241d9c49cca6695fe09724b867d4a0cbf960c9dfc9b337fff3bd9aab974378ee"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 180,
+      "seed": 9,
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "won": true,
+      "loss": 510,
+      "deployedBefore": 626,
+      "deployedAfter": 116,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 65,
+      "saveHash": "50f34233bf2e7679704422f544efa9453c5305f9236e5937ae36df5c4a9a3386"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 180,
+      "seed": 10,
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "won": true,
+      "loss": 426,
+      "deployedBefore": 626,
+      "deployedAfter": 200,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 70,
+      "saveHash": "089e385967cd3eb11c5eeab1b2633c14d935cc7e4e412517beeea4a9d669cd4d"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 180,
+      "seed": 11,
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "won": true,
+      "loss": 520,
+      "deployedBefore": 626,
+      "deployedAfter": 106,
+      "round": 6,
+      "remainingEnemyHp": 0,
+      "callbacks": 74,
+      "saveHash": "6ca24cc8523e50586d2a54cdcbd5b651d38f404d055fc901456fc326e8b01540"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 180,
+      "seed": 12,
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "won": true,
+      "loss": 372,
+      "deployedBefore": 626,
+      "deployedAfter": 254,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 68,
+      "saveHash": "2190b1d3418a262d4a12f000ca497768c63050a9dee7c7453cb4b89ce86bff38"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 180,
+      "seed": 13,
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "won": true,
+      "loss": 469,
+      "deployedBefore": 626,
+      "deployedAfter": 157,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 72,
+      "saveHash": "209bc52a6d6809142118cc13457b56d19f607cef0234b5fd4367eec41650bf1e"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 180,
+      "seed": 14,
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "won": true,
+      "loss": 454,
+      "deployedBefore": 626,
+      "deployedAfter": 172,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 63,
+      "saveHash": "b1e8cf8f072df91d7a96ce9cb73ce0de40d734220b524891451b4ee5e699ffc2"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 180,
+      "seed": 15,
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "won": true,
+      "loss": 497,
+      "deployedBefore": 626,
+      "deployedAfter": 129,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 69,
+      "saveHash": "3f58420d075f841f0d655cb96a185ab2e9d76bf6603de5945ba5c7aa8cf9cb7e"
+    },
+    {
+      "profile": "paidQuantum",
+      "scale": 180,
+      "seed": 16,
+      "enemy": {
+        "groups": 11,
+        "people": 1980,
+        "hp": 1980
+      },
+      "won": true,
+      "loss": 457,
+      "deployedBefore": 626,
+      "deployedAfter": 169,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 61,
+      "saveHash": "b4b4dec16cd0ddfc12f8c64a65ef2ea3cbe4da0beab3a96a065f4961f9c120bb"
+    }
+  ],
+  "recovery": {
+    "battle": {
+      "profile": "paidQuantum",
+      "scale": 100,
+      "seed": 15,
+      "enemy": {
+        "groups": 11,
+        "people": 1100,
+        "hp": 1100
+      },
+      "won": true,
+      "loss": 381,
+      "deployedBefore": 626,
+      "deployedAfter": 245,
+      "round": 5,
+      "remainingEnemyHp": 0,
+      "callbacks": 70,
+      "saveHash": "c359c424da3ff2e5d7a890561bc1c2d72b93b732f1149b81058dcd7fe069ea4b"
+    },
+    "shortages": {
+      "archer": 150,
+      "star_trooper": 120,
+      "electro_trooper": 101,
+      "armored_trooper": 4,
+      "alloy_special": 6,
+      "gold_cavalry": 0
+    },
+    "expected": {
+      "food": 13500,
+      "stone": 3000,
+      "wood": 12000,
+      "steel": 1776600,
+      "iron": 1776000,
+      "copper": 1776000
+    },
+    "paid": {
+      "wood": 12000,
+      "stone": 3000,
+      "food": 13500,
+      "copper": 1776000,
+      "iron": 1776000,
+      "steel": 1776600
+    },
+    "trained": 381,
+    "onlineSeconds": 2789,
+    "phases": {
+      "training": 191,
+      "steel": 430,
+      "iron": 596,
+      "coal": 694,
+      "copper": 783,
+      "stone": 95
+    },
+    "minFood": 481499.39408062835,
+    "caps": {
+      "food": 486970,
+      "wood": 2768040,
+      "stone": 1845360,
+      "coal": 681758,
+      "copper": 3513873,
+      "iron": 5820573,
+      "steel": 2333611,
+      "gold": 353694,
+      "tech": 3017311895
+    },
+    "beforeStock": {
+      "tick": 13462669,
+      "food": 486970,
+      "wood": 114495,
+      "stone": 922922,
+      "coal": 370447.25,
+      "copper": 30032.699997944932,
+      "iron": 738879,
+      "steel": 32749
+    },
+    "afterStock": {
+      "tick": 13465458,
+      "food": 483256.8402916239,
+      "wood": 102495,
+      "stone": 357976,
+      "coal": 145172.75,
+      "copper": 2041.0499979337455,
+      "iron": 994183,
+      "steel": 1519
+    },
+    "finalHash": "a2d7fde40ebbf2f71594b4ef2e039e9e57b995a4a78b4071c8c7ed10c23193d3"
+  },
+  "caveat": "Pre-quantum battle needs an eligibility-only bypass, while its real entry is denied. Paid quantum has no quantum soldier deployed; research flags alone may leave combat unchanged. Fixed seeds are engineering samples, not player win rates."
+}

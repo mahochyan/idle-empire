@@ -232,6 +232,8 @@ async function ready(reload=false){
       }
     }
   }
+  const tierRoutes=await evalJs("(()=>({locks:[1,2,3,4].map(checkTierLevel),mainlineWins:S.defeated.length,border:S.development.border.sites.copper.wins,town:S.development.outer.town.wins,city:S.development.outer.city.wins,capital:S.development.outer.capital.wins}))()");
+  check('real regional wins unlock T1–T4 research gates without mainline clears',tierRoutes.locks.every(x=>x==='')&&tierRoutes.mainlineWins===0&&tierRoutes.border>0&&tierRoutes.town>0&&tierRoutes.city>0&&tierRoutes.capital>0,tierRoutes);
   const offline=await evalJs("(()=>{S.formation={front:[],mid:[],back:[]};S.pool={};S.queue={};S.popAlloc=Object.fromEntries(Object.keys(S.popAlloc).map(k=>[k,0]));S.population.current=0;S.res.food=1000;S.res.iron=0;S.development.border.sites.iron.level=2;const selected=selectDevelopmentSite('iron');S.development.border.collection.elapsedSec=30;save();const now=Date.now();_loadedTs=now-121000;Date.now=()=>now;const result=settleOffline();updateUI();const saved=JSON.parse(localStorage.getItem('rts_save')||'null');return{selected,result,iron:S.res.iron,clock:S.development.border.collection.elapsedSec,savedIron:saved?.res?.iron,savedClock:saved?.development?.border?.collection?.elapsedSec,reportVisible:document.getElementById('main').textContent.includes('离线结算')}})()");
   check('real browser offline point credit and persisted clock',offline.selected?.ok===true&&offline.result?.ok===true&&offline.result?.durationSec===121&&Math.abs(offline.iron-2.4)<1e-9&&Math.abs(offline.savedIron-2.4)<1e-9&&offline.clock===31&&offline.savedClock===31&&offline.reportVisible,offline);
   await send('Page.reload',{ignoreCache:true});

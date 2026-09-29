@@ -1,0 +1,3462 @@
+{
+  "sourceFile": "p397-star-beast-star30-paid-save.json",
+  "sourceSha256": "f035783e5ff578a93520e29bc6832d65c28125664b3a94634686eb2d2b7164f2",
+  "runtimeSha256": {
+    "config.js": "85501a43d1257c2d189d517fd9dd4edb33e5cc3764f13759ee82d9d7f05a0b01",
+    "levels.js": "cec80c26fa91f941994c253a2fe73be0dfe3f108237620b662fdab9f5449fd1d",
+    "math.js": "88f9c84b549f4b80d331faa59c2a540973c98c5f1caadae5a3d04e7df5941e3f",
+    "garrison.js": "4d233f0529d256cd1ace2de782603fcfcbbff110032ca4cf29c5e36af30f10ff",
+    "technology.js": "9b35d51f46e636713f06cedfb003a19c338026ab2bfbbc80f8c63bc8ef99e486",
+    "tests/progression/harness.js": "4770d17fa72cc8c87f4c8ef79678f19d63a41da895b8dd58776e5a39ce2ede2b"
+  },
+  "start": {
+    "tick": 15176092,
+    "city": 1465,
+    "deed": 55366,
+    "stars": 30,
+    "multiplier": 4,
+    "field": 629,
+    "army": 672,
+    "deployed": 626,
+    "alert": 0,
+    "daily": {
+      "starBeast6": 1,
+      "starBeastCalm": 1
+    },
+    "items": {
+      "origin": 280,
+      "illusion": 280,
+      "ring": 280
+    },
+    "resources": {
+      "food": 480699,
+      "copper": 137082.4299979203,
+      "iron": 302640.60000001243,
+      "steel": 40177.800000003306,
+      "tech": 307340352,
+      "medal": 10184791
+    }
+  },
+  "simulatedOnlineSeconds": 1,
+  "simulatedOfflineSeconds": 0,
+  "seventh": {
+    "tier": 7,
+    "wins": 13,
+    "closestEnemyHp": 0,
+    "lossRange": [
+      1,
+      4
+    ],
+    "rows": [
+      {
+        "tier": 7,
+        "seed": 1,
+        "result": "win",
+        "enemyHpLeft": 0,
+        "enemyInitialHp": 1411764,
+        "callbacks": 298,
+        "loss": 2,
+        "rewardEach": 140,
+        "expectedReward": 140,
+        "before": {
+          "tick": 15176092,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 672,
+          "deployed": 626,
+          "alert": 0,
+          "daily": {
+            "starBeast6": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 280,
+            "illusion": 280,
+            "ring": 280
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 137082.4299979203,
+            "iron": 302640.60000001243,
+            "steel": 40177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "after": {
+          "tick": 15176092,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 670,
+          "deployed": 624,
+          "alert": 400,
+          "daily": {
+            "starBeast7": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 137082.4299979203,
+            "iron": 302640.60000001243,
+            "steel": 40177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "sha256": "02a8e9bfcb4104859b5efe6c49b01fc6a4d6f3f4d7c55585eef20a955e733f77"
+      },
+      {
+        "tier": 7,
+        "seed": 2,
+        "result": "win",
+        "enemyHpLeft": 0,
+        "enemyInitialHp": 1411764,
+        "callbacks": 297,
+        "loss": 2,
+        "rewardEach": 140,
+        "expectedReward": 140,
+        "before": {
+          "tick": 15176092,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 672,
+          "deployed": 626,
+          "alert": 0,
+          "daily": {
+            "starBeast6": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 280,
+            "illusion": 280,
+            "ring": 280
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 137082.4299979203,
+            "iron": 302640.60000001243,
+            "steel": 40177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "after": {
+          "tick": 15176092,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 670,
+          "deployed": 624,
+          "alert": 400,
+          "daily": {
+            "starBeast7": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 137082.4299979203,
+            "iron": 302640.60000001243,
+            "steel": 40177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "sha256": "02a8e9bfcb4104859b5efe6c49b01fc6a4d6f3f4d7c55585eef20a955e733f77"
+      },
+      {
+        "tier": 7,
+        "seed": 3,
+        "result": "win",
+        "enemyHpLeft": 0,
+        "enemyInitialHp": 1411764,
+        "callbacks": 297,
+        "loss": 4,
+        "rewardEach": 140,
+        "expectedReward": 140,
+        "before": {
+          "tick": 15176092,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 672,
+          "deployed": 626,
+          "alert": 0,
+          "daily": {
+            "starBeast6": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 280,
+            "illusion": 280,
+            "ring": 280
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 137082.4299979203,
+            "iron": 302640.60000001243,
+            "steel": 40177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "after": {
+          "tick": 15176092,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 668,
+          "deployed": 622,
+          "alert": 400,
+          "daily": {
+            "starBeast7": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 137082.4299979203,
+            "iron": 302640.60000001243,
+            "steel": 40177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "sha256": "36cbd35cdfd8c5a96f2180111d857df1dc8f96959e0ec5c672fd467e8f4b88e5"
+      },
+      {
+        "tier": 7,
+        "seed": 4,
+        "result": "win",
+        "enemyHpLeft": 0,
+        "enemyInitialHp": 1411764,
+        "callbacks": 299,
+        "loss": 2,
+        "rewardEach": 140,
+        "expectedReward": 140,
+        "before": {
+          "tick": 15176092,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 672,
+          "deployed": 626,
+          "alert": 0,
+          "daily": {
+            "starBeast6": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 280,
+            "illusion": 280,
+            "ring": 280
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 137082.4299979203,
+            "iron": 302640.60000001243,
+            "steel": 40177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "after": {
+          "tick": 15176092,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 670,
+          "deployed": 624,
+          "alert": 400,
+          "daily": {
+            "starBeast7": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 137082.4299979203,
+            "iron": 302640.60000001243,
+            "steel": 40177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "sha256": "02a8e9bfcb4104859b5efe6c49b01fc6a4d6f3f4d7c55585eef20a955e733f77"
+      },
+      {
+        "tier": 7,
+        "seed": 5,
+        "result": "win",
+        "enemyHpLeft": 0,
+        "enemyInitialHp": 1411764,
+        "callbacks": 299,
+        "loss": 1,
+        "rewardEach": 140,
+        "expectedReward": 140,
+        "before": {
+          "tick": 15176092,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 672,
+          "deployed": 626,
+          "alert": 0,
+          "daily": {
+            "starBeast6": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 280,
+            "illusion": 280,
+            "ring": 280
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 137082.4299979203,
+            "iron": 302640.60000001243,
+            "steel": 40177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "after": {
+          "tick": 15176092,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 671,
+          "deployed": 625,
+          "alert": 400,
+          "daily": {
+            "starBeast7": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 137082.4299979203,
+            "iron": 302640.60000001243,
+            "steel": 40177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "sha256": "12ef1647f9f570c259437f5236f3a77d09ae59508a22a88398cd7e46d41ae405"
+      },
+      {
+        "tier": 7,
+        "seed": 6,
+        "result": "win",
+        "enemyHpLeft": 0,
+        "enemyInitialHp": 1411764,
+        "callbacks": 299,
+        "loss": 3,
+        "rewardEach": 140,
+        "expectedReward": 140,
+        "before": {
+          "tick": 15176092,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 672,
+          "deployed": 626,
+          "alert": 0,
+          "daily": {
+            "starBeast6": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 280,
+            "illusion": 280,
+            "ring": 280
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 137082.4299979203,
+            "iron": 302640.60000001243,
+            "steel": 40177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "after": {
+          "tick": 15176092,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 669,
+          "deployed": 623,
+          "alert": 400,
+          "daily": {
+            "starBeast7": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 137082.4299979203,
+            "iron": 302640.60000001243,
+            "steel": 40177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "sha256": "f1b6e7fe1cf7b2916a68c1f6d0f024821df8423b7bb14caa60381fa20b288408"
+      },
+      {
+        "tier": 7,
+        "seed": 7,
+        "result": "lose",
+        "enemyHpLeft": 6314,
+        "enemyInitialHp": 1411764,
+        "callbacks": 301,
+        "loss": 3,
+        "rewardEach": 0,
+        "expectedReward": 140,
+        "before": {
+          "tick": 15176092,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 672,
+          "deployed": 626,
+          "alert": 0,
+          "daily": {
+            "starBeast6": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 280,
+            "illusion": 280,
+            "ring": 280
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 137082.4299979203,
+            "iron": 302640.60000001243,
+            "steel": 40177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "after": {
+          "tick": 15176092,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 669,
+          "deployed": 623,
+          "alert": 0,
+          "daily": {},
+          "items": {
+            "origin": 280,
+            "illusion": 280,
+            "ring": 280
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 137082.4299979203,
+            "iron": 302640.60000001243,
+            "steel": 40177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "sha256": "2fd7688990fbab3c8350789af43f813e3b283f928061c8c6c25d0fdea05bbe19"
+      },
+      {
+        "tier": 7,
+        "seed": 8,
+        "result": "win",
+        "enemyHpLeft": 0,
+        "enemyInitialHp": 1411764,
+        "callbacks": 299,
+        "loss": 2,
+        "rewardEach": 140,
+        "expectedReward": 140,
+        "before": {
+          "tick": 15176092,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 672,
+          "deployed": 626,
+          "alert": 0,
+          "daily": {
+            "starBeast6": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 280,
+            "illusion": 280,
+            "ring": 280
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 137082.4299979203,
+            "iron": 302640.60000001243,
+            "steel": 40177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "after": {
+          "tick": 15176092,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 670,
+          "deployed": 624,
+          "alert": 400,
+          "daily": {
+            "starBeast7": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 137082.4299979203,
+            "iron": 302640.60000001243,
+            "steel": 40177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "sha256": "a06f195f6500408d762103ffbf517f4e52295645aacecccc23aa3d3cbd4eeea2"
+      },
+      {
+        "tier": 7,
+        "seed": 9,
+        "result": "lose",
+        "enemyHpLeft": 2913,
+        "enemyInitialHp": 1411764,
+        "callbacks": 301,
+        "loss": 3,
+        "rewardEach": 0,
+        "expectedReward": 140,
+        "before": {
+          "tick": 15176092,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 672,
+          "deployed": 626,
+          "alert": 0,
+          "daily": {
+            "starBeast6": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 280,
+            "illusion": 280,
+            "ring": 280
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 137082.4299979203,
+            "iron": 302640.60000001243,
+            "steel": 40177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "after": {
+          "tick": 15176092,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 669,
+          "deployed": 623,
+          "alert": 0,
+          "daily": {},
+          "items": {
+            "origin": 280,
+            "illusion": 280,
+            "ring": 280
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 137082.4299979203,
+            "iron": 302640.60000001243,
+            "steel": 40177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "sha256": "426f4d6a897db66a67dafbeacc4e165fb1a3267d3584895f88e4b53fb00cf598"
+      },
+      {
+        "tier": 7,
+        "seed": 10,
+        "result": "win",
+        "enemyHpLeft": 0,
+        "enemyInitialHp": 1411764,
+        "callbacks": 299,
+        "loss": 3,
+        "rewardEach": 140,
+        "expectedReward": 140,
+        "before": {
+          "tick": 15176092,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 672,
+          "deployed": 626,
+          "alert": 0,
+          "daily": {
+            "starBeast6": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 280,
+            "illusion": 280,
+            "ring": 280
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 137082.4299979203,
+            "iron": 302640.60000001243,
+            "steel": 40177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "after": {
+          "tick": 15176092,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 669,
+          "deployed": 623,
+          "alert": 400,
+          "daily": {
+            "starBeast7": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 137082.4299979203,
+            "iron": 302640.60000001243,
+            "steel": 40177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "sha256": "f1b6e7fe1cf7b2916a68c1f6d0f024821df8423b7bb14caa60381fa20b288408"
+      },
+      {
+        "tier": 7,
+        "seed": 11,
+        "result": "win",
+        "enemyHpLeft": 0,
+        "enemyInitialHp": 1411764,
+        "callbacks": 297,
+        "loss": 2,
+        "rewardEach": 140,
+        "expectedReward": 140,
+        "before": {
+          "tick": 15176092,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 672,
+          "deployed": 626,
+          "alert": 0,
+          "daily": {
+            "starBeast6": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 280,
+            "illusion": 280,
+            "ring": 280
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 137082.4299979203,
+            "iron": 302640.60000001243,
+            "steel": 40177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "after": {
+          "tick": 15176092,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 670,
+          "deployed": 624,
+          "alert": 400,
+          "daily": {
+            "starBeast7": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 137082.4299979203,
+            "iron": 302640.60000001243,
+            "steel": 40177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "sha256": "a06f195f6500408d762103ffbf517f4e52295645aacecccc23aa3d3cbd4eeea2"
+      },
+      {
+        "tier": 7,
+        "seed": 12,
+        "result": "lose",
+        "enemyHpLeft": 6284,
+        "enemyInitialHp": 1411764,
+        "callbacks": 301,
+        "loss": 2,
+        "rewardEach": 0,
+        "expectedReward": 140,
+        "before": {
+          "tick": 15176092,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 672,
+          "deployed": 626,
+          "alert": 0,
+          "daily": {
+            "starBeast6": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 280,
+            "illusion": 280,
+            "ring": 280
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 137082.4299979203,
+            "iron": 302640.60000001243,
+            "steel": 40177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "after": {
+          "tick": 15176092,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 670,
+          "deployed": 624,
+          "alert": 0,
+          "daily": {},
+          "items": {
+            "origin": 280,
+            "illusion": 280,
+            "ring": 280
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 137082.4299979203,
+            "iron": 302640.60000001243,
+            "steel": 40177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "sha256": "fe73195d6c145e8bebef3a3e9ec59db0149da97c313e8e12c612d96731f02d7f"
+      },
+      {
+        "tier": 7,
+        "seed": 13,
+        "result": "win",
+        "enemyHpLeft": 0,
+        "enemyInitialHp": 1411764,
+        "callbacks": 299,
+        "loss": 2,
+        "rewardEach": 140,
+        "expectedReward": 140,
+        "before": {
+          "tick": 15176092,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 672,
+          "deployed": 626,
+          "alert": 0,
+          "daily": {
+            "starBeast6": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 280,
+            "illusion": 280,
+            "ring": 280
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 137082.4299979203,
+            "iron": 302640.60000001243,
+            "steel": 40177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "after": {
+          "tick": 15176092,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 670,
+          "deployed": 624,
+          "alert": 400,
+          "daily": {
+            "starBeast7": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 137082.4299979203,
+            "iron": 302640.60000001243,
+            "steel": 40177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "sha256": "a06f195f6500408d762103ffbf517f4e52295645aacecccc23aa3d3cbd4eeea2"
+      },
+      {
+        "tier": 7,
+        "seed": 14,
+        "result": "win",
+        "enemyHpLeft": 0,
+        "enemyInitialHp": 1411764,
+        "callbacks": 298,
+        "loss": 3,
+        "rewardEach": 140,
+        "expectedReward": 140,
+        "before": {
+          "tick": 15176092,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 672,
+          "deployed": 626,
+          "alert": 0,
+          "daily": {
+            "starBeast6": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 280,
+            "illusion": 280,
+            "ring": 280
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 137082.4299979203,
+            "iron": 302640.60000001243,
+            "steel": 40177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "after": {
+          "tick": 15176092,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 669,
+          "deployed": 623,
+          "alert": 400,
+          "daily": {
+            "starBeast7": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 137082.4299979203,
+            "iron": 302640.60000001243,
+            "steel": 40177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "sha256": "9abef63eb705885fcda395fa7a9d1836516f9382c79d44eb82270ea42428d1d4"
+      },
+      {
+        "tier": 7,
+        "seed": 15,
+        "result": "win",
+        "enemyHpLeft": 0,
+        "enemyInitialHp": 1411764,
+        "callbacks": 298,
+        "loss": 4,
+        "rewardEach": 140,
+        "expectedReward": 140,
+        "before": {
+          "tick": 15176092,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 672,
+          "deployed": 626,
+          "alert": 0,
+          "daily": {
+            "starBeast6": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 280,
+            "illusion": 280,
+            "ring": 280
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 137082.4299979203,
+            "iron": 302640.60000001243,
+            "steel": 40177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "after": {
+          "tick": 15176092,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 668,
+          "deployed": 622,
+          "alert": 400,
+          "daily": {
+            "starBeast7": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 137082.4299979203,
+            "iron": 302640.60000001243,
+            "steel": 40177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "sha256": "1ec5438092d890d56d4ee3eff3cdfa942f11c754afa7a0508707801f075342a7"
+      },
+      {
+        "tier": 7,
+        "seed": 16,
+        "result": "win",
+        "enemyHpLeft": 0,
+        "enemyInitialHp": 1411764,
+        "callbacks": 299,
+        "loss": 1,
+        "rewardEach": 140,
+        "expectedReward": 140,
+        "before": {
+          "tick": 15176092,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 672,
+          "deployed": 626,
+          "alert": 0,
+          "daily": {
+            "starBeast6": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 280,
+            "illusion": 280,
+            "ring": 280
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 137082.4299979203,
+            "iron": 302640.60000001243,
+            "steel": 40177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "after": {
+          "tick": 15176092,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 671,
+          "deployed": 625,
+          "alert": 400,
+          "daily": {
+            "starBeast7": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 137082.4299979203,
+            "iron": 302640.60000001243,
+            "steel": 40177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "sha256": "12ef1647f9f570c259437f5236f3a77d09ae59508a22a88398cd7e46d41ae405"
+      }
+    ],
+    "firstWin": "{\"v\":33,\"ts\":1793649794000,\"res\":{\"wood\":6495,\"stone\":62.00000000211685,\"food\":480699,\"tech\":307340352,\"coal\":4347.999999998181,\"copper\":137082.4299979203,\"iron\":302640.60000001243,\"silver\":7.3999999999995225,\"gold\":532.4625000000879,\"steel\":40177.800000003306,\"coin\":0.7999999999992724,\"silverCoin\":295.99999999999983,\"deed\":55366,\"medal\":10184791,\"bone\":40538922,\"goldCoin\":0,\"hide\":115},\"buildings\":{\"academy\":{\"lv\":50,\"state\":\"idle\",\"timer\":0,\"timerEnd\":0,\"tier\":0},\"farm\":{\"lv\":50,\"state\":\"idle\",\"timer\":0,\"timerEnd\":0,\"tier\":0},\"warehouse\":{\"lv\":47,\"state\":\"idle\",\"timer\":0,\"timerEnd\":0,\"tier\":0},\"market\":{\"lv\":1,\"state\":\"idle\",\"timer\":0,\"timerEnd\":0,\"tier\":0},\"bronze_workshop\":{\"lv\":1,\"state\":\"idle\",\"timer\":0,\"timerEnd\":0,\"tier\":0},\"iron_forge\":{\"lv\":1,\"state\":\"idle\",\"timer\":0,\"timerEnd\":0,\"tier\":0},\"large_granary\":{\"lv\":8,\"state\":\"idle\",\"timer\":0,\"timerEnd\":0,\"tier\":0},\"iron_store\":{\"lv\":300,\"state\":\"idle\",\"timer\":0,\"timerEnd\":0,\"tier\":0},\"mint\":{\"lv\":4,\"state\":\"idle\",\"timer\":0,\"timerEnd\":0,\"tier\":0},\"silver_store\":{\"lv\":2,\"state\":\"idle\",\"timer\":0,\"timerEnd\":0,\"tier\":0},\"silver_refinery\":{\"lv\":1,\"state\":\"idle\",\"timer\":0,\"timerEnd\":0,\"tier\":0},\"silver_armory\":{\"lv\":1,\"state\":\"idle\",\"timer\":0,\"timerEnd\":0,\"tier\":0},\"gold_store\":{\"lv\":89,\"state\":\"idle\",\"timer\":0,\"timerEnd\":0,\"tier\":0},\"gold_refinery\":{\"lv\":1,\"state\":\"idle\",\"timer\":0,\"timerEnd\":0,\"tier\":0},\"gold_armory\":{\"lv\":12,\"state\":\"idle\",\"timer\":0,\"timerEnd\":0,\"tier\":0},\"steel_store\":{\"lv\":454,\"state\":\"idle\",\"timer\":0,\"timerEnd\":0,\"tier\":0},\"steel_refinery\":{\"lv\":30,\"state\":\"idle\",\"timer\":0,\"timerEnd\":0,\"tier\":0},\"alloy_armory\":{\"lv\":17,\"state\":\"idle\",\"timer\":0,\"timerEnd\":0,\"tier\":0},\"library\":{\"lv\":1000,\"state\":\"idle\",\"timer\":0,\"timerEnd\":0,\"tier\":0},\"barracks\":{\"lv\":10,\"state\":\"idle\",\"timer\":0,\"timerEnd\":0,\"tier\":0},\"copper_furnace\":{\"lv\":1,\"state\":\"idle\",\"timer\":0,\"timerEnd\":0,\"tier\":0},\"stone_store\":{\"lv\":65,\"state\":\"idle\",\"timer\":0,\"timerEnd\":0,\"tier\":0},\"institute\":{\"lv\":1000,\"state\":\"idle\",\"timer\":0,\"timerEnd\":0,\"tier\":0},\"coal_mine\":{\"lv\":5,\"state\":\"idle\",\"timer\":0,\"timerEnd\":0,\"tier\":0},\"smelter\":{\"lv\":30,\"state\":\"idle\",\"timer\":0,\"timerEnd\":0,\"tier\":0},\"steam_armory\":{\"lv\":17,\"state\":\"idle\",\"timer\":0,\"timerEnd\":0,\"tier\":0},\"archer_range\":{\"lv\":32,\"state\":\"idle\",\"timer\":0,\"timerEnd\":0,\"tier\":0},\"electric_armory\":{\"lv\":50,\"state\":\"idle\",\"timer\":0,\"timerEnd\":0,\"tier\":0},\"lumber_mill\":{\"lv\":50,\"state\":\"idle\",\"timer\":0,\"timerEnd\":0,\"tier\":0},\"quarry\":{\"lv\":50,\"state\":\"idle\",\"timer\":0,\"timerEnd\":0,\"tier\":0},\"mage_tower\":{\"lv\":1,\"state\":\"idle\",\"timer\":0,\"timerEnd\":0,\"tier\":1}},\"pool\":{\"infantry\":0,\"archer\":0,\"bronze_guard\":15,\"iron_spearman\":15,\"silver_heavy\":15,\"gold_cavalry\":0,\"alloy_special\":0,\"armored_trooper\":0,\"electro_trooper\":0,\"star_trooper\":0,\"arcane_mage\":1},\"queue\":{\"bronze_guard\":{\"count\":0,\"timer\":0,\"reason\":\"\"},\"iron_spearman\":{\"count\":0,\"timer\":0,\"reason\":\"\"},\"silver_heavy\":{\"count\":0,\"timer\":0,\"reason\":\"\"},\"gold_cavalry\":{\"count\":0,\"timer\":0,\"reason\":\"\"},\"alloy_special\":{\"count\":0,\"timer\":0,\"reason\":\"\"},\"armored_trooper\":{\"count\":0,\"timer\":0,\"reason\":\"\"},\"archer\":{\"count\":0,\"timer\":0,\"reason\":\"\"},\"electro_trooper\":{\"count\":0,\"timer\":0,\"reason\":\"\"},\"star_trooper\":{\"count\":0,\"timer\":0,\"reason\":\"\"},\"arcane_mage\":{\"count\":0,\"timer\":0,\"reason\":\"\"}},\"formation\":{\"front\":[{\"type\":\"star_trooper\",\"count\":54,\"id\":1792353794000},{\"type\":\"star_trooper\",\"count\":53,\"id\":1792353794001},{\"type\":\"electro_trooper\",\"count\":55,\"id\":1792353794002},{\"type\":\"electro_trooper\",\"count\":46,\"id\":1792353794003}],\"mid\":[{\"type\":\"armored_trooper\",\"count\":55,\"id\":1792353794004},{\"type\":\"alloy_special\",\"count\":55,\"id\":1792353794005},{\"type\":\"star_trooper\",\"count\":46,\"id\":1792353794006},{\"type\":\"gold_cavalry\",\"count\":40,\"id\":1792353794007}],\"back\":[{\"type\":\"archer\",\"count\":55,\"id\":1792353794008},{\"type\":\"archer\",\"count\":55,\"id\":1792353794009},{\"type\":\"archer\",\"count\":55,\"id\":1792353794010},{\"type\":\"archer\",\"count\":55,\"id\":1792353794011}]},\"townLv\":1,\"popAlloc\":{\"wood\":0,\"stone\":0,\"food\":100,\"coal\":0,\"copper\":0,\"iron\":0,\"silver\":0,\"gold\":0,\"steel\":0,\"coin\":0,\"silverCoin\":0,\"tech\":902,\"goldCoin\":0},\"metalRecipeMode\":\"coal\",\"currencyRecipeMode\":\"copper\",\"storageMode\":\"aligned\",\"storageMasteryLv\":100,\"scholarMasteryLv\":20,\"steelMasteryLv\":20,\"weaponForge\":{\"alloySword\":{\"researched\":true,\"level\":3,\"progress\":0,\"equipped\":true},\"alloyArmor\":{\"researched\":true,\"level\":3,\"progress\":0,\"equipped\":true},\"armored\":{\"researched\":true,\"level\":3,\"progress\":0,\"equipped\":true},\"electro\":{\"researched\":true,\"level\":3,\"progress\":0,\"equipped\":true},\"electroRifle\":{\"researched\":true,\"level\":2,\"progress\":0,\"equipped\":true},\"electroSniper\":{\"researched\":true,\"level\":2,\"progress\":0,\"equipped\":true},\"electroArmor\":{\"researched\":true,\"level\":3,\"progress\":0,\"equipped\":true},\"energyArmor\":{\"researched\":true,\"level\":5,\"progress\":0,\"equipped\":true},\"nanoArmor\":{\"researched\":true,\"level\":11,\"progress\":0,\"equipped\":true},\"gatling\":{\"researched\":true,\"level\":1,\"progress\":0,\"equipped\":true},\"mortar\":{\"researched\":true,\"level\":1,\"progress\":0,\"equipped\":true},\"steamArmor\":{\"researched\":true,\"level\":3,\"progress\":0,\"equipped\":true},\"starFighter\":{\"researched\":true,\"level\":1,\"progress\":0,\"equipped\":true},\"starMissile\":{\"researched\":false,\"level\":0,\"progress\":0,\"equipped\":false}},\"armsUp\":{\"electro_trooper\":{\"atk\":{\"stars\":0,\"progress\":0},\"hp\":{\"stars\":0,\"progress\":0},\"def\":{\"stars\":0,\"progress\":0}},\"bronze_guard\":{\"atk\":{\"stars\":0,\"progress\":0},\"hp\":{\"stars\":0,\"progress\":0},\"def\":{\"stars\":0,\"progress\":0}},\"iron_spearman\":{\"atk\":{\"stars\":0,\"progress\":0},\"hp\":{\"stars\":0,\"progress\":0},\"def\":{\"stars\":0,\"progress\":0}},\"silver_heavy\":{\"atk\":{\"stars\":0,\"progress\":0},\"hp\":{\"stars\":0,\"progress\":0},\"def\":{\"stars\":0,\"progress\":0}},\"gold_cavalry\":{\"atk\":{\"stars\":0,\"progress\":0},\"hp\":{\"stars\":0,\"progress\":0},\"def\":{\"stars\":0,\"progress\":0}},\"alloy_special\":{\"atk\":{\"stars\":0,\"progress\":0},\"hp\":{\"stars\":0,\"progress\":0},\"def\":{\"stars\":0,\"progress\":0}},\"armored_trooper\":{\"atk\":{\"stars\":0,\"progress\":0},\"hp\":{\"stars\":0,\"progress\":0},\"def\":{\"stars\":0,\"progress\":0}},\"star_trooper\":{\"atk\":{\"stars\":120,\"progress\":0},\"hp\":{\"stars\":0,\"progress\":0},\"def\":{\"stars\":0,\"progress\":0}},\"quantum_trooper\":{\"atk\":{\"stars\":0,\"progress\":0},\"hp\":{\"stars\":0,\"progress\":0},\"def\":{\"stars\":0,\"progress\":0}}},\"awakening\":{\"star_trooper\":{\"level\":6,\"stars\":7,\"tracks\":{\"easy\":6,\"perfect\":0,\"extreme\":0}}},\"starArray\":{\"star_trooper\":{\"slots\":[{\"open\":false,\"type\":\"unbound\",\"level\":1,\"refreshCount\":0},{\"open\":false,\"type\":\"unbound\",\"level\":1,\"refreshCount\":0},{\"open\":false,\"type\":\"unbound\",\"level\":1,\"refreshCount\":0},{\"open\":false,\"type\":\"unbound\",\"level\":1,\"refreshCount\":0},{\"open\":false,\"type\":\"unbound\",\"level\":1,\"refreshCount\":0},{\"open\":false,\"type\":\"unbound\",\"level\":1,\"refreshCount\":0},{\"open\":false,\"type\":\"unbound\",\"level\":1,\"refreshCount\":0},{\"open\":false,\"type\":\"unbound\",\"level\":1,\"refreshCount\":0},{\"open\":false,\"type\":\"unbound\",\"level\":1,\"refreshCount\":0},{\"open\":false,\"type\":\"unbound\",\"level\":1,\"refreshCount\":0},{\"open\":false,\"type\":\"unbound\",\"level\":1,\"refreshCount\":0},{\"open\":false,\"type\":\"unbound\",\"level\":1,\"refreshCount\":0},{\"open\":false,\"type\":\"unbound\",\"level\":1,\"refreshCount\":0},{\"open\":false,\"type\":\"unbound\",\"level\":1,\"refreshCount\":0},{\"open\":false,\"type\":\"unbound\",\"level\":1,\"refreshCount\":0},{\"open\":false,\"type\":\"unbound\",\"level\":1,\"refreshCount\":0},{\"open\":false,\"type\":\"unbound\",\"level\":1,\"refreshCount\":0},{\"open\":false,\"type\":\"unbound\",\"level\":1,\"refreshCount\":0},{\"open\":false,\"type\":\"unbound\",\"level\":1,\"refreshCount\":0},{\"open\":false,\"type\":\"unbound\",\"level\":1,\"refreshCount\":0}]}},\"steamMilitaryStars\":30,\"soulRanks\":{\"arcane_mage\":{\"rank\":0,\"stars\":1},\"star_trooper\":{\"rank\":0,\"stars\":1}},\"soulRealmTeam\":{\"day\":20751,\"slots\":[540499,540499,null,540499,null,540599,null,null,540399]},\"eraStorage\":{\"steamBasic\":0,\"steamMetal\":5,\"steamKnowledge\":30,\"electricBasic\":0,\"electricMetal\":0,\"electricKnowledge\":17,\"electricProduction\":5,\"nuclearBasic\":0,\"nuclearMetal\":0,\"nuclearKnowledge\":6,\"nuclearProduction\":5,\"quantumBasic\":0,\"quantumMetal\":0,\"quantumKnowledge\":0,\"quantumProduction\":0},\"items\":{\"godCrystal\":41,\"guardianStone\":9,\"phantomFlower\":80,\"godCore\":48,\"boarHeart\":20,\"storageScroll\":0,\"bullHorn\":66,\"snakeGall\":429,\"tigerPelt\":38,\"turtleShell\":511,\"wyrmSinew\":207,\"revivalLeaf\":195,\"trialFruit\":25,\"sacredBlood\":12,\"domainCleanser\":0,\"emberElixir\":0,\"aegisElixir\":1,\"soulStone\":6,\"starOriginStone\":420,\"illusionStone\":420,\"sacredRingCore\":420},\"bloodline\":{\"armored_trooper\":18},\"attackInfusions\":{\"electro_trooper\":20},\"aegisInfusions\":{},\"marketSpecial\":{\"clockSec\":640,\"offers\":{\"sacredBlood\":0,\"domainCleanser\":0,\"emberElixir\":0,\"aegisElixir\":0},\"cycles\":5376},\"beastExchange\":{\"level\":79,\"progress\":360,\"scrollUsed\":130,\"heartOffers\":0,\"heartQuality\":100,\"refreshClock\":75,\"refreshCharges\":5,\"wildOffers\":{\"bullHorn\":{\"count\":0,\"quality\":100},\"snakeGall\":{\"count\":0,\"quality\":100},\"tigerPelt\":{\"count\":1,\"quality\":80},\"turtleShell\":{\"count\":1,\"quality\":80},\"wyrmSinew\":{\"count\":0,\"quality\":100}},\"soulOffers\":{\"emberElixir\":1,\"aegisElixir\":0},\"medalOffers\":0,\"hideOffers\":{\"290001\":{\"count\":0,\"quality\":100},\"290002\":{\"count\":0,\"quality\":100},\"290003\":{\"count\":0,\"quality\":100},\"290011\":{\"count\":0,\"quality\":100},\"290012\":{\"count\":0,\"quality\":100},\"290013\":{\"count\":0,\"quality\":100},\"290021\":{\"count\":0,\"quality\":100},\"290022\":{\"count\":0,\"quality\":100},\"290023\":{\"count\":0,\"quality\":100},\"290041\":{\"count\":0,\"quality\":100},\"290042\":{\"count\":0,\"quality\":100},\"290043\":{\"count\":0,\"quality\":100}}},\"killValues\":{\"godRevival\":5000,\"godPhantom\":900,\"godGuardian\":4500,\"godSlaughter\":5300,\"wildBoar\":4420,\"wildBull\":3790,\"wildSnake\":3000,\"wildTiger\":3400,\"wildTurtle\":4000,\"wildWyrm\":4040,\"godRebirth\":2600,\"godSilence\":2100,\"soulRealm\":7650,\"starBeast\":400},\"development\":{\"border\":{\"sites\":{\"copper\":{\"level\":0,\"wins\":0},\"iron\":{\"level\":0,\"wins\":0}},\"collection\":{\"activeSite\":null,\"elapsedSec\":0}},\"outer\":{\"village\":{\"wins\":0,\"alert\":0},\"town\":{\"wins\":0,\"alert\":0},\"city\":{\"wins\":0,\"alert\":0},\"capital\":{\"wins\":0,\"alert\":0}}},\"settlements\":{\"village\":4,\"smallTown\":5,\"city\":1465},\"townPolicies\":{\"smallTown\":[]},\"population\":{\"current\":1048,\"growthClock\":2,\"legacyBonus\":0},\"defeated\":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99],\"merit\":2860,\"garrisonLog\":[],\"garrison\":{\"phase\":\"idle\",\"phaseStarted\":2640912,\"phaseUntil\":0,\"cooldownUntil\":0,\"nextCheckTick\":2641212,\"templateId\":null,\"result\":null,\"seed\":0},\"tick\":15176092,\"garrisonForm\":{\"front\":[],\"mid\":[],\"back\":[]},\"townUpgrade\":null,\"upgradedUnits\":{},\"essence\":{\"spear_essence\":9,\"sword_essence\":7,\"bow_essence\":4,\"blade_essence\":6,\"shield_essence\":9,\"crossbow_essence\":5},\"sciences\":[\"sci_prospect\",\"sci_coal\",\"sci_copper\",\"sci_wood_store\",\"sci_urbanization\",\"sci_iron\",\"sci_large_granary\",\"sci_bronze_age\",\"sci_iron_warehouse\",\"sci_iron_age\",\"sci_city\",\"sci_currency\",\"sci_mint\",\"sci_coin\",\"sci_silver\",\"sci_silver_store\",\"sci_silver_refinery\",\"sci_silver_age\",\"sci_gold\",\"sci_gold_store\",\"sci_gold_refinery\",\"sci_gold_age\",\"sci_steel\",\"sci_steel_store\",\"sci_steel_refinery\",\"sci_alloy_age\",\"sci_library\",\"sci_workshop\",\"sci_copper_furnace\",\"sci_stone_store\",\"sci_institute\",\"sci_steam_age\",\"sci_god_domain\",\"sci_electric_age\",\"sci_nuclear_age\",\"sci_arcane_mage\",\"sci_astral_lord\",\"sci_soul_realm\",\"sci_star_beast_domain\",\"sci_star_array\",\"sci_steam_military\"],\"ops\":[{\"key\":\"offline:1793563394000\",\"t\":1793649794000}],\"offline\":{\"pendingReport\":{\"at\":1793649794000,\"durationSec\":86400,\"rawSec\":86400,\"truncated\":false,\"reason\":\"\",\"gains\":{\"deed\":194400,\"medal\":324000,\"bone\":1296000},\"advance\":{\"advanced\":true,\"events\":[],\"produced\":0,\"due\":0,\"elapsed\":86400,\"foodClamped\":false},\"populationFoodRule\":\"all\"},\"populationFoodRule\":\"all\"},\"daily\":{\"day\":\"2026-11-03\",\"counts\":{\"starBeast7\":1}}}"
+  },
+  "firstWin": {
+    "seed": 1,
+    "loss": 2,
+    "rewardEach": 140,
+    "alert": 400,
+    "sha256": "02a8e9bfcb4104859b5efe6c49b01fc6a4d6f3f4d7c55585eef20a955e733f77",
+    "file": "p397-star-beast-seven-win-paid-save.json"
+  },
+  "restore": {
+    "before": {
+      "tick": 15176092,
+      "city": 1465,
+      "deed": 55366,
+      "stars": 30,
+      "multiplier": 4,
+      "field": 629,
+      "army": 670,
+      "deployed": 624,
+      "alert": 400,
+      "daily": {
+        "starBeast7": 1
+      },
+      "items": {
+        "origin": 420,
+        "illusion": 420,
+        "ring": 420
+      },
+      "resources": {
+        "food": 480699,
+        "copper": 137082.4299979203,
+        "iron": 302640.60000001243,
+        "steel": 40177.800000003306,
+        "tech": 307340352,
+        "medal": 10184791
+      }
+    },
+    "need": {
+      "star_trooper": 2,
+      "electro_trooper": 0,
+      "armored_trooper": 0,
+      "alloy_special": 0,
+      "gold_cavalry": 0,
+      "archer": 0
+    },
+    "costs": {
+      "copper": 16000,
+      "iron": 16000,
+      "steel": 16000
+    },
+    "seconds": 1,
+    "after": {
+      "tick": 15176093,
+      "city": 1465,
+      "deed": 55366,
+      "stars": 30,
+      "multiplier": 4,
+      "field": 629,
+      "army": 672,
+      "deployed": 626,
+      "alert": 400,
+      "daily": {
+        "starBeast7": 1
+      },
+      "items": {
+        "origin": 420,
+        "illusion": 420,
+        "ring": 420
+      },
+      "resources": {
+        "food": 480699,
+        "copper": 121082.42999792029,
+        "iron": 286640.60000001243,
+        "steel": 24177.800000003306,
+        "tech": 307340352,
+        "medal": 10184791
+      }
+    },
+    "sha256": "7d8cb5765267d58650214b01db46cb764b3afca8024631d7a9542b101b0618c5",
+    "file": "p397-star-beast-seven-refilled-paid-save.json"
+  },
+  "calm": {
+    "action": {
+      "ok": true,
+      "alert": 0,
+      "remaining": 2
+    },
+    "before": {
+      "tick": 15176093,
+      "city": 1465,
+      "deed": 55366,
+      "stars": 30,
+      "multiplier": 4,
+      "field": 629,
+      "army": 672,
+      "deployed": 626,
+      "alert": 400,
+      "daily": {
+        "starBeast7": 1
+      },
+      "items": {
+        "origin": 420,
+        "illusion": 420,
+        "ring": 420
+      },
+      "resources": {
+        "food": 480699,
+        "copper": 121082.42999792029,
+        "iron": 286640.60000001243,
+        "steel": 24177.800000003306,
+        "tech": 307340352,
+        "medal": 10184791
+      }
+    },
+    "after": {
+      "tick": 15176093,
+      "city": 1465,
+      "deed": 55366,
+      "stars": 30,
+      "multiplier": 4,
+      "field": 629,
+      "army": 672,
+      "deployed": 626,
+      "alert": 0,
+      "daily": {
+        "starBeast7": 1,
+        "starBeastCalm": 1
+      },
+      "items": {
+        "origin": 420,
+        "illusion": 420,
+        "ring": 420
+      },
+      "resources": {
+        "food": 480699,
+        "copper": 121082.42999792029,
+        "iron": 286640.60000001243,
+        "steel": 24177.800000003306,
+        "tech": 307340352,
+        "medal": 10184791
+      }
+    },
+    "sha256": "debb8df2e88f91755e558b4d1bea13d79aa16ee280f10005d5c43d758229a3be",
+    "file": "p397-star-beast-seven-calm-paid-save.json"
+  },
+  "eighth": {
+    "tier": 8,
+    "wins": 0,
+    "closestEnemyHp": 334834,
+    "lossRange": [
+      2,
+      5
+    ],
+    "rows": [
+      {
+        "tier": 8,
+        "seed": 1,
+        "result": "lose",
+        "enemyHpLeft": 346461,
+        "enemyInitialHp": 1764705,
+        "callbacks": 301,
+        "loss": 3,
+        "rewardEach": 0,
+        "expectedReward": 190,
+        "before": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 672,
+          "deployed": 626,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "after": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 669,
+          "deployed": 623,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "sha256": "e6965a44367fe78afc9f881f979a2c4c15634a04c8226b25ced47d5fe75e7361"
+      },
+      {
+        "tier": 8,
+        "seed": 2,
+        "result": "lose",
+        "enemyHpLeft": 335407,
+        "enemyInitialHp": 1764705,
+        "callbacks": 301,
+        "loss": 2,
+        "rewardEach": 0,
+        "expectedReward": 190,
+        "before": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 672,
+          "deployed": 626,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "after": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 670,
+          "deployed": 624,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "sha256": "502c9552e6238e6c3e48d91f604acc58f3ac09a6d16c54533970b50d9cec19b5"
+      },
+      {
+        "tier": 8,
+        "seed": 3,
+        "result": "lose",
+        "enemyHpLeft": 338187,
+        "enemyInitialHp": 1764705,
+        "callbacks": 301,
+        "loss": 4,
+        "rewardEach": 0,
+        "expectedReward": 190,
+        "before": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 672,
+          "deployed": 626,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "after": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 668,
+          "deployed": 622,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "sha256": "34a050efd37d1d09df373805f1786bf25cca776504aa6841cbb305d9115a47df"
+      },
+      {
+        "tier": 8,
+        "seed": 4,
+        "result": "lose",
+        "enemyHpLeft": 353122,
+        "enemyInitialHp": 1764705,
+        "callbacks": 301,
+        "loss": 5,
+        "rewardEach": 0,
+        "expectedReward": 190,
+        "before": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 672,
+          "deployed": 626,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "after": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 667,
+          "deployed": 621,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "sha256": "0538ebddeea5d810834fd3d2f78759c313514c6305453f05f6c53ed22284006a"
+      },
+      {
+        "tier": 8,
+        "seed": 5,
+        "result": "lose",
+        "enemyHpLeft": 353135,
+        "enemyInitialHp": 1764705,
+        "callbacks": 301,
+        "loss": 4,
+        "rewardEach": 0,
+        "expectedReward": 190,
+        "before": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 672,
+          "deployed": 626,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "after": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 668,
+          "deployed": 622,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "sha256": "fbaf95acda5e04b2f8445bbd37a45dc33f1f94bc116c5908e86f9944e52576c0"
+      },
+      {
+        "tier": 8,
+        "seed": 6,
+        "result": "lose",
+        "enemyHpLeft": 351058,
+        "enemyInitialHp": 1764705,
+        "callbacks": 301,
+        "loss": 4,
+        "rewardEach": 0,
+        "expectedReward": 190,
+        "before": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 672,
+          "deployed": 626,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "after": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 668,
+          "deployed": 622,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "sha256": "34a050efd37d1d09df373805f1786bf25cca776504aa6841cbb305d9115a47df"
+      },
+      {
+        "tier": 8,
+        "seed": 7,
+        "result": "lose",
+        "enemyHpLeft": 359569,
+        "enemyInitialHp": 1764705,
+        "callbacks": 301,
+        "loss": 4,
+        "rewardEach": 0,
+        "expectedReward": 190,
+        "before": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 672,
+          "deployed": 626,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "after": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 668,
+          "deployed": 622,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "sha256": "34a050efd37d1d09df373805f1786bf25cca776504aa6841cbb305d9115a47df"
+      },
+      {
+        "tier": 8,
+        "seed": 8,
+        "result": "lose",
+        "enemyHpLeft": 350724,
+        "enemyInitialHp": 1764705,
+        "callbacks": 301,
+        "loss": 3,
+        "rewardEach": 0,
+        "expectedReward": 190,
+        "before": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 672,
+          "deployed": 626,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "after": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 669,
+          "deployed": 623,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "sha256": "a2f318c3f8f66155ef55ce14afc8d140b06f5bca8714aa815dec7754cc267503"
+      },
+      {
+        "tier": 8,
+        "seed": 9,
+        "result": "lose",
+        "enemyHpLeft": 357294,
+        "enemyInitialHp": 1764705,
+        "callbacks": 301,
+        "loss": 4,
+        "rewardEach": 0,
+        "expectedReward": 190,
+        "before": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 672,
+          "deployed": 626,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "after": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 668,
+          "deployed": 622,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "sha256": "34a050efd37d1d09df373805f1786bf25cca776504aa6841cbb305d9115a47df"
+      },
+      {
+        "tier": 8,
+        "seed": 10,
+        "result": "lose",
+        "enemyHpLeft": 349928,
+        "enemyInitialHp": 1764705,
+        "callbacks": 301,
+        "loss": 3,
+        "rewardEach": 0,
+        "expectedReward": 190,
+        "before": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 672,
+          "deployed": 626,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "after": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 669,
+          "deployed": 623,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "sha256": "a2f318c3f8f66155ef55ce14afc8d140b06f5bca8714aa815dec7754cc267503"
+      },
+      {
+        "tier": 8,
+        "seed": 11,
+        "result": "lose",
+        "enemyHpLeft": 334834,
+        "enemyInitialHp": 1764705,
+        "callbacks": 301,
+        "loss": 3,
+        "rewardEach": 0,
+        "expectedReward": 190,
+        "before": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 672,
+          "deployed": 626,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "after": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 669,
+          "deployed": 623,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "sha256": "e0dff9b67086d61754d5c437d5c2adf31b3bccc21054c8ce04b39922f26175f7"
+      },
+      {
+        "tier": 8,
+        "seed": 12,
+        "result": "lose",
+        "enemyHpLeft": 360059,
+        "enemyInitialHp": 1764705,
+        "callbacks": 301,
+        "loss": 3,
+        "rewardEach": 0,
+        "expectedReward": 190,
+        "before": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 672,
+          "deployed": 626,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "after": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 669,
+          "deployed": 623,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "sha256": "e6965a44367fe78afc9f881f979a2c4c15634a04c8226b25ced47d5fe75e7361"
+      },
+      {
+        "tier": 8,
+        "seed": 13,
+        "result": "lose",
+        "enemyHpLeft": 351801,
+        "enemyInitialHp": 1764705,
+        "callbacks": 301,
+        "loss": 2,
+        "rewardEach": 0,
+        "expectedReward": 190,
+        "before": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 672,
+          "deployed": 626,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "after": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 670,
+          "deployed": 624,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "sha256": "8bf380338693f89c298a41ed1906aba7cb32650ec8568f541a8027224b407e57"
+      },
+      {
+        "tier": 8,
+        "seed": 14,
+        "result": "lose",
+        "enemyHpLeft": 344850,
+        "enemyInitialHp": 1764705,
+        "callbacks": 301,
+        "loss": 3,
+        "rewardEach": 0,
+        "expectedReward": 190,
+        "before": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 672,
+          "deployed": 626,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "after": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 669,
+          "deployed": 623,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "sha256": "e6965a44367fe78afc9f881f979a2c4c15634a04c8226b25ced47d5fe75e7361"
+      },
+      {
+        "tier": 8,
+        "seed": 15,
+        "result": "lose",
+        "enemyHpLeft": 343534,
+        "enemyInitialHp": 1764705,
+        "callbacks": 301,
+        "loss": 4,
+        "rewardEach": 0,
+        "expectedReward": 190,
+        "before": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 672,
+          "deployed": 626,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "after": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 668,
+          "deployed": 622,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "sha256": "34aea1f5386931361cc89fecaf0f8396aa9b9ff6584ee0f8cfeb63147dbc0217"
+      },
+      {
+        "tier": 8,
+        "seed": 16,
+        "result": "lose",
+        "enemyHpLeft": 353603,
+        "enemyInitialHp": 1764705,
+        "callbacks": 301,
+        "loss": 3,
+        "rewardEach": 0,
+        "expectedReward": 190,
+        "before": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 672,
+          "deployed": 626,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "after": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 669,
+          "deployed": 623,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "sha256": "099b2744ee37a986af3a7bdc3026805deb8837ceb1822185315ad6ce72ca1674"
+      }
+    ]
+  },
+  "ninth": {
+    "tier": 9,
+    "wins": 0,
+    "closestEnemyHp": 699362,
+    "lossRange": [
+      8,
+      18
+    ],
+    "rows": [
+      {
+        "tier": 9,
+        "seed": 1,
+        "result": "lose",
+        "enemyHpLeft": 722836,
+        "enemyInitialHp": 2117647,
+        "callbacks": 301,
+        "loss": 11,
+        "rewardEach": 0,
+        "expectedReward": 250,
+        "before": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 672,
+          "deployed": 626,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "after": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 661,
+          "deployed": 615,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "sha256": "33541081089f1fe29c5a0b63286e4c55dfca8ceb03ebb75bb1012afca73ddc50"
+      },
+      {
+        "tier": 9,
+        "seed": 2,
+        "result": "lose",
+        "enemyHpLeft": 713625,
+        "enemyInitialHp": 2117647,
+        "callbacks": 301,
+        "loss": 12,
+        "rewardEach": 0,
+        "expectedReward": 250,
+        "before": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 672,
+          "deployed": 626,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "after": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 660,
+          "deployed": 614,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "sha256": "8fd7683c35d4a9a864c57ac4117d34cbaeaaf6b6d13e18c074067fdb61b6f16b"
+      },
+      {
+        "tier": 9,
+        "seed": 3,
+        "result": "lose",
+        "enemyHpLeft": 716517,
+        "enemyInitialHp": 2117647,
+        "callbacks": 301,
+        "loss": 12,
+        "rewardEach": 0,
+        "expectedReward": 250,
+        "before": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 672,
+          "deployed": 626,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "after": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 660,
+          "deployed": 614,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "sha256": "e969d5843ae9c66a8537ebac5d5ce3621af6174ba0e9bc44c1a6880d2bc95250"
+      },
+      {
+        "tier": 9,
+        "seed": 4,
+        "result": "lose",
+        "enemyHpLeft": 752203,
+        "enemyInitialHp": 2117647,
+        "callbacks": 301,
+        "loss": 18,
+        "rewardEach": 0,
+        "expectedReward": 250,
+        "before": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 672,
+          "deployed": 626,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "after": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 654,
+          "deployed": 608,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "sha256": "fe65943b08c46c5baabeb0ced3ed85f2a7410751849ea5d47289f6bddf13c6e8"
+      },
+      {
+        "tier": 9,
+        "seed": 5,
+        "result": "lose",
+        "enemyHpLeft": 753988,
+        "enemyInitialHp": 2117647,
+        "callbacks": 301,
+        "loss": 17,
+        "rewardEach": 0,
+        "expectedReward": 250,
+        "before": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 672,
+          "deployed": 626,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "after": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 655,
+          "deployed": 609,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "sha256": "6022f29b20cd11dd17d0e3235d4fd477465ce53f1b44438f4abe408e03cfb99a"
+      },
+      {
+        "tier": 9,
+        "seed": 6,
+        "result": "lose",
+        "enemyHpLeft": 735704,
+        "enemyInitialHp": 2117647,
+        "callbacks": 301,
+        "loss": 15,
+        "rewardEach": 0,
+        "expectedReward": 250,
+        "before": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 672,
+          "deployed": 626,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "after": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 657,
+          "deployed": 611,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "sha256": "0d259aebb26ddbdde3dabba82f7cf27d0efe781aac5e46633d7534cb37bee689"
+      },
+      {
+        "tier": 9,
+        "seed": 7,
+        "result": "lose",
+        "enemyHpLeft": 724402,
+        "enemyInitialHp": 2117647,
+        "callbacks": 301,
+        "loss": 12,
+        "rewardEach": 0,
+        "expectedReward": 250,
+        "before": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 672,
+          "deployed": 626,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "after": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 660,
+          "deployed": 614,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "sha256": "c3bdb536d0d6f41161c8c4441c043e0ee56e1ae092ba5908780a60e3b0d71b9f"
+      },
+      {
+        "tier": 9,
+        "seed": 8,
+        "result": "lose",
+        "enemyHpLeft": 734566,
+        "enemyInitialHp": 2117647,
+        "callbacks": 301,
+        "loss": 13,
+        "rewardEach": 0,
+        "expectedReward": 250,
+        "before": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 672,
+          "deployed": 626,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "after": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 659,
+          "deployed": 613,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "sha256": "05937094705e91b7abed4b0d365ade934ac27c5ed1d6e8dcf365e4c172d213ed"
+      },
+      {
+        "tier": 9,
+        "seed": 9,
+        "result": "lose",
+        "enemyHpLeft": 717442,
+        "enemyInitialHp": 2117647,
+        "callbacks": 301,
+        "loss": 8,
+        "rewardEach": 0,
+        "expectedReward": 250,
+        "before": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 672,
+          "deployed": 626,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "after": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 664,
+          "deployed": 618,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "sha256": "e8174ea955057ec6ad47407cbbb136909e32280b2992fe4f475c6f3b14ac6ca0"
+      },
+      {
+        "tier": 9,
+        "seed": 10,
+        "result": "lose",
+        "enemyHpLeft": 717380,
+        "enemyInitialHp": 2117647,
+        "callbacks": 301,
+        "loss": 12,
+        "rewardEach": 0,
+        "expectedReward": 250,
+        "before": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 672,
+          "deployed": 626,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "after": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 660,
+          "deployed": 614,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "sha256": "3aa13b12145678acb3dc46d7526a3a103f960d44371c4462ed31c23ec419ced5"
+      },
+      {
+        "tier": 9,
+        "seed": 11,
+        "result": "lose",
+        "enemyHpLeft": 699362,
+        "enemyInitialHp": 2117647,
+        "callbacks": 301,
+        "loss": 10,
+        "rewardEach": 0,
+        "expectedReward": 250,
+        "before": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 672,
+          "deployed": 626,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "after": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 662,
+          "deployed": 616,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "sha256": "d8764ec4c574c29f3ecccf26a2acdd0057087bc99efaa187a2d1b4afd2aceade"
+      },
+      {
+        "tier": 9,
+        "seed": 12,
+        "result": "lose",
+        "enemyHpLeft": 737019,
+        "enemyInitialHp": 2117647,
+        "callbacks": 301,
+        "loss": 13,
+        "rewardEach": 0,
+        "expectedReward": 250,
+        "before": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 672,
+          "deployed": 626,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "after": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 659,
+          "deployed": 613,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "sha256": "d2c4982fadc65067308360ef096990e963aae1a0fbd8d5ad9fd2eb8e057adb42"
+      },
+      {
+        "tier": 9,
+        "seed": 13,
+        "result": "lose",
+        "enemyHpLeft": 726805,
+        "enemyInitialHp": 2117647,
+        "callbacks": 301,
+        "loss": 15,
+        "rewardEach": 0,
+        "expectedReward": 250,
+        "before": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 672,
+          "deployed": 626,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "after": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 657,
+          "deployed": 611,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "sha256": "53085c038b6e3a8d6672197fba48e1a3986f35276b7fd78586b973b7e74ff687"
+      },
+      {
+        "tier": 9,
+        "seed": 14,
+        "result": "lose",
+        "enemyHpLeft": 706309,
+        "enemyInitialHp": 2117647,
+        "callbacks": 301,
+        "loss": 9,
+        "rewardEach": 0,
+        "expectedReward": 250,
+        "before": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 672,
+          "deployed": 626,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "after": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 663,
+          "deployed": 617,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "sha256": "1fd6783b14058a48d40a56320364cbdd9d986a1091d32b05694781e786bf80f1"
+      },
+      {
+        "tier": 9,
+        "seed": 15,
+        "result": "lose",
+        "enemyHpLeft": 704548,
+        "enemyInitialHp": 2117647,
+        "callbacks": 301,
+        "loss": 10,
+        "rewardEach": 0,
+        "expectedReward": 250,
+        "before": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 672,
+          "deployed": 626,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "after": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 662,
+          "deployed": 616,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "sha256": "ee439f6c5a24ac80e56f041495053a1b36f8b77f2a45ea1731b85bda575ba548"
+      },
+      {
+        "tier": 9,
+        "seed": 16,
+        "result": "lose",
+        "enemyHpLeft": 745538,
+        "enemyInitialHp": 2117647,
+        "callbacks": 301,
+        "loss": 15,
+        "rewardEach": 0,
+        "expectedReward": 250,
+        "before": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 672,
+          "deployed": 626,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "after": {
+          "tick": 15176093,
+          "city": 1465,
+          "deed": 55366,
+          "stars": 30,
+          "multiplier": 4,
+          "field": 629,
+          "army": 657,
+          "deployed": 611,
+          "alert": 0,
+          "daily": {
+            "starBeast7": 1,
+            "starBeastCalm": 1
+          },
+          "items": {
+            "origin": 420,
+            "illusion": 420,
+            "ring": 420
+          },
+          "resources": {
+            "food": 480699,
+            "copper": 121082.42999792029,
+            "iron": 286640.60000001243,
+            "steel": 24177.800000003306,
+            "tech": 307340352,
+            "medal": 10184791
+          }
+        },
+        "sha256": "7fbe3f36fc4d249cd76c5efd69d9646f71da2e7b2a211a1665e510e8f43e0168"
+      }
+    ]
+  }
+}

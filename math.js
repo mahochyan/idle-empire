@@ -3067,6 +3067,21 @@ function buildAct(key){
   updateUI();
   return{ok:true};
 }
+function unitTierDevelopmentWon(tier){
+  const gate=CFG.unitTierDevelopment?.[tier];
+  if(!gate)return false;
+  const progress=gate.track==='border'
+    ?S.development?.border?.sites?.[gate.key]
+    :gate.track==='outer'?S.development?.outer?.[gate.key]:null;
+  return Number.isSafeInteger(progress?.wins)&&progress.wins>0;
+}
+function unitTierProgressLock(tier,stage){
+  if(!stage||hasLevelDefeated(stage-1)||unitTierDevelopmentWon(tier))return '';
+  const enemy=CFG.enemies[stage-1],gate=CFG.unitTierDevelopment?.[tier];
+  const area=gate?.track==='border'?CFG.developmentBorder?.[gate.key]:
+    gate?.track==='outer'?CFG.developmentOuter?.[gate.key]:null;
+  return `需击败第${stage}关「${enemy?.name||'?'}」${area?'或首胜「'+area.name+'」':''}`;
+}
 function tierUpgradeLockReason(key){
   const cfg=CFG.buildings[key];
   if(!cfg)return '未知建筑';
@@ -3084,10 +3099,8 @@ function tierUpgradeLockReason(key){
     return '建设中';
   }
   const upg=cfg.tierUpgrade[currentTier];
-  if(upg.needBossId&&!S.defeated.includes(upg.needBossId)){
-    const be=CFG.enemies.find(e=>e.id===upg.needBossId);
-    return `需击败第${upg.needBossId}关「${be?.name||'?'}」`;
-  }
+  const progressLock=unitTierProgressLock(currentTier+1,upg.needBossId);
+  if(progressLock)return progressLock;
   const cost=upg.cost;
   if(S.res.wood<cost.wood||S.res.stone<cost.stone||S.res.food<cost.food)return '资源不足';
   return '';

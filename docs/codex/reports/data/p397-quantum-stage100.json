@@ -1,0 +1,109 @@
+{
+  "sourceFile": "p397-quantum-two-stores-save.json",
+  "sourceHash": "c057701bbbfcf6d4763696e47cba0d10e37704b75f8f4cd5031a3cb050e7bea8",
+  "clock": {
+    "onlineSeconds": 10,
+    "offlineSeconds": 0
+  },
+  "start": {
+    "tick": 13462659,
+    "tech": 1727566,
+    "medal": 1440726,
+    "cap": 3017311895,
+    "army": 672,
+    "deployed": 626,
+    "quantumPool": 0,
+    "quantumQueue": 1,
+    "copper": 38032.69999794493,
+    "iron": 755899,
+    "steel": 159,
+    "unlocked": true,
+    "starArray": true,
+    "clear99": true,
+    "clear100": false
+  },
+  "afterTraining": {
+    "tick": 13462669,
+    "tech": 1727566,
+    "medal": 1440726,
+    "cap": 3017311895,
+    "army": 673,
+    "deployed": 626,
+    "quantumPool": 1,
+    "quantumQueue": 0,
+    "copper": 30032.699997944932,
+    "iron": 738879,
+    "steel": 32749,
+    "unlocked": true,
+    "starArray": true,
+    "clear99": true,
+    "clear100": false
+  },
+  "trainingSeconds": 10,
+  "trainingPaid": [
+    {
+      "copper": 8000,
+      "iron": 8000,
+      "steel": 8000
+    }
+  ],
+  "trainedSaveHash": "730087c4eab5833bdedbfa9368a4138abc5c0b7cfb8000c62e19b7d759f08457",
+  "formalEnemy": {
+    "id": 100,
+    "groups": 4,
+    "people": 1100,
+    "needSciences": [
+      "sci_star_array",
+      "sci_quantum_age"
+    ]
+  },
+  "beforeBattle": {
+    "tick": 13462669,
+    "tech": 1727566,
+    "medal": 1440726,
+    "cap": 3017311895,
+    "army": 673,
+    "deployed": 626,
+    "quantumPool": 1,
+    "quantumQueue": 0,
+    "copper": 30032.699997944932,
+    "iron": 738879,
+    "steel": 32749,
+    "unlocked": true,
+    "starArray": true,
+    "clear99": true,
+    "clear100": false
+  },
+  "actualEnemy": {
+    "id": 100,
+    "groups": 11,
+    "people": 1100,
+    "hp": 1100
+  },
+  "outcome": "win",
+  "afterBattle": {
+    "tick": 13462669,
+    "tech": 1727566,
+    "medal": 1440726,
+    "cap": 3017311895,
+    "army": 342,
+    "deployed": 295,
+    "quantumPool": 1,
+    "quantumQueue": 0,
+    "copper": 30032.699997944932,
+    "iron": 738879,
+    "steel": 32749,
+    "unlocked": true,
+    "starArray": true,
+    "clear99": true,
+    "clear100": true
+  },
+  "battle": {
+    "callbacks": 57,
+    "round": 4,
+    "loss": 331,
+    "enemyHpLeft": 0
+  },
+  "finalHash": "ba8602a98d0d927c96cabb2d2074807c9b0ec46183aae4534e5486055c6125c4",
+  "finalFile": "p397-quantum-stage100-paid-save.json"
+}

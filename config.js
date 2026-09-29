@@ -511,6 +511,15 @@ const CFG = {
     utility: 1
   },
 
+  // 兵营时代晋升与兵种研究可由拓境远征首胜开启；历史帝国战线胜场仍有效。
+  // 两条路径共用原有资源、建筑、科技与精魄费用，不发放免费兵力。
+  unitTierDevelopment: {
+    1:{stage:5,track:'border',key:'copper'},
+    2:{stage:20,track:'outer',key:'town'},
+    3:{stage:40,track:'outer',key:'city'},
+    4:{stage:65,track:'outer',key:'capital'}
+  },
+
   // 建筑升级时间（秒），不受 upCostLv 倍率影响，线性增长
   // cap1Base/cap1PerLv: cap=1 建筑（营帐/资源建筑）及城镇使用
   // otherBase/otherPerLv: 其他建筑（仓库/兵营建筑）使用
