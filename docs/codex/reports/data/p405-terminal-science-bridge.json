@@ -1,0 +1,552 @@
+{
+  "batch": "P405-terminal-science",
+  "input": "docs/codex/reports/data/p405-l95-longbow-final-save.json",
+  "inputSha256": "cf2f221d0ed5a4d1ced5178acd5b3b41abe719554b1dcfea238cea6c3b04b7b5",
+  "sources": {
+    "config.js": "30da1763fc2f7f7453438d263a667bea58c6acc11d67481d16272f5e1ffb1c0f",
+    "levels.js": "cec80c26fa91f941994c253a2fe73be0dfe3f108237620b662fdab9f5449fd1d",
+    "math.js": "e23254b5ba63c824e0ef5302a2f17216f4ac80398711f76554bdb57b3bb52224",
+    "garrison.js": "4d233f0529d256cd1ace2de782603fcfcbbff110032ca4cf29c5e36af30f10ff",
+    "technology.js": "3d3485f57e1e3ef73d11077cec06d467f674959aa6f0dfb27c3eb4d4abf94536",
+    "tests/progression/harness.js": "4770d17fa72cc8c87f4c8ef79678f19d63a41da895b8dd58776e5a39ce2ede2b",
+    "tools/verify/probe-p405-mainline-continuous.js": "5ae989e6a13e803ff19f17307668ac4469c346467c918cc140504472a4a51fcd",
+    "docs/codex/reports/data/p405-l95-longbow-final-save.json": "cf2f221d0ed5a4d1ced5178acd5b3b41abe719554b1dcfea238cea6c3b04b7b5"
+  },
+  "method": "same paid L95 save, real worker assignment, tick production, building upgrade, science payment and v36 reload; fixed RNG 0.5, garrison frozen",
+  "units": "online tick seconds; menu actions instant; no offline settlement",
+  "initial": {
+    "saveVersion": 36,
+    "pop": 19,
+    "settlements": {
+      "village": 5,
+      "smallTown": 5,
+      "city": 1
+    },
+    "town": 1,
+    "resources": {
+      "wood": 12000,
+      "stone": 8000,
+      "food": 5000,
+      "tech": 1.0000000000144382,
+      "coal": 1,
+      "copper": 4,
+      "iron": 10,
+      "silver": 1.999999999892035,
+      "gold": 0.5,
+      "steel": 0,
+      "coin": 0,
+      "silverCoin": 0,
+      "goldCoin": 0,
+      "deed": 20,
+      "medal": 7,
+      "bone": 0,
+      "hide": 0
+    },
+    "alloc": {
+      "wood": 2,
+      "stone": 1,
+      "food": 14,
+      "coal": 1,
+      "copper": 0,
+      "iron": 0,
+      "silver": 0,
+      "gold": 1,
+      "steel": 0,
+      "coin": 0,
+      "silverCoin": 0,
+      "goldCoin": 0,
+      "tech": 0
+    },
+    "caps": {
+      "wood": 12000,
+      "stone": 8000,
+      "food": 5000,
+      "tech": 7000,
+      "coal": 600,
+      "copper": 800,
+      "iron": 600,
+      "steel": 300,
+      "medal": 100000000000
+    },
+    "rates": {
+      "wood": 6,
+      "stone": 2,
+      "food": 94.5,
+      "tech": 0,
+      "coal": 1,
+      "copper": 0,
+      "iron": 0,
+      "steel": 0
+    },
+    "upkeep": 0.8266666666666667,
+    "library": {
+      "lv": 10,
+      "state": "idle",
+      "timer": 0,
+      "timerEnd": 0,
+      "tier": 0,
+      "cost": {
+        "wood": 1920,
+        "stone": 1920,
+        "time": 20
+      },
+      "lock": ""
+    },
+    "academy": {
+      "lv": 1,
+      "state": "idle",
+      "timer": 0,
+      "timerEnd": 0,
+      "tier": 0,
+      "cost": {
+        "wood": 800,
+        "stone": 800,
+        "food": 400,
+        "time": 40
+      },
+      "lock": ""
+    },
+    "science": {
+      "sci_steel": {
+        "cost": {
+          "tech": 9000,
+          "merit": 0
+        },
+        "need": [
+          "sci_gold_age"
+        ],
+        "unlocked": false
+      },
+      "sci_steel_store": {
+        "cost": {
+          "tech": 4000,
+          "merit": 0
+        },
+        "need": [
+          "sci_steel"
+        ],
+        "unlocked": false
+      },
+      "sci_alloy_age": {
+        "cost": {
+          "tech": 10000,
+          "merit": 0
+        },
+        "need": [
+          "sci_steel"
+        ],
+        "unlocked": false
+      },
+      "sci_steam_age": {
+        "cost": {
+          "tech": 100000,
+          "steel": 10000,
+          "merit": 0
+        },
+        "need": [
+          "sci_alloy_age"
+        ],
+        "unlocked": false
+      },
+      "sci_electric_age": {
+        "cost": {
+          "tech": 5000000,
+          "steel": 1000000,
+          "merit": 0
+        },
+        "need": [
+          "sci_steam_age"
+        ],
+        "unlocked": false
+      },
+      "sci_nuclear_age": {
+        "cost": {
+          "tech": 100000000,
+          "medal": 800000,
+          "merit": 0
+        },
+        "need": [
+          "sci_electric_age"
+        ],
+        "unlocked": false
+      },
+      "sci_star_beast_domain": {
+        "cost": {
+          "tech": 200000000,
+          "medal": 1000000,
+          "merit": 0
+        },
+        "need": [
+          "sci_nuclear_age"
+        ],
+        "unlocked": false
+      },
+      "sci_star_array": {
+        "cost": {
+          "tech": 300000000,
+          "medal": 2000000,
+          "merit": 0
+        },
+        "need": [
+          "sci_star_beast_domain"
+        ],
+        "unlocked": false
+      },
+      "sci_quantum_age": {
+        "cost": {
+          "tech": 3000000000,
+          "medal": 3000000,
+          "merit": 0
+        },
+        "need": [
+          "sci_nuclear_age"
+        ],
+        "unlocked": false
+      }
+    }
+  },
+  "online": 7730,
+  "minimumFood": 5000,
+  "events": [
+    {
+      "kind": "library",
+      "level": 11,
+      "cost": {
+        "wood": 1920,
+        "stone": 1920,
+        "time": 20
+      },
+      "waiting": 0,
+      "building": 20,
+      "online": 20,
+      "techCap": 7200,
+      "food": 5000
+    },
+    {
+      "kind": "library",
+      "level": 12,
+      "cost": {
+        "wood": 2160,
+        "stone": 2160,
+        "time": 21
+      },
+      "waiting": 0,
+      "building": 30,
+      "online": 50,
+      "techCap": 7400,
+      "food": 5000
+    },
+    {
+      "kind": "library",
+      "level": 13,
+      "cost": {
+        "wood": 2400,
+        "stone": 2400,
+        "time": 22
+      },
+      "waiting": 0,
+      "building": 30,
+      "online": 80,
+      "techCap": 7600,
+      "food": 5000
+    },
+    {
+      "kind": "library",
+      "level": 14,
+      "cost": {
+        "wood": 2640,
+        "stone": 2640,
+        "time": 23
+      },
+      "waiting": 110,
+      "building": 30,
+      "online": 220,
+      "techCap": 7800,
+      "food": 5000
+    },
+    {
+      "kind": "library",
+      "level": 15,
+      "cost": {
+        "wood": 2880,
+        "stone": 2880,
+        "time": 24
+      },
+      "waiting": 450,
+      "building": 30,
+      "online": 700,
+      "techCap": 8000,
+      "food": 5000
+    },
+    {
+      "kind": "library",
+      "level": 16,
+      "cost": {
+        "wood": 3120,
+        "stone": 3120,
+        "time": 25
+      },
+      "waiting": 490,
+      "building": 30,
+      "online": 1220,
+      "techCap": 8200,
+      "food": 5000
+    },
+    {
+      "kind": "library",
+      "level": 17,
+      "cost": {
+        "wood": 3360,
+        "stone": 3360,
+        "time": 26
+      },
+      "waiting": 530,
+      "building": 30,
+      "online": 1780,
+      "techCap": 8400,
+      "food": 5000
+    },
+    {
+      "kind": "library",
+      "level": 18,
+      "cost": {
+        "wood": 3600,
+        "stone": 3600,
+        "time": 27
+      },
+      "waiting": 570,
+      "building": 30,
+      "online": 2380,
+      "techCap": 8600,
+      "food": 5000
+    },
+    {
+      "kind": "library",
+      "level": 19,
+      "cost": {
+        "wood": 3840,
+        "stone": 3840,
+        "time": 28
+      },
+      "waiting": 610,
+      "building": 30,
+      "online": 3020,
+      "techCap": 8800,
+      "food": 5000
+    },
+    {
+      "kind": "library",
+      "level": 20,
+      "cost": {
+        "wood": 4080,
+        "stone": 4080,
+        "time": 29
+      },
+      "waiting": 650,
+      "building": 30,
+      "online": 3700,
+      "techCap": 9000,
+      "food": 5000
+    },
+    {
+      "kind": "science",
+      "id": "sci_steel",
+      "cost": {
+        "tech": 9000,
+        "merit": 0
+      },
+      "waiting": 30,
+      "online": 3730,
+      "result": {
+        "ok": true
+      },
+      "techBefore": 9000,
+      "techAfter": 0,
+      "cap": 9000
+    },
+    {
+      "kind": "science",
+      "id": "sci_steel_store",
+      "cost": {
+        "tech": 4000,
+        "merit": 0
+      },
+      "waiting": 460,
+      "online": 4190,
+      "result": {
+        "ok": true
+      },
+      "techBefore": 4048.000000000034,
+      "techAfter": 48.000000000034106,
+      "cap": 9000
+    },
+    {
+      "kind": "library",
+      "level": 21,
+      "cost": {
+        "wood": 4320,
+        "stone": 4320,
+        "time": 30
+      },
+      "waiting": 200,
+      "building": 30,
+      "online": 4420,
+      "techCap": 9200,
+      "food": 5000
+    },
+    {
+      "kind": "library",
+      "level": 22,
+      "cost": {
+        "wood": 4560,
+        "stone": 4560,
+        "time": 31
+      },
+      "waiting": 730,
+      "building": 40,
+      "online": 5190,
+      "techCap": 9400,
+      "food": 5000
+    },
+    {
+      "kind": "library",
+      "level": 23,
+      "cost": {
+        "wood": 4800,
+        "stone": 4800,
+        "time": 32
+      },
+      "waiting": 760,
+      "building": 40,
+      "online": 5990,
+      "techCap": 9600,
+      "food": 5000
+    },
+    {
+      "kind": "library",
+      "level": 24,
+      "cost": {
+        "wood": 5040,
+        "stone": 5040,
+        "time": 33
+      },
+      "waiting": 800,
+      "building": 40,
+      "online": 6830,
+      "techCap": 9800,
+      "food": 5000
+    },
+    {
+      "kind": "library",
+      "level": 25,
+      "cost": {
+        "wood": 5280,
+        "stone": 5280,
+        "time": 34
+      },
+      "waiting": 840,
+      "building": 40,
+      "online": 7710,
+      "techCap": 10000,
+      "food": 5000
+    },
+    {
+      "kind": "science",
+      "id": "sci_alloy_age",
+      "cost": {
+        "tech": 10000,
+        "merit": 0
+      },
+      "waiting": 20,
+      "online": 7730,
+      "result": {
+        "ok": true
+      },
+      "techBefore": 10000,
+      "techAfter": 0,
+      "cap": 10000
+    }
+  ],
+  "failure": null,
+  "workingRates": {
+    "food": 27,
+    "wood": 12,
+    "stone": 6,
+    "tech": 8.8,
+    "upkeep": 0.8266666666666667
+  },
+  "final": {
+    "tick": 328119,
+    "defeated": 95,
+    "pop": 19,
+    "tech": 0,
+    "techCap": 10000,
+    "steel": 0,
+    "steelCap": 300,
+    "food": 5000,
+    "wood": 7440,
+    "stone": 380,
+    "iron": 10,
+    "merit": 2632,
+    "medal": 7,
+    "library": 25,
+    "sciences": [
+      "sci_prospect",
+      "sci_coal",
+      "sci_copper",
+      "sci_wood_store",
+      "sci_urbanization",
+      "sci_iron",
+      "sci_large_granary",
+      "sci_bronze_age",
+      "sci_iron_warehouse",
+      "sci_iron_age",
+      "sci_city",
+      "sci_silver",
+      "sci_silver_age",
+      "sci_library",
+      "sci_gold",
+      "sci_gold_age",
+      "sci_steel",
+      "sci_steel_store",
+      "sci_alloy_age"
+    ]
+  },
+  "nextCost": {
+    "tech": 100000,
+    "steel": 10000,
+    "merit": 0
+  },
+  "nextAttempt": {
+    "ok": false,
+    "reason": "insufficient-tech"
+  },
+  "nextCaps": {
+    "tech": 10000,
+    "steel": 300,
+    "steelStoreInitial": {
+      "iron": 200,
+      "steel": 200,
+      "time": 8
+    },
+    "steamScienceNeed": [
+      "sci_alloy_age"
+    ],
+    "stage100NeedSciences": [
+      "sci_star_array",
+      "sci_quantum_age"
+    ],
+    "starArray": {
+      "tech": 300000000,
+      "medal": 2000000,
+      "merit": 0
+    },
+    "quantum": {
+      "tech": 3000000000,
+      "medal": 3000000,
+      "merit": 0
+    }
+  },
+  "savePath": "docs/codex/reports/data/p405-terminal-science-alloy-paid-save.json",
+  "saveSha256": "06d12742f9dadc4fe06f2d7c299d7707cb07e566b18ada88a0b391ae35979cb0"
+}

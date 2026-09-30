@@ -1,0 +1,318 @@
+{
+  "baselineHead": "9fd54b76e3587aed069bdc4d5df61a0fd2b97778",
+  "source": "p405-mainline-l80-full-ready-save.json",
+  "sourceHash": "a3e1b814bc4f05db50b0fe1d9f7f7a59f5364fb6a3c6d27f60cc39b10020ea75",
+  "l79Hash": "0dc1cfc2a1d80bdd4e73df5f31c7b6ab5718dee901a2e9f892a62aa88752be6f",
+  "upstreamRefill": {
+    "onlineSeconds": 11200,
+    "paid": {
+      "food": 29000,
+      "silver": 2000,
+      "gold": 1300
+    }
+  },
+  "runtimeHash": {
+    "config.js": "30da1763fc2f7f7453438d263a667bea58c6acc11d67481d16272f5e1ffb1c0f",
+    "levels.js": "cec80c26fa91f941994c253a2fe73be0dfe3f108237620b662fdab9f5449fd1d",
+    "math.js": "e23254b5ba63c824e0ef5302a2f17216f4ac80398711f76554bdb57b3bb52224",
+    "garrison.js": "4d233f0529d256cd1ace2de782603fcfcbbff110032ca4cf29c5e36af30f10ff",
+    "technology.js": "3d3485f57e1e3ef73d11077cec06d467f674959aa6f0dfb27c3eb4d4abf94536",
+    "tests/progression/harness.js": "4770d17fa72cc8c87f4c8ef79678f19d63a41da895b8dd58776e5a39ce2ede2b"
+  },
+  "method": "fixed random 0.5, actual costs, tick production and callbacks, no injected game state",
+  "initial": {
+    "tick": 165840,
+    "now": 1790885569372.5,
+    "science": [
+      "sci_prospect",
+      "sci_coal",
+      "sci_copper",
+      "sci_wood_store",
+      "sci_urbanization",
+      "sci_iron",
+      "sci_large_granary",
+      "sci_bronze_age",
+      "sci_iron_warehouse",
+      "sci_iron_age",
+      "sci_city",
+      "sci_silver",
+      "sci_silver_age",
+      "sci_library",
+      "sci_gold",
+      "sci_gold_age"
+    ],
+    "res": {
+      "wood": 3000,
+      "stone": 1998,
+      "food": 2006.1341880341884,
+      "tech": 0,
+      "coal": 1,
+      "copper": 4,
+      "iron": 10,
+      "silver": 1.9999999999629614,
+      "gold": 0.5,
+      "steel": 0,
+      "coin": 0,
+      "silverCoin": 0,
+      "goldCoin": 0,
+      "deed": 20,
+      "medal": 7,
+      "bone": 0,
+      "hide": 0
+    },
+    "pop": {
+      "wood": 2,
+      "stone": 1,
+      "food": 14,
+      "coal": 1,
+      "copper": 0,
+      "iron": 0,
+      "silver": 0,
+      "gold": 1,
+      "steel": 0,
+      "coin": 0,
+      "silverCoin": 0,
+      "goldCoin": 0,
+      "tech": 0
+    },
+    "academy": 1,
+    "cap": 7000,
+    "alloyArmory": 0,
+    "queue": 0,
+    "pool": 0,
+    "army": 117,
+    "deployed": 117,
+    "defeated": 79,
+    "foodRate": 40.95,
+    "upkeep": 35.982905982905976,
+    "foodNet": 3.0670940170940266
+  },
+  "onlineSeconds": 14271,
+  "battleCallbackMilliseconds": 23310,
+  "minFood": 1208.2108974364398,
+  "qualityReady": {
+    "army": 118,
+    "sha256": "eeee2db6efb075373d359ee8aa07825339abd3715fe279ded35e8c8385c6d95f",
+    "formation": [
+      [
+        "front",
+        "gold_cavalry",
+        10
+      ],
+      [
+        "front",
+        "alloy_special",
+        8
+      ],
+      [
+        "front",
+        "silver_heavy",
+        10
+      ],
+      [
+        "front",
+        "silver_heavy",
+        10
+      ],
+      [
+        "mid",
+        "iron_spearman",
+        10
+      ],
+      [
+        "mid",
+        "bronze_guard",
+        10
+      ],
+      [
+        "mid",
+        "iron_spearman",
+        10
+      ],
+      [
+        "mid",
+        "bronze_guard",
+        10
+      ],
+      [
+        "back",
+        "archer_silverbow",
+        10
+      ],
+      [
+        "back",
+        "archer_silverbow",
+        10
+      ],
+      [
+        "back",
+        "archer_silverbow",
+        10
+      ],
+      [
+        "back",
+        "archer_silverbow",
+        10
+      ]
+    ],
+    "name": "p405-l80-quality-ready-save.json",
+    "fileSha256": "8a348482d6d90c942795e4246e880b9fad78389b4597404459039fe57f922b87"
+  },
+  "battle": {
+    "won": false,
+    "round": 5,
+    "callbacks": 57,
+    "battleMs": 23310,
+    "before": {
+      "tick": 180111,
+      "now": 1790899840372.5,
+      "science": [
+        "sci_prospect",
+        "sci_coal",
+        "sci_copper",
+        "sci_wood_store",
+        "sci_urbanization",
+        "sci_iron",
+        "sci_large_granary",
+        "sci_bronze_age",
+        "sci_iron_warehouse",
+        "sci_iron_age",
+        "sci_city",
+        "sci_silver",
+        "sci_silver_age",
+        "sci_library",
+        "sci_gold",
+        "sci_gold_age",
+        "sci_steel",
+        "sci_alloy_age"
+      ],
+      "res": {
+        "wood": 3000,
+        "stone": 1998,
+        "food": 1501.8268,
+        "tech": 4.999999999965439,
+        "coal": 0,
+        "copper": 4,
+        "iron": 598.5,
+        "silver": 1.9999999999629614,
+        "gold": 10.5,
+        "steel": 0,
+        "coin": 0,
+        "silverCoin": 0,
+        "goldCoin": 0,
+        "deed": 20,
+        "medal": 7,
+        "bone": 0,
+        "hide": 0
+      },
+      "pop": {
+        "wood": 0,
+        "stone": 1,
+        "food": 14,
+        "coal": 1,
+        "copper": 0,
+        "iron": 1,
+        "silver": 0,
+        "gold": 0,
+        "steel": 2,
+        "coin": 0,
+        "silverCoin": 0,
+        "goldCoin": 0,
+        "tech": 0
+      },
+      "academy": 3,
+      "cap": 11000,
+      "alloyArmory": 1,
+      "queue": 0,
+      "pool": 0,
+      "army": 125,
+      "deployed": 118,
+      "defeated": 79,
+      "foodRate": 47.25,
+      "upkeep": 43.523199999999996,
+      "foodNet": 1.8268000000000042
+    },
+    "after": {
+      "tick": 180134,
+      "now": 1790899863372.5,
+      "science": [
+        "sci_prospect",
+        "sci_coal",
+        "sci_copper",
+        "sci_wood_store",
+        "sci_urbanization",
+        "sci_iron",
+        "sci_large_granary",
+        "sci_bronze_age",
+        "sci_iron_warehouse",
+        "sci_iron_age",
+        "sci_city",
+        "sci_silver",
+        "sci_silver_age",
+        "sci_library",
+        "sci_gold",
+        "sci_gold_age",
+        "sci_steel",
+        "sci_alloy_age"
+      ],
+      "res": {
+        "wood": 3000,
+        "stone": 1998,
+        "food": 1501.8268,
+        "tech": 4.999999999965439,
+        "coal": 0,
+        "copper": 4,
+        "iron": 598.5,
+        "silver": 1.9999999999629614,
+        "gold": 10.5,
+        "steel": 0,
+        "coin": 0,
+        "silverCoin": 0,
+        "goldCoin": 0,
+        "deed": 20,
+        "medal": 7,
+        "bone": 0,
+        "hide": 0
+      },
+      "pop": {
+        "wood": 0,
+        "stone": 1,
+        "food": 14,
+        "coal": 1,
+        "copper": 0,
+        "iron": 1,
+        "silver": 0,
+        "gold": 0,
+        "steel": 2,
+        "coin": 0,
+        "silverCoin": 0,
+        "goldCoin": 0,
+        "tech": 0
+      },
+      "academy": 3,
+      "cap": 11000,
+      "alloyArmory": 1,
+      "queue": 0,
+      "pool": 0,
+      "army": 7,
+      "deployed": 0,
+      "defeated": 79,
+      "foodRate": 47.25,
+      "upkeep": 0,
+      "foodNet": 45.35
+    }
+  },
+  "stop": "L80-loss",
+  "trainingDebits": {
+    "units": 8,
+    "food": 12000,
+    "steel": 800
+  },
+  "final": {
+    "name": "p405-l80-quality-final-save.json",
+    "sha256": "16a24308e1b57197722efd91d06899b77f9ad8eb9f38ac28c7a01338541c3cae",
+    "fileSha256": "521fd7f98005a732eebd8e086ae668272676f073a3b86a6b021725f6743bcf7d"
+  },
+  "ledgerName": "p405-l80-quality-ledger.jsonl",
+  "ledgerHash": "d438e505190ec9997c2c17934693ab725baa231e777ed351cd48e8c8d3cd3783"
+}

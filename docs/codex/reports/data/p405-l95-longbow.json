@@ -1,0 +1,259 @@
+{
+  "batch": "P405",
+  "input": "docs/codex/reports/data/p405-mainline-l81-onward-final-save.json",
+  "inputSha256": "9415fc6b96e2e98077b3bdc66bc0a5c41e3fd7a29e2c8423985dfd45c27b46fa",
+  "sourceHash": {
+    "config.js": "30da1763fc2f7f7453438d263a667bea58c6acc11d67481d16272f5e1ffb1c0f",
+    "levels.js": "cec80c26fa91f941994c253a2fe73be0dfe3f108237620b662fdab9f5449fd1d",
+    "math.js": "e23254b5ba63c824e0ef5302a2f17216f4ac80398711f76554bdb57b3bb52224",
+    "garrison.js": "4d233f0529d256cd1ace2de782603fcfcbbff110032ca4cf29c5e36af30f10ff",
+    "technology.js": "3d3485f57e1e3ef73d11077cec06d467f674959aa6f0dfb27c3eb4d4abf94536",
+    "tests/progression/harness.js": "4770d17fa72cc8c87f4c8ef79678f19d63a41da895b8dd58776e5a39ce2ede2b",
+    "tools/verify/probe-p405-mainline-continuous.js": "5ae989e6a13e803ff19f17307668ac4469c346467c918cc140504472a4a51fcd",
+    "docs/codex/reports/data/p405-mainline-l81-onward-final-save.json": "9415fc6b96e2e98077b3bdc66bc0a5c41e3fd7a29e2c8423985dfd45c27b46fa"
+  },
+  "method": "Actual paid building upgrades, T3 promotion, scholar knowledge, unit research, queued training, modal formation, fixed 0.5 battle callbacks and independent v36 reload",
+  "units": "online is simulated tick seconds; battleMs is simulated callback milliseconds; menu actions instant in harness",
+  "steps": [
+    {
+      "action": "build",
+      "key": "warehouse",
+      "from": 12,
+      "to": 13,
+      "cost": {
+        "wood": 3200,
+        "stone": 0,
+        "food": 0
+      },
+      "waited": 0,
+      "buildSeconds": 30
+    },
+    {
+      "action": "build",
+      "key": "warehouse",
+      "from": 13,
+      "to": 14,
+      "cost": {
+        "wood": 3521,
+        "stone": 0,
+        "food": 0
+      },
+      "waited": 0,
+      "buildSeconds": 30
+    },
+    {
+      "action": "build",
+      "key": "warehouse",
+      "from": 14,
+      "to": 15,
+      "cost": {
+        "wood": 3840,
+        "stone": 0,
+        "food": 0
+      },
+      "waited": 80,
+      "buildSeconds": 30
+    },
+    {
+      "action": "build",
+      "key": "warehouse",
+      "from": 15,
+      "to": 16,
+      "cost": {
+        "wood": 4160,
+        "stone": 0,
+        "food": 0
+      },
+      "waited": 310,
+      "buildSeconds": 30
+    },
+    {
+      "action": "build",
+      "key": "warehouse",
+      "from": 16,
+      "to": 17,
+      "cost": {
+        "wood": 4480,
+        "stone": 0,
+        "food": 0
+      },
+      "waited": 350,
+      "buildSeconds": 30
+    },
+    {
+      "action": "archer T3",
+      "cost": {
+        "wood": 8000,
+        "stone": 8000,
+        "food": 5000,
+        "time": 90
+      },
+      "waited": 630,
+      "tierSeconds": 90
+    },
+    {
+      "action": "build",
+      "key": "archer_range",
+      "from": 4,
+      "to": 5,
+      "cost": {
+        "wood": 1465,
+        "stone": 1465,
+        "food": 1245
+      },
+      "waited": 80,
+      "buildSeconds": 20
+    },
+    {
+      "action": "scholar",
+      "seconds": 910,
+      "tech": 1001.0000000000144
+    },
+    {
+      "action": "research longbow",
+      "cost": {
+        "wood": 2000,
+        "stone": 1200,
+        "food": 1500,
+        "tech": 1000,
+        "merit": 20,
+        "bow_essence": 3
+      },
+      "waited": 0
+    },
+    {
+      "action": "train",
+      "fills": [
+        {
+          "type": "archer_longbow",
+          "before": 0,
+          "target": 60,
+          "queued": 60,
+          "seconds": 630
+        },
+        {
+          "type": "bronze_guard",
+          "before": 5,
+          "target": 20,
+          "queued": 15,
+          "seconds": 750
+        },
+        {
+          "type": "iron_spearman",
+          "before": 0,
+          "target": 20,
+          "queued": 20,
+          "seconds": 2000
+        },
+        {
+          "type": "silver_heavy",
+          "before": 0,
+          "target": 40,
+          "queued": 40,
+          "seconds": 12000
+        },
+        {
+          "type": "gold_cavalry",
+          "before": 0,
+          "target": 29,
+          "queued": 29,
+          "seconds": 11600
+        }
+      ],
+      "charges": {
+        "wood": 13200,
+        "stone": 4800,
+        "food": 82700,
+        "copper": 1500,
+        "iron": 2000,
+        "silver": 4000,
+        "gold": 2900
+      }
+    }
+  ],
+  "totalOnline": 29600,
+  "paidTraining": {
+    "wood": 13200,
+    "stone": 4800,
+    "food": 82700,
+    "copper": 1500,
+    "iron": 2000,
+    "silver": 4000,
+    "gold": 2900
+  },
+  "ready": {
+    "path": "docs/codex/reports/data/p405-l95-longbow-ready-save.json",
+    "sha256": "1d27a6d154c0034832a3bf8fcbfa6d944fe0f43c55a5ed814b5d82defddb6383"
+  },
+  "battle": {
+    "stage": 95,
+    "won": true,
+    "round": 6,
+    "callbacks": 57,
+    "battleMs": 23152.5,
+    "enemy": {
+      "name": "鹰眼射手",
+      "groups": 6,
+      "soldiers": 360
+    },
+    "enemyRemaining": [],
+    "armyBefore": 164,
+    "armyAfter": 13,
+    "losses": {
+      "archer_silverbow": 0,
+      "bronze_guard": 15,
+      "iron_spearman": 20,
+      "silver_heavy": 40,
+      "gold_cavalry": 29,
+      "archer_longbow": 47
+    },
+    "tickBefore": 320366,
+    "tickAfter": 320389,
+    "meritBefore": 2583,
+    "meritAfter": 2632,
+    "resBefore": {
+      "wood": 12000,
+      "stone": 285,
+      "food": 4018.336094674556,
+      "tech": 1.0000000000144382,
+      "coal": 1,
+      "copper": 4,
+      "iron": 10,
+      "silver": 1.999999999892035,
+      "gold": 0.5,
+      "steel": 0,
+      "coin": 0,
+      "silverCoin": 0,
+      "goldCoin": 0,
+      "deed": 20,
+      "medal": 7,
+      "bone": 0,
+      "hide": 0
+    },
+    "resAfter": {
+      "wood": 12000,
+      "stone": 8000,
+      "food": 5000,
+      "tech": 1.0000000000144382,
+      "coal": 1,
+      "copper": 4,
+      "iron": 10,
+      "silver": 1.999999999892035,
+      "gold": 0.5,
+      "steel": 0,
+      "coin": 0,
+      "silverCoin": 0,
+      "goldCoin": 0,
+      "deed": 20,
+      "medal": 7,
+      "bone": 0,
+      "hide": 0
+    },
+    "saveSha256": "0117863f50d1c2af267418901c1cfae18f9f97385698ece760fd3b9a84f80a32"
+  },
+  "final": {
+    "path": "docs/codex/reports/data/p405-l95-longbow-final-save.json",
+    "sha256": "cf2f221d0ed5a4d1ced5178acd5b3b41abe719554b1dcfea238cea6c3b04b7b5"
+  },
+  "failure": null
+}

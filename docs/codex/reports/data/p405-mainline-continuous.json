@@ -1,0 +1,213 @@
+{
+  "batch": "P405",
+  "input": "docs/codex/reports/data/p404-l50-armory-and-bows-final-save.json",
+  "inputSha256": "e0e8aba95021e069eb5ef4df06603ce15df67b9909c4328336dcf21a37546354",
+  "sourceHash": {
+    "config.js": "30da1763fc2f7f7453438d263a667bea58c6acc11d67481d16272f5e1ffb1c0f",
+    "levels.js": "cec80c26fa91f941994c253a2fe73be0dfe3f108237620b662fdab9f5449fd1d",
+    "math.js": "e23254b5ba63c824e0ef5302a2f17216f4ac80398711f76554bdb57b3bb52224",
+    "garrison.js": "4d233f0529d256cd1ace2de782603fcfcbbff110032ca4cf29c5e36af30f10ff",
+    "technology.js": "3d3485f57e1e3ef73d11077cec06d467f674959aa6f0dfb27c3eb4d4abf94536",
+    "tests/progression/harness.js": "4770d17fa72cc8c87f4c8ef79678f19d63a41da895b8dd58776e5a39ce2ede2b",
+    "docs/codex/reports/data/p404-l50-armory-and-bows-final-save.json": "e0e8aba95021e069eb5ef4df06603ce15df67b9909c4328336dcf21a37546354"
+  },
+  "method": "One fixed Math.random=0.5 stream; real selected stage, queued production charges, formation, battle callbacks, settlement, save and independent v36 reload; no direct game-state injection",
+  "units": "online is simulated noncombat tick seconds; battleMs is simulated callback milliseconds; menu operations are instant in the harness",
+  "routeStage": 79,
+  "totalOnline": 69210,
+  "totalBattleMs": 260452.5,
+  "paid": {
+    "wood": 11040,
+    "stone": 3450,
+    "food": 235120,
+    "copper": 21400,
+    "iron": 6000,
+    "silver": 8800,
+    "gold": 6500
+  },
+  "wins": 29,
+  "attempts": 37,
+  "stop": {
+    "stage": 80,
+    "mode": "full",
+    "online": 11200,
+    "paid": {
+      "food": 29000,
+      "silver": 2000,
+      "gold": 1300
+    },
+    "fills": [
+      {
+        "type": "archer_silverbow",
+        "before": 40,
+        "target": 40,
+        "queued": 0,
+        "seconds": 0
+      },
+      {
+        "type": "bronze_guard",
+        "before": 20,
+        "target": 20,
+        "queued": 0,
+        "seconds": 0
+      },
+      {
+        "type": "iron_spearman",
+        "before": 20,
+        "target": 20,
+        "queued": 0,
+        "seconds": 0
+      },
+      {
+        "type": "silver_heavy",
+        "before": 0,
+        "target": 20,
+        "queued": 20,
+        "seconds": 6000
+      },
+      {
+        "type": "gold_cavalry",
+        "before": 4,
+        "target": 17,
+        "queued": 13,
+        "seconds": 5200
+      }
+    ],
+    "inputSha256": "fd75b66099435600f3562155eeb6525bc52507fa8107808b8ed1a424ebdcbe6a",
+    "won": false,
+    "round": 4,
+    "callbacks": 52,
+    "battleMs": 21367.5,
+    "enemy": {
+      "name": "炎龙骑士",
+      "groups": 11,
+      "soldiers": 165
+    },
+    "enemyRemaining": [
+      {
+        "type": "infantry",
+        "row": "front",
+        "hp": 6,
+        "maxHp": 15,
+        "count": 15
+      },
+      {
+        "type": "archer",
+        "row": "back",
+        "hp": 15,
+        "maxHp": 15,
+        "count": 15
+      },
+      {
+        "type": "archer",
+        "row": "back",
+        "hp": 15,
+        "maxHp": 15,
+        "count": 15
+      },
+      {
+        "type": "archer",
+        "row": "back",
+        "hp": 15,
+        "maxHp": 15,
+        "count": 15
+      },
+      {
+        "type": "mage_t1",
+        "row": "back",
+        "hp": 15,
+        "maxHp": 15,
+        "count": 15
+      },
+      {
+        "type": "mage_t1",
+        "row": "back",
+        "hp": 15,
+        "maxHp": 15,
+        "count": 15
+      }
+    ],
+    "armyBefore": 117,
+    "armyAfter": 0,
+    "losses": {
+      "archer_silverbow": 40,
+      "bronze_guard": 20,
+      "iron_spearman": 20,
+      "silver_heavy": 20,
+      "gold_cavalry": 17
+    },
+    "tickBefore": 165840,
+    "tickAfter": 165861,
+    "meritBefore": 1839,
+    "meritAfter": 1839,
+    "resBefore": {
+      "wood": 3000,
+      "stone": 1998,
+      "food": 2006.1341880341884,
+      "tech": 0,
+      "coal": 1,
+      "copper": 4,
+      "iron": 10,
+      "silver": 1.9999999999629614,
+      "gold": 0.5,
+      "steel": 0,
+      "coin": 0,
+      "silverCoin": 0,
+      "goldCoin": 0,
+      "deed": 20,
+      "medal": 7,
+      "bone": 0,
+      "hide": 0
+    },
+    "resAfter": {
+      "wood": 3000,
+      "stone": 1998,
+      "food": 2006.1341880341884,
+      "tech": 0,
+      "coal": 1,
+      "copper": 4,
+      "iron": 10,
+      "silver": 1.9999999999629614,
+      "gold": 0.5,
+      "steel": 0,
+      "coin": 0,
+      "silverCoin": 0,
+      "goldCoin": 0,
+      "deed": 20,
+      "medal": 7,
+      "bone": 0,
+      "hide": 0
+    },
+    "saveSha256": "872f37fa59f8033d5ea01a90460dabbe74b3b26c77b8a40a2350b9dc38747889"
+  },
+  "checkpoints": {
+    "56": {
+      "path": "docs/codex/reports/data/p405-mainline-l56-save.json",
+      "sha256": "9e77fe79c3a82cbeef0d1c47c8180497153011d8cc9d695d4382640fa704018a"
+    },
+    "57": {
+      "path": "docs/codex/reports/data/p405-mainline-l57-save.json",
+      "sha256": "c8bc6f8a76328896b26421187afd7a59590bf1126ff9bc0ec3986f044cc45d68"
+    },
+    "59": {
+      "path": "docs/codex/reports/data/p405-mainline-l59-save.json",
+      "sha256": "818456e24e6c2efad6a092e533754190525f1e78b66e207b19e02309cb7e3086"
+    },
+    "60": {
+      "path": "docs/codex/reports/data/p405-mainline-l60-save.json",
+      "sha256": "2d6883eeea4646bdba6a0128c16995c0cc745250ee5b16ea50fad8f94a6ed69f"
+    },
+    "70": {
+      "path": "docs/codex/reports/data/p405-mainline-l70-save.json",
+      "sha256": "35dbf76ab3c6d3d1edf44508dd624bf1e40ba19bdb6250060417983207e20c30"
+    },
+    "l80Ready": {
+      "path": "docs/codex/reports/data/p405-mainline-l80-full-ready-save.json",
+      "sha256": "a3e1b814bc4f05db50b0fe1d9f7f7a59f5364fb6a3c6d27f60cc39b10020ea75"
+    }
+  },
+  "finalPath": "docs/codex/reports/data/p405-mainline-continuous-final-save.json",
+  "finalSha256": "0dc1cfc2a1d80bdd4e73df5f31c7b6ab5718dee901a2e9f892a62aa88752be6f",
+  "ledgerPath": "docs/codex/reports/data/p405-mainline-continuous-ledger.jsonl",
+  "failure": null
+}

@@ -1,0 +1,352 @@
+{
+  "batch": "P405",
+  "input": "docs/codex/reports/data/p405-l95-longbow-final-save.json",
+  "inputSha256": "cf2f221d0ed5a4d1ced5178acd5b3b41abe719554b1dcfea238cea6c3b04b7b5",
+  "sourceHash": {
+    "config.js": "30da1763fc2f7f7453438d263a667bea58c6acc11d67481d16272f5e1ffb1c0f",
+    "levels.js": "cec80c26fa91f941994c253a2fe73be0dfe3f108237620b662fdab9f5449fd1d",
+    "math.js": "e23254b5ba63c824e0ef5302a2f17216f4ac80398711f76554bdb57b3bb52224",
+    "garrison.js": "4d233f0529d256cd1ace2de782603fcfcbbff110032ca4cf29c5e36af30f10ff",
+    "technology.js": "3d3485f57e1e3ef73d11077cec06d467f674959aa6f0dfb27c3eb4d4abf94536",
+    "tests/progression/harness.js": "4770d17fa72cc8c87f4c8ef79678f19d63a41da895b8dd58776e5a39ce2ede2b",
+    "tools/verify/probe-p405-mainline-continuous.js": "5ae989e6a13e803ff19f17307668ac4469c346467c918cc140504472a4a51fcd",
+    "docs/codex/reports/data/p405-l95-longbow-final-save.json": "cf2f221d0ed5a4d1ced5178acd5b3b41abe719554b1dcfea238cea6c3b04b7b5"
+  },
+  "method": "Each stage candidate independently reloaded from last paid v36 win; actual paid training, modal formation, battle callbacks and reload; Math.random fixed 0.5",
+  "units": "online is simulated tick seconds; battleMs is simulated callback milliseconds",
+  "setupSteps": [
+    {
+      "action": "outer village",
+      "winFrom": 0,
+      "winTo": 1,
+      "deedGained": 12,
+      "areaCallbacks": 14,
+      "areaBattleMs": 5880,
+      "armyAfter": 6
+    },
+    {
+      "action": "smallTown",
+      "cost": 30,
+      "level": 6,
+      "populationWait": 10,
+      "current": 21
+    },
+    {
+      "key": "warehouse",
+      "from": 17,
+      "to": 18,
+      "cost": {
+        "wood": 4800,
+        "stone": 0,
+        "food": 0
+      },
+      "waited": 0,
+      "buildSeconds": 30
+    },
+    {
+      "key": "warehouse",
+      "from": 18,
+      "to": 19,
+      "cost": {
+        "wood": 5120,
+        "stone": 0,
+        "food": 0
+      },
+      "waited": 0,
+      "buildSeconds": 30
+    },
+    {
+      "key": "warehouse",
+      "from": 19,
+      "to": 20,
+      "cost": {
+        "wood": 5440,
+        "stone": 0,
+        "food": 0
+      },
+      "waited": 220,
+      "buildSeconds": 30
+    },
+    {
+      "key": "barracks",
+      "from": 2,
+      "to": 3,
+      "cost": {
+        "wood": 5202,
+        "stone": 5202,
+        "food": 2890
+      },
+      "waited": 410,
+      "buildSeconds": 50
+    },
+    {
+      "key": "barracks",
+      "from": 3,
+      "to": 4,
+      "cost": {
+        "wood": 8844,
+        "stone": 8844,
+        "food": 4913
+      },
+      "waited": 760,
+      "buildSeconds": 60
+    },
+    {
+      "key": "archer_range",
+      "from": 5,
+      "to": 6,
+      "cost": {
+        "wood": 1611,
+        "stone": 1611,
+        "food": 1369
+      },
+      "waited": 210,
+      "buildSeconds": 20
+    },
+    {
+      "key": "archer_range",
+      "from": 6,
+      "to": 7,
+      "cost": {
+        "wood": 1772,
+        "stone": 1772,
+        "food": 1506
+      },
+      "waited": 280,
+      "buildSeconds": 20
+    },
+    {
+      "key": "archer_range",
+      "from": 7,
+      "to": 8,
+      "cost": {
+        "wood": 1949,
+        "stone": 1949,
+        "food": 1657
+      },
+      "waited": 300,
+      "buildSeconds": 20
+    },
+    {
+      "key": "archer_range",
+      "from": 8,
+      "to": 9,
+      "cost": {
+        "wood": 2144,
+        "stone": 2144,
+        "food": 1823
+      },
+      "waited": 340,
+      "buildSeconds": 20
+    },
+    {
+      "key": "archer_range",
+      "from": 9,
+      "to": 10,
+      "cost": {
+        "wood": 2358,
+        "stone": 2358,
+        "food": 2005
+      },
+      "waited": 370,
+      "buildSeconds": 20
+    },
+    {
+      "key": "archer_range",
+      "from": 10,
+      "to": 11,
+      "cost": {
+        "wood": 2594,
+        "stone": 2594,
+        "food": 2205
+      },
+      "waited": 410,
+      "buildSeconds": 20
+    },
+    {
+      "key": "archer_range",
+      "from": 11,
+      "to": 12,
+      "cost": {
+        "wood": 2854,
+        "stone": 2854,
+        "food": 2426
+      },
+      "waited": 460,
+      "buildSeconds": 30
+    }
+  ],
+  "stageWon": 96,
+  "totalOnline": 32290,
+  "totalBattleMs": 13545,
+  "paid": {
+    "wood": 20680,
+    "stone": 7520,
+    "food": 86780,
+    "copper": 1500,
+    "iron": 2000,
+    "silver": 4000,
+    "gold": 2900
+  },
+  "wins": 1,
+  "attempts": 4,
+  "stop": {
+    "stage": 97,
+    "mode": "full-refill",
+    "inputSha256": "fa6850150348a4047b41d9bf4e9b0441105efcb740bea68742b2792dcc839448",
+    "online": 24600,
+    "paid": {
+      "food": 71000,
+      "copper": 2000,
+      "iron": 1600,
+      "silver": 4000,
+      "gold": 2500
+    },
+    "fills": [
+      {
+        "type": "archer_longbow",
+        "before": 100,
+        "target": 100,
+        "queued": 0,
+        "seconds": 0
+      },
+      {
+        "type": "bronze_guard",
+        "before": 0,
+        "target": 20,
+        "queued": 20,
+        "seconds": 1000
+      },
+      {
+        "type": "iron_spearman",
+        "before": 4,
+        "target": 20,
+        "queued": 16,
+        "seconds": 1600
+      },
+      {
+        "type": "silver_heavy",
+        "before": 0,
+        "target": 40,
+        "queued": 40,
+        "seconds": 12000
+      },
+      {
+        "type": "gold_cavalry",
+        "before": 4,
+        "target": 29,
+        "queued": 25,
+        "seconds": 10000
+      }
+    ],
+    "won": false,
+    "round": 4,
+    "callbacks": 39,
+    "battleMs": 15907.5,
+    "enemy": {
+      "name": "圣殿骑士",
+      "groups": 9,
+      "soldiers": 603
+    },
+    "enemyRemaining": [
+      {
+        "type": "infantry",
+        "row": "front",
+        "hp": 94,
+        "maxHp": 94,
+        "count": 94
+      },
+      {
+        "type": "archer",
+        "row": "back",
+        "hp": 94,
+        "maxHp": 94,
+        "count": 94
+      },
+      {
+        "type": "archer",
+        "row": "back",
+        "hp": 69,
+        "maxHp": 69,
+        "count": 69
+      },
+      {
+        "type": "archer",
+        "row": "back",
+        "hp": 38,
+        "maxHp": 38,
+        "count": 38
+      },
+      {
+        "type": "cavalry_t1",
+        "row": "front",
+        "hp": 34,
+        "maxHp": 38,
+        "count": 38
+      }
+    ],
+    "armyBefore": 209,
+    "armyAfter": 0,
+    "losses": {
+      "archer_silverbow": 0,
+      "bronze_guard": 20,
+      "iron_spearman": 20,
+      "silver_heavy": 40,
+      "gold_cavalry": 29,
+      "archer_longbow": 100
+    },
+    "tickBefore": 377297,
+    "tickAfter": 377312,
+    "meritBefore": 2686,
+    "meritAfter": 2686,
+    "resBefore": {
+      "wood": 13800,
+      "stone": 8126,
+      "food": 4005.3224880382777,
+      "tech": 1.0000000000144382,
+      "coal": 1,
+      "copper": 4,
+      "iron": 10,
+      "silver": 1.999999999865887,
+      "gold": 0.5,
+      "steel": 0,
+      "coin": 0,
+      "silverCoin": 0,
+      "goldCoin": 0,
+      "deed": 2,
+      "medal": 12,
+      "bone": 0,
+      "hide": 0
+    },
+    "resAfter": {
+      "wood": 13800,
+      "stone": 8126,
+      "food": 4005.3224880382777,
+      "tech": 1.0000000000144382,
+      "coal": 1,
+      "copper": 4,
+      "iron": 10,
+      "silver": 1.999999999865887,
+      "gold": 0.5,
+      "steel": 0,
+      "coin": 0,
+      "silverCoin": 0,
+      "goldCoin": 0,
+      "deed": 2,
+      "medal": 12,
+      "bone": 0,
+      "hide": 0
+    },
+    "saveSha256": "22b34d9d2f3e35a85a06c332b732f7cb3a71dfde3cd6d2491ce02d42fddc0b10"
+  },
+  "checkpoints": {
+    "expandedCapacity": {
+      "path": "docs/codex/reports/data/p405-l96-expanded-capacity-save.json",
+      "sha256": "19da2db06fd0d28a4370a15f839e9283286c71f08ddbb1a1a07462ea3996f0fd"
+    }
+  },
+  "finalPath": "docs/codex/reports/data/p405-l96-onward-final-save.json",
+  "finalSha256": "f73cbc94d8352393923741d6a7a8e5d299d2fd5b781cffcd50721f37edc036cb",
+  "ledgerPath": "docs/codex/reports/data/p405-l96-onward-ledger.jsonl",
+  "failure": null
+}

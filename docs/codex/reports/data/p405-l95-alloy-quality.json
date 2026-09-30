@@ -1,0 +1,263 @@
+{
+  "batch": "P405",
+  "input": "docs/codex/reports/data/p405-mainline-l81-onward-final-save.json",
+  "inputSha256": "9415fc6b96e2e98077b3bdc66bc0a5c41e3fd7a29e2c8423985dfd45c27b46fa",
+  "rawSha256": "c24e919013b413dc697804e686da2b1006361c10faf9209d1694839e2301d8cc",
+  "sourceHash": {
+    "config.js": "30da1763fc2f7f7453438d263a667bea58c6acc11d67481d16272f5e1ffb1c0f",
+    "levels.js": "cec80c26fa91f941994c253a2fe73be0dfe3f108237620b662fdab9f5449fd1d",
+    "math.js": "e23254b5ba63c824e0ef5302a2f17216f4ac80398711f76554bdb57b3bb52224",
+    "garrison.js": "4d233f0529d256cd1ace2de782603fcfcbbff110032ca4cf29c5e36af30f10ff",
+    "technology.js": "3d3485f57e1e3ef73d11077cec06d467f674959aa6f0dfb27c3eb4d4abf94536",
+    "tests/progression/harness.js": "4770d17fa72cc8c87f4c8ef79678f19d63a41da895b8dd58776e5a39ce2ede2b",
+    "tools/verify/probe-p405-mainline-continuous.js": "5ae989e6a13e803ff19f17307668ac4469c346467c918cc140504472a4a51fcd",
+    "docs/codex/reports/data/p405-mainline-l81-onward-final-save.json": "9415fc6b96e2e98077b3bdc66bc0a5c41e3fd7a29e2c8423985dfd45c27b46fa"
+  },
+  "method": "Independent L94 win loaded; real building, science, workers, queued production, formation, fixed 0.5 battle and reload",
+  "units": "online is simulated tick seconds; battleMs is simulated callback milliseconds; menu actions instant in harness",
+  "steps": [
+    {
+      "action": "build",
+      "key": "academy",
+      "from": 1,
+      "to": 2,
+      "cost": {
+        "wood": 800,
+        "stone": 800,
+        "food": 400,
+        "time": 40
+      },
+      "waited": 0,
+      "buildSeconds": 40
+    },
+    {
+      "action": "science",
+      "id": "sci_steel",
+      "cost": {
+        "tech": 9000,
+        "merit": 0
+      },
+      "waited": 1260
+    },
+    {
+      "action": "build",
+      "key": "academy",
+      "from": 2,
+      "to": 3,
+      "cost": {
+        "wood": 1000,
+        "stone": 1000,
+        "food": 500,
+        "time": 50
+      },
+      "waited": 0,
+      "buildSeconds": 50
+    },
+    {
+      "action": "science",
+      "id": "sci_alloy_age",
+      "cost": {
+        "tech": 10000,
+        "merit": 0
+      },
+      "waited": 1290
+    },
+    {
+      "action": "build",
+      "key": "alloy_armory",
+      "from": 0,
+      "to": 1,
+      "cost": {
+        "wood": 1000,
+        "stone": 900,
+        "food": 600,
+        "time": 12
+      },
+      "waited": 0,
+      "buildSeconds": 20
+    },
+    {
+      "action": "build",
+      "key": "alloy_armory",
+      "from": 1,
+      "to": 2,
+      "cost": {
+        "wood": 2200,
+        "stone": 1981,
+        "food": 1651,
+        "time": 11
+      },
+      "waited": 0,
+      "buildSeconds": 20
+    },
+    {
+      "action": "build",
+      "key": "alloy_armory",
+      "from": 2,
+      "to": 3,
+      "cost": {
+        "wood": 2421,
+        "stone": 2179,
+        "food": 1816,
+        "time": 12
+      },
+      "waited": 20,
+      "buildSeconds": 20
+    },
+    {
+      "action": "build",
+      "key": "alloy_armory",
+      "from": 3,
+      "to": 4,
+      "cost": {
+        "wood": 2663,
+        "stone": 2396,
+        "food": 1997,
+        "time": 13
+      },
+      "waited": 380,
+      "buildSeconds": 20
+    },
+    {
+      "action": "train",
+      "unit": "alloy_special",
+      "count": 15,
+      "seconds": 19180
+    },
+    {
+      "action": "refill",
+      "fills": [
+        {
+          "type": "archer_silverbow",
+          "before": 9,
+          "target": 54,
+          "queued": 45,
+          "seconds": 130
+        },
+        {
+          "type": "bronze_guard",
+          "before": 5,
+          "target": 20,
+          "queued": 15,
+          "seconds": 750
+        },
+        {
+          "type": "iron_spearman",
+          "before": 0,
+          "target": 20,
+          "queued": 20,
+          "seconds": 1410
+        },
+        {
+          "type": "silver_heavy",
+          "before": 0,
+          "target": 40,
+          "queued": 40,
+          "seconds": 12000
+        },
+        {
+          "type": "gold_cavalry",
+          "before": 0,
+          "target": 14,
+          "queued": 14,
+          "seconds": 5600
+        }
+      ]
+    }
+  ],
+  "totalOnline": 42190,
+  "minFood": 3793.999999999999,
+  "paidTraining": {
+    "food": 86600,
+    "steel": 1500,
+    "wood": 7200,
+    "stone": 2250,
+    "copper": 1500,
+    "iron": 2000,
+    "silver": 4000,
+    "gold": 1400
+  },
+  "ready": {
+    "path": "docs/codex/reports/data/p405-l95-alloy-quality-ready-save.json",
+    "sha256": "53699d4f606ac0e2ed6d559a71a4493626a049fdeabd2194bcde35ed23b1904a"
+  },
+  "battle": {
+    "stage": 95,
+    "won": false,
+    "round": 6,
+    "callbacks": 59,
+    "battleMs": 23992.5,
+    "enemy": {
+      "name": "鹰眼射手",
+      "groups": 6,
+      "soldiers": 360
+    },
+    "enemyRemaining": [
+      {
+        "type": "archer",
+        "row": "back",
+        "hp": 81,
+        "maxHp": 81,
+        "count": 81
+      }
+    ],
+    "armyBefore": 158,
+    "armyAfter": 0,
+    "losses": {
+      "archer_silverbow": 54,
+      "bronze_guard": 15,
+      "iron_spearman": 20,
+      "silver_heavy": 40,
+      "gold_cavalry": 14,
+      "alloy_special": 15
+    },
+    "tickBefore": 332956,
+    "tickAfter": 332979,
+    "meritBefore": 2603,
+    "meritAfter": 2603,
+    "resBefore": {
+      "wood": 9000,
+      "stone": 4270,
+      "food": 4040.7052760736196,
+      "tech": 61.99999999995998,
+      "coal": 1,
+      "copper": 4,
+      "iron": 10,
+      "silver": 1.999999999892035,
+      "gold": 0.5,
+      "steel": 0,
+      "coin": 0,
+      "silverCoin": 0,
+      "goldCoin": 0,
+      "deed": 20,
+      "medal": 7,
+      "bone": 0,
+      "hide": 0
+    },
+    "resAfter": {
+      "wood": 9000,
+      "stone": 4270,
+      "food": 4040.7052760736196,
+      "tech": 61.99999999995998,
+      "coal": 1,
+      "copper": 4,
+      "iron": 10,
+      "silver": 1.999999999892035,
+      "gold": 0.5,
+      "steel": 0,
+      "coin": 0,
+      "silverCoin": 0,
+      "goldCoin": 0,
+      "deed": 20,
+      "medal": 7,
+      "bone": 0,
+      "hide": 0
+    },
+    "saveSha256": "4bcc999a1d775104f5d924707d565c6ac1950786085c3c562132351357cf1586"
+  },
+  "final": {
+    "path": "docs/codex/reports/data/p405-l95-alloy-quality-final-save.json",
+    "sha256": "940a50c0a0ac5b39cffb340c358093a2e30bc4f408b25d8b3a2e291b57c690e6"
+  },
+  "failure": null
+}

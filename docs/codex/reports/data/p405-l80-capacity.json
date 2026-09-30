@@ -1,0 +1,854 @@
+{
+  "batch": "P405",
+  "input": "docs/codex/reports/data/p405-mainline-continuous-final-save.json",
+  "inputSha256": "0dc1cfc2a1d80bdd4e73df5f31c7b6ab5718dee901a2e9f892a62aa88752be6f",
+  "sourceHash": {
+    "config.js": "30da1763fc2f7f7453438d263a667bea58c6acc11d67481d16272f5e1ffb1c0f",
+    "levels.js": "cec80c26fa91f941994c253a2fe73be0dfe3f108237620b662fdab9f5449fd1d",
+    "math.js": "e23254b5ba63c824e0ef5302a2f17216f4ac80398711f76554bdb57b3bb52224",
+    "garrison.js": "4d233f0529d256cd1ace2de782603fcfcbbff110032ca4cf29c5e36af30f10ff",
+    "technology.js": "3d3485f57e1e3ef73d11077cec06d467f674959aa6f0dfb27c3eb4d4abf94536",
+    "tests/progression/harness.js": "4770d17fa72cc8c87f4c8ef79678f19d63a41da895b8dd58776e5a39ce2ede2b",
+    "tools/verify/probe-p405-mainline-continuous.js": "5ae989e6a13e803ff19f17307668ac4469c346467c918cc140504472a4a51fcd",
+    "docs/codex/reports/data/p405-mainline-continuous-final-save.json": "0dc1cfc2a1d80bdd4e73df5f31c7b6ab5718dee901a2e9f892a62aa88752be6f"
+  },
+  "method": "L79 real paid v36 save; actual worker assignment, building upgrades, queues, modal formation, L80 battle and independent reload; fixed Math.random 0.5",
+  "units": "online is simulated noncombat tick seconds; battleMs is simulated callback milliseconds; menu actions are instant in harness",
+  "constructionWorkers": {
+    "food": 12,
+    "wood": 4,
+    "stone": 3
+  },
+  "paidBuild": {
+    "wood": 106087.66666666667,
+    "stone": 22982,
+    "food": 49329.333333333336
+  },
+  "steps": [
+    {
+      "kind": "build",
+      "key": "warehouse",
+      "level": 3,
+      "cost": {
+        "wood": 1120,
+        "stone": 0,
+        "food": 0,
+        "time": 12
+      },
+      "waitSeconds": 0,
+      "buildSeconds": 20,
+      "online": 20,
+      "caps": {
+        "wood": 3600,
+        "stone": 2400,
+        "food": 3000
+      }
+    },
+    {
+      "kind": "build",
+      "key": "warehouse",
+      "level": 4,
+      "cost": {
+        "wood": 1280,
+        "stone": 0,
+        "food": 0,
+        "time": 13
+      },
+      "waitSeconds": 0,
+      "buildSeconds": 20,
+      "online": 40,
+      "caps": {
+        "wood": 4200,
+        "stone": 2800,
+        "food": 3000
+      }
+    },
+    {
+      "kind": "build",
+      "key": "warehouse",
+      "level": 5,
+      "cost": {
+        "wood": 1440,
+        "stone": 0,
+        "food": 0,
+        "time": 14
+      },
+      "waitSeconds": 30,
+      "buildSeconds": 20,
+      "online": 90,
+      "caps": {
+        "wood": 4800,
+        "stone": 3200,
+        "food": 3000
+      }
+    },
+    {
+      "kind": "build",
+      "key": "warehouse",
+      "level": 6,
+      "cost": {
+        "wood": 1600,
+        "stone": 0,
+        "food": 0,
+        "time": 15
+      },
+      "waitSeconds": 120,
+      "buildSeconds": 20,
+      "online": 230,
+      "caps": {
+        "wood": 5400,
+        "stone": 3600,
+        "food": 3000
+      }
+    },
+    {
+      "kind": "build",
+      "key": "warehouse",
+      "level": 7,
+      "cost": {
+        "wood": 1761,
+        "stone": 0,
+        "food": 0,
+        "time": 16
+      },
+      "waitSeconds": 130,
+      "buildSeconds": 20,
+      "online": 380,
+      "caps": {
+        "wood": 6000,
+        "stone": 4000,
+        "food": 3000
+      }
+    },
+    {
+      "kind": "build",
+      "key": "warehouse",
+      "level": 8,
+      "cost": {
+        "wood": 1920,
+        "stone": 0,
+        "food": 0,
+        "time": 17
+      },
+      "waitSeconds": 140,
+      "buildSeconds": 20,
+      "online": 540,
+      "caps": {
+        "wood": 6600,
+        "stone": 4400,
+        "food": 3000
+      }
+    },
+    {
+      "kind": "build",
+      "key": "warehouse",
+      "level": 9,
+      "cost": {
+        "wood": 2080,
+        "stone": 0,
+        "food": 0,
+        "time": 18
+      },
+      "waitSeconds": 150,
+      "buildSeconds": 20,
+      "online": 710,
+      "caps": {
+        "wood": 7200,
+        "stone": 4800,
+        "food": 3000
+      }
+    },
+    {
+      "kind": "build",
+      "key": "warehouse",
+      "level": 10,
+      "cost": {
+        "wood": 2240,
+        "stone": 0,
+        "food": 0,
+        "time": 19
+      },
+      "waitSeconds": 170,
+      "buildSeconds": 20,
+      "online": 900,
+      "caps": {
+        "wood": 7800,
+        "stone": 5200,
+        "food": 3000
+      }
+    },
+    {
+      "kind": "build",
+      "key": "warehouse",
+      "level": 11,
+      "cost": {
+        "wood": 2560,
+        "stone": 0,
+        "food": 0,
+        "time": 20
+      },
+      "waitSeconds": 190,
+      "buildSeconds": 20,
+      "online": 1110,
+      "caps": {
+        "wood": 8400,
+        "stone": 5600,
+        "food": 3000
+      }
+    },
+    {
+      "kind": "build",
+      "key": "warehouse",
+      "level": 12,
+      "cost": {
+        "wood": 2880,
+        "stone": 0,
+        "food": 0,
+        "time": 21
+      },
+      "waitSeconds": 220,
+      "buildSeconds": 30,
+      "online": 1360,
+      "caps": {
+        "wood": 9000,
+        "stone": 6000,
+        "food": 3000
+      }
+    },
+    {
+      "kind": "build",
+      "key": "barracks",
+      "level": 2,
+      "cost": {
+        "wood": 3060,
+        "stone": 3060,
+        "food": 1700,
+        "time": 40
+      },
+      "waitSeconds": 220,
+      "buildSeconds": 40,
+      "online": 1620,
+      "caps": {
+        "wood": 9000,
+        "stone": 6000,
+        "food": 3000
+      }
+    },
+    {
+      "kind": "build",
+      "key": "large_granary",
+      "level": 1,
+      "cost": {
+        "wood": 1800,
+        "stone": 0,
+        "food": 600,
+        "time": 8
+      },
+      "waitSeconds": 110,
+      "buildSeconds": 10,
+      "online": 1740,
+      "caps": {
+        "wood": 9000,
+        "stone": 6000,
+        "food": 5000
+      }
+    },
+    {
+      "kind": "build",
+      "key": "farm",
+      "level": 4,
+      "cost": {
+        "wood": 800,
+        "food": 400,
+        "time": 60
+      },
+      "waitSeconds": 60,
+      "buildSeconds": 60,
+      "online": 1860,
+      "caps": {
+        "wood": 9000,
+        "stone": 6000,
+        "food": 5000
+      }
+    },
+    {
+      "kind": "build",
+      "key": "farm",
+      "level": 5,
+      "cost": {
+        "wood": 933.3333333333334,
+        "food": 466.6666666666667,
+        "time": 70
+      },
+      "waitSeconds": 20,
+      "buildSeconds": 70,
+      "online": 1950,
+      "caps": {
+        "wood": 9000,
+        "stone": 6000,
+        "food": 5000
+      }
+    },
+    {
+      "kind": "build",
+      "key": "farm",
+      "level": 6,
+      "cost": {
+        "wood": 1066.6666666666667,
+        "food": 533.3333333333334,
+        "time": 80
+      },
+      "waitSeconds": 20,
+      "buildSeconds": 80,
+      "online": 2050,
+      "caps": {
+        "wood": 9000,
+        "stone": 6000,
+        "food": 5000
+      }
+    },
+    {
+      "kind": "build",
+      "key": "farm",
+      "level": 7,
+      "cost": {
+        "wood": 1200,
+        "food": 600,
+        "time": 90
+      },
+      "waitSeconds": 20,
+      "buildSeconds": 90,
+      "online": 2160,
+      "caps": {
+        "wood": 9000,
+        "stone": 6000,
+        "food": 5000
+      }
+    },
+    {
+      "kind": "build",
+      "key": "farm",
+      "level": 8,
+      "cost": {
+        "wood": 1333.3333333333335,
+        "food": 666.6666666666667,
+        "time": 100
+      },
+      "waitSeconds": 20,
+      "buildSeconds": 100,
+      "online": 2280,
+      "caps": {
+        "wood": 9000,
+        "stone": 6000,
+        "food": 5000
+      }
+    },
+    {
+      "kind": "build",
+      "key": "farm",
+      "level": 9,
+      "cost": {
+        "wood": 1466.6666666666667,
+        "food": 733.3333333333334,
+        "time": 110
+      },
+      "waitSeconds": 20,
+      "buildSeconds": 110,
+      "online": 2410,
+      "caps": {
+        "wood": 9000,
+        "stone": 6000,
+        "food": 5000
+      }
+    },
+    {
+      "kind": "build",
+      "key": "farm",
+      "level": 10,
+      "cost": {
+        "wood": 1600,
+        "food": 800,
+        "time": 120
+      },
+      "waitSeconds": 20,
+      "buildSeconds": 120,
+      "online": 2550,
+      "caps": {
+        "wood": 9000,
+        "stone": 6000,
+        "food": 5000
+      }
+    },
+    {
+      "kind": "build",
+      "key": "farm",
+      "level": 11,
+      "cost": {
+        "wood": 2266.666666666667,
+        "food": 1133.3333333333335,
+        "time": 120
+      },
+      "waitSeconds": 70,
+      "buildSeconds": 120,
+      "online": 2740,
+      "caps": {
+        "wood": 9000,
+        "stone": 6000,
+        "food": 5000
+      }
+    },
+    {
+      "kind": "build",
+      "key": "farm",
+      "level": 12,
+      "cost": {
+        "wood": 2933.3333333333335,
+        "food": 1466.6666666666667,
+        "time": 120
+      },
+      "waitSeconds": 130,
+      "buildSeconds": 120,
+      "online": 2990,
+      "caps": {
+        "wood": 9000,
+        "stone": 6000,
+        "food": 5000
+      }
+    },
+    {
+      "kind": "build",
+      "key": "farm",
+      "level": 13,
+      "cost": {
+        "wood": 3600,
+        "food": 1800,
+        "time": 120
+      },
+      "waitSeconds": 180,
+      "buildSeconds": 120,
+      "online": 3290,
+      "caps": {
+        "wood": 9000,
+        "stone": 6000,
+        "food": 5000
+      }
+    },
+    {
+      "kind": "build",
+      "key": "farm",
+      "level": 14,
+      "cost": {
+        "wood": 4266.666666666667,
+        "food": 2133.3333333333335,
+        "time": 120
+      },
+      "waitSeconds": 230,
+      "buildSeconds": 120,
+      "online": 3640,
+      "caps": {
+        "wood": 9000,
+        "stone": 6000,
+        "food": 5000
+      }
+    },
+    {
+      "kind": "build",
+      "key": "farm",
+      "level": 15,
+      "cost": {
+        "wood": 4933.333333333334,
+        "food": 2466.666666666667,
+        "time": 120
+      },
+      "waitSeconds": 290,
+      "buildSeconds": 120,
+      "online": 4050,
+      "caps": {
+        "wood": 9000,
+        "stone": 6000,
+        "food": 5000
+      }
+    },
+    {
+      "kind": "build",
+      "key": "farm",
+      "level": 16,
+      "cost": {
+        "wood": 5600,
+        "food": 2800,
+        "time": 120
+      },
+      "waitSeconds": 350,
+      "buildSeconds": 120,
+      "online": 4520,
+      "caps": {
+        "wood": 9000,
+        "stone": 6000,
+        "food": 5000
+      }
+    },
+    {
+      "kind": "build",
+      "key": "farm",
+      "level": 17,
+      "cost": {
+        "wood": 6266.666666666667,
+        "food": 3133.3333333333335,
+        "time": 120
+      },
+      "waitSeconds": 400,
+      "buildSeconds": 120,
+      "online": 5040,
+      "caps": {
+        "wood": 9000,
+        "stone": 6000,
+        "food": 5000
+      }
+    },
+    {
+      "kind": "build",
+      "key": "farm",
+      "level": 18,
+      "cost": {
+        "wood": 6933.333333333334,
+        "food": 3466.666666666667,
+        "time": 120
+      },
+      "waitSeconds": 460,
+      "buildSeconds": 120,
+      "online": 5620,
+      "caps": {
+        "wood": 9000,
+        "stone": 6000,
+        "food": 5000
+      }
+    },
+    {
+      "kind": "build",
+      "key": "farm",
+      "level": 19,
+      "cost": {
+        "wood": 7600,
+        "food": 3800,
+        "time": 120
+      },
+      "waitSeconds": 510,
+      "buildSeconds": 120,
+      "online": 6250,
+      "caps": {
+        "wood": 9000,
+        "stone": 6000,
+        "food": 5000
+      }
+    },
+    {
+      "kind": "build",
+      "key": "farm",
+      "level": 20,
+      "cost": {
+        "wood": 8266.666666666668,
+        "food": 4133.333333333334,
+        "time": 120
+      },
+      "waitSeconds": 570,
+      "buildSeconds": 120,
+      "online": 6940,
+      "caps": {
+        "wood": 9000,
+        "stone": 6000,
+        "food": 5000
+      }
+    },
+    {
+      "kind": "build",
+      "key": "archer_range",
+      "level": 3,
+      "cost": {
+        "wood": 1211,
+        "stone": 1211,
+        "food": 1029,
+        "time": 12
+      },
+      "waitSeconds": 0,
+      "buildSeconds": 20,
+      "online": 6960,
+      "caps": {
+        "wood": 9000,
+        "stone": 6000,
+        "food": 5000
+      }
+    },
+    {
+      "kind": "build",
+      "key": "archer_range",
+      "level": 4,
+      "cost": {
+        "wood": 1332,
+        "stone": 1332,
+        "food": 1132,
+        "time": 13
+      },
+      "waitSeconds": 70,
+      "buildSeconds": 20,
+      "online": 7050,
+      "caps": {
+        "wood": 9000,
+        "stone": 6000,
+        "food": 5000
+      }
+    },
+    {
+      "kind": "build",
+      "key": "silver_armory",
+      "level": 3,
+      "cost": {
+        "wood": 1695,
+        "stone": 1695,
+        "food": 1332,
+        "time": 12
+      },
+      "waitSeconds": 130,
+      "buildSeconds": 20,
+      "online": 7200,
+      "caps": {
+        "wood": 9000,
+        "stone": 6000,
+        "food": 5000
+      }
+    },
+    {
+      "kind": "build",
+      "key": "silver_armory",
+      "level": 4,
+      "cost": {
+        "wood": 1864,
+        "stone": 1864,
+        "food": 1465,
+        "time": 13
+      },
+      "waitSeconds": 130,
+      "buildSeconds": 20,
+      "online": 7350,
+      "caps": {
+        "wood": 9000,
+        "stone": 6000,
+        "food": 5000
+      }
+    },
+    {
+      "kind": "build",
+      "key": "silver_armory",
+      "level": 5,
+      "cost": {
+        "wood": 2050,
+        "stone": 2050,
+        "food": 1611,
+        "time": 14
+      },
+      "waitSeconds": 150,
+      "buildSeconds": 20,
+      "online": 7520,
+      "caps": {
+        "wood": 9000,
+        "stone": 6000,
+        "food": 5000
+      }
+    },
+    {
+      "kind": "build",
+      "key": "silver_armory",
+      "level": 6,
+      "cost": {
+        "wood": 2255,
+        "stone": 2255,
+        "food": 1772,
+        "time": 15
+      },
+      "waitSeconds": 170,
+      "buildSeconds": 20,
+      "online": 7710,
+      "caps": {
+        "wood": 9000,
+        "stone": 6000,
+        "food": 5000
+      }
+    },
+    {
+      "kind": "build",
+      "key": "gold_armory",
+      "level": 5,
+      "cost": {
+        "wood": 2343,
+        "stone": 2050,
+        "food": 1757,
+        "time": 14
+      },
+      "waitSeconds": 310,
+      "buildSeconds": 20,
+      "online": 8040,
+      "caps": {
+        "wood": 9000,
+        "stone": 6000,
+        "food": 5000
+      }
+    },
+    {
+      "kind": "build",
+      "key": "gold_armory",
+      "level": 6,
+      "cost": {
+        "wood": 2577,
+        "stone": 2255,
+        "food": 1933,
+        "time": 15
+      },
+      "waitSeconds": 360,
+      "buildSeconds": 20,
+      "online": 8420,
+      "caps": {
+        "wood": 9000,
+        "stone": 6000,
+        "food": 5000
+      }
+    },
+    {
+      "kind": "build",
+      "key": "gold_armory",
+      "level": 7,
+      "cost": {
+        "wood": 2835,
+        "stone": 2481,
+        "food": 2126,
+        "time": 16
+      },
+      "waitSeconds": 390,
+      "buildSeconds": 20,
+      "online": 8830,
+      "caps": {
+        "wood": 9000,
+        "stone": 6000,
+        "food": 5000
+      }
+    },
+    {
+      "kind": "build",
+      "key": "gold_armory",
+      "level": 8,
+      "cost": {
+        "wood": 3118,
+        "stone": 2729,
+        "food": 2339,
+        "time": 17
+      },
+      "waitSeconds": 440,
+      "buildSeconds": 20,
+      "online": 9290,
+      "caps": {
+        "wood": 9000,
+        "stone": 6000,
+        "food": 5000
+      }
+    }
+  ],
+  "fills": [
+    {
+      "type": "archer_silverbow",
+      "before": 40,
+      "target": 54,
+      "queued": 14,
+      "seconds": 140
+    },
+    {
+      "type": "silver_heavy",
+      "before": 0,
+      "target": 40,
+      "queued": 40,
+      "seconds": 12000
+    },
+    {
+      "type": "gold_cavalry",
+      "before": 4,
+      "target": 29,
+      "queued": 25,
+      "seconds": 10000
+    }
+  ],
+  "trainingPaid": {
+    "wood": 2240,
+    "stone": 700,
+    "food": 58120,
+    "silver": 4000,
+    "gold": 2500
+  },
+  "online": 31430,
+  "battle": {
+    "stage": 80,
+    "won": true,
+    "round": 4,
+    "callbacks": 50,
+    "battleMs": 20527.5,
+    "enemy": {
+      "name": "炎龙骑士",
+      "groups": 11,
+      "soldiers": 165
+    },
+    "enemyRemaining": [],
+    "armyBefore": 158,
+    "armyAfter": 97,
+    "losses": {
+      "archer_silverbow": 0,
+      "bronze_guard": 0,
+      "iron_spearman": 2,
+      "silver_heavy": 30,
+      "gold_cavalry": 29
+    },
+    "tickBefore": 186070,
+    "tickAfter": 186090,
+    "meritBefore": 1839,
+    "meritAfter": 1924,
+    "resBefore": {
+      "wood": 9000,
+      "stone": 38,
+      "food": 4044.165398773006,
+      "tech": 0,
+      "coal": 1,
+      "copper": 4,
+      "iron": 10,
+      "silver": 1.9999999999564244,
+      "gold": 0.5,
+      "steel": 0,
+      "coin": 0,
+      "silverCoin": 0,
+      "goldCoin": 0,
+      "deed": 20,
+      "medal": 7,
+      "bone": 0,
+      "hide": 0
+    },
+    "resAfter": {
+      "wood": 9000,
+      "stone": 6000,
+      "food": 5000,
+      "tech": 0,
+      "coal": 1,
+      "copper": 4,
+      "iron": 10,
+      "silver": 1.9999999999564244,
+      "gold": 0.5,
+      "steel": 0,
+      "coin": 0,
+      "silverCoin": 0,
+      "goldCoin": 0,
+      "deed": 20,
+      "medal": 7,
+      "bone": 0,
+      "hide": 0
+    },
+    "saveSha256": "771ac4b8ae7629a508df0aeb4d2d140ab59c537b75826c4463696fefb7b2760c"
+  },
+  "readyPath": "docs/codex/reports/data/p405-l80-capacity-ready-save.json",
+  "readySha256": "c402cb6fb88cb98beebd4bada9198c37f1adeb55e5cac034f4c349bf7123cc26",
+  "finalPath": "docs/codex/reports/data/p405-l80-capacity-final-save.json",
+  "finalSha256": "4de98bbae15e5d03a902ed1ab01076da2bae1e29d2eab8f466959c7559de4141",
+  "failure": null
+}

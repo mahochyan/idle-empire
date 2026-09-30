@@ -1,0 +1,3611 @@
+{
+  "batch": "P405-balanced",
+  "strategy": "balanced",
+  "input": "docs/codex/reports/data/p400-four-strategy-balanced-l40-frontier-save.json",
+  "inputSha256": "3204cd8085b70d4aa69e83b80a978d359a6e563a9d9003f4d6b6e477e62796ee",
+  "sources": {
+    "config.js": "30da1763fc2f7f7453438d263a667bea58c6acc11d67481d16272f5e1ffb1c0f",
+    "levels.js": "cec80c26fa91f941994c253a2fe73be0dfe3f108237620b662fdab9f5449fd1d",
+    "math.js": "e23254b5ba63c824e0ef5302a2f17216f4ac80398711f76554bdb57b3bb52224",
+    "garrison.js": "4d233f0529d256cd1ace2de782603fcfcbbff110032ca4cf29c5e36af30f10ff",
+    "technology.js": "3d3485f57e1e3ef73d11077cec06d467f674959aa6f0dfb27c3eb4d4abf94536",
+    "tests/progression/harness.js": "4770d17fa72cc8c87f4c8ef79678f19d63a41da895b8dd58776e5a39ce2ede2b",
+    "docs/codex/reports/data/p400-four-strategy-balanced-l40-frontier-save.json": "3204cd8085b70d4aa69e83b80a978d359a6e563a9d9003f4d6b6e477e62796ee"
+  },
+  "method": "P400 independent L29 defeat; real paid T1/T2, work allocation, queues, domain/mainline battles, save/reload; fixed random 0.5; garrison frozen",
+  "unit": "simulated online tick seconds and separately settled offline seconds; menu actions instantaneous; battle callback time separately in milliseconds",
+  "previousClock": {
+    "active": 33542,
+    "offline": 0,
+    "elapsed": 33542,
+    "tick": 33542,
+    "offlineWindows": []
+  },
+  "online": 28590,
+  "battleMs": 181965,
+  "offline": 0,
+  "offlineWindows": [],
+  "trainingChargeCount": 375,
+  "trainingChargeGroups": [
+    {
+      "cost": {
+        "food": 500,
+        "iron": 100
+      },
+      "charges": 115,
+      "units": 115,
+      "firstTick": 33693,
+      "lastTick": 59223
+    },
+    {
+      "cost": {
+        "wood": 120,
+        "stone": 40,
+        "food": 50
+      },
+      "charges": 10,
+      "units": 20,
+      "firstTick": 35603,
+      "lastTick": 35612
+    },
+    {
+      "cost": {
+        "food": 300,
+        "copper": 100
+      },
+      "charges": 166,
+      "units": 169,
+      "firstTick": 35633,
+      "lastTick": 62293
+    },
+    {
+      "cost": {
+        "wood": 160,
+        "stone": 50,
+        "food": 80
+      },
+      "charges": 41,
+      "units": 72,
+      "firstTick": 36933,
+      "lastTick": 53710
+    },
+    {
+      "cost": {
+        "wood": 30,
+        "stone": 10,
+        "food": 20
+      },
+      "charges": 23,
+      "units": 45,
+      "firstTick": 39625,
+      "lastTick": 48735
+    },
+    {
+      "cost": {
+        "food": 800,
+        "silver": 100
+      },
+      "charges": 20,
+      "units": 20,
+      "firstTick": 50783,
+      "lastTick": 58130
+    }
+  ],
+  "trainingPaid": {
+    "food": 131860,
+    "iron": 11500,
+    "wood": 15270,
+    "stone": 4850,
+    "copper": 16900,
+    "silver": 2000
+  },
+  "events": [
+    {
+      "label": "loaded",
+      "online": 0,
+      "offline": 0,
+      "tick": 33542,
+      "initialLoad": {
+        "status": "migrated",
+        "filled": [
+          "items.storageScroll2",
+          "items.storageScroll3",
+          "items.storageScroll4",
+          "items.storageScroll5",
+          "beastExchange.scrollUsedTiers",
+          "beastExchange.tierOffers",
+          "v35",
+          "battleSpeed",
+          "v36"
+        ]
+      },
+      "inputSha256": "3204cd8085b70d4aa69e83b80a978d359a6e563a9d9003f4d6b6e477e62796ee",
+      "woodCap": 2400,
+      "techCap": 5000,
+      "state": {
+        "defeated": 28,
+        "pop": 19,
+        "merit": 261,
+        "res": {
+          "wood": 2400,
+          "stone": 1596,
+          "food": 2710.8225855855726,
+          "tech": 160.00000000001103,
+          "coal": 1,
+          "copper": 10,
+          "iron": 10,
+          "silver": 0,
+          "deed": 0
+        },
+        "bowEssence": 1,
+        "archerTier": 0,
+        "silverArmory": 0
+      }
+    },
+    {
+      "label": "warehouse L2",
+      "online": 0,
+      "offline": 0,
+      "tick": 33542,
+      "expression": "buildAct('warehouse')",
+      "result": {
+        "ok": true
+      },
+      "resourceDelta": {
+        "wood": -960
+      }
+    },
+    {
+      "label": "wait warehouse completion",
+      "seconds": 20,
+      "online": 20,
+      "tick": 33562,
+      "satisfied": true,
+      "state": {
+        "defeated": 28,
+        "pop": 19,
+        "merit": 261,
+        "res": {
+          "wood": 1680,
+          "stone": 1628,
+          "food": 3000,
+          "tech": 160.00000000001103,
+          "coal": 1,
+          "copper": 40,
+          "iron": 10,
+          "silver": 0,
+          "deed": 0
+        },
+        "bowEssence": 1,
+        "archerTier": 0,
+        "silverArmory": 0
+      }
+    },
+    {
+      "label": "wood capacity expanded",
+      "online": 20,
+      "offline": 0,
+      "tick": 33562,
+      "woodCap": 3000,
+      "woodUpCost": {
+        "wood": 960,
+        "stone": 0,
+        "food": 0,
+        "time": 11
+      },
+      "state": {
+        "defeated": 28,
+        "pop": 19,
+        "merit": 261,
+        "res": {
+          "wood": 1680,
+          "stone": 1628,
+          "food": 3000,
+          "tech": 160.00000000001103,
+          "coal": 1,
+          "copper": 40,
+          "iron": 10,
+          "silver": 0,
+          "deed": 0
+        },
+        "bowEssence": 1,
+        "archerTier": 0,
+        "silverArmory": 0
+      }
+    },
+    {
+      "label": "reload warehouse",
+      "online": 20,
+      "offline": 0,
+      "saveSha256": "f7b4ed0491d7b8f7bd03a1aaedf348db3015ca3453d3f37bcd3386f9f4718f93"
+    },
+    {
+      "label": "wait T1 archer knowledge",
+      "seconds": 20,
+      "online": 40,
+      "tick": 33582,
+      "satisfied": true,
+      "state": {
+        "defeated": 28,
+        "pop": 19,
+        "merit": 261,
+        "res": {
+          "wood": 1980,
+          "stone": 1788,
+          "food": 3000,
+          "tech": 204.0000000000108,
+          "coal": 1,
+          "copper": 40,
+          "iron": 10,
+          "silver": 0,
+          "deed": 0
+        },
+        "bowEssence": 1,
+        "archerTier": 0,
+        "silverArmory": 0
+      }
+    },
+    {
+      "label": "wait T1 archer range materials",
+      "seconds": 0,
+      "online": 40,
+      "tick": 33582,
+      "satisfied": true,
+      "state": {
+        "defeated": 28,
+        "pop": 19,
+        "merit": 261,
+        "res": {
+          "wood": 1980,
+          "stone": 1788,
+          "food": 3000,
+          "tech": 204.0000000000108,
+          "coal": 1,
+          "copper": 40,
+          "iron": 10,
+          "silver": 0,
+          "deed": 0
+        },
+        "bowEssence": 1,
+        "archerTier": 0,
+        "silverArmory": 0
+      }
+    },
+    {
+      "label": "archer camp T1",
+      "online": 40,
+      "offline": 0,
+      "tick": 33582,
+      "expression": "buildTierUpgradeAct('archer_range')",
+      "result": {
+        "ok": true,
+        "tier": 1
+      },
+      "resourceDelta": {
+        "wood": -600,
+        "stone": -300,
+        "food": -200
+      }
+    },
+    {
+      "label": "wait T1 archer range completion",
+      "seconds": 20,
+      "online": 60,
+      "tick": 33602,
+      "satisfied": true,
+      "state": {
+        "defeated": 28,
+        "pop": 19,
+        "merit": 261,
+        "res": {
+          "wood": 1680,
+          "stone": 1648,
+          "food": 3000,
+          "tech": 248.00000000001057,
+          "coal": 1,
+          "copper": 40,
+          "iron": 10,
+          "silver": 0,
+          "deed": 0
+        },
+        "bowEssence": 1,
+        "archerTier": 1,
+        "silverArmory": 0
+      }
+    },
+    {
+      "label": "paid T1 archer research",
+      "online": 60,
+      "offline": 0,
+      "tick": 33602,
+      "expression": "upgradeUnit('archer','archer_t1')",
+      "result": {
+        "ok": true
+      },
+      "resourceDelta": {
+        "wood": -200,
+        "stone": -100,
+        "food": -150,
+        "tech": -200
+      }
+    },
+    {
+      "label": "reload T1 archer",
+      "online": 60,
+      "offline": 0,
+      "saveSha256": "a0c5256f678f349f535320cf998f09d97920d9fae8b5cb3dbbde82cdc83da558"
+    },
+    {
+      "label": "iron frontline train iron_spearman",
+      "online": 60,
+      "offline": 0,
+      "tick": 33602,
+      "expression": "train('iron_spearman',20)",
+      "result": {
+        "ok": true,
+        "qty": 20
+      },
+      "resourceDelta": {}
+    },
+    {
+      "label": "wait iron frontline queue completion",
+      "seconds": 2000,
+      "online": 2060,
+      "tick": 35602,
+      "satisfied": true,
+      "state": {
+        "defeated": 28,
+        "pop": 19,
+        "merit": 256,
+        "res": {
+          "wood": 3000,
+          "stone": 1996,
+          "food": 2661.5800000000036,
+          "tech": 48.00000000001057,
+          "coal": 598,
+          "copper": 40,
+          "iron": 10,
+          "silver": 0,
+          "deed": 0
+        },
+        "bowEssence": 1,
+        "archerTier": 1,
+        "silverArmory": 0
+      }
+    },
+    {
+      "label": "bronze and T1 archer train bronze_guard",
+      "online": 2060,
+      "offline": 0,
+      "tick": 35602,
+      "expression": "train('bronze_guard',20)",
+      "result": {
+        "ok": true,
+        "qty": 20
+      },
+      "resourceDelta": {}
+    },
+    {
+      "label": "bronze and T1 archer train archer_t1",
+      "online": 2060,
+      "offline": 0,
+      "tick": 35602,
+      "expression": "train('archer_t1',20)",
+      "result": {
+        "ok": true,
+        "qty": 20
+      },
+      "resourceDelta": {}
+    },
+    {
+      "label": "wait bronze and T1 archer queue completion",
+      "seconds": 1110,
+      "online": 3170,
+      "tick": 36712,
+      "satisfied": true,
+      "state": {
+        "defeated": 28,
+        "pop": 19,
+        "merit": 256,
+        "res": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 2713.175384615385,
+          "tech": 48.00000000001057,
+          "coal": 3,
+          "copper": 2,
+          "iron": 10,
+          "silver": 0,
+          "deed": 0
+        },
+        "bowEssence": 1,
+        "archerTier": 1,
+        "silverArmory": 0
+      }
+    },
+    {
+      "label": "reload town entry army",
+      "online": 3170,
+      "offline": 0,
+      "saveSha256": "00230e39539a3d3143f9a1e4c4620238900035009147e475975606881275cdfb"
+    },
+    {
+      "label": "battle town",
+      "kind": "town",
+      "win": true,
+      "round": 3,
+      "callbacks": 26,
+      "enemy": {
+        "name": "外域工造军镇",
+        "alert": 0
+      },
+      "form": {
+        "front": [
+          {
+            "type": "iron_spearman",
+            "count": 10,
+            "id": 1790755774915
+          },
+          {
+            "type": "bronze_guard",
+            "count": 10,
+            "id": 1790755774916
+          }
+        ],
+        "mid": [
+          {
+            "type": "iron_spearman",
+            "count": 10,
+            "id": 1790755774917
+          },
+          {
+            "type": "bronze_guard",
+            "count": 10,
+            "id": 1790755774918
+          }
+        ],
+        "back": [
+          {
+            "type": "archer_t1",
+            "count": 10,
+            "id": 1790755774919
+          },
+          {
+            "type": "archer_t1",
+            "count": 10,
+            "id": 1790755774920
+          }
+        ]
+      },
+      "before": {
+        "defeated": 28,
+        "pop": 19,
+        "res": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 2713.175384615385,
+          "tech": 48.00000000001057,
+          "coal": 3,
+          "copper": 2,
+          "iron": 10,
+          "silver": 0,
+          "deed": 0
+        }
+      },
+      "after": {
+        "defeated": 28,
+        "pop": 19,
+        "res": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 2713.175384615385,
+          "tech": 48.00000000001057,
+          "coal": 3,
+          "copper": 2,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        }
+      },
+      "losses": {
+        "infantry": 0,
+        "iron_spearman": 0,
+        "bronze_guard": 10,
+        "silver_heavy": 0,
+        "archer_t1": 0,
+        "archer_silverbow": 0
+      },
+      "battleTicks": 10,
+      "callbackMs": 10605,
+      "battleSeconds": 0,
+      "offline": 0
+    },
+    {
+      "label": "reload town result",
+      "online": 3170,
+      "offline": 0,
+      "saveSha256": "ae01e2a890a7657cc997903f59a62c6925a3f305e0c2d1edbad2c1195f9a2c0c"
+    },
+    {
+      "label": "wait T2 camp materials",
+      "seconds": 0,
+      "online": 3170,
+      "tick": 36722,
+      "satisfied": true,
+      "state": {
+        "defeated": 28,
+        "pop": 19,
+        "merit": 263,
+        "res": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 2713.175384615385,
+          "tech": 48.00000000001057,
+          "coal": 3,
+          "copper": 2,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        },
+        "bowEssence": 2,
+        "archerTier": 1,
+        "silverArmory": 0
+      }
+    },
+    {
+      "label": "archer camp T2",
+      "online": 3170,
+      "offline": 0,
+      "tick": 36722,
+      "expression": "buildTierUpgradeAct('archer_range')",
+      "result": {
+        "ok": true,
+        "tier": 2
+      },
+      "resourceDelta": {
+        "wood": -2500,
+        "stone": -1500,
+        "food": -1200
+      }
+    },
+    {
+      "label": "wait T2 camp completion",
+      "seconds": 50,
+      "online": 3220,
+      "tick": 36772,
+      "satisfied": true,
+      "state": {
+        "defeated": 28,
+        "pop": 19,
+        "merit": 263,
+        "res": {
+          "wood": 3000,
+          "stone": 1700,
+          "food": 2876.0653846153837,
+          "tech": 158.00000000001052,
+          "coal": 3,
+          "copper": 2,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        },
+        "bowEssence": 2,
+        "archerTier": 2,
+        "silverArmory": 0
+      }
+    },
+    {
+      "label": "wait silver bow research materials",
+      "seconds": 160,
+      "online": 3380,
+      "tick": 36932,
+      "satisfied": true,
+      "state": {
+        "defeated": 28,
+        "pop": 19,
+        "merit": 263,
+        "res": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 3000,
+          "tech": 510.0000000000087,
+          "coal": 3,
+          "copper": 2,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        },
+        "bowEssence": 2,
+        "archerTier": 2,
+        "silverArmory": 0
+      }
+    },
+    {
+      "label": "paid silver bow research",
+      "online": 3380,
+      "offline": 0,
+      "tick": 36932,
+      "expression": "upgradeUnit('archer_t1','archer_silverbow')",
+      "result": {
+        "ok": true
+      },
+      "resourceDelta": {
+        "wood": -700,
+        "stone": -400,
+        "food": -600,
+        "tech": -500
+      }
+    },
+    {
+      "label": "reload T2 archer research",
+      "online": 3380,
+      "offline": 0,
+      "saveSha256": "58468b5fdada7a6a785afecb0fbad7f948324558b0e1ba9a776773a75241a363"
+    },
+    {
+      "label": "T2 archer roster train archer_silverbow",
+      "online": 3380,
+      "offline": 0,
+      "tick": 36932,
+      "expression": "train('archer_silverbow',20)",
+      "result": {
+        "ok": true,
+        "qty": 20
+      },
+      "resourceDelta": {}
+    },
+    {
+      "label": "T2 archer roster train bronze_guard",
+      "online": 3380,
+      "offline": 0,
+      "tick": 36932,
+      "expression": "train('bronze_guard',10)",
+      "result": {
+        "ok": true,
+        "qty": 10
+      },
+      "resourceDelta": {}
+    },
+    {
+      "label": "wait T2 archer roster queue completion",
+      "seconds": 670,
+      "online": 4050,
+      "tick": 37602,
+      "satisfied": true,
+      "state": {
+        "defeated": 28,
+        "pop": 19,
+        "merit": 253,
+        "res": {
+          "wood": 3000,
+          "stone": 1996,
+          "food": 884.9365756395898,
+          "tech": 10.000000000008697,
+          "coal": 1,
+          "copper": 8,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        },
+        "bowEssence": 0,
+        "archerTier": 2,
+        "silverArmory": 0
+      }
+    },
+    {
+      "label": "wait T2 frontline queue completion",
+      "seconds": 0,
+      "online": 4050,
+      "tick": 37602,
+      "satisfied": true,
+      "state": {
+        "defeated": 28,
+        "pop": 19,
+        "merit": 253,
+        "res": {
+          "wood": 3000,
+          "stone": 1996,
+          "food": 884.9365756395898,
+          "tech": 10.000000000008697,
+          "coal": 1,
+          "copper": 8,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        },
+        "bowEssence": 0,
+        "archerTier": 2,
+        "silverArmory": 0
+      }
+    },
+    {
+      "label": "battle 29",
+      "kind": 29,
+      "win": false,
+      "round": 6,
+      "callbacks": 53,
+      "enemy": {
+        "name": "帝国军校学徒",
+        "alert": 0
+      },
+      "form": {
+        "front": [
+          {
+            "type": "iron_spearman",
+            "count": 10,
+            "id": 1790756664915
+          },
+          {
+            "type": "bronze_guard",
+            "count": 10,
+            "id": 1790756664916
+          }
+        ],
+        "mid": [
+          {
+            "type": "iron_spearman",
+            "count": 10,
+            "id": 1790756664917
+          },
+          {
+            "type": "bronze_guard",
+            "count": 10,
+            "id": 1790756664918
+          }
+        ],
+        "back": [
+          {
+            "type": "archer_silverbow",
+            "count": 10,
+            "id": 1790756664919
+          },
+          {
+            "type": "archer_silverbow",
+            "count": 10,
+            "id": 1790756664920
+          }
+        ]
+      },
+      "before": {
+        "defeated": 28,
+        "pop": 19,
+        "res": {
+          "wood": 3000,
+          "stone": 1996,
+          "food": 884.9365756395898,
+          "tech": 10.000000000008697,
+          "coal": 1,
+          "copper": 8,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        }
+      },
+      "after": {
+        "defeated": 28,
+        "pop": 19,
+        "res": {
+          "wood": 3000,
+          "stone": 1996,
+          "food": 884.9365756395898,
+          "tech": 10.000000000008697,
+          "coal": 1,
+          "copper": 8,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        }
+      },
+      "losses": {
+        "infantry": 0,
+        "iron_spearman": 20,
+        "bronze_guard": 20,
+        "silver_heavy": 0,
+        "archer_t1": 0,
+        "archer_silverbow": 20
+      },
+      "battleTicks": 22,
+      "callbackMs": 21472.5,
+      "battleSeconds": 0,
+      "offline": 0
+    },
+    {
+      "label": "reload L29 result",
+      "online": 4050,
+      "offline": 0,
+      "saveSha256": "b849328dbee5f03d8182e3556035ae0894683f15a9e704c4c78da941ff78b612"
+    },
+    {
+      "label": "L29 rematch iron train iron_spearman",
+      "online": 4050,
+      "offline": 0,
+      "tick": 37624,
+      "expression": "train('iron_spearman',20)",
+      "result": {
+        "ok": true,
+        "qty": 20
+      },
+      "resourceDelta": {}
+    },
+    {
+      "label": "wait L29 rematch iron queue completion",
+      "seconds": 2000,
+      "online": 6050,
+      "tick": 39624,
+      "satisfied": true,
+      "state": {
+        "defeated": 28,
+        "pop": 19,
+        "merit": 253,
+        "res": {
+          "wood": 3000,
+          "stone": 1996,
+          "food": 2661.5800000000036,
+          "tech": 10.000000000008697,
+          "coal": 598,
+          "copper": 8,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        },
+        "bowEssence": 0,
+        "archerTier": 2,
+        "silverArmory": 0
+      }
+    },
+    {
+      "label": "L29 rematch support train bronze_guard",
+      "online": 6050,
+      "offline": 0,
+      "tick": 39624,
+      "expression": "train('bronze_guard',20)",
+      "result": {
+        "ok": true,
+        "qty": 20
+      },
+      "resourceDelta": {}
+    },
+    {
+      "label": "L29 rematch support train archer_silverbow",
+      "online": 6050,
+      "offline": 0,
+      "tick": 39624,
+      "expression": "train('archer_silverbow',20)",
+      "result": {
+        "ok": true,
+        "qty": 20
+      },
+      "resourceDelta": {}
+    },
+    {
+      "label": "L29 rematch support train infantry",
+      "online": 6050,
+      "offline": 0,
+      "tick": 39624,
+      "expression": "train('infantry',5)",
+      "result": {
+        "ok": true,
+        "qty": 5
+      },
+      "resourceDelta": {}
+    },
+    {
+      "label": "wait L29 rematch support queue completion",
+      "seconds": 1130,
+      "online": 7180,
+      "tick": 40754,
+      "satisfied": true,
+      "state": {
+        "defeated": 28,
+        "pop": 19,
+        "merit": 253,
+        "res": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 487.2984255840286,
+          "tech": 10.000000000008697,
+          "coal": 3,
+          "copper": 0,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        },
+        "bowEssence": 0,
+        "archerTier": 2,
+        "silverArmory": 0
+      }
+    },
+    {
+      "label": "battle 29",
+      "kind": 29,
+      "win": true,
+      "round": 5,
+      "callbacks": 53,
+      "enemy": {
+        "name": "帝国军校学徒",
+        "alert": 0
+      },
+      "form": {
+        "front": [
+          {
+            "type": "iron_spearman",
+            "count": 10,
+            "id": 1790759816915
+          },
+          {
+            "type": "bronze_guard",
+            "count": 10,
+            "id": 1790759816916
+          },
+          {
+            "type": "infantry",
+            "count": 10,
+            "id": 1790759816917
+          }
+        ],
+        "mid": [
+          {
+            "type": "iron_spearman",
+            "count": 10,
+            "id": 1790759816918
+          },
+          {
+            "type": "bronze_guard",
+            "count": 10,
+            "id": 1790759816919
+          }
+        ],
+        "back": [
+          {
+            "type": "archer_silverbow",
+            "count": 10,
+            "id": 1790759816920
+          },
+          {
+            "type": "archer_silverbow",
+            "count": 10,
+            "id": 1790759816921
+          }
+        ]
+      },
+      "before": {
+        "defeated": 28,
+        "pop": 19,
+        "res": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 487.2984255840286,
+          "tech": 10.000000000008697,
+          "coal": 3,
+          "copper": 0,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        }
+      },
+      "after": {
+        "defeated": 29,
+        "pop": 19,
+        "res": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 1462.2984255840286,
+          "tech": 10.000000000008697,
+          "coal": 3,
+          "copper": 0,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        }
+      },
+      "losses": {
+        "infantry": 10,
+        "iron_spearman": 20,
+        "bronze_guard": 20,
+        "silver_heavy": 0,
+        "archer_t1": 0,
+        "archer_silverbow": 12
+      },
+      "battleTicks": 21,
+      "callbackMs": 21630,
+      "battleSeconds": 0,
+      "offline": 0
+    },
+    {
+      "label": "reload L29 rematch result",
+      "online": 7180,
+      "offline": 0,
+      "saveSha256": "aee9e5282eea6c666291558403d406ff36a7dc6f5d0968c4c191cd58a8587620"
+    },
+    {
+      "label": "next iron 30 train iron_spearman",
+      "online": 7180,
+      "offline": 0,
+      "tick": 40775,
+      "expression": "train('iron_spearman',20)",
+      "result": {
+        "ok": true,
+        "qty": 20
+      },
+      "resourceDelta": {}
+    },
+    {
+      "label": "wait next iron 30 queue completion",
+      "seconds": 2000,
+      "online": 9180,
+      "tick": 42775,
+      "satisfied": true,
+      "state": {
+        "defeated": 29,
+        "pop": 19,
+        "merit": 269,
+        "res": {
+          "wood": 3000,
+          "stone": 1996,
+          "food": 2652.485714285717,
+          "tech": 10.000000000008697,
+          "coal": 598,
+          "copper": 0,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        },
+        "bowEssence": 0,
+        "archerTier": 2,
+        "silverArmory": 0
+      }
+    },
+    {
+      "label": "next support 30 train bronze_guard",
+      "online": 9180,
+      "offline": 0,
+      "tick": 42775,
+      "expression": "train('bronze_guard',20)",
+      "result": {
+        "ok": true,
+        "qty": 20
+      },
+      "resourceDelta": {}
+    },
+    {
+      "label": "next support 30 train archer_silverbow",
+      "online": 9180,
+      "offline": 0,
+      "tick": 42775,
+      "expression": "train('archer_silverbow',12)",
+      "result": {
+        "ok": true,
+        "qty": 12
+      },
+      "resourceDelta": {}
+    },
+    {
+      "label": "next support 30 train infantry",
+      "online": 9180,
+      "offline": 0,
+      "tick": 42775,
+      "expression": "train('infantry',10)",
+      "result": {
+        "ok": true,
+        "qty": 10
+      },
+      "resourceDelta": {}
+    },
+    {
+      "label": "wait next support 30 queue completion",
+      "seconds": 1140,
+      "online": 10320,
+      "tick": 43915,
+      "satisfied": true,
+      "state": {
+        "defeated": 29,
+        "pop": 19,
+        "merit": 269,
+        "res": {
+          "wood": 3000,
+          "stone": 1996,
+          "food": 1041.0757770761836,
+          "tech": 10.000000000008697,
+          "coal": 1,
+          "copper": 8,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        },
+        "bowEssence": 0,
+        "archerTier": 2,
+        "silverArmory": 0
+      }
+    },
+    {
+      "label": "battle 30",
+      "kind": 30,
+      "win": true,
+      "round": 4,
+      "callbacks": 35,
+      "enemy": {
+        "name": "帝国元帅",
+        "alert": 0
+      },
+      "form": {
+        "front": [
+          {
+            "type": "iron_spearman",
+            "count": 10,
+            "id": 1790762977915
+          },
+          {
+            "type": "bronze_guard",
+            "count": 10,
+            "id": 1790762977916
+          },
+          {
+            "type": "infantry",
+            "count": 10,
+            "id": 1790762977917
+          }
+        ],
+        "mid": [
+          {
+            "type": "iron_spearman",
+            "count": 10,
+            "id": 1790762977918
+          },
+          {
+            "type": "bronze_guard",
+            "count": 10,
+            "id": 1790762977919
+          }
+        ],
+        "back": [
+          {
+            "type": "archer_silverbow",
+            "count": 10,
+            "id": 1790762977920
+          },
+          {
+            "type": "archer_silverbow",
+            "count": 10,
+            "id": 1790762977921
+          }
+        ]
+      },
+      "before": {
+        "defeated": 29,
+        "pop": 19,
+        "res": {
+          "wood": 3000,
+          "stone": 1996,
+          "food": 1041.0757770761836,
+          "tech": 10.000000000008697,
+          "coal": 1,
+          "copper": 8,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        }
+      },
+      "after": {
+        "defeated": 30,
+        "pop": 19,
+        "res": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 3000,
+          "tech": 10.000000000008697,
+          "coal": 1,
+          "copper": 8,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        }
+      },
+      "losses": {
+        "infantry": 10,
+        "iron_spearman": 4,
+        "bronze_guard": 10,
+        "silver_heavy": 0,
+        "archer_t1": 0,
+        "archer_silverbow": 0
+      },
+      "battleTicks": 14,
+      "callbackMs": 14227.5,
+      "battleSeconds": 0,
+      "offline": 0
+    },
+    {
+      "label": "reload L30 result",
+      "online": 10320,
+      "offline": 0,
+      "saveSha256": "1efc6dfb744291772c9379f931acefb2eb6e7399bed3da1a89ecc96104cabf0d"
+    },
+    {
+      "label": "next iron 31 train iron_spearman",
+      "online": 10320,
+      "offline": 0,
+      "tick": 43929,
+      "expression": "train('iron_spearman',4)",
+      "result": {
+        "ok": true,
+        "qty": 4
+      },
+      "resourceDelta": {}
+    },
+    {
+      "label": "wait next iron 31 queue completion",
+      "seconds": 400,
+      "online": 10720,
+      "tick": 44329,
+      "satisfied": true,
+      "state": {
+        "defeated": 30,
+        "pop": 19,
+        "merit": 304,
+        "res": {
+          "wood": 3000,
+          "stone": 1996,
+          "food": 2589.4000000000005,
+          "tech": 10.000000000008697,
+          "coal": 401,
+          "copper": 8,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        },
+        "bowEssence": 0,
+        "archerTier": 2,
+        "silverArmory": 0
+      }
+    },
+    {
+      "label": "next support 31 train bronze_guard",
+      "online": 10720,
+      "offline": 0,
+      "tick": 44329,
+      "expression": "train('bronze_guard',10)",
+      "result": {
+        "ok": true,
+        "qty": 10
+      },
+      "resourceDelta": {}
+    },
+    {
+      "label": "next support 31 train infantry",
+      "online": 10720,
+      "offline": 0,
+      "tick": 44329,
+      "expression": "train('infantry',10)",
+      "result": {
+        "ok": true,
+        "qty": 10
+      },
+      "resourceDelta": {}
+    },
+    {
+      "label": "wait next support 31 queue completion",
+      "seconds": 530,
+      "online": 11250,
+      "tick": 44859,
+      "satisfied": true,
+      "state": {
+        "defeated": 30,
+        "pop": 19,
+        "merit": 304,
+        "res": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 1354.3955646179015,
+          "tech": 10.000000000008697,
+          "coal": 3,
+          "copper": 2,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        },
+        "bowEssence": 0,
+        "archerTier": 2,
+        "silverArmory": 0
+      }
+    },
+    {
+      "label": "battle 31",
+      "kind": 31,
+      "win": true,
+      "round": 1,
+      "callbacks": 4,
+      "enemy": {
+        "name": "重步卫队",
+        "alert": 0
+      },
+      "form": {
+        "front": [
+          {
+            "type": "iron_spearman",
+            "count": 10,
+            "id": 1790763921915
+          },
+          {
+            "type": "bronze_guard",
+            "count": 10,
+            "id": 1790763921916
+          },
+          {
+            "type": "infantry",
+            "count": 10,
+            "id": 1790763921917
+          }
+        ],
+        "mid": [
+          {
+            "type": "iron_spearman",
+            "count": 10,
+            "id": 1790763921918
+          },
+          {
+            "type": "bronze_guard",
+            "count": 10,
+            "id": 1790763921919
+          }
+        ],
+        "back": [
+          {
+            "type": "archer_silverbow",
+            "count": 10,
+            "id": 1790763921920
+          },
+          {
+            "type": "archer_silverbow",
+            "count": 10,
+            "id": 1790763921921
+          }
+        ]
+      },
+      "before": {
+        "defeated": 30,
+        "pop": 19,
+        "res": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 1354.3955646179015,
+          "tech": 10.000000000008697,
+          "coal": 3,
+          "copper": 2,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        }
+      },
+      "after": {
+        "defeated": 31,
+        "pop": 19,
+        "res": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 2354.3955646179015,
+          "tech": 10.000000000008697,
+          "coal": 3,
+          "copper": 2,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        }
+      },
+      "losses": {
+        "infantry": 0,
+        "iron_spearman": 0,
+        "bronze_guard": 0,
+        "silver_heavy": 0,
+        "archer_t1": 0,
+        "archer_silverbow": 0
+      },
+      "battleTicks": 2,
+      "callbackMs": 1680,
+      "battleSeconds": 0,
+      "offline": 0
+    },
+    {
+      "label": "reload L31 result",
+      "online": 11250,
+      "offline": 0,
+      "saveSha256": "a4979eb296e8ad2245019242d597b7a725ebacaa61fac4be4fd769119a1aa547"
+    },
+    {
+      "label": "wait next iron 32 queue completion",
+      "seconds": 0,
+      "online": 11250,
+      "tick": 44861,
+      "satisfied": true,
+      "state": {
+        "defeated": 31,
+        "pop": 19,
+        "merit": 321,
+        "res": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 2354.3955646179015,
+          "tech": 10.000000000008697,
+          "coal": 3,
+          "copper": 2,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        },
+        "bowEssence": 0,
+        "archerTier": 2,
+        "silverArmory": 0
+      }
+    },
+    {
+      "label": "wait next support 32 queue completion",
+      "seconds": 0,
+      "online": 11250,
+      "tick": 44861,
+      "satisfied": true,
+      "state": {
+        "defeated": 31,
+        "pop": 19,
+        "merit": 321,
+        "res": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 2354.3955646179015,
+          "tech": 10.000000000008697,
+          "coal": 3,
+          "copper": 2,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        },
+        "bowEssence": 0,
+        "archerTier": 2,
+        "silverArmory": 0
+      }
+    },
+    {
+      "label": "battle 32",
+      "kind": 32,
+      "win": true,
+      "round": 1,
+      "callbacks": 4,
+      "enemy": {
+        "name": "重步卫队",
+        "alert": 0
+      },
+      "form": {
+        "front": [
+          {
+            "type": "iron_spearman",
+            "count": 10,
+            "id": 1790763923915
+          },
+          {
+            "type": "bronze_guard",
+            "count": 10,
+            "id": 1790763923916
+          },
+          {
+            "type": "infantry",
+            "count": 10,
+            "id": 1790763923917
+          }
+        ],
+        "mid": [
+          {
+            "type": "iron_spearman",
+            "count": 10,
+            "id": 1790763923918
+          },
+          {
+            "type": "bronze_guard",
+            "count": 10,
+            "id": 1790763923919
+          }
+        ],
+        "back": [
+          {
+            "type": "archer_silverbow",
+            "count": 10,
+            "id": 1790763923920
+          },
+          {
+            "type": "archer_silverbow",
+            "count": 10,
+            "id": 1790763923921
+          }
+        ]
+      },
+      "before": {
+        "defeated": 31,
+        "pop": 19,
+        "res": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 2354.3955646179015,
+          "tech": 10.000000000008697,
+          "coal": 3,
+          "copper": 2,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        }
+      },
+      "after": {
+        "defeated": 32,
+        "pop": 19,
+        "res": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 3000,
+          "tech": 10.000000000008697,
+          "coal": 3,
+          "copper": 2,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        }
+      },
+      "losses": {
+        "infantry": 0,
+        "iron_spearman": 0,
+        "bronze_guard": 0,
+        "silver_heavy": 0,
+        "archer_t1": 0,
+        "archer_silverbow": 0
+      },
+      "battleTicks": 2,
+      "callbackMs": 1680,
+      "battleSeconds": 0,
+      "offline": 0
+    },
+    {
+      "label": "reload L32 result",
+      "online": 11250,
+      "offline": 0,
+      "saveSha256": "fe427547eb311181aaa6adfeb297fa5f77dac2fb2d558acadd664225cd948e0b"
+    },
+    {
+      "label": "wait next iron 33 queue completion",
+      "seconds": 0,
+      "online": 11250,
+      "tick": 44863,
+      "satisfied": true,
+      "state": {
+        "defeated": 32,
+        "pop": 19,
+        "merit": 338,
+        "res": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 3000,
+          "tech": 10.000000000008697,
+          "coal": 3,
+          "copper": 2,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        },
+        "bowEssence": 0,
+        "archerTier": 2,
+        "silverArmory": 0
+      }
+    },
+    {
+      "label": "wait next support 33 queue completion",
+      "seconds": 0,
+      "online": 11250,
+      "tick": 44863,
+      "satisfied": true,
+      "state": {
+        "defeated": 32,
+        "pop": 19,
+        "merit": 338,
+        "res": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 3000,
+          "tech": 10.000000000008697,
+          "coal": 3,
+          "copper": 2,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        },
+        "bowEssence": 0,
+        "archerTier": 2,
+        "silverArmory": 0
+      }
+    },
+    {
+      "label": "battle 33",
+      "kind": 33,
+      "win": true,
+      "round": 1,
+      "callbacks": 4,
+      "enemy": {
+        "name": "工坊步兵哨位",
+        "alert": 0
+      },
+      "form": {
+        "front": [
+          {
+            "type": "iron_spearman",
+            "count": 10,
+            "id": 1790763925915
+          },
+          {
+            "type": "bronze_guard",
+            "count": 10,
+            "id": 1790763925916
+          },
+          {
+            "type": "infantry",
+            "count": 10,
+            "id": 1790763925917
+          }
+        ],
+        "mid": [
+          {
+            "type": "iron_spearman",
+            "count": 10,
+            "id": 1790763925918
+          },
+          {
+            "type": "bronze_guard",
+            "count": 10,
+            "id": 1790763925919
+          }
+        ],
+        "back": [
+          {
+            "type": "archer_silverbow",
+            "count": 10,
+            "id": 1790763925920
+          },
+          {
+            "type": "archer_silverbow",
+            "count": 10,
+            "id": 1790763925921
+          }
+        ]
+      },
+      "before": {
+        "defeated": 32,
+        "pop": 19,
+        "res": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 3000,
+          "tech": 10.000000000008697,
+          "coal": 3,
+          "copper": 2,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        }
+      },
+      "after": {
+        "defeated": 33,
+        "pop": 19,
+        "res": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 3000,
+          "tech": 10.000000000008697,
+          "coal": 3,
+          "copper": 2,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        }
+      },
+      "losses": {
+        "infantry": 0,
+        "iron_spearman": 0,
+        "bronze_guard": 0,
+        "silver_heavy": 0,
+        "archer_t1": 0,
+        "archer_silverbow": 0
+      },
+      "battleTicks": 1,
+      "callbackMs": 1680,
+      "battleSeconds": 0,
+      "offline": 0
+    },
+    {
+      "label": "reload L33 result",
+      "online": 11250,
+      "offline": 0,
+      "saveSha256": "085c2e9720c74d4f22c92d53ba09003726ba0e7a726c030610484c368c5c3ae0"
+    },
+    {
+      "label": "wait next iron 34 queue completion",
+      "seconds": 0,
+      "online": 11250,
+      "tick": 44864,
+      "satisfied": true,
+      "state": {
+        "defeated": 33,
+        "pop": 19,
+        "merit": 356,
+        "res": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 3000,
+          "tech": 10.000000000008697,
+          "coal": 3,
+          "copper": 2,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        },
+        "bowEssence": 0,
+        "archerTier": 2,
+        "silverArmory": 0
+      }
+    },
+    {
+      "label": "wait next support 34 queue completion",
+      "seconds": 0,
+      "online": 11250,
+      "tick": 44864,
+      "satisfied": true,
+      "state": {
+        "defeated": 33,
+        "pop": 19,
+        "merit": 356,
+        "res": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 3000,
+          "tech": 10.000000000008697,
+          "coal": 3,
+          "copper": 2,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        },
+        "bowEssence": 0,
+        "archerTier": 2,
+        "silverArmory": 0
+      }
+    },
+    {
+      "label": "battle 34",
+      "kind": 34,
+      "win": true,
+      "round": 2,
+      "callbacks": 14,
+      "enemy": {
+        "name": "长弓阵地",
+        "alert": 0
+      },
+      "form": {
+        "front": [
+          {
+            "type": "iron_spearman",
+            "count": 10,
+            "id": 1790763926915
+          },
+          {
+            "type": "bronze_guard",
+            "count": 10,
+            "id": 1790763926916
+          },
+          {
+            "type": "infantry",
+            "count": 10,
+            "id": 1790763926917
+          }
+        ],
+        "mid": [
+          {
+            "type": "iron_spearman",
+            "count": 10,
+            "id": 1790763926918
+          },
+          {
+            "type": "bronze_guard",
+            "count": 10,
+            "id": 1790763926919
+          }
+        ],
+        "back": [
+          {
+            "type": "archer_silverbow",
+            "count": 10,
+            "id": 1790763926920
+          },
+          {
+            "type": "archer_silverbow",
+            "count": 10,
+            "id": 1790763926921
+          }
+        ]
+      },
+      "before": {
+        "defeated": 33,
+        "pop": 19,
+        "res": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 3000,
+          "tech": 10.000000000008697,
+          "coal": 3,
+          "copper": 2,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        }
+      },
+      "after": {
+        "defeated": 34,
+        "pop": 19,
+        "res": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 3000,
+          "tech": 10.000000000008697,
+          "coal": 3,
+          "copper": 2,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        }
+      },
+      "losses": {
+        "infantry": 0,
+        "iron_spearman": 0,
+        "bronze_guard": 4,
+        "silver_heavy": 0,
+        "archer_t1": 0,
+        "archer_silverbow": 0
+      },
+      "battleTicks": 6,
+      "callbackMs": 5722.5,
+      "battleSeconds": 0,
+      "offline": 0
+    },
+    {
+      "label": "reload L34 result",
+      "online": 11250,
+      "offline": 0,
+      "saveSha256": "e8d8110766cda132eafc7c1ff27cf0130adf20d8d0f5f5e98fc53d4c714c683d"
+    },
+    {
+      "label": "wait next iron 35 queue completion",
+      "seconds": 0,
+      "online": 11250,
+      "tick": 44870,
+      "satisfied": true,
+      "state": {
+        "defeated": 34,
+        "pop": 19,
+        "merit": 374,
+        "res": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 3000,
+          "tech": 10.000000000008697,
+          "coal": 3,
+          "copper": 2,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        },
+        "bowEssence": 0,
+        "archerTier": 2,
+        "silverArmory": 0
+      }
+    },
+    {
+      "label": "next support 35 train bronze_guard",
+      "online": 11250,
+      "offline": 0,
+      "tick": 44870,
+      "expression": "train('bronze_guard',4)",
+      "result": {
+        "ok": true,
+        "qty": 4
+      },
+      "resourceDelta": {}
+    },
+    {
+      "label": "wait next support 35 queue completion",
+      "seconds": 270,
+      "online": 11520,
+      "tick": 45140,
+      "satisfied": true,
+      "state": {
+        "defeated": 34,
+        "pop": 19,
+        "merit": 374,
+        "res": {
+          "wood": 3000,
+          "stone": 1996,
+          "food": 2391.1050915407936,
+          "tech": 10.000000000008697,
+          "coal": 1,
+          "copper": 8,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        },
+        "bowEssence": 0,
+        "archerTier": 2,
+        "silverArmory": 0
+      }
+    },
+    {
+      "label": "battle 35",
+      "kind": 35,
+      "win": true,
+      "round": 2,
+      "callbacks": 17,
+      "enemy": {
+        "name": "长弓阵地",
+        "alert": 0
+      },
+      "form": {
+        "front": [
+          {
+            "type": "iron_spearman",
+            "count": 10,
+            "id": 1790764202915
+          },
+          {
+            "type": "bronze_guard",
+            "count": 10,
+            "id": 1790764202916
+          },
+          {
+            "type": "infantry",
+            "count": 10,
+            "id": 1790764202917
+          }
+        ],
+        "mid": [
+          {
+            "type": "iron_spearman",
+            "count": 10,
+            "id": 1790764202918
+          },
+          {
+            "type": "bronze_guard",
+            "count": 10,
+            "id": 1790764202919
+          }
+        ],
+        "back": [
+          {
+            "type": "archer_silverbow",
+            "count": 10,
+            "id": 1790764202920
+          },
+          {
+            "type": "archer_silverbow",
+            "count": 10,
+            "id": 1790764202921
+          }
+        ]
+      },
+      "before": {
+        "defeated": 34,
+        "pop": 19,
+        "res": {
+          "wood": 3000,
+          "stone": 1996,
+          "food": 2391.1050915407936,
+          "tech": 10.000000000008697,
+          "coal": 1,
+          "copper": 8,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        }
+      },
+      "after": {
+        "defeated": 35,
+        "pop": 19,
+        "res": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 3000,
+          "tech": 10.000000000008697,
+          "coal": 1,
+          "copper": 8,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        }
+      },
+      "losses": {
+        "infantry": 0,
+        "iron_spearman": 0,
+        "bronze_guard": 6,
+        "silver_heavy": 0,
+        "archer_t1": 0,
+        "archer_silverbow": 0
+      },
+      "battleTicks": 7,
+      "callbackMs": 6982.5,
+      "battleSeconds": 0,
+      "offline": 0
+    },
+    {
+      "label": "reload L35 result",
+      "online": 11520,
+      "offline": 0,
+      "saveSha256": "606d50a053c785ca0bb719bce62c92483ba9f50e575b24ba21c8d1f8c4b2f10d"
+    },
+    {
+      "label": "wait next iron 36 queue completion",
+      "seconds": 0,
+      "online": 11520,
+      "tick": 45147,
+      "satisfied": true,
+      "state": {
+        "defeated": 35,
+        "pop": 19,
+        "merit": 393,
+        "res": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 3000,
+          "tech": 10.000000000008697,
+          "coal": 1,
+          "copper": 8,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        },
+        "bowEssence": 0,
+        "archerTier": 2,
+        "silverArmory": 0
+      }
+    },
+    {
+      "label": "next support 36 train bronze_guard",
+      "online": 11520,
+      "offline": 0,
+      "tick": 45147,
+      "expression": "train('bronze_guard',6)",
+      "result": {
+        "ok": true,
+        "qty": 6
+      },
+      "resourceDelta": {}
+    },
+    {
+      "label": "wait next support 36 queue completion",
+      "seconds": 400,
+      "online": 11920,
+      "tick": 45547,
+      "satisfied": true,
+      "state": {
+        "defeated": 35,
+        "pop": 19,
+        "merit": 393,
+        "res": {
+          "wood": 3000,
+          "stone": 1996,
+          "food": 2263.317655643323,
+          "tech": 10.000000000008697,
+          "coal": 1,
+          "copper": 8,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        },
+        "bowEssence": 0,
+        "archerTier": 2,
+        "silverArmory": 0
+      }
+    },
+    {
+      "label": "battle 36",
+      "kind": 36,
+      "win": true,
+      "round": 2,
+      "callbacks": 19,
+      "enemy": {
+        "name": "工坊步弓前哨",
+        "alert": 0
+      },
+      "form": {
+        "front": [
+          {
+            "type": "iron_spearman",
+            "count": 10,
+            "id": 1790764609915
+          },
+          {
+            "type": "bronze_guard",
+            "count": 10,
+            "id": 1790764609916
+          },
+          {
+            "type": "infantry",
+            "count": 10,
+            "id": 1790764609917
+          }
+        ],
+        "mid": [
+          {
+            "type": "iron_spearman",
+            "count": 10,
+            "id": 1790764609918
+          },
+          {
+            "type": "bronze_guard",
+            "count": 10,
+            "id": 1790764609919
+          }
+        ],
+        "back": [
+          {
+            "type": "archer_silverbow",
+            "count": 10,
+            "id": 1790764609920
+          },
+          {
+            "type": "archer_silverbow",
+            "count": 10,
+            "id": 1790764609921
+          }
+        ]
+      },
+      "before": {
+        "defeated": 35,
+        "pop": 19,
+        "res": {
+          "wood": 3000,
+          "stone": 1996,
+          "food": 2263.317655643323,
+          "tech": 10.000000000008697,
+          "coal": 1,
+          "copper": 8,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        }
+      },
+      "after": {
+        "defeated": 36,
+        "pop": 19,
+        "res": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 3000,
+          "tech": 10.000000000008697,
+          "coal": 1,
+          "copper": 8,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        }
+      },
+      "losses": {
+        "infantry": 0,
+        "iron_spearman": 0,
+        "bronze_guard": 8,
+        "silver_heavy": 0,
+        "archer_t1": 0,
+        "archer_silverbow": 0
+      },
+      "battleTicks": 8,
+      "callbackMs": 7822.5,
+      "battleSeconds": 0,
+      "offline": 0
+    },
+    {
+      "label": "reload L36 result",
+      "online": 11920,
+      "offline": 0,
+      "saveSha256": "68fea45271862189cd49e07a39b324b58e8b927e936ee20e0d66b5b8e3abc3ce"
+    },
+    {
+      "label": "wait next iron 37 queue completion",
+      "seconds": 0,
+      "online": 11920,
+      "tick": 45555,
+      "satisfied": true,
+      "state": {
+        "defeated": 36,
+        "pop": 19,
+        "merit": 412,
+        "res": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 3000,
+          "tech": 10.000000000008697,
+          "coal": 1,
+          "copper": 8,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        },
+        "bowEssence": 0,
+        "archerTier": 2,
+        "silverArmory": 0
+      }
+    },
+    {
+      "label": "next support 37 train bronze_guard",
+      "online": 11920,
+      "offline": 0,
+      "tick": 45555,
+      "expression": "train('bronze_guard',8)",
+      "result": {
+        "ok": true,
+        "qty": 8
+      },
+      "resourceDelta": {}
+    },
+    {
+      "label": "wait next support 37 queue completion",
+      "seconds": 530,
+      "online": 12450,
+      "tick": 46085,
+      "satisfied": true,
+      "state": {
+        "defeated": 36,
+        "pop": 19,
+        "merit": 412,
+        "res": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 2192.381143771248,
+          "tech": 10.000000000008697,
+          "coal": 3,
+          "copper": 2,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        },
+        "bowEssence": 0,
+        "archerTier": 2,
+        "silverArmory": 0
+      }
+    },
+    {
+      "label": "battle 37",
+      "kind": 37,
+      "win": true,
+      "round": 4,
+      "callbacks": 39,
+      "enemy": {
+        "name": "骑兵突击",
+        "alert": 0
+      },
+      "form": {
+        "front": [
+          {
+            "type": "iron_spearman",
+            "count": 10,
+            "id": 1790765147915
+          },
+          {
+            "type": "bronze_guard",
+            "count": 10,
+            "id": 1790765147916
+          },
+          {
+            "type": "infantry",
+            "count": 10,
+            "id": 1790765147917
+          }
+        ],
+        "mid": [
+          {
+            "type": "iron_spearman",
+            "count": 10,
+            "id": 1790765147918
+          },
+          {
+            "type": "bronze_guard",
+            "count": 10,
+            "id": 1790765147919
+          }
+        ],
+        "back": [
+          {
+            "type": "archer_silverbow",
+            "count": 10,
+            "id": 1790765147920
+          },
+          {
+            "type": "archer_silverbow",
+            "count": 10,
+            "id": 1790765147921
+          }
+        ]
+      },
+      "before": {
+        "defeated": 36,
+        "pop": 19,
+        "res": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 2192.381143771248,
+          "tech": 10.000000000008697,
+          "coal": 3,
+          "copper": 2,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        }
+      },
+      "after": {
+        "defeated": 37,
+        "pop": 19,
+        "res": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 3000,
+          "tech": 10.000000000008697,
+          "coal": 3,
+          "copper": 2,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        }
+      },
+      "losses": {
+        "infantry": 10,
+        "iron_spearman": 10,
+        "bronze_guard": 12,
+        "silver_heavy": 0,
+        "archer_t1": 0,
+        "archer_silverbow": 0
+      },
+      "battleTicks": 16,
+      "callbackMs": 15907.5,
+      "battleSeconds": 0,
+      "offline": 0
+    },
+    {
+      "label": "reload L37 result",
+      "online": 12450,
+      "offline": 0,
+      "saveSha256": "97862122f3e150afd48a5a3f58044861437720f06f83087607e8f033acccdbca"
+    },
+    {
+      "label": "next iron 38 train iron_spearman",
+      "online": 12450,
+      "offline": 0,
+      "tick": 46101,
+      "expression": "train('iron_spearman',10)",
+      "result": {
+        "ok": true,
+        "qty": 10
+      },
+      "resourceDelta": {}
+    },
+    {
+      "label": "wait next iron 38 queue completion",
+      "seconds": 1000,
+      "online": 13450,
+      "tick": 47101,
+      "satisfied": true,
+      "state": {
+        "defeated": 37,
+        "pop": 19,
+        "merit": 432,
+        "res": {
+          "wood": 3000,
+          "stone": 1996,
+          "food": 2594.9333333333334,
+          "tech": 10.000000000008697,
+          "coal": 598,
+          "copper": 2,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        },
+        "bowEssence": 0,
+        "archerTier": 2,
+        "silverArmory": 0
+      }
+    },
+    {
+      "label": "next support 38 train bronze_guard",
+      "online": 13450,
+      "offline": 0,
+      "tick": 47101,
+      "expression": "train('bronze_guard',12)",
+      "result": {
+        "ok": true,
+        "qty": 12
+      },
+      "resourceDelta": {}
+    },
+    {
+      "label": "next support 38 train infantry",
+      "online": 13450,
+      "offline": 0,
+      "tick": 47101,
+      "expression": "train('infantry',10)",
+      "result": {
+        "ok": true,
+        "qty": 10
+      },
+      "resourceDelta": {}
+    },
+    {
+      "label": "wait next support 38 queue completion",
+      "seconds": 610,
+      "online": 14060,
+      "tick": 47711,
+      "satisfied": true,
+      "state": {
+        "defeated": 37,
+        "pop": 19,
+        "merit": 432,
+        "res": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 1236.8528367392757,
+          "tech": 10.000000000008697,
+          "coal": 3,
+          "copper": 14,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        },
+        "bowEssence": 0,
+        "archerTier": 2,
+        "silverArmory": 0
+      }
+    },
+    {
+      "label": "battle 38",
+      "kind": 38,
+      "win": true,
+      "round": 5,
+      "callbacks": 46,
+      "enemy": {
+        "name": "骑兵突击",
+        "alert": 0
+      },
+      "form": {
+        "front": [
+          {
+            "type": "iron_spearman",
+            "count": 10,
+            "id": 1790766773915
+          },
+          {
+            "type": "bronze_guard",
+            "count": 10,
+            "id": 1790766773916
+          },
+          {
+            "type": "infantry",
+            "count": 10,
+            "id": 1790766773917
+          }
+        ],
+        "mid": [
+          {
+            "type": "iron_spearman",
+            "count": 10,
+            "id": 1790766773918
+          },
+          {
+            "type": "bronze_guard",
+            "count": 10,
+            "id": 1790766773919
+          }
+        ],
+        "back": [
+          {
+            "type": "archer_silverbow",
+            "count": 10,
+            "id": 1790766773920
+          },
+          {
+            "type": "archer_silverbow",
+            "count": 10,
+            "id": 1790766773921
+          }
+        ]
+      },
+      "before": {
+        "defeated": 37,
+        "pop": 19,
+        "res": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 1236.8528367392757,
+          "tech": 10.000000000008697,
+          "coal": 3,
+          "copper": 14,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        }
+      },
+      "after": {
+        "defeated": 38,
+        "pop": 19,
+        "res": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 2643.8528367392755,
+          "tech": 10.000000000008697,
+          "coal": 3,
+          "copper": 14,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        }
+      },
+      "losses": {
+        "infantry": 10,
+        "iron_spearman": 10,
+        "bronze_guard": 19,
+        "silver_heavy": 0,
+        "archer_t1": 0,
+        "archer_silverbow": 0
+      },
+      "battleTicks": 19,
+      "callbackMs": 18690,
+      "battleSeconds": 0,
+      "offline": 0
+    },
+    {
+      "label": "reload L38 result",
+      "online": 14060,
+      "offline": 0,
+      "saveSha256": "c40c6b001f85f10b10f2bc662d6d7170bd3434b6879e8cb95bba064340d299ed"
+    },
+    {
+      "label": "next iron 39 train iron_spearman",
+      "online": 14060,
+      "offline": 0,
+      "tick": 47730,
+      "expression": "train('iron_spearman',10)",
+      "result": {
+        "ok": true,
+        "qty": 10
+      },
+      "resourceDelta": {}
+    },
+    {
+      "label": "wait next iron 39 queue completion",
+      "seconds": 1000,
+      "online": 15060,
+      "tick": 48730,
+      "satisfied": true,
+      "state": {
+        "defeated": 38,
+        "pop": 19,
+        "merit": 452,
+        "res": {
+          "wood": 3000,
+          "stone": 1996,
+          "food": 2614.8634146341465,
+          "tech": 10.000000000008697,
+          "coal": 598,
+          "copper": 14,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        },
+        "bowEssence": 0,
+        "archerTier": 2,
+        "silverArmory": 0
+      }
+    },
+    {
+      "label": "next support 39 train bronze_guard",
+      "online": 15060,
+      "offline": 0,
+      "tick": 48730,
+      "expression": "train('bronze_guard',19)",
+      "result": {
+        "ok": true,
+        "qty": 19
+      },
+      "resourceDelta": {}
+    },
+    {
+      "label": "next support 39 train infantry",
+      "online": 15060,
+      "offline": 0,
+      "tick": 48730,
+      "expression": "train('infantry',10)",
+      "result": {
+        "ok": true,
+        "qty": 10
+      },
+      "resourceDelta": {}
+    },
+    {
+      "label": "wait next support 39 queue completion",
+      "seconds": 1060,
+      "online": 16120,
+      "tick": 49790,
+      "satisfied": true,
+      "state": {
+        "defeated": 38,
+        "pop": 19,
+        "merit": 452,
+        "res": {
+          "wood": 3000,
+          "stone": 1996,
+          "food": 1735.9943494108963,
+          "tech": 10.000000000008697,
+          "coal": 1,
+          "copper": 2,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        },
+        "bowEssence": 0,
+        "archerTier": 2,
+        "silverArmory": 0
+      }
+    },
+    {
+      "label": "battle 39",
+      "kind": 39,
+      "win": false,
+      "round": 6,
+      "callbacks": 55,
+      "enemy": {
+        "name": "秘法团",
+        "alert": 0
+      },
+      "form": {
+        "front": [
+          {
+            "type": "iron_spearman",
+            "count": 10,
+            "id": 1790768852915
+          },
+          {
+            "type": "bronze_guard",
+            "count": 10,
+            "id": 1790768852916
+          },
+          {
+            "type": "infantry",
+            "count": 10,
+            "id": 1790768852917
+          }
+        ],
+        "mid": [
+          {
+            "type": "iron_spearman",
+            "count": 10,
+            "id": 1790768852918
+          },
+          {
+            "type": "bronze_guard",
+            "count": 10,
+            "id": 1790768852919
+          }
+        ],
+        "back": [
+          {
+            "type": "archer_silverbow",
+            "count": 10,
+            "id": 1790768852920
+          },
+          {
+            "type": "archer_silverbow",
+            "count": 10,
+            "id": 1790768852921
+          }
+        ]
+      },
+      "before": {
+        "defeated": 38,
+        "pop": 19,
+        "res": {
+          "wood": 3000,
+          "stone": 1996,
+          "food": 1735.9943494108963,
+          "tech": 10.000000000008697,
+          "coal": 1,
+          "copper": 2,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        }
+      },
+      "after": {
+        "defeated": 38,
+        "pop": 19,
+        "res": {
+          "wood": 3000,
+          "stone": 1996,
+          "food": 1735.9943494108963,
+          "tech": 10.000000000008697,
+          "coal": 1,
+          "copper": 2,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        }
+      },
+      "losses": {
+        "infantry": 10,
+        "iron_spearman": 20,
+        "bronze_guard": 20,
+        "silver_heavy": 0,
+        "archer_t1": 0,
+        "archer_silverbow": 20
+      },
+      "battleTicks": 22,
+      "callbackMs": 22312.5,
+      "battleSeconds": 0,
+      "offline": 0
+    },
+    {
+      "label": "reload L39 result",
+      "online": 16120,
+      "offline": 0,
+      "saveSha256": "a8e2859edf8dbb0c41a7084cda9f2c7f6901f3b8dbcb92ea2aca4be2bf593a35"
+    },
+    {
+      "label": "wait knowledge for sci_city",
+      "seconds": 200,
+      "online": 16320,
+      "tick": 50012,
+      "satisfied": true,
+      "state": {
+        "defeated": 38,
+        "pop": 19,
+        "merit": 452,
+        "res": {
+          "wood": 3000,
+          "stone": 1996,
+          "food": 3000,
+          "tech": 2210.0000000000086,
+          "coal": 1,
+          "copper": 2,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        },
+        "bowEssence": 0,
+        "archerTier": 2,
+        "silverArmory": 0
+      }
+    },
+    {
+      "label": "research sci_city",
+      "online": 16320,
+      "offline": 0,
+      "tick": 50012,
+      "expression": "researchScience('sci_city')",
+      "result": {
+        "ok": true
+      },
+      "resourceDelta": {
+        "tech": -2200
+      }
+    },
+    {
+      "label": "reload sci_city",
+      "online": 16320,
+      "offline": 0,
+      "saveSha256": "79d89b74a70ff3c0355fa3c99753445e9b076dbaefdfe2ff3649d737060cb94a"
+    },
+    {
+      "label": "wait knowledge for sci_silver",
+      "seconds": 290,
+      "online": 16610,
+      "tick": 50302,
+      "satisfied": true,
+      "state": {
+        "defeated": 38,
+        "pop": 19,
+        "merit": 452,
+        "res": {
+          "wood": 3000,
+          "stone": 1996,
+          "food": 3000,
+          "tech": 3200.0000000000086,
+          "coal": 1,
+          "copper": 2,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        },
+        "bowEssence": 0,
+        "archerTier": 2,
+        "silverArmory": 0
+      }
+    },
+    {
+      "label": "research sci_silver",
+      "online": 16610,
+      "offline": 0,
+      "tick": 50302,
+      "expression": "researchScience('sci_silver')",
+      "result": {
+        "ok": true
+      },
+      "resourceDelta": {
+        "tech": -3200
+      }
+    },
+    {
+      "label": "reload sci_silver",
+      "online": 16610,
+      "offline": 0,
+      "saveSha256": "e2c6796ea2488d76bdd218c809a17eade8ec44a988afb243317c58879cdb7673"
+    },
+    {
+      "label": "wait knowledge for sci_silver_age",
+      "seconds": 370,
+      "online": 16980,
+      "tick": 50672,
+      "satisfied": true,
+      "state": {
+        "defeated": 38,
+        "pop": 19,
+        "merit": 452,
+        "res": {
+          "wood": 3000,
+          "stone": 1996,
+          "food": 3000,
+          "tech": 4070.0000000000086,
+          "coal": 1,
+          "copper": 2,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        },
+        "bowEssence": 0,
+        "archerTier": 2,
+        "silverArmory": 0
+      }
+    },
+    {
+      "label": "research sci_silver_age",
+      "online": 16980,
+      "offline": 0,
+      "tick": 50672,
+      "expression": "researchScience('sci_silver_age')",
+      "result": {
+        "ok": true
+      },
+      "resourceDelta": {
+        "tech": -4000
+      }
+    },
+    {
+      "label": "reload sci_silver_age",
+      "online": 16980,
+      "offline": 0,
+      "saveSha256": "1670dfda7922af0d6f6ef469b6d0eec35fd1f3248553e7daf801d192cf28fbde"
+    },
+    {
+      "label": "wait silver armory materials",
+      "seconds": 0,
+      "online": 16980,
+      "tick": 50672,
+      "satisfied": true,
+      "state": {
+        "defeated": 38,
+        "pop": 19,
+        "merit": 452,
+        "res": {
+          "wood": 3000,
+          "stone": 1996,
+          "food": 3000,
+          "tech": 70.00000000000864,
+          "coal": 1,
+          "copper": 2,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        },
+        "bowEssence": 0,
+        "archerTier": 2,
+        "silverArmory": 0
+      }
+    },
+    {
+      "label": "build silver armory",
+      "online": 16980,
+      "offline": 0,
+      "tick": 50672,
+      "expression": "buildAct('silver_armory')",
+      "result": {
+        "ok": true
+      },
+      "resourceDelta": {
+        "wood": -600,
+        "stone": -600,
+        "food": -400
+      }
+    },
+    {
+      "label": "wait silver armory construction",
+      "seconds": 10,
+      "online": 16990,
+      "tick": 50682,
+      "satisfied": true,
+      "state": {
+        "defeated": 38,
+        "pop": 19,
+        "merit": 452,
+        "res": {
+          "wood": 2550,
+          "stone": 1496,
+          "food": 2803.75,
+          "tech": 70.00000000000864,
+          "coal": 1,
+          "copper": 2,
+          "iron": 10,
+          "silver": 0,
+          "deed": 20
+        },
+        "bowEssence": 0,
+        "archerTier": 2,
+        "silverArmory": 1
+      }
+    },
+    {
+      "label": "reload silver armory",
+      "online": 16990,
+      "offline": 0,
+      "saveSha256": "f4edd37aabcabadae58fbe57b07eb51fd7a0b49230cb7d7a9858cb3bb7554ab7"
+    },
+    {
+      "label": "silver frontline train silver_heavy",
+      "online": 16990,
+      "offline": 0,
+      "tick": 50682,
+      "expression": "train('silver_heavy',10)",
+      "result": {
+        "ok": true,
+        "qty": 10
+      },
+      "resourceDelta": {}
+    },
+    {
+      "label": "wait silver frontline queue completion",
+      "seconds": 1010,
+      "online": 18000,
+      "tick": 51692,
+      "satisfied": true,
+      "state": {
+        "defeated": 38,
+        "pop": 19,
+        "merit": 452,
+        "res": {
+          "wood": 2550,
+          "stone": 1994,
+          "food": 2304.749999999999,
+          "tech": 70.00000000000864,
+          "coal": 597,
+          "copper": 2,
+          "iron": 10,
+          "silver": 10,
+          "deed": 20
+        },
+        "bowEssence": 0,
+        "archerTier": 2,
+        "silverArmory": 1
+      }
+    },
+    {
+      "label": "L39 iron frontline train iron_spearman",
+      "online": 18000,
+      "offline": 0,
+      "tick": 51692,
+      "expression": "train('iron_spearman',20)",
+      "result": {
+        "ok": true,
+        "qty": 20
+      },
+      "resourceDelta": {}
+    },
+    {
+      "label": "wait L39 iron frontline queue completion",
+      "seconds": 2000,
+      "online": 20000,
+      "tick": 53692,
+      "satisfied": true,
+      "state": {
+        "defeated": 38,
+        "pop": 19,
+        "merit": 452,
+        "res": {
+          "wood": 3000,
+          "stone": 1996,
+          "food": 2647.800000000002,
+          "tech": 70.00000000000864,
+          "coal": 598,
+          "copper": 2,
+          "iron": 10,
+          "silver": 10,
+          "deed": 20
+        },
+        "bowEssence": 0,
+        "archerTier": 2,
+        "silverArmory": 1
+      }
+    },
+    {
+      "label": "L39 bronze and bow train bronze_guard",
+      "online": 20000,
+      "offline": 0,
+      "tick": 53692,
+      "expression": "train('bronze_guard',20)",
+      "result": {
+        "ok": true,
+        "qty": 20
+      },
+      "resourceDelta": {}
+    },
+    {
+      "label": "L39 bronze and bow train archer_silverbow",
+      "online": 20000,
+      "offline": 0,
+      "tick": 53692,
+      "expression": "train('archer_silverbow',20)",
+      "result": {
+        "ok": true,
+        "qty": 20
+      },
+      "resourceDelta": {}
+    },
+    {
+      "label": "wait L39 bronze and bow queue completion",
+      "seconds": 3360,
+      "online": 23360,
+      "tick": 57052,
+      "satisfied": true,
+      "state": {
+        "defeated": 38,
+        "pop": 19,
+        "merit": 452,
+        "res": {
+          "wood": 3000,
+          "stone": 1996,
+          "food": 0.639613652588487,
+          "tech": 70.00000000000864,
+          "coal": 588,
+          "copper": 718,
+          "iron": 10,
+          "silver": 10,
+          "deed": 20
+        },
+        "bowEssence": 0,
+        "archerTier": 2,
+        "silverArmory": 1
+      }
+    },
+    {
+      "label": "reload L39 complete army",
+      "online": 23360,
+      "offline": 0,
+      "saveSha256": "b71fa62f7754960ee5db78bd8a58e5bd2d41a3bb4d4d300bcc23dba3bd82c983"
+    },
+    {
+      "label": "battle 39",
+      "kind": 39,
+      "win": true,
+      "round": 4,
+      "callbacks": 48,
+      "enemy": {
+        "name": "秘法团",
+        "alert": 0
+      },
+      "form": {
+        "front": [
+          {
+            "type": "iron_spearman",
+            "count": 10,
+            "id": 1790776114915
+          },
+          {
+            "type": "bronze_guard",
+            "count": 10,
+            "id": 1790776114916
+          },
+          {
+            "type": "silver_heavy",
+            "count": 10,
+            "id": 1790776114917
+          }
+        ],
+        "mid": [
+          {
+            "type": "iron_spearman",
+            "count": 10,
+            "id": 1790776114918
+          },
+          {
+            "type": "bronze_guard",
+            "count": 10,
+            "id": 1790776114919
+          }
+        ],
+        "back": [
+          {
+            "type": "archer_silverbow",
+            "count": 10,
+            "id": 1790776114920
+          },
+          {
+            "type": "archer_silverbow",
+            "count": 10,
+            "id": 1790776114921
+          }
+        ]
+      },
+      "before": {
+        "defeated": 38,
+        "pop": 19,
+        "res": {
+          "wood": 3000,
+          "stone": 1996,
+          "food": 0.639613652588487,
+          "tech": 70.00000000000864,
+          "coal": 588,
+          "copper": 718,
+          "iron": 10,
+          "silver": 10,
+          "deed": 20
+        }
+      },
+      "after": {
+        "defeated": 39,
+        "pop": 19,
+        "res": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 1477.6396136525884,
+          "tech": 70.00000000000864,
+          "coal": 588,
+          "copper": 718,
+          "iron": 10,
+          "silver": 10,
+          "deed": 20
+        }
+      },
+      "losses": {
+        "infantry": 0,
+        "iron_spearman": 11,
+        "bronze_guard": 20,
+        "silver_heavy": 10,
+        "archer_t1": 0,
+        "archer_silverbow": 0
+      },
+      "battleTicks": 20,
+      "callbackMs": 19687.5,
+      "battleSeconds": 0,
+      "offline": 0
+    },
+    {
+      "label": "reload L39 silver result",
+      "online": 23360,
+      "offline": 0,
+      "saveSha256": "2e6db34ca35434b3122fd32987418c5a94b57ebade7cfd97cac17862d95b59f4"
+    },
+    {
+      "label": "L40 silver frontline train silver_heavy",
+      "online": 23360,
+      "offline": 0,
+      "tick": 57072,
+      "expression": "train('silver_heavy',10)",
+      "result": {
+        "ok": true,
+        "qty": 10
+      },
+      "resourceDelta": {}
+    },
+    {
+      "label": "wait L40 silver frontline queue completion",
+      "seconds": 1060,
+      "online": 24420,
+      "tick": 58132,
+      "satisfied": true,
+      "state": {
+        "defeated": 39,
+        "pop": 19,
+        "merit": 473,
+        "res": {
+          "wood": 3000,
+          "stone": 1994,
+          "food": 16.08810392577608,
+          "tech": 70.00000000000864,
+          "coal": 597,
+          "copper": 718,
+          "iron": 10,
+          "silver": 70,
+          "deed": 20
+        },
+        "bowEssence": 0,
+        "archerTier": 2,
+        "silverArmory": 1
+      }
+    },
+    {
+      "label": "L40 iron frontline train iron_spearman",
+      "online": 24420,
+      "offline": 0,
+      "tick": 58132,
+      "expression": "train('iron_spearman',11)",
+      "result": {
+        "ok": true,
+        "qty": 11
+      },
+      "resourceDelta": {}
+    },
+    {
+      "label": "wait L40 iron frontline queue completion",
+      "seconds": 1100,
+      "online": 25520,
+      "tick": 59232,
+      "satisfied": true,
+      "state": {
+        "defeated": 39,
+        "pop": 19,
+        "merit": 473,
+        "res": {
+          "wood": 3000,
+          "stone": 1996,
+          "food": 2580.4400000000032,
+          "tech": 70.00000000000864,
+          "coal": 598,
+          "copper": 718,
+          "iron": 10,
+          "silver": 70,
+          "deed": 20
+        },
+        "bowEssence": 0,
+        "archerTier": 2,
+        "silverArmory": 1
+      }
+    },
+    {
+      "label": "L40 bronze and bow train bronze_guard",
+      "online": 25520,
+      "offline": 0,
+      "tick": 59232,
+      "expression": "train('bronze_guard',20)",
+      "result": {
+        "ok": true,
+        "qty": 20
+      },
+      "resourceDelta": {}
+    },
+    {
+      "label": "wait L40 bronze and bow queue completion",
+      "seconds": 3070,
+      "online": 28590,
+      "tick": 62302,
+      "satisfied": true,
+      "state": {
+        "defeated": 39,
+        "pop": 19,
+        "merit": 473,
+        "res": {
+          "wood": 3000,
+          "stone": 1996,
+          "food": 0.9279587591475575,
+          "tech": 70.00000000000864,
+          "coal": 587,
+          "copper": 720,
+          "iron": 10,
+          "silver": 70,
+          "deed": 20
+        },
+        "bowEssence": 0,
+        "archerTier": 2,
+        "silverArmory": 1
+      }
+    },
+    {
+      "label": "battle 40",
+      "kind": 40,
+      "win": true,
+      "round": 3,
+      "callbacks": 29,
+      "enemy": {
+        "name": "深渊领主",
+        "alert": 0
+      },
+      "form": {
+        "front": [
+          {
+            "type": "iron_spearman",
+            "count": 10,
+            "id": 1790781364915
+          },
+          {
+            "type": "bronze_guard",
+            "count": 10,
+            "id": 1790781364916
+          },
+          {
+            "type": "silver_heavy",
+            "count": 10,
+            "id": 1790781364917
+          }
+        ],
+        "mid": [
+          {
+            "type": "iron_spearman",
+            "count": 10,
+            "id": 1790781364918
+          },
+          {
+            "type": "bronze_guard",
+            "count": 10,
+            "id": 1790781364919
+          }
+        ],
+        "back": [
+          {
+            "type": "archer_silverbow",
+            "count": 10,
+            "id": 1790781364920
+          },
+          {
+            "type": "archer_silverbow",
+            "count": 10,
+            "id": 1790781364921
+          }
+        ]
+      },
+      "before": {
+        "defeated": 39,
+        "pop": 19,
+        "res": {
+          "wood": 3000,
+          "stone": 1996,
+          "food": 0.9279587591475575,
+          "tech": 70.00000000000864,
+          "coal": 587,
+          "copper": 720,
+          "iron": 10,
+          "silver": 70,
+          "deed": 20
+        }
+      },
+      "after": {
+        "defeated": 40,
+        "pop": 19,
+        "res": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 3000,
+          "tech": 70.00000000000864,
+          "coal": 587,
+          "copper": 720,
+          "iron": 10,
+          "silver": 70,
+          "deed": 20
+        }
+      },
+      "losses": {
+        "infantry": 0,
+        "iron_spearman": 0,
+        "bronze_guard": 10,
+        "silver_heavy": 5,
+        "archer_t1": 0,
+        "archer_silverbow": 0
+      },
+      "battleTicks": 11,
+      "callbackMs": 11865,
+      "battleSeconds": 0,
+      "offline": 0
+    },
+    {
+      "label": "reload L40 silver result",
+      "online": 28590,
+      "offline": 0,
+      "saveSha256": "ecedde8e7295d995661f68d029df9c05c599afc2eabf9b32e404f24ada78d7d8"
+    }
+  ],
+  "final": {
+    "tick": 62313,
+    "defeated": 40,
+    "merit": 518,
+    "pop": 19,
+    "res": {
+      "wood": 3000,
+      "stone": 2000,
+      "food": 3000,
+      "tech": 70.00000000000864,
+      "coal": 587,
+      "copper": 720,
+      "iron": 10,
+      "silver": 70,
+      "gold": 0,
+      "steel": 0,
+      "coin": 0,
+      "silverCoin": 0,
+      "goldCoin": 0,
+      "deed": 20,
+      "medal": 7,
+      "bone": 0,
+      "hide": 0
+    },
+    "essence": {
+      "bow_essence": 2,
+      "crossbow_essence": 3,
+      "blade_essence": 3,
+      "wind_essence": 3,
+      "iron_essence": 2,
+      "shield_essence": 1,
+      "spear_essence": 1,
+      "sword_essence": 1
+    },
+    "workers": {
+      "wood": 4,
+      "stone": 3,
+      "food": 7,
+      "coal": 3,
+      "copper": 2,
+      "iron": 0,
+      "silver": 0,
+      "gold": 0,
+      "steel": 0,
+      "coin": 0,
+      "silverCoin": 0,
+      "goldCoin": 0,
+      "tech": 0
+    },
+    "pool": {
+      "infantry": 0,
+      "archer": 0,
+      "bronze_guard": 0,
+      "iron_spearman": 0,
+      "archer_t1": 0,
+      "archer_silverbow": 0,
+      "silver_heavy": 0
+    },
+    "queue": {
+      "infantry": {
+        "count": 0,
+        "timer": 0,
+        "reason": ""
+      },
+      "archer": {
+        "count": 0,
+        "timer": 0,
+        "reason": ""
+      },
+      "bronze_guard": {
+        "count": 0,
+        "timer": 0,
+        "reason": ""
+      },
+      "iron_spearman": {
+        "count": 0,
+        "timer": 0,
+        "reason": ""
+      },
+      "archer_t1": {
+        "count": 0,
+        "timer": 0,
+        "reason": ""
+      },
+      "archer_silverbow": {
+        "count": 0,
+        "timer": 0,
+        "reason": ""
+      },
+      "silver_heavy": {
+        "count": 0,
+        "timer": 0,
+        "reason": ""
+      }
+    },
+    "outer": {
+      "village": {
+        "wins": 0,
+        "alert": 0
+      },
+      "town": {
+        "wins": 1,
+        "alert": 20
+      },
+      "city": {
+        "wins": 0,
+        "alert": 0
+      },
+      "capital": {
+        "wins": 0,
+        "alert": 0
+      }
+    },
+    "buildings": {
+      "academy": {
+        "lv": 1,
+        "state": "idle",
+        "timer": 0,
+        "timerEnd": 0,
+        "tier": 0
+      },
+      "farm": {
+        "lv": 1,
+        "state": "idle",
+        "timer": 0,
+        "timerEnd": 0,
+        "tier": 0
+      },
+      "warehouse": {
+        "lv": 2,
+        "state": "idle",
+        "timer": 0,
+        "timerEnd": 0,
+        "tier": 0
+      },
+      "market": {
+        "lv": 1,
+        "state": "idle",
+        "timer": 0,
+        "timerEnd": 0,
+        "tier": 0
+      },
+      "barracks": {
+        "lv": 1,
+        "state": "idle",
+        "timer": 0,
+        "timerEnd": 0,
+        "tier": 0
+      },
+      "infantry_camp": {
+        "lv": 1,
+        "state": "idle",
+        "timer": 0,
+        "timerEnd": 0,
+        "tier": 0
+      },
+      "archer_range": {
+        "lv": 2,
+        "state": "idle",
+        "timer": 0,
+        "timerEnd": 0,
+        "tier": 2
+      },
+      "copper_store": {
+        "lv": 1,
+        "state": "idle",
+        "timer": 0,
+        "timerEnd": 0,
+        "tier": 0
+      },
+      "bronze_workshop": {
+        "lv": 2,
+        "state": "idle",
+        "timer": 0,
+        "timerEnd": 0,
+        "tier": 0
+      },
+      "iron_forge": {
+        "lv": 2,
+        "state": "idle",
+        "timer": 0,
+        "timerEnd": 0,
+        "tier": 0
+      },
+      "silver_armory": {
+        "lv": 1,
+        "state": "idle",
+        "timer": 0,
+        "timerEnd": 0,
+        "tier": 0
+      }
+    },
+    "upgraded": {
+      "archer_t1": true,
+      "archer_silverbow": true
+    }
+  },
+  "outputSave": "docs/codex/reports/data/p405-balanced-paid-handoff-save.json",
+  "outputSaveSha256": "5d0a47dcee430a2c68c1b7823a651ae7ff1c8e93a4ed53f508d7d7cbbb65cdce",
+  "failure": null
+}

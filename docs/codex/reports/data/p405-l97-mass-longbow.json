@@ -1,0 +1,901 @@
+{
+  "batch": "P405",
+  "input": "docs/codex/reports/data/p405-l96-onward-final-save.json",
+  "inputSha256": "f73cbc94d8352393923741d6a7a8e5d299d2fd5b781cffcd50721f37edc036cb",
+  "sourceHash": {
+    "config.js": "30da1763fc2f7f7453438d263a667bea58c6acc11d67481d16272f5e1ffb1c0f",
+    "levels.js": "cec80c26fa91f941994c253a2fe73be0dfe3f108237620b662fdab9f5449fd1d",
+    "math.js": "e23254b5ba63c824e0ef5302a2f17216f4ac80398711f76554bdb57b3bb52224",
+    "garrison.js": "4d233f0529d256cd1ace2de782603fcfcbbff110032ca4cf29c5e36af30f10ff",
+    "technology.js": "3d3485f57e1e3ef73d11077cec06d467f674959aa6f0dfb27c3eb4d4abf94536",
+    "tests/progression/harness.js": "4770d17fa72cc8c87f4c8ef79678f19d63a41da895b8dd58776e5a39ce2ede2b",
+    "tools/verify/probe-p405-mainline-continuous.js": "5ae989e6a13e803ff19f17307668ac4469c346467c918cc140504472a4a51fcd",
+    "docs/codex/reports/data/p405-l96-onward-final-save.json": "f73cbc94d8352393923741d6a7a8e5d299d2fd5b781cffcd50721f37edc036cb"
+  },
+  "method": "One real paid v36 route: outer town wins, settlement, tick growth, building upgrades, queues, modal formation, campaign callbacks and independent reload; fixed Math.random 0.5",
+  "units": "online is simulated noncombat tick seconds; battleMs is simulated callback milliseconds; UI actions instant in harness",
+  "setup": {
+    "capacities": {
+      "stone": 15200,
+      "wood": 22800,
+      "food": 13000,
+      "regiment": 30,
+      "longbow": 204,
+      "foodRate": 157.5
+    },
+    "areaRows": [
+      {
+        "action": "town-win",
+        "from": 1,
+        "to": 2,
+        "deed": 20,
+        "callbacks": 19,
+        "battleMs": 7822.5,
+        "armyBefore": 108,
+        "armyAfter": 102
+      },
+      {
+        "action": "town-win",
+        "from": 2,
+        "to": 3,
+        "deed": 20,
+        "callbacks": 19,
+        "battleMs": 7822.5,
+        "armyBefore": 102,
+        "armyAfter": 93
+      },
+      {
+        "action": "town-win",
+        "from": 3,
+        "to": 4,
+        "deed": 20,
+        "callbacks": 16,
+        "battleMs": 6720,
+        "armyBefore": 93,
+        "armyAfter": 80
+      },
+      {
+        "action": "town-win",
+        "from": 4,
+        "to": 5,
+        "deed": 20,
+        "callbacks": 19,
+        "battleMs": 7822.5,
+        "armyBefore": 80,
+        "armyAfter": 63
+      },
+      {
+        "action": "town-win",
+        "from": 5,
+        "to": 6,
+        "deed": 20,
+        "callbacks": 21,
+        "battleMs": 8662.5,
+        "armyBefore": 63,
+        "armyAfter": 42
+      },
+      {
+        "action": "refill",
+        "type": "archer_longbow",
+        "before": 42,
+        "target": 100,
+        "queued": 58,
+        "seconds": 30
+      },
+      {
+        "action": "town-win",
+        "from": 6,
+        "to": 7,
+        "deed": 20,
+        "callbacks": 16,
+        "battleMs": 6720,
+        "armyBefore": 100,
+        "armyAfter": 86
+      },
+      {
+        "action": "town-win",
+        "from": 7,
+        "to": 8,
+        "deed": 20,
+        "callbacks": 19,
+        "battleMs": 7822.5,
+        "armyBefore": 86,
+        "armyAfter": 66
+      },
+      {
+        "action": "town-win",
+        "from": 8,
+        "to": 9,
+        "deed": 20,
+        "callbacks": 21,
+        "battleMs": 8662.5,
+        "armyBefore": 66,
+        "armyAfter": 42
+      },
+      {
+        "action": "town-win",
+        "from": 9,
+        "to": 10,
+        "deed": 20,
+        "callbacks": 21,
+        "battleMs": 8662.5,
+        "armyBefore": 42,
+        "armyAfter": 17
+      }
+    ],
+    "buildRows": [
+      {
+        "action": "smallTown",
+        "levels": 4,
+        "deedBefore": 182,
+        "cost": 150,
+        "deedAfter": 32,
+        "populationWait": 40
+      },
+      {
+        "action": "build",
+        "key": "warehouse",
+        "from": 20,
+        "to": 21,
+        "cost": {
+          "wood": 5760,
+          "stone": 0,
+          "food": 0
+        },
+        "waited": 290,
+        "buildSeconds": 30
+      },
+      {
+        "action": "build",
+        "key": "warehouse",
+        "from": 21,
+        "to": 22,
+        "cost": {
+          "wood": 6080,
+          "stone": 0,
+          "food": 0
+        },
+        "waited": 380,
+        "buildSeconds": 40
+      },
+      {
+        "action": "build",
+        "key": "warehouse",
+        "from": 22,
+        "to": 23,
+        "cost": {
+          "wood": 6400,
+          "stone": 0,
+          "food": 0
+        },
+        "waited": 380,
+        "buildSeconds": 40
+      },
+      {
+        "action": "build",
+        "key": "warehouse",
+        "from": 23,
+        "to": 24,
+        "cost": {
+          "wood": 6720,
+          "stone": 0,
+          "food": 0
+        },
+        "waited": 410,
+        "buildSeconds": 40
+      },
+      {
+        "action": "build",
+        "key": "warehouse",
+        "from": 24,
+        "to": 25,
+        "cost": {
+          "wood": 7041,
+          "stone": 0,
+          "food": 0
+        },
+        "waited": 430,
+        "buildSeconds": 40
+      },
+      {
+        "action": "build",
+        "key": "warehouse",
+        "from": 25,
+        "to": 26,
+        "cost": {
+          "wood": 7360,
+          "stone": 0,
+          "food": 0
+        },
+        "waited": 450,
+        "buildSeconds": 40
+      },
+      {
+        "action": "build",
+        "key": "warehouse",
+        "from": 26,
+        "to": 27,
+        "cost": {
+          "wood": 7680,
+          "stone": 0,
+          "food": 0
+        },
+        "waited": 470,
+        "buildSeconds": 40
+      },
+      {
+        "action": "build",
+        "key": "warehouse",
+        "from": 27,
+        "to": 28,
+        "cost": {
+          "wood": 8000,
+          "stone": 0,
+          "food": 0
+        },
+        "waited": 500,
+        "buildSeconds": 40
+      },
+      {
+        "action": "build",
+        "key": "warehouse",
+        "from": 28,
+        "to": 29,
+        "cost": {
+          "wood": 8320,
+          "stone": 0,
+          "food": 0
+        },
+        "waited": 510,
+        "buildSeconds": 40
+      },
+      {
+        "action": "build",
+        "key": "warehouse",
+        "from": 29,
+        "to": 30,
+        "cost": {
+          "wood": 8640,
+          "stone": 0,
+          "food": 0
+        },
+        "waited": 540,
+        "buildSeconds": 40
+      },
+      {
+        "action": "build",
+        "key": "warehouse",
+        "from": 30,
+        "to": 31,
+        "cost": {
+          "wood": 8960,
+          "stone": 0,
+          "food": 0
+        },
+        "waited": 560,
+        "buildSeconds": 40
+      },
+      {
+        "action": "build",
+        "key": "warehouse",
+        "from": 31,
+        "to": 32,
+        "cost": {
+          "wood": 9280,
+          "stone": 0,
+          "food": 0
+        },
+        "waited": 570,
+        "buildSeconds": 50
+      },
+      {
+        "action": "build",
+        "key": "warehouse",
+        "from": 32,
+        "to": 33,
+        "cost": {
+          "wood": 9600,
+          "stone": 0,
+          "food": 0
+        },
+        "waited": 590,
+        "buildSeconds": 50
+      },
+      {
+        "action": "build",
+        "key": "warehouse",
+        "from": 33,
+        "to": 34,
+        "cost": {
+          "wood": 9920,
+          "stone": 0,
+          "food": 0
+        },
+        "waited": 620,
+        "buildSeconds": 50
+      },
+      {
+        "action": "build",
+        "key": "warehouse",
+        "from": 34,
+        "to": 35,
+        "cost": {
+          "wood": 10240,
+          "stone": 0,
+          "food": 0
+        },
+        "waited": 630,
+        "buildSeconds": 50
+      },
+      {
+        "action": "build",
+        "key": "large_granary",
+        "from": 1,
+        "to": 2,
+        "cost": {
+          "wood": 2160,
+          "stone": 0,
+          "food": 720
+        },
+        "waited": 90,
+        "buildSeconds": 20
+      },
+      {
+        "action": "build",
+        "key": "large_granary",
+        "from": 2,
+        "to": 3,
+        "cost": {
+          "wood": 2520,
+          "stone": 0,
+          "food": 840
+        },
+        "waited": 150,
+        "buildSeconds": 20
+      },
+      {
+        "action": "build",
+        "key": "large_granary",
+        "from": 3,
+        "to": 4,
+        "cost": {
+          "wood": 2880,
+          "stone": 0,
+          "food": 960
+        },
+        "waited": 170,
+        "buildSeconds": 20
+      },
+      {
+        "action": "build",
+        "key": "large_granary",
+        "from": 4,
+        "to": 5,
+        "cost": {
+          "wood": 3240,
+          "stone": 0,
+          "food": 1080
+        },
+        "waited": 200,
+        "buildSeconds": 20
+      },
+      {
+        "action": "build",
+        "key": "barracks",
+        "from": 4,
+        "to": 5,
+        "cost": {
+          "wood": 15034,
+          "stone": 15034,
+          "food": 8353
+        },
+        "waited": 980,
+        "buildSeconds": 70
+      },
+      {
+        "action": "build",
+        "key": "archer_range",
+        "from": 12,
+        "to": 13,
+        "cost": {
+          "wood": 3139,
+          "stone": 3139,
+          "food": 2668
+        },
+        "waited": 310,
+        "buildSeconds": 30
+      },
+      {
+        "action": "build",
+        "key": "archer_range",
+        "from": 13,
+        "to": 14,
+        "cost": {
+          "wood": 3453,
+          "stone": 3453,
+          "food": 2935
+        },
+        "waited": 400,
+        "buildSeconds": 30
+      },
+      {
+        "action": "build",
+        "key": "archer_range",
+        "from": 14,
+        "to": 15,
+        "cost": {
+          "wood": 3798,
+          "stone": 3798,
+          "food": 3228
+        },
+        "waited": 440,
+        "buildSeconds": 30
+      },
+      {
+        "action": "build",
+        "key": "archer_range",
+        "from": 15,
+        "to": 16,
+        "cost": {
+          "wood": 4178,
+          "stone": 4178,
+          "food": 3551
+        },
+        "waited": 500,
+        "buildSeconds": 30
+      },
+      {
+        "action": "build",
+        "key": "archer_range",
+        "from": 16,
+        "to": 17,
+        "cost": {
+          "wood": 4595,
+          "stone": 4595,
+          "food": 3906
+        },
+        "waited": 540,
+        "buildSeconds": 30
+      },
+      {
+        "action": "build",
+        "key": "archer_range",
+        "from": 17,
+        "to": 18,
+        "cost": {
+          "wood": 5055,
+          "stone": 5055,
+          "food": 4297
+        },
+        "waited": 600,
+        "buildSeconds": 30
+      },
+      {
+        "action": "build",
+        "key": "archer_range",
+        "from": 18,
+        "to": 19,
+        "cost": {
+          "wood": 5560,
+          "stone": 5560,
+          "food": 4726
+        },
+        "waited": 670,
+        "buildSeconds": 30
+      },
+      {
+        "action": "build",
+        "key": "archer_range",
+        "from": 19,
+        "to": 20,
+        "cost": {
+          "wood": 6116,
+          "stone": 6116,
+          "food": 5199
+        },
+        "waited": 730,
+        "buildSeconds": 30
+      },
+      {
+        "action": "build",
+        "key": "archer_range",
+        "from": 20,
+        "to": 21,
+        "cost": {
+          "wood": 6728,
+          "stone": 6728,
+          "food": 5719
+        },
+        "waited": 810,
+        "buildSeconds": 30
+      },
+      {
+        "action": "build",
+        "key": "archer_range",
+        "from": 21,
+        "to": 22,
+        "cost": {
+          "wood": 7401,
+          "stone": 7401,
+          "food": 6291
+        },
+        "waited": 900,
+        "buildSeconds": 40
+      },
+      {
+        "action": "build",
+        "key": "archer_range",
+        "from": 22,
+        "to": 23,
+        "cost": {
+          "wood": 8141,
+          "stone": 8141,
+          "food": 6920
+        },
+        "waited": 970,
+        "buildSeconds": 40
+      },
+      {
+        "action": "build",
+        "key": "archer_range",
+        "from": 23,
+        "to": 24,
+        "cost": {
+          "wood": 8955,
+          "stone": 8955,
+          "food": 7612
+        },
+        "waited": 1080,
+        "buildSeconds": 40
+      },
+      {
+        "action": "build",
+        "key": "archer_range",
+        "from": 24,
+        "to": 25,
+        "cost": {
+          "wood": 9850,
+          "stone": 9850,
+          "food": 8373
+        },
+        "waited": 1200,
+        "buildSeconds": 40
+      },
+      {
+        "action": "build",
+        "key": "archer_range",
+        "from": 25,
+        "to": 26,
+        "cost": {
+          "wood": 10835,
+          "stone": 10835,
+          "food": 9210
+        },
+        "waited": 1310,
+        "buildSeconds": 40
+      },
+      {
+        "action": "build",
+        "key": "archer_range",
+        "from": 26,
+        "to": 27,
+        "cost": {
+          "wood": 11919,
+          "stone": 11919,
+          "food": 10131
+        },
+        "waited": 1450,
+        "buildSeconds": 40
+      },
+      {
+        "action": "build",
+        "key": "archer_range",
+        "from": 27,
+        "to": 28,
+        "cost": {
+          "wood": 13110,
+          "stone": 13110,
+          "food": 11144
+        },
+        "waited": 1600,
+        "buildSeconds": 40
+      },
+      {
+        "action": "build",
+        "key": "archer_range",
+        "from": 28,
+        "to": 29,
+        "cost": {
+          "wood": 14421,
+          "stone": 14421,
+          "food": 12258
+        },
+        "waited": 1760,
+        "buildSeconds": 40
+      },
+      {
+        "action": "build",
+        "key": "farm",
+        "from": 20,
+        "to": 21,
+        "cost": {
+          "wood": 16266.666666666668,
+          "food": 8133.333333333334
+        },
+        "waited": 490,
+        "buildSeconds": 120
+      },
+      {
+        "action": "build",
+        "key": "farm",
+        "from": 21,
+        "to": 22,
+        "cost": {
+          "wood": 17600,
+          "food": 8800
+        },
+        "waited": 1050,
+        "buildSeconds": 120
+      },
+      {
+        "action": "build",
+        "key": "farm",
+        "from": 22,
+        "to": 23,
+        "cost": {
+          "wood": 18933.333333333336,
+          "food": 9466.666666666668
+        },
+        "waited": 1150,
+        "buildSeconds": 120
+      },
+      {
+        "action": "build",
+        "key": "farm",
+        "from": 23,
+        "to": 24,
+        "cost": {
+          "wood": 20266.666666666668,
+          "food": 10133.333333333334
+        },
+        "waited": 1230,
+        "buildSeconds": 120
+      },
+      {
+        "action": "build",
+        "key": "farm",
+        "from": 24,
+        "to": 25,
+        "cost": {
+          "wood": 21600.000000000004,
+          "food": 10800.000000000002
+        },
+        "waited": 1320,
+        "buildSeconds": 120
+      }
+    ],
+    "setupFills": [
+      {
+        "type": "gold_cavalry",
+        "before": 0,
+        "target": 29,
+        "queued": 29,
+        "seconds": 11600
+      },
+      {
+        "type": "silver_heavy",
+        "before": 0,
+        "target": 40,
+        "queued": 40,
+        "seconds": 12000
+      },
+      {
+        "type": "bronze_guard",
+        "before": 0,
+        "target": 20,
+        "queued": 20,
+        "seconds": 1340
+      },
+      {
+        "type": "iron_spearman",
+        "before": 0,
+        "target": 20,
+        "queued": 20,
+        "seconds": 2000
+      },
+      {
+        "type": "archer_longbow",
+        "before": 17,
+        "target": 200,
+        "queued": 183,
+        "seconds": 5400
+      }
+    ],
+    "paidTraining": {
+      "wood": 53020,
+      "stone": 19280,
+      "food": 105920,
+      "gold": 2900,
+      "silver": 4000,
+      "copper": 2000,
+      "iron": 2000
+    },
+    "online": 63810,
+    "ready": {
+      "path": "docs/codex/reports/data/p405-l97-ready-save.json",
+      "sha256": "a513c64131770b357d20ab183093e2dcd5cbe9465e9454d9060733dafe0497e4"
+    }
+  },
+  "routeStage": 97,
+  "totalOnline": 63810,
+  "totalBattleMs": 18165,
+  "attempts": 3,
+  "stop": {
+    "stage": 98,
+    "mode": "full-refill",
+    "inputSha256": "cf4438b76b318db8610e5666857dd1e9350686501b615bc7d5815b5d22c7f117",
+    "online": 25560,
+    "paid": {
+      "food": 74920,
+      "gold": 2900,
+      "silver": 4000,
+      "copper": 2000,
+      "wood": 14520,
+      "stone": 5280
+    },
+    "fills": [
+      {
+        "type": "gold_cavalry",
+        "before": 0,
+        "target": 29,
+        "queued": 29,
+        "seconds": 11600
+      },
+      {
+        "type": "silver_heavy",
+        "before": 0,
+        "target": 40,
+        "queued": 40,
+        "seconds": 12000
+      },
+      {
+        "type": "bronze_guard",
+        "before": 0,
+        "target": 20,
+        "queued": 20,
+        "seconds": 1330
+      },
+      {
+        "type": "iron_spearman",
+        "before": 20,
+        "target": 20,
+        "queued": 0,
+        "seconds": 0
+      },
+      {
+        "type": "archer_longbow",
+        "before": 134,
+        "target": 200,
+        "queued": 66,
+        "seconds": 630
+      }
+    ],
+    "won": false,
+    "round": 3,
+    "callbacks": 39,
+    "battleMs": 16065,
+    "enemy": {
+      "name": "圣殿骑士",
+      "groups": 9,
+      "soldiers": 798
+    },
+    "enemyRemaining": [
+      {
+        "type": "infantry",
+        "row": "front",
+        "hp": 122,
+        "maxHp": 122,
+        "count": 122
+      },
+      {
+        "type": "archer",
+        "row": "back",
+        "hp": 122,
+        "maxHp": 122,
+        "count": 122
+      },
+      {
+        "type": "archer",
+        "row": "back",
+        "hp": 91,
+        "maxHp": 91,
+        "count": 91
+      },
+      {
+        "type": "archer",
+        "row": "back",
+        "hp": 53,
+        "maxHp": 53,
+        "count": 53
+      },
+      {
+        "type": "cavalry_t1",
+        "row": "front",
+        "hp": 53,
+        "maxHp": 53,
+        "count": 53
+      }
+    ],
+    "armyBefore": 309,
+    "armyAfter": 0,
+    "losses": {
+      "archer_silverbow": 0,
+      "bronze_guard": 20,
+      "iron_spearman": 20,
+      "silver_heavy": 40,
+      "gold_cavalry": 29,
+      "archer_longbow": 200
+    },
+    "tickBefore": 442155,
+    "tickAfter": 442171,
+    "meritBefore": 2799,
+    "meritAfter": 2799,
+    "resBefore": {
+      "wood": 58.333333333324845,
+      "stone": 11180,
+      "food": 6484.92153638542,
+      "tech": 1.0000000000144382,
+      "coal": 3,
+      "copper": 8,
+      "iron": 10,
+      "silver": 1.999999999852813,
+      "gold": 0.5,
+      "steel": 0,
+      "coin": 0,
+      "silverCoin": 0,
+      "goldCoin": 0,
+      "deed": 32,
+      "medal": 75,
+      "bone": 0,
+      "hide": 0
+    },
+    "resAfter": {
+      "wood": 58.333333333324845,
+      "stone": 11180,
+      "food": 6484.92153638542,
+      "tech": 1.0000000000144382,
+      "coal": 3,
+      "copper": 8,
+      "iron": 10,
+      "silver": 1.999999999852813,
+      "gold": 0.5,
+      "steel": 0,
+      "coin": 0,
+      "silverCoin": 0,
+      "goldCoin": 0,
+      "deed": 32,
+      "medal": 75,
+      "bone": 0,
+      "hide": 0
+    },
+    "saveSha256": "687e24b51d23fdc23bf73ab145e68cc1f88be50f1233d018472c7814e394e7fe"
+  },
+  "checkpoints": {
+    "expanded-capacity": {
+      "path": "docs/codex/reports/data/p405-l97-expanded-capacity-save.json",
+      "sha256": "17667d3c63f62036c3bf4c922e54f424ac5416159ae550096d55d70fce470f33"
+    },
+    "ready": {
+      "path": "docs/codex/reports/data/p405-l97-ready-save.json",
+      "sha256": "a513c64131770b357d20ab183093e2dcd5cbe9465e9454d9060733dafe0497e4"
+    },
+    "won": {
+      "path": "docs/codex/reports/data/p405-l97-won-save.json",
+      "sha256": "d53dab711944ed857cecdb2d7914f0dd0fa925aa02e077d82209d88ed186cf22"
+    }
+  },
+  "finalPath": "docs/codex/reports/data/p405-l97-mass-longbow-final-save.json",
+  "finalSha256": "d53dab711944ed857cecdb2d7914f0dd0fa925aa02e077d82209d88ed186cf22",
+  "ledgerPath": "docs/codex/reports/data/p405-l97-mass-longbow-ledger.jsonl",
+  "failure": null
+}

@@ -4019,6 +4019,8 @@ function openAwakeningTrial(mode){
   if(!scienceUnlocked('sci_nuclear_age'))return{ok:false,reason:'science-prerequisite'};
   if(progress.level>=cfg.maxLevel)return{ok:false,reason:'max-level'};
   if(!['front','mid','back'].some(row=>S.formation[row].some(u=>u.type===unit&&u.count>0)))return{ok:false,reason:'unit-not-deployed'};
+  // openBattle() 会拒绝超出军团整编规模的编队；在异果扣费和写档前使用同一条件。
+  if(formSoldierCount()>steamMilitaryActiveFieldCap())return{ok:false,reason:'formation-too-large'};
   const cost=awakeningTrialCost();
   if(!Number.isSafeInteger(cost)||cost<=0)return{ok:false,reason:'numeric-limit'};
   if(S.items[cfg.fruit]<cost)return{ok:false,reason:'insufficient-items',cost};
@@ -4031,7 +4033,8 @@ function openAwakeningTrial(mode){
 function openAwakeningTrialFromUI(mode){
   const result=openAwakeningTrial(mode);
   if(!result.ok)toast(({unavailable:'当前无法开战','science-prerequisite':'尚未进入星核时代','max-level':'已达到20阶',
-    'unit-not-deployed':'请将星际先遣兵编入远征阵容','insufficient-items':'圣域异果不足','numeric-limit':'人数异常','save-failed':'保存失败，未消耗异果'})[result.reason]||'试炼暂不可用');
+    'unit-not-deployed':'请将星际先遣兵编入远征阵容','formation-too-large':'当前阵容超过军团整编后的军队规模，请先缩编',
+    'insufficient-items':'圣域异果不足','numeric-limit':'人数异常','save-failed':'保存失败，未消耗异果'})[result.reason]||'试炼暂不可用');
   return result;
 }
 function openDevelopmentBorder(site){
