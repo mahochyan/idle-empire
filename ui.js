@@ -1649,8 +1649,9 @@ function rTechFull(){
       h+=`<div class="tech-detail-row"><div class="tech-detail-head"><strong>${esc(sc.name)}</strong><span class="tech-detail-state">${state.stars}星 · ${state.progress}/${cfg.stepsPerStar}</span></div>`;
       h+=`<div class="tech-detail-desc">当前${stat==='atk'?'攻击':stat==='hp'?'单兵生命':'防御'} +${bonus}</div>`;
       h+=single.ok?`<div class="tech-detail-cost">每次 ${esc(resourceDisplayName(cfg.material))} ${single.cost} · 补满本星 ${fill.ok?fill.cost:'暂不可用'}</div>`:`<div class="tech-detail-cost">投入费用超出可精确支付范围</div>`;
+      if(unlocked&&batch>1&&batchQuote?.ok)h+=`<div class="tech-detail-cost">批量 ${batch} 次合计 ${esc(resourceDisplayName(cfg.material))} ${batchQuote.cost}${batch>remaining?' · 跨星分段计价':''}</div>`;
       h+=`<div class="tech-detail-actions"><button class="btn btn-go btn-xs" ${unlocked&&singlePayable?'':'disabled'} onclick="investArmsUp('${uk}','${stat}')">投入一次</button>`;
-      if(unlocked&&batch>1&&batchQuote?.ok&&stock-(stock-batchQuote.cost)===batchQuote.cost)h+=`<button class="btn btn-ghost btn-xs" onclick="investArmsUp('${uk}','${stat}',${batch})">${batch===remaining?'补满本星':'投入'+batch+'次'}</button>`;
+      if(unlocked&&batch>1&&batchQuote?.ok&&stock-(stock-batchQuote.cost)===batchQuote.cost)h+=`<button class="btn btn-ghost btn-xs" onclick="investArmsUp('${uk}','${stat}',${batch})">${batch===remaining?'补满本星':(batch>remaining?'跨星投入':'投入')+batch+'次'}</button>`;
       h+=`</div></div>`;
     }
     h+=`</div>`;

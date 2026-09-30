@@ -18,7 +18,7 @@ const units=[
   ['star_trooper',9,'steel',150010,4000,'sci_nuclear_age']
 ];
 
-check('八个现有时代兵种的三维费用与母本370002～009逐项一致',()=>{
+check('八个现有时代兵种的三维基础Need与母本370002～009逐项一致',()=>{
   const e=environment();
   for(const [uk,id,material,materialId,cost,science]of units){
     const digits=String(id).padStart(3,'0');
@@ -71,7 +71,7 @@ check('铜仓只够部分投入时同价批量支付，兵数与敌方生命不�
 
 check('条件足额的一星早期兵装同时作用于远征与驻军，敌军不继承',()=>{
   const e=environment();
-  e.run("S.sciences=['sci_bronze_age'];S.res.copper=3000000;S.formation.front=[{id:1,type:'bronze_guard',count:10}];S._garrisonForm.front=[{id:2,type:'bronze_guard',count:10}]");
+  e.run("S.sciences=['sci_bronze_age'];S.res.copper=21100000;S.formation.front=[{id:1,type:'bronze_guard',count:10}];S._garrisonForm.front=[{id:2,type:'bronze_guard',count:10}]");
   for(const stat of ['atk','hp','def'])assert.equal(e.run(`investArmsUp('bronze_guard','${stat}',1000).ok`),true);
   e.run('S.selEnemy=0;initBattleState()');
   assert.equal(e.run('B.ourUnits[0].atk'),8);
@@ -86,7 +86,7 @@ check('条件足额的一星早期兵装同时作用于远征与驻军，敌军�
 
 check('攻击第10星与生命第100星实付跨档，远征／驻军共用且v32重载保留',()=>{
   const e=environment();
-  e.run("S.sciences=['sci_bronze_age'];S.res.copper=2000;S.armsUp.bronze_guard.atk={stars:9,progress:999};S.armsUp.bronze_guard.hp={stars:99,progress:999};S.formation.front=[{id:11,type:'bronze_guard',count:10}];S._garrisonForm.front=[{id:12,type:'bronze_guard',count:10}]");
+  e.run("S.sciences=['sci_bronze_age'];S.res.copper=20000;S.armsUp.bronze_guard.atk={stars:9,progress:999};S.armsUp.bronze_guard.hp={stars:99,progress:999};S.formation.front=[{id:11,type:'bronze_guard',count:10}];S._garrisonForm.front=[{id:12,type:'bronze_guard',count:10}]");
   assert.equal(e.run("weaponAttack('bronze_guard')"),16);
   assert.ok(Math.abs(e.run("battleVitals('bronze_guard',10,true).hpPerSoldier")-2.99)<1e-9);
   assert.equal(e.run("battleVitals('bronze_guard',10,false).hpPerSoldier"),2);
@@ -115,11 +115,11 @@ check('攻击第10星与生命第100星实付跨档，远征／驻军共用且v3
 
 check('阶段档位投入存档失败时铜库存、星数、进度均回滚',()=>{
   const e=environment();
-  e.run("S.sciences=['sci_bronze_age'];S.res.copper=1000;S.armsUp.bronze_guard.atk={stars:9,progress:999};save()");
+  e.run("S.sciences=['sci_bronze_age'];S.res.copper=10000;S.armsUp.bronze_guard.atk={stars:9,progress:999};save()");
   const original=e.store.get('rts_save');
   e.run("localStorage.setItem=()=>{throw Error('quota')}");
   assert.equal(e.run("investArmsUp('bronze_guard','atk').reason"),'save-failed');
-  assert.equal(e.run('S.res.copper'),1000);
+  assert.equal(e.run('S.res.copper'),10000);
   assert.equal(e.run('S.armsUp.bronze_guard.atk.stars'),9);
   assert.equal(e.run('S.armsUp.bronze_guard.atk.progress'),999);
   assert.equal(e.run("weaponAttack('bronze_guard')"),16);

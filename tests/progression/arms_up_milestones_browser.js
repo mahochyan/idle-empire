@@ -41,20 +41,21 @@ async function evalJs(expression){const result=await send('Runtime.evaluate',{ex
   await send('Runtime.enable');await send('Page.enable');
   await send('Emulation.setDeviceMetricsOverride',{width:360,height:800,deviceScaleFactor:1,mobile:true});
   await sleep(1000);
-  const fixture=await evalJs("(()=>{S.sciences=['sci_bronze_age'];S.res.copper=2000;S.armsUp.bronze_guard.atk={stars:9,progress:999};S.armsUp.bronze_guard.hp={stars:99,progress:999};S.page='tech';updateUI();save();return true})()");
+  const fixture=await evalJs("(()=>{S.sciences=['sci_bronze_age'];S.res.copper=20000;S.armsUp.bronze_guard.atk={stars:9,progress:999};S.armsUp.bronze_guard.hp={stars:99,progress:999};S.page='tech';updateUI();save();return true})()");
   check('360px 青铜兵装卡片显示两个阶段门槛',fixture&&await evalJs("(()=>{const c=[...document.querySelectorAll('#main .card')].find(x=>x.textContent.includes('青铜盾兵装'));return !!c&&c.textContent.includes('攻击每10星追加基础属性20%')&&c.textContent.includes('生命每100星追加基础属性20%')&&document.documentElement.scrollWidth<=innerWidth+1})()"));
   const before=await evalJs("(()=>{const c=[...document.querySelectorAll('#main .card')].find(x=>x.textContent.includes('青铜盾兵装'));return {text:c?.textContent,atk:weaponAttack('bronze_guard'),hp:battleVitals('bronze_guard',1,true).hpPerSoldier}})()");
   check('跨档前科技页与计算值对应9星攻击、99星生命',before.atk===16&&Math.abs(before.hp-2.99)<1e-9&&before.text.includes('当前攻击 +9')&&before.text.includes('当前单兵生命 +0.99'),before);
   const afterAttack=await evalJs("(()=>{const c=[...document.querySelectorAll('#main .card')].find(x=>x.textContent.includes('青铜盾兵装'));const b=[...c.querySelectorAll('button')].find(x=>x.getAttribute('onclick')===\"investArmsUp('bronze_guard','atk')\");if(!b||b.disabled)return {clicked:false};b.click();const d=JSON.parse(localStorage.getItem('rts_save'));return {clicked:true,stock:S.res.copper,stars:S.armsUp.bronze_guard.atk.stars,progress:S.armsUp.bronze_guard.atk.progress,attack:weaponAttack('bronze_guard'),savedStars:d.armsUp.bronze_guard.atk.stars,version:d.v,text:[...document.querySelectorAll('#main .card')].find(x=>x.textContent.includes('青铜盾兵装')).textContent}})()");
-  check('真实攻击按钮实扣铜并将9星升到10星，战斗属性与存档一致',afterAttack.clicked&&afterAttack.stock===1000&&afterAttack.stars===10&&afterAttack.progress===0&&afterAttack.attack===18&&afterAttack.savedStars===10&&afterAttack.version===33&&afterAttack.text.includes('当前攻击 +11'),afterAttack);
+  check('真实攻击按钮实扣铜并将9星升到10星，战斗属性与存档一致',afterAttack.clicked&&afterAttack.stock===10000&&afterAttack.stars===10&&afterAttack.progress===0&&afterAttack.attack===18&&afterAttack.savedStars===10&&afterAttack.version===36&&afterAttack.text.includes('当前攻击 +11'),afterAttack);
   const afterHp=await evalJs("(()=>{const c=[...document.querySelectorAll('#main .card')].find(x=>x.textContent.includes('青铜盾兵装'));const b=[...c.querySelectorAll('button')].find(x=>x.getAttribute('onclick')===\"investArmsUp('bronze_guard','hp')\");if(!b||b.disabled)return {clicked:false};b.click();const d=JSON.parse(localStorage.getItem('rts_save'));return {clicked:true,stock:S.res.copper,stars:S.armsUp.bronze_guard.hp.stars,progress:S.armsUp.bronze_guard.hp.progress,hp:battleVitals('bronze_guard',1,true).hpPerSoldier,savedStars:d.armsUp.bronze_guard.hp.stars,savedVersion:d.v,text:[...document.querySelectorAll('#main .card')].find(x=>x.textContent.includes('青铜盾兵装')).textContent,overflow:document.documentElement.scrollWidth>innerWidth+1}})()");
-  check('真实生命按钮跨100星档位后总加值为1.40并写入v33档',afterHp.clicked&&afterHp.stock===0&&afterHp.stars===100&&afterHp.progress===0&&Math.abs(afterHp.hp-3.4)<1e-9&&afterHp.savedStars===100&&afterHp.savedVersion===33&&afterHp.text.includes('当前单兵生命 +1.40')&&!afterHp.overflow,afterHp);
+  check('真实生命按钮跨100星档位后总加值为1.40并写入v36档',afterHp.clicked&&afterHp.stock===0&&afterHp.stars===100&&afterHp.progress===0&&Math.abs(afterHp.hp-3.4)<1e-9&&afterHp.savedStars===100&&afterHp.savedVersion===36&&afterHp.text.includes('当前单兵生命 +1.40')&&!afterHp.overflow,afterHp);
   check('浏览器过程零未捕获异常',exceptions.length===0,exceptions.slice(0,3));
   console.log(JSON.stringify({checks,exceptions,passed:checks.filter(result=>result.ok).length,failed:checks.filter(result=>!result.ok).length},null,2));
   process.exitCode=checks.some(result=>!result.ok)?1:0;
 })().catch(error=>{console.error('BROWSER_SMOKE_ERROR',error&&error.stack||error);process.exitCode=2;}).finally(async()=>{
+  if(ws?.readyState===WebSocket.OPEN)try{await Promise.race([send('Browser.close'),sleep(1000)]);}catch(_){}
   try{ws?.close();}catch(_){}
   if(browser.pid)spawnSync('taskkill',['/PID',String(browser.pid),'/T','/F'],{windowsHide:true,stdio:'ignore'});
-  await sleep(250);
-  try{if(profile.startsWith(tempRoot+path.sep)&&fs.existsSync(profile))fs.rmSync(profile,{recursive:true,force:true});}catch(error){console.error('PROFILE_CLEANUP_FAILED',error.message);}
+  await sleep(500);
+  try{if(path.resolve(profile).startsWith(tempRoot+path.sep)&&fs.existsSync(profile))fs.rmSync(profile,{recursive:true,force:true,maxRetries:10,retryDelay:100});}catch(error){console.error('PROFILE_CLEANUP_FAILED',error.message);if(!process.exitCode)process.exitCode=3;}
 });

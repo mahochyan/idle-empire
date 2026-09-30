@@ -2810,22 +2810,73 @@ function upgradeQuantumArmament(uk,stat){
   if(typeof updateUI==='function')updateUI();
   return{ok:true,level:S.quantumArmament[uk][stat],cost};
 }
-// 同一兵装维度累计1000次得一星；批量仅合并玩家本可逐次完成的等价投入。
+// 只在报价阶段用 BigInt；费用确认可精确支付后仍以 Number 保存资源，不新增存档字段。
+function armsUpStepCostUnits(uk,stat,stars){
+  const cfg=CFG.armsUp[uk],curve=CFG.armsUpCostCurve?.[stat];
+  if(!cfg||!Object.prototype.hasOwnProperty.call(cfg.stats,stat)||!curve)return{ok:false,reason:'unknown-upgrade'};
+  if(!Number.isSafeInteger(stars)||stars<0||!Number.isSafeInteger(cfg.stepCost)||cfg.stepCost<=0)return{ok:false,reason:'numeric-limit'};
+  const band=curve.bands.find(([from,to])=>stars>=from&&stars<to);
+  if(!band)return{ok:true,units:BigInt(cfg.stepCost)*BigInt(CFG.armsUpCostCurve.fallbackMultiplier)};
+  const numerator=BigInt(cfg.stepCost)*(BigInt(stars)+1n)*BigInt(curve.factor)*BigInt(band[2]);
+  const divisor=BigInt(curve.divisor);
+  if(numerator%divisor!==0n)return{ok:false,reason:'numeric-limit'};
+  return{ok:true,units:numerator/divisor};
+}
+// 与逐次投入等价：跨星重取下一星价格，含源默认档；整笔报价后再付款。
+function armsUpCost(uk,stat,times=1){
+  const cfg=CFG.armsUp[uk];
+  if(!cfg||!Object.prototype.hasOwnProperty.call(cfg.stats,stat))return{ok:false,reason:'unknown-upgrade'};
+  if(!Number.isSafeInteger(times)||times<1||times>cfg.stepsPerStar)return{ok:false,reason:'invalid-count'};
+  const current=S.armsUp[uk]?.[stat];
+  if(!current||!Number.isSafeInteger(current.stars)||current.stars<0||!Number.isSafeInteger(current.progress)||current.progress<0||current.progress>=cfg.stepsPerStar)return{ok:false,reason:'invalid-state'};
+  let stars=current.stars,progress=current.progress,left=times,cost=0n;
+  while(left>0){
+    const step=armsUpStepCostUnits(uk,stat,stars);
+    if(!step.ok)return step;
+    const count=Math.min(left,cfg.stepsPerStar-progress);
+    cost+=step.units*BigInt(count);
+    left-=count;progress+=count;
+    if(progress===cfg.stepsPerStar){stars++;progress=0;if(!Number.isSafeInteger(stars))return{ok:false,reason:'numeric-limit'};}
+  }
+  const amount=Number(cost);
+  // 安全整数以上也可精确表示，例如源默认单价1e18；仅拒绝实际转换失真。
+  if(!Number.isFinite(amount)||!Number.isInteger(amount)||BigInt(amount)!==cost)return{ok:false,reason:'numeric-limit'};
+  return{ok:true,cost:amount,stars,progress};
+}
+// 优先补满本星；历史大库存若小额扣费失真，再找可精确支付的跨星批量。
+function armsUpPayableBatch(uk,stat){
+  const cfg=CFG.armsUp[uk],current=S.armsUp[uk]?.[stat];
+  if(!cfg||!current)return 0;
+  const stock=S.res[cfg.material],single=armsUpCost(uk,stat);
+  if(!single.ok||!Number.isFinite(stock)||stock<single.cost)return 0;
+  const remaining=cfg.stepsPerStar-current.progress;
+  const payable=count=>{
+    const quote=armsUpCost(uk,stat,count);
+    return quote.ok&&stock>=quote.cost&&stock-(stock-quote.cost)===quote.cost;
+  };
+  for(let count=Math.min(remaining,Math.floor(stock/single.cost));count>0;count--)
+    if(payable(count))return count;
+  for(let count=cfg.stepsPerStar;count>remaining;count--)
+    if(payable(count))return count;
+  return 0;
+}
 function investArmsUp(uk,stat,times=1){
   if(_saveProtected)return{ok:false,reason:'save-protected'};
   const cfg=CFG.armsUp[uk];
   if(!cfg||!Object.prototype.hasOwnProperty.call(cfg.stats,stat))return{ok:false,reason:'unknown-upgrade'};
   if(!scienceUnlocked(cfg.needScience))return{ok:false,reason:'science-prerequisite'};
-  if(!Number.isSafeInteger(times)||times<1||times>cfg.stepsPerStar)return{ok:false,reason:'invalid-count'};
-  const current=S.armsUp[uk][stat],cost=cfg.stepCost*times;
-  const total=current.progress+times,stars=current.stars+Math.floor(total/cfg.stepsPerStar);
-  if(!Number.isSafeInteger(cost)||!Number.isSafeInteger(stars))return{ok:false,reason:'numeric-limit'};
-  if(!Number.isFinite(S.res[cfg.material])||S.res[cfg.material]<cost)return{ok:false,reason:'insufficient-resources',cost};
-  const oldStock=S.res[cfg.material],oldStars=current.stars,oldProgress=current.progress;
-  S.res[cfg.material]-=cost;
-  current.stars=stars;current.progress=total%cfg.stepsPerStar;
+  const quote=armsUpCost(uk,stat,times);
+  if(!quote.ok)return quote;
+  const cost=quote.cost,current=S.armsUp[uk][stat],oldStock=S.res[cfg.material];
+  if(!Number.isFinite(oldStock)||oldStock<cost)return{ok:false,reason:'insufficient-resources',cost};
+  const nextStock=oldStock-cost;
+  // 历史超仓库存保留；若 Number 无法准确扣下本笔费用，拒绝投资，不能免费升星。
+  if(!Number.isFinite(nextStock)||nextStock<0||oldStock-nextStock!==cost)return{ok:false,reason:'numeric-limit'};
+  const oldStars=current.stars,oldProgress=current.progress;
+  S.res[cfg.material]=nextStock;
+  current.stars=quote.stars;current.progress=quote.progress;
   if(!save().ok){S.res[cfg.material]=oldStock;current.stars=oldStars;current.progress=oldProgress;return{ok:false,reason:'save-failed'}}
-  if(typeof addLog==='function')addLog(cfg.name+'·'+cfg.stats[stat].name+'投入'+times+'次'+(stars>oldStars?'，升至'+stars+'星':''));
+  if(typeof addLog==='function')addLog(cfg.name+'·'+cfg.stats[stat].name+'投入'+times+'次'+(quote.stars>oldStars?'，升至'+quote.stars+'星':''));
   if(typeof updateUI==='function')updateUI();
   return{ok:true,cost,stars:current.stars,progress:current.progress};
 }

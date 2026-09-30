@@ -712,6 +712,22 @@ const CFG = {
   steelMastery:{name:'冶钢精通',needScience:'sci_steel',maxLevel:20,perLevel:0.05,techBase:1500,lateMedalBase:30},
   // 母本 370002～370010 各关联 340xxx/341xxx/342xxx：三维分别按材料投入1000次升一星。
   // 母本每星+1 HP按当前兵团口径100:1换算；攻、防加值1:1。370001轻步兵与我方农民不是同兵种，暂不映射。
+  // 母本 getLvNeedALL：基础Need乘当前星数与三维档位；防御35～39等未列档位用源默认倍率。
+  armsUpCostCurve:{
+    fallbackMultiplier:1e15,
+    atk:{factor:1,divisor:1,bands:[
+      [0,10,1],[10,20,10],[20,30,100],[30,40,1e3],[40,50,1e4],[50,60,1e5],
+      [60,70,1e6],[70,80,1e7],[80,90,1e8],[90,100,1e9],[100,110,1e10],[110,120,1e11]
+    ]},
+    hp:{factor:1,divisor:10,bands:[
+      [0,100,1],[100,200,10],[200,300,100],[300,400,1e3],[400,500,1e4],[500,600,1e5],
+      [600,700,1e6],[700,800,1e7],[800,900,1e8],[900,1000,1e9],[1000,1100,1e10],[1100,1200,1e11]
+    ]},
+    def:{factor:20,divisor:1,bands:[
+      [0,5,1],[5,10,10],[10,15,100],[15,20,1e3],[20,25,1e4],[25,30,1e5],[30,35,1e6],
+      [40,45,1e7],[45,50,1e8],[50,55,1e9],[55,60,1e10],[60,65,1e11],[65,70,1e12]
+    ]}
+  },
   armsUp:{
     bronze_guard:{name:'青铜盾兵装',needScience:'sci_bronze_age',material:'copper',stepCost:1000,stepsPerStar:1000,
       stats:{atk:{name:'攻击精炼',perStar:1},hp:{name:'体魄精炼',perStar:0.01},def:{name:'防护精炼',perStar:1}}},
@@ -743,20 +759,22 @@ const CFG = {
     alloyArmor:{name:'合金甲',unit:'alloy_special',stat:'def',needScience:'sci_alloy_age',needWeapon:'alloySword',researchCost:{tech:5000,medal:80},stepCost:{steel:200},maxLevel:3,firstSteps:20,nextStepBase:10,nextStepPerLevel:2,initialDef:10,perLevelDef:10},
     armored:{name:'蒸汽装甲枪',unit:'armored_trooper',needScience:'sci_steam_age',researchCost:{tech:20000,medal:1000},stepCost:{iron:10000,steel:500},maxLevel:3,firstSteps:20,nextStepBase:10,nextStepPerLevel:2,initialAtk:6,perLevelAtk:4},
     // 母本470062→063→064；470063的Unlocked误指230062，这里依名称与230063的LimitID接迫击炮。
-    gatling:{name:'蒸汽加特林',unit:'armored_trooper',stat:'atk',needScience:'sci_steam_age',needWeapon:'armored',researchCost:{tech:80000,medal:5000},stepCost:{steel:2000,godCore:2},maxLevel:20,firstSteps:20,nextStepBase:10,nextStepPerLevel:2,initialAtk:9,perLevelAtk:1,skill:'sweep'},
-    mortar:{name:'蒸汽迫击炮',unit:'armored_trooper',stat:'atk',needScience:'sci_steam_age',needWeapon:'gatling',researchCost:{tech:150000,medal:8000},stepCost:{steel:3000,godCore:2},maxLevel:20,firstSteps:20,nextStepBase:10,nextStepPerLevel:2,initialAtk:9,perLevelAtk:1,skill:'bombard'},
+    // 母本当前等级>=10用Need2；本项目保留一次投入一次扣费，9→10本次仍付早期费。
+    // 源回调的连续if在9→10时可追加Need2并加一次进度；不复刻此同次追加扣费行为。
+    gatling:{name:'蒸汽加特林',unit:'armored_trooper',stat:'atk',needScience:'sci_steam_age',needWeapon:'armored',researchCost:{tech:80000,medal:5000},stepCost:{steel:2000,godCore:2},lateStepCost:{godCore:5},lateFromLevel:10,maxLevel:20,firstSteps:20,nextStepBase:10,nextStepPerLevel:2,initialAtk:9,perLevelAtk:1,skill:'sweep'},
+    mortar:{name:'蒸汽迫击炮',unit:'armored_trooper',stat:'atk',needScience:'sci_steam_age',needWeapon:'gatling',researchCost:{tech:150000,medal:8000},stepCost:{steel:3000,godCore:2},lateStepCost:{godCore:5},lateFromLevel:10,maxLevel:20,firstSteps:20,nextStepBase:10,nextStepPerLevel:2,initialAtk:9,perLevelAtk:1,skill:'bombard'},
     steamArmor:{name:'蒸汽甲',unit:'armored_trooper',stat:'def',needScience:'sci_steam_age',needWeapon:'mortar',researchCost:{tech:40000,medal:2000},stepCost:{steel:20000},maxLevel:3,firstSteps:20,nextStepBase:10,nextStepPerLevel:2,initialDef:10,perLevelDef:10},
     electro:{name:'电磁枪',unit:'electro_trooper',needScience:'sci_electric_age',researchCost:{tech:200000,medal:10000},stepCost:{iron:100000,steel:5000},maxLevel:3,firstSteps:20,nextStepBase:10,nextStepPerLevel:2,initialAtk:7,perLevelAtk:5},
     // 母本470072→073→074：技能枪逐次制造消耗内部材料键 godCore（玩家显示名“高能核心”），前置研究不可跳过。
-    electroRifle:{name:'电磁步枪',unit:'electro_trooper',stat:'atk',needScience:'sci_electric_age',needWeapon:'electro',researchCost:{tech:2000000,medal:50000},stepCost:{steel:10000,godCore:4},maxLevel:20,firstSteps:20,nextStepBase:10,nextStepPerLevel:2,initialAtk:10,perLevelAtk:1,skill:'rapid'},
-    electroSniper:{name:'狙击枪',unit:'electro_trooper',stat:'atk',needScience:'sci_electric_age',needWeapon:'electroRifle',researchCost:{tech:2500000,medal:70000},stepCost:{steel:10000,godCore:4},maxLevel:20,firstSteps:20,nextStepBase:10,nextStepPerLevel:2,initialAtk:10,perLevelAtk:1,skill:'snipe'},
+    electroRifle:{name:'电磁步枪',unit:'electro_trooper',stat:'atk',needScience:'sci_electric_age',needWeapon:'electro',researchCost:{tech:2000000,medal:50000},stepCost:{steel:10000,godCore:4},lateStepCost:{godCore:10},lateFromLevel:10,maxLevel:20,firstSteps:20,nextStepBase:10,nextStepPerLevel:2,initialAtk:10,perLevelAtk:1,skill:'rapid'},
+    electroSniper:{name:'狙击枪',unit:'electro_trooper',stat:'atk',needScience:'sci_electric_age',needWeapon:'electroRifle',researchCost:{tech:2500000,medal:70000},stepCost:{steel:10000,godCore:4},lateStepCost:{godCore:10},lateFromLevel:10,maxLevel:20,firstSteps:20,nextStepBase:10,nextStepPerLevel:2,initialAtk:10,perLevelAtk:1,skill:'snipe'},
     electroArmor:{name:'电磁甲',unit:'electro_trooper',stat:'def',needScience:'sci_electric_age',needWeapon:'electroSniper',researchCost:{tech:300000,medal:15000},stepCost:{steel:200000},maxLevel:3,firstSteps:20,nextStepBase:10,nextStepPerLevel:2,initialDef:10,perLevelDef:10},
     // 母本470075/076、220072/073：机巧阶段的进阶护甲；20级后每次锻造改付内部材料键 godCore 10。
     energyArmor:{name:'能源甲',unit:'electro_trooper',stat:'def',needScience:'sci_electric_age',needWeapon:'electroArmor',researchCost:{tech:3000000,medal:80000},stepCost:{godCore:4},lateStepCost:{godCore:10},lateFromLevel:20,maxLevel:40,firstSteps:20,nextStepBase:10,nextStepPerLevel:2,initialDef:5,perLevelDef:5,skill:'energy'},
     nanoArmor:{name:'纳米甲',unit:'electro_trooper',stat:'def',needScience:'sci_electric_age',needWeapon:'energyArmor',researchCost:{tech:3500000,medal:100000},stepCost:{godCore:4},lateStepCost:{godCore:10},lateFromLevel:20,maxLevel:40,firstSteps:20,nextStepBase:10,nextStepPerLevel:2,initialDef:5,perLevelDef:5,skill:'nano'},
     // 母本470081→082／230082→083；机器外形随星界主题命名。异兽附伤仅在目标明确标记源530001–009时启用。
-    starFighter:{name:'星界战机',unit:'star_trooper',stat:'atk',needScience:'sci_nuclear_age',researchCost:{tech:100000000,medal:1000000},stepCost:{steel:10000,godCore:8},maxLevel:20,firstSteps:20,nextStepBase:10,nextStepPerLevel:2,initialAtk:10,perLevelAtk:1,skill:'starFighter'},
-    starMissile:{name:'星陨飞弹',unit:'star_trooper',stat:'atk',needScience:'sci_nuclear_age',needWeapon:'starFighter',researchCost:{tech:100000000,medal:1000000},stepCost:{steel:10000,godCore:8},maxLevel:20,firstSteps:20,nextStepBase:10,nextStepPerLevel:2,initialAtk:10,perLevelAtk:1,skill:'starMissile'}
+    starFighter:{name:'星界战机',unit:'star_trooper',stat:'atk',needScience:'sci_nuclear_age',researchCost:{tech:100000000,medal:1000000},stepCost:{steel:10000,godCore:8},lateStepCost:{godCore:20},lateFromLevel:10,maxLevel:20,firstSteps:20,nextStepBase:10,nextStepPerLevel:2,initialAtk:10,perLevelAtk:1,skill:'starFighter'},
+    starMissile:{name:'星陨飞弹',unit:'star_trooper',stat:'atk',needScience:'sci_nuclear_age',needWeapon:'starFighter',researchCost:{tech:100000000,medal:1000000},stepCost:{steel:10000,godCore:8},lateStepCost:{godCore:20},lateFromLevel:10,maxLevel:20,firstSteps:20,nextStepBase:10,nextStepPerLevel:2,initialAtk:10,perLevelAtk:1,skill:'starMissile'}
   },
   // 母本首击效果在逐兵量纲；本项目将出战兵团聚合，并把源攻击伤害按10:1攻、100:1生命再乘0.1。
   starWeaponSkills:{fighter:{attackPct:1.35,defBreak:30,hpStep:10,damagePerHpStep:0.3,defPerHpStep:20,beastCurrentHpPct:0.18,beastCapAtk:30,sourceHpScale:0.1},

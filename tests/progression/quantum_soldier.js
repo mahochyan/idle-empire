@@ -76,7 +76,8 @@ check('离线十秒训练与在线倒计时一致，资源仅在完成时扣一�
 check('三维兵装须研究后扣钢；升星收益同时进入远征与驻军且不增兵',()=>{
   const e=environment();
   assert.equal(e.run("investArmsUp('quantum_trooper','hp').reason"),'science-prerequisite');
-  e.run("S.sciences.push('sci_quantum_age');S.res.steel=12000000;S.formation.front=[{type:'quantum_trooper',count:1,id:101}];S._garrisonForm.front=[{type:'quantum_trooper',count:1,id:102}]");
+  // 源0星三维1000次分别付钢400万、40万、8000万；保留原收益与兵数验收。
+  e.run("S.sciences.push('sci_quantum_age');S.res.steel=84400000;S.formation.front=[{type:'quantum_trooper',count:1,id:101}];S._garrisonForm.front=[{type:'quantum_trooper',count:1,id:102}]");
   for(const stat of ['atk','hp','def'])assert.equal(e.run(`investArmsUp('quantum_trooper','${stat}',1000).ok`),true);
   assert.equal(e.run('S.res.steel'),0);
   assert.equal(e.run('armyCount()'),2);
