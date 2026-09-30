@@ -1,0 +1,386 @@
+{
+  "baselineHead": "3c856bc43bca4f9e84f8c7439e8f48db0b9dc91c",
+  "sourceName": "p402-high-scroll-followup-save.json",
+  "sourceHash": "b615a8158c53eaa1c2b0603f619fe17dcdaa86980b8967e647c0abd83340aa6c",
+  "runtimeHash": {
+    "config.js": "30da1763fc2f7f7453438d263a667bea58c6acc11d67481d16272f5e1ffb1c0f",
+    "levels.js": "cec80c26fa91f941994c253a2fe73be0dfe3f108237620b662fdab9f5449fd1d",
+    "math.js": "e6980084a1f9b0a7a42f25342abd3e8f475e2737b6dfc300004425b02c2bdd4a",
+    "garrison.js": "4d233f0529d256cd1ace2de782603fcfcbbff110032ca4cf29c5e36af30f10ff",
+    "technology.js": "3d3485f57e1e3ef73d11077cec06d467f674959aa6f0dfb27c3eb4d4abf94536",
+    "tests/progression/harness.js": "4770d17fa72cc8c87f4c8ef79678f19d63a41da895b8dd58776e5a39ce2ede2b"
+  },
+  "seed": 403,
+  "policy": "current depleted formation; at most three real revival battles; cleanse each 4100 alert using real sacred blood; stop at first defeat; six online ticks between wins; no recruitment or offline time",
+  "initial": {
+    "tick": 14775367,
+    "clockMs": 1793249301000,
+    "knowledge": 239750977.24032307,
+    "knowledgeCap": 5173459665,
+    "techRate": 24354,
+    "food": 486970,
+    "army": 533,
+    "deployed": 486,
+    "leaf": 138,
+    "blood": 25,
+    "cleanser": 0,
+    "alert": 4100,
+    "store": 7,
+    "rng": 403
+  },
+  "cost": {
+    "tech": 4000000000,
+    "revivalLeaf": 4800
+  },
+  "refusal": {
+    "ok": false,
+    "reason": "insufficient-resources",
+    "cost": {
+      "tech": 4000000000,
+      "revivalLeaf": 4800
+    }
+  },
+  "clock": {
+    "onlineSeconds": 12,
+    "offlineSeconds": 0
+  },
+  "battles": [
+    {
+      "kind": "cleanse",
+      "before": {
+        "tick": 14775367,
+        "clockMs": 1793249301000,
+        "knowledge": 239750977.24032307,
+        "knowledgeCap": 5173459665,
+        "techRate": 24354,
+        "food": 486970,
+        "army": 533,
+        "deployed": 486,
+        "leaf": 138,
+        "blood": 25,
+        "cleanser": 0,
+        "alert": 4100,
+        "store": 7,
+        "rng": 403
+      },
+      "exchange": {
+        "ok": true,
+        "gained": 1,
+        "spent": 3,
+        "count": 1
+      },
+      "use": {
+        "ok": true,
+        "alert": 4000,
+        "spent": 1
+      },
+      "after": {
+        "tick": 14775367,
+        "clockMs": 1793249301000,
+        "knowledge": 239750977.24032307,
+        "knowledgeCap": 5173459665,
+        "techRate": 24354,
+        "food": 486970,
+        "army": 533,
+        "deployed": 486,
+        "leaf": 138,
+        "blood": 22,
+        "cleanser": 0,
+        "alert": 4000,
+        "store": 7,
+        "rng": 403
+      }
+    },
+    {
+      "kind": "battle",
+      "entry": {
+        "tick": 14775367,
+        "clockMs": 1793249301000,
+        "knowledge": 239750977.24032307,
+        "knowledgeCap": 5173459665,
+        "techRate": 24354,
+        "food": 486970,
+        "army": 533,
+        "deployed": 486,
+        "leaf": 138,
+        "blood": 22,
+        "cleanser": 0,
+        "alert": 4000,
+        "store": 7,
+        "rng": 403
+      },
+      "preview": {
+        "reward": {
+          "revivalLeaf": 105,
+          "sacredBlood": 3
+        },
+        "firstEnemy": [
+          "revival_god",
+          [
+            2520
+          ]
+        ],
+        "alert": 4000
+      },
+      "outcome": "win",
+      "callbacks": 37,
+      "after": {
+        "tick": 14775367,
+        "clockMs": 1793249301000,
+        "knowledge": 239750977.24032307,
+        "knowledgeCap": 5173459665,
+        "techRate": 24354,
+        "food": 486970,
+        "army": 463,
+        "deployed": 416,
+        "leaf": 243,
+        "blood": 25,
+        "cleanser": 0,
+        "alert": 4100,
+        "store": 7,
+        "rng": 1105233910
+      },
+      "leafGain": 105,
+      "bloodGain": 3,
+      "armyLoss": 70
+    },
+    {
+      "kind": "cleanse",
+      "before": {
+        "tick": 14775373,
+        "clockMs": 1793249307000,
+        "knowledge": 239897101.24032307,
+        "knowledgeCap": 5173459665,
+        "techRate": 24354,
+        "food": 491150,
+        "army": 463,
+        "deployed": 416,
+        "leaf": 243,
+        "blood": 25,
+        "cleanser": 0,
+        "alert": 4100,
+        "store": 7,
+        "rng": 1105233910
+      },
+      "exchange": {
+        "ok": true,
+        "gained": 1,
+        "spent": 3,
+        "count": 1
+      },
+      "use": {
+        "ok": true,
+        "alert": 4000,
+        "spent": 1
+      },
+      "after": {
+        "tick": 14775373,
+        "clockMs": 1793249307000,
+        "knowledge": 239897101.24032307,
+        "knowledgeCap": 5173459665,
+        "techRate": 24354,
+        "food": 491150,
+        "army": 463,
+        "deployed": 416,
+        "leaf": 243,
+        "blood": 22,
+        "cleanser": 0,
+        "alert": 4000,
+        "store": 7,
+        "rng": 1105233910
+      }
+    },
+    {
+      "kind": "battle",
+      "entry": {
+        "tick": 14775373,
+        "clockMs": 1793249307000,
+        "knowledge": 239897101.24032307,
+        "knowledgeCap": 5173459665,
+        "techRate": 24354,
+        "food": 491150,
+        "army": 463,
+        "deployed": 416,
+        "leaf": 243,
+        "blood": 22,
+        "cleanser": 0,
+        "alert": 4000,
+        "store": 7,
+        "rng": 1105233910
+      },
+      "preview": {
+        "reward": {
+          "revivalLeaf": 105,
+          "sacredBlood": 3
+        },
+        "firstEnemy": [
+          "revival_god",
+          [
+            2520
+          ]
+        ],
+        "alert": 4000
+      },
+      "outcome": "win",
+      "callbacks": 133,
+      "after": {
+        "tick": 14775373,
+        "clockMs": 1793249307000,
+        "knowledge": 239897101.24032307,
+        "knowledgeCap": 5173459665,
+        "techRate": 24354,
+        "food": 491150,
+        "army": 385,
+        "deployed": 338,
+        "leaf": 348,
+        "blood": 25,
+        "cleanser": 0,
+        "alert": 4100,
+        "store": 7,
+        "rng": 1261835794
+      },
+      "leafGain": 105,
+      "bloodGain": 3,
+      "armyLoss": 78
+    },
+    {
+      "kind": "cleanse",
+      "before": {
+        "tick": 14775379,
+        "clockMs": 1793249313000,
+        "knowledge": 240043225.24032307,
+        "knowledgeCap": 5173459665,
+        "techRate": 24354,
+        "food": 491150,
+        "army": 385,
+        "deployed": 338,
+        "leaf": 348,
+        "blood": 25,
+        "cleanser": 0,
+        "alert": 4100,
+        "store": 7,
+        "rng": 1261835794
+      },
+      "exchange": {
+        "ok": true,
+        "gained": 1,
+        "spent": 3,
+        "count": 1
+      },
+      "use": {
+        "ok": true,
+        "alert": 4000,
+        "spent": 1
+      },
+      "after": {
+        "tick": 14775379,
+        "clockMs": 1793249313000,
+        "knowledge": 240043225.24032307,
+        "knowledgeCap": 5173459665,
+        "techRate": 24354,
+        "food": 491150,
+        "army": 385,
+        "deployed": 338,
+        "leaf": 348,
+        "blood": 22,
+        "cleanser": 0,
+        "alert": 4000,
+        "store": 7,
+        "rng": 1261835794
+      }
+    },
+    {
+      "kind": "battle",
+      "entry": {
+        "tick": 14775379,
+        "clockMs": 1793249313000,
+        "knowledge": 240043225.24032307,
+        "knowledgeCap": 5173459665,
+        "techRate": 24354,
+        "food": 491150,
+        "army": 385,
+        "deployed": 338,
+        "leaf": 348,
+        "blood": 22,
+        "cleanser": 0,
+        "alert": 4000,
+        "store": 7,
+        "rng": 1261835794
+      },
+      "preview": {
+        "reward": {
+          "revivalLeaf": 105,
+          "sacredBlood": 3
+        },
+        "firstEnemy": [
+          "revival_god",
+          [
+            2520
+          ]
+        ],
+        "alert": 4000
+      },
+      "outcome": "lose",
+      "callbacks": 249,
+      "after": {
+        "tick": 14775379,
+        "clockMs": 1793249313000,
+        "knowledge": 240043225.24032307,
+        "knowledgeCap": 5173459665,
+        "techRate": 24354,
+        "food": 491150,
+        "army": 304,
+        "deployed": 257,
+        "leaf": 348,
+        "blood": 22,
+        "cleanser": 0,
+        "alert": 4000,
+        "store": 7,
+        "rng": 646549655
+      },
+      "leafGain": 0,
+      "bloodGain": 0,
+      "armyLoss": 81
+    }
+  ],
+  "stopReason": {
+    "kind": "battle-loss",
+    "at": 3
+  },
+  "final": {
+    "tick": 14775379,
+    "clockMs": 1793249313000,
+    "knowledge": 240043225.24032307,
+    "knowledgeCap": 5173459665,
+    "techRate": 24354,
+    "food": 491150,
+    "army": 304,
+    "deployed": 257,
+    "leaf": 348,
+    "blood": 22,
+    "cleanser": 0,
+    "alert": 4000,
+    "store": 7,
+    "rng": 646549655
+  },
+  "remaining": {
+    "leaf": 4452,
+    "knowledge": 3759956774.759677,
+    "knowledgeSecondsAtCurrentRate": 154388
+  },
+  "engineGate": {
+    "cost": {
+      "tech": 100000000000,
+      "medal": 30000000,
+      "merit": 0
+    },
+    "refusal": {
+      "ok": false,
+      "reason": "insufficient-tech"
+    },
+    "cap": 5173459665,
+    "capShortfall": 94826540335
+  },
+  "finalName": "p403-high-scroll-leaf-bounded-save.json",
+  "finalHash": "55806ac7f023bccc836bab84ddf4aa7f0a07fdf70c665a8e1a3a672dff28aae4"
+}

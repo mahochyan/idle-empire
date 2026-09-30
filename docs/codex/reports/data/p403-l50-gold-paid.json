@@ -1,0 +1,6090 @@
+{
+  "batch": "P403",
+  "input": "docs/codex/reports/data/p403-l41-paid-continuation-save.json",
+  "inputSha256": "9d15f0e86f2c2f896475f8eaa3a2707d8586101215e2dba6d2f45e8fd5b1cf7b",
+  "sources": {
+    "config.js": "30da1763fc2f7f7453438d263a667bea58c6acc11d67481d16272f5e1ffb1c0f",
+    "levels.js": "cec80c26fa91f941994c253a2fe73be0dfe3f108237620b662fdab9f5449fd1d",
+    "math.js": "e6980084a1f9b0a7a42f25342abd3e8f475e2737b6dfc300004425b02c2bdd4a",
+    "garrison.js": "4d233f0529d256cd1ace2de782603fcfcbbff110032ca4cf29c5e36af30f10ff",
+    "technology.js": "3d3485f57e1e3ef73d11077cec06d467f674959aa6f0dfb27c3eb4d4abf94536",
+    "tests/progression/harness.js": "4770d17fa72cc8c87f4c8ef79678f19d63a41da895b8dd58776e5a39ce2ede2b",
+    "docs/codex/reports/data/p403-l41-paid-continuation-save.json": "9d15f0e86f2c2f896475f8eaa3a2707d8586101215e2dba6d2f45e8fd5b1cf7b"
+  },
+  "method": "P403 L50 defeat; real paid library, gold sciences, gold armory, work allocation, queues, battle callbacks, save/reload; fixed random 0.5; garrison frozen",
+  "unit": "simulated online tick seconds; menu actions instantaneous; battle callback time separately in milliseconds",
+  "online": 8540,
+  "battleMs": 22890,
+  "trainingCharges": [
+    {
+      "cost": {
+        "food": 1000,
+        "gold": 100
+      },
+      "n": 1,
+      "tick": 72413
+    },
+    {
+      "cost": {
+        "food": 1000,
+        "gold": 100
+      },
+      "n": 1,
+      "tick": 72546
+    },
+    {
+      "cost": {
+        "food": 1000,
+        "gold": 100
+      },
+      "n": 1,
+      "tick": 72679
+    },
+    {
+      "cost": {
+        "food": 1000,
+        "gold": 100
+      },
+      "n": 1,
+      "tick": 72813
+    },
+    {
+      "cost": {
+        "food": 1000,
+        "gold": 100
+      },
+      "n": 1,
+      "tick": 72946
+    },
+    {
+      "cost": {
+        "food": 1000,
+        "gold": 100
+      },
+      "n": 1,
+      "tick": 73079
+    },
+    {
+      "cost": {
+        "food": 1000,
+        "gold": 100
+      },
+      "n": 1,
+      "tick": 73213
+    },
+    {
+      "cost": {
+        "food": 1000,
+        "gold": 100
+      },
+      "n": 1,
+      "tick": 73346
+    },
+    {
+      "cost": {
+        "food": 1000,
+        "gold": 100
+      },
+      "n": 1,
+      "tick": 73479
+    },
+    {
+      "cost": {
+        "food": 1000,
+        "gold": 100
+      },
+      "n": 1,
+      "tick": 73613
+    },
+    {
+      "cost": {
+        "food": 800,
+        "silver": 100
+      },
+      "n": 1,
+      "tick": 73694
+    },
+    {
+      "cost": {
+        "food": 800,
+        "silver": 100
+      },
+      "n": 1,
+      "tick": 73769
+    },
+    {
+      "cost": {
+        "food": 800,
+        "silver": 100
+      },
+      "n": 1,
+      "tick": 73844
+    },
+    {
+      "cost": {
+        "food": 800,
+        "silver": 100
+      },
+      "n": 1,
+      "tick": 73919
+    },
+    {
+      "cost": {
+        "food": 800,
+        "silver": 100
+      },
+      "n": 1,
+      "tick": 73994
+    },
+    {
+      "cost": {
+        "food": 800,
+        "silver": 100
+      },
+      "n": 1,
+      "tick": 74069
+    },
+    {
+      "cost": {
+        "food": 800,
+        "silver": 100
+      },
+      "n": 1,
+      "tick": 74144
+    },
+    {
+      "cost": {
+        "food": 800,
+        "silver": 100
+      },
+      "n": 1,
+      "tick": 74220
+    },
+    {
+      "cost": {
+        "food": 800,
+        "silver": 100
+      },
+      "n": 1,
+      "tick": 74320
+    },
+    {
+      "cost": {
+        "food": 800,
+        "silver": 100
+      },
+      "n": 1,
+      "tick": 74420
+    },
+    {
+      "cost": {
+        "food": 500,
+        "iron": 100
+      },
+      "n": 1,
+      "tick": 74528
+    },
+    {
+      "cost": {
+        "food": 500,
+        "iron": 100
+      },
+      "n": 1,
+      "tick": 74628
+    },
+    {
+      "cost": {
+        "food": 500,
+        "iron": 100
+      },
+      "n": 1,
+      "tick": 74728
+    },
+    {
+      "cost": {
+        "food": 500,
+        "iron": 100
+      },
+      "n": 1,
+      "tick": 74828
+    },
+    {
+      "cost": {
+        "food": 500,
+        "iron": 100
+      },
+      "n": 1,
+      "tick": 74928
+    },
+    {
+      "cost": {
+        "food": 500,
+        "iron": 100
+      },
+      "n": 1,
+      "tick": 75028
+    },
+    {
+      "cost": {
+        "food": 500,
+        "iron": 100
+      },
+      "n": 1,
+      "tick": 75128
+    },
+    {
+      "cost": {
+        "food": 500,
+        "iron": 100
+      },
+      "n": 1,
+      "tick": 75228
+    },
+    {
+      "cost": {
+        "food": 500,
+        "iron": 100
+      },
+      "n": 1,
+      "tick": 75328
+    },
+    {
+      "cost": {
+        "food": 500,
+        "iron": 100
+      },
+      "n": 1,
+      "tick": 75428
+    },
+    {
+      "cost": {
+        "food": 500,
+        "iron": 100
+      },
+      "n": 1,
+      "tick": 75528
+    },
+    {
+      "cost": {
+        "food": 500,
+        "iron": 100
+      },
+      "n": 1,
+      "tick": 75628
+    },
+    {
+      "cost": {
+        "food": 500,
+        "iron": 100
+      },
+      "n": 1,
+      "tick": 75728
+    },
+    {
+      "cost": {
+        "food": 500,
+        "iron": 100
+      },
+      "n": 1,
+      "tick": 75828
+    },
+    {
+      "cost": {
+        "food": 500,
+        "iron": 100
+      },
+      "n": 1,
+      "tick": 75928
+    },
+    {
+      "cost": {
+        "food": 500,
+        "iron": 100
+      },
+      "n": 1,
+      "tick": 76028
+    },
+    {
+      "cost": {
+        "food": 500,
+        "iron": 100
+      },
+      "n": 1,
+      "tick": 76128
+    },
+    {
+      "cost": {
+        "food": 500,
+        "iron": 100
+      },
+      "n": 1,
+      "tick": 76228
+    },
+    {
+      "cost": {
+        "food": 500,
+        "iron": 100
+      },
+      "n": 1,
+      "tick": 76328
+    },
+    {
+      "cost": {
+        "food": 500,
+        "iron": 100
+      },
+      "n": 1,
+      "tick": 76428
+    },
+    {
+      "cost": {
+        "wood": 160,
+        "stone": 50,
+        "food": 80
+      },
+      "n": 2,
+      "tick": 76429
+    },
+    {
+      "cost": {
+        "wood": 160,
+        "stone": 50,
+        "food": 80
+      },
+      "n": 2,
+      "tick": 76430
+    },
+    {
+      "cost": {
+        "wood": 160,
+        "stone": 50,
+        "food": 80
+      },
+      "n": 2,
+      "tick": 76431
+    },
+    {
+      "cost": {
+        "wood": 160,
+        "stone": 50,
+        "food": 80
+      },
+      "n": 2,
+      "tick": 76432
+    },
+    {
+      "cost": {
+        "wood": 160,
+        "stone": 50,
+        "food": 80
+      },
+      "n": 2,
+      "tick": 76433
+    },
+    {
+      "cost": {
+        "wood": 160,
+        "stone": 50,
+        "food": 80
+      },
+      "n": 2,
+      "tick": 76434
+    },
+    {
+      "cost": {
+        "wood": 160,
+        "stone": 50,
+        "food": 80
+      },
+      "n": 2,
+      "tick": 76435
+    },
+    {
+      "cost": {
+        "wood": 160,
+        "stone": 50,
+        "food": 80
+      },
+      "n": 2,
+      "tick": 76436
+    },
+    {
+      "cost": {
+        "wood": 160,
+        "stone": 50,
+        "food": 80
+      },
+      "n": 1,
+      "tick": 76450
+    },
+    {
+      "cost": {
+        "wood": 160,
+        "stone": 50,
+        "food": 80
+      },
+      "n": 1,
+      "tick": 76475
+    },
+    {
+      "cost": {
+        "wood": 160,
+        "stone": 50,
+        "food": 80
+      },
+      "n": 1,
+      "tick": 76499
+    },
+    {
+      "cost": {
+        "food": 300,
+        "copper": 100
+      },
+      "n": 1,
+      "tick": 76524
+    },
+    {
+      "cost": {
+        "wood": 160,
+        "stone": 50,
+        "food": 80
+      },
+      "n": 1,
+      "tick": 76526
+    },
+    {
+      "cost": {
+        "food": 300,
+        "copper": 100
+      },
+      "n": 1,
+      "tick": 76624
+    },
+    {
+      "cost": {
+        "food": 300,
+        "copper": 100
+      },
+      "n": 1,
+      "tick": 76724
+    },
+    {
+      "cost": {
+        "food": 300,
+        "copper": 100
+      },
+      "n": 1,
+      "tick": 76824
+    },
+    {
+      "cost": {
+        "food": 300,
+        "copper": 100
+      },
+      "n": 1,
+      "tick": 76924
+    },
+    {
+      "cost": {
+        "food": 300,
+        "copper": 100
+      },
+      "n": 1,
+      "tick": 77024
+    },
+    {
+      "cost": {
+        "food": 300,
+        "copper": 100
+      },
+      "n": 1,
+      "tick": 77124
+    },
+    {
+      "cost": {
+        "food": 300,
+        "copper": 100
+      },
+      "n": 1,
+      "tick": 77224
+    },
+    {
+      "cost": {
+        "food": 300,
+        "copper": 100
+      },
+      "n": 1,
+      "tick": 77324
+    },
+    {
+      "cost": {
+        "food": 300,
+        "copper": 100
+      },
+      "n": 1,
+      "tick": 77424
+    },
+    {
+      "cost": {
+        "food": 300,
+        "copper": 100
+      },
+      "n": 1,
+      "tick": 77524
+    },
+    {
+      "cost": {
+        "food": 300,
+        "copper": 100
+      },
+      "n": 1,
+      "tick": 77624
+    },
+    {
+      "cost": {
+        "food": 300,
+        "copper": 100
+      },
+      "n": 1,
+      "tick": 77724
+    },
+    {
+      "cost": {
+        "food": 300,
+        "copper": 100
+      },
+      "n": 1,
+      "tick": 77824
+    },
+    {
+      "cost": {
+        "food": 300,
+        "copper": 100
+      },
+      "n": 1,
+      "tick": 77924
+    },
+    {
+      "cost": {
+        "food": 300,
+        "copper": 100
+      },
+      "n": 1,
+      "tick": 78024
+    },
+    {
+      "cost": {
+        "food": 300,
+        "copper": 100
+      },
+      "n": 1,
+      "tick": 78124
+    },
+    {
+      "cost": {
+        "food": 300,
+        "copper": 100
+      },
+      "n": 1,
+      "tick": 78224
+    },
+    {
+      "cost": {
+        "food": 300,
+        "copper": 100
+      },
+      "n": 1,
+      "tick": 78324
+    },
+    {
+      "cost": {
+        "food": 300,
+        "copper": 100
+      },
+      "n": 1,
+      "tick": 78424
+    }
+  ],
+  "trainingPaid": {
+    "food": 35600,
+    "gold": 1000,
+    "silver": 1000,
+    "iron": 2000,
+    "wood": 3200,
+    "stone": 1000,
+    "copper": 2000
+  },
+  "events": [
+    {
+      "label": "loaded",
+      "online": 0,
+      "tick": 69888,
+      "initialLoad": {
+        "status": "ok",
+        "filled": []
+      },
+      "inputSha256": "9d15f0e86f2c2f896475f8eaa3a2707d8586101215e2dba6d2f45e8fd5b1cf7b",
+      "woodCap": 3000,
+      "techCap": 5000,
+      "upkeep": 0,
+      "foodRate": 22.275000000000002,
+      "foodRateAt19": 47.025000000000006,
+      "state": {
+        "tick": 69888,
+        "defeated": 49,
+        "merit": 732,
+        "pop": 19,
+        "res": {
+          "wood": 3000,
+          "stone": 1996,
+          "food": 2725.0749999999994,
+          "tech": 70.00000000000864,
+          "coal": 3,
+          "copper": 4,
+          "iron": 0,
+          "silver": 0.666666666664085,
+          "gold": 0,
+          "steel": 0,
+          "coin": 0,
+          "silverCoin": 0,
+          "goldCoin": 0,
+          "deed": 20,
+          "medal": 7,
+          "bone": 0,
+          "hide": 0
+        },
+        "essence": {
+          "bow_essence": 2,
+          "crossbow_essence": 3,
+          "blade_essence": 3,
+          "wind_essence": 3,
+          "iron_essence": 2,
+          "shield_essence": 1,
+          "spear_essence": 1,
+          "sword_essence": 1
+        },
+        "workers": {
+          "wood": 2,
+          "stone": 2,
+          "food": 9,
+          "coal": 2,
+          "copper": 4,
+          "iron": 0,
+          "silver": 0,
+          "gold": 0,
+          "steel": 0,
+          "coin": 0,
+          "silverCoin": 0,
+          "goldCoin": 0,
+          "tech": 0
+        },
+        "pool": {
+          "infantry": 0,
+          "archer": 0,
+          "bronze_guard": 0,
+          "iron_spearman": 0,
+          "archer_t1": 0,
+          "archer_silverbow": 0,
+          "silver_heavy": 0
+        },
+        "queue": {
+          "infantry": {
+            "count": 0,
+            "timer": 0,
+            "reason": ""
+          },
+          "archer": {
+            "count": 0,
+            "timer": 0,
+            "reason": ""
+          },
+          "bronze_guard": {
+            "count": 0,
+            "timer": 0,
+            "reason": ""
+          },
+          "iron_spearman": {
+            "count": 0,
+            "timer": 0,
+            "reason": ""
+          },
+          "archer_t1": {
+            "count": 0,
+            "timer": 0,
+            "reason": ""
+          },
+          "archer_silverbow": {
+            "count": 0,
+            "timer": 0,
+            "reason": ""
+          },
+          "silver_heavy": {
+            "count": 0,
+            "timer": 0,
+            "reason": ""
+          }
+        },
+        "formation": {
+          "front": [],
+          "mid": [],
+          "back": []
+        },
+        "outer": {
+          "village": {
+            "wins": 0,
+            "alert": 0
+          },
+          "town": {
+            "wins": 1,
+            "alert": 20
+          },
+          "city": {
+            "wins": 0,
+            "alert": 0
+          },
+          "capital": {
+            "wins": 0,
+            "alert": 0
+          }
+        },
+        "buildings": {
+          "academy": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 0
+          },
+          "farm": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 0
+          },
+          "warehouse": {
+            "lv": 2,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 0
+          },
+          "market": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 0
+          },
+          "barracks": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 0
+          },
+          "infantry_camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 0
+          },
+          "archer_range": {
+            "lv": 2,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 2
+          },
+          "copper_store": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 0
+          },
+          "bronze_workshop": {
+            "lv": 2,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 0
+          },
+          "iron_forge": {
+            "lv": 2,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 0
+          },
+          "silver_armory": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 0
+          }
+        },
+        "upgraded": {
+          "archer_t1": true,
+          "archer_silverbow": true
+        },
+        "sciences": [
+          "sci_prospect",
+          "sci_coal",
+          "sci_copper",
+          "sci_wood_store",
+          "sci_urbanization",
+          "sci_iron",
+          "sci_large_granary",
+          "sci_bronze_age",
+          "sci_iron_warehouse",
+          "sci_iron_age",
+          "sci_city",
+          "sci_silver",
+          "sci_silver_age"
+        ]
+      }
+    },
+    {
+      "label": "release wood",
+      "online": 0,
+      "tick": 69888,
+      "expression": "setPopAlloc('wood',0)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "wood": [
+          2,
+          0
+        ]
+      }
+    },
+    {
+      "label": "release stone",
+      "online": 0,
+      "tick": 69888,
+      "expression": "setPopAlloc('stone',0)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "stone": [
+          2,
+          0
+        ]
+      }
+    },
+    {
+      "label": "release food",
+      "online": 0,
+      "tick": 69888,
+      "expression": "setPopAlloc('food',0)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "food": [
+          9,
+          0
+        ]
+      }
+    },
+    {
+      "label": "release coal",
+      "online": 0,
+      "tick": 69888,
+      "expression": "setPopAlloc('coal',0)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "coal": [
+          2,
+          0
+        ]
+      }
+    },
+    {
+      "label": "release copper",
+      "online": 0,
+      "tick": 69888,
+      "expression": "setPopAlloc('copper',0)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "copper": [
+          4,
+          0
+        ]
+      }
+    },
+    {
+      "label": "assign tech",
+      "online": 0,
+      "tick": 69888,
+      "expression": "setPopAlloc('tech',10)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "tech": [
+          0,
+          10
+        ]
+      }
+    },
+    {
+      "label": "assign food",
+      "online": 0,
+      "tick": 69888,
+      "expression": "setPopAlloc('food',9)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "food": [
+          0,
+          9
+        ]
+      }
+    },
+    {
+      "label": "wait library research",
+      "online": 20,
+      "tick": 69908,
+      "seconds": 20,
+      "satisfied": true
+    },
+    {
+      "label": "research library",
+      "online": 20,
+      "tick": 69908,
+      "expression": "researchScience('sci_library')",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "res": [
+          {
+            "wood": 3000,
+            "stone": 1996,
+            "food": 3000,
+            "tech": 290.00000000000864,
+            "coal": 3,
+            "copper": 4,
+            "iron": 0,
+            "silver": 0.666666666664085,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 20,
+            "medal": 7,
+            "bone": 0,
+            "hide": 0
+          },
+          {
+            "wood": 3000,
+            "stone": 1996,
+            "food": 3000,
+            "tech": 90.00000000000864,
+            "coal": 3,
+            "copper": 4,
+            "iron": 0,
+            "silver": 0.666666666664085,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 20,
+            "medal": 7,
+            "bone": 0,
+            "hide": 0
+          }
+        ],
+        "sciences": [
+          [
+            "sci_prospect",
+            "sci_coal",
+            "sci_copper",
+            "sci_wood_store",
+            "sci_urbanization",
+            "sci_iron",
+            "sci_large_granary",
+            "sci_bronze_age",
+            "sci_iron_warehouse",
+            "sci_iron_age",
+            "sci_city",
+            "sci_silver",
+            "sci_silver_age"
+          ],
+          [
+            "sci_prospect",
+            "sci_coal",
+            "sci_copper",
+            "sci_wood_store",
+            "sci_urbanization",
+            "sci_iron",
+            "sci_large_granary",
+            "sci_bronze_age",
+            "sci_iron_warehouse",
+            "sci_iron_age",
+            "sci_city",
+            "sci_silver",
+            "sci_silver_age",
+            "sci_library"
+          ]
+        ]
+      }
+    },
+    {
+      "label": "save before library research",
+      "online": 20,
+      "tick": 69908,
+      "expression": "save()",
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "label": "reload library research",
+      "online": 20,
+      "saveSha256": "fdd93d493465ef637c4a29a09ffb9376280466036482518b395152fec48f6d08"
+    },
+    {
+      "label": "release food",
+      "online": 20,
+      "tick": 69908,
+      "expression": "setPopAlloc('food',0)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "food": [
+          9,
+          0
+        ]
+      }
+    },
+    {
+      "label": "release tech",
+      "online": 20,
+      "tick": 69908,
+      "expression": "setPopAlloc('tech',0)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "tech": [
+          10,
+          0
+        ]
+      }
+    },
+    {
+      "label": "assign wood",
+      "online": 20,
+      "tick": 69908,
+      "expression": "setPopAlloc('wood',5)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "wood": [
+          0,
+          5
+        ]
+      }
+    },
+    {
+      "label": "assign stone",
+      "online": 20,
+      "tick": 69908,
+      "expression": "setPopAlloc('stone',5)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "stone": [
+          0,
+          5
+        ]
+      }
+    },
+    {
+      "label": "assign food",
+      "online": 20,
+      "tick": 69908,
+      "expression": "setPopAlloc('food',9)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "food": [
+          0,
+          9
+        ]
+      }
+    },
+    {
+      "label": "wait library 1 materials",
+      "online": 20,
+      "tick": 69908,
+      "seconds": 0,
+      "satisfied": true
+    },
+    {
+      "label": "library 1 build",
+      "online": 20,
+      "tick": 69908,
+      "expression": "buildAct('library')",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "res": [
+          {
+            "wood": 3000,
+            "stone": 1996,
+            "food": 3000,
+            "tech": 90.00000000000864,
+            "coal": 3,
+            "copper": 4,
+            "iron": 0,
+            "silver": 0.666666666664085,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 20,
+            "medal": 7,
+            "bone": 0,
+            "hide": 0
+          },
+          {
+            "wood": 2400,
+            "stone": 1396,
+            "food": 3000,
+            "tech": 90.00000000000864,
+            "coal": 3,
+            "copper": 4,
+            "iron": 0,
+            "silver": 0.666666666664085,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 20,
+            "medal": 7,
+            "bone": 0,
+            "hide": 0
+          }
+        ],
+        "buildings": [
+          {
+            "academy": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "farm": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "warehouse": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "market": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "barracks": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "infantry_camp": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "archer_range": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 2
+            },
+            "copper_store": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "bronze_workshop": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "iron_forge": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "silver_armory": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            }
+          },
+          {
+            "academy": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "farm": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "warehouse": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "market": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "barracks": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "infantry_camp": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "archer_range": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 2
+            },
+            "copper_store": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "bronze_workshop": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "iron_forge": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "silver_armory": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "library": {
+              "lv": 0,
+              "state": "building",
+              "timer": 8,
+              "timerEnd": 8,
+              "tier": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "label": "wait library 1 completion",
+      "online": 30,
+      "tick": 69918,
+      "seconds": 10,
+      "satisfied": true
+    },
+    {
+      "label": "save before library 1",
+      "online": 30,
+      "tick": 69918,
+      "expression": "save()",
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "label": "reload library 1",
+      "online": 30,
+      "saveSha256": "e0ae21596ee44b846ff16ee2d71fe0b5f264a5b2e6c12803f65a9d4e0ec7b792"
+    },
+    {
+      "label": "wait library 2 materials",
+      "online": 30,
+      "tick": 69918,
+      "seconds": 0,
+      "satisfied": true
+    },
+    {
+      "label": "library 2 build",
+      "online": 30,
+      "tick": 69918,
+      "expression": "buildAct('library')",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "res": [
+          {
+            "wood": 2550,
+            "stone": 1496,
+            "food": 3000,
+            "tech": 90.00000000000864,
+            "coal": 3,
+            "copper": 4,
+            "iron": 0,
+            "silver": 0.666666666664085,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 20,
+            "medal": 7,
+            "bone": 0,
+            "hide": 0
+          },
+          {
+            "wood": 1830,
+            "stone": 776,
+            "food": 3000,
+            "tech": 90.00000000000864,
+            "coal": 3,
+            "copper": 4,
+            "iron": 0,
+            "silver": 0.666666666664085,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 20,
+            "medal": 7,
+            "bone": 0,
+            "hide": 0
+          }
+        ],
+        "buildings": [
+          {
+            "academy": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "farm": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "warehouse": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "market": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "barracks": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "infantry_camp": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "archer_range": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 2
+            },
+            "copper_store": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "bronze_workshop": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "iron_forge": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "silver_armory": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "library": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            }
+          },
+          {
+            "academy": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "farm": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "warehouse": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "market": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "barracks": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "infantry_camp": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "archer_range": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 2
+            },
+            "copper_store": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "bronze_workshop": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "iron_forge": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "silver_armory": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "library": {
+              "lv": 1,
+              "state": "upgrading",
+              "timer": 11,
+              "timerEnd": 11,
+              "tier": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "label": "wait library 2 completion",
+      "online": 50,
+      "tick": 69938,
+      "seconds": 20,
+      "satisfied": true
+    },
+    {
+      "label": "save before library 2",
+      "online": 50,
+      "tick": 69938,
+      "expression": "save()",
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "label": "reload library 2",
+      "online": 50,
+      "saveSha256": "305932174c899b4a5f94dc0db18bc8e4f228113f75009013ce98fe2e191f4a7d"
+    },
+    {
+      "label": "wait library 3 materials",
+      "online": 50,
+      "tick": 69938,
+      "seconds": 0,
+      "satisfied": true
+    },
+    {
+      "label": "library 3 build",
+      "online": 50,
+      "tick": 69938,
+      "expression": "buildAct('library')",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "res": [
+          {
+            "wood": 2130,
+            "stone": 976,
+            "food": 3000,
+            "tech": 90.00000000000864,
+            "coal": 3,
+            "copper": 4,
+            "iron": 0,
+            "silver": 0.666666666664085,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 20,
+            "medal": 7,
+            "bone": 0,
+            "hide": 0
+          },
+          {
+            "wood": 1290,
+            "stone": 136,
+            "food": 3000,
+            "tech": 90.00000000000864,
+            "coal": 3,
+            "copper": 4,
+            "iron": 0,
+            "silver": 0.666666666664085,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 20,
+            "medal": 7,
+            "bone": 0,
+            "hide": 0
+          }
+        ],
+        "buildings": [
+          {
+            "academy": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "farm": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "warehouse": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "market": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "barracks": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "infantry_camp": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "archer_range": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 2
+            },
+            "copper_store": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "bronze_workshop": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "iron_forge": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "silver_armory": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "library": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            }
+          },
+          {
+            "academy": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "farm": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "warehouse": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "market": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "barracks": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "infantry_camp": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "archer_range": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 2
+            },
+            "copper_store": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "bronze_workshop": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "iron_forge": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "silver_armory": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "library": {
+              "lv": 2,
+              "state": "upgrading",
+              "timer": 12,
+              "timerEnd": 12,
+              "tier": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "label": "wait library 3 completion",
+      "online": 70,
+      "tick": 69958,
+      "seconds": 20,
+      "satisfied": true
+    },
+    {
+      "label": "save before library 3",
+      "online": 70,
+      "tick": 69958,
+      "expression": "save()",
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "label": "reload library 3",
+      "online": 70,
+      "saveSha256": "87145d1e8efc7cc44449c812709035fd04e67429ef136bd319f69778b0676960"
+    },
+    {
+      "label": "wait library 4 materials",
+      "online": 140,
+      "tick": 70028,
+      "seconds": 70,
+      "satisfied": true
+    },
+    {
+      "label": "library 4 build",
+      "online": 140,
+      "tick": 70028,
+      "expression": "buildAct('library')",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "res": [
+          {
+            "wood": 2640,
+            "stone": 1036,
+            "food": 3000,
+            "tech": 90.00000000000864,
+            "coal": 3,
+            "copper": 4,
+            "iron": 0,
+            "silver": 0.666666666664085,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 20,
+            "medal": 7,
+            "bone": 0,
+            "hide": 0
+          },
+          {
+            "wood": 1680,
+            "stone": 76,
+            "food": 3000,
+            "tech": 90.00000000000864,
+            "coal": 3,
+            "copper": 4,
+            "iron": 0,
+            "silver": 0.666666666664085,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 20,
+            "medal": 7,
+            "bone": 0,
+            "hide": 0
+          }
+        ],
+        "buildings": [
+          {
+            "academy": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "farm": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "warehouse": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "market": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "barracks": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "infantry_camp": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "archer_range": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 2
+            },
+            "copper_store": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "bronze_workshop": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "iron_forge": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "silver_armory": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "library": {
+              "lv": 3,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            }
+          },
+          {
+            "academy": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "farm": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "warehouse": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "market": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "barracks": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "infantry_camp": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "archer_range": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 2
+            },
+            "copper_store": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "bronze_workshop": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "iron_forge": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "silver_armory": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "library": {
+              "lv": 3,
+              "state": "upgrading",
+              "timer": 13,
+              "timerEnd": 13,
+              "tier": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "label": "wait library 4 completion",
+      "online": 160,
+      "tick": 70048,
+      "seconds": 20,
+      "satisfied": true
+    },
+    {
+      "label": "save before library 4",
+      "online": 160,
+      "tick": 70048,
+      "expression": "save()",
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "label": "reload library 4",
+      "online": 160,
+      "saveSha256": "8600360827c9f737c7a58870c727c23d7b9bd80b2655e6bd193a6c567f782829"
+    },
+    {
+      "label": "wait library 5 materials",
+      "online": 250,
+      "tick": 70138,
+      "seconds": 90,
+      "satisfied": true
+    },
+    {
+      "label": "library 5 build",
+      "online": 250,
+      "tick": 70138,
+      "expression": "buildAct('library')",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "res": [
+          {
+            "wood": 3000,
+            "stone": 1176,
+            "food": 3000,
+            "tech": 90.00000000000864,
+            "coal": 3,
+            "copper": 4,
+            "iron": 0,
+            "silver": 0.666666666664085,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 20,
+            "medal": 7,
+            "bone": 0,
+            "hide": 0
+          },
+          {
+            "wood": 1920,
+            "stone": 96,
+            "food": 3000,
+            "tech": 90.00000000000864,
+            "coal": 3,
+            "copper": 4,
+            "iron": 0,
+            "silver": 0.666666666664085,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 20,
+            "medal": 7,
+            "bone": 0,
+            "hide": 0
+          }
+        ],
+        "buildings": [
+          {
+            "academy": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "farm": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "warehouse": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "market": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "barracks": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "infantry_camp": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "archer_range": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 2
+            },
+            "copper_store": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "bronze_workshop": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "iron_forge": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "silver_armory": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "library": {
+              "lv": 4,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            }
+          },
+          {
+            "academy": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "farm": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "warehouse": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "market": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "barracks": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "infantry_camp": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "archer_range": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 2
+            },
+            "copper_store": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "bronze_workshop": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "iron_forge": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "silver_armory": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "library": {
+              "lv": 4,
+              "state": "upgrading",
+              "timer": 14,
+              "timerEnd": 14,
+              "tier": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "label": "wait library 5 completion",
+      "online": 270,
+      "tick": 70158,
+      "seconds": 20,
+      "satisfied": true
+    },
+    {
+      "label": "save before library 5",
+      "online": 270,
+      "tick": 70158,
+      "expression": "save()",
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "label": "reload library 5",
+      "online": 270,
+      "saveSha256": "d46a1576d6b40c5f0ccd8572989a17f8fe38dc85d93255808b269981acd737f9"
+    },
+    {
+      "label": "wait library 6 materials",
+      "online": 370,
+      "tick": 70258,
+      "seconds": 100,
+      "satisfied": true
+    },
+    {
+      "label": "library 6 build",
+      "online": 370,
+      "tick": 70258,
+      "expression": "buildAct('library')",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "res": [
+          {
+            "wood": 3000,
+            "stone": 1296,
+            "food": 3000,
+            "tech": 90.00000000000864,
+            "coal": 3,
+            "copper": 4,
+            "iron": 0,
+            "silver": 0.666666666664085,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 20,
+            "medal": 7,
+            "bone": 0,
+            "hide": 0
+          },
+          {
+            "wood": 1800,
+            "stone": 96,
+            "food": 3000,
+            "tech": 90.00000000000864,
+            "coal": 3,
+            "copper": 4,
+            "iron": 0,
+            "silver": 0.666666666664085,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 20,
+            "medal": 7,
+            "bone": 0,
+            "hide": 0
+          }
+        ],
+        "buildings": [
+          {
+            "academy": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "farm": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "warehouse": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "market": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "barracks": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "infantry_camp": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "archer_range": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 2
+            },
+            "copper_store": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "bronze_workshop": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "iron_forge": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "silver_armory": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "library": {
+              "lv": 5,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            }
+          },
+          {
+            "academy": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "farm": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "warehouse": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "market": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "barracks": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "infantry_camp": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "archer_range": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 2
+            },
+            "copper_store": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "bronze_workshop": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "iron_forge": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "silver_armory": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "library": {
+              "lv": 5,
+              "state": "upgrading",
+              "timer": 15,
+              "timerEnd": 15,
+              "tier": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "label": "wait library 6 completion",
+      "online": 390,
+      "tick": 70278,
+      "seconds": 20,
+      "satisfied": true
+    },
+    {
+      "label": "save before library 6",
+      "online": 390,
+      "tick": 70278,
+      "expression": "save()",
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "label": "reload library 6",
+      "online": 390,
+      "saveSha256": "f43b3099b9b2148860f1512fc3a4fa7661501833df2015933e77e9abadcb1db2"
+    },
+    {
+      "label": "wait library 7 materials",
+      "online": 500,
+      "tick": 70388,
+      "seconds": 110,
+      "satisfied": true
+    },
+    {
+      "label": "library 7 build",
+      "online": 500,
+      "tick": 70388,
+      "expression": "buildAct('library')",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "res": [
+          {
+            "wood": 3000,
+            "stone": 1396,
+            "food": 3000,
+            "tech": 90.00000000000864,
+            "coal": 3,
+            "copper": 4,
+            "iron": 0,
+            "silver": 0.666666666664085,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 20,
+            "medal": 7,
+            "bone": 0,
+            "hide": 0
+          },
+          {
+            "wood": 1680,
+            "stone": 76,
+            "food": 3000,
+            "tech": 90.00000000000864,
+            "coal": 3,
+            "copper": 4,
+            "iron": 0,
+            "silver": 0.666666666664085,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 20,
+            "medal": 7,
+            "bone": 0,
+            "hide": 0
+          }
+        ],
+        "buildings": [
+          {
+            "academy": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "farm": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "warehouse": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "market": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "barracks": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "infantry_camp": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "archer_range": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 2
+            },
+            "copper_store": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "bronze_workshop": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "iron_forge": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "silver_armory": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "library": {
+              "lv": 6,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            }
+          },
+          {
+            "academy": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "farm": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "warehouse": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "market": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "barracks": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "infantry_camp": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "archer_range": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 2
+            },
+            "copper_store": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "bronze_workshop": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "iron_forge": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "silver_armory": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "library": {
+              "lv": 6,
+              "state": "upgrading",
+              "timer": 16,
+              "timerEnd": 16,
+              "tier": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "label": "wait library 7 completion",
+      "online": 520,
+      "tick": 70408,
+      "seconds": 20,
+      "satisfied": true
+    },
+    {
+      "label": "save before library 7",
+      "online": 520,
+      "tick": 70408,
+      "expression": "save()",
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "label": "reload library 7",
+      "online": 520,
+      "saveSha256": "a2fb6bc21ed45c40f4b58822c130fecda8d75f25ae9ebe15b0bf0b832bed98f9"
+    },
+    {
+      "label": "wait library 8 materials",
+      "online": 640,
+      "tick": 70528,
+      "seconds": 120,
+      "satisfied": true
+    },
+    {
+      "label": "library 8 build",
+      "online": 640,
+      "tick": 70528,
+      "expression": "buildAct('library')",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "res": [
+          {
+            "wood": 3000,
+            "stone": 1476,
+            "food": 3000,
+            "tech": 90.00000000000864,
+            "coal": 3,
+            "copper": 4,
+            "iron": 0,
+            "silver": 0.666666666664085,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 20,
+            "medal": 7,
+            "bone": 0,
+            "hide": 0
+          },
+          {
+            "wood": 1560,
+            "stone": 36,
+            "food": 3000,
+            "tech": 90.00000000000864,
+            "coal": 3,
+            "copper": 4,
+            "iron": 0,
+            "silver": 0.666666666664085,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 20,
+            "medal": 7,
+            "bone": 0,
+            "hide": 0
+          }
+        ],
+        "buildings": [
+          {
+            "academy": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "farm": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "warehouse": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "market": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "barracks": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "infantry_camp": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "archer_range": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 2
+            },
+            "copper_store": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "bronze_workshop": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "iron_forge": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "silver_armory": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "library": {
+              "lv": 7,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            }
+          },
+          {
+            "academy": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "farm": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "warehouse": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "market": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "barracks": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "infantry_camp": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "archer_range": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 2
+            },
+            "copper_store": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "bronze_workshop": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "iron_forge": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "silver_armory": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "library": {
+              "lv": 7,
+              "state": "upgrading",
+              "timer": 17,
+              "timerEnd": 17,
+              "tier": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "label": "wait library 8 completion",
+      "online": 660,
+      "tick": 70548,
+      "seconds": 20,
+      "satisfied": true
+    },
+    {
+      "label": "save before library 8",
+      "online": 660,
+      "tick": 70548,
+      "expression": "save()",
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "label": "reload library 8",
+      "online": 660,
+      "saveSha256": "b1fd651638b2a4ea9a3427b6f19029528376959a4d4032e623cc92384ab9ef6a"
+    },
+    {
+      "label": "wait library 9 materials",
+      "online": 800,
+      "tick": 70688,
+      "seconds": 140,
+      "satisfied": true
+    },
+    {
+      "label": "library 9 build",
+      "online": 800,
+      "tick": 70688,
+      "expression": "buildAct('library')",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "res": [
+          {
+            "wood": 3000,
+            "stone": 1636,
+            "food": 3000,
+            "tech": 90.00000000000864,
+            "coal": 3,
+            "copper": 4,
+            "iron": 0,
+            "silver": 0.666666666664085,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 20,
+            "medal": 7,
+            "bone": 0,
+            "hide": 0
+          },
+          {
+            "wood": 1440,
+            "stone": 76,
+            "food": 3000,
+            "tech": 90.00000000000864,
+            "coal": 3,
+            "copper": 4,
+            "iron": 0,
+            "silver": 0.666666666664085,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 20,
+            "medal": 7,
+            "bone": 0,
+            "hide": 0
+          }
+        ],
+        "buildings": [
+          {
+            "academy": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "farm": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "warehouse": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "market": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "barracks": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "infantry_camp": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "archer_range": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 2
+            },
+            "copper_store": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "bronze_workshop": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "iron_forge": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "silver_armory": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "library": {
+              "lv": 8,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            }
+          },
+          {
+            "academy": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "farm": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "warehouse": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "market": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "barracks": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "infantry_camp": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "archer_range": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 2
+            },
+            "copper_store": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "bronze_workshop": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "iron_forge": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "silver_armory": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "library": {
+              "lv": 8,
+              "state": "upgrading",
+              "timer": 18,
+              "timerEnd": 18,
+              "tier": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "label": "wait library 9 completion",
+      "online": 820,
+      "tick": 70708,
+      "seconds": 20,
+      "satisfied": true
+    },
+    {
+      "label": "save before library 9",
+      "online": 820,
+      "tick": 70708,
+      "expression": "save()",
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "label": "reload library 9",
+      "online": 820,
+      "saveSha256": "a52ddf749f024b74f9f8bd57dd58c66d16cf09e299e53454c81729cebbde90f0"
+    },
+    {
+      "label": "wait library 10 materials",
+      "online": 970,
+      "tick": 70858,
+      "seconds": 150,
+      "satisfied": true
+    },
+    {
+      "label": "library 10 build",
+      "online": 970,
+      "tick": 70858,
+      "expression": "buildAct('library')",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "res": [
+          {
+            "wood": 3000,
+            "stone": 1776,
+            "food": 3000,
+            "tech": 90.00000000000864,
+            "coal": 3,
+            "copper": 4,
+            "iron": 0,
+            "silver": 0.666666666664085,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 20,
+            "medal": 7,
+            "bone": 0,
+            "hide": 0
+          },
+          {
+            "wood": 1320,
+            "stone": 96,
+            "food": 3000,
+            "tech": 90.00000000000864,
+            "coal": 3,
+            "copper": 4,
+            "iron": 0,
+            "silver": 0.666666666664085,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 20,
+            "medal": 7,
+            "bone": 0,
+            "hide": 0
+          }
+        ],
+        "buildings": [
+          {
+            "academy": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "farm": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "warehouse": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "market": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "barracks": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "infantry_camp": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "archer_range": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 2
+            },
+            "copper_store": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "bronze_workshop": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "iron_forge": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "silver_armory": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "library": {
+              "lv": 9,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            }
+          },
+          {
+            "academy": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "farm": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "warehouse": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "market": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "barracks": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "infantry_camp": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "archer_range": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 2
+            },
+            "copper_store": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "bronze_workshop": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "iron_forge": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "silver_armory": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "library": {
+              "lv": 9,
+              "state": "upgrading",
+              "timer": 19,
+              "timerEnd": 19,
+              "tier": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "label": "wait library 10 completion",
+      "online": 990,
+      "tick": 70878,
+      "seconds": 20,
+      "satisfied": true
+    },
+    {
+      "label": "save before library 10",
+      "online": 990,
+      "tick": 70878,
+      "expression": "save()",
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "label": "reload library 10",
+      "online": 990,
+      "saveSha256": "838a3d2b61436248c616f7b8d6ca14ab32082aabc4770352c6f93a130dd55787"
+    },
+    {
+      "label": "release wood",
+      "online": 990,
+      "tick": 70878,
+      "expression": "setPopAlloc('wood',0)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "wood": [
+          5,
+          0
+        ]
+      }
+    },
+    {
+      "label": "release stone",
+      "online": 990,
+      "tick": 70878,
+      "expression": "setPopAlloc('stone',0)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "stone": [
+          5,
+          0
+        ]
+      }
+    },
+    {
+      "label": "release food",
+      "online": 990,
+      "tick": 70878,
+      "expression": "setPopAlloc('food',0)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "food": [
+          9,
+          0
+        ]
+      }
+    },
+    {
+      "label": "assign tech",
+      "online": 990,
+      "tick": 70878,
+      "expression": "setPopAlloc('tech',10)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "tech": [
+          0,
+          10
+        ]
+      }
+    },
+    {
+      "label": "assign food",
+      "online": 990,
+      "tick": 70878,
+      "expression": "setPopAlloc('food',9)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "food": [
+          0,
+          9
+        ]
+      }
+    },
+    {
+      "label": "wait knowledge for sci_gold",
+      "online": 1530,
+      "tick": 71418,
+      "seconds": 540,
+      "satisfied": true
+    },
+    {
+      "label": "research sci_gold",
+      "online": 1530,
+      "tick": 71418,
+      "expression": "researchScience('sci_gold')",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "res": [
+          {
+            "wood": 1620,
+            "stone": 296,
+            "food": 3000,
+            "tech": 6030.000000000009,
+            "coal": 3,
+            "copper": 4,
+            "iron": 0,
+            "silver": 0.666666666664085,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 20,
+            "medal": 7,
+            "bone": 0,
+            "hide": 0
+          },
+          {
+            "wood": 1620,
+            "stone": 296,
+            "food": 3000,
+            "tech": 30.000000000009095,
+            "coal": 3,
+            "copper": 4,
+            "iron": 0,
+            "silver": 0.666666666664085,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 20,
+            "medal": 7,
+            "bone": 0,
+            "hide": 0
+          }
+        ],
+        "sciences": [
+          [
+            "sci_prospect",
+            "sci_coal",
+            "sci_copper",
+            "sci_wood_store",
+            "sci_urbanization",
+            "sci_iron",
+            "sci_large_granary",
+            "sci_bronze_age",
+            "sci_iron_warehouse",
+            "sci_iron_age",
+            "sci_city",
+            "sci_silver",
+            "sci_silver_age",
+            "sci_library"
+          ],
+          [
+            "sci_prospect",
+            "sci_coal",
+            "sci_copper",
+            "sci_wood_store",
+            "sci_urbanization",
+            "sci_iron",
+            "sci_large_granary",
+            "sci_bronze_age",
+            "sci_iron_warehouse",
+            "sci_iron_age",
+            "sci_city",
+            "sci_silver",
+            "sci_silver_age",
+            "sci_library",
+            "sci_gold"
+          ]
+        ]
+      }
+    },
+    {
+      "label": "save before sci_gold",
+      "online": 1530,
+      "tick": 71418,
+      "expression": "save()",
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "label": "reload sci_gold",
+      "online": 1530,
+      "saveSha256": "65329d8f7a0f4740eb332a37fa12b9c9f58363d3c95866b72c818f87ed25d80a"
+    },
+    {
+      "label": "wait knowledge for sci_gold_age",
+      "online": 2170,
+      "tick": 72058,
+      "seconds": 640,
+      "satisfied": true
+    },
+    {
+      "label": "research sci_gold_age",
+      "online": 2170,
+      "tick": 72058,
+      "expression": "researchScience('sci_gold_age')",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "res": [
+          {
+            "wood": 1620,
+            "stone": 296,
+            "food": 3000,
+            "tech": 7000,
+            "coal": 3,
+            "copper": 4,
+            "iron": 0,
+            "silver": 0.666666666664085,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 20,
+            "medal": 7,
+            "bone": 0,
+            "hide": 0
+          },
+          {
+            "wood": 1620,
+            "stone": 296,
+            "food": 3000,
+            "tech": 0,
+            "coal": 3,
+            "copper": 4,
+            "iron": 0,
+            "silver": 0.666666666664085,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 20,
+            "medal": 7,
+            "bone": 0,
+            "hide": 0
+          }
+        ],
+        "sciences": [
+          [
+            "sci_prospect",
+            "sci_coal",
+            "sci_copper",
+            "sci_wood_store",
+            "sci_urbanization",
+            "sci_iron",
+            "sci_large_granary",
+            "sci_bronze_age",
+            "sci_iron_warehouse",
+            "sci_iron_age",
+            "sci_city",
+            "sci_silver",
+            "sci_silver_age",
+            "sci_library",
+            "sci_gold"
+          ],
+          [
+            "sci_prospect",
+            "sci_coal",
+            "sci_copper",
+            "sci_wood_store",
+            "sci_urbanization",
+            "sci_iron",
+            "sci_large_granary",
+            "sci_bronze_age",
+            "sci_iron_warehouse",
+            "sci_iron_age",
+            "sci_city",
+            "sci_silver",
+            "sci_silver_age",
+            "sci_library",
+            "sci_gold",
+            "sci_gold_age"
+          ]
+        ]
+      }
+    },
+    {
+      "label": "save before sci_gold_age",
+      "online": 2170,
+      "tick": 72058,
+      "expression": "save()",
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "label": "reload sci_gold_age",
+      "online": 2170,
+      "saveSha256": "0b3db4ed015c04afc6c2c6da9b2cfa114cfb66e8b78df30b3259a49b06a31838"
+    },
+    {
+      "label": "release food",
+      "online": 2170,
+      "tick": 72058,
+      "expression": "setPopAlloc('food',0)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "food": [
+          9,
+          0
+        ]
+      }
+    },
+    {
+      "label": "release tech",
+      "online": 2170,
+      "tick": 72058,
+      "expression": "setPopAlloc('tech',0)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "tech": [
+          10,
+          0
+        ]
+      }
+    },
+    {
+      "label": "assign wood",
+      "online": 2170,
+      "tick": 72058,
+      "expression": "setPopAlloc('wood',5)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "wood": [
+          0,
+          5
+        ]
+      }
+    },
+    {
+      "label": "assign stone",
+      "online": 2170,
+      "tick": 72058,
+      "expression": "setPopAlloc('stone',5)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "stone": [
+          0,
+          5
+        ]
+      }
+    },
+    {
+      "label": "assign food",
+      "online": 2170,
+      "tick": 72058,
+      "expression": "setPopAlloc('food',9)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "food": [
+          0,
+          9
+        ]
+      }
+    },
+    {
+      "label": "wait gold armory materials",
+      "online": 2220,
+      "tick": 72108,
+      "seconds": 50,
+      "satisfied": true
+    },
+    {
+      "label": "build gold armory",
+      "online": 2220,
+      "tick": 72108,
+      "expression": "buildAct('gold_armory')",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "res": [
+          {
+            "wood": 2370,
+            "stone": 796,
+            "food": 3000,
+            "tech": 0,
+            "coal": 3,
+            "copper": 4,
+            "iron": 0,
+            "silver": 0.666666666664085,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 20,
+            "medal": 7,
+            "bone": 0,
+            "hide": 0
+          },
+          {
+            "wood": 1570,
+            "stone": 96,
+            "food": 2500,
+            "tech": 0,
+            "coal": 3,
+            "copper": 4,
+            "iron": 0,
+            "silver": 0.666666666664085,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 20,
+            "medal": 7,
+            "bone": 0,
+            "hide": 0
+          }
+        ],
+        "buildings": [
+          {
+            "academy": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "farm": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "warehouse": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "market": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "barracks": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "infantry_camp": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "archer_range": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 2
+            },
+            "copper_store": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "bronze_workshop": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "iron_forge": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "silver_armory": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "library": {
+              "lv": 10,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            }
+          },
+          {
+            "academy": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "farm": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "warehouse": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "market": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "barracks": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "infantry_camp": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "archer_range": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 2
+            },
+            "copper_store": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "bronze_workshop": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "iron_forge": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "silver_armory": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "library": {
+              "lv": 10,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "gold_armory": {
+              "lv": 0,
+              "state": "building",
+              "timer": 12,
+              "timerEnd": 12,
+              "tier": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "label": "wait gold armory completion",
+      "online": 2240,
+      "tick": 72128,
+      "seconds": 20,
+      "satisfied": true
+    },
+    {
+      "label": "save before gold armory",
+      "online": 2240,
+      "tick": 72128,
+      "expression": "save()",
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "label": "reload gold armory",
+      "online": 2240,
+      "saveSha256": "d07a707e05fab18a3f2b30c96be0551b13aa379525ae8c6ab4ba4e61e0ee9d56"
+    },
+    {
+      "label": "wait gold armory Lv2 materials",
+      "online": 2370,
+      "tick": 72258,
+      "seconds": 130,
+      "satisfied": true
+    },
+    {
+      "label": "upgrade gold armory Lv2",
+      "online": 2370,
+      "tick": 72258,
+      "expression": "buildAct('gold_armory')",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "res": [
+          {
+            "wood": 3000,
+            "stone": 1596,
+            "food": 3000,
+            "tech": 0,
+            "coal": 3,
+            "copper": 4,
+            "iron": 0,
+            "silver": 0.666666666664085,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 20,
+            "medal": 7,
+            "bone": 0,
+            "hide": 0
+          },
+          {
+            "wood": 1239,
+            "stone": 55,
+            "food": 1680,
+            "tech": 0,
+            "coal": 3,
+            "copper": 4,
+            "iron": 0,
+            "silver": 0.666666666664085,
+            "gold": 0,
+            "steel": 0,
+            "coin": 0,
+            "silverCoin": 0,
+            "goldCoin": 0,
+            "deed": 20,
+            "medal": 7,
+            "bone": 0,
+            "hide": 0
+          }
+        ],
+        "buildings": [
+          {
+            "academy": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "farm": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "warehouse": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "market": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "barracks": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "infantry_camp": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "archer_range": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 2
+            },
+            "copper_store": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "bronze_workshop": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "iron_forge": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "silver_armory": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "library": {
+              "lv": 10,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "gold_armory": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            }
+          },
+          {
+            "academy": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "farm": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "warehouse": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "market": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "barracks": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "infantry_camp": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "archer_range": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 2
+            },
+            "copper_store": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "bronze_workshop": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "iron_forge": {
+              "lv": 2,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "silver_armory": {
+              "lv": 1,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "library": {
+              "lv": 10,
+              "state": "idle",
+              "timer": 0,
+              "timerEnd": 0,
+              "tier": 0
+            },
+            "gold_armory": {
+              "lv": 1,
+              "state": "upgrading",
+              "timer": 11,
+              "timerEnd": 11,
+              "tier": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "label": "wait gold armory Lv2 completion",
+      "online": 2390,
+      "tick": 72278,
+      "seconds": 20,
+      "satisfied": true
+    },
+    {
+      "label": "save before gold armory Lv2",
+      "online": 2390,
+      "tick": 72278,
+      "expression": "save()",
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "label": "reload gold armory Lv2",
+      "online": 2390,
+      "saveSha256": "dd0cee1434599454773ec20762c010c161ebefabbafcfbe38723df30a5ea04a1"
+    },
+    {
+      "label": "release wood",
+      "online": 2390,
+      "tick": 72278,
+      "expression": "setPopAlloc('wood',0)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "wood": [
+          5,
+          0
+        ]
+      }
+    },
+    {
+      "label": "release stone",
+      "online": 2390,
+      "tick": 72278,
+      "expression": "setPopAlloc('stone',0)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "stone": [
+          5,
+          0
+        ]
+      }
+    },
+    {
+      "label": "release food",
+      "online": 2390,
+      "tick": 72278,
+      "expression": "setPopAlloc('food',0)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "food": [
+          9,
+          0
+        ]
+      }
+    },
+    {
+      "label": "assign stone",
+      "online": 2390,
+      "tick": 72278,
+      "expression": "setPopAlloc('stone',6)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "stone": [
+          0,
+          6
+        ]
+      }
+    },
+    {
+      "label": "assign coal",
+      "online": 2390,
+      "tick": 72278,
+      "expression": "setPopAlloc('coal',4)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "coal": [
+          0,
+          4
+        ]
+      }
+    },
+    {
+      "label": "assign gold",
+      "online": 2390,
+      "tick": 72278,
+      "expression": "setPopAlloc('gold',3)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "gold": [
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "label": "assign food",
+      "online": 2390,
+      "tick": 72278,
+      "expression": "setPopAlloc('food',6)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "food": [
+          0,
+          6
+        ]
+      }
+    },
+    {
+      "label": "L50 gold frontline train gold_cavalry",
+      "online": 2390,
+      "tick": 72278,
+      "expression": "train('gold_cavalry',10)",
+      "result": {
+        "ok": true,
+        "qty": 10
+      },
+      "changed": {
+        "queue": [
+          {
+            "infantry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer_silverbow": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          },
+          {
+            "infantry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer_silverbow": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 10,
+              "timer": 0.5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "label": "wait L50 gold frontline queue completion",
+      "online": 3730,
+      "tick": 73618,
+      "seconds": 1340,
+      "satisfied": true
+    },
+    {
+      "label": "save before gold cavalry",
+      "online": 3730,
+      "tick": 73618,
+      "expression": "save()",
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "label": "reload gold cavalry",
+      "online": 3730,
+      "saveSha256": "0e398d3c4babe97d76127333cf2b5b4746aedee640c888167bf82a65bca5e21c"
+    },
+    {
+      "label": "release stone",
+      "online": 3730,
+      "tick": 73618,
+      "expression": "setPopAlloc('stone',0)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "stone": [
+          6,
+          0
+        ]
+      }
+    },
+    {
+      "label": "release food",
+      "online": 3730,
+      "tick": 73618,
+      "expression": "setPopAlloc('food',0)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "food": [
+          6,
+          0
+        ]
+      }
+    },
+    {
+      "label": "release coal",
+      "online": 3730,
+      "tick": 73618,
+      "expression": "setPopAlloc('coal',0)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "coal": [
+          4,
+          0
+        ]
+      }
+    },
+    {
+      "label": "release gold",
+      "online": 3730,
+      "tick": 73618,
+      "expression": "setPopAlloc('gold',0)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "gold": [
+          3,
+          0
+        ]
+      }
+    },
+    {
+      "label": "assign stone",
+      "online": 3730,
+      "tick": 73618,
+      "expression": "setPopAlloc('stone',3)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "stone": [
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "label": "assign coal",
+      "online": 3730,
+      "tick": 73618,
+      "expression": "setPopAlloc('coal',3)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "coal": [
+          0,
+          3
+        ]
+      }
+    },
+    {
+      "label": "assign silver",
+      "online": 3730,
+      "tick": 73618,
+      "expression": "setPopAlloc('silver',4)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "silver": [
+          0,
+          4
+        ]
+      }
+    },
+    {
+      "label": "assign food",
+      "online": 3730,
+      "tick": 73618,
+      "expression": "setPopAlloc('food',9)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "food": [
+          0,
+          9
+        ]
+      }
+    },
+    {
+      "label": "L50 silver frontline train silver_heavy",
+      "online": 3730,
+      "tick": 73618,
+      "expression": "train('silver_heavy',10)",
+      "result": {
+        "ok": true,
+        "qty": 10
+      },
+      "changed": {
+        "queue": [
+          {
+            "infantry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer_silverbow": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          },
+          {
+            "infantry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer_silverbow": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 10,
+              "timer": 0.5,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        ]
+      }
+    },
+    {
+      "label": "wait L50 silver frontline queue completion",
+      "online": 4540,
+      "tick": 74428,
+      "seconds": 810,
+      "satisfied": true
+    },
+    {
+      "label": "release stone",
+      "online": 4540,
+      "tick": 74428,
+      "expression": "setPopAlloc('stone',0)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "stone": [
+          3,
+          0
+        ]
+      }
+    },
+    {
+      "label": "release food",
+      "online": 4540,
+      "tick": 74428,
+      "expression": "setPopAlloc('food',0)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "food": [
+          9,
+          0
+        ]
+      }
+    },
+    {
+      "label": "release coal",
+      "online": 4540,
+      "tick": 74428,
+      "expression": "setPopAlloc('coal',0)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "coal": [
+          3,
+          0
+        ]
+      }
+    },
+    {
+      "label": "release silver",
+      "online": 4540,
+      "tick": 74428,
+      "expression": "setPopAlloc('silver',0)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "silver": [
+          4,
+          0
+        ]
+      }
+    },
+    {
+      "label": "assign wood",
+      "online": 4540,
+      "tick": 74428,
+      "expression": "setPopAlloc('wood',2)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "wood": [
+          0,
+          2
+        ]
+      }
+    },
+    {
+      "label": "assign stone",
+      "online": 4540,
+      "tick": 74428,
+      "expression": "setPopAlloc('stone',2)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "stone": [
+          0,
+          2
+        ]
+      }
+    },
+    {
+      "label": "assign food",
+      "online": 4540,
+      "tick": 74428,
+      "expression": "setPopAlloc('food',9)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "food": [
+          0,
+          9
+        ]
+      }
+    },
+    {
+      "label": "assign coal",
+      "online": 4540,
+      "tick": 74428,
+      "expression": "setPopAlloc('coal',2)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "coal": [
+          0,
+          2
+        ]
+      }
+    },
+    {
+      "label": "assign iron",
+      "online": 4540,
+      "tick": 74428,
+      "expression": "setPopAlloc('iron',4)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "iron": [
+          0,
+          4
+        ]
+      }
+    },
+    {
+      "label": "L50 iron frontline train iron_spearman",
+      "online": 4540,
+      "tick": 74428,
+      "expression": "train('iron_spearman',20)",
+      "result": {
+        "ok": true,
+        "qty": 20
+      },
+      "changed": {
+        "queue": [
+          {
+            "infantry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer_silverbow": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          },
+          {
+            "infantry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 20,
+              "timer": 0.5,
+              "reason": ""
+            },
+            "archer_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer_silverbow": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        ]
+      }
+    },
+    {
+      "label": "wait L50 iron frontline queue completion",
+      "online": 6540,
+      "tick": 76428,
+      "seconds": 2000,
+      "satisfied": true
+    },
+    {
+      "label": "release wood",
+      "online": 6540,
+      "tick": 76428,
+      "expression": "setPopAlloc('wood',0)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "wood": [
+          2,
+          0
+        ]
+      }
+    },
+    {
+      "label": "release stone",
+      "online": 6540,
+      "tick": 76428,
+      "expression": "setPopAlloc('stone',0)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "stone": [
+          2,
+          0
+        ]
+      }
+    },
+    {
+      "label": "release food",
+      "online": 6540,
+      "tick": 76428,
+      "expression": "setPopAlloc('food',0)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "food": [
+          9,
+          0
+        ]
+      }
+    },
+    {
+      "label": "release coal",
+      "online": 6540,
+      "tick": 76428,
+      "expression": "setPopAlloc('coal',0)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "coal": [
+          2,
+          0
+        ]
+      }
+    },
+    {
+      "label": "release iron",
+      "online": 6540,
+      "tick": 76428,
+      "expression": "setPopAlloc('iron',0)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "iron": [
+          4,
+          0
+        ]
+      }
+    },
+    {
+      "label": "assign wood",
+      "online": 6540,
+      "tick": 76428,
+      "expression": "setPopAlloc('wood',2)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "wood": [
+          0,
+          2
+        ]
+      }
+    },
+    {
+      "label": "assign stone",
+      "online": 6540,
+      "tick": 76428,
+      "expression": "setPopAlloc('stone',2)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "stone": [
+          0,
+          2
+        ]
+      }
+    },
+    {
+      "label": "assign food",
+      "online": 6540,
+      "tick": 76428,
+      "expression": "setPopAlloc('food',9)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "food": [
+          0,
+          9
+        ]
+      }
+    },
+    {
+      "label": "assign coal",
+      "online": 6540,
+      "tick": 76428,
+      "expression": "setPopAlloc('coal',2)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "coal": [
+          0,
+          2
+        ]
+      }
+    },
+    {
+      "label": "assign copper",
+      "online": 6540,
+      "tick": 76428,
+      "expression": "setPopAlloc('copper',4)",
+      "result": {
+        "ok": true
+      },
+      "changed": {
+        "copper": [
+          0,
+          4
+        ]
+      }
+    },
+    {
+      "label": "L50 bronze and bow train bronze_guard",
+      "online": 6540,
+      "tick": 76428,
+      "expression": "train('bronze_guard',20)",
+      "result": {
+        "ok": true,
+        "qty": 20
+      },
+      "changed": {
+        "queue": [
+          {
+            "infantry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "bronze_guard": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer_silverbow": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          },
+          {
+            "infantry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "bronze_guard": {
+              "count": 20,
+              "timer": 0.5,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer_silverbow": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        ]
+      }
+    },
+    {
+      "label": "L50 bronze and bow train archer_silverbow",
+      "online": 6540,
+      "tick": 76428,
+      "expression": "train('archer_silverbow',20)",
+      "result": {
+        "ok": true,
+        "qty": 20
+      },
+      "changed": {
+        "queue": [
+          {
+            "infantry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "bronze_guard": {
+              "count": 20,
+              "timer": 0.5,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer_silverbow": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          },
+          {
+            "infantry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "bronze_guard": {
+              "count": 20,
+              "timer": 0.5,
+              "reason": ""
+            },
+            "iron_spearman": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer_t1": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "archer_silverbow": {
+              "count": 20,
+              "timer": 0.5,
+              "reason": ""
+            },
+            "silver_heavy": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            },
+            "gold_cavalry": {
+              "count": 0,
+              "timer": 0,
+              "reason": ""
+            }
+          }
+        ]
+      }
+    },
+    {
+      "label": "wait L50 bronze and bow queue completion",
+      "online": 8540,
+      "tick": 78428,
+      "seconds": 2000,
+      "satisfied": true
+    },
+    {
+      "label": "save before L50 gold army",
+      "online": 8540,
+      "tick": 78428,
+      "expression": "save()",
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "label": "reload L50 gold army",
+      "online": 8540,
+      "saveSha256": "74c8995fa29df308e39a009266e5e00220ee47944db24062a7924e7775355153"
+    },
+    {
+      "label": "save L50 gold ready",
+      "online": 8540,
+      "tick": 78428,
+      "expression": "save()",
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "label": "save 50 result",
+      "online": 8540,
+      "tick": 78450,
+      "expression": "save()",
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "label": "battle 50",
+      "kind": 50,
+      "win": false,
+      "round": 5,
+      "callbacks": 56,
+      "losses": {
+        "infantry": 0,
+        "iron_spearman": 20,
+        "bronze_guard": 20,
+        "silver_heavy": 10,
+        "gold_cavalry": 10,
+        "archer_t1": 0,
+        "archer_silverbow": 20
+      },
+      "battleTicks": 22,
+      "callbackMs": 22890,
+      "battleSeconds": 0,
+      "enemy": {
+        "name": "钢铁巨人",
+        "alert": 0,
+        "roster": [
+          {
+            "type": "infantry",
+            "count": 12,
+            "hp": 12,
+            "atk": 6,
+            "def": 11
+          },
+          {
+            "type": "infantry",
+            "count": 12,
+            "hp": 12,
+            "atk": 6,
+            "def": 11
+          },
+          {
+            "type": "infantry",
+            "count": 12,
+            "hp": 12,
+            "atk": 6,
+            "def": 11
+          },
+          {
+            "type": "archer",
+            "count": 12,
+            "hp": 12,
+            "atk": 12,
+            "def": 11
+          },
+          {
+            "type": "archer",
+            "count": 12,
+            "hp": 12,
+            "atk": 12,
+            "def": 11
+          },
+          {
+            "type": "archer",
+            "count": 12,
+            "hp": 12,
+            "atk": 12,
+            "def": 11
+          },
+          {
+            "type": "cavalry_t1",
+            "count": 12,
+            "hp": 12,
+            "atk": 22,
+            "def": 25
+          },
+          {
+            "type": "cavalry_t1",
+            "count": 12,
+            "hp": 12,
+            "atk": 22,
+            "def": 25
+          },
+          {
+            "type": "cavalry_t1",
+            "count": 12,
+            "hp": 12,
+            "atk": 22,
+            "def": 25
+          },
+          {
+            "type": "mage_t1",
+            "count": 12,
+            "hp": 12,
+            "atk": 18,
+            "def": 8
+          },
+          {
+            "type": "mage_t1",
+            "count": 12,
+            "hp": 12,
+            "atk": 18,
+            "def": 8
+          }
+        ]
+      },
+      "form": {
+        "front": [
+          {
+            "type": "gold_cavalry",
+            "count": 10,
+            "id": 1790798157380.5
+          },
+          {
+            "type": "silver_heavy",
+            "count": 10,
+            "id": 1790798157381.5
+          },
+          {
+            "type": "bronze_guard",
+            "count": 10,
+            "id": 1790798157382.5
+          },
+          {
+            "type": "iron_spearman",
+            "count": 10,
+            "id": 1790798157383.5
+          }
+        ],
+        "mid": [
+          {
+            "type": "iron_spearman",
+            "count": 10,
+            "id": 1790798157384.5
+          },
+          {
+            "type": "bronze_guard",
+            "count": 10,
+            "id": 1790798157385.5
+          }
+        ],
+        "back": [
+          {
+            "type": "archer_silverbow",
+            "count": 10,
+            "id": 1790798157386.5
+          },
+          {
+            "type": "archer_silverbow",
+            "count": 10,
+            "id": 1790798157387.5
+          }
+        ]
+      },
+      "changed": {
+        "tick": [
+          78428,
+          78450
+        ],
+        "formation": [
+          {
+            "front": [
+              {
+                "type": "gold_cavalry",
+                "count": 10,
+                "id": 1790798157372.5
+              },
+              {
+                "type": "silver_heavy",
+                "count": 10,
+                "id": 1790798157373.5
+              },
+              {
+                "type": "bronze_guard",
+                "count": 10,
+                "id": 1790798157374.5
+              },
+              {
+                "type": "iron_spearman",
+                "count": 10,
+                "id": 1790798157375.5
+              }
+            ],
+            "mid": [
+              {
+                "type": "iron_spearman",
+                "count": 10,
+                "id": 1790798157376.5
+              },
+              {
+                "type": "bronze_guard",
+                "count": 10,
+                "id": 1790798157377.5
+              }
+            ],
+            "back": [
+              {
+                "type": "archer_silverbow",
+                "count": 10,
+                "id": 1790798157378.5
+              },
+              {
+                "type": "archer_silverbow",
+                "count": 10,
+                "id": 1790798157379.5
+              }
+            ]
+          },
+          {
+            "front": [],
+            "mid": [],
+            "back": []
+          }
+        ]
+      }
+    },
+    {
+      "label": "save before L50 gold result",
+      "online": 8540,
+      "tick": 78450,
+      "expression": "save()",
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "label": "reload L50 gold result",
+      "online": 8540,
+      "saveSha256": "de1e1b9605c5bce3643566e3315677f6078d914cbd2f42e4c249c6e9a2cc557d"
+    }
+  ],
+  "final": {
+    "tick": 78450,
+    "defeated": 49,
+    "merit": 732,
+    "pop": 19,
+    "res": {
+      "wood": 3000,
+      "stone": 1996,
+      "food": 1679.42108438638,
+      "tech": 0,
+      "coal": 3,
+      "copper": 4,
+      "iron": 0,
+      "silver": 8.666666666663232,
+      "gold": 5,
+      "steel": 0,
+      "coin": 0,
+      "silverCoin": 0,
+      "goldCoin": 0,
+      "deed": 20,
+      "medal": 7,
+      "bone": 0,
+      "hide": 0
+    },
+    "essence": {
+      "bow_essence": 2,
+      "crossbow_essence": 3,
+      "blade_essence": 3,
+      "wind_essence": 3,
+      "iron_essence": 2,
+      "shield_essence": 1,
+      "spear_essence": 1,
+      "sword_essence": 1
+    },
+    "workers": {
+      "wood": 2,
+      "stone": 2,
+      "food": 9,
+      "coal": 2,
+      "copper": 4,
+      "iron": 0,
+      "silver": 0,
+      "gold": 0,
+      "steel": 0,
+      "coin": 0,
+      "silverCoin": 0,
+      "goldCoin": 0,
+      "tech": 0
+    },
+    "pool": {
+      "infantry": 0,
+      "archer": 0,
+      "bronze_guard": 0,
+      "iron_spearman": 0,
+      "archer_t1": 0,
+      "archer_silverbow": 0,
+      "silver_heavy": 0,
+      "gold_cavalry": 0
+    },
+    "queue": {
+      "infantry": {
+        "count": 0,
+        "timer": 0,
+        "reason": ""
+      },
+      "archer": {
+        "count": 0,
+        "timer": 0,
+        "reason": ""
+      },
+      "bronze_guard": {
+        "count": 0,
+        "timer": 0,
+        "reason": ""
+      },
+      "iron_spearman": {
+        "count": 0,
+        "timer": 0,
+        "reason": ""
+      },
+      "archer_t1": {
+        "count": 0,
+        "timer": 0,
+        "reason": ""
+      },
+      "archer_silverbow": {
+        "count": 0,
+        "timer": 0,
+        "reason": ""
+      },
+      "silver_heavy": {
+        "count": 0,
+        "timer": 0,
+        "reason": ""
+      },
+      "gold_cavalry": {
+        "count": 0,
+        "timer": 0,
+        "reason": ""
+      }
+    },
+    "formation": {
+      "front": [],
+      "mid": [],
+      "back": []
+    },
+    "outer": {
+      "village": {
+        "wins": 0,
+        "alert": 0
+      },
+      "town": {
+        "wins": 1,
+        "alert": 20
+      },
+      "city": {
+        "wins": 0,
+        "alert": 0
+      },
+      "capital": {
+        "wins": 0,
+        "alert": 0
+      }
+    },
+    "buildings": {
+      "academy": {
+        "lv": 1,
+        "state": "idle",
+        "timer": 0,
+        "timerEnd": 0,
+        "tier": 0
+      },
+      "farm": {
+        "lv": 1,
+        "state": "idle",
+        "timer": 0,
+        "timerEnd": 0,
+        "tier": 0
+      },
+      "warehouse": {
+        "lv": 2,
+        "state": "idle",
+        "timer": 0,
+        "timerEnd": 0,
+        "tier": 0
+      },
+      "market": {
+        "lv": 1,
+        "state": "idle",
+        "timer": 0,
+        "timerEnd": 0,
+        "tier": 0
+      },
+      "barracks": {
+        "lv": 1,
+        "state": "idle",
+        "timer": 0,
+        "timerEnd": 0,
+        "tier": 0
+      },
+      "infantry_camp": {
+        "lv": 1,
+        "state": "idle",
+        "timer": 0,
+        "timerEnd": 0,
+        "tier": 0
+      },
+      "archer_range": {
+        "lv": 2,
+        "state": "idle",
+        "timer": 0,
+        "timerEnd": 0,
+        "tier": 2
+      },
+      "copper_store": {
+        "lv": 1,
+        "state": "idle",
+        "timer": 0,
+        "timerEnd": 0,
+        "tier": 0
+      },
+      "bronze_workshop": {
+        "lv": 2,
+        "state": "idle",
+        "timer": 0,
+        "timerEnd": 0,
+        "tier": 0
+      },
+      "iron_forge": {
+        "lv": 2,
+        "state": "idle",
+        "timer": 0,
+        "timerEnd": 0,
+        "tier": 0
+      },
+      "silver_armory": {
+        "lv": 1,
+        "state": "idle",
+        "timer": 0,
+        "timerEnd": 0,
+        "tier": 0
+      },
+      "library": {
+        "lv": 10,
+        "state": "idle",
+        "timer": 0,
+        "timerEnd": 0,
+        "tier": 0
+      },
+      "gold_armory": {
+        "lv": 2,
+        "state": "idle",
+        "timer": 0,
+        "timerEnd": 0,
+        "tier": 0
+      }
+    },
+    "upgraded": {
+      "archer_t1": true,
+      "archer_silverbow": true
+    },
+    "sciences": [
+      "sci_prospect",
+      "sci_coal",
+      "sci_copper",
+      "sci_wood_store",
+      "sci_urbanization",
+      "sci_iron",
+      "sci_large_granary",
+      "sci_bronze_age",
+      "sci_iron_warehouse",
+      "sci_iron_age",
+      "sci_city",
+      "sci_silver",
+      "sci_silver_age",
+      "sci_library",
+      "sci_gold",
+      "sci_gold_age"
+    ]
+  },
+  "readySave": "docs/codex/reports/data/p403-l50-gold-ready-save.json",
+  "readySaveSha256": "3660427b18673323c4656a0c4215c1796e73dd8d33c35b5f1cc10c041898c787",
+  "outputSave": "docs/codex/reports/data/p403-l50-gold-paid-save.json",
+  "outputSaveSha256": "68f119cf89a3a5ac8550123bc06e4d55d4d6382152e3ba912e68bb2dcff362c0",
+  "failure": null
+}

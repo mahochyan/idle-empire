@@ -1,0 +1,319 @@
+{
+  "baselineHead": "3c856bc43bca4f9e84f8c7439e8f48db0b9dc91c",
+  "sourceName": "p403-high-scroll-leaf-bounded-save.json",
+  "sourceHash": "55806ac7f023bccc836bab84ddf4aa7f0a07fdf70c665a8e1a3a672dff28aae4",
+  "runtimeHash": {
+    "config.js": "30da1763fc2f7f7453438d263a667bea58c6acc11d67481d16272f5e1ffb1c0f",
+    "levels.js": "cec80c26fa91f941994c253a2fe73be0dfe3f108237620b662fdab9f5449fd1d",
+    "math.js": "e6980084a1f9b0a7a42f25342abd3e8f475e2737b6dfc300004425b02c2bdd4a",
+    "garrison.js": "4d233f0529d256cd1ace2de782603fcfcbbff110032ca4cf29c5e36af30f10ff",
+    "technology.js": "3d3485f57e1e3ef73d11077cec06d467f674959aa6f0dfb27c3eb4d4abf94536",
+    "tests/progression/harness.js": "4770d17fa72cc8c87f4c8ef79678f19d63a41da895b8dd58776e5a39ce2ede2b"
+  },
+  "formationSource": "p402-high-scroll-followup-save.json",
+  "random": "continue P403 fixed xorshift32 stream after first defeat, no seed search",
+  "policy": "restore original 486-person formation with production and real queues; then at most two revival battles, paid cleanse at 4100 alert; replenish between wins",
+  "start": {
+    "tick": 14775379,
+    "clockMs": 1793249313000,
+    "army": 304,
+    "deployed": 257,
+    "food": 491150,
+    "tech": 240043225.24032307,
+    "leaf": 348,
+    "blood": 22,
+    "alert": 4000,
+    "resources": {
+      "wood": 104495,
+      "stone": 445068,
+      "coal": 356128,
+      "copper": 46685.399997936154,
+      "iron": 310079,
+      "steel": 307996,
+      "gold": 532.4625000000879
+    },
+    "rng": 646549655
+  },
+  "clock": {
+    "onlineSeconds": 2095,
+    "offlineSeconds": 0
+  },
+  "replenishments": [
+    {
+      "label": "after-first-defeat",
+      "before": {
+        "tick": 14775379,
+        "clockMs": 1793249313000,
+        "army": 304,
+        "deployed": 257,
+        "food": 491150,
+        "tech": 240043225.24032307,
+        "leaf": 348,
+        "blood": 22,
+        "alert": 4000,
+        "resources": {
+          "wood": 104495,
+          "stone": 445068,
+          "coal": 356128,
+          "copper": 46685.399997936154,
+          "iron": 310079,
+          "steel": 307996,
+          "gold": 532.4625000000879
+        },
+        "rng": 646549655
+      },
+      "need": {
+        "electro_trooper": 70,
+        "armored_trooper": 31,
+        "alloy_special": 42,
+        "star_trooper": 46,
+        "gold_cavalry": 40,
+        "archer": 0
+      },
+      "costPaid": {
+        "steel": 994200,
+        "iron": 990000,
+        "copper": 990000,
+        "food": 103000,
+        "gold": 4000
+      },
+      "onlineSeconds": 1439,
+      "minimumFood": 480629.9236199628,
+      "after": {
+        "tick": 14776818,
+        "clockMs": 1793250752000,
+        "army": 533,
+        "deployed": 486,
+        "food": 491150,
+        "tech": 240043225.24032307,
+        "leaf": 348,
+        "blood": 22,
+        "alert": 4000,
+        "resources": {
+          "wood": 104495,
+          "stone": 26540,
+          "coal": 380256.5,
+          "copper": 52358.099997938756,
+          "iron": 473737,
+          "steel": 3826,
+          "gold": 11601.500000000084
+        },
+        "rng": 3627334343
+      }
+    },
+    {
+      "label": "between-battles",
+      "before": {
+        "tick": 14776824,
+        "clockMs": 1793250758000,
+        "army": 463,
+        "deployed": 416,
+        "food": 491150,
+        "tech": 240043225.24032307,
+        "leaf": 453,
+        "blood": 25,
+        "alert": 4100,
+        "resources": {
+          "wood": 104495,
+          "stone": 15716,
+          "coal": 374844.5,
+          "copper": 52358.099997938756,
+          "iron": 473737,
+          "steel": 3826,
+          "gold": 14950.17500000008
+        },
+        "rng": 1968531841
+      },
+      "need": {
+        "electro_trooper": 70,
+        "armored_trooper": 0,
+        "alloy_special": 0,
+        "star_trooper": 0,
+        "gold_cavalry": 0,
+        "archer": 0
+      },
+      "costPaid": {
+        "steel": 560000,
+        "iron": 560000,
+        "copper": 560000
+      },
+      "onlineSeconds": 644,
+      "minimumFood": 480629.9236199628,
+      "after": {
+        "tick": 14777468,
+        "clockMs": 1793251402000,
+        "army": 533,
+        "deployed": 486,
+        "food": 491150,
+        "tech": 240043225.24032307,
+        "leaf": 453,
+        "blood": 25,
+        "alert": 4100,
+        "resources": {
+          "wood": 104495,
+          "stone": 516326,
+          "coal": 161296,
+          "copper": 79492.4499979401,
+          "iron": 329,
+          "steel": 3968,
+          "gold": 14950.17500000008
+        },
+        "rng": 880075081
+      }
+    }
+  ],
+  "battles": [
+    {
+      "kind": "battle",
+      "entry": {
+        "tick": 14776818,
+        "clockMs": 1793250752000,
+        "army": 533,
+        "deployed": 486,
+        "food": 491150,
+        "tech": 240043225.24032307,
+        "leaf": 348,
+        "blood": 22,
+        "alert": 4000,
+        "resources": {
+          "wood": 104495,
+          "stone": 26540,
+          "coal": 380256.5,
+          "copper": 52358.099997938756,
+          "iron": 473737,
+          "steel": 3826,
+          "gold": 11601.500000000084
+        },
+        "rng": 3627334343
+      },
+      "preview": 105,
+      "outcome": "win",
+      "callbacks": 39,
+      "after": {
+        "tick": 14776818,
+        "clockMs": 1793250752000,
+        "army": 463,
+        "deployed": 416,
+        "food": 491150,
+        "tech": 240043225.24032307,
+        "leaf": 453,
+        "blood": 25,
+        "alert": 4100,
+        "resources": {
+          "wood": 104495,
+          "stone": 26540,
+          "coal": 380256.5,
+          "copper": 52358.099997938756,
+          "iron": 473737,
+          "steel": 3826,
+          "gold": 11601.500000000084
+        },
+        "rng": 1968531841
+      },
+      "leafGain": 105,
+      "armyLoss": 70
+    },
+    {
+      "kind": "cleanse",
+      "exchange": {
+        "ok": true,
+        "gained": 1,
+        "spent": 3,
+        "count": 1
+      },
+      "use": {
+        "ok": true,
+        "alert": 4000,
+        "spent": 1
+      }
+    },
+    {
+      "kind": "battle",
+      "entry": {
+        "tick": 14777468,
+        "clockMs": 1793251402000,
+        "army": 533,
+        "deployed": 486,
+        "food": 491150,
+        "tech": 240043225.24032307,
+        "leaf": 453,
+        "blood": 22,
+        "alert": 4000,
+        "resources": {
+          "wood": 104495,
+          "stone": 516326,
+          "coal": 161296,
+          "copper": 79492.4499979401,
+          "iron": 329,
+          "steel": 3968,
+          "gold": 14950.17500000008
+        },
+        "rng": 880075081
+      },
+      "preview": 105,
+      "outcome": "win",
+      "callbacks": 37,
+      "after": {
+        "tick": 14777468,
+        "clockMs": 1793251402000,
+        "army": 463,
+        "deployed": 416,
+        "food": 491150,
+        "tech": 240043225.24032307,
+        "leaf": 558,
+        "blood": 25,
+        "alert": 4100,
+        "resources": {
+          "wood": 104495,
+          "stone": 516326,
+          "coal": 161296,
+          "copper": 79492.4499979401,
+          "iron": 329,
+          "steel": 3968,
+          "gold": 14950.17500000008
+        },
+        "rng": 3142760059
+      },
+      "leafGain": 105,
+      "armyLoss": 70
+    }
+  ],
+  "stopReason": {
+    "kind": "two-battle-bound"
+  },
+  "minimumFood": 480629.9236199628,
+  "final": {
+    "tick": 14777474,
+    "clockMs": 1793251408000,
+    "army": 463,
+    "deployed": 416,
+    "food": 491150,
+    "tech": 240043225.24032307,
+    "leaf": 558,
+    "blood": 25,
+    "alert": 4100,
+    "resources": {
+      "wood": 104495,
+      "stone": 505502,
+      "coal": 150472,
+      "copper": 92887.14999794008,
+      "iron": 329,
+      "steel": 3968,
+      "gold": 14950.17500000008
+    },
+    "rng": 3142760059
+  },
+  "trainingDebits": {
+    "calls": 150,
+    "units": 299,
+    "resources": {
+      "copper": 1550000,
+      "iron": 1550000,
+      "steel": 1554200,
+      "food": 103000,
+      "gold": 4000
+    }
+  },
+  "finalName": "p403-high-scroll-recovery-save.json",
+  "finalHash": "8a399af13cd62e2d086ba7b7981bbe6fb0008eebc3cb08af5d8341faae7e49f4"
+}
