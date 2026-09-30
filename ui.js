@@ -1,11 +1,17 @@
 // ==================== UI 渲染 ====================
 // IE-007：资源增减直观反馈（CSS-only 浮泡+闪色；首帧建立基线不闪）
 let _prevResUI=null;
+function compactUiNumber(value){
+  const n=Number(value)||0,abs=Math.abs(n);
+  const scaled=abs>=1e8?[n/1e8,'亿']:abs>=1e4?[n/1e4,'万']:null;
+  return scaled?Number(scaled[0].toFixed(Math.abs(scaled[0])>=100?0:1))+scaled[1]:String(Math.floor(n));
+}
 function flashRes(el,rk,d){
   const cell=el.closest?el.closest('.top-res'):null;if(!cell)return;
   let dt=cell.querySelector('.res-delta');
   if(!dt){dt=document.createElement('span');dt.className='res-delta';cell.appendChild(dt)}
-  dt.textContent=(d>0?'+':'')+(Math.abs(d)>=100?Math.floor(d).toString():d.toFixed(1));
+  const absolute=Math.abs(d);
+  dt.textContent=(d>0?'+':'−')+(absolute>=1e4?compactUiNumber(absolute):absolute>=100?String(Math.floor(absolute)):absolute.toFixed(1));
   dt.classList.remove('up','down');void dt.offsetWidth;
   dt.classList.add(d>0?'up':'down');
   el.classList.remove('up','down');void el.offsetWidth;
@@ -24,10 +30,12 @@ function updateUI(){
   for(const rk of ['silver','silverCoin'])document.getElementById('top-'+rk).style.display=showSilver?'':'none';
   const showGold=scienceUnlocked('sci_gold')||(S.res.gold||0)>0;
   document.getElementById('top-gold').style.display=showGold?'':'none';
+  document.getElementById('top-goldCoin').style.display=showGold||(S.res.goldCoin||0)>0?'':'none';
   const showSteel=scienceUnlocked('sci_steel')||(S.res.steel||0)>0;
   document.getElementById('top-steel').style.display=showSteel?'':'none';
   const showMedal=scienceUnlocked('sci_electric_age')||(S.res.medal||0)>0;
   document.getElementById('top-medal').style.display=showMedal?'':'none';
+  document.getElementById('resource-loot-group').hidden=!(S.res.bone>0||S.res.hide>0);
   const medal=S.res.medal||0;
   document.getElementById('res-medal').textContent=medal>=1e8?(medal/1e8).toFixed(1)+'亿':medal>=1e4?(medal/1e4).toFixed(1)+'万':String(medal);
   document.getElementById('medal-label').textContent=resourceDisplayName('medal');
@@ -57,14 +65,30 @@ function updateUI(){
   document.getElementById('res-wood').style.color=woodFull?'#e06060':'#f0d060';
   document.getElementById('res-stone').style.color=stoneFull?'#e06060':'#f0d060';
   document.getElementById('res-food').style.color=foodFull?'#e06060':'#f0d060';
+  for(const [rk,cfg] of Object.entries(CFG.res)){
+    const value=document.getElementById('res-'+rk);if(!value)continue;
+    const stock=Math.floor(S.res[rk]||0),cap=resCap(rk),cell=value.closest('.top-res');
+    value.textContent=compactUiNumber(stock);
+    if(cell){
+      cell.title=`${resourceDisplayName(rk)} ${stock.toLocaleString('zh-CN')} / ${Math.floor(cap).toLocaleString('zh-CN')}`;
+      cell.classList.toggle('is-full',stock>=cap);
+      cell.classList.toggle('is-depleting',rk==='food'&&netFood<0);
+    }
+    const capacity=document.getElementById('cap-'+rk);
+    if(capacity&&rk!=='food')capacity.textContent='/'+compactUiNumber(cap);
+  }
   // 切片16-UI：#town-scene 已移入 #main（滚动流内）。renderPage 内部负责：重建后插回保留节点并填充
   renderPage(S.page);
 }
+const _pageDisclosureState=new Map();
 function renderPage(p){
   const main=document.getElementById('main');
   const el=document.activeElement;
   if(el&&(el.tagName==='INPUT'||el.tagName==='TEXTAREA'||el.tagName==='SELECT')&&main.contains(el))return;
   if(document.getElementById('population-action-modal')?.classList.contains('active'))return;
+  const previousPage=main.dataset.page,scrollTop=main.scrollTop;
+  if(previousPage)_pageDisclosureState.set(previousPage,new Map(
+    [...main.querySelectorAll('details[id]')].map(detail=>[detail.id,detail.open])));
   document.querySelectorAll('#navbar .nav-btn').forEach(button=>{
     const active=button.dataset.page===p;
     button.classList.toggle('on',active);
@@ -86,7 +110,12 @@ function renderPage(p){
     keepScene=_townSceneNode;
   }
   main.innerHTML={home:rHome,build:rBuild,barracks:rBarracks,fight:rFight,tech:rTech,log:rLog}[p]();
+  main.dataset.page=p;
+  const disclosure=_pageDisclosureState.get(p);
+  for(const detail of main.querySelectorAll('details[id]'))
+    if(disclosure?.has(detail.id))detail.open=disclosure.get(detail.id);
   if(keepScene){main.insertBefore(keepScene,main.firstChild);updateTownScene();}
+  main.scrollTop=previousPage===p?scrollTop:0;
 }
 function selectDevelopmentSiteFromUI(site){
   const result=selectDevelopmentSite(site);
@@ -99,8 +128,15 @@ function selectDevelopmentSiteFromUI(site){
 }
 function metalUiNumber(value){return Number((value||0).toFixed(2)).toString()}
 function metalUiInputs(rk){
-  const inputs=typeof metalConsumeMap==='function'?metalConsumeMap(rk):(CFG.res[rk]?.consumes||{});
+  const inputs=workerRecipeInputs(rk);
   return Object.entries(inputs||{}).map(([key,amount])=>`${CFG.res[key]?.name||key} ${metalUiNumber(amount)}`).join(' + ')||'无原料消耗';
+}
+function workerRecipeInputs(rk){
+  const inputs=typeof metalConsumeMap==='function'?metalConsumeMap(rk):(CFG.res[rk]?.consumes||{});
+  const coalRecipe=S.metalRecipeMode==='coal'&&CFG.metalChain?.recipes?.[rk];
+  const building=CFG.res[rk]?.workerBuilding;
+  return Object.fromEntries(Object.entries(inputs||{}).map(([key,amount])=>
+    [key,coalRecipe?amount:((building&&effConsume(building,key))??amount)]));
 }
 function metalCapAfterSwitch(rk){
   const cfg=CFG.metalChain||{};
@@ -162,6 +198,42 @@ function renderMetalModeCard(){
   return h+'</div>';
 }
 // ==================== 主页渲染 ====================
+function renderWorkerResource(key,cfg,nextSecond){
+  const lock=workerLockReason(key),alloc=S.popAlloc[key]||0,buf=buildingBuff(key);
+  const stock=S.res[key]||0,cap=resCap(key),rate=prodRate(key);
+  const processed=['copper','iron','silver','gold','steel','coin','silverCoin','goldCoin'].includes(key);
+  const net=key==='food'?Math.max(0,nextSecond.food)-stock:(nextSecond[key]||0)-stock;
+  const inputs=processed?workerRecipeInputs(key):{};
+  const room=Math.max(0,cap-stock);
+  let warning=lock||'';
+  if(alloc>0&&!lock&&room<=0)warning=processed?'成品满仓，暂停加工':'库存已满，产出受仓容限制';
+  else if(processed&&alloc>0&&!lock&&(S.metalRecipeMode==='coal'||['coin','silverCoin','goldCoin'].includes(key))&&net+1e-8<Math.min(rate,room))
+    warning='原料不足或被前序岗位占用';
+  let h=`<article id="worker-${key}" class="worker-resource${lock?' is-locked':''}">
+    <div class="worker-resource-head"><span class="worker-resource-name">${pix(cfg.icon,'sm')}${esc(resourceDisplayName(key))}</span>
+      <span class="worker-stock" title="库存 ${metalUiNumber(stock)} / ${metalUiNumber(cap)}">${stock>=1e4?compactUiNumber(stock):metalUiNumber(stock)}<small> / ${compactUiNumber(cap)}</small></span></div>
+    <div class="worker-resource-body"><div class="worker-controls" aria-label="${esc(resourceDisplayName(key))}工人分配">
+      <button class="btn btn-ghost btn-xs" aria-label="${esc(resourceDisplayName(key))}减少工人" onclick="setPopAlloc('${key}',(S.popAlloc['${key}']||0)-1)" ${alloc<=0?'disabled':''}>−</button>
+      <span class="worker-allocation">${alloc}<small>人</small></span>
+      <button class="btn btn-ghost btn-xs" aria-label="${esc(resourceDisplayName(key))}增加工人" onclick="setPopAlloc('${key}',(S.popAlloc['${key}']||0)+1)" ${popFree()<=0||lock?'disabled':''}>+</button></div>
+      <div class="worker-rate${net<0?' is-negative':''}"><strong>${net>=0?'+':''}${net.toFixed(1)}</strong><small> / 秒</small></div></div>
+    <div class="worker-resource-note"><span>产出增益 ${buf>0?'+':''}${(buf*100).toFixed(0)}%</span>${key==='food'?`<span>基础粮耗 ${(totalUpkeep()+popCurrent()*(CFG.popFoodCost??0.1)).toFixed(1)}/秒</span>`:''}${key==='stone'?'<span>建造与冶炼共用</span>':''}</div>`;
+  if(warning)h+=`<div class="worker-warning">${esc(warning)}</div>`;
+  if(processed)h+=`<details id="worker-recipe-${key}" class="worker-recipe"><summary>加工配方</summary><div>每工每秒投入：${esc(metalUiInputs(key))}${alloc>0&&Object.keys(inputs).length?`<br>${alloc}人共需：${esc(Object.entries(inputs).map(([input,n])=>`${resourceDisplayName(input)} ${metalUiNumber(n*alloc)}`).join(' + '))}`:''}</div></details>`;
+  return h+'</article>';
+}
+function renderResourceManagement(){
+  const nextSecond=productionSecond(1,false),ready=[],locked=[];
+  for(const [key,cfg] of Object.entries(CFG.res)){
+    if(!isWorkerResource(key))continue;
+    const row=renderWorkerResource(key,cfg,nextSecond);
+    (workerLockReason(key)&&!(S.popAlloc[key]>0)&&!(S.res[key]>0)?locked:ready).push(row);
+  }
+  return `<section id="town-workers" class="resource-management"><div class="ui-section-heading"><div><h2>生产与库存</h2><p>安排村民，查看每秒净变化</p></div><span class="ui-count-badge">空闲 ${popFree()}人</span></div>
+    <div class="resource-production-list">${ready.join('')}</div>
+    ${locked.length?`<details id="worker-locked" class="ui-disclosure"><summary><span>待解锁岗位</span><small>${locked.length}项</small></summary><div class="resource-production-list">${locked.join('')}</div></details>`:''}
+    <p class="resource-net-note">净变化已计加工扣料与仓容；满仓后新增产出会受限。</p></section>`;
+}
 function rHome(){
   const tc=townCfg();
   let h=`<div style="padding:4px 0">`;
@@ -170,7 +242,7 @@ function rHome(){
   // 切片11：离线结算报告卡（展示后由玩家清空；只展示一次、不二次发奖）
   if(S.offline&&S.offline.pendingReport){
     const r=S.offline.pendingReport, m=Math.floor((r.durationSec||0)/60), s=(r.durationSec||0)%60;
-    const gainStr=Object.keys(r.gains||{}).map(k=>`${pix(CFG.res[k]?.icon||k,'mini')}${CFG.res[k]?.name||k} +${Math.round(r.gains[k])}`).join(' ')||'（无净收益）';
+    const gainStr=Object.keys(r.gains||{}).map(k=>`${pix(CFG.res[k]?.icon||k,'mini')}${CFG.res[k]?.name||k} ${r.gains[k]<0?'−':'+'}${Math.abs(Math.round(r.gains[k]))}`).join(' ')||'（无净收益）';
     h+=`<div class="card" style="border-color:#3a6a4a"><div style="font-size:12px;color:#78d0a0">离线结算：${m}分${s}秒${r.truncated?'（已截断）':''}</div>
       <div style="font-size:11px;color:#c8c8c8;margin-top:4px">${gainStr}</div>
       ${r.populationFoodRule==='legacy'?'<div style="font-size:10px;color:#a0c8a8;margin-top:3px">历史存档首次结算：人口口粮按旧岗位人数计算</div>':''}
@@ -184,7 +256,7 @@ function rHome(){
   h+=`<span>${pix("home","card-pix")}聚落与村民</span>`;
   h+=`<span style="font-size:11px;color:#f0d060">人口 ${popCurrent()}/${maxPop()}</span>`;
   h+=`</h3>`;
-  h+=`<div style="font-size:11px;color:#999;margin-bottom:4px">已分配 ${popAllocTotal()} · 实际 ${popCurrent()} · 上限 ${maxPop()} · 空闲 ${popFree()} · 木仓容 ${resCap('wood')} · 石仓容 ${resCap('stone')} · 粮仓容 ${resCap('food')}</div>`;
+  h+=`<div class="population-overview"><span>已分配<strong>${popAllocTotal()}</strong></span><span>空闲村民<strong>${popFree()}</strong></span><span>人口上限<strong>${maxPop()}</strong></span></div>`;
   if((S.population?.legacyBonus||0)>0||tu)h+=`<div style="font-size:10px;color:#999;margin-bottom:4px">旧城镇进度：${esc(tc.name)} Lv.${tc.lv}（原有容量已保留）</div>`;
   if(popCurrent()>maxPop()||popAllocTotal()>popCurrent())h+=`<div style="font-size:10px;color:#e0b060;margin-bottom:4px">历史人口或分配超过当前容量，数据已保留；扩容或调配后可继续安排工人。</div>`;
   if(tu){
@@ -205,7 +277,7 @@ function rHome(){
     if(emptySlot>=0)h+=`<button class="btn btn-go btn-xs" onclick="setSmallTownPolicy(${emptySlot},'birth')" ${unlocked&&!_saveProtected?'':'disabled'}>第${emptySlot+1}位推行鼓励生育</button>`;
     if(lastBirth>=0)h+=` <button class="btn btn-ghost btn-xs" onclick="setSmallTownPolicy(${lastBirth},null)" ${_saveProtected?'disabled':''}>撤销第${lastBirth+1}位</button>`;
   }
-  h+=`<div style="border-top:1px solid #1e1e32;margin:8px 0 4px;padding-top:6px;font-size:10px;color:#999">${pix("upgrade","mini")}聚落扩容 · 地契 ${Math.floor(S.res.deed||0)}</div>`;
+  h+=`<details id="settlement-expansion" class="ui-disclosure"><summary><span>聚落扩容</span><small>地契 ${compactUiNumber(S.res.deed||0)}</small></summary>`;
   for(const[key,name,gain] of [['village','村庄',1],['smallTown','小镇',2],['city','城市',4]]){
     const lv=S.settlements?.[key]||0, cost=settlementCost(key), reason=settlementLockReason(key);
     h+=`<div style="display:flex;align-items:center;gap:5px;padding:4px 0;border-bottom:1px solid #1e1e2e;font-size:11px">`;
@@ -220,47 +292,8 @@ function rHome(){
       <select id="settlement-batch-kind" aria-label="选择聚落"><option value="village">村庄</option><option value="smallTown">小镇</option><option value="city">城市</option></select>
       <input id="settlement-batch-count" type="text" inputmode="numeric" pattern="[0-9]*" value="4" aria-label="扩建级数">
       <button id="settlement-batch-preview" class="btn btn-go btn-xs" onclick="openSettlementBatchPreview()">预览扩建</button>
-    </div></div>`;
-  h+=`<div id="town-workers" style="border-top:1px solid #1e1e32;margin:8px 0 4px;padding-top:6px;font-size:10px;color:#666">${pix("pop","mini")}村民分配</div>`;
-  h+=`<div style="font-size:10px;color:#78879e;margin-bottom:4px">石料／矿石、煤、铜、铁、银、金及钱币右侧为预计下一秒净变化，已计加工扣料与仓容。</div>`;
-  const nextSecond=productionSecond(1,false);
-  const foodNet=Math.max(0,nextSecond.food)-S.res.food;
-  for(const[k,c] of Object.entries(CFG.res)){if(!isWorkerResource(k))continue;
-    const workerLock=workerLockReason(k);
-    const buf=buildingBuff(k);
-    const rate=prodRate(k);
-    const alloc=S.popAlloc[k]||0;
-    h+=`<div id="worker-${k}" style="display:flex;align-items:center;gap:6px;padding:3px 0;font-size:12px;flex-wrap:wrap">`;
-    h+=`<span style="width:60px">${pix(c.icon,"sm")} ${resourceDisplayName(k)}</span>`;
-    h+=`<button class="btn btn-ghost btn-xs" onclick="setPopAlloc('${k}',(S.popAlloc['${k}']||0)-1)" ${alloc<=0?"disabled":""}>−</button>`;
-    h+=`<span style="width:36px;text-align:center;font-weight:bold;color:#f0d060;font-size:14px">${alloc}</span>`;
-    h+=`<button class="btn btn-ghost btn-xs" onclick="setPopAlloc('${k}',(S.popAlloc['${k}']||0)+1)" ${popFree()<=0||workerLock?"disabled":""}>+</button>`;
-    if(k==='food')h+=`<span style="font-size:10px;color:#666;margin-left:auto">基础粮耗 -${(totalUpkeep()+popCurrent()*(CFG.popFoodCost??0.1)).toFixed(1)}</span>`;
-    const metalRelated=['stone','coal','copper','iron','silver','gold','steel','coin','silverCoin','goldCoin'].includes(k);
-    const rawRate=k==='food'?foodNet:metalRelated?(nextSecond[k]||0)-(S.res[k]||0):rate;
-    h+=`<span style="font-size:10px;color:#666;margin-left:${k==='food'?'2px':'auto'}">Buff ${buf>0?"+":""}${(buf*100).toFixed(0)}%</span>`;
-    h+=`<span style="color:${rawRate>=0?'#40bf80':'#e06060'};margin-left:2px">${rawRate>=0?'+':''}${rawRate.toFixed(1)}/秒</span>`;
-    h+=`</div>`;
-    if(workerLock)h+=`<div style="font-size:10px;color:#999;padding:0 0 4px 66px">${esc(workerLock)}</div>`;
-    if(metalRelated){
-      const stock=S.res[k]||0,cap=resCap(k);
-      h+=`<div style="font-size:10px;color:#8993a7;padding:0 0 4px 66px;line-height:1.35">库存 ${metalUiNumber(stock)}/${metalUiNumber(cap)}`;
-      if(k==='stone')h+=` · 也用于冶炼`;
-      if(k==='copper'||k==='iron'||k==='silver'||k==='gold'||k==='steel'||k==='coin'||k==='silverCoin'||k==='goldCoin'){
-        const inputs=typeof metalConsumeMap==='function'?metalConsumeMap(k):(CFG.res[k].consumes||{});
-        h+=`<br>每工投入 ${metalUiInputs(k)}`;
-        if(alloc>0&&Object.keys(inputs||{}).length){
-          const total=Object.entries(inputs).map(([ik,amount])=>`${CFG.res[ik]?.name||ik} ${metalUiNumber(amount*alloc)}`).join(' + ');
-          h+=`；${alloc} 人每秒需 ${total}`;
-        }
-        const room=Math.max(0,cap-stock);
-        if(alloc>0&&!workerLock&&room<=0)h+=`<span style="color:#e0b060"> · 成品满仓，暂停加工</span>`;
-        else if(alloc>0&&!workerLock&&(S.metalRecipeMode==='coal'||k==='coin'||k==='silverCoin'||k==='goldCoin')&&rawRate+1e-8<Math.min(rate,room))h+=`<span style="color:#e0b060"> · 本秒原料不足或被前序岗位占用</span>`;
-      }
-      h+=`</div>`;
-    }
-  }
-  h+=`</div>`;
+    </div></div></details></div>`;
+  h+=renderResourceManagement();
 
   h+=renderMetalModeCard();
 
@@ -541,7 +574,7 @@ const BUILD_CATEGORIES = {
   economy: {name:'经济建筑',keys:['coal_mine','mine','copper_furnace','smelter','coal_store','copper_store','iron_store','silver_store','gold_store','steel_store','silver_refinery','gold_refinery','steel_refinery','mint','market']}
 };
 
-function rBuildDetailCard(key, cfg, showPrimaryAction=true){
+function rBuildDetailCard(key, cfg, showPrimaryAction=true, showTierAction=true){
   const st=bldSt(key),scienceLocked=cfg.needScience&&!buildingScienceUnlocked(key),progressLock=buildingProgressLock(key),locked=!!progressLock||scienceLocked,upLock=st.lv>0?upgradeLockReason(key):'';
   // 右侧对齐标签：资源Buff 或 解锁条件
   const buffLabel=cfg.buffRes&&st.state==='idle'&&st.lv>0?`<span style="font-size:12px;color:#40bf80">${pix(CFG.res[cfg.buffRes].icon,'sm')} ${CFG.res[cfg.buffRes].name} Buff: +${((st.lv*cfg.buffPerLv+cfg.buffBase)*100).toFixed(0)}%</span>`:'';
@@ -612,7 +645,7 @@ function rBuildDetailCard(key, cfg, showPrimaryAction=true){
           const nextTier=bldTier+1;
           h+=`<div style="margin-top:4px;display:flex;justify-content:space-between;align-items:center">`;
           h+=`<span style="font-size:10px;color:#888">进阶: ${costHtml(tuCost)} | ${tuCost.time}秒</span>`;
-          h+=`<button class="btn btn-go btn-sm" style="width:80px;text-align:center" onclick="buildTierUpgradeAct('${key}')" ${tuLock?'disabled':''}>进阶→T${nextTier}</button>`;
+          if(showTierAction)h+=`<button class="btn btn-go btn-sm" style="width:80px;text-align:center" onclick="buildTierUpgradeAct('${key}')" ${tuLock?'disabled':''}>进阶→T${nextTier}</button>`;
           h+=`</div>`;
           if(tuLock)h+=`<div style="font-size:9px;color:#e06060;margin-top:2px">${tuLock}</div>`;
         }
@@ -632,25 +665,40 @@ function rBuildDetailCard(key, cfg, showPrimaryAction=true){
 let _buildSearch='';
 function buildEntryState(key,cfg){
   const st=bldSt(key);
-  if(st.state!=='idle')return{rank:0,status:'施工中',disabled:true,action:'施工中'};
+  if(st.state!=='idle')return{rank:0,status:'施工中',label:st.state==='tier_upgrading'?'时代升级中':st.state==='upgrading'?'升级中':'建造中',kind:'busy',disabled:true,action:'施工中'};
   const lock=!!buildingProgressLock(key)||!buildingScienceUnlocked(key);
   const limit=st.lv>0?upgradeLockReason(key):'';
-  if(lock||limit)return{rank:3,status:lock?'尚未解锁':limit,disabled:true,action:st.lv?'升级':'建造'};
   const cost=st.lv?upCost(key):buildingInitialCost(key);
   const paid=cost&&Object.entries(cost).every(([rk,amount])=>rk==='time'||Number.isFinite(S.res[rk])&&S.res[rk]>=amount);
-  return{rank:paid?1:2,status:paid?'可立即处理':'资源不足',disabled:!paid||saveProtected(),action:st.lv?'升级':'建造'};
+  const protectedSave=saveProtected();
+  if(!protectedSave&&!lock&&st.lv>0&&(limit||!paid)&&cfg.tierUpgrade&&tierUpgradeCost(key)&&!tierUpgradeLockReason(key))return{rank:1,status:'可立即处理',label:'可时代进阶',kind:'upgrade',disabled:false,action:'进阶',actionTarget:'tier'};
+  if(lock||limit)return{rank:3,status:lock?'尚未解锁':limit,label:lock?'尚未解锁':limit.includes('已达等级上限')?'已达等级上限':'升级条件未满足',kind:'locked',disabled:true,action:st.lv?'升级':'建造'};
+  return{rank:paid?1:2,status:paid?'可立即处理':'资源不足',label:protectedSave?'存档保护中':paid?(st.lv?'可升级':'可建造'):'资源不足',kind:paid&&!protectedSave?(st.lv?'upgrade':'build'):'waiting',disabled:!paid||protectedSave,action:st.lv?'升级':'建造'};
 }
-function rBuildCard(key,cfg,category){
-  const st=bldSt(key),state=buildEntryState(key,cfg);
-  const search=esc(`${cfg.name} ${key} ${category}`);
+function buildEntrySearch(key,cfg,category){
+  return `${cfg.name} ${key} ${category} ${BUILD_CATEGORIES[category]?.name||''}`.toLowerCase();
+}
+function buildEntryMatches(search,rank,category,tab,query){
+  return query?search.includes(query):tab==='ready'?rank<=2:category===tab;
+}
+function buildMarketVisible(tab,query){
+  return query?buildEntrySearch('market',CFG.buildings.market||{name:'市场'},'economy').includes(query):tab==='economy';
+}
+function rBuildCard(key,cfg,category,state=buildEntryState(key,cfg)){
+  const st=bldSt(key);
+  const search=esc(buildEntrySearch(key,cfg,category));
+  const tierAction=state.actionTarget==='tier';
+  const actionLabel=tierAction?`时代进阶至 T${(st.tier??0)+1}`:st.lv?`升级至等级 ${st.lv+1}`:'建造';
   const action=st.state==='idle'
-    ?`<button class="btn btn-go btn-sm build-entry-action" type="button" onclick="buildAct('${key}')" ${state.disabled?'disabled':''}>${state.action}</button>`
-    :`<span class="build-entry-sub">${Math.max(0,st.timer||0)} 秒</span>`;
-  return `<article class="build-entry" id="build-${key}" data-category="${category}" data-rank="${state.rank}" data-search="${search}">
+    ?`<button class="btn btn-go btn-sm build-entry-action" type="button" aria-label="${esc(cfg.name)}${actionLabel}" onclick="${tierAction?'buildTierUpgradeAct':'buildAct'}('${key}')" ${state.disabled?'disabled':''}>${tierAction?`进阶 <span>T${(st.tier??0)+1}</span>`:st.lv?`升级 <span>Lv.${st.lv+1}</span>`:'建造'}</button>`
+    :`<div class="build-entry-timer"><strong>${Math.ceil(Math.max(0,st.timer||0))}</strong><span>秒后完成</span></div>`;
+  const progress=st.state!=='idle'?Math.min(100,Math.max(0,st.timerEnd>0?(st.timerEnd-st.timer)/st.timerEnd*100:0)):0;
+  return `<article class="build-entry" id="build-${key}" data-category="${category}" data-rank="${state.rank}" data-state="${state.kind}" data-search="${search}">
     <div class="build-entry-main"><span class="build-entry-icon">${pix(key,'md')}</span>
-      <div style="flex:1;min-width:0"><div class="build-entry-title">${esc(cfg.name)} · Lv.${st.lv}</div>
-      <div class="build-entry-sub">${esc(state.status)}${cfg.trains?` · T${st.tier??0}`:''}</div></div>${action}</div>
-    <details><summary>费用、效果与解锁条件</summary>${rBuildDetailCard(key,cfg,false)}</details>
+      <div class="build-entry-copy"><div class="build-entry-heading"><h3 class="build-entry-title">${esc(cfg.name)}</h3><span class="build-entry-level">${st.lv?`Lv.${st.lv}`:'未建造'}</span></div>
+      <div class="build-entry-sub"><span class="build-entry-status">${esc(state.label)}</span>${cfg.trains?`<span class="build-entry-era">T${st.tier??0} 时代</span>`:''}</div></div>${action}</div>
+    ${st.state!=='idle'?`<div class="build-entry-progress" role="progressbar" aria-label="${esc(cfg.name)}${esc(state.label)}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${Math.round(progress)}"><span style="width:${progress.toFixed(1)}%"></span></div>`:''}
+    <details id="build-detail-${key}" data-building="${key}"><summary><span>费用与效果</span><small>查看条件${cfg.tierUpgrade?' · 时代进阶':''}</small></summary>${rBuildDetailCard(key,cfg,false,!tierAction)}</details>
   </article>`;
 }
 function setBuildSearch(value){
@@ -662,34 +710,44 @@ function filterBuildEntries(){
   const tab=S._buildTab||'ready';
   let shown=0;
   for(const entry of document.querySelectorAll('.build-entry')){
-    const matches=query?entry.dataset.search.toLowerCase().includes(query):tab==='ready'?Number(entry.dataset.rank)<=2:entry.dataset.category===tab;
+    const matches=buildEntryMatches(entry.dataset.search.toLowerCase(),Number(entry.dataset.rank),entry.dataset.category,tab,query);
     entry.hidden=!matches;if(matches)shown++;
   }
   const empty=document.getElementById('build-empty');
   if(empty)empty.hidden=shown>0;
+  const count=document.getElementById('build-result-count');
+  if(count)count.textContent=`${shown} 项`;
+  const heading=document.getElementById('build-list-title');
+  if(heading)heading.textContent=query?'搜索结果':tab==='ready'?'施工与建设':BUILD_CATEGORIES[tab]?.name||'建筑列表';
+  const market=document.getElementById('build-market-region');
+  if(market)market.hidden=!buildMarketVisible(tab,query);
 }
 function rBuild(){
   const tab=S._buildTab||'ready';
-  const tabs=[{k:'ready',n:'可处理'},{k:'basic',n:'基础'},{k:'economy',n:'经济'},{k:'barracks',n:'军事'},{k:'special',n:'特殊'}];
-  let h=`<div class="build-toolbar"><label for="build-search" class="section-kicker">建筑管理</label><input id="build-search" type="search" placeholder="搜索建筑" aria-label="搜索全部建筑" value="${esc(_buildSearch)}" oninput="setBuildSearch(this.value)"></div>`;
-  h+=`<div class="build-filters" aria-label="建筑分类">`;
-  for(const t of tabs)h+=`<button class="btn btn-sm ${tab===t.k?'btn-go':'btn-ghost'}" type="button" aria-pressed="${tab===t.k}" onclick="setBuildTab('${t.k}')">${t.n}</button>`;
-  h+=`</div>`;
+  const tabs=[{k:'ready',n:'待办'},{k:'basic',n:'基础'},{k:'economy',n:'经济'},{k:'barracks',n:'军事'},{k:'special',n:'特殊'}];
+  const query=_buildSearch.trim().toLowerCase();
   const entries=[];
   for(const [category,group] of Object.entries(BUILD_CATEGORIES))for(const key of group.keys){
-    const cfg=CFG.buildings[key];if(cfg)entries.push({key,cfg,category,rank:buildEntryState(key,cfg).rank});
+    const cfg=CFG.buildings[key];if(cfg){const state=buildEntryState(key,cfg);entries.push({key,cfg,category,state,rank:state.rank,search:buildEntrySearch(key,cfg,category)});}
   }
   entries.sort((a,b)=>a.rank-b.rank||a.cfg.name.localeCompare(b.cfg.name,'zh-CN'));
+  const countKind=kind=>entries.filter(item=>item.state.kind===kind).length;
+  const shown=entries.filter(item=>buildEntryMatches(item.search,item.rank,item.category,tab,query)).length;
+  let h=`<header class="build-page-header"><span class="section-kicker">城镇建设</span><h2>建筑管理</h2><p>先处理施工与升级，再按类别查看所有建筑。</p></header>`;
+  h+=`<div class="build-overview" aria-label="建筑状态总览"><div class="build-overview-item" data-state="busy"><strong>${countKind('busy')}</strong><span>施工中</span></div><div class="build-overview-item" data-state="build"><strong>${countKind('build')}</strong><span>可建造</span></div><div class="build-overview-item" data-state="upgrade"><strong>${countKind('upgrade')}</strong><span>可升级</span></div></div>`;
+  h+=`<div class="build-toolbar"><label for="build-search">搜索全部建筑</label><input id="build-search" type="search" placeholder="输入名称，如仓库、市场" aria-label="搜索全部建筑" value="${esc(_buildSearch)}" oninput="setBuildSearch(this.value)"></div>`;
+  h+=`<div class="build-filters" aria-label="建筑分类">`;
+  for(const t of tabs)h+=`<button class="btn btn-sm ${tab===t.k?'btn-go':'btn-ghost'}" type="button" aria-pressed="${tab===t.k}" onclick="setBuildTab('${t.k}')">${t.n}</button>`;
+  h+=`</div><div class="build-list-heading"><h3 id="build-list-title">${query?'搜索结果':tab==='ready'?'施工与建设':BUILD_CATEGORIES[tab]?.name||'建筑列表'}</h3><span id="build-result-count">${shown} 项</span></div>`;
   for(const item of entries){
-    const match=_buildSearch.trim()?`${item.cfg.name} ${item.key} ${item.category}`.toLowerCase().includes(_buildSearch.trim().toLowerCase()):tab==='ready'?item.rank<=2:item.category===tab;
-    const card=rBuildCard(item.key,item.cfg,item.category);
+    const match=buildEntryMatches(item.search,item.rank,item.category,tab,query);
+    const card=rBuildCard(item.key,item.cfg,item.category,item.state);
     h+=match?card:card.replace('<article class="build-entry"','<article class="build-entry" hidden');
   }
-  h+=`<div id="build-empty" class="card" ${entries.some(item=>_buildSearch.trim()?`${item.cfg.name} ${item.key} ${item.category}`.toLowerCase().includes(_buildSearch.trim().toLowerCase()):tab==='ready'?item.rank<=2:item.category===tab)?'hidden':''}>没有符合条件的建筑。可切换分类或清除搜索。</div>`;
-  if(tab==='economy'||_buildSearch.trim().toLowerCase().includes('市场')){ // IE-007：市场兑换面板（交易所雏形）
-    const mk=CFG.buildings.market,st=bldSt('market');
-    if(CFG.market&&mk&&st.state==='idle'&&st.lv>0)h+=marketPanel();
-  }
+  h+=`<div id="build-empty" class="card build-empty" ${shown?'hidden':''}><strong>没有符合条件的建筑</strong><p>切换分类或清除搜索，查看其他建设项目。</p></div>`;
+  // 市场仍使用原有操作；搜索时只切换可见性，避免输入聚焦期间错过兑换入口。
+  const mk=CFG.buildings.market,marketState=bldSt('market');
+  if(CFG.market&&mk&&marketState.state==='idle'&&marketState.lv>0)h+=`<section id="build-market-region" class="build-market-region" aria-label="市场兑换" ${buildMarketVisible(tab,query)?'':'hidden'}>${marketPanel()}</section>`;
   return h;
 }
 function marketPanel(){
@@ -721,7 +779,7 @@ function marketPanel(){
         <button id="quick-deed-preview" class="btn btn-go btn-xs" onclick="openQuickDeedPreview()">预览购契</button>
       </div>
       <div class="population-batch-hint">只出售所选资源；已有${resourceDisplayName('coin')}先用于购契。钱币仓容不足时请减少本次数量。</div>
-      <details class="population-batch-more"><summary>合并出售多种资源</summary>
+      <details id="market-resource-basket" class="population-batch-more"><summary>合并出售多种资源</summary>
         <div class="population-batch-basket">
           <label>木 <input id="deed-sell-wood" type="text" inputmode="numeric" pattern="[0-9]*" value="0"></label>
           <label>石 <input id="deed-sell-stone" type="text" inputmode="numeric" pattern="[0-9]*" value="0"></label>
@@ -1452,7 +1510,7 @@ function rTechFull(){
 
   // 兵种图谱先显示兵种；库存保留完整明细，需要时展开。
   const essenceKinds=Object.keys(CFG.essences||{}).filter(key=>(S.essence?.[key]||0)>0).length;
-  h+=`<details class="card tech-essence-inventory" ${_techEssenceOpen?'open':''} ontoggle="setTechEssenceOpen(this.open)">
+  h+=`<details id="tech-essence-inventory" class="card tech-essence-inventory" ${_techEssenceOpen?'open':''} ontoggle="if(this.isConnected)setTechEssenceOpen(this.open)">
     <summary>${pix('tech','card-pix')}<span>精魄库存</span><small>已持有 ${essenceKinds} 类</small></summary>`;
   h+=`<div style="font-size:10px;color:#888;margin-bottom:6px">主线Boss概率掉落，外域军屯村寨与工造军镇按胜次轮换获得；用于解锁T2/T3兵种</div>`;
   h+=`<div style="display:flex;flex-wrap:wrap;gap:2px;padding:4px 0">`;
@@ -1582,14 +1640,17 @@ function rTechFull(){
     h+=`<div class="card"><h3>${pix('army','card-pix')}${esc(cfg.name)}</h3>`;
     h+=`<div class="tech-detail-intro">需${esc(sciName(cfg.needScience))}；攻击、生命、防御分别投入。每 ${cfg.stepsPerStar} 次升一星，进度与战斗兵力分开保存。${esc(armsMilestoneText)}</div>`;
     for(const [stat,sc] of Object.entries(cfg.stats)){
-      const state=S.armsUp[uk][stat],remaining=cfg.stepsPerStar-state.progress,fillCost=remaining*cfg.stepCost;
-      const batch=Math.min(remaining,Number.isFinite(stock)?Math.max(0,Math.floor(stock/cfg.stepCost)):0);
+      const state=S.armsUp[uk][stat],remaining=cfg.stepsPerStar-state.progress;
+      const single=armsUpCost(uk,stat),fill=armsUpCost(uk,stat,remaining);
+      const batch=armsUpPayableBatch(uk,stat);
+      const batchQuote=batch>1?armsUpCost(uk,stat,batch):null;
+      const singlePayable=single.ok&&Number.isFinite(stock)&&stock>=single.cost&&stock-(stock-single.cost)===single.cost;
       const rawBonus=armsUpBonus(uk,stat),bonus=stat==='hp'?rawBonus.toFixed(2):rawBonus;
       h+=`<div class="tech-detail-row"><div class="tech-detail-head"><strong>${esc(sc.name)}</strong><span class="tech-detail-state">${state.stars}星 · ${state.progress}/${cfg.stepsPerStar}</span></div>`;
       h+=`<div class="tech-detail-desc">当前${stat==='atk'?'攻击':stat==='hp'?'单兵生命':'防御'} +${bonus}</div>`;
-      h+=`<div class="tech-detail-cost">每次 ${esc(resourceDisplayName(cfg.material))} ${cfg.stepCost} · 补满本星 ${fillCost}</div>`;
-      h+=`<div class="tech-detail-actions"><button class="btn btn-go btn-xs" ${unlocked&&stock>=cfg.stepCost?'':'disabled'} onclick="investArmsUp('${uk}','${stat}')">投入一次</button>`;
-      if(unlocked&&batch>1)h+=`<button class="btn btn-ghost btn-xs" onclick="investArmsUp('${uk}','${stat}',${batch})">${batch===remaining?'补满本星':'投入'+batch+'次'}</button>`;
+      h+=single.ok?`<div class="tech-detail-cost">每次 ${esc(resourceDisplayName(cfg.material))} ${single.cost} · 补满本星 ${fill.ok?fill.cost:'暂不可用'}</div>`:`<div class="tech-detail-cost">投入费用超出可精确支付范围</div>`;
+      h+=`<div class="tech-detail-actions"><button class="btn btn-go btn-xs" ${unlocked&&singlePayable?'':'disabled'} onclick="investArmsUp('${uk}','${stat}')">投入一次</button>`;
+      if(unlocked&&batch>1&&batchQuote?.ok&&stock-(stock-batchQuote.cost)===batchQuote.cost)h+=`<button class="btn btn-ghost btn-xs" onclick="investArmsUp('${uk}','${stat}',${batch})">${batch===remaining?'补满本星':'投入'+batch+'次'}</button>`;
       h+=`</div></div>`;
     }
     h+=`</div>`;
@@ -1785,13 +1846,17 @@ function techActionCategory(call){
   if(call.startsWith('researchScience('))return'science';
   if(call.startsWith('unlockUnitRoot(')||call.startsWith('upgradeUnit('))return'units';
   if(call.startsWith('researchWeapon(')||call.startsWith('forgeWeapon(')||call.startsWith('investArmsUp(')||call.startsWith('setWeaponEquipped('))return'arms';
+  if(call.startsWith('upgradeQuantumArmament(')||call.startsWith('steamMilitaryStarStep('))return'arms';
   if(call.startsWith('upgradeScholarMastery(')||call.startsWith('upgradeSteelMastery('))return'mastery';
   if(call.startsWith('upgradeStorageMastery(')||call.startsWith('upgradeEraStorage('))return'storage';
+  if(call.startsWith('openStarArraySlot(')||call.startsWith('attuneStarArrayKnowledgeSlot(')||call.startsWith('upgradeStarArraySlot('))return'storage';
   return null;
 }
 function techActionTitle(button,category){
-  const row=button.closest('.tech-detail-row,div[style*="border-bottom"],div[style*="border-top"]')||button.parentElement?.parentElement;
+  const row=button.closest('.tech-science-row,.tech-unit-node,.tech-detail-row,div[style*="border-bottom"],div[style*="border-top"]')||button.parentElement?.parentElement;
   const strong=row?.querySelector('strong');
+  const armId=/^investArmsUp\('([^']+)'/.exec(button.getAttribute('onclick')||'')?.[1];
+  if(armId&&CFG.armsUp[armId])return `${CFG.armsUp[armId].name} · ${strong?.textContent.trim()||'精炼'}`;
   if(strong)return strong.textContent.trim();
   if(category==='units'){
     const parent=button.parentElement;
@@ -1826,10 +1891,28 @@ function fullTechCategory(node){
   const heading=node.querySelector('h3')?.textContent.trim()||'';
   if(heading.includes('精魄'))return'units';
   if(heading.includes('资源科技'))return'science';
-  if(heading.includes('军备')||Object.values(CFG.armsUp||{}).some(item=>heading.includes(item.name)))return'arms';
+  if(heading.includes('军备')||heading.includes('圣痕兵装')||heading.includes('军团整编')||Object.values(CFG.armsUp||{}).some(item=>heading.includes(item.name)))return'arms';
   if([CFG.scholarMastery?.name,CFG.steelMastery?.name].some(name=>name&&heading.includes(name)))return'mastery';
-  if(heading.includes('储存')||heading.includes('仓储')||heading.includes('扩容'))return'storage';
+  if(heading.includes('储存')||heading.includes('仓储')||heading.includes('扩容')||heading.includes('星辉圣阵'))return'storage';
   return'science';
+}
+function techActionPresentation(button,title,category){
+  const call=button.getAttribute('onclick')||'';
+  const scienceId=/^researchScience\('([^']+)'\)/.exec(call)?.[1];
+  if(scienceId){
+    const science=activeSciences()[scienceId];
+    if(science)return {description:science.desc||'',costs:Object.entries(science.cost||{})
+      .filter(([key])=>key!=='merit'||!CFG.tech?.sciencesNoMerit)
+      .map(([key,value])=>`${key==='merit'?'战功':resourceDisplayName(key)} ${compactUiNumber(value)}`)};
+  }
+  const row=button.closest('.tech-unit-node,.tech-detail-row')||button.parentElement;
+  const chips=[...(row.querySelectorAll('.tech-unit-cost-list span')||[])].map(item=>item.textContent.trim());
+  const fee=button.closest('.tech-detail-cost')||row.querySelector('.tech-unit-cost,.tech-detail-cost');
+  const feeCopy=fee?.cloneNode(true);
+  feeCopy?.querySelectorAll('button').forEach(node=>node.remove());
+  return {state:row.querySelector('.tech-detail-state')?.textContent.trim()||'',
+    description:row.querySelector('.tech-unit-prereq,.tech-detail-desc')?.textContent.trim()||'',
+    costs:chips.length?chips:[feeCopy?.textContent.trim()||techActionMeta(button,title,category)]};
 }
 function setTechCategory(category){
   if(!TECH_CATEGORIES[category])return;
@@ -1854,7 +1937,7 @@ function rTech(){
     const category=techActionCategory(call);
     if(!category||button.disabled||!button.classList.contains('btn-go'))continue;
     const title=techActionTitle(button,category);
-    actions.push({category,title,detail:techActionMeta(button,title,category),html:button.outerHTML,
+    actions.push({category,title,...techActionPresentation(button,title,category),html:button.outerHTML,
       unitKey:button.closest('.tech-unit-node')?.dataset.unit||null});
   }
   const visibleCategories=new Set();
@@ -1873,27 +1956,42 @@ function rTech(){
     const cost=Object.entries(science.cost).filter(([key])=>key!=='merit');
     const meritCost=CFG.tech?.sciencesNoMerit?0:science.cost.merit||0;
     const affordable=cost.every(([key,amount])=>(S.res[key]||0)>=amount)&&(S.merit||0)>=meritCost;
-    if(!affordable)near.push({name:science.name,cost:cost.map(([key,amount])=>`${resourceDisplayName(key)} ${amount}`).join(' · '),id,techCost:science.cost.tech||0});
+    if(!affordable){
+      const missing=cost.filter(([key,amount])=>(S.res[key]||0)<amount)
+        .map(([key,amount])=>`${resourceDisplayName(key)} ${compactUiNumber(Math.ceil(amount-(S.res[key]||0)))}`);
+      if((S.merit||0)<meritCost)missing.push(`战功 ${compactUiNumber(Math.ceil(meritCost-(S.merit||0)))}`);
+      near.push({name:science.name,cost:cost.map(([key,amount])=>`${resourceDisplayName(key)} ${compactUiNumber(amount)}`),missing,id,techCost:science.cost.tech||0});
+    }
   }
   near.sort((a,b)=>(activeSciences()[a.id].cost.tech||0)-(activeSciences()[b.id].cost.tech||0));
-  let h=`<section id="tech-overview" class="tech-overview-head"><h2>研究与成长</h2>
-    <div class="tech-overview-stats"><span>科技点 <strong>${Math.floor(S.res.tech||0)}</strong></span><span>战功 <strong>${S.merit||0}</strong></span><span>可操作 <strong>${actions.length}</strong> 项</span></div>
+  let h=`<section id="tech-overview" class="tech-overview-head"><div class="ui-page-kicker">研究中心</div><h2>研究与成长</h2><p>先完成可用研究，再查看下一步条件</p>
+    <div class="tech-overview-stats"><span>科技点 <strong>${compactUiNumber(S.res.tech||0)}</strong></span><span>战功 <strong>${compactUiNumber(S.merit||0)}</strong></span><span>可操作 <strong>${actions.length}</strong></span></div>
   </section>`;
-  h+=`<div class="section-kicker">现在可以做</div>`;
+  h+=`<div class="ui-section-heading"><h3>现在可以做</h3><span class="ui-count-badge">${actions.length}项</span></div>`;
   if(actions.length){
-    const visible=_techShowAll?actions:actions.slice(0,8);
-    for(const action of visible)h+=`<div class="tech-action-card"><div class="tech-action-main">${action.unitKey?unitPortrait(action.unitKey,'card'):''}<div class="tech-action-copy"><div class="tech-action-title">${esc(action.title)}</div><div class="tech-action-sub"><span class="tech-action-type">${TECH_CATEGORIES[action.category]}</span>条件已满足</div></div>${action.html}</div><div class="tech-costs">${esc(action.detail)}</div></div>`;
+    const queues=Object.keys(TECH_CATEGORIES).map(category=>actions.filter(action=>action.category===category));
+    const short=[];
+    while(short.length<8&&queues.some(queue=>queue.length))for(const queue of queues){
+      if(short.length>=8)break;if(queue.length)short.push(queue.shift());
+    }
+    const visible=_techShowAll?actions:short;
+    for(const [category,label] of Object.entries(TECH_CATEGORIES)){
+      const group=visible.filter(action=>action.category===category);if(!group.length)continue;
+      h+=`<section class="tech-action-group" aria-label="${label}可操作研究"><div class="tech-group-heading"><span>${label}</span><small>${actions.filter(action=>action.category===category).length}项可用</small></div>`;
+      for(const action of group)h+=`<article class="tech-action-card"><div class="tech-action-main"><div class="tech-action-copy"><h3 class="tech-action-title">${esc(action.title)}</h3><span class="tech-ready-label">条件已满足</span></div>${action.html}</div>${action.description?`<p class="tech-action-description">${esc(action.description)}</p>`:''}<div class="tech-action-costs"><span class="tech-cost-label">费用 / 进度</span><div class="ui-cost-list">${action.state?`<span class="tech-current-state">${esc(action.state)}</span>`:''}${action.costs.map(cost=>`<span>${esc(cost)}</span>`).join('')}</div></div></article>`;
+      h+='</section>';
+    }
     if(actions.length>8)h+=`<button class="btn btn-ghost btn-sm" type="button" onclick="toggleTechActionList()">${_techShowAll?'收起':'查看全部 '+actions.length+' 项可操作研究'}</button>`;
   }else h+=`<div class="card">当前没有可以直接执行的研究；查看下一步条件或完整图谱。</div>`;
   if(near.length){
-    h+=`<div class="section-kicker">下一步研究</div>`;
+    h+=`<div class="ui-section-heading"><h3>下一步研究</h3><span class="ui-count-badge">筹备中</span></div>`;
     for(const next of near.slice(0,3)){
       const current=Math.min(Math.max(0,Math.floor(S.res.tech||0)),next.techCost);
       const percent=next.techCost?Math.round(current/next.techCost*100):100;
-      h+=`<div class="tech-action-card tech-near-card"><div class="tech-near-head"><div class="tech-action-title">${esc(next.name)}</div><span>${percent}%</span></div><div class="tech-costs">所需：${esc(next.cost)}${CFG.tech?.sciencesNoMerit?'':` · 战功 ${activeSciences()[next.id].cost.merit||0}`}</div><div class="tech-action-sub">科技点 ${current}/${next.techCost}</div><div class="prog-wrap" role="progressbar" aria-label="${esc(next.name)}科技点进度" aria-valuemin="0" aria-valuemax="${next.techCost}" aria-valuenow="${current}"><div class="prog-fill" style="width:${percent}%"></div></div></div>`;
+      h+=`<article class="tech-action-card tech-near-card"><div class="tech-near-head"><h3 class="tech-action-title">${esc(next.name)}</h3><span>待筹备</span></div><div class="ui-cost-list">${next.cost.map(cost=>`<span>${esc(cost)}</span>`).join('')}${CFG.tech?.sciencesNoMerit?'':`<span>战功 ${compactUiNumber(activeSciences()[next.id].cost.merit||0)}</span>`}</div><div class="tech-missing">还缺：${esc(next.missing.join(' · '))}</div>${next.techCost?`<div class="tech-preparation"><span>科技点筹备 ${compactUiNumber(current)} / ${compactUiNumber(next.techCost)}</span><strong>${percent}%</strong></div><div class="prog-wrap" role="progressbar" aria-label="${esc(next.name)}科技点筹备" aria-valuemin="0" aria-valuemax="${next.techCost}" aria-valuenow="${current}"><div class="prog-fill" style="width:${percent}%"></div></div>`:''}</article>`;
     }
   }
-  h+=`<details class="tech-deep-dive" id="tech-full" ${_techFullOpen?'open':''} ontoggle="setTechFullOpen(this.open)">
+  h+=`<details class="tech-deep-dive" id="tech-full" ${_techFullOpen?'open':''} ontoggle="if(this.isConnected)setTechFullOpen(this.open)">
     <summary id="tech-tree-toggle"><span>完整图谱</span><small>${visibleCategoryLabels}</small></summary>
     <div class="tech-tree-nav" aria-label="图谱分类">`;
   for(const [category,label] of Object.entries(TECH_CATEGORIES)){

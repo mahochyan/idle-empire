@@ -305,7 +305,7 @@ async function shot(name){
     tabs.find(el=>el.textContent.includes('经济'))?.click();
     const categoryRows=visible();
     const category=categoryRows.length>0&&categoryRows.every(el=>el.dataset.category==='economy');
-    [...document.querySelectorAll('.build-filters button')].find(el=>el.textContent.includes('可处理'))?.click();
+    [...document.querySelectorAll('.build-filters button')].find(el=>el.getAttribute('onclick')?.includes("('ready')"))?.click();
     return {input:true,before,total,filtered,restored:visible().length===before,
       filters:tabs.length,category};
   })()`);

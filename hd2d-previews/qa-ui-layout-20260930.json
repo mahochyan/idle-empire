@@ -1,0 +1,2644 @@
+{
+  "date": "2026-09-30",
+  "baseline": "06aa19f9f5331967c3940a7bda0e1d565e8e04ec",
+  "scope": "资源、建筑、科技界面排版；UI rendering only",
+  "environment": "Codex in-app Chromium; real index + isolated development presentation fixtures; CSS viewport checks, not Android hardware",
+  "sourceHashes": {
+    "ui.js": "97ef180346824541c50f860d85b62178ceda93603807f69c1066dc2377112e2a",
+    "index.html": "dd1dbd08d8231b9bc0edf661554b3cf5b26d9a2f750952549c58cbc88544f53d",
+    "visual.css": "3ae99bca74461404ec3e30a32ed552443ca6a401305774a683769943ee2170d4",
+    "tests/visual/ui-layout-bootstrap.js": "8cfe0c27b8088e64ac5fe99e5e54f917909b460d3ef4c5820c83d010c0762892",
+    "tests/visual/ui-layout-fixture.js": "b9453359b7a55631f13acaea5241549c63fed97ff2f573d82f88848fca839466",
+    "tests/visual/ui-layout-review.cjs": "eb66cab33085ddd1fec63db08e97300ace63651fc1fbd10032f4ae75197441c8",
+    "tests/visual/browser_smoke.js": "805e5200f0f231f2a5a5698c49748485e52b27ff1caa5ba545c9f23ac8f1d6a7"
+  },
+  "matrix": [
+    {
+      "width": 320,
+      "state": "initial",
+      "theme": "light",
+      "page": "主城",
+      "geometry": {
+        "boxes": [
+          {
+            "id": "phone",
+            "overflow": false,
+            "scroll": 320,
+            "width": 320
+          },
+          {
+            "id": "topbar",
+            "overflow": false,
+            "scroll": 320,
+            "width": 320
+          },
+          {
+            "id": "main",
+            "overflow": false,
+            "scroll": 305,
+            "width": 305
+          },
+          {
+            "id": "navbar",
+            "overflow": false,
+            "scroll": 320,
+            "width": 320
+          }
+        ],
+        "small": [],
+        "theme": "light",
+        "viewport": 320
+      },
+      "actual": {
+        "page": "home",
+        "status": {
+          "hasWebGL": true,
+          "missingCase": false,
+          "mode": "initial",
+          "renderPreservesState": true
+        }
+      },
+      "ok": true
+    },
+    {
+      "width": 320,
+      "state": "initial",
+      "theme": "light",
+      "page": "建筑",
+      "geometry": {
+        "boxes": [
+          {
+            "id": "phone",
+            "overflow": false,
+            "scroll": 320,
+            "width": 320
+          },
+          {
+            "id": "topbar",
+            "overflow": false,
+            "scroll": 320,
+            "width": 320
+          },
+          {
+            "id": "main",
+            "overflow": false,
+            "scroll": 305,
+            "width": 305
+          },
+          {
+            "id": "navbar",
+            "overflow": false,
+            "scroll": 320,
+            "width": 320
+          }
+        ],
+        "small": [],
+        "theme": "light",
+        "viewport": 320
+      },
+      "actual": {
+        "page": "build",
+        "status": {
+          "hasWebGL": true,
+          "missingCase": false,
+          "mode": "initial",
+          "renderPreservesState": true
+        }
+      },
+      "ok": true
+    },
+    {
+      "width": 320,
+      "state": "initial",
+      "theme": "light",
+      "page": "科技",
+      "geometry": {
+        "boxes": [
+          {
+            "id": "phone",
+            "overflow": false,
+            "scroll": 320,
+            "width": 320
+          },
+          {
+            "id": "topbar",
+            "overflow": false,
+            "scroll": 320,
+            "width": 320
+          },
+          {
+            "id": "main",
+            "overflow": false,
+            "scroll": 320,
+            "width": 320
+          },
+          {
+            "id": "navbar",
+            "overflow": false,
+            "scroll": 320,
+            "width": 320
+          }
+        ],
+        "small": [],
+        "theme": "light",
+        "viewport": 320
+      },
+      "actual": {
+        "page": "tech",
+        "status": {
+          "hasWebGL": true,
+          "missingCase": false,
+          "mode": "initial",
+          "renderPreservesState": true
+        }
+      },
+      "ok": true
+    },
+    {
+      "width": 320,
+      "state": "initial",
+      "theme": "dark",
+      "page": "主城",
+      "geometry": {
+        "boxes": [
+          {
+            "id": "phone",
+            "overflow": false,
+            "scroll": 320,
+            "width": 320
+          },
+          {
+            "id": "topbar",
+            "overflow": false,
+            "scroll": 320,
+            "width": 320
+          },
+          {
+            "id": "main",
+            "overflow": false,
+            "scroll": 305,
+            "width": 305
+          },
+          {
+            "id": "navbar",
+            "overflow": false,
+            "scroll": 320,
+            "width": 320
+          }
+        ],
+        "small": [],
+        "theme": "dark",
+        "viewport": 320
+      },
+      "actual": {
+        "page": "home",
+        "status": {
+          "hasWebGL": true,
+          "missingCase": false,
+          "mode": "initial",
+          "renderPreservesState": true
+        }
+      },
+      "ok": true
+    },
+    {
+      "width": 320,
+      "state": "initial",
+      "theme": "dark",
+      "page": "建筑",
+      "geometry": {
+        "boxes": [
+          {
+            "id": "phone",
+            "overflow": false,
+            "scroll": 320,
+            "width": 320
+          },
+          {
+            "id": "topbar",
+            "overflow": false,
+            "scroll": 320,
+            "width": 320
+          },
+          {
+            "id": "main",
+            "overflow": false,
+            "scroll": 305,
+            "width": 305
+          },
+          {
+            "id": "navbar",
+            "overflow": false,
+            "scroll": 320,
+            "width": 320
+          }
+        ],
+        "small": [],
+        "theme": "dark",
+        "viewport": 320
+      },
+      "actual": {
+        "page": "build",
+        "status": {
+          "hasWebGL": true,
+          "missingCase": false,
+          "mode": "initial",
+          "renderPreservesState": true
+        }
+      },
+      "ok": true
+    },
+    {
+      "width": 320,
+      "state": "initial",
+      "theme": "dark",
+      "page": "科技",
+      "geometry": {
+        "boxes": [
+          {
+            "id": "phone",
+            "overflow": false,
+            "scroll": 320,
+            "width": 320
+          },
+          {
+            "id": "topbar",
+            "overflow": false,
+            "scroll": 320,
+            "width": 320
+          },
+          {
+            "id": "main",
+            "overflow": false,
+            "scroll": 320,
+            "width": 320
+          },
+          {
+            "id": "navbar",
+            "overflow": false,
+            "scroll": 320,
+            "width": 320
+          }
+        ],
+        "small": [],
+        "theme": "dark",
+        "viewport": 320
+      },
+      "actual": {
+        "page": "tech",
+        "status": {
+          "hasWebGL": true,
+          "missingCase": false,
+          "mode": "initial",
+          "renderPreservesState": true
+        }
+      },
+      "ok": true
+    },
+    {
+      "width": 360,
+      "state": "initial",
+      "theme": "light",
+      "page": "主城",
+      "geometry": {
+        "boxes": [
+          {
+            "id": "phone",
+            "overflow": false,
+            "scroll": 360,
+            "width": 360
+          },
+          {
+            "id": "topbar",
+            "overflow": false,
+            "scroll": 360,
+            "width": 360
+          },
+          {
+            "id": "main",
+            "overflow": false,
+            "scroll": 345,
+            "width": 345
+          },
+          {
+            "id": "navbar",
+            "overflow": false,
+            "scroll": 360,
+            "width": 360
+          }
+        ],
+        "small": [],
+        "theme": "light",
+        "viewport": 360
+      },
+      "actual": {
+        "page": "home",
+        "status": {
+          "hasWebGL": true,
+          "missingCase": false,
+          "mode": "initial",
+          "renderPreservesState": true
+        }
+      },
+      "ok": true
+    },
+    {
+      "width": 360,
+      "state": "initial",
+      "theme": "light",
+      "page": "建筑",
+      "geometry": {
+        "boxes": [
+          {
+            "id": "phone",
+            "overflow": false,
+            "scroll": 360,
+            "width": 360
+          },
+          {
+            "id": "topbar",
+            "overflow": false,
+            "scroll": 360,
+            "width": 360
+          },
+          {
+            "id": "main",
+            "overflow": false,
+            "scroll": 345,
+            "width": 345
+          },
+          {
+            "id": "navbar",
+            "overflow": false,
+            "scroll": 360,
+            "width": 360
+          }
+        ],
+        "small": [],
+        "theme": "light",
+        "viewport": 360
+      },
+      "actual": {
+        "page": "build",
+        "status": {
+          "hasWebGL": true,
+          "missingCase": false,
+          "mode": "initial",
+          "renderPreservesState": true
+        }
+      },
+      "ok": true
+    },
+    {
+      "width": 360,
+      "state": "initial",
+      "theme": "light",
+      "page": "科技",
+      "geometry": {
+        "boxes": [
+          {
+            "id": "phone",
+            "overflow": false,
+            "scroll": 360,
+            "width": 360
+          },
+          {
+            "id": "topbar",
+            "overflow": false,
+            "scroll": 360,
+            "width": 360
+          },
+          {
+            "id": "main",
+            "overflow": false,
+            "scroll": 360,
+            "width": 360
+          },
+          {
+            "id": "navbar",
+            "overflow": false,
+            "scroll": 360,
+            "width": 360
+          }
+        ],
+        "small": [],
+        "theme": "light",
+        "viewport": 360
+      },
+      "actual": {
+        "page": "tech",
+        "status": {
+          "hasWebGL": true,
+          "missingCase": false,
+          "mode": "initial",
+          "renderPreservesState": true
+        }
+      },
+      "ok": true
+    },
+    {
+      "width": 360,
+      "state": "initial",
+      "theme": "dark",
+      "page": "主城",
+      "geometry": {
+        "boxes": [
+          {
+            "id": "phone",
+            "overflow": false,
+            "scroll": 360,
+            "width": 360
+          },
+          {
+            "id": "topbar",
+            "overflow": false,
+            "scroll": 360,
+            "width": 360
+          },
+          {
+            "id": "main",
+            "overflow": false,
+            "scroll": 345,
+            "width": 345
+          },
+          {
+            "id": "navbar",
+            "overflow": false,
+            "scroll": 360,
+            "width": 360
+          }
+        ],
+        "small": [],
+        "theme": "dark",
+        "viewport": 360
+      },
+      "actual": {
+        "page": "home",
+        "status": {
+          "hasWebGL": true,
+          "missingCase": false,
+          "mode": "initial",
+          "renderPreservesState": true
+        }
+      },
+      "ok": true
+    },
+    {
+      "width": 360,
+      "state": "initial",
+      "theme": "dark",
+      "page": "建筑",
+      "geometry": {
+        "boxes": [
+          {
+            "id": "phone",
+            "overflow": false,
+            "scroll": 360,
+            "width": 360
+          },
+          {
+            "id": "topbar",
+            "overflow": false,
+            "scroll": 360,
+            "width": 360
+          },
+          {
+            "id": "main",
+            "overflow": false,
+            "scroll": 345,
+            "width": 345
+          },
+          {
+            "id": "navbar",
+            "overflow": false,
+            "scroll": 360,
+            "width": 360
+          }
+        ],
+        "small": [],
+        "theme": "dark",
+        "viewport": 360
+      },
+      "actual": {
+        "page": "build",
+        "status": {
+          "hasWebGL": true,
+          "missingCase": false,
+          "mode": "initial",
+          "renderPreservesState": true
+        }
+      },
+      "ok": true
+    },
+    {
+      "width": 360,
+      "state": "initial",
+      "theme": "dark",
+      "page": "科技",
+      "geometry": {
+        "boxes": [
+          {
+            "id": "phone",
+            "overflow": false,
+            "scroll": 360,
+            "width": 360
+          },
+          {
+            "id": "topbar",
+            "overflow": false,
+            "scroll": 360,
+            "width": 360
+          },
+          {
+            "id": "main",
+            "overflow": false,
+            "scroll": 360,
+            "width": 360
+          },
+          {
+            "id": "navbar",
+            "overflow": false,
+            "scroll": 360,
+            "width": 360
+          }
+        ],
+        "small": [],
+        "theme": "dark",
+        "viewport": 360
+      },
+      "actual": {
+        "page": "tech",
+        "status": {
+          "hasWebGL": true,
+          "missingCase": false,
+          "mode": "initial",
+          "renderPreservesState": true
+        }
+      },
+      "ok": true
+    },
+    {
+      "width": 390,
+      "state": "initial",
+      "theme": "light",
+      "page": "主城",
+      "geometry": {
+        "boxes": [
+          {
+            "id": "phone",
+            "overflow": false,
+            "scroll": 390,
+            "width": 390
+          },
+          {
+            "id": "topbar",
+            "overflow": false,
+            "scroll": 390,
+            "width": 390
+          },
+          {
+            "id": "main",
+            "overflow": false,
+            "scroll": 375,
+            "width": 375
+          },
+          {
+            "id": "navbar",
+            "overflow": false,
+            "scroll": 390,
+            "width": 390
+          }
+        ],
+        "small": [],
+        "theme": "light",
+        "viewport": 390
+      },
+      "actual": {
+        "page": "home",
+        "status": {
+          "hasWebGL": true,
+          "missingCase": false,
+          "mode": "initial",
+          "renderPreservesState": true
+        }
+      },
+      "ok": true
+    },
+    {
+      "width": 390,
+      "state": "initial",
+      "theme": "light",
+      "page": "建筑",
+      "geometry": {
+        "boxes": [
+          {
+            "id": "phone",
+            "overflow": false,
+            "scroll": 390,
+            "width": 390
+          },
+          {
+            "id": "topbar",
+            "overflow": false,
+            "scroll": 390,
+            "width": 390
+          },
+          {
+            "id": "main",
+            "overflow": false,
+            "scroll": 375,
+            "width": 375
+          },
+          {
+            "id": "navbar",
+            "overflow": false,
+            "scroll": 390,
+            "width": 390
+          }
+        ],
+        "small": [],
+        "theme": "light",
+        "viewport": 390
+      },
+      "actual": {
+        "page": "build",
+        "status": {
+          "hasWebGL": true,
+          "missingCase": false,
+          "mode": "initial",
+          "renderPreservesState": true
+        }
+      },
+      "ok": true
+    },
+    {
+      "width": 390,
+      "state": "initial",
+      "theme": "light",
+      "page": "科技",
+      "geometry": {
+        "boxes": [
+          {
+            "id": "phone",
+            "overflow": false,
+            "scroll": 390,
+            "width": 390
+          },
+          {
+            "id": "topbar",
+            "overflow": false,
+            "scroll": 390,
+            "width": 390
+          },
+          {
+            "id": "main",
+            "overflow": false,
+            "scroll": 390,
+            "width": 390
+          },
+          {
+            "id": "navbar",
+            "overflow": false,
+            "scroll": 390,
+            "width": 390
+          }
+        ],
+        "small": [],
+        "theme": "light",
+        "viewport": 390
+      },
+      "actual": {
+        "page": "tech",
+        "status": {
+          "hasWebGL": true,
+          "missingCase": false,
+          "mode": "initial",
+          "renderPreservesState": true
+        }
+      },
+      "ok": true
+    },
+    {
+      "width": 390,
+      "state": "initial",
+      "theme": "dark",
+      "page": "主城",
+      "geometry": {
+        "boxes": [
+          {
+            "id": "phone",
+            "overflow": false,
+            "scroll": 390,
+            "width": 390
+          },
+          {
+            "id": "topbar",
+            "overflow": false,
+            "scroll": 390,
+            "width": 390
+          },
+          {
+            "id": "main",
+            "overflow": false,
+            "scroll": 375,
+            "width": 375
+          },
+          {
+            "id": "navbar",
+            "overflow": false,
+            "scroll": 390,
+            "width": 390
+          }
+        ],
+        "small": [],
+        "theme": "dark",
+        "viewport": 390
+      },
+      "actual": {
+        "page": "home",
+        "status": {
+          "hasWebGL": true,
+          "missingCase": false,
+          "mode": "initial",
+          "renderPreservesState": true
+        }
+      },
+      "ok": true
+    },
+    {
+      "width": 390,
+      "state": "initial",
+      "theme": "dark",
+      "page": "建筑",
+      "geometry": {
+        "boxes": [
+          {
+            "id": "phone",
+            "overflow": false,
+            "scroll": 390,
+            "width": 390
+          },
+          {
+            "id": "topbar",
+            "overflow": false,
+            "scroll": 390,
+            "width": 390
+          },
+          {
+            "id": "main",
+            "overflow": false,
+            "scroll": 375,
+            "width": 375
+          },
+          {
+            "id": "navbar",
+            "overflow": false,
+            "scroll": 390,
+            "width": 390
+          }
+        ],
+        "small": [],
+        "theme": "dark",
+        "viewport": 390
+      },
+      "actual": {
+        "page": "build",
+        "status": {
+          "hasWebGL": true,
+          "missingCase": false,
+          "mode": "initial",
+          "renderPreservesState": true
+        }
+      },
+      "ok": true
+    },
+    {
+      "width": 390,
+      "state": "initial",
+      "theme": "dark",
+      "page": "科技",
+      "geometry": {
+        "boxes": [
+          {
+            "id": "phone",
+            "overflow": false,
+            "scroll": 390,
+            "width": 390
+          },
+          {
+            "id": "topbar",
+            "overflow": false,
+            "scroll": 390,
+            "width": 390
+          },
+          {
+            "id": "main",
+            "overflow": false,
+            "scroll": 390,
+            "width": 390
+          },
+          {
+            "id": "navbar",
+            "overflow": false,
+            "scroll": 390,
+            "width": 390
+          }
+        ],
+        "small": [],
+        "theme": "dark",
+        "viewport": 390
+      },
+      "actual": {
+        "page": "tech",
+        "status": {
+          "hasWebGL": true,
+          "missingCase": false,
+          "mode": "initial",
+          "renderPreservesState": true
+        }
+      },
+      "ok": true
+    },
+    {
+      "width": 430,
+      "state": "initial",
+      "theme": "light",
+      "page": "主城",
+      "geometry": {
+        "boxes": [
+          {
+            "id": "phone",
+            "overflow": false,
+            "scroll": 430,
+            "width": 430
+          },
+          {
+            "id": "topbar",
+            "overflow": false,
+            "scroll": 430,
+            "width": 430
+          },
+          {
+            "id": "main",
+            "overflow": false,
+            "scroll": 415,
+            "width": 415
+          },
+          {
+            "id": "navbar",
+            "overflow": false,
+            "scroll": 430,
+            "width": 430
+          }
+        ],
+        "small": [],
+        "theme": "light",
+        "viewport": 430
+      },
+      "actual": {
+        "page": "home",
+        "status": {
+          "hasWebGL": true,
+          "missingCase": false,
+          "mode": "initial",
+          "renderPreservesState": true
+        }
+      },
+      "ok": true
+    },
+    {
+      "width": 430,
+      "state": "initial",
+      "theme": "light",
+      "page": "建筑",
+      "geometry": {
+        "boxes": [
+          {
+            "id": "phone",
+            "overflow": false,
+            "scroll": 430,
+            "width": 430
+          },
+          {
+            "id": "topbar",
+            "overflow": false,
+            "scroll": 430,
+            "width": 430
+          },
+          {
+            "id": "main",
+            "overflow": false,
+            "scroll": 415,
+            "width": 415
+          },
+          {
+            "id": "navbar",
+            "overflow": false,
+            "scroll": 430,
+            "width": 430
+          }
+        ],
+        "small": [],
+        "theme": "light",
+        "viewport": 430
+      },
+      "actual": {
+        "page": "build",
+        "status": {
+          "hasWebGL": true,
+          "missingCase": false,
+          "mode": "initial",
+          "renderPreservesState": true
+        }
+      },
+      "ok": true
+    },
+    {
+      "width": 430,
+      "state": "initial",
+      "theme": "light",
+      "page": "科技",
+      "geometry": {
+        "boxes": [
+          {
+            "id": "phone",
+            "overflow": false,
+            "scroll": 430,
+            "width": 430
+          },
+          {
+            "id": "topbar",
+            "overflow": false,
+            "scroll": 430,
+            "width": 430
+          },
+          {
+            "id": "main",
+            "overflow": false,
+            "scroll": 430,
+            "width": 430
+          },
+          {
+            "id": "navbar",
+            "overflow": false,
+            "scroll": 430,
+            "width": 430
+          }
+        ],
+        "small": [],
+        "theme": "light",
+        "viewport": 430
+      },
+      "actual": {
+        "page": "tech",
+        "status": {
+          "hasWebGL": true,
+          "missingCase": false,
+          "mode": "initial",
+          "renderPreservesState": true
+        }
+      },
+      "ok": true
+    },
+    {
+      "width": 430,
+      "state": "initial",
+      "theme": "dark",
+      "page": "主城",
+      "geometry": {
+        "boxes": [
+          {
+            "id": "phone",
+            "overflow": false,
+            "scroll": 430,
+            "width": 430
+          },
+          {
+            "id": "topbar",
+            "overflow": false,
+            "scroll": 430,
+            "width": 430
+          },
+          {
+            "id": "main",
+            "overflow": false,
+            "scroll": 415,
+            "width": 415
+          },
+          {
+            "id": "navbar",
+            "overflow": false,
+            "scroll": 430,
+            "width": 430
+          }
+        ],
+        "small": [],
+        "theme": "dark",
+        "viewport": 430
+      },
+      "actual": {
+        "page": "home",
+        "status": {
+          "hasWebGL": true,
+          "missingCase": false,
+          "mode": "initial",
+          "renderPreservesState": true
+        }
+      },
+      "ok": true
+    },
+    {
+      "width": 430,
+      "state": "initial",
+      "theme": "dark",
+      "page": "建筑",
+      "geometry": {
+        "boxes": [
+          {
+            "id": "phone",
+            "overflow": false,
+            "scroll": 430,
+            "width": 430
+          },
+          {
+            "id": "topbar",
+            "overflow": false,
+            "scroll": 430,
+            "width": 430
+          },
+          {
+            "id": "main",
+            "overflow": false,
+            "scroll": 415,
+            "width": 415
+          },
+          {
+            "id": "navbar",
+            "overflow": false,
+            "scroll": 430,
+            "width": 430
+          }
+        ],
+        "small": [],
+        "theme": "dark",
+        "viewport": 430
+      },
+      "actual": {
+        "page": "build",
+        "status": {
+          "hasWebGL": true,
+          "missingCase": false,
+          "mode": "initial",
+          "renderPreservesState": true
+        }
+      },
+      "ok": true
+    },
+    {
+      "width": 430,
+      "state": "initial",
+      "theme": "dark",
+      "page": "科技",
+      "geometry": {
+        "boxes": [
+          {
+            "id": "phone",
+            "overflow": false,
+            "scroll": 430,
+            "width": 430
+          },
+          {
+            "id": "topbar",
+            "overflow": false,
+            "scroll": 430,
+            "width": 430
+          },
+          {
+            "id": "main",
+            "overflow": false,
+            "scroll": 430,
+            "width": 430
+          },
+          {
+            "id": "navbar",
+            "overflow": false,
+            "scroll": 430,
+            "width": 430
+          }
+        ],
+        "small": [],
+        "theme": "dark",
+        "viewport": 430
+      },
+      "actual": {
+        "page": "tech",
+        "status": {
+          "hasWebGL": true,
+          "missingCase": false,
+          "mode": "initial",
+          "renderPreservesState": true
+        }
+      },
+      "ok": true
+    },
+    {
+      "width": 320,
+      "state": "advanced",
+      "theme": "light",
+      "page": "主城",
+      "geometry": {
+        "boxes": [
+          {
+            "id": "phone",
+            "overflow": false,
+            "scroll": 320,
+            "width": 320
+          },
+          {
+            "id": "topbar",
+            "overflow": false,
+            "scroll": 320,
+            "width": 320
+          },
+          {
+            "id": "main",
+            "overflow": false,
+            "scroll": 305,
+            "width": 305
+          },
+          {
+            "id": "navbar",
+            "overflow": false,
+            "scroll": 320,
+            "width": 320
+          }
+        ],
+        "small": [],
+        "theme": "light",
+        "viewport": 320
+      },
+      "actual": {
+        "page": "home",
+        "status": {
+          "hasWebGL": true,
+          "missingCase": false,
+          "mode": "advanced",
+          "renderPreservesState": true
+        }
+      },
+      "ok": true
+    },
+    {
+      "width": 320,
+      "state": "advanced",
+      "theme": "light",
+      "page": "建筑",
+      "geometry": {
+        "boxes": [
+          {
+            "id": "phone",
+            "overflow": false,
+            "scroll": 320,
+            "width": 320
+          },
+          {
+            "id": "topbar",
+            "overflow": false,
+            "scroll": 320,
+            "width": 320
+          },
+          {
+            "id": "main",
+            "overflow": false,
+            "scroll": 305,
+            "width": 305
+          },
+          {
+            "id": "navbar",
+            "overflow": false,
+            "scroll": 320,
+            "width": 320
+          }
+        ],
+        "small": [],
+        "theme": "light",
+        "viewport": 320
+      },
+      "actual": {
+        "page": "build",
+        "status": {
+          "hasWebGL": true,
+          "missingCase": false,
+          "mode": "advanced",
+          "renderPreservesState": true
+        }
+      },
+      "ok": true
+    },
+    {
+      "width": 320,
+      "state": "advanced",
+      "theme": "light",
+      "page": "科技",
+      "geometry": {
+        "boxes": [
+          {
+            "id": "phone",
+            "overflow": false,
+            "scroll": 320,
+            "width": 320
+          },
+          {
+            "id": "topbar",
+            "overflow": false,
+            "scroll": 320,
+            "width": 320
+          },
+          {
+            "id": "main",
+            "overflow": false,
+            "scroll": 305,
+            "width": 305
+          },
+          {
+            "id": "navbar",
+            "overflow": false,
+            "scroll": 320,
+            "width": 320
+          }
+        ],
+        "small": [],
+        "theme": "light",
+        "viewport": 320
+      },
+      "actual": {
+        "page": "tech",
+        "status": {
+          "hasWebGL": true,
+          "missingCase": false,
+          "mode": "advanced",
+          "renderPreservesState": true
+        }
+      },
+      "ok": true
+    },
+    {
+      "width": 320,
+      "state": "advanced",
+      "theme": "dark",
+      "page": "主城",
+      "geometry": {
+        "boxes": [
+          {
+            "id": "phone",
+            "overflow": false,
+            "scroll": 320,
+            "width": 320
+          },
+          {
+            "id": "topbar",
+            "overflow": false,
+            "scroll": 320,
+            "width": 320
+          },
+          {
+            "id": "main",
+            "overflow": false,
+            "scroll": 305,
+            "width": 305
+          },
+          {
+            "id": "navbar",
+            "overflow": false,
+            "scroll": 320,
+            "width": 320
+          }
+        ],
+        "small": [],
+        "theme": "dark",
+        "viewport": 320
+      },
+      "actual": {
+        "page": "home",
+        "status": {
+          "hasWebGL": true,
+          "missingCase": false,
+          "mode": "advanced",
+          "renderPreservesState": true
+        }
+      },
+      "ok": true
+    },
+    {
+      "width": 320,
+      "state": "advanced",
+      "theme": "dark",
+      "page": "建筑",
+      "geometry": {
+        "boxes": [
+          {
+            "id": "phone",
+            "overflow": false,
+            "scroll": 320,
+            "width": 320
+          },
+          {
+            "id": "topbar",
+            "overflow": false,
+            "scroll": 320,
+            "width": 320
+          },
+          {
+            "id": "main",
+            "overflow": false,
+            "scroll": 305,
+            "width": 305
+          },
+          {
+            "id": "navbar",
+            "overflow": false,
+            "scroll": 320,
+            "width": 320
+          }
+        ],
+        "small": [],
+        "theme": "dark",
+        "viewport": 320
+      },
+      "actual": {
+        "page": "build",
+        "status": {
+          "hasWebGL": true,
+          "missingCase": false,
+          "mode": "advanced",
+          "renderPreservesState": true
+        }
+      },
+      "ok": true
+    },
+    {
+      "width": 320,
+      "state": "advanced",
+      "theme": "dark",
+      "page": "科技",
+      "geometry": {
+        "boxes": [
+          {
+            "id": "phone",
+            "overflow": false,
+            "scroll": 320,
+            "width": 320
+          },
+          {
+            "id": "topbar",
+            "overflow": false,
+            "scroll": 320,
+            "width": 320
+          },
+          {
+            "id": "main",
+            "overflow": false,
+            "scroll": 305,
+            "width": 305
+          },
+          {
+            "id": "navbar",
+            "overflow": false,
+            "scroll": 320,
+            "width": 320
+          }
+        ],
+        "small": [],
+        "theme": "dark",
+        "viewport": 320
+      },
+      "actual": {
+        "page": "tech",
+        "status": {
+          "hasWebGL": true,
+          "missingCase": false,
+          "mode": "advanced",
+          "renderPreservesState": true
+        }
+      },
+      "ok": true
+    },
+    {
+      "width": 360,
+      "state": "advanced",
+      "theme": "light",
+      "page": "主城",
+      "geometry": {
+        "boxes": [
+          {
+            "id": "phone",
+            "overflow": false,
+            "scroll": 360,
+            "width": 360
+          },
+          {
+            "id": "topbar",
+            "overflow": false,
+            "scroll": 360,
+            "width": 360
+          },
+          {
+            "id": "main",
+            "overflow": false,
+            "scroll": 345,
+            "width": 345
+          },
+          {
+            "id": "navbar",
+            "overflow": false,
+            "scroll": 360,
+            "width": 360
+          }
+        ],
+        "small": [],
+        "theme": "light",
+        "viewport": 360
+      },
+      "actual": {
+        "page": "home",
+        "status": {
+          "hasWebGL": true,
+          "missingCase": false,
+          "mode": "advanced",
+          "renderPreservesState": true
+        }
+      },
+      "ok": true
+    },
+    {
+      "width": 360,
+      "state": "advanced",
+      "theme": "light",
+      "page": "建筑",
+      "geometry": {
+        "boxes": [
+          {
+            "id": "phone",
+            "overflow": false,
+            "scroll": 360,
+            "width": 360
+          },
+          {
+            "id": "topbar",
+            "overflow": false,
+            "scroll": 360,
+            "width": 360
+          },
+          {
+            "id": "main",
+            "overflow": false,
+            "scroll": 345,
+            "width": 345
+          },
+          {
+            "id": "navbar",
+            "overflow": false,
+            "scroll": 360,
+            "width": 360
+          }
+        ],
+        "small": [],
+        "theme": "light",
+        "viewport": 360
+      },
+      "actual": {
+        "page": "build",
+        "status": {
+          "hasWebGL": true,
+          "missingCase": false,
+          "mode": "advanced",
+          "renderPreservesState": true
+        }
+      },
+      "ok": true
+    },
+    {
+      "width": 360,
+      "state": "advanced",
+      "theme": "light",
+      "page": "科技",
+      "geometry": {
+        "boxes": [
+          {
+            "id": "phone",
+            "overflow": false,
+            "scroll": 360,
+            "width": 360
+          },
+          {
+            "id": "topbar",
+            "overflow": false,
+            "scroll": 360,
+            "width": 360
+          },
+          {
+            "id": "main",
+            "overflow": false,
+            "scroll": 345,
+            "width": 345
+          },
+          {
+            "id": "navbar",
+            "overflow": false,
+            "scroll": 360,
+            "width": 360
+          }
+        ],
+        "small": [],
+        "theme": "light",
+        "viewport": 360
+      },
+      "actual": {
+        "page": "tech",
+        "status": {
+          "hasWebGL": true,
+          "missingCase": false,
+          "mode": "advanced",
+          "renderPreservesState": true
+        }
+      },
+      "ok": true
+    },
+    {
+      "width": 360,
+      "state": "advanced",
+      "theme": "dark",
+      "page": "主城",
+      "geometry": {
+        "boxes": [
+          {
+            "id": "phone",
+            "overflow": false,
+            "scroll": 360,
+            "width": 360
+          },
+          {
+            "id": "topbar",
+            "overflow": false,
+            "scroll": 360,
+            "width": 360
+          },
+          {
+            "id": "main",
+            "overflow": false,
+            "scroll": 345,
+            "width": 345
+          },
+          {
+            "id": "navbar",
+            "overflow": false,
+            "scroll": 360,
+            "width": 360
+          }
+        ],
+        "small": [],
+        "theme": "dark",
+        "viewport": 360
+      },
+      "actual": {
+        "page": "home",
+        "status": {
+          "hasWebGL": true,
+          "missingCase": false,
+          "mode": "advanced",
+          "renderPreservesState": true
+        }
+      },
+      "ok": true
+    },
+    {
+      "width": 360,
+      "state": "advanced",
+      "theme": "dark",
+      "page": "建筑",
+      "geometry": {
+        "boxes": [
+          {
+            "id": "phone",
+            "overflow": false,
+            "scroll": 360,
+            "width": 360
+          },
+          {
+            "id": "topbar",
+            "overflow": false,
+            "scroll": 360,
+            "width": 360
+          },
+          {
+            "id": "main",
+            "overflow": false,
+            "scroll": 345,
+            "width": 345
+          },
+          {
+            "id": "navbar",
+            "overflow": false,
+            "scroll": 360,
+            "width": 360
+          }
+        ],
+        "small": [],
+        "theme": "dark",
+        "viewport": 360
+      },
+      "actual": {
+        "page": "build",
+        "status": {
+          "hasWebGL": true,
+          "missingCase": false,
+          "mode": "advanced",
+          "renderPreservesState": true
+        }
+      },
+      "ok": true
+    },
+    {
+      "width": 360,
+      "state": "advanced",
+      "theme": "dark",
+      "page": "科技",
+      "geometry": {
+        "boxes": [
+          {
+            "id": "phone",
+            "overflow": false,
+            "scroll": 360,
+            "width": 360
+          },
+          {
+            "id": "topbar",
+            "overflow": false,
+            "scroll": 360,
+            "width": 360
+          },
+          {
+            "id": "main",
+            "overflow": false,
+            "scroll": 345,
+            "width": 345
+          },
+          {
+            "id": "navbar",
+            "overflow": false,
+            "scroll": 360,
+            "width": 360
+          }
+        ],
+        "small": [],
+        "theme": "dark",
+        "viewport": 360
+      },
+      "actual": {
+        "page": "tech",
+        "status": {
+          "hasWebGL": true,
+          "missingCase": false,
+          "mode": "advanced",
+          "renderPreservesState": true
+        }
+      },
+      "ok": true
+    },
+    {
+      "width": 390,
+      "state": "advanced",
+      "theme": "light",
+      "page": "主城",
+      "geometry": {
+        "boxes": [
+          {
+            "id": "phone",
+            "overflow": false,
+            "scroll": 390,
+            "width": 390
+          },
+          {
+            "id": "topbar",
+            "overflow": false,
+            "scroll": 390,
+            "width": 390
+          },
+          {
+            "id": "main",
+            "overflow": false,
+            "scroll": 375,
+            "width": 375
+          },
+          {
+            "id": "navbar",
+            "overflow": false,
+            "scroll": 390,
+            "width": 390
+          }
+        ],
+        "small": [],
+        "theme": "light",
+        "viewport": 390
+      },
+      "actual": {
+        "page": "home",
+        "status": {
+          "hasWebGL": true,
+          "missingCase": false,
+          "mode": "advanced",
+          "renderPreservesState": true
+        }
+      },
+      "ok": true
+    },
+    {
+      "width": 390,
+      "state": "advanced",
+      "theme": "light",
+      "page": "建筑",
+      "geometry": {
+        "boxes": [
+          {
+            "id": "phone",
+            "overflow": false,
+            "scroll": 390,
+            "width": 390
+          },
+          {
+            "id": "topbar",
+            "overflow": false,
+            "scroll": 390,
+            "width": 390
+          },
+          {
+            "id": "main",
+            "overflow": false,
+            "scroll": 375,
+            "width": 375
+          },
+          {
+            "id": "navbar",
+            "overflow": false,
+            "scroll": 390,
+            "width": 390
+          }
+        ],
+        "small": [],
+        "theme": "light",
+        "viewport": 390
+      },
+      "actual": {
+        "page": "build",
+        "status": {
+          "hasWebGL": true,
+          "missingCase": false,
+          "mode": "advanced",
+          "renderPreservesState": true
+        }
+      },
+      "ok": true
+    },
+    {
+      "width": 390,
+      "state": "advanced",
+      "theme": "light",
+      "page": "科技",
+      "geometry": {
+        "boxes": [
+          {
+            "id": "phone",
+            "overflow": false,
+            "scroll": 390,
+            "width": 390
+          },
+          {
+            "id": "topbar",
+            "overflow": false,
+            "scroll": 390,
+            "width": 390
+          },
+          {
+            "id": "main",
+            "overflow": false,
+            "scroll": 375,
+            "width": 375
+          },
+          {
+            "id": "navbar",
+            "overflow": false,
+            "scroll": 390,
+            "width": 390
+          }
+        ],
+        "small": [],
+        "theme": "light",
+        "viewport": 390
+      },
+      "actual": {
+        "page": "tech",
+        "status": {
+          "hasWebGL": true,
+          "missingCase": false,
+          "mode": "advanced",
+          "renderPreservesState": true
+        }
+      },
+      "ok": true
+    },
+    {
+      "width": 390,
+      "state": "advanced",
+      "theme": "dark",
+      "page": "主城",
+      "geometry": {
+        "boxes": [
+          {
+            "id": "phone",
+            "overflow": false,
+            "scroll": 390,
+            "width": 390
+          },
+          {
+            "id": "topbar",
+            "overflow": false,
+            "scroll": 390,
+            "width": 390
+          },
+          {
+            "id": "main",
+            "overflow": false,
+            "scroll": 375,
+            "width": 375
+          },
+          {
+            "id": "navbar",
+            "overflow": false,
+            "scroll": 390,
+            "width": 390
+          }
+        ],
+        "small": [],
+        "theme": "dark",
+        "viewport": 390
+      },
+      "actual": {
+        "page": "home",
+        "status": {
+          "hasWebGL": true,
+          "missingCase": false,
+          "mode": "advanced",
+          "renderPreservesState": true
+        }
+      },
+      "ok": true
+    },
+    {
+      "width": 390,
+      "state": "advanced",
+      "theme": "dark",
+      "page": "建筑",
+      "geometry": {
+        "boxes": [
+          {
+            "id": "phone",
+            "overflow": false,
+            "scroll": 390,
+            "width": 390
+          },
+          {
+            "id": "topbar",
+            "overflow": false,
+            "scroll": 390,
+            "width": 390
+          },
+          {
+            "id": "main",
+            "overflow": false,
+            "scroll": 375,
+            "width": 375
+          },
+          {
+            "id": "navbar",
+            "overflow": false,
+            "scroll": 390,
+            "width": 390
+          }
+        ],
+        "small": [],
+        "theme": "dark",
+        "viewport": 390
+      },
+      "actual": {
+        "page": "build",
+        "status": {
+          "hasWebGL": true,
+          "missingCase": false,
+          "mode": "advanced",
+          "renderPreservesState": true
+        }
+      },
+      "ok": true
+    },
+    {
+      "width": 390,
+      "state": "advanced",
+      "theme": "dark",
+      "page": "科技",
+      "geometry": {
+        "boxes": [
+          {
+            "id": "phone",
+            "overflow": false,
+            "scroll": 390,
+            "width": 390
+          },
+          {
+            "id": "topbar",
+            "overflow": false,
+            "scroll": 390,
+            "width": 390
+          },
+          {
+            "id": "main",
+            "overflow": false,
+            "scroll": 375,
+            "width": 375
+          },
+          {
+            "id": "navbar",
+            "overflow": false,
+            "scroll": 390,
+            "width": 390
+          }
+        ],
+        "small": [],
+        "theme": "dark",
+        "viewport": 390
+      },
+      "actual": {
+        "page": "tech",
+        "status": {
+          "hasWebGL": true,
+          "missingCase": false,
+          "mode": "advanced",
+          "renderPreservesState": true
+        }
+      },
+      "ok": true
+    },
+    {
+      "width": 430,
+      "state": "advanced",
+      "theme": "light",
+      "page": "主城",
+      "geometry": {
+        "boxes": [
+          {
+            "id": "phone",
+            "overflow": false,
+            "scroll": 430,
+            "width": 430
+          },
+          {
+            "id": "topbar",
+            "overflow": false,
+            "scroll": 430,
+            "width": 430
+          },
+          {
+            "id": "main",
+            "overflow": false,
+            "scroll": 415,
+            "width": 415
+          },
+          {
+            "id": "navbar",
+            "overflow": false,
+            "scroll": 430,
+            "width": 430
+          }
+        ],
+        "small": [],
+        "theme": "light",
+        "viewport": 430
+      },
+      "actual": {
+        "page": "home",
+        "status": {
+          "hasWebGL": true,
+          "missingCase": false,
+          "mode": "advanced",
+          "renderPreservesState": true
+        }
+      },
+      "ok": true
+    },
+    {
+      "width": 430,
+      "state": "advanced",
+      "theme": "light",
+      "page": "建筑",
+      "geometry": {
+        "boxes": [
+          {
+            "id": "phone",
+            "overflow": false,
+            "scroll": 430,
+            "width": 430
+          },
+          {
+            "id": "topbar",
+            "overflow": false,
+            "scroll": 430,
+            "width": 430
+          },
+          {
+            "id": "main",
+            "overflow": false,
+            "scroll": 415,
+            "width": 415
+          },
+          {
+            "id": "navbar",
+            "overflow": false,
+            "scroll": 430,
+            "width": 430
+          }
+        ],
+        "small": [],
+        "theme": "light",
+        "viewport": 430
+      },
+      "actual": {
+        "page": "build",
+        "status": {
+          "hasWebGL": true,
+          "missingCase": false,
+          "mode": "advanced",
+          "renderPreservesState": true
+        }
+      },
+      "ok": true
+    },
+    {
+      "width": 430,
+      "state": "advanced",
+      "theme": "light",
+      "page": "科技",
+      "geometry": {
+        "boxes": [
+          {
+            "id": "phone",
+            "overflow": false,
+            "scroll": 430,
+            "width": 430
+          },
+          {
+            "id": "topbar",
+            "overflow": false,
+            "scroll": 430,
+            "width": 430
+          },
+          {
+            "id": "main",
+            "overflow": false,
+            "scroll": 415,
+            "width": 415
+          },
+          {
+            "id": "navbar",
+            "overflow": false,
+            "scroll": 430,
+            "width": 430
+          }
+        ],
+        "small": [],
+        "theme": "light",
+        "viewport": 430
+      },
+      "actual": {
+        "page": "tech",
+        "status": {
+          "hasWebGL": true,
+          "missingCase": false,
+          "mode": "advanced",
+          "renderPreservesState": true
+        }
+      },
+      "ok": true
+    },
+    {
+      "width": 430,
+      "state": "advanced",
+      "theme": "dark",
+      "page": "主城",
+      "geometry": {
+        "boxes": [
+          {
+            "id": "phone",
+            "overflow": false,
+            "scroll": 430,
+            "width": 430
+          },
+          {
+            "id": "topbar",
+            "overflow": false,
+            "scroll": 430,
+            "width": 430
+          },
+          {
+            "id": "main",
+            "overflow": false,
+            "scroll": 415,
+            "width": 415
+          },
+          {
+            "id": "navbar",
+            "overflow": false,
+            "scroll": 430,
+            "width": 430
+          }
+        ],
+        "small": [],
+        "theme": "dark",
+        "viewport": 430
+      },
+      "actual": {
+        "page": "home",
+        "status": {
+          "hasWebGL": true,
+          "missingCase": false,
+          "mode": "advanced",
+          "renderPreservesState": true
+        }
+      },
+      "ok": true
+    },
+    {
+      "width": 430,
+      "state": "advanced",
+      "theme": "dark",
+      "page": "建筑",
+      "geometry": {
+        "boxes": [
+          {
+            "id": "phone",
+            "overflow": false,
+            "scroll": 430,
+            "width": 430
+          },
+          {
+            "id": "topbar",
+            "overflow": false,
+            "scroll": 430,
+            "width": 430
+          },
+          {
+            "id": "main",
+            "overflow": false,
+            "scroll": 415,
+            "width": 415
+          },
+          {
+            "id": "navbar",
+            "overflow": false,
+            "scroll": 430,
+            "width": 430
+          }
+        ],
+        "small": [],
+        "theme": "dark",
+        "viewport": 430
+      },
+      "actual": {
+        "page": "build",
+        "status": {
+          "hasWebGL": true,
+          "missingCase": false,
+          "mode": "advanced",
+          "renderPreservesState": true
+        }
+      },
+      "ok": true
+    },
+    {
+      "width": 430,
+      "state": "advanced",
+      "theme": "dark",
+      "page": "科技",
+      "geometry": {
+        "boxes": [
+          {
+            "id": "phone",
+            "overflow": false,
+            "scroll": 430,
+            "width": 430
+          },
+          {
+            "id": "topbar",
+            "overflow": false,
+            "scroll": 430,
+            "width": 430
+          },
+          {
+            "id": "main",
+            "overflow": false,
+            "scroll": 415,
+            "width": 415
+          },
+          {
+            "id": "navbar",
+            "overflow": false,
+            "scroll": 430,
+            "width": 430
+          }
+        ],
+        "small": [],
+        "theme": "dark",
+        "viewport": 430
+      },
+      "actual": {
+        "page": "tech",
+        "status": {
+          "hasWebGL": true,
+          "missingCase": false,
+          "mode": "advanced",
+          "renderPreservesState": true
+        }
+      },
+      "ok": true
+    }
+  ],
+  "interactionChecks": [
+    {
+      "name": "科技点100%但缺材料仍明确显示木材缺口（配置夹具）",
+      "ok": true
+    },
+    {
+      "name": "99.5科技点距离100不会显示缺口0",
+      "ok": true,
+      "detail": "探矿术待筹备科技点 100还缺：科技点 1科技点筹备 99 / 10099%"
+    },
+    {
+      "name": "概览研究调用原函数、扣费一次并在图谱显示已研究",
+      "ok": true,
+      "detail": {
+        "knowledgeAfter": "4900",
+        "researched": [
+          "探矿术"
+        ]
+      }
+    },
+    {
+      "name": "工人增减继续通过原动作函数生效",
+      "ok": true,
+      "detail": {
+        "allocated": "1人",
+        "removed": "0人"
+      }
+    },
+    {
+      "name": "建筑主操作开始真实施工并更新总览",
+      "ok": true,
+      "detail": "busy"
+    },
+    {
+      "name": "320px资源抽屉分组、金币地契与持有战利品可见",
+      "ok": true,
+      "detail": {
+        "deed": "1235万",
+        "geometry": {
+          "scroll": 320,
+          "width": 320
+        },
+        "gold": "1235万",
+        "height": 259,
+        "loot": true
+      }
+    },
+    {
+      "name": "320px经济市场触控与宽度",
+      "ok": true,
+      "detail": {
+        "boxes": [
+          {
+            "id": "phone",
+            "overflow": false,
+            "scroll": 320,
+            "width": 320
+          },
+          {
+            "id": "topbar",
+            "overflow": false,
+            "scroll": 320,
+            "width": 320
+          },
+          {
+            "id": "main",
+            "overflow": false,
+            "scroll": 305,
+            "width": 305
+          },
+          {
+            "id": "navbar",
+            "overflow": false,
+            "scroll": 320,
+            "width": 320
+          }
+        ],
+        "small": [],
+        "theme": "dark",
+        "viewport": 320
+      }
+    },
+    {
+      "name": "建筑搜索按名称过滤并保留市场入口",
+      "ok": true,
+      "detail": {
+        "cards": [
+          "市场"
+        ],
+        "heading": "搜索结果",
+        "market": true
+      }
+    },
+    {
+      "name": "建筑详情经过两次定时刷新保持展开",
+      "ok": true
+    },
+    {
+      "name": "320px完整科技五分类无溢出并满足触控尺寸",
+      "ok": true,
+      "detail": [
+        {
+          "category": "科研",
+          "geometry": {
+            "boxes": [
+              {
+                "id": "phone",
+                "overflow": false,
+                "scroll": 320,
+                "width": 320
+              },
+              {
+                "id": "topbar",
+                "overflow": false,
+                "scroll": 320,
+                "width": 320
+              },
+              {
+                "id": "main",
+                "overflow": false,
+                "scroll": 305,
+                "width": 305
+              },
+              {
+                "id": "navbar",
+                "overflow": false,
+                "scroll": 320,
+                "width": 320
+              }
+            ],
+            "small": [],
+            "theme": "dark",
+            "viewport": 320
+          },
+          "headings": [
+            "资源科技"
+          ],
+          "ok": true
+        },
+        {
+          "category": "兵种",
+          "geometry": {
+            "boxes": [
+              {
+                "id": "phone",
+                "overflow": false,
+                "scroll": 320,
+                "width": 320
+              },
+              {
+                "id": "topbar",
+                "overflow": false,
+                "scroll": 320,
+                "width": 320
+              },
+              {
+                "id": "main",
+                "overflow": false,
+                "scroll": 305,
+                "width": 305
+              },
+              {
+                "id": "navbar",
+                "overflow": false,
+                "scroll": 320,
+                "width": 320
+              }
+            ],
+            "small": [],
+            "theme": "dark",
+            "viewport": 320
+          },
+          "headings": [],
+          "ok": true
+        },
+        {
+          "category": "军备",
+          "geometry": {
+            "boxes": [
+              {
+                "id": "phone",
+                "overflow": false,
+                "scroll": 320,
+                "width": 320
+              },
+              {
+                "id": "topbar",
+                "overflow": false,
+                "scroll": 320,
+                "width": 320
+              },
+              {
+                "id": "main",
+                "overflow": false,
+                "scroll": 305,
+                "width": 305
+              },
+              {
+                "id": "navbar",
+                "overflow": false,
+                "scroll": 320,
+                "width": 320
+              }
+            ],
+            "small": [],
+            "theme": "dark",
+            "viewport": 320
+          },
+          "headings": [
+            "军团整编 · 0/50星",
+            "军备研发与锻造",
+            "星界圣痕兵装",
+            "青铜盾兵装",
+            "铁枪兵装",
+            "白银重甲兵装",
+            "黄金骑具",
+            "合金特种兵装",
+            "蒸汽装甲兵装",
+            "电磁兵装",
+            "星际先遣兵装",
+            "星界构装兵装"
+          ],
+          "ok": true
+        },
+        {
+          "category": "精通",
+          "geometry": {
+            "boxes": [
+              {
+                "id": "phone",
+                "overflow": false,
+                "scroll": 320,
+                "width": 320
+              },
+              {
+                "id": "topbar",
+                "overflow": false,
+                "scroll": 320,
+                "width": 320
+              },
+              {
+                "id": "main",
+                "overflow": false,
+                "scroll": 305,
+                "width": 305
+              },
+              {
+                "id": "navbar",
+                "overflow": false,
+                "scroll": 320,
+                "width": 320
+              }
+            ],
+            "small": [],
+            "theme": "dark",
+            "viewport": 320
+          },
+          "headings": [
+            "科研精通 · Lv0/20",
+            "冶钢精通 · Lv0/20"
+          ],
+          "ok": true
+        },
+        {
+          "category": "仓储",
+          "geometry": {
+            "boxes": [
+              {
+                "id": "phone",
+                "overflow": false,
+                "scroll": 320,
+                "width": 320
+              },
+              {
+                "id": "topbar",
+                "overflow": false,
+                "scroll": 320,
+                "width": 320
+              },
+              {
+                "id": "main",
+                "overflow": false,
+                "scroll": 305,
+                "width": 305
+              },
+              {
+                "id": "navbar",
+                "overflow": false,
+                "scroll": 320,
+                "width": 320
+              }
+            ],
+            "small": [],
+            "theme": "dark",
+            "viewport": 320
+          },
+          "headings": [
+            "储存精通 · Lv0/100",
+            "蒸汽仓储科技",
+            "电力仓储与生产科技",
+            "星核仓储与生产科技",
+            "星辉圣阵",
+            "星界仓储与生产科技"
+          ],
+          "ok": true
+        }
+      ]
+    },
+    {
+      "name": "旧档食物铸币配方按真实有效耗粮显示",
+      "ok": true,
+      "detail": "加工配方每工每秒投入：食物 11人共需：食物 1"
+    }
+  ],
+  "screenshots": [
+    "E:/AIprogram/idlgame/hd2d-previews/qa-ui-layout-resource-390-light.png",
+    "E:/AIprogram/idlgame/hd2d-previews/qa-ui-layout-building-390-light.png",
+    "E:/AIprogram/idlgame/hd2d-previews/qa-ui-layout-technology-390-light.png",
+    "E:/AIprogram/idlgame/hd2d-previews/qa-ui-layout-resource-390-dark.png",
+    "E:/AIprogram/idlgame/hd2d-previews/qa-ui-layout-building-390-dark.png",
+    "E:/AIprogram/idlgame/hd2d-previews/qa-ui-layout-technology-390-dark.png"
+  ],
+  "commands": [
+    {
+      "command": "node --check ui.js",
+      "exitCode": 0
+    },
+    {
+      "command": "node --check tests/visual/ui-layout-bootstrap.js",
+      "exitCode": 0
+    },
+    {
+      "command": "node --check tests/visual/ui-layout-fixture.js",
+      "exitCode": 0
+    },
+    {
+      "command": "node --check tests/visual/ui-layout-review.cjs",
+      "exitCode": 0
+    },
+    {
+      "command": "git diff --check -- ui.js index.html visual.css tests/visual/browser_smoke.js",
+      "exitCode": 0
+    },
+    {
+      "command": "node tests/visual/assets.js",
+      "exitCode": 0,
+      "result": "Runtime icon/portrait/scene coverage passed"
+    },
+    {
+      "command": "node tests/ie001/run.js",
+      "exitCode": 0,
+      "passed": 96,
+      "failed": 0
+    }
+  ],
+  "compatibility": "No save schema or gameplay formula changes in this UI commit; rts_save reading and original action functions retained; rendering fixture state invariant passes",
+  "notRun": [
+    "Physical Android device UI/frame rate/offline validation"
+  ],
+  "limitations": [
+    "Presentation fixtures do not claim advanced state gameplay reachability",
+    "Missing resource research scenario includes a fixture-only extra wood cost",
+    "Other concurrent working tree changes excluded from this commit"
+  ],
+  "rollback": "Revert this UI commit and keep pre-update raw save/backup; no save migration added",
+  "summary": {
+    "matrixPassed": 48,
+    "matrixFailed": 0,
+    "interactionPassed": 11,
+    "interactionFailed": 0
+  }
+}

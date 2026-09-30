@@ -1565,7 +1565,7 @@ body{
   #phone{max-height:100dvh}
 }
 </style>
-<link rel="stylesheet" href="visual.css?v=28">
+<link rel="stylesheet" href="visual.css?v=29">
 </head>
 <body>
 
@@ -1577,6 +1577,8 @@ body{
     <div class="top-res core-res"><span class="pix-icon i-wood top-pix"></span><div class="val" id="res-wood">0</div><span class="cap" id="cap-wood"></span><div class="label">木材</div></div>
     <div class="top-res core-res"><span class="pix-icon i-stone top-pix"></span><div class="val" id="res-stone">0</div><span class="cap" id="cap-stone"></span><div class="label">石／矿</div></div>
     <div class="top-res core-res"><span class="pix-icon i-food top-pix"></span><div class="val" id="res-food">0</div><span class="cap" id="cap-food"></span><div class="label">食物</div></div>
+    <div id="resource-drawer" class="resource-drawer">
+    <div class="resource-group-title">生产与加工</div><div class="resource-drawer-grid">
     <div class="top-res"><span class="pix-icon i-tech top-pix"></span><div class="val" id="res-tech">0</div><span class="cap" id="cap-tech"></span><div class="label">科技点</div></div>
     <div class="top-res"><span class="pix-icon i-coal top-pix"></span><div class="val" id="res-coal">0</div><span class="cap" id="cap-coal"></span><div class="label">煤</div></div>
     <div class="top-res"><span class="pix-icon i-copper top-pix"></span><div class="val" id="res-copper">0</div><span class="cap" id="cap-copper"></span><div class="label">铜</div></div>
@@ -1584,10 +1586,17 @@ body{
     <div class="top-res" id="top-silver" style="display:none"><span class="pix-icon i-silver top-pix"></span><div class="val" id="res-silver">0</div><span class="cap" id="cap-silver"></span><div class="label">银</div></div>
     <div class="top-res" id="top-gold" style="display:none"><span class="pix-icon i-gold top-pix"></span><div class="val" id="res-gold">0</div><span class="cap" id="cap-gold"></span><div class="label">金</div></div>
     <div class="top-res" id="top-steel" style="display:none"><span class="pix-icon i-steel top-pix"></span><div class="val" id="res-steel">0</div><span class="cap" id="cap-steel"></span><div class="label">钢</div></div>
+    </div><div class="resource-group-title">货币与人口</div><div class="resource-drawer-grid">
     <div class="top-res"><span class="pix-icon i-coin top-pix"></span><div class="val" id="res-coin">0</div><span class="cap" id="cap-coin"></span><div class="label" id="coin-label">铜钱</div></div>
     <div class="top-res" id="top-silverCoin" style="display:none"><span class="pix-icon i-silverCoin top-pix"></span><div class="val" id="res-silverCoin">0</div><span class="cap" id="cap-silverCoin"></span><div class="label">银两</div></div>
+    <div class="top-res" id="top-goldCoin" style="display:none"><span class="pix-icon i-coin top-pix"></span><div class="val" id="res-goldCoin">0</div><span class="cap" id="cap-goldCoin"></span><div class="label">金铸币</div></div>
+    <div class="top-res" id="top-deed"><span class="pix-icon i-deed top-pix"></span><div class="val" id="res-deed">0</div><span class="cap" id="cap-deed"></span><div class="label">地契</div></div>
     <div class="top-res" id="top-medal" style="display:none"><span class="pix-icon i-medal top-pix"></span><div class="val" id="res-medal">0</div><span class="cap" id="cap-medal"></span><div class="label" id="medal-label">战备勋章</div></div>
     <div class="top-res"><span class="pix-icon i-pop top-pix"></span><div class="val" id="res-pop">0</div><span class="cap" id="cap-pop"></span><div class="label">村民</div></div>
+    </div><div id="resource-loot-group" hidden><div class="resource-group-title">战利品</div><div class="resource-drawer-grid">
+    <div class="top-res"><span class="pix-icon i-bone top-pix"></span><div class="val" id="res-bone">0</div><span class="cap" id="cap-bone"></span><div class="label">兽骨</div></div>
+    <div class="top-res"><span class="pix-icon i-bone top-pix"></span><div class="val" id="res-hide">0</div><span class="cap" id="cap-hide"></span><div class="label">兽皮</div></div>
+    </div></div></div>
     <button class="topbar-action" id="resources-toggle" type="button" aria-expanded="false" aria-controls="topbar" aria-label="展开全部资源"><span class="pix-icon i-warehouse top-pix" aria-hidden="true"></span><span>资源</span></button>
     <button class="topbar-action" id="utility-toggle" type="button" aria-expanded="false" aria-controls="utility-menu" aria-label="打开更多菜单"><span class="pix-icon i-log top-pix" aria-hidden="true"></span><span>更多</span></button>
   </div>
@@ -1666,7 +1675,7 @@ body{
      从根上杜绝“看不到更新”。file:// 本地打开不带查询串，行为与静态标签完全一致（document.write 同步顺序加载）。 -->
 <script>
 (function(){
-  var V='36';
+  var V='37';
   var q=(location.protocol==='http:'||location.protocol==='https:')?('?v='+V):'';
   var files=['config.js','levels.js','sprites.js','math.js','garrison.js','technology.js','ui.js'];
   window.APP_VERSION=V;               // 供发布校验/自检读取（切片16 D1）
