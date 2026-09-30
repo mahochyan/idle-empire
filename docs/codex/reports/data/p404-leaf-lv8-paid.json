@@ -1,0 +1,216 @@
+{
+  "baselineHead": "86da94f7ad02e2cf79050b51e61e1b01230ff636",
+  "sourceName": "p403-high-scroll-recovery-save.json",
+  "sourceHash": "8a399af13cd62e2d086ba7b7981bbe6fb0008eebc3cb08af5d8341faae7e49f4",
+  "formationName": "p402-high-scroll-followup-save.json",
+  "formationHash": "b615a8158c53eaa1c2b0603f619fe17dcdaa86980b8967e647c0abd83340aa6c",
+  "runtimeHash": {
+    "config.js": "30da1763fc2f7f7453438d263a667bea58c6acc11d67481d16272f5e1ffb1c0f",
+    "levels.js": "cec80c26fa91f941994c253a2fe73be0dfe3f108237620b662fdab9f5449fd1d",
+    "math.js": "e6980084a1f9b0a7a42f25342abd3e8f475e2737b6dfc300004425b02c2bdd4a",
+    "garrison.js": "4d233f0529d256cd1ace2de782603fcfcbbff110032ca4cf29c5e36af30f10ff",
+    "technology.js": "3d3485f57e1e3ef73d11077cec06d467f674959aa6f0dfb27c3eb4d4abf94536",
+    "tests/progression/harness.js": "4770d17fa72cc8c87f4c8ef79678f19d63a41da895b8dd58776e5a39ce2ede2b"
+  },
+  "policy": "P403 xorshift32 continuation, original 486-soldier formation, paid work and training; at most 60 revival battles and 200000 simulated online seconds, no seed search or state injection",
+  "initial": {
+    "tick": 14777474,
+    "clockMs": 1793251408000,
+    "army": 463,
+    "deployed": 416,
+    "food": 491150,
+    "tech": 240043225.24032307,
+    "techCap": 5173459665,
+    "techRate": 0,
+    "leaf": 558,
+    "blood": 25,
+    "cleanser": 0,
+    "alert": 4100,
+    "store": 7,
+    "rng": 3142760059,
+    "resources": {
+      "stone": 505502,
+      "coal": 150472,
+      "copper": 92887.14999794008,
+      "iron": 329,
+      "steel": 3968,
+      "gold": 14950.17500000008
+    }
+  },
+  "cost": {
+    "tech": 4000000000,
+    "revivalLeaf": 4800
+  },
+  "clock": {
+    "onlineSeconds": 160292,
+    "offlineSeconds": 0,
+    "battleCallbackMilliseconds": 614302.5
+  },
+  "minimumFood": 490385.484962406,
+  "battles": 41,
+  "wins": 41,
+  "losses": 0,
+  "totalLeafGain": 4305,
+  "totalArmyLoss": 2799,
+  "totalBloodSpent": 123,
+  "totalBloodReward": 123,
+  "trainingCount": 41,
+  "trainingSeconds": 33045,
+  "trainingPlanned": {
+    "steel": 22272300,
+    "iron": 22272000,
+    "copper": 22272000,
+    "food": 16500,
+    "gold": 1200
+  },
+  "trainingDebits": {
+    "calls": 1401,
+    "units": 2799,
+    "resources": {
+      "copper": 22272000,
+      "iron": 22272000,
+      "steel": 22272300,
+      "food": 16500,
+      "gold": 1200
+    }
+  },
+  "knowledgePhase": {
+    "start": {
+      "tick": 14810765,
+      "clockMs": 1793284699000,
+      "army": 463,
+      "deployed": 416,
+      "food": 491150,
+      "tech": 574418029.2403231,
+      "techCap": 5173459665,
+      "techRate": 26973,
+      "leaf": 4863,
+      "blood": 25,
+      "cleanser": 0,
+      "alert": 4100,
+      "store": 7,
+      "rng": 368822537,
+      "resources": {
+        "stone": 535268,
+        "coal": 83949.5,
+        "copper": 91808.34999800104,
+        "iron": 319370,
+        "steel": 3401,
+        "gold": 13750.17500000008
+      }
+    },
+    "end": {
+      "tick": 14937766,
+      "clockMs": 1793411700000,
+      "army": 463,
+      "deployed": 416,
+      "food": 491150,
+      "tech": 4000016002.240323,
+      "techCap": 5173459665,
+      "techRate": 26973,
+      "leaf": 4863,
+      "blood": 25,
+      "cleanser": 0,
+      "alert": 4100,
+      "store": 7,
+      "rng": 2778470872,
+      "resources": {
+        "stone": 535268,
+        "coal": 83949.5,
+        "copper": 91808.34999800104,
+        "iron": 319370,
+        "steel": 3401,
+        "gold": 13750.17500000008
+      }
+    },
+    "onlineSeconds": 127001,
+    "chunks": [
+      {
+        "seconds": 20000,
+        "afterTech": 1113878029.240323
+      },
+      {
+        "seconds": 20000,
+        "afterTech": 1653338029.240323
+      },
+      {
+        "seconds": 20000,
+        "afterTech": 2192798029.240323
+      },
+      {
+        "seconds": 20000,
+        "afterTech": 2732258029.240323
+      },
+      {
+        "seconds": 20000,
+        "afterTech": 3271718029.240323
+      },
+      {
+        "seconds": 20000,
+        "afterTech": 3811178029.240323
+      },
+      {
+        "seconds": 7001,
+        "afterTech": 4000016002.240323
+      }
+    ]
+  },
+  "upgrade": {
+    "ok": true,
+    "level": 8,
+    "cost": {
+      "tech": 4000000000,
+      "revivalLeaf": 4800
+    }
+  },
+  "postUpgrade": {
+    "nextStorageCost": {
+      "tech": 4500000000,
+      "revivalLeaf": 5400
+    },
+    "knowledgeCap": 5477780820,
+    "medals": 4094694,
+    "engineCost": {
+      "tech": 100000000000,
+      "medal": 30000000,
+      "merit": 0
+    },
+    "engineRefusal": {
+      "ok": false,
+      "reason": "insufficient-tech"
+    },
+    "engineCapacityGap": 94522219180,
+    "engineMedalGap": 25905306
+  },
+  "stopReason": {
+    "kind": "paid-lv8"
+  },
+  "final": {
+    "tick": 14937766,
+    "clockMs": 1793411700000,
+    "army": 463,
+    "deployed": 416,
+    "food": 491150,
+    "tech": 16002.240323066711,
+    "techCap": 5477780820,
+    "techRate": 26973,
+    "leaf": 63,
+    "blood": 25,
+    "cleanser": 0,
+    "alert": 4100,
+    "store": 8,
+    "rng": 2778470872,
+    "resources": {
+      "stone": 535268,
+      "coal": 83949.5,
+      "copper": 91808.34999800104,
+      "iron": 319370,
+      "steel": 3401,
+      "gold": 13750.17500000008
+    }
+  },
+  "finalName": "p404-leaf-lv8-paid-save.json",
+  "finalHash": "2e0d4993cae7c8fd6879db8e17d14fda4c06745acf09d52a039206ac44ad18cc",
+  "ledgerName": "p404-leaf-lv8-paid-ledger.jsonl",
+  "ledgerHash": "239790dab695a2e8220c5cc64204113817f9d5319df4efc977d92daa8ab4dd9a"
+}

@@ -1,0 +1,2354 @@
+{
+  "batch": "P404",
+  "head": null,
+  "input": "docs/codex/reports/data/p403-l50-gold-ready-save.json",
+  "inputSha256": "3660427b18673323c4656a0c4215c1796e73dd8d33c35b5f1cc10c041898c787",
+  "sourceHash": {
+    "config.js": "30da1763fc2f7f7453438d263a667bea58c6acc11d67481d16272f5e1ffb1c0f",
+    "levels.js": "cec80c26fa91f941994c253a2fe73be0dfe3f108237620b662fdab9f5449fd1d",
+    "math.js": "e6980084a1f9b0a7a42f25342abd3e8f475e2737b6dfc300004425b02c2bdd4a",
+    "garrison.js": "4d233f0529d256cd1ace2de782603fcfcbbff110032ca4cf29c5e36af30f10ff",
+    "technology.js": "3d3485f57e1e3ef73d11077cec06d467f674959aa6f0dfb27c3eb4d4abf94536",
+    "tests/progression/harness.js": "4770d17fa72cc8c87f4c8ef79678f19d63a41da895b8dd58776e5a39ce2ede2b",
+    "docs/codex/reports/data/p403-l50-gold-ready-save.json": "3660427b18673323c4656a0c4215c1796e73dd8d33c35b5f1cc10c041898c787"
+  },
+  "method": "Independent P403 paid gold-ready v36 save, real worker assignment, builds, queues, formation actions, fixed Math.random 0.5 and battle callbacks; no injected state",
+  "units": "online is simulated tick seconds; battleMs is callback milliseconds; menu actions are instantaneous in the harness",
+  "trials": [
+    {
+      "name": "extra-bows",
+      "input": "docs/codex/reports/data/p403-l50-gold-ready-save.json",
+      "inputSha256": "3660427b18673323c4656a0c4215c1796e73dd8d33c35b5f1cc10c041898c787",
+      "online": 20,
+      "battleMs": 22470,
+      "buildingPaid": {},
+      "trainingPaid": {
+        "wood": 3200,
+        "stone": 1000,
+        "food": 1600
+      },
+      "chargeCount": 11,
+      "measurements": {},
+      "battle": {
+        "won": false,
+        "round": 5,
+        "callbacks": 55,
+        "armyBefore": 100,
+        "armyAfter": 0,
+        "losses": {
+          "archer_silverbow": 40,
+          "bronze_guard": 20,
+          "iron_spearman": 20,
+          "silver_heavy": 10,
+          "gold_cavalry": 10
+        },
+        "enemy": {
+          "name": "钢铁巨人",
+          "roster": [
+            {
+              "type": "infantry",
+              "count": 12,
+              "hp": 12,
+              "atk": 6,
+              "def": 11
+            },
+            {
+              "type": "infantry",
+              "count": 12,
+              "hp": 12,
+              "atk": 6,
+              "def": 11
+            },
+            {
+              "type": "infantry",
+              "count": 12,
+              "hp": 12,
+              "atk": 6,
+              "def": 11
+            },
+            {
+              "type": "archer",
+              "count": 12,
+              "hp": 12,
+              "atk": 12,
+              "def": 11
+            },
+            {
+              "type": "archer",
+              "count": 12,
+              "hp": 12,
+              "atk": 12,
+              "def": 11
+            },
+            {
+              "type": "archer",
+              "count": 12,
+              "hp": 12,
+              "atk": 12,
+              "def": 11
+            },
+            {
+              "type": "cavalry_t1",
+              "count": 12,
+              "hp": 12,
+              "atk": 22,
+              "def": 25
+            },
+            {
+              "type": "cavalry_t1",
+              "count": 12,
+              "hp": 12,
+              "atk": 22,
+              "def": 25
+            },
+            {
+              "type": "cavalry_t1",
+              "count": 12,
+              "hp": 12,
+              "atk": 22,
+              "def": 25
+            },
+            {
+              "type": "mage_t1",
+              "count": 12,
+              "hp": 12,
+              "atk": 18,
+              "def": 8
+            },
+            {
+              "type": "mage_t1",
+              "count": 12,
+              "hp": 12,
+              "atk": 18,
+              "def": 8
+            }
+          ]
+        }
+      },
+      "failure": null,
+      "readySave": "docs/codex/reports/data/p404-l50-extra-bows-ready-save.json",
+      "readySha256": "e21f9674aafebfd57075ada62e192df958128d8a9885e6da3a12e87c541d826d",
+      "finalSave": "docs/codex/reports/data/p404-l50-extra-bows-final-save.json",
+      "finalSha256": "fc88747684170ef57a8a8c842a77cccc0d0f4dfdc859216cd94518bb3d92621a",
+      "final": {
+        "tick": 78470,
+        "defeated": 49,
+        "merit": 732,
+        "essence": {
+          "bow_essence": 2,
+          "crossbow_essence": 3,
+          "blade_essence": 3,
+          "wind_essence": 3,
+          "iron_essence": 2,
+          "shield_essence": 1,
+          "spear_essence": 1,
+          "sword_essence": 1
+        },
+        "res": {
+          "wood": 40,
+          "stone": 1076,
+          "food": 180.0979960868381,
+          "tech": 0,
+          "coal": 3,
+          "copper": 4,
+          "iron": 0,
+          "silver": 8.666666666663232,
+          "gold": 5,
+          "steel": 0,
+          "coin": 0,
+          "silverCoin": 0,
+          "goldCoin": 0,
+          "deed": 20,
+          "medal": 7,
+          "bone": 0,
+          "hide": 0
+        },
+        "buildings": {
+          "academy": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 0
+          },
+          "farm": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 0
+          },
+          "warehouse": {
+            "lv": 2,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 0
+          },
+          "market": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 0
+          },
+          "barracks": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 0
+          },
+          "infantry_camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 0
+          },
+          "archer_range": {
+            "lv": 2,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 2
+          },
+          "copper_store": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 0
+          },
+          "bronze_workshop": {
+            "lv": 2,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 0
+          },
+          "iron_forge": {
+            "lv": 2,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 0
+          },
+          "silver_armory": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 0
+          },
+          "library": {
+            "lv": 10,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 0
+          },
+          "gold_armory": {
+            "lv": 2,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 0
+          }
+        },
+        "sciences": [
+          "sci_prospect",
+          "sci_coal",
+          "sci_copper",
+          "sci_wood_store",
+          "sci_urbanization",
+          "sci_iron",
+          "sci_large_granary",
+          "sci_bronze_age",
+          "sci_iron_warehouse",
+          "sci_iron_age",
+          "sci_city",
+          "sci_silver",
+          "sci_silver_age",
+          "sci_library",
+          "sci_gold",
+          "sci_gold_age"
+        ],
+        "pool": {
+          "infantry": 0,
+          "archer": 0,
+          "bronze_guard": 0,
+          "iron_spearman": 0,
+          "archer_t1": 0,
+          "archer_silverbow": 0,
+          "silver_heavy": 0,
+          "gold_cavalry": 0
+        },
+        "queue": {
+          "infantry": {
+            "count": 0,
+            "timer": 0,
+            "reason": ""
+          },
+          "archer": {
+            "count": 0,
+            "timer": 0,
+            "reason": ""
+          },
+          "bronze_guard": {
+            "count": 0,
+            "timer": 0,
+            "reason": ""
+          },
+          "iron_spearman": {
+            "count": 0,
+            "timer": 0,
+            "reason": ""
+          },
+          "archer_t1": {
+            "count": 0,
+            "timer": 0,
+            "reason": ""
+          },
+          "archer_silverbow": {
+            "count": 0,
+            "timer": 0,
+            "reason": ""
+          },
+          "silver_heavy": {
+            "count": 0,
+            "timer": 0,
+            "reason": ""
+          },
+          "gold_cavalry": {
+            "count": 0,
+            "timer": 0,
+            "reason": ""
+          }
+        },
+        "formation": {
+          "front": [],
+          "mid": [],
+          "back": []
+        },
+        "popAlloc": {
+          "wood": 4,
+          "stone": 2,
+          "food": 13,
+          "coal": 0,
+          "copper": 0,
+          "iron": 0,
+          "silver": 0,
+          "gold": 0,
+          "steel": 0,
+          "coin": 0,
+          "silverCoin": 0,
+          "goldCoin": 0,
+          "tech": 0
+        }
+      },
+      "events": [
+        {
+          "label": "release wood",
+          "online": 0,
+          "expr": "setPopAlloc('wood',0)",
+          "result": {
+            "ok": true
+          },
+          "changed": {
+            "popAlloc": {
+              "wood": [
+                2,
+                0
+              ]
+            }
+          }
+        },
+        {
+          "label": "release stone",
+          "online": 0,
+          "expr": "setPopAlloc('stone',0)",
+          "result": {
+            "ok": true
+          },
+          "changed": {
+            "popAlloc": {
+              "stone": [
+                2,
+                0
+              ]
+            }
+          }
+        },
+        {
+          "label": "release food",
+          "online": 0,
+          "expr": "setPopAlloc('food',0)",
+          "result": {
+            "ok": true
+          },
+          "changed": {
+            "popAlloc": {
+              "food": [
+                9,
+                0
+              ]
+            }
+          }
+        },
+        {
+          "label": "release coal",
+          "online": 0,
+          "expr": "setPopAlloc('coal',0)",
+          "result": {
+            "ok": true
+          },
+          "changed": {
+            "popAlloc": {
+              "coal": [
+                2,
+                0
+              ]
+            }
+          }
+        },
+        {
+          "label": "release copper",
+          "online": 0,
+          "expr": "setPopAlloc('copper',0)",
+          "result": {
+            "ok": true
+          },
+          "changed": {
+            "popAlloc": {
+              "copper": [
+                4,
+                0
+              ]
+            }
+          }
+        },
+        {
+          "label": "assign food",
+          "online": 0,
+          "expr": "setPopAlloc('food',13)",
+          "result": {
+            "ok": true
+          },
+          "changed": {
+            "popAlloc": {
+              "food": [
+                0,
+                13
+              ]
+            }
+          }
+        },
+        {
+          "label": "assign wood",
+          "online": 0,
+          "expr": "setPopAlloc('wood',4)",
+          "result": {
+            "ok": true
+          },
+          "changed": {
+            "popAlloc": {
+              "wood": [
+                0,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "label": "assign stone",
+          "online": 0,
+          "expr": "setPopAlloc('stone',2)",
+          "result": {
+            "ok": true
+          },
+          "changed": {
+            "popAlloc": {
+              "stone": [
+                0,
+                2
+              ]
+            }
+          }
+        },
+        {
+          "label": "queue 20 archer_silverbow",
+          "online": 0,
+          "expr": "train('archer_silverbow',20)",
+          "result": {
+            "ok": true,
+            "qty": 20
+          },
+          "changed": {
+            "queue": {
+              "archer_silverbow": {
+                "count": [
+                  0,
+                  20
+                ],
+                "timer": [
+                  0,
+                  0.5
+                ]
+              }
+            }
+          }
+        },
+        {
+          "label": "wait train archer_silverbow to 40",
+          "online": 20,
+          "seconds": 20,
+          "satisfied": true,
+          "atTick": 78448
+        },
+        {
+          "label": "save trained archer_silverbow",
+          "online": 20,
+          "expr": "save()",
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "label": "reload trained archer_silverbow",
+          "online": 20,
+          "sha256": "82994b4add0dcd4e055a88a7ab442c273f2ea478b15668906c0912863c03e615"
+        },
+        {
+          "label": "place front[0] 10 gold_cavalry",
+          "online": 20
+        },
+        {
+          "label": "place front[1] 10 silver_heavy",
+          "online": 20
+        },
+        {
+          "label": "place front[2] 10 bronze_guard",
+          "online": 20
+        },
+        {
+          "label": "place front[3] 10 iron_spearman",
+          "online": 20
+        },
+        {
+          "label": "place mid[0] 10 iron_spearman",
+          "online": 20
+        },
+        {
+          "label": "place mid[1] 10 bronze_guard",
+          "online": 20
+        },
+        {
+          "label": "place back[0] 10 archer_silverbow",
+          "online": 20
+        },
+        {
+          "label": "place back[1] 10 archer_silverbow",
+          "online": 20
+        },
+        {
+          "label": "place back[2] 10 archer_silverbow",
+          "online": 20
+        },
+        {
+          "label": "place back[3] 10 archer_silverbow",
+          "online": 20
+        },
+        {
+          "label": "save formation ready",
+          "online": 20,
+          "expr": "save()",
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "label": "reload formation ready",
+          "online": 20,
+          "sha256": "259554395b1aaa726dc6d90addb05c3585e27e63f1b2e3cf72936060c83fae4b"
+        },
+        {
+          "label": "save L50 result",
+          "online": 20,
+          "expr": "save()",
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "label": "reload L50 result",
+          "online": 20,
+          "sha256": "eacdcc13805c244494d7eef29e2decbe4a00881aad5cbf99f207c2b97f5c9462"
+        },
+        {
+          "label": "battle L50",
+          "online": 20,
+          "won": false,
+          "round": 5,
+          "callbacks": 55,
+          "battleMs": 22470,
+          "armyBefore": 100,
+          "armyAfter": 0,
+          "ownedBefore": {
+            "archer_silverbow": 40,
+            "bronze_guard": 20,
+            "iron_spearman": 20,
+            "silver_heavy": 10,
+            "gold_cavalry": 10
+          },
+          "ownedAfter": {
+            "archer_silverbow": 0,
+            "bronze_guard": 0,
+            "iron_spearman": 0,
+            "silver_heavy": 0,
+            "gold_cavalry": 0
+          },
+          "losses": {
+            "archer_silverbow": 40,
+            "bronze_guard": 20,
+            "iron_spearman": 20,
+            "silver_heavy": 10,
+            "gold_cavalry": 10
+          },
+          "enemy": {
+            "name": "钢铁巨人",
+            "roster": [
+              {
+                "type": "infantry",
+                "count": 12,
+                "hp": 12,
+                "atk": 6,
+                "def": 11
+              },
+              {
+                "type": "infantry",
+                "count": 12,
+                "hp": 12,
+                "atk": 6,
+                "def": 11
+              },
+              {
+                "type": "infantry",
+                "count": 12,
+                "hp": 12,
+                "atk": 6,
+                "def": 11
+              },
+              {
+                "type": "archer",
+                "count": 12,
+                "hp": 12,
+                "atk": 12,
+                "def": 11
+              },
+              {
+                "type": "archer",
+                "count": 12,
+                "hp": 12,
+                "atk": 12,
+                "def": 11
+              },
+              {
+                "type": "archer",
+                "count": 12,
+                "hp": 12,
+                "atk": 12,
+                "def": 11
+              },
+              {
+                "type": "cavalry_t1",
+                "count": 12,
+                "hp": 12,
+                "atk": 22,
+                "def": 25
+              },
+              {
+                "type": "cavalry_t1",
+                "count": 12,
+                "hp": 12,
+                "atk": 22,
+                "def": 25
+              },
+              {
+                "type": "cavalry_t1",
+                "count": 12,
+                "hp": 12,
+                "atk": 22,
+                "def": 25
+              },
+              {
+                "type": "mage_t1",
+                "count": 12,
+                "hp": 12,
+                "atk": 18,
+                "def": 8
+              },
+              {
+                "type": "mage_t1",
+                "count": 12,
+                "hp": 12,
+                "atk": 18,
+                "def": 8
+              }
+            ]
+          },
+          "changed": {
+            "tick": [
+              78448,
+              78470
+            ],
+            "formation": {
+              "front": [
+                [
+                  {
+                    "type": "gold_cavalry",
+                    "count": 10,
+                    "id": 1790798177372.5
+                  },
+                  {
+                    "type": "silver_heavy",
+                    "count": 10,
+                    "id": 1790798177373.5
+                  },
+                  {
+                    "type": "bronze_guard",
+                    "count": 10,
+                    "id": 1790798177374.5
+                  },
+                  {
+                    "type": "iron_spearman",
+                    "count": 10,
+                    "id": 1790798177375.5
+                  }
+                ],
+                []
+              ],
+              "mid": [
+                [
+                  {
+                    "type": "iron_spearman",
+                    "count": 10,
+                    "id": 1790798177376.5
+                  },
+                  {
+                    "type": "bronze_guard",
+                    "count": 10,
+                    "id": 1790798177377.5
+                  }
+                ],
+                []
+              ],
+              "back": [
+                [
+                  {
+                    "type": "archer_silverbow",
+                    "count": 10,
+                    "id": 1790798177378.5
+                  },
+                  {
+                    "type": "archer_silverbow",
+                    "count": 10,
+                    "id": 1790798177379.5
+                  },
+                  {
+                    "type": "archer_silverbow",
+                    "count": 10,
+                    "id": 1790798177380.5
+                  },
+                  {
+                    "type": "archer_silverbow",
+                    "count": 10,
+                    "id": 1790798177381.5
+                  }
+                ],
+                []
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "armory-and-bows",
+      "input": "docs/codex/reports/data/p403-l50-gold-ready-save.json",
+      "inputSha256": "3660427b18673323c4656a0c4215c1796e73dd8d33c35b5f1cc10c041898c787",
+      "online": 6730,
+      "battleMs": 24990,
+      "buildingPaid": {
+        "wood": 6808,
+        "food": 4861,
+        "stone": 5100
+      },
+      "trainingPaid": {
+        "wood": 3200,
+        "stone": 1000,
+        "food": 16600,
+        "gold": 700,
+        "silver": 1000
+      },
+      "chargeCount": 37,
+      "measurements": {
+        "foodWorkersBeforeAfterFarm": 9,
+        "foodRateFarm1": 22.275000000000002,
+        "foodRateFarm3": 26.325,
+        "foodWorkersGold": 14,
+        "foodRateGold": 40.95
+      },
+      "battle": {
+        "won": true,
+        "round": 5,
+        "callbacks": 61,
+        "armyBefore": 117,
+        "armyAfter": 50,
+        "losses": {
+          "archer_silverbow": 0,
+          "bronze_guard": 20,
+          "iron_spearman": 10,
+          "silver_heavy": 20,
+          "gold_cavalry": 17
+        },
+        "enemy": {
+          "name": "钢铁巨人",
+          "roster": [
+            {
+              "type": "infantry",
+              "count": 12,
+              "hp": 12,
+              "atk": 6,
+              "def": 11
+            },
+            {
+              "type": "infantry",
+              "count": 12,
+              "hp": 12,
+              "atk": 6,
+              "def": 11
+            },
+            {
+              "type": "infantry",
+              "count": 12,
+              "hp": 12,
+              "atk": 6,
+              "def": 11
+            },
+            {
+              "type": "archer",
+              "count": 12,
+              "hp": 12,
+              "atk": 12,
+              "def": 11
+            },
+            {
+              "type": "archer",
+              "count": 12,
+              "hp": 12,
+              "atk": 12,
+              "def": 11
+            },
+            {
+              "type": "archer",
+              "count": 12,
+              "hp": 12,
+              "atk": 12,
+              "def": 11
+            },
+            {
+              "type": "cavalry_t1",
+              "count": 12,
+              "hp": 12,
+              "atk": 22,
+              "def": 25
+            },
+            {
+              "type": "cavalry_t1",
+              "count": 12,
+              "hp": 12,
+              "atk": 22,
+              "def": 25
+            },
+            {
+              "type": "cavalry_t1",
+              "count": 12,
+              "hp": 12,
+              "atk": 22,
+              "def": 25
+            },
+            {
+              "type": "mage_t1",
+              "count": 12,
+              "hp": 12,
+              "atk": 18,
+              "def": 8
+            },
+            {
+              "type": "mage_t1",
+              "count": 12,
+              "hp": 12,
+              "atk": 18,
+              "def": 8
+            }
+          ]
+        }
+      },
+      "failure": null,
+      "readySave": "docs/codex/reports/data/p404-l50-armory-and-bows-ready-save.json",
+      "readySha256": "59eb21c6d45cbb779d7c1786ece7dfbc447699a5e4e5142851249211efd0f653",
+      "finalSave": "docs/codex/reports/data/p404-l50-armory-and-bows-final-save.json",
+      "finalSha256": "e0e8aba95021e069eb5ef4df06603ce15df67b9909c4328336dcf21a37546354",
+      "final": {
+        "tick": 85182,
+        "defeated": 50,
+        "merit": 787,
+        "essence": {
+          "bow_essence": 2,
+          "crossbow_essence": 3,
+          "blade_essence": 3,
+          "wind_essence": 3,
+          "iron_essence": 2,
+          "shield_essence": 3,
+          "spear_essence": 3,
+          "sword_essence": 3
+        },
+        "res": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 3000,
+          "tech": 0,
+          "coal": 1,
+          "copper": 4,
+          "iron": 0,
+          "silver": 1.9999999999982707,
+          "gold": 0.5,
+          "steel": 0,
+          "coin": 0,
+          "silverCoin": 0,
+          "goldCoin": 0,
+          "deed": 20,
+          "medal": 7,
+          "bone": 0,
+          "hide": 0
+        },
+        "buildings": {
+          "academy": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 0
+          },
+          "farm": {
+            "lv": 3,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 0
+          },
+          "warehouse": {
+            "lv": 2,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 0
+          },
+          "market": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 0
+          },
+          "barracks": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 0
+          },
+          "infantry_camp": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 0
+          },
+          "archer_range": {
+            "lv": 2,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 2
+          },
+          "copper_store": {
+            "lv": 1,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 0
+          },
+          "bronze_workshop": {
+            "lv": 2,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 0
+          },
+          "iron_forge": {
+            "lv": 2,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 0
+          },
+          "silver_armory": {
+            "lv": 2,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 0
+          },
+          "library": {
+            "lv": 10,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 0
+          },
+          "gold_armory": {
+            "lv": 4,
+            "state": "idle",
+            "timer": 0,
+            "timerEnd": 0,
+            "tier": 0
+          }
+        },
+        "sciences": [
+          "sci_prospect",
+          "sci_coal",
+          "sci_copper",
+          "sci_wood_store",
+          "sci_urbanization",
+          "sci_iron",
+          "sci_large_granary",
+          "sci_bronze_age",
+          "sci_iron_warehouse",
+          "sci_iron_age",
+          "sci_city",
+          "sci_silver",
+          "sci_silver_age",
+          "sci_library",
+          "sci_gold",
+          "sci_gold_age"
+        ],
+        "pool": {
+          "infantry": 0,
+          "archer": 0,
+          "bronze_guard": 0,
+          "iron_spearman": 0,
+          "archer_t1": 0,
+          "archer_silverbow": 0,
+          "silver_heavy": 0,
+          "gold_cavalry": 0
+        },
+        "queue": {
+          "infantry": {
+            "count": 0,
+            "timer": 0,
+            "reason": ""
+          },
+          "archer": {
+            "count": 0,
+            "timer": 0,
+            "reason": ""
+          },
+          "bronze_guard": {
+            "count": 0,
+            "timer": 0,
+            "reason": ""
+          },
+          "iron_spearman": {
+            "count": 0,
+            "timer": 0,
+            "reason": ""
+          },
+          "archer_t1": {
+            "count": 0,
+            "timer": 0,
+            "reason": ""
+          },
+          "archer_silverbow": {
+            "count": 0,
+            "timer": 0,
+            "reason": ""
+          },
+          "silver_heavy": {
+            "count": 0,
+            "timer": 0,
+            "reason": ""
+          },
+          "gold_cavalry": {
+            "count": 0,
+            "timer": 0,
+            "reason": ""
+          }
+        },
+        "formation": {
+          "front": [],
+          "mid": [
+            {
+              "type": "iron_spearman",
+              "count": 10,
+              "id": 1790804887376.5
+            }
+          ],
+          "back": [
+            {
+              "type": "archer_silverbow",
+              "count": 10,
+              "id": 1790804887380.5
+            },
+            {
+              "type": "archer_silverbow",
+              "count": 10,
+              "id": 1790804887381.5
+            },
+            {
+              "type": "archer_silverbow",
+              "count": 10,
+              "id": 1790804887382.5
+            },
+            {
+              "type": "archer_silverbow",
+              "count": 10,
+              "id": 1790804887383.5
+            }
+          ]
+        },
+        "popAlloc": {
+          "wood": 0,
+          "stone": 2,
+          "food": 14,
+          "coal": 1,
+          "copper": 0,
+          "iron": 0,
+          "silver": 2,
+          "gold": 0,
+          "steel": 0,
+          "coin": 0,
+          "silverCoin": 0,
+          "goldCoin": 0,
+          "tech": 0
+        }
+      },
+      "events": [
+        {
+          "label": "release wood",
+          "online": 0,
+          "expr": "setPopAlloc('wood',0)",
+          "result": {
+            "ok": true
+          },
+          "changed": {
+            "popAlloc": {
+              "wood": [
+                2,
+                0
+              ]
+            }
+          }
+        },
+        {
+          "label": "release stone",
+          "online": 0,
+          "expr": "setPopAlloc('stone',0)",
+          "result": {
+            "ok": true
+          },
+          "changed": {
+            "popAlloc": {
+              "stone": [
+                2,
+                0
+              ]
+            }
+          }
+        },
+        {
+          "label": "release food",
+          "online": 0,
+          "expr": "setPopAlloc('food',0)",
+          "result": {
+            "ok": true
+          },
+          "changed": {
+            "popAlloc": {
+              "food": [
+                9,
+                0
+              ]
+            }
+          }
+        },
+        {
+          "label": "release coal",
+          "online": 0,
+          "expr": "setPopAlloc('coal',0)",
+          "result": {
+            "ok": true
+          },
+          "changed": {
+            "popAlloc": {
+              "coal": [
+                2,
+                0
+              ]
+            }
+          }
+        },
+        {
+          "label": "release copper",
+          "online": 0,
+          "expr": "setPopAlloc('copper',0)",
+          "result": {
+            "ok": true
+          },
+          "changed": {
+            "popAlloc": {
+              "copper": [
+                4,
+                0
+              ]
+            }
+          }
+        },
+        {
+          "label": "assign food",
+          "online": 0,
+          "expr": "setPopAlloc('food',9)",
+          "result": {
+            "ok": true
+          },
+          "changed": {
+            "popAlloc": {
+              "food": [
+                0,
+                9
+              ]
+            }
+          }
+        },
+        {
+          "label": "assign wood",
+          "online": 0,
+          "expr": "setPopAlloc('wood',5)",
+          "result": {
+            "ok": true
+          },
+          "changed": {
+            "popAlloc": {
+              "wood": [
+                0,
+                5
+              ]
+            }
+          }
+        },
+        {
+          "label": "assign stone",
+          "online": 0,
+          "expr": "setPopAlloc('stone',5)",
+          "result": {
+            "ok": true
+          },
+          "changed": {
+            "popAlloc": {
+              "stone": [
+                0,
+                5
+              ]
+            }
+          }
+        },
+        {
+          "label": "wait farm Lv2 materials",
+          "online": 0,
+          "seconds": 0,
+          "satisfied": true,
+          "atTick": 78428
+        },
+        {
+          "label": "build farm Lv2",
+          "online": 0,
+          "expr": "buildAct('farm')",
+          "result": {
+            "ok": true
+          },
+          "changed": {
+            "res": {
+              "wood": [
+                3000,
+                2466.6666666666665
+              ],
+              "food": [
+                1679.42108438638,
+                1412.7544177197133
+              ]
+            },
+            "buildings": {
+              "farm": {
+                "state": [
+                  "idle",
+                  "upgrading"
+                ],
+                "timer": [
+                  0,
+                  40
+                ],
+                "timerEnd": [
+                  0,
+                  40
+                ]
+              }
+            }
+          }
+        },
+        {
+          "label": "wait farm Lv2 complete",
+          "online": 40,
+          "seconds": 40,
+          "satisfied": true,
+          "atTick": 78468
+        },
+        {
+          "label": "save farm Lv2",
+          "online": 40,
+          "expr": "save()",
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "label": "reload farm Lv2",
+          "online": 40,
+          "sha256": "c6ebd09e4e686217bdb5a03e46685c7d37424b2bb25801ff1b2c627df8164613"
+        },
+        {
+          "label": "wait farm Lv3 materials",
+          "online": 40,
+          "seconds": 0,
+          "satisfied": true,
+          "atTick": 78468
+        },
+        {
+          "label": "build farm Lv3",
+          "online": 40,
+          "expr": "buildAct('farm')",
+          "result": {
+            "ok": true
+          },
+          "changed": {
+            "res": {
+              "wood": [
+                3000,
+                2333.333333333333
+              ],
+              "food": [
+                1356.2044177197092,
+                1022.8710843863759
+              ]
+            },
+            "buildings": {
+              "farm": {
+                "state": [
+                  "idle",
+                  "upgrading"
+                ],
+                "timer": [
+                  0,
+                  50
+                ],
+                "timerEnd": [
+                  0,
+                  50
+                ]
+              }
+            }
+          }
+        },
+        {
+          "label": "wait farm Lv3 complete",
+          "online": 90,
+          "seconds": 50,
+          "satisfied": true,
+          "atTick": 78518
+        },
+        {
+          "label": "save farm Lv3",
+          "online": 90,
+          "expr": "save()",
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "label": "reload farm Lv3",
+          "online": 90,
+          "sha256": "aee03acce7673c19bf8f6b03d15f41788c326ffca3e1ad8917387527a8403f9c"
+        },
+        {
+          "label": "wait gold_armory Lv3 materials",
+          "online": 200,
+          "seconds": 110,
+          "satisfied": true,
+          "atTick": 78628
+        },
+        {
+          "label": "build gold_armory Lv3",
+          "online": 200,
+          "expr": "buildAct('gold_armory')",
+          "result": {
+            "ok": true
+          },
+          "changed": {
+            "res": {
+              "wood": [
+                3000,
+                1063
+              ],
+              "stone": [
+                2000,
+                305
+              ],
+              "food": [
+                1454.7960843863723,
+                1.7960843863722857
+              ]
+            },
+            "buildings": {
+              "gold_armory": {
+                "state": [
+                  "idle",
+                  "upgrading"
+                ],
+                "timer": [
+                  0,
+                  12
+                ],
+                "timerEnd": [
+                  0,
+                  12
+                ]
+              }
+            }
+          }
+        },
+        {
+          "label": "wait gold_armory Lv3 complete",
+          "online": 220,
+          "seconds": 20,
+          "satisfied": true,
+          "atTick": 78648
+        },
+        {
+          "label": "save gold_armory Lv3",
+          "online": 220,
+          "expr": "save()",
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "label": "reload gold_armory Lv3",
+          "online": 220,
+          "sha256": "460aeed72767ae15ba250f3de70ac81e9376496e7fe78fe0c0b61dffd9a2e733"
+        },
+        {
+          "label": "wait gold_armory Lv4 materials",
+          "online": 560,
+          "seconds": 340,
+          "satisfied": true,
+          "atTick": 78988
+        },
+        {
+          "label": "build gold_armory Lv4",
+          "online": 560,
+          "expr": "buildAct('gold_armory')",
+          "result": {
+            "ok": true
+          },
+          "changed": {
+            "res": {
+              "wood": [
+                3000,
+                870
+              ],
+              "stone": [
+                2000,
+                136
+              ],
+              "food": [
+                1643.3960843863717,
+                45.39608438637174
+              ]
+            },
+            "buildings": {
+              "gold_armory": {
+                "state": [
+                  "idle",
+                  "upgrading"
+                ],
+                "timer": [
+                  0,
+                  13
+                ],
+                "timerEnd": [
+                  0,
+                  13
+                ]
+              }
+            }
+          }
+        },
+        {
+          "label": "wait gold_armory Lv4 complete",
+          "online": 580,
+          "seconds": 20,
+          "satisfied": true,
+          "atTick": 79008
+        },
+        {
+          "label": "save gold_armory Lv4",
+          "online": 580,
+          "expr": "save()",
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "label": "reload gold_armory Lv4",
+          "online": 580,
+          "sha256": "63f0cfabe498a126badb3da8481250dd62e607305f42e35ac70951e0ceb1eb39"
+        },
+        {
+          "label": "wait silver_armory Lv2 materials",
+          "online": 820,
+          "seconds": 240,
+          "satisfied": true,
+          "atTick": 79248
+        },
+        {
+          "label": "build silver_armory Lv2",
+          "online": 820,
+          "expr": "buildAct('silver_armory')",
+          "result": {
+            "ok": true
+          },
+          "changed": {
+            "res": {
+              "wood": [
+                3000,
+                1459
+              ],
+              "stone": [
+                2000,
+                459
+              ],
+              "food": [
+                1230.9960843863762,
+                20.996084386376197
+              ]
+            },
+            "buildings": {
+              "silver_armory": {
+                "state": [
+                  "idle",
+                  "upgrading"
+                ],
+                "timer": [
+                  0,
+                  11
+                ],
+                "timerEnd": [
+                  0,
+                  11
+                ]
+              }
+            }
+          }
+        },
+        {
+          "label": "wait silver_armory Lv2 complete",
+          "online": 840,
+          "seconds": 20,
+          "satisfied": true,
+          "atTick": 79268
+        },
+        {
+          "label": "save silver_armory Lv2",
+          "online": 840,
+          "expr": "save()",
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "label": "reload silver_armory Lv2",
+          "online": 840,
+          "sha256": "1ef470ae13e22196cf09b05b03d41971935e0bd7e3c8b021c6dc2ef735563287"
+        },
+        {
+          "label": "release wood",
+          "online": 840,
+          "expr": "setPopAlloc('wood',0)",
+          "result": {
+            "ok": true
+          },
+          "changed": {
+            "popAlloc": {
+              "wood": [
+                5,
+                0
+              ]
+            }
+          }
+        },
+        {
+          "label": "release stone",
+          "online": 840,
+          "expr": "setPopAlloc('stone',0)",
+          "result": {
+            "ok": true
+          },
+          "changed": {
+            "popAlloc": {
+              "stone": [
+                5,
+                0
+              ]
+            }
+          }
+        },
+        {
+          "label": "release food",
+          "online": 840,
+          "expr": "setPopAlloc('food',0)",
+          "result": {
+            "ok": true
+          },
+          "changed": {
+            "popAlloc": {
+              "food": [
+                9,
+                0
+              ]
+            }
+          }
+        },
+        {
+          "label": "assign food",
+          "online": 840,
+          "expr": "setPopAlloc('food',13)",
+          "result": {
+            "ok": true
+          },
+          "changed": {
+            "popAlloc": {
+              "food": [
+                0,
+                13
+              ]
+            }
+          }
+        },
+        {
+          "label": "assign wood",
+          "online": 840,
+          "expr": "setPopAlloc('wood',4)",
+          "result": {
+            "ok": true
+          },
+          "changed": {
+            "popAlloc": {
+              "wood": [
+                0,
+                4
+              ]
+            }
+          }
+        },
+        {
+          "label": "assign stone",
+          "online": 840,
+          "expr": "setPopAlloc('stone',2)",
+          "result": {
+            "ok": true
+          },
+          "changed": {
+            "popAlloc": {
+              "stone": [
+                0,
+                2
+              ]
+            }
+          }
+        },
+        {
+          "label": "queue 20 archer_silverbow",
+          "online": 840,
+          "expr": "train('archer_silverbow',20)",
+          "result": {
+            "ok": true,
+            "qty": 20
+          },
+          "changed": {
+            "queue": {
+              "archer_silverbow": {
+                "count": [
+                  0,
+                  20
+                ],
+                "timer": [
+                  0,
+                  0.5
+                ]
+              }
+            }
+          }
+        },
+        {
+          "label": "wait train archer_silverbow to 40",
+          "online": 970,
+          "seconds": 130,
+          "satisfied": true,
+          "atTick": 79398
+        },
+        {
+          "label": "save trained archer_silverbow",
+          "online": 970,
+          "expr": "save()",
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "label": "reload trained archer_silverbow",
+          "online": 970,
+          "sha256": "418940605dc94a01c5c15a30154ad825afaa4cd37e04f6eee5382318fda529f8"
+        },
+        {
+          "label": "release wood",
+          "online": 970,
+          "expr": "setPopAlloc('wood',0)",
+          "result": {
+            "ok": true
+          },
+          "changed": {
+            "popAlloc": {
+              "wood": [
+                4,
+                0
+              ]
+            }
+          }
+        },
+        {
+          "label": "release stone",
+          "online": 970,
+          "expr": "setPopAlloc('stone',0)",
+          "result": {
+            "ok": true
+          },
+          "changed": {
+            "popAlloc": {
+              "stone": [
+                2,
+                0
+              ]
+            }
+          }
+        },
+        {
+          "label": "release food",
+          "online": 970,
+          "expr": "setPopAlloc('food',0)",
+          "result": {
+            "ok": true
+          },
+          "changed": {
+            "popAlloc": {
+              "food": [
+                13,
+                0
+              ]
+            }
+          }
+        },
+        {
+          "label": "assign food",
+          "online": 970,
+          "expr": "setPopAlloc('food',14)",
+          "result": {
+            "ok": true
+          },
+          "changed": {
+            "popAlloc": {
+              "food": [
+                0,
+                14
+              ]
+            }
+          }
+        },
+        {
+          "label": "assign coal",
+          "online": 970,
+          "expr": "setPopAlloc('coal',1)",
+          "result": {
+            "ok": true
+          },
+          "changed": {
+            "popAlloc": {
+              "coal": [
+                0,
+                1
+              ]
+            }
+          }
+        },
+        {
+          "label": "assign stone",
+          "online": 970,
+          "expr": "setPopAlloc('stone',2)",
+          "result": {
+            "ok": true
+          },
+          "changed": {
+            "popAlloc": {
+              "stone": [
+                0,
+                2
+              ]
+            }
+          }
+        },
+        {
+          "label": "assign gold",
+          "online": 970,
+          "expr": "setPopAlloc('gold',2)",
+          "result": {
+            "ok": true
+          },
+          "changed": {
+            "popAlloc": {
+              "gold": [
+                0,
+                2
+              ]
+            }
+          }
+        },
+        {
+          "label": "queue 7 gold_cavalry",
+          "online": 970,
+          "expr": "train('gold_cavalry',7)",
+          "result": {
+            "ok": true,
+            "qty": 7
+          },
+          "changed": {
+            "queue": {
+              "gold_cavalry": {
+                "count": [
+                  0,
+                  7
+                ],
+                "timer": [
+                  0,
+                  0.5
+                ]
+              }
+            }
+          }
+        },
+        {
+          "label": "wait train gold_cavalry to 17",
+          "online": 3750,
+          "seconds": 2780,
+          "satisfied": true,
+          "atTick": 82178
+        },
+        {
+          "label": "save trained gold_cavalry",
+          "online": 3750,
+          "expr": "save()",
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "label": "reload trained gold_cavalry",
+          "online": 3750,
+          "sha256": "d827c622bd85ff9ccc1bfe260d75ca69099955babae58c927e22f13b069509f9"
+        },
+        {
+          "label": "release stone",
+          "online": 3750,
+          "expr": "setPopAlloc('stone',0)",
+          "result": {
+            "ok": true
+          },
+          "changed": {
+            "popAlloc": {
+              "stone": [
+                2,
+                0
+              ]
+            }
+          }
+        },
+        {
+          "label": "release food",
+          "online": 3750,
+          "expr": "setPopAlloc('food',0)",
+          "result": {
+            "ok": true
+          },
+          "changed": {
+            "popAlloc": {
+              "food": [
+                14,
+                0
+              ]
+            }
+          }
+        },
+        {
+          "label": "release coal",
+          "online": 3750,
+          "expr": "setPopAlloc('coal',0)",
+          "result": {
+            "ok": true
+          },
+          "changed": {
+            "popAlloc": {
+              "coal": [
+                1,
+                0
+              ]
+            }
+          }
+        },
+        {
+          "label": "release gold",
+          "online": 3750,
+          "expr": "setPopAlloc('gold',0)",
+          "result": {
+            "ok": true
+          },
+          "changed": {
+            "popAlloc": {
+              "gold": [
+                2,
+                0
+              ]
+            }
+          }
+        },
+        {
+          "label": "assign food",
+          "online": 3750,
+          "expr": "setPopAlloc('food',14)",
+          "result": {
+            "ok": true
+          },
+          "changed": {
+            "popAlloc": {
+              "food": [
+                0,
+                14
+              ]
+            }
+          }
+        },
+        {
+          "label": "assign coal",
+          "online": 3750,
+          "expr": "setPopAlloc('coal',1)",
+          "result": {
+            "ok": true
+          },
+          "changed": {
+            "popAlloc": {
+              "coal": [
+                0,
+                1
+              ]
+            }
+          }
+        },
+        {
+          "label": "assign stone",
+          "online": 3750,
+          "expr": "setPopAlloc('stone',2)",
+          "result": {
+            "ok": true
+          },
+          "changed": {
+            "popAlloc": {
+              "stone": [
+                0,
+                2
+              ]
+            }
+          }
+        },
+        {
+          "label": "assign silver",
+          "online": 3750,
+          "expr": "setPopAlloc('silver',2)",
+          "result": {
+            "ok": true
+          },
+          "changed": {
+            "popAlloc": {
+              "silver": [
+                0,
+                2
+              ]
+            }
+          }
+        },
+        {
+          "label": "queue 10 silver_heavy",
+          "online": 3750,
+          "expr": "train('silver_heavy',10)",
+          "result": {
+            "ok": true,
+            "qty": 10
+          },
+          "changed": {
+            "queue": {
+              "silver_heavy": {
+                "count": [
+                  0,
+                  10
+                ],
+                "timer": [
+                  0,
+                  0.5
+                ]
+              }
+            }
+          }
+        },
+        {
+          "label": "wait train silver_heavy to 20",
+          "online": 6730,
+          "seconds": 2980,
+          "satisfied": true,
+          "atTick": 85158
+        },
+        {
+          "label": "save trained silver_heavy",
+          "online": 6730,
+          "expr": "save()",
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "label": "reload trained silver_heavy",
+          "online": 6730,
+          "sha256": "e585459c3d534cf882f45c39a2995435862db6ff7150d2c00685a6147420ec1b"
+        },
+        {
+          "label": "place front[0] 10 gold_cavalry",
+          "online": 6730
+        },
+        {
+          "label": "place front[1] 7 gold_cavalry",
+          "online": 6730
+        },
+        {
+          "label": "place front[2] 10 silver_heavy",
+          "online": 6730
+        },
+        {
+          "label": "place front[3] 10 silver_heavy",
+          "online": 6730
+        },
+        {
+          "label": "place mid[0] 10 iron_spearman",
+          "online": 6730
+        },
+        {
+          "label": "place mid[1] 10 bronze_guard",
+          "online": 6730
+        },
+        {
+          "label": "place mid[2] 10 iron_spearman",
+          "online": 6730
+        },
+        {
+          "label": "place mid[3] 10 bronze_guard",
+          "online": 6730
+        },
+        {
+          "label": "place back[0] 10 archer_silverbow",
+          "online": 6730
+        },
+        {
+          "label": "place back[1] 10 archer_silverbow",
+          "online": 6730
+        },
+        {
+          "label": "place back[2] 10 archer_silverbow",
+          "online": 6730
+        },
+        {
+          "label": "place back[3] 10 archer_silverbow",
+          "online": 6730
+        },
+        {
+          "label": "save formation ready",
+          "online": 6730,
+          "expr": "save()",
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "label": "reload formation ready",
+          "online": 6730,
+          "sha256": "b56edd8da767b292864eda963eb8b88a90e398c09b261958d827d6419475a8bb"
+        },
+        {
+          "label": "save L50 result",
+          "online": 6730,
+          "expr": "save()",
+          "result": {
+            "ok": true
+          }
+        },
+        {
+          "label": "reload L50 result",
+          "online": 6730,
+          "sha256": "8fd05852f81a60ea6a3ed8548415a88b447c13347272f60819ad9e6788e21715"
+        },
+        {
+          "label": "battle L50",
+          "online": 6730,
+          "won": true,
+          "round": 5,
+          "callbacks": 61,
+          "battleMs": 24990,
+          "armyBefore": 117,
+          "armyAfter": 50,
+          "ownedBefore": {
+            "archer_silverbow": 40,
+            "bronze_guard": 20,
+            "iron_spearman": 20,
+            "silver_heavy": 20,
+            "gold_cavalry": 17
+          },
+          "ownedAfter": {
+            "archer_silverbow": 40,
+            "bronze_guard": 0,
+            "iron_spearman": 10,
+            "silver_heavy": 0,
+            "gold_cavalry": 0
+          },
+          "losses": {
+            "archer_silverbow": 0,
+            "bronze_guard": 20,
+            "iron_spearman": 10,
+            "silver_heavy": 20,
+            "gold_cavalry": 17
+          },
+          "enemy": {
+            "name": "钢铁巨人",
+            "roster": [
+              {
+                "type": "infantry",
+                "count": 12,
+                "hp": 12,
+                "atk": 6,
+                "def": 11
+              },
+              {
+                "type": "infantry",
+                "count": 12,
+                "hp": 12,
+                "atk": 6,
+                "def": 11
+              },
+              {
+                "type": "infantry",
+                "count": 12,
+                "hp": 12,
+                "atk": 6,
+                "def": 11
+              },
+              {
+                "type": "archer",
+                "count": 12,
+                "hp": 12,
+                "atk": 12,
+                "def": 11
+              },
+              {
+                "type": "archer",
+                "count": 12,
+                "hp": 12,
+                "atk": 12,
+                "def": 11
+              },
+              {
+                "type": "archer",
+                "count": 12,
+                "hp": 12,
+                "atk": 12,
+                "def": 11
+              },
+              {
+                "type": "cavalry_t1",
+                "count": 12,
+                "hp": 12,
+                "atk": 22,
+                "def": 25
+              },
+              {
+                "type": "cavalry_t1",
+                "count": 12,
+                "hp": 12,
+                "atk": 22,
+                "def": 25
+              },
+              {
+                "type": "cavalry_t1",
+                "count": 12,
+                "hp": 12,
+                "atk": 22,
+                "def": 25
+              },
+              {
+                "type": "mage_t1",
+                "count": 12,
+                "hp": 12,
+                "atk": 18,
+                "def": 8
+              },
+              {
+                "type": "mage_t1",
+                "count": 12,
+                "hp": 12,
+                "atk": 18,
+                "def": 8
+              }
+            ]
+          },
+          "changed": {
+            "tick": [
+              85158,
+              85182
+            ],
+            "defeated": [
+              49,
+              50
+            ],
+            "merit": [
+              732,
+              787
+            ],
+            "essence": {
+              "shield_essence": [
+                1,
+                3
+              ],
+              "spear_essence": [
+                1,
+                3
+              ],
+              "sword_essence": [
+                1,
+                3
+              ]
+            },
+            "res": {
+              "wood": [
+                119,
+                3000
+              ],
+              "food": [
+                2215.3354700854698,
+                3000
+              ]
+            },
+            "formation": {
+              "front": [
+                [
+                  {
+                    "type": "gold_cavalry",
+                    "count": 10,
+                    "id": 1790804887372.5
+                  },
+                  {
+                    "type": "gold_cavalry",
+                    "count": 7,
+                    "id": 1790804887373.5
+                  },
+                  {
+                    "type": "silver_heavy",
+                    "count": 10,
+                    "id": 1790804887374.5
+                  },
+                  {
+                    "type": "silver_heavy",
+                    "count": 10,
+                    "id": 1790804887375.5
+                  }
+                ],
+                []
+              ],
+              "mid": [
+                [
+                  {
+                    "type": "iron_spearman",
+                    "count": 10,
+                    "id": 1790804887376.5
+                  },
+                  {
+                    "type": "bronze_guard",
+                    "count": 10,
+                    "id": 1790804887377.5
+                  },
+                  {
+                    "type": "iron_spearman",
+                    "count": 10,
+                    "id": 1790804887378.5
+                  },
+                  {
+                    "type": "bronze_guard",
+                    "count": 10,
+                    "id": 1790804887379.5
+                  }
+                ],
+                [
+                  {
+                    "type": "iron_spearman",
+                    "count": 10,
+                    "id": 1790804887376.5
+                  }
+                ]
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
