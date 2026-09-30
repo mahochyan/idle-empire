@@ -1,0 +1,2497 @@
+{
+  "batch": "P406-steam-bridge",
+  "baselineHead": "6a2d124b50af4d1a063400491a747cfc6ae8267d",
+  "input": "docs/codex/reports/data/p405-terminal-science-alloy-paid-save.json",
+  "inputHash": "06d12742f9dadc4fe06f2d7c299d7707cb07e566b18ada88a0b391ae35979cb0",
+  "sources": {
+    "config.js": "caef24e317df6c04a4a02786162c90dbe3a8bde0c5c07edab3c01b7425b4d0e7",
+    "levels.js": "cec80c26fa91f941994c253a2fe73be0dfe3f108237620b662fdab9f5449fd1d",
+    "math.js": "e23254b5ba63c824e0ef5302a2f17216f4ac80398711f76554bdb57b3bb52224",
+    "garrison.js": "4d233f0529d256cd1ace2de782603fcfcbbff110032ca4cf29c5e36af30f10ff",
+    "technology.js": "5d0918d341fbd8435c96661829328f636d5aa0c86a47a68afe62ed66dc277507",
+    "tests/progression/harness.js": "4770d17fa72cc8c87f4c8ef79678f19d63a41da895b8dd58776e5a39ce2ede2b",
+    "tools/verify/probe-p405-mainline-continuous.js": "5ae989e6a13e803ff19f17307668ac4469c346467c918cc140504472a4a51fcd",
+    "docs/codex/reports/data/p405-terminal-science-alloy-paid-save.json": "06d12742f9dadc4fe06f2d7c299d7707cb07e566b18ada88a0b391ae35979cb0"
+  },
+  "method": "one same-save route: actual setPopAlloc, online tick, building and science payment, independent v36 reload; fixed RNG 0.5, garrison frozen",
+  "units": "simulated online tick seconds, menu actions instant, offline seconds zero",
+  "initial": {
+    "tick": 328119,
+    "defeated": 95,
+    "pop": 19,
+    "resources": {
+      "wood": 7440,
+      "stone": 380,
+      "food": 5000,
+      "tech": 0,
+      "coal": 1,
+      "iron": 10,
+      "steel": 0,
+      "gold": 0.5,
+      "medal": 7
+    },
+    "caps": {
+      "wood": 12000,
+      "stone": 8000,
+      "food": 5000,
+      "tech": 10000,
+      "coal": 600,
+      "iron": 600,
+      "steel": 300,
+      "gold": 300
+    },
+    "levels": {
+      "warehouse": 17,
+      "academy": 1,
+      "library": 25,
+      "ironStore": 0,
+      "steelStore": 0,
+      "storageMastery": 0
+    },
+    "sciences": [
+      "sci_prospect",
+      "sci_coal",
+      "sci_copper",
+      "sci_wood_store",
+      "sci_urbanization",
+      "sci_iron",
+      "sci_large_granary",
+      "sci_bronze_age",
+      "sci_iron_warehouse",
+      "sci_iron_age",
+      "sci_city",
+      "sci_silver",
+      "sci_silver_age",
+      "sci_library",
+      "sci_gold",
+      "sci_gold_age",
+      "sci_steel",
+      "sci_steel_store",
+      "sci_alloy_age"
+    ]
+  },
+  "clock": {
+    "onlineSeconds": 45110,
+    "offlineSeconds": 0
+  },
+  "minimumFood": 1542.7333333333331,
+  "events": [
+    {
+      "kind": "science",
+      "online": 50,
+      "after": {
+        "tick": 328169,
+        "food": 5000,
+        "tech": 40.00000000000034,
+        "iron": 10,
+        "steel": 0,
+        "techCap": 10000,
+        "steelCap": 300
+      },
+      "id": "sci_workshop",
+      "cost": {
+        "tech": 400,
+        "merit": 0
+      },
+      "wait": 50,
+      "techBefore": 440.00000000000034,
+      "result": {
+        "ok": true
+      }
+    },
+    {
+      "kind": "storage-mastery",
+      "online": 110,
+      "after": {
+        "tick": 328229,
+        "food": 5000,
+        "tech": 68.00000000000045,
+        "iron": 10,
+        "steel": 0,
+        "techCap": 11000,
+        "steelCap": 330
+      },
+      "level": 1,
+      "cost": {
+        "tech": 500
+      },
+      "wait": 60
+    },
+    {
+      "kind": "storage-mastery",
+      "online": 220,
+      "after": {
+        "tick": 328339,
+        "food": 5500,
+        "tech": 35.99999999999818,
+        "iron": 10,
+        "steel": 0,
+        "techCap": 12000,
+        "steelCap": 360
+      },
+      "level": 2,
+      "cost": {
+        "tech": 1000
+      },
+      "wait": 110
+    },
+    {
+      "kind": "storage-mastery",
+      "online": 390,
+      "after": {
+        "tick": 328509,
+        "food": 6000,
+        "tech": 31.999999999993406,
+        "iron": 10,
+        "steel": 0,
+        "techCap": 13000,
+        "steelCap": 390
+      },
+      "level": 3,
+      "cost": {
+        "tech": 1500
+      },
+      "wait": 170
+    },
+    {
+      "kind": "storage-mastery",
+      "online": 620,
+      "after": {
+        "tick": 328739,
+        "food": 6500,
+        "tech": 55.9999999999859,
+        "iron": 10,
+        "steel": 0,
+        "techCap": 14000,
+        "steelCap": 420
+      },
+      "level": 4,
+      "cost": {
+        "tech": 2000
+      },
+      "wait": 230
+    },
+    {
+      "kind": "storage-mastery",
+      "online": 900,
+      "after": {
+        "tick": 329019,
+        "food": 7000,
+        "tech": 19.999999999988177,
+        "iron": 10,
+        "steel": 0,
+        "techCap": 15000,
+        "steelCap": 450
+      },
+      "level": 5,
+      "cost": {
+        "tech": 2500
+      },
+      "wait": 280
+    },
+    {
+      "kind": "fill",
+      "online": 980,
+      "after": {
+        "tick": 329099,
+        "food": 7500,
+        "tech": 19.999999999988177,
+        "iron": 210,
+        "steel": 0,
+        "techCap": 15000,
+        "steelCap": 450
+      },
+      "resource": "iron",
+      "amount": 200,
+      "workers": {
+        "food": 4,
+        "stone": 5,
+        "coal": 5,
+        "iron": 5
+      },
+      "seconds": 80
+    },
+    {
+      "kind": "build",
+      "online": 990,
+      "after": {
+        "tick": 329109,
+        "food": 7500,
+        "tech": 19.999999999988177,
+        "iron": 35,
+        "steel": 0,
+        "techCap": 15000,
+        "steelCap": 525
+      },
+      "key": "iron_store",
+      "level": 1,
+      "cost": {
+        "wood": 0,
+        "stone": 0,
+        "food": 0,
+        "iron": 200,
+        "time": 8
+      },
+      "constructionSeconds": 10
+    },
+    {
+      "kind": "fill",
+      "online": 1200,
+      "after": {
+        "tick": 329319,
+        "food": 7500,
+        "tech": 19.999999999988177,
+        "iron": 35,
+        "steel": 0,
+        "techCap": 15000,
+        "steelCap": 525
+      },
+      "resource": "stone",
+      "amount": 12000,
+      "workers": {
+        "food": 4,
+        "stone": 15
+      },
+      "seconds": 210
+    },
+    {
+      "kind": "fill",
+      "online": 1260,
+      "after": {
+        "tick": 329379,
+        "food": 7500,
+        "tech": 19.999999999988177,
+        "iron": 35,
+        "steel": 0,
+        "techCap": 15000,
+        "steelCap": 525
+      },
+      "resource": "coal",
+      "amount": 900,
+      "workers": {
+        "food": 4,
+        "coal": 15
+      },
+      "seconds": 60
+    },
+    {
+      "kind": "fill",
+      "online": 1570,
+      "after": {
+        "tick": 329689,
+        "food": 7500,
+        "tech": 19.999999999988177,
+        "iron": 810,
+        "steel": 0,
+        "techCap": 15000,
+        "steelCap": 525
+      },
+      "resource": "iron",
+      "amount": 800,
+      "workers": {
+        "food": 4,
+        "stone": 5,
+        "coal": 5,
+        "iron": 5
+      },
+      "seconds": 310
+    },
+    {
+      "kind": "fill",
+      "online": 1840,
+      "after": {
+        "tick": 329959,
+        "food": 7500,
+        "tech": 19.999999999988177,
+        "iron": 405,
+        "steel": 202.5,
+        "techCap": 15000,
+        "steelCap": 525
+      },
+      "resource": "steel",
+      "amount": 200,
+      "workers": {
+        "food": 4,
+        "stone": 4,
+        "coal": 5,
+        "iron": 3,
+        "steel": 3
+      },
+      "seconds": 270
+    },
+    {
+      "kind": "build",
+      "online": 1850,
+      "after": {
+        "tick": 329969,
+        "food": 7500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "steel_store",
+      "level": 1,
+      "cost": {
+        "iron": 200,
+        "steel": 200,
+        "time": 8
+      },
+      "constructionSeconds": 10
+    },
+    {
+      "kind": "build",
+      "online": 1870,
+      "after": {
+        "tick": 329989,
+        "food": 7265.466666666671,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "large_granary",
+      "level": 2,
+      "cost": {
+        "wood": 2160,
+        "stone": 0,
+        "food": 720,
+        "time": 11
+      },
+      "constructionSeconds": 20
+    },
+    {
+      "kind": "build",
+      "online": 1890,
+      "after": {
+        "tick": 330009,
+        "food": 6910.933333333342,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "large_granary",
+      "level": 3,
+      "cost": {
+        "wood": 2520,
+        "stone": 0,
+        "food": 840,
+        "time": 12
+      },
+      "constructionSeconds": 20
+    },
+    {
+      "kind": "build",
+      "online": 1910,
+      "after": {
+        "tick": 330029,
+        "food": 6436.400000000012,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "large_granary",
+      "level": 4,
+      "cost": {
+        "wood": 2880,
+        "stone": 0,
+        "food": 960,
+        "time": 13
+      },
+      "constructionSeconds": 20
+    },
+    {
+      "kind": "build",
+      "online": 1930,
+      "after": {
+        "tick": 330049,
+        "food": 5841.866666666683,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "large_granary",
+      "level": 5,
+      "cost": {
+        "wood": 3240,
+        "stone": 0,
+        "food": 1080,
+        "time": 14
+      },
+      "constructionSeconds": 20
+    },
+    {
+      "kind": "build",
+      "online": 1950,
+      "after": {
+        "tick": 330069,
+        "food": 5127.333333333354,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "large_granary",
+      "level": 6,
+      "cost": {
+        "wood": 3600,
+        "stone": 0,
+        "food": 1200,
+        "time": 15
+      },
+      "constructionSeconds": 20
+    },
+    {
+      "kind": "build",
+      "online": 1980,
+      "after": {
+        "tick": 330099,
+        "food": 5855.53333333336,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 18,
+      "cost": {
+        "wood": 4800,
+        "stone": 0,
+        "food": 0,
+        "time": 27
+      },
+      "constructionSeconds": 30
+    },
+    {
+      "kind": "build",
+      "online": 2050,
+      "after": {
+        "tick": 330169,
+        "food": 7554.666666666708,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 19,
+      "cost": {
+        "wood": 5120,
+        "stone": 0,
+        "food": 0,
+        "time": 28
+      },
+      "constructionSeconds": 30
+    },
+    {
+      "kind": "build",
+      "online": 2170,
+      "after": {
+        "tick": 330289,
+        "food": 10467.466666666647,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 20,
+      "cost": {
+        "wood": 5440,
+        "stone": 0,
+        "food": 0,
+        "time": 29
+      },
+      "constructionSeconds": 30
+    },
+    {
+      "kind": "build",
+      "online": 2300,
+      "after": {
+        "tick": 330419,
+        "food": 13622.999999999889,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 21,
+      "cost": {
+        "wood": 5760,
+        "stone": 0,
+        "food": 0,
+        "time": 30
+      },
+      "constructionSeconds": 30
+    },
+    {
+      "kind": "build",
+      "online": 2450,
+      "after": {
+        "tick": 330569,
+        "food": 17263.999999999847,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 22,
+      "cost": {
+        "wood": 6080,
+        "stone": 0,
+        "food": 0,
+        "time": 31
+      },
+      "constructionSeconds": 40
+    },
+    {
+      "kind": "build",
+      "online": 2590,
+      "after": {
+        "tick": 330709,
+        "food": 20662.26666666667,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 23,
+      "cost": {
+        "wood": 6400,
+        "stone": 0,
+        "food": 0,
+        "time": 32
+      },
+      "constructionSeconds": 40
+    },
+    {
+      "kind": "build",
+      "online": 2740,
+      "after": {
+        "tick": 330859,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 24,
+      "cost": {
+        "wood": 6720,
+        "stone": 0,
+        "food": 0,
+        "time": 33
+      },
+      "constructionSeconds": 40
+    },
+    {
+      "kind": "build",
+      "online": 2890,
+      "after": {
+        "tick": 331009,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 25,
+      "cost": {
+        "wood": 7041,
+        "stone": 0,
+        "food": 0,
+        "time": 34
+      },
+      "constructionSeconds": 40
+    },
+    {
+      "kind": "build",
+      "online": 3060,
+      "after": {
+        "tick": 331179,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 26,
+      "cost": {
+        "wood": 7360,
+        "stone": 0,
+        "food": 0,
+        "time": 35
+      },
+      "constructionSeconds": 40
+    },
+    {
+      "kind": "build",
+      "online": 3230,
+      "after": {
+        "tick": 331349,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 27,
+      "cost": {
+        "wood": 7680,
+        "stone": 0,
+        "food": 0,
+        "time": 36
+      },
+      "constructionSeconds": 40
+    },
+    {
+      "kind": "build",
+      "online": 3410,
+      "after": {
+        "tick": 331529,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 28,
+      "cost": {
+        "wood": 8000,
+        "stone": 0,
+        "food": 0,
+        "time": 37
+      },
+      "constructionSeconds": 40
+    },
+    {
+      "kind": "build",
+      "online": 3590,
+      "after": {
+        "tick": 331709,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 29,
+      "cost": {
+        "wood": 8320,
+        "stone": 0,
+        "food": 0,
+        "time": 38
+      },
+      "constructionSeconds": 40
+    },
+    {
+      "kind": "build",
+      "online": 3780,
+      "after": {
+        "tick": 331899,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 30,
+      "cost": {
+        "wood": 8640,
+        "stone": 0,
+        "food": 0,
+        "time": 39
+      },
+      "constructionSeconds": 40
+    },
+    {
+      "kind": "build",
+      "online": 3980,
+      "after": {
+        "tick": 332099,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 31,
+      "cost": {
+        "wood": 8960,
+        "stone": 0,
+        "food": 0,
+        "time": 40
+      },
+      "constructionSeconds": 40
+    },
+    {
+      "kind": "build",
+      "online": 4200,
+      "after": {
+        "tick": 332319,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 32,
+      "cost": {
+        "wood": 9280,
+        "stone": 0,
+        "food": 0,
+        "time": 41
+      },
+      "constructionSeconds": 50
+    },
+    {
+      "kind": "build",
+      "online": 4410,
+      "after": {
+        "tick": 332529,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 33,
+      "cost": {
+        "wood": 9600,
+        "stone": 0,
+        "food": 0,
+        "time": 42
+      },
+      "constructionSeconds": 50
+    },
+    {
+      "kind": "build",
+      "online": 4630,
+      "after": {
+        "tick": 332749,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 34,
+      "cost": {
+        "wood": 9920,
+        "stone": 0,
+        "food": 0,
+        "time": 43
+      },
+      "constructionSeconds": 50
+    },
+    {
+      "kind": "build",
+      "online": 4860,
+      "after": {
+        "tick": 332979,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 35,
+      "cost": {
+        "wood": 10240,
+        "stone": 0,
+        "food": 0,
+        "time": 44
+      },
+      "constructionSeconds": 50
+    },
+    {
+      "kind": "build",
+      "online": 5090,
+      "after": {
+        "tick": 333209,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 36,
+      "cost": {
+        "wood": 10560,
+        "stone": 0,
+        "food": 0,
+        "time": 45
+      },
+      "constructionSeconds": 50
+    },
+    {
+      "kind": "build",
+      "online": 5340,
+      "after": {
+        "tick": 333459,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 37,
+      "cost": {
+        "wood": 10880,
+        "stone": 0,
+        "food": 0,
+        "time": 46
+      },
+      "constructionSeconds": 50
+    },
+    {
+      "kind": "build",
+      "online": 5590,
+      "after": {
+        "tick": 333709,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 38,
+      "cost": {
+        "wood": 11200,
+        "stone": 0,
+        "food": 0,
+        "time": 47
+      },
+      "constructionSeconds": 50
+    },
+    {
+      "kind": "build",
+      "online": 5840,
+      "after": {
+        "tick": 333959,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 39,
+      "cost": {
+        "wood": 11520,
+        "stone": 0,
+        "food": 0,
+        "time": 48
+      },
+      "constructionSeconds": 50
+    },
+    {
+      "kind": "build",
+      "online": 6100,
+      "after": {
+        "tick": 334219,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 40,
+      "cost": {
+        "wood": 11840,
+        "stone": 0,
+        "food": 0,
+        "time": 49
+      },
+      "constructionSeconds": 50
+    },
+    {
+      "kind": "build",
+      "online": 6370,
+      "after": {
+        "tick": 334489,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 41,
+      "cost": {
+        "wood": 12160,
+        "stone": 0,
+        "food": 0,
+        "time": 50
+      },
+      "constructionSeconds": 50
+    },
+    {
+      "kind": "build",
+      "online": 6660,
+      "after": {
+        "tick": 334779,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 42,
+      "cost": {
+        "wood": 12480,
+        "stone": 0,
+        "food": 0,
+        "time": 51
+      },
+      "constructionSeconds": 60
+    },
+    {
+      "kind": "build",
+      "online": 6950,
+      "after": {
+        "tick": 335069,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 43,
+      "cost": {
+        "wood": 12800,
+        "stone": 0,
+        "food": 0,
+        "time": 52
+      },
+      "constructionSeconds": 60
+    },
+    {
+      "kind": "build",
+      "online": 7240,
+      "after": {
+        "tick": 335359,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 44,
+      "cost": {
+        "wood": 13120,
+        "stone": 0,
+        "food": 0,
+        "time": 53
+      },
+      "constructionSeconds": 60
+    },
+    {
+      "kind": "build",
+      "online": 7540,
+      "after": {
+        "tick": 335659,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 45,
+      "cost": {
+        "wood": 13440,
+        "stone": 0,
+        "food": 0,
+        "time": 54
+      },
+      "constructionSeconds": 60
+    },
+    {
+      "kind": "build",
+      "online": 7840,
+      "after": {
+        "tick": 335959,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 46,
+      "cost": {
+        "wood": 13760,
+        "stone": 0,
+        "food": 0,
+        "time": 55
+      },
+      "constructionSeconds": 60
+    },
+    {
+      "kind": "build",
+      "online": 8160,
+      "after": {
+        "tick": 336279,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 47,
+      "cost": {
+        "wood": 14081,
+        "stone": 0,
+        "food": 0,
+        "time": 56
+      },
+      "constructionSeconds": 60
+    },
+    {
+      "kind": "build",
+      "online": 8480,
+      "after": {
+        "tick": 336599,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 48,
+      "cost": {
+        "wood": 14400,
+        "stone": 0,
+        "food": 0,
+        "time": 57
+      },
+      "constructionSeconds": 60
+    },
+    {
+      "kind": "build",
+      "online": 8800,
+      "after": {
+        "tick": 336919,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 49,
+      "cost": {
+        "wood": 14720,
+        "stone": 0,
+        "food": 0,
+        "time": 58
+      },
+      "constructionSeconds": 60
+    },
+    {
+      "kind": "build",
+      "online": 9140,
+      "after": {
+        "tick": 337259,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 50,
+      "cost": {
+        "wood": 15040,
+        "stone": 0,
+        "food": 0,
+        "time": 59
+      },
+      "constructionSeconds": 60
+    },
+    {
+      "kind": "build",
+      "online": 9480,
+      "after": {
+        "tick": 337599,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 51,
+      "cost": {
+        "wood": 15360,
+        "stone": 0,
+        "food": 0,
+        "time": 60
+      },
+      "constructionSeconds": 60
+    },
+    {
+      "kind": "build",
+      "online": 9840,
+      "after": {
+        "tick": 337959,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 52,
+      "cost": {
+        "wood": 15681,
+        "stone": 0,
+        "food": 0,
+        "time": 61
+      },
+      "constructionSeconds": 70
+    },
+    {
+      "kind": "build",
+      "online": 10190,
+      "after": {
+        "tick": 338309,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 53,
+      "cost": {
+        "wood": 16000,
+        "stone": 0,
+        "food": 0,
+        "time": 62
+      },
+      "constructionSeconds": 70
+    },
+    {
+      "kind": "build",
+      "online": 10550,
+      "after": {
+        "tick": 338669,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 54,
+      "cost": {
+        "wood": 16320,
+        "stone": 0,
+        "food": 0,
+        "time": 63
+      },
+      "constructionSeconds": 70
+    },
+    {
+      "kind": "build",
+      "online": 10920,
+      "after": {
+        "tick": 339039,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 55,
+      "cost": {
+        "wood": 16640,
+        "stone": 0,
+        "food": 0,
+        "time": 64
+      },
+      "constructionSeconds": 70
+    },
+    {
+      "kind": "build",
+      "online": 11300,
+      "after": {
+        "tick": 339419,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 56,
+      "cost": {
+        "wood": 16960,
+        "stone": 0,
+        "food": 0,
+        "time": 65
+      },
+      "constructionSeconds": 70
+    },
+    {
+      "kind": "build",
+      "online": 11690,
+      "after": {
+        "tick": 339809,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 57,
+      "cost": {
+        "wood": 17280,
+        "stone": 0,
+        "food": 0,
+        "time": 66
+      },
+      "constructionSeconds": 70
+    },
+    {
+      "kind": "build",
+      "online": 12080,
+      "after": {
+        "tick": 340199,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 58,
+      "cost": {
+        "wood": 17600,
+        "stone": 0,
+        "food": 0,
+        "time": 67
+      },
+      "constructionSeconds": 70
+    },
+    {
+      "kind": "build",
+      "online": 12470,
+      "after": {
+        "tick": 340589,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 59,
+      "cost": {
+        "wood": 17920,
+        "stone": 0,
+        "food": 0,
+        "time": 68
+      },
+      "constructionSeconds": 70
+    },
+    {
+      "kind": "build",
+      "online": 12880,
+      "after": {
+        "tick": 340999,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 60,
+      "cost": {
+        "wood": 18240,
+        "stone": 0,
+        "food": 0,
+        "time": 69
+      },
+      "constructionSeconds": 70
+    },
+    {
+      "kind": "build",
+      "online": 13290,
+      "after": {
+        "tick": 341409,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 61,
+      "cost": {
+        "wood": 18560,
+        "stone": 0,
+        "food": 0,
+        "time": 70
+      },
+      "constructionSeconds": 70
+    },
+    {
+      "kind": "build",
+      "online": 13720,
+      "after": {
+        "tick": 341839,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 62,
+      "cost": {
+        "wood": 18880,
+        "stone": 0,
+        "food": 0,
+        "time": 71
+      },
+      "constructionSeconds": 80
+    },
+    {
+      "kind": "build",
+      "online": 14150,
+      "after": {
+        "tick": 342269,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 63,
+      "cost": {
+        "wood": 19200,
+        "stone": 0,
+        "food": 0,
+        "time": 72
+      },
+      "constructionSeconds": 80
+    },
+    {
+      "kind": "build",
+      "online": 14580,
+      "after": {
+        "tick": 342699,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 64,
+      "cost": {
+        "wood": 19520,
+        "stone": 0,
+        "food": 0,
+        "time": 73
+      },
+      "constructionSeconds": 80
+    },
+    {
+      "kind": "build",
+      "online": 15020,
+      "after": {
+        "tick": 343139,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 65,
+      "cost": {
+        "wood": 19840,
+        "stone": 0,
+        "food": 0,
+        "time": 74
+      },
+      "constructionSeconds": 80
+    },
+    {
+      "kind": "build",
+      "online": 15470,
+      "after": {
+        "tick": 343589,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 66,
+      "cost": {
+        "wood": 20160,
+        "stone": 0,
+        "food": 0,
+        "time": 75
+      },
+      "constructionSeconds": 80
+    },
+    {
+      "kind": "build",
+      "online": 15930,
+      "after": {
+        "tick": 344049,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 67,
+      "cost": {
+        "wood": 20480,
+        "stone": 0,
+        "food": 0,
+        "time": 76
+      },
+      "constructionSeconds": 80
+    },
+    {
+      "kind": "build",
+      "online": 16390,
+      "after": {
+        "tick": 344509,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 68,
+      "cost": {
+        "wood": 20800,
+        "stone": 0,
+        "food": 0,
+        "time": 77
+      },
+      "constructionSeconds": 80
+    },
+    {
+      "kind": "build",
+      "online": 16860,
+      "after": {
+        "tick": 344979,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 69,
+      "cost": {
+        "wood": 21120,
+        "stone": 0,
+        "food": 0,
+        "time": 78
+      },
+      "constructionSeconds": 80
+    },
+    {
+      "kind": "build",
+      "online": 17330,
+      "after": {
+        "tick": 345449,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 15000,
+        "steelCap": 675
+      },
+      "key": "warehouse",
+      "level": 70,
+      "cost": {
+        "wood": 21440,
+        "stone": 0,
+        "food": 0,
+        "time": 79
+      },
+      "constructionSeconds": 80
+    },
+    {
+      "kind": "build",
+      "online": 17370,
+      "after": {
+        "tick": 345489,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 18000,
+        "steelCap": 675
+      },
+      "key": "academy",
+      "level": 2,
+      "cost": {
+        "wood": 800,
+        "stone": 800,
+        "food": 400,
+        "time": 40
+      },
+      "constructionSeconds": 40
+    },
+    {
+      "kind": "build",
+      "online": 17420,
+      "after": {
+        "tick": 345539,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 21000,
+        "steelCap": 675
+      },
+      "key": "academy",
+      "level": 3,
+      "cost": {
+        "wood": 1000,
+        "stone": 1000,
+        "food": 500,
+        "time": 50
+      },
+      "constructionSeconds": 50
+    },
+    {
+      "kind": "build",
+      "online": 17480,
+      "after": {
+        "tick": 345599,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 24000,
+        "steelCap": 675
+      },
+      "key": "academy",
+      "level": 4,
+      "cost": {
+        "wood": 1200,
+        "stone": 1200,
+        "food": 600,
+        "time": 60
+      },
+      "constructionSeconds": 60
+    },
+    {
+      "kind": "build",
+      "online": 17550,
+      "after": {
+        "tick": 345669,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 27000,
+        "steelCap": 675
+      },
+      "key": "academy",
+      "level": 5,
+      "cost": {
+        "wood": 1400,
+        "stone": 1400,
+        "food": 700,
+        "time": 70
+      },
+      "constructionSeconds": 70
+    },
+    {
+      "kind": "build",
+      "online": 17630,
+      "after": {
+        "tick": 345749,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 30000,
+        "steelCap": 675
+      },
+      "key": "academy",
+      "level": 6,
+      "cost": {
+        "wood": 1600,
+        "stone": 1600,
+        "food": 800,
+        "time": 80
+      },
+      "constructionSeconds": 80
+    },
+    {
+      "kind": "build",
+      "online": 17720,
+      "after": {
+        "tick": 345839,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 33000,
+        "steelCap": 675
+      },
+      "key": "academy",
+      "level": 7,
+      "cost": {
+        "wood": 1800,
+        "stone": 1800,
+        "food": 900,
+        "time": 90
+      },
+      "constructionSeconds": 90
+    },
+    {
+      "kind": "build",
+      "online": 17820,
+      "after": {
+        "tick": 345939,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 36000,
+        "steelCap": 675
+      },
+      "key": "academy",
+      "level": 8,
+      "cost": {
+        "wood": 2000,
+        "stone": 2000,
+        "food": 1000,
+        "time": 100
+      },
+      "constructionSeconds": 100
+    },
+    {
+      "kind": "build",
+      "online": 17930,
+      "after": {
+        "tick": 346049,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 39000,
+        "steelCap": 675
+      },
+      "key": "academy",
+      "level": 9,
+      "cost": {
+        "wood": 2200,
+        "stone": 2200,
+        "food": 1100,
+        "time": 110
+      },
+      "constructionSeconds": 110
+    },
+    {
+      "kind": "build",
+      "online": 18050,
+      "after": {
+        "tick": 346169,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 42000,
+        "steelCap": 675
+      },
+      "key": "academy",
+      "level": 10,
+      "cost": {
+        "wood": 2400,
+        "stone": 2400,
+        "food": 1200,
+        "time": 120
+      },
+      "constructionSeconds": 120
+    },
+    {
+      "kind": "build",
+      "online": 18170,
+      "after": {
+        "tick": 346289,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 45000,
+        "steelCap": 675
+      },
+      "key": "academy",
+      "level": 11,
+      "cost": {
+        "wood": 3400,
+        "stone": 3400,
+        "food": 1700,
+        "time": 120
+      },
+      "constructionSeconds": 120
+    },
+    {
+      "kind": "build",
+      "online": 18340,
+      "after": {
+        "tick": 346459,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 48000,
+        "steelCap": 675
+      },
+      "key": "academy",
+      "level": 12,
+      "cost": {
+        "wood": 4400,
+        "stone": 4400,
+        "food": 2200,
+        "time": 120
+      },
+      "constructionSeconds": 120
+    },
+    {
+      "kind": "build",
+      "online": 18600,
+      "after": {
+        "tick": 346719,
+        "food": 22500,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 51000,
+        "steelCap": 675
+      },
+      "key": "academy",
+      "level": 13,
+      "cost": {
+        "wood": 5400,
+        "stone": 5400,
+        "food": 2700,
+        "time": 120
+      },
+      "constructionSeconds": 120
+    },
+    {
+      "kind": "build",
+      "online": 18900,
+      "after": {
+        "tick": 347019,
+        "food": 22212.800000000134,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 54000,
+        "steelCap": 675
+      },
+      "key": "academy",
+      "level": 14,
+      "cost": {
+        "wood": 6400,
+        "stone": 6400,
+        "food": 3200,
+        "time": 120
+      },
+      "constructionSeconds": 120
+    },
+    {
+      "kind": "build",
+      "online": 19310,
+      "after": {
+        "tick": 347429,
+        "food": 21712.800000000134,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 57000,
+        "steelCap": 675
+      },
+      "key": "academy",
+      "level": 15,
+      "cost": {
+        "wood": 7400,
+        "stone": 7400,
+        "food": 3700,
+        "time": 120
+      },
+      "constructionSeconds": 120
+    },
+    {
+      "kind": "build",
+      "online": 19840,
+      "after": {
+        "tick": 347959,
+        "food": 21212.800000000134,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 60000,
+        "steelCap": 675
+      },
+      "key": "academy",
+      "level": 16,
+      "cost": {
+        "wood": 8400,
+        "stone": 8400,
+        "food": 4200,
+        "time": 120
+      },
+      "constructionSeconds": 120
+    },
+    {
+      "kind": "build",
+      "online": 20420,
+      "after": {
+        "tick": 348539,
+        "food": 20712.800000000134,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 63000,
+        "steelCap": 675
+      },
+      "key": "academy",
+      "level": 17,
+      "cost": {
+        "wood": 9400,
+        "stone": 9400,
+        "food": 4700,
+        "time": 120
+      },
+      "constructionSeconds": 120
+    },
+    {
+      "kind": "build",
+      "online": 21070,
+      "after": {
+        "tick": 349189,
+        "food": 20212.800000000134,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 66000,
+        "steelCap": 675
+      },
+      "key": "academy",
+      "level": 18,
+      "cost": {
+        "wood": 10400,
+        "stone": 10400,
+        "food": 5200,
+        "time": 120
+      },
+      "constructionSeconds": 120
+    },
+    {
+      "kind": "build",
+      "online": 21790,
+      "after": {
+        "tick": 349909,
+        "food": 19712.800000000134,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 69000,
+        "steelCap": 675
+      },
+      "key": "academy",
+      "level": 19,
+      "cost": {
+        "wood": 11400,
+        "stone": 11400,
+        "food": 5700,
+        "time": 120
+      },
+      "constructionSeconds": 120
+    },
+    {
+      "kind": "build",
+      "online": 22560,
+      "after": {
+        "tick": 350679,
+        "food": 19212.800000000127,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 72000,
+        "steelCap": 675
+      },
+      "key": "academy",
+      "level": 20,
+      "cost": {
+        "wood": 12400,
+        "stone": 12400,
+        "food": 6200,
+        "time": 120
+      },
+      "constructionSeconds": 120
+    },
+    {
+      "kind": "build",
+      "online": 24090,
+      "after": {
+        "tick": 352209,
+        "food": 13212.799999999916,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 75000,
+        "steelCap": 675
+      },
+      "key": "academy",
+      "level": 21,
+      "cost": {
+        "wood": 24400,
+        "stone": 24400,
+        "food": 12200,
+        "time": 120
+      },
+      "constructionSeconds": 120
+    },
+    {
+      "kind": "build",
+      "online": 25740,
+      "after": {
+        "tick": 353859,
+        "food": 12212.799999999916,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 78000,
+        "steelCap": 675
+      },
+      "key": "academy",
+      "level": 22,
+      "cost": {
+        "wood": 26400,
+        "stone": 26400,
+        "food": 13200,
+        "time": 120
+      },
+      "constructionSeconds": 120
+    },
+    {
+      "kind": "build",
+      "online": 27510,
+      "after": {
+        "tick": 355629,
+        "food": 11212.799999999916,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 81000,
+        "steelCap": 675
+      },
+      "key": "academy",
+      "level": 23,
+      "cost": {
+        "wood": 28400,
+        "stone": 28400,
+        "food": 14200,
+        "time": 120
+      },
+      "constructionSeconds": 120
+    },
+    {
+      "kind": "build",
+      "online": 29410,
+      "after": {
+        "tick": 357529,
+        "food": 10212.79999999995,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 84000,
+        "steelCap": 675
+      },
+      "key": "academy",
+      "level": 24,
+      "cost": {
+        "wood": 30400,
+        "stone": 30400,
+        "food": 15200,
+        "time": 120
+      },
+      "constructionSeconds": 120
+    },
+    {
+      "kind": "build",
+      "online": 31440,
+      "after": {
+        "tick": 359559,
+        "food": 9212.799999999987,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 87000,
+        "steelCap": 675
+      },
+      "key": "academy",
+      "level": 25,
+      "cost": {
+        "wood": 32400,
+        "stone": 32400,
+        "food": 16200,
+        "time": 120
+      },
+      "constructionSeconds": 120
+    },
+    {
+      "kind": "build",
+      "online": 33590,
+      "after": {
+        "tick": 361709,
+        "food": 8212.800000000025,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 90000,
+        "steelCap": 675
+      },
+      "key": "academy",
+      "level": 26,
+      "cost": {
+        "wood": 34400,
+        "stone": 34400,
+        "food": 17200,
+        "time": 120
+      },
+      "constructionSeconds": 120
+    },
+    {
+      "kind": "build",
+      "online": 35860,
+      "after": {
+        "tick": 363979,
+        "food": 7212.800000000025,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 93000,
+        "steelCap": 675
+      },
+      "key": "academy",
+      "level": 27,
+      "cost": {
+        "wood": 36400,
+        "stone": 36400,
+        "food": 18200,
+        "time": 120
+      },
+      "constructionSeconds": 120
+    },
+    {
+      "kind": "build",
+      "online": 38260,
+      "after": {
+        "tick": 366379,
+        "food": 6212.800000000025,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 96000,
+        "steelCap": 675
+      },
+      "key": "academy",
+      "level": 28,
+      "cost": {
+        "wood": 38400,
+        "stone": 38400,
+        "food": 19200,
+        "time": 120
+      },
+      "constructionSeconds": 120
+    },
+    {
+      "kind": "build",
+      "online": 40790,
+      "after": {
+        "tick": 368909,
+        "food": 5212.800000000025,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 99000,
+        "steelCap": 675
+      },
+      "key": "academy",
+      "level": 29,
+      "cost": {
+        "wood": 40400,
+        "stone": 40400,
+        "food": 20200,
+        "time": 120
+      },
+      "constructionSeconds": 120
+    },
+    {
+      "kind": "build",
+      "online": 43440,
+      "after": {
+        "tick": 371559,
+        "food": 4212.8000000000175,
+        "tech": 19.999999999988177,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 102000,
+        "steelCap": 675
+      },
+      "key": "academy",
+      "level": 30,
+      "cost": {
+        "wood": 42400,
+        "stone": 42400,
+        "food": 21200,
+        "time": 120
+      },
+      "constructionSeconds": 120
+    },
+    {
+      "kind": "fill",
+      "online": 45110,
+      "after": {
+        "tick": 373229,
+        "food": 22500,
+        "tech": 100219.99999999999,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 102000,
+        "steelCap": 675
+      },
+      "resource": "tech",
+      "amount": 100000,
+      "workers": {
+        "food": 4,
+        "tech": 15
+      },
+      "seconds": 1670
+    },
+    {
+      "kind": "steam-steel-refusal",
+      "online": 45110,
+      "after": {
+        "tick": 373229,
+        "food": 22500,
+        "tech": 100219.99999999999,
+        "iron": 190,
+        "steel": 10,
+        "techCap": 102000,
+        "steelCap": 675
+      },
+      "result": {
+        "ok": false,
+        "reason": "insufficient-resources"
+      }
+    }
+  ],
+  "checkpoints": {
+    "first-steel-store": {
+      "path": "docs/codex/reports/data/p406-first-steel-store-save.json",
+      "sha256": "31f65ea560f63d3af64b3daed1beca64e164a544210c41ce2ad213168a613acd",
+      "snapshot": {
+        "tick": 329969,
+        "defeated": 95,
+        "pop": 19,
+        "resources": {
+          "wood": 16800,
+          "stone": 11710,
+          "food": 7500,
+          "tech": 19.999999999988177,
+          "coal": 615,
+          "iron": 190,
+          "steel": 10,
+          "gold": 0.5,
+          "medal": 7
+        },
+        "caps": {
+          "wood": 18000,
+          "stone": 12000,
+          "food": 7500,
+          "tech": 15000,
+          "coal": 900,
+          "iron": 1500,
+          "steel": 675,
+          "gold": 450
+        },
+        "levels": {
+          "warehouse": 17,
+          "academy": 1,
+          "library": 25,
+          "ironStore": 1,
+          "steelStore": 1,
+          "storageMastery": 5
+        },
+        "sciences": [
+          "sci_prospect",
+          "sci_coal",
+          "sci_copper",
+          "sci_wood_store",
+          "sci_urbanization",
+          "sci_iron",
+          "sci_large_granary",
+          "sci_bronze_age",
+          "sci_iron_warehouse",
+          "sci_iron_age",
+          "sci_city",
+          "sci_silver",
+          "sci_silver_age",
+          "sci_library",
+          "sci_gold",
+          "sci_gold_age",
+          "sci_steel",
+          "sci_steel_store",
+          "sci_alloy_age",
+          "sci_workshop"
+        ]
+      }
+    },
+    "steam-bridge-final": {
+      "path": "docs/codex/reports/data/p406-steam-bridge-final-save.json",
+      "sha256": "b6b6fd555c50229cea3a3e82eef5682b17e00b4fde811b274a4c5c6b8d64e358",
+      "snapshot": {
+        "tick": 373229,
+        "defeated": 95,
+        "pop": 19,
+        "resources": {
+          "wood": 25820,
+          "stone": 2070,
+          "food": 22500,
+          "tech": 100219.99999999999,
+          "coal": 615,
+          "iron": 190,
+          "steel": 10,
+          "gold": 0.5,
+          "medal": 7
+        },
+        "caps": {
+          "wood": 65700,
+          "stone": 43800,
+          "food": 22500,
+          "tech": 102000,
+          "coal": 900,
+          "iron": 1500,
+          "steel": 675,
+          "gold": 450
+        },
+        "levels": {
+          "warehouse": 70,
+          "academy": 30,
+          "library": 25,
+          "ironStore": 1,
+          "steelStore": 1,
+          "storageMastery": 5
+        },
+        "sciences": [
+          "sci_prospect",
+          "sci_coal",
+          "sci_copper",
+          "sci_wood_store",
+          "sci_urbanization",
+          "sci_iron",
+          "sci_large_granary",
+          "sci_bronze_age",
+          "sci_iron_warehouse",
+          "sci_iron_age",
+          "sci_city",
+          "sci_silver",
+          "sci_silver_age",
+          "sci_library",
+          "sci_gold",
+          "sci_gold_age",
+          "sci_steel",
+          "sci_steel_store",
+          "sci_alloy_age",
+          "sci_workshop"
+        ]
+      }
+    }
+  },
+  "stop": {
+    "kind": "steel-single-payment-capacity",
+    "remainingCapacity": 9325,
+    "remainingStock": 9990
+  },
+  "final": {
+    "tick": 373229,
+    "defeated": 95,
+    "pop": 19,
+    "resources": {
+      "wood": 25820,
+      "stone": 2070,
+      "food": 22500,
+      "tech": 100219.99999999999,
+      "coal": 615,
+      "iron": 190,
+      "steel": 10,
+      "gold": 0.5,
+      "medal": 7
+    },
+    "caps": {
+      "wood": 65700,
+      "stone": 43800,
+      "food": 22500,
+      "tech": 102000,
+      "coal": 900,
+      "iron": 1500,
+      "steel": 675,
+      "gold": 450
+    },
+    "levels": {
+      "warehouse": 70,
+      "academy": 30,
+      "library": 25,
+      "ironStore": 1,
+      "steelStore": 1,
+      "storageMastery": 5
+    },
+    "sciences": [
+      "sci_prospect",
+      "sci_coal",
+      "sci_copper",
+      "sci_wood_store",
+      "sci_urbanization",
+      "sci_iron",
+      "sci_large_granary",
+      "sci_bronze_age",
+      "sci_iron_warehouse",
+      "sci_iron_age",
+      "sci_city",
+      "sci_silver",
+      "sci_silver_age",
+      "sci_library",
+      "sci_gold",
+      "sci_gold_age",
+      "sci_steel",
+      "sci_steel_store",
+      "sci_alloy_age",
+      "sci_workshop"
+    ]
+  },
+  "steam": {
+    "cost": {
+      "tech": 100000,
+      "steel": 10000,
+      "merit": 0
+    },
+    "capacity": {
+      "tech": 102000,
+      "steel": 675
+    },
+    "resources": {
+      "tech": 100219.99999999999,
+      "steel": 10
+    },
+    "refusal": {
+      "ok": false,
+      "reason": "insufficient-resources"
+    }
+  }
+}

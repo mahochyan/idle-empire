@@ -1,0 +1,707 @@
+{
+  "batch": "P406",
+  "input": "docs/codex/reports/data/p405-l97-won-save.json",
+  "inputSha256": "d53dab711944ed857cecdb2d7914f0dd0fa925aa02e077d82209d88ed186cf22",
+  "sourceHash": {
+    "config.js": "caef24e317df6c04a4a02786162c90dbe3a8bde0c5c07edab3c01b7425b4d0e7",
+    "levels.js": "cec80c26fa91f941994c253a2fe73be0dfe3f108237620b662fdab9f5449fd1d",
+    "math.js": "e23254b5ba63c824e0ef5302a2f17216f4ac80398711f76554bdb57b3bb52224",
+    "garrison.js": "4d233f0529d256cd1ace2de782603fcfcbbff110032ca4cf29c5e36af30f10ff",
+    "technology.js": "5d0918d341fbd8435c96661829328f636d5aa0c86a47a68afe62ed66dc277507",
+    "tests/progression/harness.js": "4770d17fa72cc8c87f4c8ef79678f19d63a41da895b8dd58776e5a39ce2ede2b",
+    "tools/verify/probe-p405-mainline-continuous.js": "5ae989e6a13e803ff19f17307668ac4469c346467c918cc140504472a4a51fcd",
+    "docs/codex/reports/data/p405-l97-won-save.json": "d53dab711944ed857cecdb2d7914f0dd0fa925aa02e077d82209d88ed186cf22"
+  },
+  "method": "One actual paid v36 continuation: area win, settlement/population, buildings, scholars/science, queued steel troop training, modal formation, fixed RNG 0.5 combat callbacks, settlement and independent reload",
+  "units": "online is simulated noncombat tick seconds; battleMs is simulated callback milliseconds; menu actions are instant in harness",
+  "steps": [
+    {
+      "action": "outer-town-win",
+      "prior": 10,
+      "after": 11,
+      "deed": 20,
+      "armyBefore": 154,
+      "armyAfter": 136,
+      "callbacks": 18,
+      "battleMs": 7402.5
+    },
+    {
+      "action": "smallTown",
+      "cost": 45,
+      "level": 11,
+      "populationSeconds": 10
+    },
+    {
+      "action": "build",
+      "key": "warehouse",
+      "from": 35,
+      "to": 36,
+      "cost": {
+        "wood": 10560,
+        "stone": 0,
+        "food": 0,
+        "time": 45
+      },
+      "waited": 0,
+      "buildSeconds": 50
+    },
+    {
+      "action": "build",
+      "key": "warehouse",
+      "from": 36,
+      "to": 37,
+      "cost": {
+        "wood": 10880,
+        "stone": 0,
+        "food": 0,
+        "time": 46
+      },
+      "waited": 660,
+      "buildSeconds": 50
+    },
+    {
+      "action": "build",
+      "key": "warehouse",
+      "from": 37,
+      "to": 38,
+      "cost": {
+        "wood": 11200,
+        "stone": 0,
+        "food": 0,
+        "time": 47
+      },
+      "waited": 700,
+      "buildSeconds": 50
+    },
+    {
+      "action": "build",
+      "key": "warehouse",
+      "from": 38,
+      "to": 39,
+      "cost": {
+        "wood": 11520,
+        "stone": 0,
+        "food": 0,
+        "time": 48
+      },
+      "waited": 720,
+      "buildSeconds": 50
+    },
+    {
+      "action": "build",
+      "key": "warehouse",
+      "from": 39,
+      "to": 40,
+      "cost": {
+        "wood": 11840,
+        "stone": 0,
+        "food": 0,
+        "time": 49
+      },
+      "waited": 730,
+      "buildSeconds": 50
+    },
+    {
+      "action": "build",
+      "key": "warehouse",
+      "from": 40,
+      "to": 41,
+      "cost": {
+        "wood": 12160,
+        "stone": 0,
+        "food": 0,
+        "time": 50
+      },
+      "waited": 770,
+      "buildSeconds": 50
+    },
+    {
+      "action": "build",
+      "key": "warehouse",
+      "from": 41,
+      "to": 42,
+      "cost": {
+        "wood": 12480,
+        "stone": 0,
+        "food": 0,
+        "time": 51
+      },
+      "waited": 780,
+      "buildSeconds": 60
+    },
+    {
+      "action": "build",
+      "key": "large_granary",
+      "from": 5,
+      "to": 6,
+      "cost": {
+        "wood": 3600,
+        "stone": 0,
+        "food": 1200,
+        "time": 15
+      },
+      "waited": 180,
+      "buildSeconds": 20
+    },
+    {
+      "action": "build",
+      "key": "academy",
+      "from": 1,
+      "to": 2,
+      "cost": {
+        "wood": 800,
+        "stone": 800,
+        "food": 400,
+        "time": 40
+      },
+      "waited": 30,
+      "buildSeconds": 40
+    },
+    {
+      "action": "science",
+      "id": "sci_steel",
+      "cost": {
+        "tech": 9000,
+        "merit": 0
+      },
+      "waited": 940
+    },
+    {
+      "action": "build",
+      "key": "academy",
+      "from": 2,
+      "to": 3,
+      "cost": {
+        "wood": 1000,
+        "stone": 1000,
+        "food": 500,
+        "time": 50
+      },
+      "waited": 30,
+      "buildSeconds": 50
+    },
+    {
+      "action": "science",
+      "id": "sci_alloy_age",
+      "cost": {
+        "tech": 10000,
+        "merit": 0
+      },
+      "waited": 970
+    },
+    {
+      "action": "build",
+      "key": "alloy_armory",
+      "from": 0,
+      "to": 1,
+      "cost": {
+        "wood": 1000,
+        "stone": 900,
+        "food": 600,
+        "time": 12
+      },
+      "waited": 10,
+      "buildSeconds": 20
+    },
+    {
+      "action": "build",
+      "key": "alloy_armory",
+      "from": 1,
+      "to": 2,
+      "cost": {
+        "wood": 2200,
+        "stone": 1981,
+        "food": 1651,
+        "time": 11
+      },
+      "waited": 130,
+      "buildSeconds": 20
+    },
+    {
+      "action": "build",
+      "key": "alloy_armory",
+      "from": 2,
+      "to": 3,
+      "cost": {
+        "wood": 2421,
+        "stone": 2179,
+        "food": 1816,
+        "time": 12
+      },
+      "waited": 140,
+      "buildSeconds": 20
+    },
+    {
+      "action": "build",
+      "key": "alloy_armory",
+      "from": 3,
+      "to": 4,
+      "cost": {
+        "wood": 2663,
+        "stone": 2396,
+        "food": 1997,
+        "time": 13
+      },
+      "waited": 160,
+      "buildSeconds": 20
+    },
+    {
+      "action": "build",
+      "key": "alloy_armory",
+      "from": 4,
+      "to": 5,
+      "cost": {
+        "wood": 2929,
+        "stone": 2636,
+        "food": 2197,
+        "time": 14
+      },
+      "waited": 170,
+      "buildSeconds": 20
+    },
+    {
+      "action": "build",
+      "key": "alloy_armory",
+      "from": 5,
+      "to": 6,
+      "cost": {
+        "wood": 3222,
+        "stone": 2899,
+        "food": 2416,
+        "time": 15
+      },
+      "waited": 200,
+      "buildSeconds": 20
+    },
+    {
+      "action": "build",
+      "key": "alloy_armory",
+      "from": 6,
+      "to": 7,
+      "cost": {
+        "wood": 3544,
+        "stone": 3189,
+        "food": 2658,
+        "time": 16
+      },
+      "waited": 220,
+      "buildSeconds": 20
+    },
+    {
+      "action": "build",
+      "key": "alloy_armory",
+      "from": 7,
+      "to": 8,
+      "cost": {
+        "wood": 3898,
+        "stone": 3508,
+        "food": 2924,
+        "time": 17
+      },
+      "waited": 240,
+      "buildSeconds": 20
+    },
+    {
+      "action": "build",
+      "key": "alloy_armory",
+      "from": 8,
+      "to": 9,
+      "cost": {
+        "wood": 4288,
+        "stone": 3859,
+        "food": 3216,
+        "time": 18
+      },
+      "waited": 260,
+      "buildSeconds": 20
+    },
+    {
+      "action": "build",
+      "key": "alloy_armory",
+      "from": 9,
+      "to": 10,
+      "cost": {
+        "wood": 4716,
+        "stone": 4245,
+        "food": 3537,
+        "time": 19
+      },
+      "waited": 300,
+      "buildSeconds": 20
+    },
+    {
+      "action": "build",
+      "key": "alloy_armory",
+      "from": 10,
+      "to": 11,
+      "cost": {
+        "wood": 5188,
+        "stone": 4669,
+        "food": 3891,
+        "time": 20
+      },
+      "waited": 320,
+      "buildSeconds": 20
+    },
+    {
+      "action": "build",
+      "key": "alloy_armory",
+      "from": 11,
+      "to": 12,
+      "cost": {
+        "wood": 5707,
+        "stone": 5136,
+        "food": 4280,
+        "time": 21
+      },
+      "waited": 360,
+      "buildSeconds": 30
+    },
+    {
+      "action": "build",
+      "key": "alloy_armory",
+      "from": 12,
+      "to": 13,
+      "cost": {
+        "wood": 6277,
+        "stone": 5650,
+        "food": 4708,
+        "time": 22
+      },
+      "waited": 510,
+      "buildSeconds": 30
+    },
+    {
+      "action": "build",
+      "key": "alloy_armory",
+      "from": 13,
+      "to": 14,
+      "cost": {
+        "wood": 6905,
+        "stone": 6215,
+        "food": 5179,
+        "time": 23
+      },
+      "waited": 740,
+      "buildSeconds": 30
+    },
+    {
+      "action": "build",
+      "key": "alloy_armory",
+      "from": 14,
+      "to": 15,
+      "cost": {
+        "wood": 7595,
+        "stone": 6836,
+        "food": 5697,
+        "time": 24
+      },
+      "waited": 830,
+      "buildSeconds": 30
+    },
+    {
+      "action": "build",
+      "key": "alloy_armory",
+      "from": 15,
+      "to": 16,
+      "cost": {
+        "wood": 8355,
+        "stone": 7520,
+        "food": 6266,
+        "time": 25
+      },
+      "waited": 910,
+      "buildSeconds": 30
+    },
+    {
+      "action": "build",
+      "key": "alloy_armory",
+      "from": 16,
+      "to": 17,
+      "cost": {
+        "wood": 9190,
+        "stone": 8271,
+        "food": 6893,
+        "time": 26
+      },
+      "waited": 1000,
+      "buildSeconds": 30
+    },
+    {
+      "action": "build",
+      "key": "alloy_armory",
+      "from": 17,
+      "to": 18,
+      "cost": {
+        "wood": 10109,
+        "stone": 9099,
+        "food": 7582,
+        "time": 27
+      },
+      "waited": 1110,
+      "buildSeconds": 30
+    },
+    {
+      "action": "build",
+      "key": "alloy_armory",
+      "from": 18,
+      "to": 19,
+      "cost": {
+        "wood": 11120,
+        "stone": 10008,
+        "food": 8340,
+        "time": 28
+      },
+      "waited": 1220,
+      "buildSeconds": 30
+    },
+    {
+      "action": "build",
+      "key": "alloy_armory",
+      "from": 19,
+      "to": 20,
+      "cost": {
+        "wood": 12232,
+        "stone": 11009,
+        "food": 9174,
+        "time": 29
+      },
+      "waited": 1350,
+      "buildSeconds": 30
+    },
+    {
+      "action": "build",
+      "key": "alloy_armory",
+      "from": 20,
+      "to": 21,
+      "cost": {
+        "wood": 13455,
+        "stone": 12110,
+        "food": 10092,
+        "time": 30
+      },
+      "waited": 1480,
+      "buildSeconds": 30
+    },
+    {
+      "action": "build",
+      "key": "alloy_armory",
+      "from": 21,
+      "to": 22,
+      "cost": {
+        "wood": 14801,
+        "stone": 13321,
+        "food": 11101,
+        "time": 31
+      },
+      "waited": 1630,
+      "buildSeconds": 40
+    },
+    {
+      "action": "build",
+      "key": "alloy_armory",
+      "from": 22,
+      "to": 23,
+      "cost": {
+        "wood": 16281,
+        "stone": 14653,
+        "food": 12211,
+        "time": 32
+      },
+      "waited": 1800,
+      "buildSeconds": 40
+    },
+    {
+      "action": "build",
+      "key": "alloy_armory",
+      "from": 23,
+      "to": 24,
+      "cost": {
+        "wood": 17909,
+        "stone": 16118,
+        "food": 13432,
+        "time": 33
+      },
+      "waited": 1970,
+      "buildSeconds": 40
+    },
+    {
+      "action": "build",
+      "key": "alloy_armory",
+      "from": 24,
+      "to": 25,
+      "cost": {
+        "wood": 19700,
+        "stone": 17730,
+        "food": 14775,
+        "time": 34
+      },
+      "waited": 2180,
+      "buildSeconds": 40
+    },
+    {
+      "action": "train-and-form",
+      "fills": [
+        {
+          "type": "iron_spearman",
+          "before": 16,
+          "target": 20,
+          "queued": 4,
+          "seconds": 400
+        },
+        {
+          "type": "alloy_special",
+          "before": 0,
+          "target": 80,
+          "queued": 80,
+          "seconds": 32000
+        },
+        {
+          "type": "archer_longbow",
+          "before": 120,
+          "target": 200,
+          "queued": 80,
+          "seconds": 1620
+        }
+      ],
+      "paidTraining": {
+        "food": 131600,
+        "iron": 400,
+        "steel": 8000,
+        "wood": 17600,
+        "stone": 6400
+      },
+      "army": 300
+    }
+  ],
+  "setupOnline": 60930,
+  "winningOnline": 37660,
+  "winningBattleMs": 52500,
+  "sampledMinFood": 1363.864705882353,
+  "routeStage": 99,
+  "gateAudit": {
+    "reason": "需先研究「星辉圣阵」与「星界量子时代」",
+    "selection": false,
+    "nextResearch": {
+      "ok": false,
+      "reason": "insufficient-tech"
+    },
+    "balance": {
+      "tech": 87.99999999981628,
+      "steel": 0,
+      "medal": 82,
+      "techCap": 11000,
+      "steelCap": 300,
+      "medalCap": 100000000000
+    },
+    "sciencePath": [
+      {
+        "id": "sci_steam_age",
+        "name": "蒸汽时代",
+        "need": [
+          "sci_alloy_age"
+        ],
+        "cost": {
+          "tech": 100000,
+          "steel": 10000,
+          "merit": 0
+        }
+      },
+      {
+        "id": "sci_electric_age",
+        "name": "电力时代",
+        "need": [
+          "sci_steam_age"
+        ],
+        "cost": {
+          "tech": 5000000,
+          "steel": 1000000,
+          "merit": 0
+        }
+      },
+      {
+        "id": "sci_nuclear_age",
+        "name": "星核时代",
+        "need": [
+          "sci_electric_age"
+        ],
+        "cost": {
+          "tech": 100000000,
+          "medal": 800000,
+          "merit": 0
+        }
+      },
+      {
+        "id": "sci_star_beast_domain",
+        "name": "星界兽域",
+        "need": [
+          "sci_nuclear_age"
+        ],
+        "cost": {
+          "tech": 200000000,
+          "medal": 1000000,
+          "merit": 0
+        }
+      },
+      {
+        "id": "sci_star_array",
+        "name": "星辉圣阵",
+        "need": [
+          "sci_star_beast_domain"
+        ],
+        "cost": {
+          "tech": 300000000,
+          "medal": 2000000,
+          "merit": 0
+        }
+      },
+      {
+        "id": "sci_quantum_age",
+        "name": "星界量子时代",
+        "need": [
+          "sci_nuclear_age"
+        ],
+        "cost": {
+          "tech": 3000000000,
+          "medal": 3000000,
+          "merit": 0
+        }
+      }
+    ],
+    "mandatoryCost": {
+      "tech": 3605100000,
+      "steel": 1010000,
+      "medal": 6800000
+    },
+    "saveUnchanged": true
+  },
+  "attempts": 4,
+  "stop": {
+    "stage": 100,
+    "mode": "gate",
+    "gate": "需先研究「星辉圣阵」与「星界量子时代」",
+    "inputSha256": "376b6de1f570c2d2df7cec404b1301b76d318a43accdab55ff73cd17c31b13c1"
+  },
+  "checkpoints": {
+    "growth-paid": {
+      "path": "docs/codex/reports/data/p406-l98-alloy-growth-paid-save.json",
+      "sha256": "0d86a2677654ebcac5dd6574ee7da42dad30894e29f9831e933a0cc9e529b6b5"
+    },
+    "ready": {
+      "path": "docs/codex/reports/data/p406-l98-alloy-ready-save.json",
+      "sha256": "1b34e3c720af755496dc1fcc428e89779541ad6f6daf9b837817e79233816907"
+    },
+    "l98-won": {
+      "path": "docs/codex/reports/data/p406-l98-alloy-l98-won-save.json",
+      "sha256": "13ec3847dc86452ad6ba420887334b762c153232fc91d52a12e685f7a7717914"
+    },
+    "l99-won": {
+      "path": "docs/codex/reports/data/p406-l98-alloy-l99-won-save.json",
+      "sha256": "cc232885dc779d9979ca97bd1ac15c6810c548255c7055d29f520c9bb9c1706b"
+    }
+  },
+  "bestPath": "docs/codex/reports/data/p406-l98-alloy-best-win-save.json",
+  "bestSha256": "cc232885dc779d9979ca97bd1ac15c6810c548255c7055d29f520c9bb9c1706b",
+  "ledgerPath": "docs/codex/reports/data/p406-l98-alloy-ledger.jsonl",
+  "failure": null
+}

@@ -1,0 +1,1345 @@
+{
+  "batch": "P406",
+  "route": "military",
+  "input": "docs/codex/reports/data/p406-military-l49-won-save.json",
+  "sources": {
+    "config.js": "caef24e317df6c04a4a02786162c90dbe3a8bde0c5c07edab3c01b7425b4d0e7",
+    "levels.js": "cec80c26fa91f941994c253a2fe73be0dfe3f108237620b662fdab9f5449fd1d",
+    "math.js": "e23254b5ba63c824e0ef5302a2f17216f4ac80398711f76554bdb57b3bb52224",
+    "garrison.js": "4d233f0529d256cd1ace2de782603fcfcbbff110032ca4cf29c5e36af30f10ff",
+    "technology.js": "5d0918d341fbd8435c96661829328f636d5aa0c86a47a68afe62ed66dc277507",
+    "tests/progression/harness.js": "4770d17fa72cc8c87f4c8ef79678f19d63a41da895b8dd58776e5a39ce2ede2b",
+    "tools/verify/probe-p405-mainline-continuous.js": "5ae989e6a13e803ff19f17307668ac4469c346467c918cc140504472a4a51fcd",
+    "tools/verify/probe-p406-three-route-l50-gold.js": "6da8fcc266989f98d03adcebc07f6fe50e1d4a29fb1e10168fe57dca750dc35c",
+    "docs/codex/reports/data/p406-military-l49-won-save.json": "57e0f2f275c5c51b4adc5a2fc6a52bdc2762a7d17e4b7d75195abaad3158c322"
+  },
+  "method": "One continuous paid L49 win save, true library/gold science, buildings, workers, production, queued training cost, formation and L50 battle/reload; Math.random=0.5",
+  "units": "online simulated explicit noncombat wait() seconds; totalTickSeconds also includes battle callback tick() calls; battle.battleMs is configured callback milliseconds; menu actions instantaneous; short-session-origin continuation online",
+  "actions": [
+    {
+      "label": "wait library research knowledge",
+      "seconds": 10,
+      "online": 10
+    },
+    {
+      "label": "library science",
+      "online": 10,
+      "result": {
+        "ok": true
+      },
+      "resBefore": {
+        "wood": 3000,
+        "stone": 2000,
+        "food": 3000,
+        "tech": 202.00000000001228,
+        "coal": 0,
+        "copper": 10,
+        "iron": 10,
+        "silver": 5.999999999998342,
+        "gold": 0,
+        "steel": 0,
+        "coin": 97,
+        "silverCoin": 0,
+        "goldCoin": 0,
+        "deed": 7,
+        "medal": 7,
+        "bone": 0,
+        "hide": 0
+      },
+      "resAfter": {
+        "wood": 3000,
+        "stone": 2000,
+        "food": 3000,
+        "tech": 2.000000000012278,
+        "coal": 0,
+        "copper": 10,
+        "iron": 10,
+        "silver": 5.999999999998342,
+        "gold": 0,
+        "steel": 0,
+        "coin": 97,
+        "silverCoin": 0,
+        "goldCoin": 0,
+        "deed": 7,
+        "medal": 7,
+        "bone": 0,
+        "hide": 0
+      }
+    },
+    {
+      "label": "wait library Lv1 materials",
+      "seconds": 0,
+      "online": 10
+    },
+    {
+      "label": "library Lv1 payment",
+      "online": 10,
+      "result": {
+        "ok": true
+      },
+      "resBefore": {
+        "wood": 3000,
+        "stone": 2000,
+        "food": 3000,
+        "tech": 2.000000000012278,
+        "coal": 0,
+        "copper": 10,
+        "iron": 10,
+        "silver": 5.999999999998342,
+        "gold": 0,
+        "steel": 0,
+        "coin": 97,
+        "silverCoin": 0,
+        "goldCoin": 0,
+        "deed": 7,
+        "medal": 7,
+        "bone": 0,
+        "hide": 0
+      },
+      "resAfter": {
+        "wood": 2400,
+        "stone": 1400,
+        "food": 3000,
+        "tech": 2.000000000012278,
+        "coal": 0,
+        "copper": 10,
+        "iron": 10,
+        "silver": 5.999999999998342,
+        "gold": 0,
+        "steel": 0,
+        "coin": 97,
+        "silverCoin": 0,
+        "goldCoin": 0,
+        "deed": 7,
+        "medal": 7,
+        "bone": 0,
+        "hide": 0
+      }
+    },
+    {
+      "label": "wait library Lv1 completion",
+      "seconds": 10,
+      "online": 20
+    },
+    {
+      "label": "wait library Lv2 materials",
+      "seconds": 0,
+      "online": 20
+    },
+    {
+      "label": "library Lv2 payment",
+      "online": 20,
+      "result": {
+        "ok": true
+      },
+      "resBefore": {
+        "wood": 2550,
+        "stone": 1500,
+        "food": 3000,
+        "tech": 2.000000000012278,
+        "coal": 0,
+        "copper": 10,
+        "iron": 10,
+        "silver": 5.999999999998342,
+        "gold": 0,
+        "steel": 0,
+        "coin": 97,
+        "silverCoin": 0,
+        "goldCoin": 0,
+        "deed": 7,
+        "medal": 7,
+        "bone": 0,
+        "hide": 0
+      },
+      "resAfter": {
+        "wood": 1830,
+        "stone": 780,
+        "food": 3000,
+        "tech": 2.000000000012278,
+        "coal": 0,
+        "copper": 10,
+        "iron": 10,
+        "silver": 5.999999999998342,
+        "gold": 0,
+        "steel": 0,
+        "coin": 97,
+        "silverCoin": 0,
+        "goldCoin": 0,
+        "deed": 7,
+        "medal": 7,
+        "bone": 0,
+        "hide": 0
+      }
+    },
+    {
+      "label": "wait library Lv2 completion",
+      "seconds": 20,
+      "online": 40
+    },
+    {
+      "label": "wait library Lv3 materials",
+      "seconds": 0,
+      "online": 40
+    },
+    {
+      "label": "library Lv3 payment",
+      "online": 40,
+      "result": {
+        "ok": true
+      },
+      "resBefore": {
+        "wood": 2130,
+        "stone": 980,
+        "food": 3000,
+        "tech": 2.000000000012278,
+        "coal": 0,
+        "copper": 10,
+        "iron": 10,
+        "silver": 5.999999999998342,
+        "gold": 0,
+        "steel": 0,
+        "coin": 97,
+        "silverCoin": 0,
+        "goldCoin": 0,
+        "deed": 7,
+        "medal": 7,
+        "bone": 0,
+        "hide": 0
+      },
+      "resAfter": {
+        "wood": 1290,
+        "stone": 140,
+        "food": 3000,
+        "tech": 2.000000000012278,
+        "coal": 0,
+        "copper": 10,
+        "iron": 10,
+        "silver": 5.999999999998342,
+        "gold": 0,
+        "steel": 0,
+        "coin": 97,
+        "silverCoin": 0,
+        "goldCoin": 0,
+        "deed": 7,
+        "medal": 7,
+        "bone": 0,
+        "hide": 0
+      }
+    },
+    {
+      "label": "wait library Lv3 completion",
+      "seconds": 20,
+      "online": 60
+    },
+    {
+      "label": "wait library Lv4 materials",
+      "seconds": 70,
+      "online": 130
+    },
+    {
+      "label": "library Lv4 payment",
+      "online": 130,
+      "result": {
+        "ok": true
+      },
+      "resBefore": {
+        "wood": 2640,
+        "stone": 1040,
+        "food": 3000,
+        "tech": 2.000000000012278,
+        "coal": 0,
+        "copper": 10,
+        "iron": 10,
+        "silver": 5.999999999998342,
+        "gold": 0,
+        "steel": 0,
+        "coin": 97,
+        "silverCoin": 0,
+        "goldCoin": 0,
+        "deed": 7,
+        "medal": 7,
+        "bone": 0,
+        "hide": 0
+      },
+      "resAfter": {
+        "wood": 1680,
+        "stone": 80,
+        "food": 3000,
+        "tech": 2.000000000012278,
+        "coal": 0,
+        "copper": 10,
+        "iron": 10,
+        "silver": 5.999999999998342,
+        "gold": 0,
+        "steel": 0,
+        "coin": 97,
+        "silverCoin": 0,
+        "goldCoin": 0,
+        "deed": 7,
+        "medal": 7,
+        "bone": 0,
+        "hide": 0
+      }
+    },
+    {
+      "label": "wait library Lv4 completion",
+      "seconds": 20,
+      "online": 150
+    },
+    {
+      "label": "wait library Lv5 materials",
+      "seconds": 80,
+      "online": 230
+    },
+    {
+      "label": "library Lv5 payment",
+      "online": 230,
+      "result": {
+        "ok": true
+      },
+      "resBefore": {
+        "wood": 3000,
+        "stone": 1080,
+        "food": 3000,
+        "tech": 2.000000000012278,
+        "coal": 0,
+        "copper": 10,
+        "iron": 10,
+        "silver": 5.999999999998342,
+        "gold": 0,
+        "steel": 0,
+        "coin": 97,
+        "silverCoin": 0,
+        "goldCoin": 0,
+        "deed": 7,
+        "medal": 7,
+        "bone": 0,
+        "hide": 0
+      },
+      "resAfter": {
+        "wood": 1920,
+        "stone": 0,
+        "food": 3000,
+        "tech": 2.000000000012278,
+        "coal": 0,
+        "copper": 10,
+        "iron": 10,
+        "silver": 5.999999999998342,
+        "gold": 0,
+        "steel": 0,
+        "coin": 97,
+        "silverCoin": 0,
+        "goldCoin": 0,
+        "deed": 7,
+        "medal": 7,
+        "bone": 0,
+        "hide": 0
+      }
+    },
+    {
+      "label": "wait library Lv5 completion",
+      "seconds": 20,
+      "online": 250
+    },
+    {
+      "label": "wait library Lv6 materials",
+      "seconds": 100,
+      "online": 350
+    },
+    {
+      "label": "library Lv6 payment",
+      "online": 350,
+      "result": {
+        "ok": true
+      },
+      "resBefore": {
+        "wood": 3000,
+        "stone": 1200,
+        "food": 3000,
+        "tech": 2.000000000012278,
+        "coal": 0,
+        "copper": 10,
+        "iron": 10,
+        "silver": 5.999999999998342,
+        "gold": 0,
+        "steel": 0,
+        "coin": 97,
+        "silverCoin": 0,
+        "goldCoin": 0,
+        "deed": 7,
+        "medal": 7,
+        "bone": 0,
+        "hide": 0
+      },
+      "resAfter": {
+        "wood": 1800,
+        "stone": 0,
+        "food": 3000,
+        "tech": 2.000000000012278,
+        "coal": 0,
+        "copper": 10,
+        "iron": 10,
+        "silver": 5.999999999998342,
+        "gold": 0,
+        "steel": 0,
+        "coin": 97,
+        "silverCoin": 0,
+        "goldCoin": 0,
+        "deed": 7,
+        "medal": 7,
+        "bone": 0,
+        "hide": 0
+      }
+    },
+    {
+      "label": "wait library Lv6 completion",
+      "seconds": 20,
+      "online": 370
+    },
+    {
+      "label": "wait library Lv7 materials",
+      "seconds": 120,
+      "online": 490
+    },
+    {
+      "label": "library Lv7 payment",
+      "online": 490,
+      "result": {
+        "ok": true
+      },
+      "resBefore": {
+        "wood": 3000,
+        "stone": 1400,
+        "food": 3000,
+        "tech": 2.000000000012278,
+        "coal": 0,
+        "copper": 10,
+        "iron": 10,
+        "silver": 5.999999999998342,
+        "gold": 0,
+        "steel": 0,
+        "coin": 97,
+        "silverCoin": 0,
+        "goldCoin": 0,
+        "deed": 7,
+        "medal": 7,
+        "bone": 0,
+        "hide": 0
+      },
+      "resAfter": {
+        "wood": 1680,
+        "stone": 80,
+        "food": 3000,
+        "tech": 2.000000000012278,
+        "coal": 0,
+        "copper": 10,
+        "iron": 10,
+        "silver": 5.999999999998342,
+        "gold": 0,
+        "steel": 0,
+        "coin": 97,
+        "silverCoin": 0,
+        "goldCoin": 0,
+        "deed": 7,
+        "medal": 7,
+        "bone": 0,
+        "hide": 0
+      }
+    },
+    {
+      "label": "wait library Lv7 completion",
+      "seconds": 20,
+      "online": 510
+    },
+    {
+      "label": "wait library Lv8 materials",
+      "seconds": 120,
+      "online": 630
+    },
+    {
+      "label": "library Lv8 payment",
+      "online": 630,
+      "result": {
+        "ok": true
+      },
+      "resBefore": {
+        "wood": 3000,
+        "stone": 1480,
+        "food": 3000,
+        "tech": 2.000000000012278,
+        "coal": 0,
+        "copper": 10,
+        "iron": 10,
+        "silver": 5.999999999998342,
+        "gold": 0,
+        "steel": 0,
+        "coin": 97,
+        "silverCoin": 0,
+        "goldCoin": 0,
+        "deed": 7,
+        "medal": 7,
+        "bone": 0,
+        "hide": 0
+      },
+      "resAfter": {
+        "wood": 1560,
+        "stone": 40,
+        "food": 3000,
+        "tech": 2.000000000012278,
+        "coal": 0,
+        "copper": 10,
+        "iron": 10,
+        "silver": 5.999999999998342,
+        "gold": 0,
+        "steel": 0,
+        "coin": 97,
+        "silverCoin": 0,
+        "goldCoin": 0,
+        "deed": 7,
+        "medal": 7,
+        "bone": 0,
+        "hide": 0
+      }
+    },
+    {
+      "label": "wait library Lv8 completion",
+      "seconds": 20,
+      "online": 650
+    },
+    {
+      "label": "wait library Lv9 materials",
+      "seconds": 140,
+      "online": 790
+    },
+    {
+      "label": "library Lv9 payment",
+      "online": 790,
+      "result": {
+        "ok": true
+      },
+      "resBefore": {
+        "wood": 3000,
+        "stone": 1640,
+        "food": 3000,
+        "tech": 2.000000000012278,
+        "coal": 0,
+        "copper": 10,
+        "iron": 10,
+        "silver": 5.999999999998342,
+        "gold": 0,
+        "steel": 0,
+        "coin": 97,
+        "silverCoin": 0,
+        "goldCoin": 0,
+        "deed": 7,
+        "medal": 7,
+        "bone": 0,
+        "hide": 0
+      },
+      "resAfter": {
+        "wood": 1440,
+        "stone": 80,
+        "food": 3000,
+        "tech": 2.000000000012278,
+        "coal": 0,
+        "copper": 10,
+        "iron": 10,
+        "silver": 5.999999999998342,
+        "gold": 0,
+        "steel": 0,
+        "coin": 97,
+        "silverCoin": 0,
+        "goldCoin": 0,
+        "deed": 7,
+        "medal": 7,
+        "bone": 0,
+        "hide": 0
+      }
+    },
+    {
+      "label": "wait library Lv9 completion",
+      "seconds": 20,
+      "online": 810
+    },
+    {
+      "label": "wait library Lv10 materials",
+      "seconds": 140,
+      "online": 950
+    },
+    {
+      "label": "library Lv10 payment",
+      "online": 950,
+      "result": {
+        "ok": true
+      },
+      "resBefore": {
+        "wood": 3000,
+        "stone": 1680,
+        "food": 3000,
+        "tech": 2.000000000012278,
+        "coal": 0,
+        "copper": 10,
+        "iron": 10,
+        "silver": 5.999999999998342,
+        "gold": 0,
+        "steel": 0,
+        "coin": 97,
+        "silverCoin": 0,
+        "goldCoin": 0,
+        "deed": 7,
+        "medal": 7,
+        "bone": 0,
+        "hide": 0
+      },
+      "resAfter": {
+        "wood": 1320,
+        "stone": 0,
+        "food": 3000,
+        "tech": 2.000000000012278,
+        "coal": 0,
+        "copper": 10,
+        "iron": 10,
+        "silver": 5.999999999998342,
+        "gold": 0,
+        "steel": 0,
+        "coin": 97,
+        "silverCoin": 0,
+        "goldCoin": 0,
+        "deed": 7,
+        "medal": 7,
+        "bone": 0,
+        "hide": 0
+      }
+    },
+    {
+      "label": "wait library Lv10 completion",
+      "seconds": 20,
+      "online": 970
+    },
+    {
+      "label": "wait sci_gold knowledge",
+      "seconds": 550,
+      "online": 1520
+    },
+    {
+      "label": "sci_gold payment",
+      "online": 1520,
+      "result": {
+        "ok": true
+      },
+      "resBefore": {
+        "wood": 1620,
+        "stone": 200,
+        "food": 3000,
+        "tech": 6052.000000000013,
+        "coal": 0,
+        "copper": 10,
+        "iron": 10,
+        "silver": 5.999999999998342,
+        "gold": 0,
+        "steel": 0,
+        "coin": 97,
+        "silverCoin": 0,
+        "goldCoin": 0,
+        "deed": 7,
+        "medal": 7,
+        "bone": 0,
+        "hide": 0
+      },
+      "resAfter": {
+        "wood": 1620,
+        "stone": 200,
+        "food": 3000,
+        "tech": 52.00000000001273,
+        "coal": 0,
+        "copper": 10,
+        "iron": 10,
+        "silver": 5.999999999998342,
+        "gold": 0,
+        "steel": 0,
+        "coin": 97,
+        "silverCoin": 0,
+        "goldCoin": 0,
+        "deed": 7,
+        "medal": 7,
+        "bone": 0,
+        "hide": 0
+      }
+    },
+    {
+      "label": "wait sci_gold_age knowledge",
+      "seconds": 640,
+      "online": 2160
+    },
+    {
+      "label": "sci_gold_age payment",
+      "online": 2160,
+      "result": {
+        "ok": true
+      },
+      "resBefore": {
+        "wood": 1620,
+        "stone": 200,
+        "food": 3000,
+        "tech": 7000,
+        "coal": 0,
+        "copper": 10,
+        "iron": 10,
+        "silver": 5.999999999998342,
+        "gold": 0,
+        "steel": 0,
+        "coin": 97,
+        "silverCoin": 0,
+        "goldCoin": 0,
+        "deed": 7,
+        "medal": 7,
+        "bone": 0,
+        "hide": 0
+      },
+      "resAfter": {
+        "wood": 1620,
+        "stone": 200,
+        "food": 3000,
+        "tech": 0,
+        "coal": 0,
+        "copper": 10,
+        "iron": 10,
+        "silver": 5.999999999998342,
+        "gold": 0,
+        "steel": 0,
+        "coin": 97,
+        "silverCoin": 0,
+        "goldCoin": 0,
+        "deed": 7,
+        "medal": 7,
+        "bone": 0,
+        "hide": 0
+      }
+    },
+    {
+      "label": "wait farm Lv2 materials",
+      "seconds": 0,
+      "online": 2160
+    },
+    {
+      "label": "farm Lv2 payment",
+      "online": 2160,
+      "result": {
+        "ok": true
+      },
+      "resBefore": {
+        "wood": 1620,
+        "stone": 200,
+        "food": 3000,
+        "tech": 0,
+        "coal": 0,
+        "copper": 10,
+        "iron": 10,
+        "silver": 5.999999999998342,
+        "gold": 0,
+        "steel": 0,
+        "coin": 97,
+        "silverCoin": 0,
+        "goldCoin": 0,
+        "deed": 7,
+        "medal": 7,
+        "bone": 0,
+        "hide": 0
+      },
+      "resAfter": {
+        "wood": 1086.6666666666665,
+        "stone": 200,
+        "food": 2733.3333333333335,
+        "tech": 0,
+        "coal": 0,
+        "copper": 10,
+        "iron": 10,
+        "silver": 5.999999999998342,
+        "gold": 0,
+        "steel": 0,
+        "coin": 97,
+        "silverCoin": 0,
+        "goldCoin": 0,
+        "deed": 7,
+        "medal": 7,
+        "bone": 0,
+        "hide": 0
+      }
+    },
+    {
+      "label": "wait farm Lv2 completion",
+      "seconds": 40,
+      "online": 2200
+    },
+    {
+      "label": "wait farm Lv3 materials",
+      "seconds": 0,
+      "online": 2200
+    },
+    {
+      "label": "farm Lv3 payment",
+      "online": 2200,
+      "result": {
+        "ok": true
+      },
+      "resBefore": {
+        "wood": 1686.6666666666665,
+        "stone": 600,
+        "food": 3000,
+        "tech": 0,
+        "coal": 0,
+        "copper": 10,
+        "iron": 10,
+        "silver": 5.999999999998342,
+        "gold": 0,
+        "steel": 0,
+        "coin": 97,
+        "silverCoin": 0,
+        "goldCoin": 0,
+        "deed": 7,
+        "medal": 7,
+        "bone": 0,
+        "hide": 0
+      },
+      "resAfter": {
+        "wood": 1019.9999999999998,
+        "stone": 600,
+        "food": 2666.6666666666665,
+        "tech": 0,
+        "coal": 0,
+        "copper": 10,
+        "iron": 10,
+        "silver": 5.999999999998342,
+        "gold": 0,
+        "steel": 0,
+        "coin": 97,
+        "silverCoin": 0,
+        "goldCoin": 0,
+        "deed": 7,
+        "medal": 7,
+        "bone": 0,
+        "hide": 0
+      }
+    },
+    {
+      "label": "wait farm Lv3 completion",
+      "seconds": 50,
+      "online": 2250
+    },
+    {
+      "label": "wait farm Lv4 materials",
+      "seconds": 0,
+      "online": 2250
+    },
+    {
+      "label": "farm Lv4 payment",
+      "online": 2250,
+      "result": {
+        "ok": true
+      },
+      "resBefore": {
+        "wood": 1769.9999999999998,
+        "stone": 1100,
+        "food": 3000,
+        "tech": 0,
+        "coal": 0,
+        "copper": 10,
+        "iron": 10,
+        "silver": 5.999999999998342,
+        "gold": 0,
+        "steel": 0,
+        "coin": 97,
+        "silverCoin": 0,
+        "goldCoin": 0,
+        "deed": 7,
+        "medal": 7,
+        "bone": 0,
+        "hide": 0
+      },
+      "resAfter": {
+        "wood": 969.9999999999998,
+        "stone": 1100,
+        "food": 2600,
+        "tech": 0,
+        "coal": 0,
+        "copper": 10,
+        "iron": 10,
+        "silver": 5.999999999998342,
+        "gold": 0,
+        "steel": 0,
+        "coin": 97,
+        "silverCoin": 0,
+        "goldCoin": 0,
+        "deed": 7,
+        "medal": 7,
+        "bone": 0,
+        "hide": 0
+      }
+    },
+    {
+      "label": "wait farm Lv4 completion",
+      "seconds": 60,
+      "online": 2310
+    },
+    {
+      "label": "wait farm Lv5 materials",
+      "seconds": 0,
+      "online": 2310
+    },
+    {
+      "label": "farm Lv5 payment",
+      "online": 2310,
+      "result": {
+        "ok": true
+      },
+      "resBefore": {
+        "wood": 1869.9999999999998,
+        "stone": 1700,
+        "food": 3000,
+        "tech": 0,
+        "coal": 0,
+        "copper": 10,
+        "iron": 10,
+        "silver": 5.999999999998342,
+        "gold": 0,
+        "steel": 0,
+        "coin": 97,
+        "silverCoin": 0,
+        "goldCoin": 0,
+        "deed": 7,
+        "medal": 7,
+        "bone": 0,
+        "hide": 0
+      },
+      "resAfter": {
+        "wood": 936.6666666666664,
+        "stone": 1700,
+        "food": 2533.3333333333335,
+        "tech": 0,
+        "coal": 0,
+        "copper": 10,
+        "iron": 10,
+        "silver": 5.999999999998342,
+        "gold": 0,
+        "steel": 0,
+        "coin": 97,
+        "silverCoin": 0,
+        "goldCoin": 0,
+        "deed": 7,
+        "medal": 7,
+        "bone": 0,
+        "hide": 0
+      }
+    },
+    {
+      "label": "wait farm Lv5 completion",
+      "seconds": 70,
+      "online": 2380
+    },
+    {
+      "label": "wait gold_armory Lv1 materials",
+      "seconds": 0,
+      "online": 2380
+    },
+    {
+      "label": "gold_armory Lv1 payment",
+      "online": 2380,
+      "result": {
+        "ok": true
+      },
+      "resBefore": {
+        "wood": 1986.6666666666665,
+        "stone": 2000,
+        "food": 3000,
+        "tech": 0,
+        "coal": 0,
+        "copper": 10,
+        "iron": 10,
+        "silver": 5.999999999998342,
+        "gold": 0,
+        "steel": 0,
+        "coin": 97,
+        "silverCoin": 0,
+        "goldCoin": 0,
+        "deed": 7,
+        "medal": 7,
+        "bone": 0,
+        "hide": 0
+      },
+      "resAfter": {
+        "wood": 1186.6666666666665,
+        "stone": 1300,
+        "food": 2500,
+        "tech": 0,
+        "coal": 0,
+        "copper": 10,
+        "iron": 10,
+        "silver": 5.999999999998342,
+        "gold": 0,
+        "steel": 0,
+        "coin": 97,
+        "silverCoin": 0,
+        "goldCoin": 0,
+        "deed": 7,
+        "medal": 7,
+        "bone": 0,
+        "hide": 0
+      }
+    },
+    {
+      "label": "wait gold_armory Lv1 completion",
+      "seconds": 20,
+      "online": 2400
+    },
+    {
+      "label": "wait gold_armory Lv2 materials",
+      "seconds": 20,
+      "online": 2420
+    },
+    {
+      "label": "gold_armory Lv2 payment",
+      "online": 2420,
+      "result": {
+        "ok": true
+      },
+      "resBefore": {
+        "wood": 1786.6666666666665,
+        "stone": 1700,
+        "food": 3000,
+        "tech": 0,
+        "coal": 0,
+        "copper": 10,
+        "iron": 10,
+        "silver": 5.999999999998342,
+        "gold": 0,
+        "steel": 0,
+        "coin": 97,
+        "silverCoin": 0,
+        "goldCoin": 0,
+        "deed": 7,
+        "medal": 7,
+        "bone": 0,
+        "hide": 0
+      },
+      "resAfter": {
+        "wood": 25.666666666666515,
+        "stone": 159,
+        "food": 1680,
+        "tech": 0,
+        "coal": 0,
+        "copper": 10,
+        "iron": 10,
+        "silver": 5.999999999998342,
+        "gold": 0,
+        "steel": 0,
+        "coin": 97,
+        "silverCoin": 0,
+        "goldCoin": 0,
+        "deed": 7,
+        "medal": 7,
+        "bone": 0,
+        "hide": 0
+      }
+    },
+    {
+      "label": "wait gold_armory Lv2 completion",
+      "seconds": 20,
+      "online": 2440
+    },
+    {
+      "label": "wait gold_armory Lv3 materials",
+      "seconds": 140,
+      "online": 2580
+    },
+    {
+      "label": "gold_armory Lv3 payment",
+      "online": 2580,
+      "result": {
+        "ok": true
+      },
+      "resBefore": {
+        "wood": 2425.6666666666665,
+        "stone": 1759,
+        "food": 3000,
+        "tech": 0,
+        "coal": 0,
+        "copper": 10,
+        "iron": 10,
+        "silver": 5.999999999998342,
+        "gold": 0,
+        "steel": 0,
+        "coin": 97,
+        "silverCoin": 0,
+        "goldCoin": 0,
+        "deed": 7,
+        "medal": 7,
+        "bone": 0,
+        "hide": 0
+      },
+      "resAfter": {
+        "wood": 488.6666666666665,
+        "stone": 64,
+        "food": 1547,
+        "tech": 0,
+        "coal": 0,
+        "copper": 10,
+        "iron": 10,
+        "silver": 5.999999999998342,
+        "gold": 0,
+        "steel": 0,
+        "coin": 97,
+        "silverCoin": 0,
+        "goldCoin": 0,
+        "deed": 7,
+        "medal": 7,
+        "bone": 0,
+        "hide": 0
+      }
+    },
+    {
+      "label": "wait gold_armory Lv3 completion",
+      "seconds": 20,
+      "online": 2600
+    },
+    {
+      "label": "wait gold_armory Lv4 materials",
+      "seconds": 160,
+      "online": 2760
+    },
+    {
+      "label": "gold_armory Lv4 payment",
+      "online": 2760,
+      "result": {
+        "ok": true
+      },
+      "resBefore": {
+        "wood": 3000,
+        "stone": 1864,
+        "food": 3000,
+        "tech": 0,
+        "coal": 0,
+        "copper": 10,
+        "iron": 10,
+        "silver": 5.999999999998342,
+        "gold": 0,
+        "steel": 0,
+        "coin": 97,
+        "silverCoin": 0,
+        "goldCoin": 0,
+        "deed": 7,
+        "medal": 7,
+        "bone": 0,
+        "hide": 0
+      },
+      "resAfter": {
+        "wood": 870,
+        "stone": 0,
+        "food": 1402,
+        "tech": 0,
+        "coal": 0,
+        "copper": 10,
+        "iron": 10,
+        "silver": 5.999999999998342,
+        "gold": 0,
+        "steel": 0,
+        "coin": 97,
+        "silverCoin": 0,
+        "goldCoin": 0,
+        "deed": 7,
+        "medal": 7,
+        "bone": 0,
+        "hide": 0
+      }
+    },
+    {
+      "label": "wait gold_armory Lv4 completion",
+      "seconds": 20,
+      "online": 2780
+    },
+    {
+      "label": "wait silver_armory Lv2 materials",
+      "seconds": 140,
+      "online": 2920
+    },
+    {
+      "label": "silver_armory Lv2 payment",
+      "online": 2920,
+      "result": {
+        "ok": true
+      },
+      "resBefore": {
+        "wood": 3000,
+        "stone": 1600,
+        "food": 3000,
+        "tech": 0,
+        "coal": 0,
+        "copper": 10,
+        "iron": 10,
+        "silver": 5.999999999998342,
+        "gold": 0,
+        "steel": 0,
+        "coin": 97,
+        "silverCoin": 0,
+        "goldCoin": 0,
+        "deed": 7,
+        "medal": 7,
+        "bone": 0,
+        "hide": 0
+      },
+      "resAfter": {
+        "wood": 1459,
+        "stone": 59,
+        "food": 1790,
+        "tech": 0,
+        "coal": 0,
+        "copper": 10,
+        "iron": 10,
+        "silver": 5.999999999998342,
+        "gold": 0,
+        "steel": 0,
+        "coin": 97,
+        "silverCoin": 0,
+        "goldCoin": 0,
+        "deed": 7,
+        "medal": 7,
+        "bone": 0,
+        "hide": 0
+      }
+    },
+    {
+      "label": "wait silver_armory Lv2 completion",
+      "seconds": 20,
+      "online": 2940
+    },
+    {
+      "label": "paid fills complete",
+      "online": 18330,
+      "fills": [
+        {
+          "type": "archer_silverbow",
+          "before": 20,
+          "target": 40,
+          "queued": 20,
+          "seconds": 190
+        },
+        {
+          "type": "gold_cavalry",
+          "before": 0,
+          "target": 17,
+          "queued": 17,
+          "seconds": 6810
+        },
+        {
+          "type": "silver_heavy",
+          "before": 0,
+          "target": 20,
+          "queued": 20,
+          "seconds": 5990
+        },
+        {
+          "type": "iron_spearman",
+          "before": 6,
+          "target": 20,
+          "queued": 14,
+          "seconds": 1400
+        },
+        {
+          "type": "bronze_guard",
+          "before": 0,
+          "target": 20,
+          "queued": 20,
+          "seconds": 1000
+        }
+      ],
+      "paidTraining": {
+        "wood": 3200,
+        "stone": 1000,
+        "food": 47600,
+        "gold": 1700,
+        "silver": 2000,
+        "iron": 1400,
+        "copper": 2000
+      }
+    }
+  ],
+  "totalOnlineSeconds": 18330,
+  "totalTickSeconds": 18354,
+  "paidTraining": {
+    "wood": 3200,
+    "stone": 1000,
+    "food": 47600,
+    "gold": 1700,
+    "silver": 2000,
+    "iron": 1400,
+    "copper": 2000
+  },
+  "battle": {
+    "stage": 50,
+    "won": true,
+    "round": 5,
+    "callbacks": 61,
+    "battleMs": 24990,
+    "enemy": {
+      "name": "钢铁巨人",
+      "groups": 11,
+      "soldiers": 132
+    },
+    "enemyRemaining": [],
+    "armyBefore": 117,
+    "armyAfter": 50,
+    "losses": {
+      "archer_silverbow": 0,
+      "bronze_guard": 20,
+      "iron_spearman": 10,
+      "silver_heavy": 20,
+      "gold_cavalry": 17
+    },
+    "tickBefore": 99778,
+    "tickAfter": 99802,
+    "meritBefore": 732,
+    "meritAfter": 787,
+    "resBefore": {
+      "wood": 3000,
+      "stone": 1996,
+      "food": 75.85856298149818,
+      "tech": 0,
+      "coal": 0,
+      "copper": 10,
+      "iron": 10,
+      "silver": 2.6666666666684002,
+      "gold": 2.5,
+      "steel": 0,
+      "coin": 97,
+      "silverCoin": 0,
+      "goldCoin": 0,
+      "deed": 7,
+      "medal": 7,
+      "bone": 0,
+      "hide": 0
+    },
+    "resAfter": {
+      "wood": 3000,
+      "stone": 2000,
+      "food": 3000,
+      "tech": 0,
+      "coal": 0,
+      "copper": 10,
+      "iron": 10,
+      "silver": 2.6666666666684002,
+      "gold": 2.5,
+      "steel": 0,
+      "coin": 97,
+      "silverCoin": 0,
+      "goldCoin": 0,
+      "deed": 7,
+      "medal": 7,
+      "bone": 0,
+      "hide": 0
+    },
+    "saveSha256": "06dad0668db6f9f80b88a2b4dd2b518ef6c929092c2e4f08ca770d005d56d288"
+  },
+  "finalPath": "docs/codex/reports/data/p406-military-l50-gold-final-save.json",
+  "finalSha256": "afd624e610df3daa4bd52135b03840b8a50ac79604ba52488ab1592fa92a3cdf",
+  "failure": null,
+  "failureState": null
+}

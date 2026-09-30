@@ -57,13 +57,13 @@ CFG.unitUpgrades = {
         { to:'archer_assassin',  name:'双刃刺客(刃)', cost:{wood:500,stone:300,food:800}, needTech:500, needMerit:10, needEssence:{type:'blade_essence',count:2} }
       ]},
     archer_silverbow:    { tier:2, name:'银弓猎手',
-      branches:[{ to:'archer_longbow', name:'不列颠长弓手', cost:{wood:2000,stone:1200,food:1500}, needTech:1000, needMerit:20, needEssence:{type:'bow_essence',count:3} }] },
+      branches:[{ to:'archer_longbow', name:'王庭长弓手', cost:{wood:2000,stone:1200,food:1500}, needTech:1000, needMerit:20, needEssence:{type:'bow_essence',count:3} }] },
     archer_crossbow:     { tier:2, name:'重弩手',
-      branches:[{ to:'archer_genoese', name:'热那亚劲弩', cost:{wood:1500,stone:2000,food:1200}, needTech:1000, needMerit:20, needEssence:{type:'crossbow_essence',count:3} }] },
+      branches:[{ to:'archer_genoese', name:'机括劲弩手', cost:{wood:1500,stone:2000,food:1200}, needTech:1000, needMerit:20, needEssence:{type:'crossbow_essence',count:3} }] },
     archer_assassin:     { tier:2, name:'双刃刺客',
       branches:[{ to:'archer_shadowblade', name:'幽影刃侍', cost:{wood:1500,stone:1000,food:2000}, needTech:1000, needMerit:20, needEssence:{type:'blade_essence',count:3} }] },
-    archer_longbow:      { tier:3, name:'不列颠长弓手',branches:[] },
-    archer_genoese:      { tier:3, name:'热那亚劲弩', branches:[] },
+    archer_longbow:      { tier:3, name:'王庭长弓手',branches:[] },
+    archer_genoese:      { tier:3, name:'机括劲弩手', branches:[] },
     archer_shadowblade:  { tier:3, name:'幽影刃侍', branches:[] }
   } },
   cavalry:   { name:'骑兵线', icon:'cavalry',   tree:{

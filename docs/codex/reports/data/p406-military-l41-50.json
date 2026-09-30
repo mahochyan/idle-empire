@@ -1,0 +1,1208 @@
+{
+  "batch": "P406",
+  "route": "military",
+  "input": "docs/codex/reports/data/p405-military-paid-handoff-save.json",
+  "sources": {
+    "config.js": "caef24e317df6c04a4a02786162c90dbe3a8bde0c5c07edab3c01b7425b4d0e7",
+    "levels.js": "cec80c26fa91f941994c253a2fe73be0dfe3f108237620b662fdab9f5449fd1d",
+    "math.js": "e23254b5ba63c824e0ef5302a2f17216f4ac80398711f76554bdb57b3bb52224",
+    "garrison.js": "4d233f0529d256cd1ace2de782603fcfcbbff110032ca4cf29c5e36af30f10ff",
+    "technology.js": "5d0918d341fbd8435c96661829328f636d5aa0c86a47a68afe62ed66dc277507",
+    "tests/progression/harness.js": "4770d17fa72cc8c87f4c8ef79678f19d63a41da895b8dd58776e5a39ce2ede2b",
+    "tools/verify/probe-p405-mainline-continuous.js": "5ae989e6a13e803ff19f17307668ac4469c346467c918cc140504472a4a51fcd",
+    "tools/verify/probe-p406-three-route-l41-50.js": "60c2cccfc000d4634fe39e3d1a94c7f344658ddf631ec1541f566b2916a925b8",
+    "docs/codex/reports/data/p405-military-paid-handoff-save.json": "908df9bb0bcbd6f956c35a9a536f5b9d5b0a7e0eb16e095f810ad6fa4ba162dc"
+  },
+  "method": "P405 paid L40 save; real worker allocation, production ticks, queued training cost, formation, mainline battle callbacks and independent v36 reload; fixed Math.random=0.5",
+  "units": "onlineSeconds counts explicit noncombat wait() tick seconds; totalTickSeconds additionally includes tick() calls during battle callbacks; battle.battleMs is configured callback milliseconds; menu operations instantaneous; continuation online even for short-session-origin input",
+  "initial": {
+    "sha256": "908df9bb0bcbd6f956c35a9a536f5b9d5b0a7e0eb16e095f810ad6fa4ba162dc",
+    "stage": 40,
+    "tick": 75506,
+    "pop": 20,
+    "resources": {
+      "wood": 3000,
+      "stone": 2000,
+      "food": 3000,
+      "tech": 92.00000000001228,
+      "coal": 590,
+      "copper": 714,
+      "iron": 10,
+      "silver": 90,
+      "gold": 0,
+      "steel": 0,
+      "coin": 97,
+      "silverCoin": 0,
+      "goldCoin": 0,
+      "deed": 7,
+      "medal": 7,
+      "bone": 0,
+      "hide": 0
+    },
+    "formation": {
+      "front": [
+        {
+          "type": "iron_spearman",
+          "count": 10,
+          "id": 1790792104915
+        },
+        {
+          "type": "silver_heavy",
+          "count": 5,
+          "id": 1790792104917
+        }
+      ],
+      "mid": [
+        {
+          "type": "iron_spearman",
+          "count": 10,
+          "id": 1790792104918
+        },
+        {
+          "type": "bronze_guard",
+          "count": 10,
+          "id": 1790792104919
+        }
+      ],
+      "back": [
+        {
+          "type": "archer_silverbow",
+          "count": 10,
+          "id": 1790792104920
+        },
+        {
+          "type": "archer_silverbow",
+          "count": 10,
+          "id": 1790792104921
+        }
+      ]
+    }
+  },
+  "lastWon": 49,
+  "lastWonPath": "docs/codex/reports/data/p406-military-l49-won-save.json",
+  "lastWonSha256": "57e0f2f275c5c51b4adc5a2fc6a52bdc2762a7d17e4b7d75195abaad3158c322",
+  "totalOnlineSeconds": 10270,
+  "totalTickSeconds": 10356,
+  "totalTrainingPaid": {
+    "food": 51700,
+    "silver": 3000,
+    "copper": 6900,
+    "iron": 1400
+  },
+  "ledger": [
+    {
+      "stage": 41,
+      "inputSha256": "0ccd5e0a0be597a26fda42e5966f72a2b1f306f04b7ee35765b80be4bb75dc06",
+      "onlineSeconds": 570,
+      "paidTraining": {
+        "food": 7000,
+        "silver": 500,
+        "copper": 1000
+      },
+      "fills": [
+        {
+          "type": "silver_heavy",
+          "before": 5,
+          "target": 10,
+          "queued": 5,
+          "seconds": 310
+        },
+        {
+          "type": "iron_spearman",
+          "before": 20,
+          "target": 20,
+          "queued": 0,
+          "seconds": 0
+        },
+        {
+          "type": "bronze_guard",
+          "before": 10,
+          "target": 20,
+          "queued": 10,
+          "seconds": 260
+        },
+        {
+          "type": "archer_silverbow",
+          "before": 20,
+          "target": 20,
+          "queued": 0,
+          "seconds": 0
+        }
+      ],
+      "battle": {
+        "stage": 41,
+        "won": true,
+        "round": 1,
+        "callbacks": 4,
+        "battleMs": 1680,
+        "enemy": {
+          "name": "重步卫队",
+          "groups": 2,
+          "soldiers": 11
+        },
+        "enemyRemaining": [],
+        "armyBefore": 70,
+        "armyAfter": 70,
+        "losses": {
+          "archer_silverbow": 0,
+          "bronze_guard": 0,
+          "iron_spearman": 0,
+          "silver_heavy": 0,
+          "gold_cavalry": 0
+        },
+        "tickBefore": 76076,
+        "tickAfter": 76077,
+        "meritBefore": 518,
+        "meritAfter": 540,
+        "resBefore": {
+          "wood": 3000,
+          "stone": 1614,
+          "food": 44.985436489186455,
+          "tech": 92.00000000001228,
+          "coal": 0,
+          "copper": 114,
+          "iron": 10,
+          "silver": 3.3333333333329542,
+          "gold": 0,
+          "steel": 0,
+          "coin": 97,
+          "silverCoin": 0,
+          "goldCoin": 0,
+          "deed": 7,
+          "medal": 7,
+          "bone": 0,
+          "hide": 0
+        },
+        "resAfter": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 1544.9854364891864,
+          "tech": 92.00000000001228,
+          "coal": 0,
+          "copper": 114,
+          "iron": 10,
+          "silver": 3.3333333333329542,
+          "gold": 0,
+          "steel": 0,
+          "coin": 97,
+          "silverCoin": 0,
+          "goldCoin": 0,
+          "deed": 7,
+          "medal": 7,
+          "bone": 0,
+          "hide": 0
+        },
+        "saveSha256": "6681f02ba29c82be0998e3177ff22e2d187c60d65f3f0e38af6f6a881a83eace"
+      },
+      "saveSha256": "6681f02ba29c82be0998e3177ff22e2d187c60d65f3f0e38af6f6a881a83eace"
+    },
+    {
+      "stage": 42,
+      "inputSha256": "6681f02ba29c82be0998e3177ff22e2d187c60d65f3f0e38af6f6a881a83eace",
+      "onlineSeconds": 0,
+      "paidTraining": {
+        "food": 0,
+        "silver": 0,
+        "copper": 0
+      },
+      "fills": [
+        {
+          "type": "silver_heavy",
+          "before": 10,
+          "target": 10,
+          "queued": 0,
+          "seconds": 0
+        },
+        {
+          "type": "iron_spearman",
+          "before": 20,
+          "target": 20,
+          "queued": 0,
+          "seconds": 0
+        },
+        {
+          "type": "bronze_guard",
+          "before": 20,
+          "target": 20,
+          "queued": 0,
+          "seconds": 0
+        },
+        {
+          "type": "archer_silverbow",
+          "before": 20,
+          "target": 20,
+          "queued": 0,
+          "seconds": 0
+        }
+      ],
+      "battle": {
+        "stage": 42,
+        "won": true,
+        "round": 1,
+        "callbacks": 4,
+        "battleMs": 1680,
+        "enemy": {
+          "name": "重步卫队",
+          "groups": 2,
+          "soldiers": 12
+        },
+        "enemyRemaining": [],
+        "armyBefore": 70,
+        "armyAfter": 70,
+        "losses": {
+          "archer_silverbow": 0,
+          "bronze_guard": 0,
+          "iron_spearman": 0,
+          "silver_heavy": 0,
+          "gold_cavalry": 0
+        },
+        "tickBefore": 76077,
+        "tickAfter": 76079,
+        "meritBefore": 540,
+        "meritAfter": 562,
+        "resBefore": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 1544.9854364891864,
+          "tech": 92.00000000001228,
+          "coal": 0,
+          "copper": 114,
+          "iron": 10,
+          "silver": 3.3333333333329542,
+          "gold": 0,
+          "steel": 0,
+          "coin": 97,
+          "silverCoin": 0,
+          "goldCoin": 0,
+          "deed": 7,
+          "medal": 7,
+          "bone": 0,
+          "hide": 0
+        },
+        "resAfter": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 3000,
+          "tech": 92.00000000001228,
+          "coal": 0,
+          "copper": 114,
+          "iron": 10,
+          "silver": 3.3333333333329542,
+          "gold": 0,
+          "steel": 0,
+          "coin": 97,
+          "silverCoin": 0,
+          "goldCoin": 0,
+          "deed": 7,
+          "medal": 7,
+          "bone": 0,
+          "hide": 0
+        },
+        "saveSha256": "508383695f4e98596e2775955552fcc06c8132a238047f0138bacae8edc704ec"
+      },
+      "saveSha256": "508383695f4e98596e2775955552fcc06c8132a238047f0138bacae8edc704ec"
+    },
+    {
+      "stage": 43,
+      "inputSha256": "508383695f4e98596e2775955552fcc06c8132a238047f0138bacae8edc704ec",
+      "onlineSeconds": 0,
+      "paidTraining": {
+        "food": 0,
+        "silver": 0,
+        "copper": 0
+      },
+      "fills": [
+        {
+          "type": "silver_heavy",
+          "before": 10,
+          "target": 10,
+          "queued": 0,
+          "seconds": 0
+        },
+        {
+          "type": "iron_spearman",
+          "before": 20,
+          "target": 20,
+          "queued": 0,
+          "seconds": 0
+        },
+        {
+          "type": "bronze_guard",
+          "before": 20,
+          "target": 20,
+          "queued": 0,
+          "seconds": 0
+        },
+        {
+          "type": "archer_silverbow",
+          "before": 20,
+          "target": 20,
+          "queued": 0,
+          "seconds": 0
+        }
+      ],
+      "battle": {
+        "stage": 43,
+        "won": true,
+        "round": 1,
+        "callbacks": 4,
+        "battleMs": 1680,
+        "enemy": {
+          "name": "矿道步兵哨位",
+          "groups": 2,
+          "soldiers": 14
+        },
+        "enemyRemaining": [],
+        "armyBefore": 70,
+        "armyAfter": 70,
+        "losses": {
+          "archer_silverbow": 0,
+          "bronze_guard": 0,
+          "iron_spearman": 0,
+          "silver_heavy": 0,
+          "gold_cavalry": 0
+        },
+        "tickBefore": 76079,
+        "tickAfter": 76081,
+        "meritBefore": 562,
+        "meritAfter": 585,
+        "resBefore": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 3000,
+          "tech": 92.00000000001228,
+          "coal": 0,
+          "copper": 114,
+          "iron": 10,
+          "silver": 3.3333333333329542,
+          "gold": 0,
+          "steel": 0,
+          "coin": 97,
+          "silverCoin": 0,
+          "goldCoin": 0,
+          "deed": 7,
+          "medal": 7,
+          "bone": 0,
+          "hide": 0
+        },
+        "resAfter": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 3000,
+          "tech": 92.00000000001228,
+          "coal": 0,
+          "copper": 114,
+          "iron": 10,
+          "silver": 3.3333333333329542,
+          "gold": 0,
+          "steel": 0,
+          "coin": 97,
+          "silverCoin": 0,
+          "goldCoin": 0,
+          "deed": 7,
+          "medal": 7,
+          "bone": 0,
+          "hide": 0
+        },
+        "saveSha256": "21bf67ac085e91ab2deb3006ca8f677e0561685a9b623d4b689862ec32fed327"
+      },
+      "saveSha256": "21bf67ac085e91ab2deb3006ca8f677e0561685a9b623d4b689862ec32fed327"
+    },
+    {
+      "stage": 44,
+      "inputSha256": "21bf67ac085e91ab2deb3006ca8f677e0561685a9b623d4b689862ec32fed327",
+      "onlineSeconds": 0,
+      "paidTraining": {
+        "food": 0,
+        "silver": 0,
+        "copper": 0
+      },
+      "fills": [
+        {
+          "type": "silver_heavy",
+          "before": 10,
+          "target": 10,
+          "queued": 0,
+          "seconds": 0
+        },
+        {
+          "type": "iron_spearman",
+          "before": 20,
+          "target": 20,
+          "queued": 0,
+          "seconds": 0
+        },
+        {
+          "type": "bronze_guard",
+          "before": 20,
+          "target": 20,
+          "queued": 0,
+          "seconds": 0
+        },
+        {
+          "type": "archer_silverbow",
+          "before": 20,
+          "target": 20,
+          "queued": 0,
+          "seconds": 0
+        }
+      ],
+      "battle": {
+        "stage": 44,
+        "won": true,
+        "round": 2,
+        "callbacks": 15,
+        "battleMs": 6142.5,
+        "enemy": {
+          "name": "长弓阵地",
+          "groups": 6,
+          "soldiers": 40
+        },
+        "enemyRemaining": [],
+        "armyBefore": 70,
+        "armyAfter": 64,
+        "losses": {
+          "archer_silverbow": 0,
+          "bronze_guard": 6,
+          "iron_spearman": 0,
+          "silver_heavy": 0,
+          "gold_cavalry": 0
+        },
+        "tickBefore": 76081,
+        "tickAfter": 76087,
+        "meritBefore": 585,
+        "meritAfter": 608,
+        "resBefore": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 3000,
+          "tech": 92.00000000001228,
+          "coal": 0,
+          "copper": 114,
+          "iron": 10,
+          "silver": 3.3333333333329542,
+          "gold": 0,
+          "steel": 0,
+          "coin": 97,
+          "silverCoin": 0,
+          "goldCoin": 0,
+          "deed": 7,
+          "medal": 7,
+          "bone": 0,
+          "hide": 0
+        },
+        "resAfter": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 3000,
+          "tech": 92.00000000001228,
+          "coal": 0,
+          "copper": 114,
+          "iron": 10,
+          "silver": 3.3333333333329542,
+          "gold": 0,
+          "steel": 0,
+          "coin": 97,
+          "silverCoin": 0,
+          "goldCoin": 0,
+          "deed": 7,
+          "medal": 7,
+          "bone": 0,
+          "hide": 0
+        },
+        "saveSha256": "4cdd39bcfea56ee74fe7923ee389ff1d86c98334f2c2285da41efeb3daae93ef"
+      },
+      "saveSha256": "4cdd39bcfea56ee74fe7923ee389ff1d86c98334f2c2285da41efeb3daae93ef"
+    },
+    {
+      "stage": 45,
+      "inputSha256": "4cdd39bcfea56ee74fe7923ee389ff1d86c98334f2c2285da41efeb3daae93ef",
+      "onlineSeconds": 490,
+      "paidTraining": {
+        "food": 1800,
+        "silver": 0,
+        "copper": 600
+      },
+      "fills": [
+        {
+          "type": "silver_heavy",
+          "before": 10,
+          "target": 10,
+          "queued": 0,
+          "seconds": 0
+        },
+        {
+          "type": "iron_spearman",
+          "before": 20,
+          "target": 20,
+          "queued": 0,
+          "seconds": 0
+        },
+        {
+          "type": "bronze_guard",
+          "before": 14,
+          "target": 20,
+          "queued": 6,
+          "seconds": 490
+        },
+        {
+          "type": "archer_silverbow",
+          "before": 20,
+          "target": 20,
+          "queued": 0,
+          "seconds": 0
+        }
+      ],
+      "battle": {
+        "stage": 45,
+        "won": true,
+        "round": 2,
+        "callbacks": 15,
+        "battleMs": 6142.5,
+        "enemy": {
+          "name": "长弓阵地",
+          "groups": 6,
+          "soldiers": 42
+        },
+        "enemyRemaining": [],
+        "armyBefore": 70,
+        "armyAfter": 64,
+        "losses": {
+          "archer_silverbow": 0,
+          "bronze_guard": 6,
+          "iron_spearman": 0,
+          "silver_heavy": 0,
+          "gold_cavalry": 0
+        },
+        "tickBefore": 76577,
+        "tickAfter": 76583,
+        "meritBefore": 608,
+        "meritAfter": 632,
+        "resBefore": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 2709.83,
+          "tech": 92.00000000001228,
+          "coal": 4,
+          "copper": 2,
+          "iron": 10,
+          "silver": 3.3333333333329542,
+          "gold": 0,
+          "steel": 0,
+          "coin": 97,
+          "silverCoin": 0,
+          "goldCoin": 0,
+          "deed": 7,
+          "medal": 7,
+          "bone": 0,
+          "hide": 0
+        },
+        "resAfter": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 3000,
+          "tech": 92.00000000001228,
+          "coal": 4,
+          "copper": 2,
+          "iron": 10,
+          "silver": 3.3333333333329542,
+          "gold": 0,
+          "steel": 0,
+          "coin": 97,
+          "silverCoin": 0,
+          "goldCoin": 0,
+          "deed": 7,
+          "medal": 7,
+          "bone": 0,
+          "hide": 0
+        },
+        "saveSha256": "5a24964d96b67d13d0d91cc1b2c70004b7faddc2727da0912eab9857926513a4"
+      },
+      "saveSha256": "5a24964d96b67d13d0d91cc1b2c70004b7faddc2727da0912eab9857926513a4"
+    },
+    {
+      "stage": 46,
+      "inputSha256": "5a24964d96b67d13d0d91cc1b2c70004b7faddc2727da0912eab9857926513a4",
+      "onlineSeconds": 600,
+      "paidTraining": {
+        "food": 1800,
+        "silver": 0,
+        "copper": 600
+      },
+      "fills": [
+        {
+          "type": "silver_heavy",
+          "before": 10,
+          "target": 10,
+          "queued": 0,
+          "seconds": 0
+        },
+        {
+          "type": "iron_spearman",
+          "before": 20,
+          "target": 20,
+          "queued": 0,
+          "seconds": 0
+        },
+        {
+          "type": "bronze_guard",
+          "before": 14,
+          "target": 20,
+          "queued": 6,
+          "seconds": 600
+        },
+        {
+          "type": "archer_silverbow",
+          "before": 20,
+          "target": 20,
+          "queued": 0,
+          "seconds": 0
+        }
+      ],
+      "battle": {
+        "stage": 46,
+        "won": true,
+        "round": 2,
+        "callbacks": 15,
+        "battleMs": 6142.5,
+        "enemy": {
+          "name": "矿道步弓前哨",
+          "groups": 6,
+          "soldiers": 48
+        },
+        "enemyRemaining": [],
+        "armyBefore": 70,
+        "armyAfter": 63,
+        "losses": {
+          "archer_silverbow": 0,
+          "bronze_guard": 7,
+          "iron_spearman": 0,
+          "silver_heavy": 0,
+          "gold_cavalry": 0
+        },
+        "tickBefore": 77183,
+        "tickAfter": 77189,
+        "meritBefore": 632,
+        "meritAfter": 656,
+        "resBefore": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 2709.83,
+          "tech": 92.00000000001228,
+          "coal": 4,
+          "copper": 2,
+          "iron": 10,
+          "silver": 3.3333333333329542,
+          "gold": 0,
+          "steel": 0,
+          "coin": 97,
+          "silverCoin": 0,
+          "goldCoin": 0,
+          "deed": 7,
+          "medal": 7,
+          "bone": 0,
+          "hide": 0
+        },
+        "resAfter": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 3000,
+          "tech": 92.00000000001228,
+          "coal": 4,
+          "copper": 2,
+          "iron": 10,
+          "silver": 3.3333333333329542,
+          "gold": 0,
+          "steel": 0,
+          "coin": 97,
+          "silverCoin": 0,
+          "goldCoin": 0,
+          "deed": 7,
+          "medal": 7,
+          "bone": 0,
+          "hide": 0
+        },
+        "saveSha256": "af8b5c5d722dec3422aaeff0c6e4b25d4a98456b91a96b8143c26cac556d4b00"
+      },
+      "saveSha256": "af8b5c5d722dec3422aaeff0c6e4b25d4a98456b91a96b8143c26cac556d4b00"
+    },
+    {
+      "stage": 47,
+      "inputSha256": "af8b5c5d722dec3422aaeff0c6e4b25d4a98456b91a96b8143c26cac556d4b00",
+      "onlineSeconds": 700,
+      "paidTraining": {
+        "food": 2100,
+        "silver": 0,
+        "copper": 700
+      },
+      "fills": [
+        {
+          "type": "silver_heavy",
+          "before": 10,
+          "target": 10,
+          "queued": 0,
+          "seconds": 0
+        },
+        {
+          "type": "iron_spearman",
+          "before": 20,
+          "target": 20,
+          "queued": 0,
+          "seconds": 0
+        },
+        {
+          "type": "bronze_guard",
+          "before": 13,
+          "target": 20,
+          "queued": 7,
+          "seconds": 700
+        },
+        {
+          "type": "archer_silverbow",
+          "before": 20,
+          "target": 20,
+          "queued": 0,
+          "seconds": 0
+        }
+      ],
+      "battle": {
+        "stage": 47,
+        "won": true,
+        "round": 3,
+        "callbacks": 34,
+        "battleMs": 13965,
+        "enemy": {
+          "name": "骑兵突击",
+          "groups": 9,
+          "soldiers": 78
+        },
+        "enemyRemaining": [],
+        "armyBefore": 70,
+        "armyAfter": 54,
+        "losses": {
+          "archer_silverbow": 0,
+          "bronze_guard": 10,
+          "iron_spearman": 0,
+          "silver_heavy": 6,
+          "gold_cavalry": 0
+        },
+        "tickBefore": 77889,
+        "tickAfter": 77903,
+        "meritBefore": 656,
+        "meritAfter": 681,
+        "resBefore": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 2709.83,
+          "tech": 92.00000000001228,
+          "coal": 4,
+          "copper": 2,
+          "iron": 10,
+          "silver": 3.3333333333329542,
+          "gold": 0,
+          "steel": 0,
+          "coin": 97,
+          "silverCoin": 0,
+          "goldCoin": 0,
+          "deed": 7,
+          "medal": 7,
+          "bone": 0,
+          "hide": 0
+        },
+        "resAfter": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 3000,
+          "tech": 92.00000000001228,
+          "coal": 4,
+          "copper": 2,
+          "iron": 10,
+          "silver": 3.3333333333329542,
+          "gold": 0,
+          "steel": 0,
+          "coin": 97,
+          "silverCoin": 0,
+          "goldCoin": 0,
+          "deed": 7,
+          "medal": 7,
+          "bone": 0,
+          "hide": 0
+        },
+        "saveSha256": "5ebac4aec17ba67943727f8426163d37ac636b19f63766c7414549cb54d51bb0"
+      },
+      "saveSha256": "5ebac4aec17ba67943727f8426163d37ac636b19f63766c7414549cb54d51bb0"
+    },
+    {
+      "stage": 48,
+      "inputSha256": "5ebac4aec17ba67943727f8426163d37ac636b19f63766c7414549cb54d51bb0",
+      "onlineSeconds": 1610,
+      "paidTraining": {
+        "food": 7800,
+        "silver": 600,
+        "copper": 1000
+      },
+      "fills": [
+        {
+          "type": "silver_heavy",
+          "before": 4,
+          "target": 10,
+          "queued": 6,
+          "seconds": 600
+        },
+        {
+          "type": "iron_spearman",
+          "before": 20,
+          "target": 20,
+          "queued": 0,
+          "seconds": 0
+        },
+        {
+          "type": "bronze_guard",
+          "before": 10,
+          "target": 20,
+          "queued": 10,
+          "seconds": 1010
+        },
+        {
+          "type": "archer_silverbow",
+          "before": 20,
+          "target": 20,
+          "queued": 0,
+          "seconds": 0
+        }
+      ],
+      "battle": {
+        "stage": 48,
+        "won": true,
+        "round": 4,
+        "callbacks": 36,
+        "battleMs": 14647.5,
+        "enemy": {
+          "name": "骑兵突击",
+          "groups": 9,
+          "soldiers": 87
+        },
+        "enemyRemaining": [],
+        "armyBefore": 70,
+        "armyAfter": 51,
+        "losses": {
+          "archer_silverbow": 0,
+          "bronze_guard": 10,
+          "iron_spearman": 0,
+          "silver_heavy": 9,
+          "gold_cavalry": 0
+        },
+        "tickBefore": 79513,
+        "tickAfter": 79528,
+        "meritBefore": 681,
+        "meritAfter": 706,
+        "resBefore": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 2749.1499999999996,
+          "tech": 92.00000000001228,
+          "coal": 4,
+          "copper": 10,
+          "iron": 10,
+          "silver": 4.666666666665776,
+          "gold": 0,
+          "steel": 0,
+          "coin": 97,
+          "silverCoin": 0,
+          "goldCoin": 0,
+          "deed": 7,
+          "medal": 7,
+          "bone": 0,
+          "hide": 0
+        },
+        "resAfter": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 3000,
+          "tech": 92.00000000001228,
+          "coal": 4,
+          "copper": 10,
+          "iron": 10,
+          "silver": 4.666666666665776,
+          "gold": 0,
+          "steel": 0,
+          "coin": 97,
+          "silverCoin": 0,
+          "goldCoin": 0,
+          "deed": 7,
+          "medal": 7,
+          "bone": 0,
+          "hide": 0
+        },
+        "saveSha256": "70b4ee8dfa10cd91b4677919d065aa25c7d194c48f3389684bfa537df058f59c"
+      },
+      "saveSha256": "70b4ee8dfa10cd91b4677919d065aa25c7d194c48f3389684bfa537df058f59c"
+    },
+    {
+      "stage": 49,
+      "inputSha256": "70b4ee8dfa10cd91b4677919d065aa25c7d194c48f3389684bfa537df058f59c",
+      "onlineSeconds": 1900,
+      "paidTraining": {
+        "food": 10200,
+        "silver": 900,
+        "copper": 1000
+      },
+      "fills": [
+        {
+          "type": "silver_heavy",
+          "before": 1,
+          "target": 10,
+          "queued": 9,
+          "seconds": 900
+        },
+        {
+          "type": "iron_spearman",
+          "before": 20,
+          "target": 20,
+          "queued": 0,
+          "seconds": 0
+        },
+        {
+          "type": "bronze_guard",
+          "before": 10,
+          "target": 20,
+          "queued": 10,
+          "seconds": 1000
+        },
+        {
+          "type": "archer_silverbow",
+          "before": 20,
+          "target": 20,
+          "queued": 0,
+          "seconds": 0
+        }
+      ],
+      "battle": {
+        "stage": 49,
+        "won": true,
+        "round": 4,
+        "callbacks": 49,
+        "battleMs": 20107.5,
+        "enemy": {
+          "name": "秘法团",
+          "groups": 12,
+          "soldiers": 120
+        },
+        "enemyRemaining": [],
+        "armyBefore": 70,
+        "armyAfter": 26,
+        "losses": {
+          "archer_silverbow": 0,
+          "bronze_guard": 20,
+          "iron_spearman": 14,
+          "silver_heavy": 10,
+          "gold_cavalry": 0
+        },
+        "tickBefore": 81428,
+        "tickAfter": 81448,
+        "meritBefore": 706,
+        "meritAfter": 732,
+        "resBefore": {
+          "wood": 3000,
+          "stone": 1992,
+          "food": 2739.3199999999997,
+          "tech": 92.00000000001228,
+          "coal": 0,
+          "copper": 10,
+          "iron": 10,
+          "silver": 5.999999999998342,
+          "gold": 0,
+          "steel": 0,
+          "coin": 97,
+          "silverCoin": 0,
+          "goldCoin": 0,
+          "deed": 7,
+          "medal": 7,
+          "bone": 0,
+          "hide": 0
+        },
+        "resAfter": {
+          "wood": 3000,
+          "stone": 2000,
+          "food": 3000,
+          "tech": 92.00000000001228,
+          "coal": 0,
+          "copper": 10,
+          "iron": 10,
+          "silver": 5.999999999998342,
+          "gold": 0,
+          "steel": 0,
+          "coin": 97,
+          "silverCoin": 0,
+          "goldCoin": 0,
+          "deed": 7,
+          "medal": 7,
+          "bone": 0,
+          "hide": 0
+        },
+        "saveSha256": "8283e2b910ad9505bc2ba3cf7dd3f7ad4d225c7f68fd3a7727b7968c96586c2b"
+      },
+      "saveSha256": "8283e2b910ad9505bc2ba3cf7dd3f7ad4d225c7f68fd3a7727b7968c96586c2b"
+    },
+    {
+      "stage": 50,
+      "inputSha256": "8283e2b910ad9505bc2ba3cf7dd3f7ad4d225c7f68fd3a7727b7968c96586c2b",
+      "onlineSeconds": 4400,
+      "paidTraining": {
+        "food": 21000,
+        "silver": 1000,
+        "copper": 2000,
+        "iron": 1400
+      },
+      "fills": [
+        {
+          "type": "silver_heavy",
+          "before": 0,
+          "target": 10,
+          "queued": 10,
+          "seconds": 1000
+        },
+        {
+          "type": "iron_spearman",
+          "before": 6,
+          "target": 20,
+          "queued": 14,
+          "seconds": 1400
+        },
+        {
+          "type": "bronze_guard",
+          "before": 0,
+          "target": 20,
+          "queued": 20,
+          "seconds": 2000
+        },
+        {
+          "type": "archer_silverbow",
+          "before": 20,
+          "target": 20,
+          "queued": 0,
+          "seconds": 0
+        }
+      ],
+      "battle": {
+        "stage": 50,
+        "won": false,
+        "round": 3,
+        "callbacks": 35,
+        "battleMs": 14385,
+        "enemy": {
+          "name": "钢铁巨人",
+          "groups": 11,
+          "soldiers": 132
+        },
+        "enemyRemaining": [
+          {
+            "type": "infantry",
+            "row": "front",
+            "hp": 12,
+            "maxHp": 12,
+            "count": 12
+          },
+          {
+            "type": "archer",
+            "row": "back",
+            "hp": 12,
+            "maxHp": 12,
+            "count": 12
+          },
+          {
+            "type": "archer",
+            "row": "back",
+            "hp": 12,
+            "maxHp": 12,
+            "count": 12
+          },
+          {
+            "type": "archer",
+            "row": "back",
+            "hp": 12,
+            "maxHp": 12,
+            "count": 12
+          },
+          {
+            "type": "cavalry_t1",
+            "row": "front",
+            "hp": 12,
+            "maxHp": 12,
+            "count": 12
+          },
+          {
+            "type": "mage_t1",
+            "row": "back",
+            "hp": 12,
+            "maxHp": 12,
+            "count": 12
+          },
+          {
+            "type": "mage_t1",
+            "row": "back",
+            "hp": 12,
+            "maxHp": 12,
+            "count": 12
+          }
+        ],
+        "armyBefore": 70,
+        "armyAfter": 0,
+        "losses": {
+          "archer_silverbow": 20,
+          "bronze_guard": 20,
+          "iron_spearman": 20,
+          "silver_heavy": 10,
+          "gold_cavalry": 0
+        },
+        "tickBefore": 85848,
+        "tickAfter": 85862,
+        "meritBefore": 732,
+        "meritAfter": 732,
+        "resBefore": {
+          "wood": 3000,
+          "stone": 1992,
+          "food": 2739.3199999999997,
+          "tech": 92.00000000001228,
+          "coal": 0,
+          "copper": 10,
+          "iron": 10,
+          "silver": 5.999999999997489,
+          "gold": 0,
+          "steel": 0,
+          "coin": 97,
+          "silverCoin": 0,
+          "goldCoin": 0,
+          "deed": 7,
+          "medal": 7,
+          "bone": 0,
+          "hide": 0
+        },
+        "resAfter": {
+          "wood": 3000,
+          "stone": 1992,
+          "food": 2739.3199999999997,
+          "tech": 92.00000000001228,
+          "coal": 0,
+          "copper": 10,
+          "iron": 10,
+          "silver": 5.999999999997489,
+          "gold": 0,
+          "steel": 0,
+          "coin": 97,
+          "silverCoin": 0,
+          "goldCoin": 0,
+          "deed": 7,
+          "medal": 7,
+          "bone": 0,
+          "hide": 0
+        },
+        "saveSha256": "5a71f24ea448a9958b4d4fadd2814a24f0a4e42f959a08223f3a79eae4e8e9f1"
+      },
+      "saveSha256": "5a71f24ea448a9958b4d4fadd2814a24f0a4e42f959a08223f3a79eae4e8e9f1"
+    }
+  ],
+  "finalPath": "docs/codex/reports/data/p406-military-l41-50-final-save.json",
+  "finalSha256": "08b8825cede4d9b802f6e183b03c13b2ea691e92726842cf60352bfd4efb68d6",
+  "failure": null
+}
