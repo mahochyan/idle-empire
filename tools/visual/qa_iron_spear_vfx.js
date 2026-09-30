@@ -10,6 +10,8 @@ const {spawn,spawnSync}=require('node:child_process');
 const root=path.resolve(__dirname,'../..');
 const unitType=process.argv.find(arg=>arg.startsWith('--unit='))?.slice(7)||'iron_spearman';
 if(!/^[a-z0-9_]+$/.test(unitType))throw Error('Invalid unit ID');
+const eventKind=process.argv.find(arg=>arg.startsWith('--event='))?.slice(8)||'attack';
+if(!['attack','hit'].includes(eventKind))throw Error('Unsupported visual event');
 const candidate=process.argv.includes('--candidate');
 const candidateVersion=process.argv.includes('--v3')?'v3':'v2';
 const label=process.argv.includes('--bloodfix')?'bloodfix':
@@ -24,7 +26,7 @@ const edge=[
 if(!edge)throw Error('Microsoft Edge is required for the visual fixture');
 const output=path.join(root,'hd2d-previews',
   (unitType==='iron_spearman'?'qa-vfx-iron-spear-':'qa-bloodline-'+unitType+'-')+
-  label+'-battle-'+width+'.png');
+  label+(eventKind==='attack'?'':'-'+eventKind)+'-battle-'+width+'.png');
 const candidatePng=path.join(root,'hd2d-previews',
   'qa-vfx-iron-spear-'+candidateVersion+'-runtime-candidate.png');
 const profile=fs.mkdtempSync(path.join(os.tmpdir(),'iron-vfx-cdp-'));
@@ -33,7 +35,7 @@ let browser,server,ws,seq=0;
 const sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms));
 function send(method,params={}){
   return new Promise((resolve,reject)=>{
-    const id=++seq,timer=setTimeout(()=>{pending.delete(id);reject(Error('CDP '+method+' timeout'));},12000);
+    const id=++seq,timer=setTimeout(()=>{pending.delete(id);reject(Error('CDP '+method+' timeout'));},20000);
     pending.set(id,{resolve,reject,timer});
     ws.send(JSON.stringify({id,method,params}));
   });
@@ -108,12 +110,26 @@ async function main(){
     const ready=await evaluate("HD2D.status().battle.layout.every(unit=>unit.portraitReady)");
     if(ready)break;await sleep(30);
   }
-  const fired=await evaluate(`HD2D.playBattle({epoch:${setup.epoch},type:'attack',
-    sourceId:92001,targetId:92002,sourceSide:'allies',targetSide:'enemies',durationMs:1400})`);
-  if(!fired)throw Error('Attack event rejected');
-  await sleep(620);
+  const framing=await evaluate(`(()=>{
+    const stage=document.getElementById('battle-scene'),height=stage.clientHeight;
+    const sprites=HD2D.status().battle.layout.map(unit=>unit.spriteRect);
+    const top=Math.min(...sprites.map(rect=>rect.top));
+    const bottom=height-Math.max(...sprites.map(rect=>rect.bottom));
+    return {height,top,bottom,difference:Math.abs(top-bottom),
+      inside:sprites.every(rect=>rect.left>=-1&&rect.right<=stage.clientWidth+1&&
+        rect.top>=-1&&rect.bottom<=height+1)};
+  })()`);
+  if(process.argv.includes('--assert-solo-balance')&&
+    (!framing.inside||framing.top<12||framing.bottom<12||
+      framing.difference>framing.height*0.16))
+    throw Error('Solo duel framing is unbalanced: '+JSON.stringify(framing));
+  const fired=await evaluate(`HD2D.playBattle({epoch:${setup.epoch},type:${JSON.stringify(eventKind)},
+    sourceId:92001,targetId:92002,sourceSide:'allies',targetSide:'enemies',
+    durationMs:${eventKind==='attack'?1400:850}})`);
+  if(!fired)throw Error(eventKind+' event rejected');
+  await sleep(eventKind==='attack'?620:280);
   const effect=await evaluate(`HD2D.status().battle.effectDetails.find(item=>
-    item.type==='attack'&&item.unitType===${JSON.stringify(unitType)})`);
+    item.type===${JSON.stringify(eventKind)}&&item.unitType===${JSON.stringify(unitType)})`);
   if(!effect?.visible||!effect.assetReady)throw Error('VFX invisible: '+JSON.stringify(effect));
   const heroLine=await evaluate(`(async()=>{
     const unit=HD2D.status().battle.layout.find(item=>item.id===92001);
@@ -133,7 +149,8 @@ async function main(){
   })()`);
   const capture=await send('Page.captureScreenshot',{format:'png'});
   fs.writeFileSync(output,Buffer.from(capture.data,'base64'));
-  console.log(JSON.stringify({unitType,candidate,candidateVersion,width,output,setup,effect,heroLine},null,2));
+  console.log(JSON.stringify({unitType,eventKind,candidate,candidateVersion,width,
+    output,setup,framing,effect,heroLine},null,2));
 } 
 main().catch(error=>{console.error(error.stack||error);process.exitCode=1;}).finally(async()=>{
   try{ws?.close();}catch(_){}
